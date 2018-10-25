@@ -8,7 +8,12 @@
     "test-dev-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/auth-admin-role.feature --world-parameters='{\"config\": \"dev\"}'",
     "test-int-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/randp-happy-path-1.feature --world-parameters='{\"config\": \"int\"}'",
     "test-example": "node ./node_modules/cucumber/bin/cucumber-js features/example.feature --world-parameters='{\"config\": \"int\"}'",
-    "test-prod": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"prod\"}'"
+    "test-prod": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"prod\"}'",
+    "create-test-accounts": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'",
+    "happy-path-randp": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-randp.feature --world-parameters='{\"config\": \"int\"}'",
+    "happy-path-wrt": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-wrt.feature --world-parameters='{\"config\": \"int\"}'",
+    "randp-happy-path-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/R&P_PM/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'"
+
   },
   "dependencies": {
     "any-promise": {

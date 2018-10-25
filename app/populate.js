@@ -65,6 +65,7 @@ const populateSelect = async function (selector, item, tempElement) {
     await options.forEach(async function (option) {
       const optionText = await option.getText();
       log.debug(`Item: ${item} - ${optionText}`);
+      console.log(`Item: ${item} - ${optionText}`);
       if (item === optionText) {
         await option.click();
       }

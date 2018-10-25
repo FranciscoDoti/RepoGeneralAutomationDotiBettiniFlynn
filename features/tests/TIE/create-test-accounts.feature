@@ -18,7 +18,6 @@ Scenario Outline: Admin able to revoke and then grant a specified role to a newl
     |admin_alt         | Admin             |
     |customer_support_1| Customer Support |
     |media_producer_1  | Media Producer   |
-    |instructor_1      | Instructor       |
     |paid_accessCC     | Paid Access Code Creator  |
 
 ##Change the emails to what ever you are using.
