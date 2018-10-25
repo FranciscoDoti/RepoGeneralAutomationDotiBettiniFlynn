@@ -10,9 +10,12 @@ const StringProcessing = require('../../../app/stringProcessing');
 const {getDriver, sleep} = require('../../../app/driver');
 const { By} = require('selenium-webdriver');
 const {Key} = require('selenium-webdriver');
+const fs = require('fs');
 var fieldValue;
 var AssignValue;
 var CourseValue;
+var countlinks;
+var Assigncourse;
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
 let pages = {
   authProducer: new PageObject('auth-media-producer.json', stepsPath),
@@ -458,8 +461,8 @@ When(/^I click on Activity search button and pass the value "(.*)"$/, async func
     await pages.authProducer.populate('ActivitySearchInput', chapterName);
     await sleep(3000);
     await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    // await sleep(3000);
-    // await pages.authProducer.populate('ActivitySearchInput', chapterName);
+    await sleep(3000);
+    await pages.authProducer.populate('ActivitySearchInput', chapterName);
     await sleep(5000);
     log.debug(`The value is entered: ${clickedButton}`);
   } catch (err) {
@@ -467,6 +470,17 @@ When(/^I click on Activity search button and pass the value "(.*)"$/, async func
   }
 });
 
+When('I click on link of the file', async function () {
+  try {
+    log.debug('Clicking on file');
+    await pages.authProducer.populate('file_open', 'click');
+    log.debug(`file link was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+  await getDriver().navigate().back();
+  await sleep(5000);
+});
 When('I click on add Introduction and Research Methods content', async function () {
   try {
     log.debug('Clicking on add Introduction and Research Methods content');
@@ -629,7 +643,7 @@ Then('I reorder the items', async function () {
 When(/^I search for "(.*)"$/, async function (temp) {
   try {
     log.debug('Clicking on search button');
-    await sleep(10000);
+    await sleep(3000);
     await pages.authAdmin.populate('search_course', temp);
     log.debug('Entered click in search button');
   } catch (err) {
@@ -861,6 +875,112 @@ When(/^I open the invite link and login with "(.*)" account details$/, async fun
   }
 });
 
+Then('I click on Resource tab of Testcourse', async function () {
+  try {
+    await sleep(3000);
+    log.debug('Clicking on Resource button');
+    await pages.authInstructor.populate('Resource_button_instructor', 'click');
+    log.debug(`Target button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I click on Target points', async function () {
+  try {
+    await sleep(3000);
+    log.debug('Clicking on Target points');
+    await pages.authInstructor.populate('Change_Target_points', 'click');
+    log.debug(`Target button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    log.debug('Clicking on edit target button');
+    await pages.authInstructor.populate('Edit_Target_points', '5');
+    log.debug(`The Target points are edited: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    log.debug('Clicking on change target score button');
+    await pages.authInstructor.populate('Change_Target_score', 'click');
+    log.debug(`Change Target button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    log.debug('Clicking on A very short score button');
+    await pages.authInstructor.populate('Very_short_button', 'click');
+    log.debug(`A very short score button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I click on courseplanner', async function () {
+  try {
+    await sleep(5000);
+    log.debug('Clicking on course planner button');
+    await pages.authInstructor.populate('courseplanner_button', 'click');
+    log.debug(`course planner button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I click on Open Folder for activity', async function () {
+  try {
+    log.debug('Clicking on open folder for activity button');
+    await pages.authInstructor.populate('open_folder_activity', 'click');
+    log.debug(`course planner button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    log.debug('Clicking on open folder for activity button');
+    await pages.authInstructor.populate('open_folder_chapter1_activity', 'click');
+    log.debug(`course planner button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    log.debug('Clicking on open folder for activity button');
+    await pages.authInstructor.populate('open_folder_chapterR&P_activity', 'click');
+    log.debug(`course planner button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I elect to assign the course', async function () {
+  try {
+    log.debug('Clicking on assign course button');
+    await pages.authInstructor.populate('activity_assign', 'click');
+    log.debug(`activity assign course button was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+Then('assign the values to variable', async function (dataTable) {
+  Assigncourse = dataTable
+});
+Then('I elect it with the following data:', async function () {
+  try {
+    log.info(Assigncourse.rows().length);
+    var x;
+    for (x = 0; x < Assigncourse.rows().length; x++) {
+      log.info(Assigncourse.hashes()[x].values);
+      log.info(Assigncourse.hashes()[x].variable);
+      await pages.authInstructor.populate(Assigncourse.hashes()[x].values, Assigncourse.hashes()[x].variable);
+    }
+    await getDriver().navigate().refresh();
+    await sleep(3000);
+  } catch (err) {
+    log.error(err.stack);
+  }
+});
+
 When('I click on course card "E2E101"', async function () {
   try {
     log.debug('Clicking on course card');
@@ -897,11 +1017,142 @@ When('I click on Open Folder', async function () {
     await sleep(2000);
   }
 });
+
 Then('I click on Read and Practice', async function () {
   try {
     log.debug('Clicking on Read and practice');
     await pages.student.populate('chapter_1_r&p', 'click');
     log.debug(`Read and practice was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I click on chapter 1 R&P folder', async function () {
+  try {
+    log.debug('Clicking on chapter 1 open folder');
+    await pages.authInstructor.populate('open_folder_chapter1_activity', 'click');
+    log.debug(`chapter 1 open folder was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I click on the reading material and validate whether the content is available', async function () {
+  await getDriver().findElements(By.xpath("//*[@type='checkbox']")).then(function (elems) {
+    countlinks = elems.length;
+    console.log('countlinks' + countlinks);
+  });
+  var i;
+  for (i = 1; i <= countlinks; i++) {
+    await sleep(3000);
+    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).isDisplayed();
+
+    await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).click();
+
+    // console.log(await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label') + 'gettext1');
+    // var topicName = await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label');
+    // var topicArray = topicName.split(':');
+    /* var text = topicArray[2];
+    var textuppercase = text.toLocaleUpperCase();
+    console.log(textuppercase + 'testuppercas'); 
+    //console.log(await getDriver().findElement(By.xpath("//*[text()='"+textuppercase+"']")).isDisplayed()); */
+
+    // console.log( await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label') + 'gettext1');
+    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).click();
+    // console.log(getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getText()+'gettext2');
+
+    /* if (await pages.student.checkWebElementExists('Reading_verification')) {
+      console.log('passed');
+    } else {
+      console.log('failed');
+    } */
+  }
+  // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + 1 + ']')).click();
+  await getDriver().navigate().refresh();
+});
+Then('I start the quiz', async function () {
+  try {
+    await sleep(5000);
+    console.log('Clicking on Quiz');
+    await pages.student.populate('Quiz', 'click');
+    getDriver().findElement(By.xpath("//*[@class='btn-cdl-main AssignmentReading__takeQuizButton__r_fnP']")).click();
+    log.debug(`Quiz was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+Then('I answer the questions', async function () {
+  try {
+    log.debug('Clicking on Multiple choice');
+    await pages.student.populate('Multiple_choice', 'click');
+    log.debug(`Multiple choice was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I click on submit button', async function () {
+  try {
+    log.debug('Clicking on submit button');
+    await pages.student.populate('Submit_answer', 'click');
+    log.debug(`Multiple choice was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I validate the content', async function () {
+  try {
+    if (await pages.authProducer.checkWebElementExists('modal_content')) {
+      console.log('passed');
+    } else {
+      console.log('failed');
+    }
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+Then('I click on close message', async function () {
+  try {
+    log.debug('Clicking on close message');
+    await pages.student.populate('close_message', 'click');
+    log.debug(`close message was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    log.debug('Clicking on  back to study plan');
+    await pages.student.populate('back_study_plan', 'click');
+    log.debug(`Back to study plan was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+Then('I click on Read&Practice', async function () {
+  try {
+    log.debug('Clicking on close Read&Practice');
+    await pages.student.populate('close_Reading&Practice', 'click');
+    log.debug(`Close Read&Pratctice was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+Then('I click on Gradebook', async function () {
+  try {
+    log.debug('Clicking on Gradebook_button');
+    await pages.student.populate('Gradebook', 'click');
+    log.debug(`Gradebook was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+Then('I click on alert message', async function () {
+  try {
+    log.debug('Clicking on alert message');
+    await pages.student.populate('alert_message', 'click');
+    log.debug(`Gradebook was clicked: ${clickedButton}`);
   } catch (err) {
     log.error(err);
   }

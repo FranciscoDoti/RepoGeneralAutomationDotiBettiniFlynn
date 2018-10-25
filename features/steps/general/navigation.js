@@ -54,6 +54,7 @@ Then('I sign out of Achieve', async function () {
 
 When('I click on open menu', async function () {
   try {
+    await sleep(5000);
     log.debug('Clicking open_menu button');
     await pages.navigation.populate('open_menu', 'click');
     log.debug(`open_menu was clicked: ${clickedButton}`);

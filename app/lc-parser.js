@@ -61,8 +61,7 @@ let i = 1;
 let s = 0;
 let sections = []
 while (i < lcbars) {
-  sections[s] = {meta: lcsplit[i],
-                 data: lcsplit[i + 1]}
+  sections[s] = {meta: lcsplit[i], data: lcsplit[i + 1]}
   i = i + 2;
   s = s + 1;
 }
