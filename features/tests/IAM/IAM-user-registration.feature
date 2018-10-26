@@ -166,7 +166,7 @@ Feature: Authentication for Achieve via IAM
 
     Scenario: Verify that Privacy Notice Link redirects to appropriate page
         Given I have opened Achieve "loginURL"
-        When I have logged in as "instructor_1"
+        When I have logged in as "customer_support_1"
         And I click on user menu
         And I click on Account
         And I click on privacy notice link 
@@ -176,7 +176,7 @@ Feature: Authentication for Achieve via IAM
 
     Scenario: Verify that aplication return to home page on clicking Cancel Button
         Given I have opened Achieve "loginURL"
-        When I have logged in as "instructor_1"
+        When I have logged in as "customer_support_1"
         And I click on user menu
         And I click on Account
         And I click on cancle button
@@ -184,7 +184,7 @@ Feature: Authentication for Achieve via IAM
         And I sign out of Achieve
     Scenario: Verify that Set Password functionality is working as expected
         Given I have opened Achieve "loginURL"
-        When I have logged in as "instructor_1"
+        When I have logged in as "customer_support_1"
         And I click on user menu
         And I click on Account
         And I click setpassword button

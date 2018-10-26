@@ -632,166 +632,14 @@ When('I verify that purchase link is directed to Terms of Purchase', async funct
   }
 });
 
-When(/^User "(.*)" has filled all mandatory fields except password$/, async function (password) {
+When(/^User "(.*)" has filled all mandatory fields except password$/, async function (user) {
   try {
-    const Login = await loadLogin(password)
+    const Login = await loadLogin(user)
     await pages.createAccount.populate('firstName', Login.firstName);
     await pages.createAccount.populate('lastName', Login.lastName);
     await pages.createAccount.populate('email', Login.username);
     await pages.createAccount.populate('password', '');
     await pages.createAccount.populate('confirmPassword', '');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABab@12');
-    await pages.createAccount.populate('confirmPassword', 'ABab@12');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABabc@12');
-    await pages.createAccount.populate('confirmPassword', 'ABabc@12');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABabc@123');
-    await pages.createAccount.populate('confirmPassword', 'ABabc@123');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321');
-    await pages.createAccount.populate('confirmPassword', 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321');
     await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
     await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
     await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
@@ -885,10 +733,10 @@ When('I click on cancle button', async function () {
     log.debug('Clickig on cancle');
     await pages.createAccount.populate('cancle_account', 'click');
     log.debug(`cancle button was clicked, ${clickedButton}`);
+    await sleep(5000);
   } catch (err) {
     log.error(err);
   }
-  await sleep(5000);
 });
 
 When('I verify home page is displayed', async function () {
