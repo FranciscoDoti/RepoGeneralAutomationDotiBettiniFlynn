@@ -80,22 +80,29 @@ function getQuestions(section) {
 
   let rgx = {scType: /^SC: (.*)/,
              mcType: /^MC: (.*)/,
-             correctAnswer: /\*([ABCDEFG])\. /,
+             correctAnswer: /\*[ABCDEFG].*?]]/,
+             question: /([MC]|[SC])(.|\n).*?([ABCDEFG]\.\s)/,
              uid: /^_fq_uid: (.*)/};
 
-  raw.map(function(line) {
+  raw.map(function(line, i, arr) {
     if (rgx.scType.test(line)) {
       if (!inquestion) { inquestion = true; }
       counter += 1;
       questions[counter] = {type: 'SC',
-                            data: ''}
+                            data: '',
+                            question: ''}
+      questions[counter].question += line + arr[i+1] + arr[i + 2] + arr[i + 3];
     }
     else if (rgx.mcType.test(line)) {
       if (!inquestion) { inquestion = true; }
       counter += 1;
       let prompt =
       questions[counter] = {type: 'MC',
-                            data: ''}
+                            data: '',
+                            question: ''}
+      questions[counter].question += line + arr[i+1] + arr[i + 2] + arr[i + 3];
+      var mcQuestion =  questions[counter].question.match(rgx.question);
+      questions[counter].question = mcQuestion !== null && mcQuestion.length ? mcQuestion[0].slice(0, -4) : '';
     } else {
       if (inquestion) {
         if (rgx.uid.test(line)) {
@@ -106,7 +113,7 @@ function getQuestions(section) {
           if (rgx.correctAnswer.test(line)) {
             // this does assume there will only be one correct answer per question,
             // which might not always be true.
-            questions[counter].correct = line.match(rgx.correctAnswer)[1];
+            questions[counter].correct = line.match(rgx.correctAnswer)[0].slice(4);
           }
         }
       }
@@ -128,7 +135,7 @@ sections.map(function(section) {
 // console.log(sections[1].data);
 //console.log(sections[0].questions[0]);
 //console.log(`-------------`);
-//console.log(sections[0].questions);
+// console.log(sections[0].questions);
 // console.log(`-------------`);
  console.log(sections[1].questions);
 // console.log(`-------------`);
