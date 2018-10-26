@@ -14,7 +14,7 @@ Feature: Sign in
         Then I Verify Application should display forgot password page
 
     Scenario: Verify that Existing registered account Sign In appropriately
-        Given I have opened Achieve "UserCreationUrl"
+        Given I have opened Achieve "signURL"
         When I click on sign In button on top right corner
         And  I have logged in as "customer_support_1"
         And I sign out of Achieve
