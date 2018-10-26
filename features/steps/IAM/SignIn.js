@@ -78,6 +78,9 @@ When('I enter invalid username and password', async function () {
     log.error(err);
   }
 });
+
+//Are we sure we are testing this correctly, it seems to be passing the tests but logging an error in the terminal from one of these tests or more
+//TODO: Find which test is logging an error, find out why and remove noisy console logs
 Then('I Verify "Invalid user name and password" message should be displayed', async function () {
   try {
     console.log('Invalid user name and password')
