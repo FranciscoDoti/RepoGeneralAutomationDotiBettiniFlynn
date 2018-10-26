@@ -109,7 +109,7 @@ Then('I login with following credentials:', async function () {
   } catch (err) {
     log.error(err.stack);
   }
-  await sleep(5000);
+  // await sleep(5000);
 });
 
 Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed', async function () {

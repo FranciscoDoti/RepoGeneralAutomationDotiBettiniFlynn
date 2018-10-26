@@ -191,7 +191,7 @@ Feature: Authentication for Achieve via IAM
         And I click on newpassword
         And I click on save changes button
 
-    
+    #Why is this Scenario commented out???
    #Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates
         #Given I have opened Achieve "ThirdpartyURL"
         #When I log in as "admin_alt"

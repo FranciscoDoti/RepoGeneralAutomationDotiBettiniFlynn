@@ -16,7 +16,7 @@ Feature: Sign in
     Scenario: Verify that Existing registered account Sign In appropriately
         Given I have opened Achieve "signURL"
         When I click on sign In button on top right corner
-        And  I have logged in as "customer_support_1"
+        And  I have logged in as "media_producer_2"
         And I sign out of Achieve
         Then I Verify User Sign In with existing registered account appropriately
 
