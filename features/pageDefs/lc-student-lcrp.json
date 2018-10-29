@@ -1,153 +1,153 @@
 {
-	"webElements": [{
-		  "name": "close_learing_curve",
+  "webElements": [{
+      "name": "close_learing_curve",
       "byType": "xpath",
-			"definition": "//a[@data-test-id='closelearningcurve']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "assignment_heading_lcrp",
-      "byType": "xpath",
-			"definition": "//div[@data-test-id='logoRow']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "trends_and_insights_lcrp",
-      "byType": "xpath",
-			"definition": "//div[@data-test-id='studentTrendsAndInsights']",
-			"frame": "default",
-			"specialInstr": "NA"
+      "definition": "//a[@data-test-id='closelearningcurve']",
+      "frame": "default",
+      "specialInstr": "NA"
     },{
-			"name": "tips_for_success_lcrp",
+      "name": "assignment_heading_lcrp",
       "byType": "xpath",
-			"definition": "//button[@data-test-id='studentTipsForSuccess']",
-			"frame": "default",
-			"specialInstr": "NA"
+      "definition": "//div[@data-test-id='logoRow']",
+      "frame": "default",
+      "specialInstr": "NA"
     },{
-			"name": "total_readings",
+      "name": "trends_and_insights_lcrp",
       "byType": "xpath",
-			"definition": "//span[@data-test-id='numReadingsRemaining']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "reading_list_lcrp",
-      "byType": "xpath",
-			"definition": "//div[@data-test-id='lcrpReadingItem']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "section_book_list",
-      "byType": "xpath",
-			"definition": "//li[@data-test-id='studyPlanItemSuggestions']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "start_quiz_button_lcrp",
-      "byType": "xpath",
-			"definition": "//*[text()='Take the Quiz!']",
-			"frame": "default",
-			"specialInstr": "NA"
+      "definition": "//div[@data-test-id='studentTrendsAndInsights']",
+      "frame": "default",
+      "specialInstr": "NA"
     },{
-			"name": "resume_quiz_button",
+      "name": "tips_for_success_lcrp",
       "byType": "xpath",
-			"definition": "//span[text()='Take the Quiz!']",
-			"frame": "default",
-			"specialInstr": "NA"
+      "definition": "//button[@data-test-id='studentTipsForSuccess']",
+      "frame": "default",
+      "specialInstr": "NA"
     },{
-			"name": "retake_quiz",
+      "name": "total_readings",
       "byType": "xpath",
-			"definition": "//span[text()='Retake the Quiz!']",
-			"frame": "default",
-			"specialInstr": "NA"
+      "definition": "//span[@data-test-id='numReadingsRemaining']",
+      "frame": "default",
+      "specialInstr": "NA"
     },{
-			"name": "ebook_pane",
+      "name": "reading_list_lcrp",
       "byType": "xpath",
-			"definition": "//span[@data-test-id='lcrpSplitEbookPane']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "ebook_iframe",
+      "definition": "//div[@data-test-id='lcrpReadingItem']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "section_book_list",
+      "byType": "xpath",
+      "definition": "//li[@data-test-id='studyPlanItemSuggestions']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "start_quiz_button_lcrp",
+      "byType": "xpath",
+      "definition": "//*[text()='Take the Quiz!']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "resume_quiz_button",
+      "byType": "xpath",
+      "definition": "//span[text()='Take the Quiz!']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "retake_quiz",
+      "byType": "xpath",
+      "definition": "//span[text()='Retake the Quiz!']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "ebook_pane",
+      "byType": "xpath",
+      "definition": "//span[@data-test-id='lcrpSplitEbookPane']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "ebook_iframe",
       "byType": "id",
-			"definition": "splitScreenEbook",
-			"frame": "default",
-			"specialInstr": "NA"   
-		},{
-			"name": "popout_ereader",
-      "byType": "xpath",
-			"definition": "//a[@data-test-id='openSplitScreenNewTabBtn']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "close_ereader",
-      "byType": "xpath",
-			"definition": "//a[@data-test-id='closeSplitScreenEbook']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "reading_lock_lcrp",
-      "byType": "xpath",
-			"definition": "//div[@data-test-id='keepReadingPanel']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "take_quiz_ebook_lcrp",
-      "byType": "xpath",
-			"definition": "//*[@id='readingTakeQuizBtn']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "next_book_lcrp",
-      "byType": "xpath",
-			"definition": "//h3[@id='readingNextReadingBtn']",
-			"frame": "default",
-			"specialInstr": "NA"
+      "definition": "splitScreenEbook",
+      "frame": "default",
+      "specialInstr": "NA" 
     },{
-			"name": "check_your_understanding_button",
+      "name": "popout_ereader",
       "byType": "xpath",
-			"definition": "//button[@data-test-id='cyuButton']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "cyu_answer_choices",
+      "definition": "//a[@data-test-id='openSplitScreenNewTabBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "close_ereader",
       "byType": "xpath",
-			"definition": "//div[@data-test-id='cyuAnswerChoice']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "cyu_question",
+      "definition": "//a[@data-test-id='closeSplitScreenEbook']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "reading_lock_lcrp",
       "byType": "xpath",
-			"definition": "//div[@data-test-id='MultipleChoice']/div/h3",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "cyu_submit_answer",
+      "definition": "//div[@data-test-id='keepReadingPanel']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "take_quiz_ebook_lcrp",
       "byType": "xpath",
-			"definition": "//button[@data-test-id='submitCyuAnswerBtn']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "cyu_try_again",
+      "definition": "//*[@id='readingTakeQuizBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "next_book_lcrp",
       "byType": "xpath",
-			"definition": "//button[@data-test-id='tryAgainBtn']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "cyu_back_to_reading",
+      "definition": "//h3[@id='readingNextReadingBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "check_your_understanding_button",
       "byType": "xpath",
-			"definition": "//button[@data-test-id='cyuBackToReadingBtn']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "quiz_results_show_details",
+      "definition": "//button[@data-test-id='cyuButton']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "cyu_answer_choices",
       "byType": "xpath",
-			"definition": "//p[@data-test-id='toggleDetailsButton']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},{
-			"name": "section_results",
+      "definition": "//div[@data-test-id='cyuAnswerChoice']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "cyu_question",
       "byType": "xpath",
-			"definition": "//div[@data-test-id='studyPlanItem']",
-			"frame": "default",
-			"specialInstr": "NA"
-		}]
+      "definition": "//div[@data-test-id='MultipleChoice']/div/h3",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "cyu_submit_answer",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='submitCyuAnswerBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "cyu_try_again",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='tryAgainBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "cyu_back_to_reading",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='cyuBackToReadingBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "quiz_results_show_details",
+      "byType": "xpath",
+      "definition": "//p[@data-test-id='toggleDetailsButton']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "section_results",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='studyPlanItem']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }]
 }
