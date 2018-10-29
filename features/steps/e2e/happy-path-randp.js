@@ -138,7 +138,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter 1. Introduction and Research Methods');
+  await pages.authProducer.populate('folder_name', 'Chapter 1: Colliding Wars');
 
   try {
     log.debug('Adding folder');
@@ -156,7 +156,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter 1. Background to the Study of Psychology');
+  await pages.authProducer.populate('folder_name', 'Chapter2: American Experiments');
 
   try {
     log.debug('Adding folder');
@@ -174,7 +174,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter 1. The People and the Field');
+  await pages.authProducer.populate('folder_name', 'Chapter1: Personality dvelopment in Adulthood; Intimacy: Connecting with Others');
 
   try {
     log.debug('Adding folder');
@@ -192,7 +192,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter 2: North America');
+  await pages.authProducer.populate('folder_name', 'Chapter 2: Psychopathology');
 
   try {
     log.debug('Adding folder');
@@ -414,16 +414,17 @@ Then('I validate that the course card named "course1.templatename" exists on the
   }
 });
 
-When('I click on course card "Testcourse" template', async function () {
+Then('I click on course card "Testcourse" template', async function () {
   try {
     log.debug('Clicking on course card');
-    await pages.authProducer.populate('', 'click');
-    log.debug(`create resource tab was clicked: ${clickedButton}`);
+    await pages.student.populate('course_card_button', 'click', 'resources_tab');
+    log.debug(`course card was clicked: ${clickedButton}`);
   } catch (err) {
     log.error(err);
+    await sleep(3000);
   }
 });
-When('I click on Resource tab', async function () {
+Then('I click on Resource tab', async function () {
   try {
     log.debug('Clicking on resources tab');
     await pages.authProducer.populate('resources_tab', 'click');
@@ -432,7 +433,7 @@ When('I click on Resource tab', async function () {
     log.error(err);
   }
 });
-When('add content into chapter', async function () {
+Then('add content into chapter', async function () {
   try {
     log.debug('Clicking on add button');
     await pages.authProducer.populate('Add_button', 'click');
@@ -445,23 +446,15 @@ When(/^I click on Activity search button and enter "(.*)"$/, async function (cha
   try {
     log.debug('Clicking search and entering the value');
     await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(3000);
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
     await sleep(5000);
     log.debug(`The value is entered: ${clickedButton}`);
   } catch (err) {
     log.error(err);
   }
 });
-When(/^I click on Activity search button and pass the value "(.*)"$/, async function (chapterName) {
+Then(/^I click on Activity search button and pass the value "(.*)"$/, async function (chapterName) {
   try {
     log.debug('Clicking search and entering the value');
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(3000);
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(3000);
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(3000);
     await pages.authProducer.populate('ActivitySearchInput', chapterName);
     await sleep(5000);
     log.debug(`The value is entered: ${clickedButton}`);
@@ -470,7 +463,7 @@ When(/^I click on Activity search button and pass the value "(.*)"$/, async func
   }
 });
 
-When('I click on link of the file', async function () {
+Then('I click on link of the file', async function () {
   try {
     log.debug('Clicking on file');
     await pages.authProducer.populate('file_open', 'click');
@@ -481,7 +474,7 @@ When('I click on link of the file', async function () {
   await getDriver().navigate().back();
   await sleep(5000);
 });
-When('I click on add Introduction and Research Methods content', async function () {
+Then('I click on add content', async function () {
   try {
     log.debug('Clicking on add Introduction and Research Methods content');
     await pages.authProducer.populate('Adding_chapter_content', 'click');
@@ -638,6 +631,8 @@ Then('I reorder the items', async function () {
   } catch (err) {
     log.error(err);
   }
+  await getDriver().navigate().refresh();
+  await sleep(3000);
 });
 
 When(/^I search for "(.*)"$/, async function (temp) {

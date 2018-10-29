@@ -1,12 +1,5 @@
 Feature: Sign in 
 
-    Scenario: Verify that password info icon tooltip Information is consistent to application behavior
-        Given I have opened Achieve "signURL"
-        When I click on sign In button on top right corner
-        And I click on create an account button
-        Then I hover on icon "i"
-        Then I verify that password info icon tooltip Information is consistent to application behavior
-
     Scenario: Verify Forgot Link is redirecting to forgot password page
         Given I have opened Achieve "signURL"
         When I click on sign In button on top right corner
@@ -14,7 +7,7 @@ Feature: Sign in
         Then I Verify Application should display forgot password page
 
     Scenario: Verify that Existing registered account Sign In appropriately
-        Given I have opened Achieve "UserCreationUrl"
+        Given I have opened Achieve "signURL"
         When I click on sign In button on top right corner
         And  I have logged in as "instructor_1"
         And I sign out of Achieve

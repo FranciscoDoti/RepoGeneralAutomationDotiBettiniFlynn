@@ -174,14 +174,6 @@ Feature: Authentication for Achieve via IAM
         And I click on cancle button
         And I sign out of Achieve
 
-    Scenario: Verify that aplication return to home page on clicking Cancel Button
-        Given I have opened Achieve "loginURL"
-        When I have logged in as "instructor_1"
-        And I click on user menu
-        And I click on Account
-        And I click on cancle button
-        And I verify home page is displayed
-        And I sign out of Achieve
     Scenario: Verify that Set Password functionality is working as expected
         Given I have opened Achieve "loginURL"
         When I have logged in as "instructor_1"
@@ -190,6 +182,9 @@ Feature: Authentication for Achieve via IAM
         And I click setpassword button
         And I click on newpassword
         And I click on save changes button
+        And I click on cancle button
+        And I sign out of Achieve
+       
 
     
    #Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates

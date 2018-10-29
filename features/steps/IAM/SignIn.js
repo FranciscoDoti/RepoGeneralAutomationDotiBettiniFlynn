@@ -128,13 +128,13 @@ Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" mes
   }
 });
 
-
 Then('I click on help Link', async function () {
   try {
     const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Help']")).getAttribute('href');
     log.debug(hyperlink + 'hyperlink');
     log.debug('clicking on help link');
     await getDriver().get(hyperlink);
+    await sleep(2000);
     // await pages.login.populate('help_link', 'click');
     log.debug(`help_link was clicked: ${clickedButton}`);
   } catch (err) {
