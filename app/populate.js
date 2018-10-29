@@ -1,5 +1,5 @@
 
-const { getWebDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
+const { getWebDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
 const {Key} = require('selenium-webdriver');
 const WebElement = require('./WebElement');
 const { log } = require('./logger');

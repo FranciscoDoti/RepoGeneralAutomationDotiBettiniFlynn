@@ -1,6 +1,6 @@
 const { When, Then} = require('cucumber');
 const path = require('path');
-const { By} = require('selenium-webdriver');
+const { By, until } = require('selenium-webdriver');
 const { loadConfig, loadLogin } = require('../../../app/util');
 const { assert } = require('chai');
 const expect = require('chai')
@@ -468,17 +468,9 @@ When(/^User "(.*)" has filled all mandatory fields except first name$/, async fu
   await pages.createAccount.populate('termsOfService', 'click');
 });
 When(/^I verify the Sign up button is disabled "(.*)"$/, async function (check) {
-  try {
-    console.log(check);
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
+    await pages.createAccount.assert('signUp_btn', 'exists');
+    // const button = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]")))
+    // await getDriver().wait(until.elementIsDisabled(button), 3000);
 });
 
 When(/^User "(.*)" has filled all mandatory fields except last name$/, async function (account) {
@@ -632,14 +624,71 @@ When('I verify that purchase link is directed to Terms of Purchase', async funct
   }
 });
 
-When(/^User "(.*)" has filled all mandatory fields except password$/, async function (user) {
+When(/^User "(.*)" has filled all mandatory fields except password$/, async function (password) {
+  // try {
+  //   const Login = await loadLogin(password);
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', '');
+  //   await pages.createAccount.populate('confirmPassword', '');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+  // try {
+  //   const Login = await loadLogin(password)
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', 'ABab@12');
+  //   await pages.createAccount.populate('confirmPassword', 'ABab@12');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+  // try {
+  //   const Login = await loadLogin(password)
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', 'ABabc@12');
+  //   await pages.createAccount.populate('confirmPassword', 'ABabc@12');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
   try {
-    const Login = await loadLogin(user)
+    const Login = await loadLogin(password)
     await pages.createAccount.populate('firstName', Login.firstName);
     await pages.createAccount.populate('lastName', Login.lastName);
     await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', '');
-    await pages.createAccount.populate('confirmPassword', '');
+    await pages.createAccount.populate('password', 'ABabc@123');
+    await pages.createAccount.populate('confirmPassword', 'ABabc@123');
     await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
     await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
     await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
@@ -652,6 +701,101 @@ When(/^User "(.*)" has filled all mandatory fields except password$/, async func
   } catch (err) {
     log.error(err);
   }
+  // try {
+  //   const Login = await loadLogin(password)
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
+  //   await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+  // try {
+  //   const Login = await loadLogin(password)
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$');
+  //   await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+  // try {
+  //   const Login = await loadLogin(password)
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321');
+  //   await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+  // try {
+  //   const Login = await loadLogin(password)
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321');
+  //   await pages.createAccount.populate('confirmPassword', 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+  // try {
+  //   const Login = await loadLogin(password)
+  //   await pages.createAccount.populate('firstName', Login.firstName);
+  //   await pages.createAccount.populate('lastName', Login.lastName);
+  //   await pages.createAccount.populate('email', Login.username);
+  //   await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321');
+  //   await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321');
+  //   await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  //   await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  //   await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  //   await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  //   await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  //   await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  //   await pages.createAccount.populate('institution', Login.primarySchool);
+  //   await pages.createAccount.populate('OptIn', 'NA');
+  //   await pages.createAccount.populate('termsOfService', 'click');
+  // } catch (err) {
+  //   log.error(err);
+  // }
 });
 
 When('I click on Account', async function () {
@@ -679,13 +823,13 @@ When('I verify Email- address is disabled', async function () {
 });
 
 When('I click on "OPT-OUT@macmillanlearning.com"', async function () {
-  try {
-    log.debug('Clickig on OPt-outlink');
+  // try {
+    // log.debug('Clickig on OPt-outlink');
     await pages.createAccount.populate('Opt', 'click');
-    log.debug(`Account button is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+    // log.debug(`Account button is clicked, ${clickedButton}`);
+  // } catch (err) {
+  //   log.error(err);
+  // }
 });
 When('I verify it redirects to E-mail', async function () {
   console.log('Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates')

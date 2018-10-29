@@ -1,7 +1,7 @@
 /**
  * http://usejsdoc.org/
  */
-const { getDriver, getWebDriver } = require('./driver');
+const { getDriver, getWebDriver, onWaitForWebElementToBeDisabled } = require('./driver');
 const { log } = require('./logger');
 const that = {};
 
@@ -32,6 +32,13 @@ const WebElement = function (element) {
     const elementDef = await this.getBy();
     const returnExists = await my.driver.findElements(elementDef).size != 0;
     return returnExists;
+  };
+
+  that.elementDisabled = async function () {
+    const elementDef = await this.getBy();
+    const returnElement = await my.driver.findElement(elementDef);
+    const returnDisabled = await my.driver.wait(my.webdriver.until.elementIsDisabled(returnElement), 3000);
+    return returnDisabled;
   };
 
   that.getBy = async function () {

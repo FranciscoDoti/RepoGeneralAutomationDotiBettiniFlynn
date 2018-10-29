@@ -32,17 +32,13 @@ When(/^I elect to manage the role of user '(.*)'$/, async function (userLogin) {
 
 When(/^I grant the role of '(.*)'$/, async function (role) {
   log.debug(`Grant Role email: ${role}`);
-  await sleep(2000);
   await pages.authAdmin.populate('choose_role', role);
-  await sleep(2000);
   await pages.authAdmin.populate('grant_role', 'click');
 });
 
 When(/^I revoke the role of '(.*)'$/, async function (role) {
   log.debug(`Revoke Role email: ${role}`);
-  await sleep(2000);
   await pages.authAdmin.populate('choose_role', role);
-  await sleep(2000);
   await pages.authAdmin.populate('revoke_role', 'click');
 });
 

@@ -14,9 +14,9 @@
     "happy-path-wrt": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-wrt.feature --world-parameters='{\"config\": \"int\"}'",
     "randp-happy-path-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/R&P_PM/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'",
     "lc-parser": "node ./lc-parser.js",
-    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"int\"}'",
-    "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature --world-parameters='{\"config\": \"int\"}'",
-    "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"int\"}'",
+    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"pre-prod\"}'",
+    "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature --world-parameters='{\"config\": \"pre-prod\"}'",
+    "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"pre-prod\"}'",
     "IAM-user-registration": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int\"}'"
   },
   "dependencies": {

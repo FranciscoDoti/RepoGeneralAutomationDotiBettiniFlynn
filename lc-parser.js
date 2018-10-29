@@ -46,7 +46,8 @@ const fs = require('fs');
 // - {{bla}} has more rendering done, maybe containing <i> tags or similar
 // so, unless you can think of a better way, i recommend:
 // - take each local question, and split it into chunks, ignoring everything within [[]] or {{}}
-// - check if the currently displayed question in the browser does a successful match to ALL of these chunks for any of our local questions.  once it does, you know what question the browser is currently looking at, and you should already have the correct answer available locally.
+// - check if the currently displayed question in the browser does a successful match to ALL of these chunks for any of our local questions. 
+//    once it does, you know what question the browser is currently looking at, and you should already have the correct answer available locally.
 
 
 
