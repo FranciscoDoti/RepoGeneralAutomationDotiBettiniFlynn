@@ -38,7 +38,7 @@ Then('I verify that password info icon tooltip Information is consistent to appl
   if (await pages.login.checkWebElementExists('Tooltip_verifiaction')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
@@ -56,7 +56,7 @@ Then('I Verify Application should display forgot password page', async function 
   if (await pages.login.checkWebElementExists('forgot_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 Then('I Verify User Sign In with existing registered account appropriately', async function () {
@@ -64,7 +64,7 @@ Then('I Verify User Sign In with existing registered account appropriately', asy
   if (await pages.login.checkWebElementExists('existinguser_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 When('I enter invalid username and password', async function () {
@@ -85,7 +85,7 @@ Then('I Verify "Invalid user name and password" message should be displayed', as
     if (errorText == 'Invalid username or password') {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
       throw new Error('failed');
     }
   } catch (err) {
@@ -120,7 +120,7 @@ Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" mes
     if (errorText == 'Too many login attempts. Wait 15 minutes and try again') {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
       throw new Error('failed');
     }
   } catch (err) {
@@ -147,14 +147,14 @@ Then('I verify the help page is displayed', async function () {
   if (await pages.login.checkWebElementExists('help_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
 Then('I verify that user must not able to login', async function () {
   console.log('Verify whether user able to login without waiting for 15minutes')
   if (await pages.login.checkWebElementExists('existinguser_check')) {
-    console.log('failed');
+    throw new Error('failed');
   } else {
     console.log('passed');
   }

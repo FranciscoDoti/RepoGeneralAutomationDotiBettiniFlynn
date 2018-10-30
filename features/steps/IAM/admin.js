@@ -166,7 +166,7 @@ When('I verify the reset password functionality', async function () {
   if (verify.includes('disabled')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
@@ -207,7 +207,7 @@ Then(/^I verify Message is displayed as "(.*)"$/, async function (verify) {
     if (await pages.authAdmin.checkWebElementExists('back_login')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -218,6 +218,6 @@ Then('Verify that user is able to login using newly created password', async fun
   if (await pages.authAdmin.checkWebElementExists('check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });

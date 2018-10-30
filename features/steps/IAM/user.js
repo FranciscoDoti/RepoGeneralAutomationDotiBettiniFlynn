@@ -84,7 +84,7 @@ Then('I verify the Sign up button is disabled', async function () {
     if (verify.includes('disabled')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -316,7 +316,7 @@ Then('I verify the Sign up is disabled', async function () {
     if (verify.includes('disabled')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -339,7 +339,7 @@ Then('I verify the Sign up button is disabled when Primary Institution or School
     if (verify.includes('disabled')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -362,7 +362,7 @@ Then('I verify the Sign up button is disabled when canada college is selected', 
     if (verify.includes('disabled')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -383,7 +383,7 @@ Then('I verify the Sign up button is disabled when I click on check box', async 
     console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
     if (verify.includes('disabled')) {
-      console.log('failed');
+      throw new Error('failed');
     } else {
       console.log('passed');
     }
@@ -405,7 +405,7 @@ Then('I verify that I am redirected to privacy notice link page', async function
   if (await pages.createAccount.checkWebElementExists('privacy_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
@@ -425,7 +425,7 @@ Then('I verify that all the fields are empty', async function () {
     if (verify.includes('disabled')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -446,7 +446,7 @@ Then('I verify that I am redirected to terms of use page', async function () {
   if (await pages.createAccount.checkWebElementExists('TermsOfUse_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
@@ -474,7 +474,7 @@ When(/^I verify the Sign up button is disabled "(.*)"$/, async function (check) 
     if (verify.includes('disabled')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -569,7 +569,7 @@ Then('I verify that privacy link is directed to privacy page', async function ()
   if (await pages.createAccount.checkWebElementExists('privacy_link_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 When('I click on piracy link', async function () {
@@ -588,7 +588,7 @@ Then('I verify that piracy link is directed to piracy page', async function () {
   if (await pages.createAccount.checkWebElementExists('piracy_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 When('I click on macmillan learning link', async function () {
@@ -608,7 +608,7 @@ Then('I verify that macmillan link is directed to macmillan learning page', asyn
   if (await pages.createAccount.checkWebElementExists('macmillanlearning_check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
@@ -628,7 +628,7 @@ When('I verify that purchase link is directed to Terms of Purchase', async funct
   if (await pages.createAccount.checkWebElementExists('product_purchase')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
@@ -823,7 +823,7 @@ When('I verify Email- address is disabled', async function () {
     if (verify.includes('disabled')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -844,7 +844,7 @@ When('I verify it redirects to E-mail', async function () {
   if (await pages.createAccount.checkWebElementExists('compose')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 When('I click on checkbox in account', async function () {
@@ -895,7 +895,7 @@ When('I verify home page is displayed', async function () {
   if (await pages.createAccount.checkWebElementExists('cancle_account_verification')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 
@@ -948,7 +948,7 @@ When('I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanle
   if (await pages.createAccount.checkWebElementExists('opt_verfication')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
 });
 When('I click setpassword button', async function () {
