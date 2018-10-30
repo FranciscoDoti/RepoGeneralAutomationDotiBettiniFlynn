@@ -12,35 +12,37 @@ let pages = {
   createAccount: new PageObject('createAccount.json', stepsPath),
   navigation: new PageObject('navigation.json', stepsPath)
 }
-When('I verify the functionality of first name and lastname by not entering', async function () {
+When(/^I verify the functionality of first name by entering "(.*)"$/, async function (firstname) {
   try {
-    await pages.createAccount.populate('firstName', '');
-    await pages.createAccount.populate('lastName', '');
+    await pages.createAccount.populate('firstName', firstname);
   } catch (err) {
     log.error(err);
   }
 });
-Then('I verify validation message for first name and last name', async function () {
+When(/^I verify the functionality of last name by entering "(.*)"$/, async function (lastname) {
   try {
-    console.log('Verify that First Name field and last name validations are working as expected')
-    const errorText = await pages.createAccount.getElementValue('first_error');
-    if (errorText == 'First name must not be blank and cannot contain numbers/special characters') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
+    await pages.createAccount.populate('lastName', lastname);
+    if (lastname == '') {
+      await pages.createAccount.populate('email', '');
     }
   } catch (err) {
     log.error(err);
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('Last_error');
-    if (errorText == 'Last name must not be blank and cannot contain numbers/special characters') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+});
+Then('I verify validation message for first name', async function () {
+  const firstNameErrorText = await pages.createAccount.getElementValue('first_error');
+  if (firstNameErrorText == 'First name must not be blank and cannot contain numbers/special characters') {
+    console.log('Passed: Verify that First Name field validations are working as expected');
+  } else {
+    throw new Error('failed');
+  }
+});
+Then('I verify validation message for last name', async function () {
+  const lastNameErrorText = await pages.createAccount.getElementValue('last_error');
+  if (lastNameErrorText == 'Last name must not be blank and cannot contain numbers/special characters') {
+    console.log('Passed: Verify that First Name field validations are working as expected');
+  } else {
+    throw new Error('failed');
   }
 });
 
@@ -53,27 +55,22 @@ When('I verify the functionality of first name and lastname by entering large ch
   }
 });
 
-Then('I verify validation message in first name and last name', async function () {
-  try {
-    console.log('Verify that First Name field and last name validations are working as expected')
-    const errorText = await pages.createAccount.getElementValue('largechar_firstname');
-    if (errorText == 'Limit of 40 characters reached') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+Then('I verify validation message in the first name field', async function () {
+  console.log('Verify that First Name field and last name validations are working as expected')
+  const errorText = await pages.createAccount.getElementValue('largechar_firstname');
+  if (errorText == 'Limit of 40 characters reached') {
+    console.log('passed');
+  } else {
+    throw new Error('Failed to show first name character limit error');
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('largechar_lastname');
-    if (errorText == 'Limit of 40 characters reached') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+})
+
+Then('I verify validation message in the last name field', async function () {
+  const errorText = await pages.createAccount.getElementValue('largechar_lastname');
+  if (errorText == 'Limit of 40 characters reached') {
+    console.log('passed');
+  } else {
+    throw new Error('Failed to show last name character limit error');
   }
 });
 

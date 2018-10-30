@@ -136,7 +136,13 @@
 			"frame": "default",
 			"specialInstr": "NA"
 		},	
-		
+		{
+			"name": "error_text",
+			"byType": "xpath",
+			"definition": "//*[@class='errorText']",
+			"frame": "default",
+			"specialInstr": "NA"
+		},		
 		{
 			"name": "first_error",
 			"byType": "xpath",
@@ -146,11 +152,11 @@
 		},
 
 		{
-			"name": "Last_error",
+			"name": "last_error",
 			"byType": "xpath",
 			"definition": "//*[@id='lastName_error']",
 			"frame": "default",
-			"specialInstr": "NA"
+			"specialInstr": "tabAfter"
 		},
 		{
 			"name": "password_error",
