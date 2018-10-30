@@ -37,35 +37,46 @@ Given(/I start a new assignment as "(.*)"$/, async function (user) {
   lcInfo.assignment = epoch;
   testInfo.currentUser = user;
   if (lcInfo.course === undefined) {
-    console.log('HERE!')
     lcInfo.course = epoch;
+    testInfo[lcInfo.course] = {
+      'student1': {},
+      'student2': {}
+    }
   }
-  testInfo[lcInfo.course] = {}
-  testInfo[lcInfo.course][lcInfo.assignment] = {};
-  testInfo[lcInfo.course][lcInfo.assignment][user] = {
+  testInfo[lcInfo.course][user][lcInfo.assignment] = {
     attempt: 0,
     scores: []
   };
-  testInfo[lcInfo.course][lcInfo.assignment][user].scores.push({
+  testInfo[lcInfo.course][user][lcInfo.assignment].scores.push({
     'currentScore': 0,
     'totalPossible': 0,
     'targetScore': 0
-  })
+  });
 })
 
-Given(/I retake an assignment as "(.*)"$/, async function (user) {
-  testInfo[lcInfo.course][lcInfo.assignment][user].attempt++;
-  testInfo[lcInfo.course][lcInfo.assignment][user].scores.push({
+Given(/I retake the assignment as "(.*)"$/, async function (user) {
+  testInfo[lcInfo.course][user][lcInfo.assignment].attempt++;
+  testInfo[lcInfo.course][user][lcInfo.assignment].scores.push({
     'currentScore': 0,
     'totalPossible': 0,
     'targetScore': 0
   })
+  await studentView.lcrpPage.populate('retake_quiz', 'click');
+  let score = await studentView.quizPage.getElementValue('current_score');
+  let scores = score.split(/\//);
+  let assignmentScore = testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].scores[testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].attempt];
+  assignmentScore.targetScore = scores[1];
 })
 
 Given(/I start a new course as "(.*)"$/, async function (user) {
   const epoch = new Date().getTime();
   lcInfo.course = epoch;
-})
+  testInfo[lcInfo.course] = {}
+  testInfo[lcInfo.course][user] = {
+    'student1': {},
+    'student2': {}
+  };
+});
 
 When('I view the student landing page for LCRP', async function () {
   let results = await helper.getReadingInfo();
@@ -79,11 +90,10 @@ When('I view the student landing page for LCRP', async function () {
 });
 
 When('I view the student landing page for LC', async function () {
-  let student = testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser];
-  student.scores[student.attempt].targetScore = await studentView.lcPage.getElementValue('target_score')
+  let assignmentScore = testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].scores[testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].attempt];
+  assignmentScore.targetScore = await studentView.lcPage.getElementValue('target_score')
   let beginActivityButton = studentView.lcPage.checkWebElementExists('start_quiz_button')
   assert(beginActivityButton, 'The Begin Activity Button is not present on the page.')
-  testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser] = student;
 });
 
 When('I click on a reading the ebook view opens', async function () {
@@ -117,33 +127,31 @@ Then(/I can start the assessment "(.*)"/, async function (lc) {
   }
   let score = await studentView.quizPage.getElementValue('current_score');
   let scores = score.split(/\//)
-  let student = testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser]
-  if (student.scores[student.attempt].targetScore !== 0) {
-    assert(student.scores[student.attempt].targetScore === scores[1], 'The target score does not match the score on the landing page.')
+  let assignmentScore = testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].scores[testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].attempt];
+  if (assignmentScore.targetScore !== 0) {
+    assert(assignmentScore.targetScore === scores[1], 'The target score does not match the score on the landing page.')
   } else {
-    student.scores[student.attempt].targetScore = scores[1];
+    assignmentScore.targetScore = scores[1];
   }
-  testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser] = student;
 })
 
 Given(/I see a question, I can answer it "(.*)"/, async function (answer) {
   let question = await helper.parseQuestion();
-  let student = testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser];
-  student.scores[student.attempt].totalPossible += parseInt(await helper.checkLevel(question));
+  let assignmentScore = testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].scores[testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].attempt];
+  assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
   await helper.answerQuestion(question, answer);
   if (answer === 'Correct') {
-    student.scores[student.attempt].currentScore += parseInt(await helper.checkLevel(question));
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
   } else {
     // evaluate incorrect answer page
     if (question.Type !== 'FB') {
       question.incorrect = true;
     }
     await helper.answerQuestion(question, 'Correct');
-    student.scores[student.attempt].currentScore += parseInt(await helper.checkLevel(question));
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
   }
   // evalutate correct answer page
   await studentView.quizPage.populate('next_question', 'click');
-  testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser] = student;
 })
 Given('I see a question, I can open the ebook', async function () {
   let question = await helper.parseQuestion();
@@ -153,13 +161,13 @@ Given('I see a question, I can open the ebook', async function () {
 })
 
 Then('I complete 50% of the assignment', async function () {
-  let student = testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser]
-  while (student.scores[student.attempt].currentScore / student.scores[student.attempt].targetScore < 0.5) {
+  let assignmentScore = testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].scores[testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].attempt];
+  while (assignmentScore.currentScore / assignmentScore.targetScore < 0.5) {
     let question = await helper.parseQuestion();
-    student.scores[student.attempt].totalPossible += parseInt(await helper.checkLevel(question));
+    assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
     await helper.answerQuestion(question, 'Correct');
-    student.scores[student.attempt].currentScore += parseInt(await helper.checkLevel(question));
-    if (student.scores[student.attempt].currentScore / student.scores[student.attempt].targetScore < 0.5) {
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+    if (assignmentScore.currentScore / assignmentScore.targetScore < 0.5) {
       await studentView.quizPage.populate('next_question', 'click');
     } else {
       assert(await studentView.quizPage.checkWebElementExists('midway_modal'), 'Midway modal did not exist after 50% of the target score had been reached.')
@@ -175,29 +183,28 @@ When('I am done with an assessment, I see my score and can retake the assessment
 })
 
 Then('I complete 100% of an LCRP assignment', async function () {
-  let student = testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser]
-  while (student.scores[student.attempt].currentScore / student.scores[student.attempt].targetScore < 1) {
+  let assignmentScore = testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].scores[testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].attempt];
+  while (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
     let question = await helper.parseQuestion();
-    student.scores[student.attempt].totalPossible += parseInt(await helper.checkLevel(question));
+    assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
     await helper.answerQuestion(question, 'Correct');
-    student.scores[student.attempt].currentScore += parseInt(await helper.checkLevel(question));
-    if (student.scores[student.attempt].currentScore / student.scores[student.attempt].targetScore < 1) {
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+    if (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
       await studentView.quizPage.populate('next_question', 'click');
     } else {
       await studentView.quizPage.populate('complete_quiz_lcrp', 'click');
     }
   }
-  testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser] = student;
 })
 
 Then('I complete 100% of an LC assignment', async function () {
-  let student = testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser]
-  while (student.scores[student.attempt].currentScore / student.scores[student.attempt].targetScore < 1) {
+  let assignmentScore = testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].scores[testInfo[lcInfo.course][testInfo.currentUser][lcInfo.assignment].attempt];
+  while (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
     let question = await helper.parseQuestion();
-    student.scores[student.attempt].totalPossible += parseInt(await helper.checkLevel(question));
+    assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
     await helper.answerQuestion(question, 'Correct');
-    student.scores[student.attempt].currentScore += parseInt(await helper.checkLevel(question));
-    if (student.scores[student.attempt].currentScore / student.scores[student.attempt].targetScore < 1) {
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+    if (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
       await studentView.quizPage.populate('next_question', 'click');
     } else {
       let completeQuizModal = await studentView.quizPage.checkWebElementExists('complete_quiz_lc')
@@ -205,7 +212,6 @@ Then('I complete 100% of an LC assignment', async function () {
       await studentView.quizPage.populate('back_to_study_plan', 'click')
     }
   }
-  testInfo[lcInfo.course][lcInfo.assignment][testInfo.currentUser] = student;
 })
 
 Given('A question I can get a hint', async function () {})
