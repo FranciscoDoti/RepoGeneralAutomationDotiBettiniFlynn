@@ -6,19 +6,19 @@
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "assignment_heading_lcrp",
+      "name": "assignment_heading",
       "byType": "xpath",
       "definition": "//div[@data-test-id='logoRow']",
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "trends_and_insights_lcrp",
+      "name": "trends_and_insights",
       "byType": "xpath",
       "definition": "//div[@data-test-id='studentTrendsAndInsights']",
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "tips_for_success_lcrp",
+      "name": "tips_for_success",
       "byType": "xpath",
       "definition": "//button[@data-test-id='studentTipsForSuccess']",
       "frame": "default",
@@ -30,7 +30,7 @@
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "reading_list_lcrp",
+      "name": "reading_list",
       "byType": "xpath",
       "definition": "//div[@data-test-id='lcrpReadingItem']",
       "frame": "default",
@@ -42,7 +42,7 @@
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "start_quiz_button_lcrp",
+      "name": "start_quiz_button",
       "byType": "xpath",
       "definition": "//*[text()='Take the Quiz!']",
       "frame": "default",
@@ -60,43 +60,19 @@
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "ebook_pane",
-      "byType": "xpath",
-      "definition": "//span[@data-test-id='lcrpSplitEbookPane']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },{
-      "name": "ebook_iframe",
-      "byType": "id",
-      "definition": "splitScreenEbook",
-      "frame": "default",
-      "specialInstr": "NA" 
-    },{
-      "name": "popout_ereader",
-      "byType": "xpath",
-      "definition": "//a[@data-test-id='openSplitScreenNewTabBtn']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },{
-      "name": "close_ereader",
-      "byType": "xpath",
-      "definition": "//a[@data-test-id='closeSplitScreenEbook']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },{
-      "name": "reading_lock_lcrp",
+      "name": "reading_lock",
       "byType": "xpath",
       "definition": "//div[@data-test-id='keepReadingPanel']",
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "take_quiz_ebook_lcrp",
+      "name": "take_quiz_ebook",
       "byType": "xpath",
       "definition": "//*[@id='readingTakeQuizBtn']",
       "frame": "default",
       "specialInstr": "NA"
     },{
-      "name": "next_book_lcrp",
+      "name": "next_book",
       "byType": "xpath",
       "definition": "//h3[@id='readingNextReadingBtn']",
       "frame": "default",

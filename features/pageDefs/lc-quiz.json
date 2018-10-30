@@ -162,18 +162,6 @@
       "definition": "//button[@data-test-id='midWayModalNextQuestionBtn']",
       "frame": "default",
       "specialInstr": "NA"
-    },{
-      "name": "popout_ereader",
-      "byType": "xpath",
-      "definition": "//a[@data-test-id='openSplitScreenNewTabBtn']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },{
-      "name": "close_ereader",
-      "byType": "xpath",
-      "definition": "//a[@data-test-id='closeSplitScreenEbook']",
-      "frame": "default",
-      "specialInstr": "NA"
     }
   ]
 }

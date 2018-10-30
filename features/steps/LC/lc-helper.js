@@ -4,36 +4,38 @@ const { sleep } = require('../../../app/driver');
 const assert = require('assert');
 
 let studentView = {
-  landingPage: new PageObject('lc-student-view.json', stepsPath),
+  lcrpPage: new PageObject('lc-student-lcrp.json', stepsPath),
+  lcPage: new PageObject('lc-student-lc.json', stepsPath),
+  commonPage: new PageObject('lc-student-common.json', stepsPath),
   quizPage: new PageObject('lc-quiz.json', stepsPath)
 };
 
 // Returns array of 3 values, 2nd is number of read readings 3rd is total readings.
 const getReadingInfo = async function () {
-  var readings = await studentView.landingPage.getElementValue('total_readings');
-  var regex = /(\d+) of (\d+)/;
+  let readings = await studentView.lcrpPage.getElementValue('total_readings');
+  let regex = /(\d+) of (\d+)/;
   return readings.match(regex)
 }
 
 const verifyEbook = async function (topic) {
-  var ebookPanel = await studentView.landingPage.checkWebElementExists('ebook_pane');
+  let ebookPanel = await studentView.commonPage.checkWebElementExists('ebook_pane');
   assert(ebookPanel, 'Ebook panel did not open.')
-  var ebookTitle = await studentView.landingPage.getElementValue('ebook_iframe', 'name');
+  let ebookTitle = await studentView.commonPage.getElementValue('ebook_iframe', 'name');
   assert(topic.trim() === ebookTitle.trim(), 'The wrong ebook opened, actually: ' + ebookTitle + '\n expected: ' + topic);
 }
 
 const parseQuestion = async function () {
-  var questionText = await studentView.quizPage.getElementValue('whole_question');
-  var question = questionText.split(/\n/g)[0];
+  let questionText = await studentView.quizPage.getElementValue('whole_question');
+  let question = questionText.split(/\n/g)[0];
   question = question.replace(/:/g, '":"');
   question = question.replace(/, /g, '","');
   question = '{"' + question + '"}';
-  var questionObj = JSON.parse(question);
+  let questionObj = JSON.parse(question);
   return questionObj;
 }
 
 const checkLevel = async function (question) {
-  var points = 5;
+  let points = 5;
   await sleep(500)
   switch (question.Type) {
     case 'FB':
@@ -43,9 +45,9 @@ const checkLevel = async function (question) {
       points = points + parseInt(question.Level) * 10;
   }
   // Need to keep state for 'rushing' to handle points later
-  var pointsString = await studentView.quizPage.getElementValue('question_points')
-  var regex = /Question Value: (\d+) points/;
-  var pointList = pointsString.match(regex)
+  let pointsString = await studentView.quizPage.getElementValue('question_points')
+  let regex = /Question Value: (\d+) points/;
+  let pointList = pointsString.match(regex)
   if (question.incorrect) {
     assert(parseInt(pointList[1]) < points, 'Question level: ' + question.Level + '\nExpected ' + pointList[1] + ' to be less than ' + points)
   } else {
@@ -55,11 +57,12 @@ const checkLevel = async function (question) {
 }
 
 const answerQuestion = async function (question, answer) {
-  await sleep(5000)
+  if (answer !== 'Correct') {
+    await sleep(5000)
+  }
   switch (question.Type) {
     case 'FB':
       await studentView.quizPage.populate('fill_in_the_blank_answer', answer)
-      await sleep(500)
       await studentView.quizPage.populate('submit_answer', 'click');
       break;
     case 'SC':
@@ -70,10 +73,10 @@ const answerQuestion = async function (question, answer) {
       }
       break;
     case 'MC':
-      var ordered = question.Ordered;
-      var answerList = await studentView.quizPage.getWebElements('mc_answers');
-      for (var i = 0; i < answerList.length; i++) {
-        var text = await answerList[i].getText();
+      let ordered = question.Ordered;
+      let answerList = await studentView.quizPage.getWebElements('mc_answers');
+      for (let i = 0; i < answerList.length; i++) {
+        let text = await answerList[i].getText();
         if (ordered) {
           assert(text.includes(i.toString()) > -1, 'The index was not correct. \n Expected: ' + i + '\nActually: ' + text.charAt(text.length - 1));
         }

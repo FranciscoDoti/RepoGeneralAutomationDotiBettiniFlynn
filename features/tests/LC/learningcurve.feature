@@ -1,34 +1,57 @@
 Feature: Learning Curve Assignment
 
 
-Scenario: Student Takes a LC Assessment
-Given I log into "LCRPUrl" as "student1"
+Scenario: Student Takes a LCRP Assessment
+Given I start a new assignment as "student1"
+Given I log into an assignment in "LCRPUrl" as "student1"
 When I view the student landing page for LCRP
 When I click on a reading the ebook view opens
 And I read the rest of the ebooks the quiz button is shown
-Then I can start the assessment
+Then I can start the assessment "LCRP"
 Given I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
 And I see a question, I can answer it "Wrong"
 And I see a question, I can open the ebook
-And I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
 Then I complete 50% of the assignment
-And I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
+Then I complete 100% of an LCRP assignment
+Given I log into an assignment in "LCRPUrl" as "instructor"
+
+Scenario: Student Takes a LCRP Assessment
+Given I start a new assignment as "student1"
+Given I log into an assignment in "LCRPUrl" as "student1"
+When I view the student landing page for LCRP
+When I click on a reading the ebook view opens
+And I read the rest of the ebooks the quiz button is shown
+Then I can start the assessment "LCRP"
+Given I see a question, I can answer it "Correct"
 And I see a question, I can answer it "Wrong"
-And I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
-And I see a question, I can answer it "Correct"
+And I see a question, I can open the ebook
+Then I complete 50% of the assignment
+Then I complete 100% of an LCRP assignment
+Given I log into an assignment in "LCRPUrl" as "instructor"
+
+Scenario: Student Takes a LC Assessment
+Given I start a new course as "student2"
+Given I start a new assignment as "student2"
+Given I log into an assignment in "LCUrl" as "student2"
+When I view the student landing page for LC
+Then I can start the assessment "LC"
+Given I see a question, I can answer it "Correct"
 And I see a question, I can answer it "Wrong"
-Then I complete 100% of the assignment
-Given I log into "LCRPUrl" as "instructor"
+And I see a question, I can open the ebook
+Then I complete 50% of the assignment
+Then I complete 100% of an LC assignment
+Given I log into an assignment in "LCUrl" as "instructor"
 
-Scenario: Instructor can see Students work
-
-
+Scenario: Student Takes a LC Assessment
+Given I start a new assignment as "student2"
+Given I log into an assignment in "LCUrl" as "student2"
+When I view the student landing page for LC
+Then I can start the assessment "LC"
+Given I see a question, I can answer it "Correct"
+And I see a question, I can answer it "Wrong"
+And I see a question, I can open the ebook
+Then I complete 50% of the assignment
+Then I complete 100% of an LC assignment
+Given I log into an assignment in "LCUrl" as "instructor"
 
 #### TBD
