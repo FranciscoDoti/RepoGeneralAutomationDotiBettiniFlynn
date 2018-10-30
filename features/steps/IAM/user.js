@@ -470,8 +470,6 @@ When(/^User "(.*)" has filled all mandatory fields except first name$/, async fu
 When(/^I verify the Sign up button is disabled "(.*)"$/, async function (check) {
     await pages.createAccount.assert('signUp_btn', 'disabled');
     console.log(check)
-    // const button = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]")))
-    // await getDriver().wait(until.elementIsDisabled(button), 3000);
 });
 
 When(/^User "(.*)" has filled all mandatory fields except last name$/, async function (account) {
