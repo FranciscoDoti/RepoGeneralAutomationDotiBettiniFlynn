@@ -108,10 +108,22 @@ Feature: Authentication for Achieve via IAM
     #     When User "student" has filled all mandatory fields except last name
     #     And I verify the Sign up button is disabled "Verify that without entering all Mandatory Fields (lastname)"
 
-    Scenario: Verify that without entering all Mandatory Fields (password)
+    Scenario Outline: Verify that without entering all Mandatory Fields (login, password)
         Given I have opened Achieve "UserCreationUrl"
-        When User "student" has filled all mandatory fields except password
-        And I verify the Sign up button is disabled "Verify that without entering all Mandatory Fields (password)"
+        When User <login> has filled all mandatory fields except password
+        When User has filled out the form with password: <password>
+        And I verify the Sign up button is disabled <case>
+        Examples:
+        |login        | password | case |
+        |"student"    | "ABab@12"| "if password is too short" |
+        |"student"    | ""       | "if password is empty" |
+        |"student"    | "ABabc@123"  | "if password is perfect" |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@" | "if password is too long??" |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$"| "if password is too long"   |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321"  | "if password is no special" |
+        |"student"    | "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321"  | "if password is no upper"   |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321"  | "if password is no lower"   |
+
 
     # Scenario: Verify the Terms of Purchase link directs to the page
     #     Given I have opened Achieve "UserCreationUrl"
