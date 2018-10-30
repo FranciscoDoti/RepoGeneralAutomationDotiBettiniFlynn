@@ -138,7 +138,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter 1: Colliding Wars');
+  await pages.authProducer.populate('folder_name', 'Chapter 1: Content');
 
   try {
     log.debug('Adding folder');
@@ -156,7 +156,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter2: American Experiments');
+  await pages.authProducer.populate('folder_name', 'Chapter2: Content');
 
   try {
     log.debug('Adding folder');
@@ -174,7 +174,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter1: Personality dvelopment in Adulthood; Intimacy: Connecting with Others');
+  await pages.authProducer.populate('folder_name', 'Chapter1: Content');
 
   try {
     log.debug('Adding folder');
@@ -192,7 +192,7 @@ Then('I will add the following content to the resource page:', async function ()
     log.error(err);
   }
 
-  await pages.authProducer.populate('folder_name', 'Chapter 2: Psychopathology');
+  await pages.authProducer.populate('folder_name', 'Chapter 2: Content');
 
   try {
     log.debug('Adding folder');
@@ -476,7 +476,7 @@ Then('I click on link of the file', async function () {
 });
 Then('I click on add content', async function () {
   try {
-    log.debug('Clicking on add Introduction and Research Methods content');
+    log.debug('Clicking on add content');
     await pages.authProducer.populate('Adding_chapter_content', 'click');
     log.debug(`Chapter content was added : ${clickedButton}`);
   } catch (err) {
@@ -489,6 +489,8 @@ Then('I click on add content', async function () {
   } catch (err) {
     log.error(err);
   }
+
+  await sleep(5000);
 });
 Then('I reorder the items', async function () {
   try {
@@ -849,7 +851,7 @@ When(/^I open the invite link and login with "(.*)" account details$/, async fun
     log.error(err);
   }
   try {
-    const hyperlink = await getDriver().findElement(By.xpath("//a[contains(@href, 'https://int-achieve-courseware-frontend.mldev.cloud/courses/n8pzzu')]")).getAttribute('href');
+    const hyperlink = await getDriver().findElement(By.xpath("(//*[@target='_blank'])[32]")).getAttribute('href');
     log.debug(hyperlink + 'hyperlink');
     log.debug('Clicking on reset password');
     await getDriver().get(hyperlink);
@@ -1028,6 +1030,16 @@ Then('I click on chapter 1 R&P folder', async function () {
     log.debug('Clicking on chapter 1 open folder');
     await pages.authInstructor.populate('open_folder_chapter1_activity', 'click');
     log.debug(`chapter 1 open folder was clicked: ${clickedButton}`);
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+When('I click on Purchase read&Practice button', async function () {
+  try {
+    log.debug('Clicking on Purchase read&Practice button');
+    await pages.student.populate('purchase_R&P_Practice', 'click');
+    log.debug(`Purchase read&Practice button was clicked: ${clickedButton}`);
   } catch (err) {
     log.error(err);
   }

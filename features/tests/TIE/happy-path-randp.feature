@@ -62,15 +62,15 @@ Background:
         And I click on course card "Testcourse" template
         And I click on Resource tab
         And add content into chapter 
-        And I click on Activity search button and enter "Colliding Worlds"
+        And I click on Activity search button and enter "Introduction and Resarch Methods"
         And I click on add content 
         And I click on Activity search button and enter "American Experiments"
         And I click on add content 
         And I click on Activity search button and enter "Personality Development in Adulthood"
         And I click on add content
-        And I click on Activity search button and pass the value "17b. Psychopathology"
+        And I click on Activity search button and pass the value "do not use"
         And I click on add content
-        And I click on Activity search button and pass the value "Psychology’s Research Ethics"
+        And I click on Activity search button and pass the value "DECIMALS"
         And I click on add content 
         And I click on Activity search button and pass the value "How to Read a Graph"
         And I click on add content 
@@ -109,7 +109,7 @@ Background:
         Then I populate the Invite Students "student" page 
              #| inviteBtn | sendEmailBtn | emailList                     | cancelBtn | sendInvitesBtn |
              #| NA        | Click        | "$loginStudent1.email_address"| NA        | Click          |
-         And I click on course card "E2E101"
+        And I click on course card "E2E101"
         And I click on Resource tab of Testcourse
         And I click on Open Folder
         Then I click on Read and Practice 
@@ -131,13 +131,15 @@ Background:
         And I elect it with the following data:
         And I sign out of Achieve
     
-     Scenario: Enroll into course with link and access code
+    Scenario: Enroll into course with link and access code
         Given I have opened Achieve "ThirdpartyURL"
         When I log in as "student"
         And I open the invite link and login with "student" account details
-        Then validate that the following information is correct on the Course Access Code page
-            |courseName     | courseCode    | Instructor         | accessType      |
-            | $course1.name | $course1.code | $instructor1.email | [$course.pm]    |
+        And I click on Purchase read&Practice button
+
+        #Then validate that the following information is correct on the Course Access Code page
+           # |courseName     | courseCode    | Instructor         | accessType      |
+           # | $course1.name | $course1.code | $instructor1.email | [$course.pm]    |
 
   
     Scenario: Student enroll in the class and takes the quiz after reading the content assigned to the student in read&practice activity 
@@ -150,7 +152,7 @@ Background:
         And I start the quiz 
         And I answer the questions
         And I click on submit button
-        And I click on alert message
+        #And I click on alert message
         #And I answer the questions
         #And I click on submit button
         #And I validate the content 
