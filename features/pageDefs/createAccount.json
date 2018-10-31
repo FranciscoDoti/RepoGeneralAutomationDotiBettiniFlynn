@@ -91,7 +91,7 @@
 			"byType": "id",
 			"definition": "Security_Question_3_Answer__c",
 			"frame": "default",
-			"specialInstr": "NA"
+			"specialInstr": "tabAfter"
 		},
 		{
 			"name": "institution",
@@ -417,6 +417,78 @@
 			"name": "Security_question_3_message",
 			"byType": "id",
 			"definition": "Security_Question_3_Answer__c_message",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_1_error_int",
+			"byType": "id",
+			"definition": "Security_Question_1_Answer__c",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_2_error_int",
+			"byType": "id",
+			"definition": "Security_Question_2_Answer__c",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_3_error_int",
+			"byType": "id",
+			"definition": "Security_Question_3_Answer__c",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_1_error_preprod",
+			"byType": "id",
+			"definition": "Security_Question_1_Answer__c_message",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_2_error_preprod",
+			"byType": "id",
+			"definition": "Security_Question_2_Answer__c_message",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_3_error_preprod",
+			"byType": "id",
+			"definition": "Security_Question_3_Answer__c_message",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_1_error_preprod_blank",
+			"byType": "id",
+			"definition": "Security_Question_1_Answer__c_error",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_2_error_preprod_blank",
+			"byType": "id",
+			"definition": "Security_Question_2_Answer__c_error",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
+			"name": "Security_question_3_error_preprod_blank",
+			"byType": "id",
+			"definition": "Security_Question_3_Answer__c_error",
 			"frame": "default",
 			"specialInstr": "NA"
 

@@ -55,8 +55,8 @@ When('I verify the functionality of first name and lastname by entering large ch
   }
 });
 
-Then('I verify validation message in the first name field', async function () {
-  console.log('Verify that First Name field and last name validations are working as expected')
+Then('I verify large char validation message in the first name field', async function () {
+  console.log('Verify that First Name field validations are working as expected')
   const errorText = await pages.createAccount.getElementValue('largechar_firstname');
   if (errorText == 'Limit of 40 characters reached') {
     console.log('passed');
@@ -65,7 +65,8 @@ Then('I verify validation message in the first name field', async function () {
   }
 })
 
-Then('I verify validation message in the last name field', async function () {
+Then('I verify large char validation message in the last name field', async function () {
+  console.log('Verify that Last Name field validations are working as expected')
   const errorText = await pages.createAccount.getElementValue('largechar_lastname');
   if (errorText == 'Limit of 40 characters reached') {
     console.log('passed');
@@ -87,34 +88,6 @@ Then('I verify the Sign up button is disabled', async function () {
     log.error(err);
   }
 });
-When('I verify the functionality of first name and lastname by entering numbers', async function () {
-  try {
-    await pages.createAccount.populate('firstName', '1234');
-    await pages.createAccount.populate('lastName', '1234');
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-When('I verify the functionality of first name and lastname by entering symbols', async function () {
-  try {
-    await pages.createAccount.populate('firstName', 'w@0r%');
-    await pages.createAccount.populate('lastName', 'w@0r%');
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-Then(/^I enter the first name, lastname and email address without symbols and number using the "(.*)" account details$/, async function (account) {
-  try {
-    const user = await loadLogin(account)
-    await pages.createAccount.populate('firstName', user.firstName);
-    await pages.createAccount.populate('lastName', user.lastName);
-    await pages.createAccount.populate('email', user.username);
-  } catch (err) {
-    log.error(err);
-  }
-});
 
 When('I enter password having eight characters not fullfilling the criteria', async function () {
   try {
@@ -125,17 +98,14 @@ When('I enter password having eight characters not fullfilling the criteria', as
     log.error(err);
   }
 });
+
 When('I check the error message', async function () {
-  try {
-    console.log('Verify that password field validations are working as expected')
-    const errorText = await pages.createAccount.getElementValue('password_error');
-    if (errorText == 'Not a valid password') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  console.log('Verify that password field validations are working as expected')
+  const errorText = await pages.createAccount.getElementValue('password_error');
+  if (errorText == 'Not a valid password') {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 
@@ -150,7 +120,7 @@ When(/^I enter password from "(.*)" account having eight character fullfilling t
   }
 });
 
-When('I do not enter text in password field and click on confirm password', async function () {
+When('I do not enter text in password field but I do enter text into confirm password field', async function () {
   try {
     log.debug('clicking on password button');
     await pages.createAccount.populate('password', '');
@@ -201,37 +171,97 @@ When(/^I Select SecurityQuestions from "(.*)" account and I enter 150 character 
   }
 });
 
-Then('I verify the message displayed', async function () {
-  try {
-    const errorText = await pages.createAccount.getElementValue('Security_question_1_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+When(/^I verify that if I Select Security Questions of the "(.*)" account then I enter an empty string for the answers$/, async function (account) {
+  // try {    
+    const user = await loadLogin(account)
+    log.debug('clicking on Security Question button');
+    await pages.createAccount.populate('Security_Question_1__c', user.sq1);
+    await pages.createAccount.populate('Security_Question_1_Answer__c', '');
+    await pages.createAccount.populate('Security_Question_2__c', user.sq2);
+    await pages.createAccount.populate('Security_Question_2_Answer__c', '');
+    await pages.createAccount.populate('Security_Question_3__c', user.sq3);
+    await pages.createAccount.populate('Security_Question_3_Answer__c', '');
+    await pages.createAccount.populate('institution', '');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+});
+
+When(/^I enter the value of "(.*)" for each security question answer$/, async function (answer) {
+  log.debug('Filling out each Security Question button');
+  await pages.createAccount.populate('Security_Question_1_Answer__c', answer);
+  await pages.createAccount.populate('Security_Question_2_Answer__c', answer);
+  await pages.createAccount.populate('Security_Question_3_Answer__c', answer);
+  await pages.createAccount.populate('institution', '');
+});
+
+Then(/^I verify the content of the security question error messages displayed is "(.*)" in preprod$/, async function (message) {
+
+  const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_preprod');
+  if (sqOneErrorText == message) {
+    console.log('passed with preprod expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 1, for preprod expectations');
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('Security_question_2_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  const sqTwoErrorText = await pages.createAccount.getElementValue('Security_question_2_error_preprod');
+  if (sqTwoErrorText == message) {
+    console.log('passed with preprod expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 2, for preprod expectations');
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('Security_question_3_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  const sqThreeErrorText = await pages.createAccount.getElementValue('Security_question_3_error_preprod');
+  if (sqThreeErrorText == message) {
+    console.log('passed with preprod expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 3, for preprod expectations');
   }
+
+})
+
+Then(/^I verify the content of the security question error messages displayed is "(.*)" in preprod_blank$/, async function (message) {
+
+  const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_preprod_blank');
+  if (sqOneErrorText == message) {
+    console.log('passed with preprod_blank expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 1, for preprod_blank expectations');
+  }
+  const sqTwoErrorText = await pages.createAccount.getElementValue('Security_question_2_error_preprod_blank');
+  if (sqTwoErrorText == message) {
+    console.log('passed with preprod_blank expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 2, for preprod_blank expectations');
+  }
+  const sqThreeErrorText = await pages.createAccount.getElementValue('Security_question_3_error_preprod_blank');
+  if (sqThreeErrorText == message) {
+    console.log('passed with preprod_blank expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 3, for preprod_blank expectations');
+  }
+
+})
+
+Then(/^I verify the content of the security question error messages displayed is "(.*)" in int$/, async function (message) {
+
+  const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_int');
+  if (sqOneErrorText == message) {
+    console.log('passed with int expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 1, for int expectations');
+  }
+  const sqTwoErrorText = await pages.createAccount.getElementValue('Security_question_2_error_int');
+  if (sqTwoErrorText == message) {
+    console.log('passed with int expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 2, for int expectations');
+  }
+  const sqThreeErrorText = await pages.createAccount.getElementValue('Security_question_3_error_int');
+  if (sqThreeErrorText == message) {
+    console.log('passed with int expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 3, for int expectations');
+  }
+
 });
 
 When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any questions$/, async function (account) {
@@ -249,54 +279,7 @@ When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any ques
     log.error(err);
   }
 });
-Then('I Verify Error message is displayed', async function () {
-  try {
-    console.log('Verify that Security Question & Answer validations are working as expected without entering the question and answers');
-    const errorText = await pages.createAccount.getElementValue('sq1');
-    if (errorText == 'Must not be blank') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const errorText = await pages.createAccount.getElementValue('sq2');
-    if (errorText == 'Must not be blank') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const errorText = await pages.createAccount.getElementValue('sq3');
-    if (errorText == 'Must not be blank') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-});
-When(/^I Answer all the three security questions by comparing it to "(.*)" account$/, async function (account) {
-  try {
-    const user = await loadLogin(account)
-    console.log('clicking on securityQuestion button');
-    await pages.createAccount.populate('Security_Question_1__c', user.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', user.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', user.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', user.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', user.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', user.sq3_answer);
-    await pages.createAccount.populate('institution', '');
-  } catch (err) {
-    log.error(err);
-  }
-});
+
 Then(/^I verify list of Primary Institutions or schools will display starting with the letter "(.*)"$/, async function (Primary) {
   try {
     log.debug('Clickig on primary institute button');
