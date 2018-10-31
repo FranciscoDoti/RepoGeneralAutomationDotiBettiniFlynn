@@ -284,6 +284,7 @@ Then(/^I verify list of Primary Institutions or schools will display starting wi
   try {
     log.debug('Clickig on primary institute button');
     await pages.createAccount.populate('institution', Primary);
+    await pages.createAccount.populate('first_institution', 'click');
     log.debug(`primary institute button is clicked, ${clickedButton}`);
   } catch (err) {
     log.error(err);
@@ -305,26 +306,50 @@ Then('I verify the Sign up is disabled', async function () {
 
 Then(/^I Select "(.*)" in Primary Institution or School text box$/, async function (usacollege) {
   try {
-    log.debug('Clickig on primary institute button');
+    log.debug('Primary institute field filled');
     await pages.createAccount.populate('institution', usacollege);
-    log.debug(`primary institute button is clicked, ${clickedButton}`);
+    await pages.createAccount.populate('first_institution', 'click');
+    // What is "clickedButton" where is this coming from, is this boilerplate code?
+    // log.debug(`primary institute button is clicked, ${clickedButton}`);
   } catch (err) {
-    log.error(err);
+    throw new Error('Institions field has been filled', err);
   }
 });
-Then('I verify the Sign up button is disabled when Primary Institution or School text box', async function () {
-  try {
-    console.log('Verify that on selecting a US college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    }
-  } catch (err) {
-    log.error(err);
+
+When('I verify the opt-in checkbox is not checked', async function () {
+  const optInBoolean = await pages.createAccount.getElementValue('OptIn', 'selected');
+  if(optInBoolean === false) {
+    console.log('Passed optin is not checked');
+  } else {
+    throw new Error('Checkbox is checked');
   }
+
 });
+
+When('I verify the opt-in checkbox is checked', async function () {
+  const optInBoolean = await pages.createAccount.getElementValue('OptIn', 'selected');
+  if(optInBoolean === true) {
+    console.log('Passed optin is checked');
+  } else {
+    throw new Error('Checkbox is not checked');
+  }
+
+});
+
+// This is not DRY code, this step function is repeated 6 or seven times
+// Then('I verify the Sign up button is disabled when Primary Institution or School text box', async function () {
+//   try {
+//     console.log('Verify that on selecting a US college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
+//     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+//     if (verify.includes('disabled')) {
+//       console.log('passed');
+//     } else {
+//       console.log('failed');
+//     }
+//   } catch (err) {
+//     log.error(err);
+//   }
+// });
 
 When(/^I Select "(.*)" in Primary Institution text box$/, async function (canadacollege) {
   try {
@@ -335,19 +360,21 @@ When(/^I Select "(.*)" in Primary Institution text box$/, async function (canada
     log.error(err);
   }
 });
-Then('I verify the Sign up button is disabled when canada college is selected', async function () {
-  try {
-    console.log('Verify that on selecting a canada college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-});
+
+
+// Then('I verify the Sign up button is disabled when canada college is selected', async function () {
+//   try {
+//     console.log('Verify that on selecting a canada college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
+//     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+//     if (verify.includes('disabled')) {
+//       console.log('passed');
+//     } else {
+//       console.log('failed');
+//     }
+//   } catch (err) {
+//     log.error(err);
+//   }
+// });
 
 Then('I click on checkbox', async function () {
   try {
@@ -358,23 +385,23 @@ Then('I click on checkbox', async function () {
     log.error(err);
   }
 });
-Then('I verify the Sign up button is disabled when I click on check box', async function () {
-  try {
-    console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('failed');
-    } else {
-      console.log('passed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-});
+// Then('I verify the Sign up button is disabled when I click on check box', async function () {
+//   try {
+//     console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
+//     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+//     if (verify.includes('disabled')) {
+//       console.log('failed');
+//     } else {
+//       console.log('passed');
+//     }
+//   } catch (err) {
+//     log.error(err);
+//   }
+// });
 When('I click on privacy notice link', async function () {
   try {
     log.debug('Clickig on privacy noticelink');
-    await pages.createAccount.populate('Privacy_notice', 'click');
+    await pages.createAccount.populate('Privacy_notice', 'selected');
     log.debug(`Privacy notice link is clicked, ${clickedButton}`);
   } catch (err) {
     log.error(err);
@@ -684,26 +711,21 @@ When('I click on checkbox in account', async function () {
   }
 });
 
-Then('I click on Primary Institution', async function () {
+Then('I input too many characters into the Primary Institution field', async function () {
   try {
-    log.debug('Clickig on Primary Institution');
+    log.debug('I input too many characters into the Primary Institution field');
     await pages.createAccount.populate('institution', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     log.debug(`Primary Institution is clicked, ${clickedButton}`);
   } catch (err) {
-    log.error(err);
+    throw new Error('Unable to input too many characters into the Primary Institution field');
   }
 });
 
-Then('I verify the message', async function () {
-  try {
-    const errorText = await pages.createAccount.getElementValue('institution_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+Then('I verify the primary institution error message of too many characters', async function () {
+  const errorText = await pages.createAccount.getElementValue('institution_message');
+  if (errorText == 'Limit of 150 characters reached') {
+  } else {
+    throw new Error('Primary institution error message of too many characters not showing')
   }
 });
 

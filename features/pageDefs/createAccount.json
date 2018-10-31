@@ -94,6 +94,20 @@
 			"specialInstr": "tabAfter"
 		},
 		{
+			"name": "institution_list",
+			"byType": "classname",
+			"definition": "react-autosuggest__suggestions-list",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "first_institution",
+			"byType": "id",
+			"definition": "react-autowhatever-1--item-0",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
 			"name": "institution",
 			"byType": "id",
 			"definition": "institution",
