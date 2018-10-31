@@ -5,7 +5,7 @@ Media Producer creates a course
 Background:
         Given I have opened Achieve "loginURL"
     
-    Scenario: Create course in Achieve for "Bookname??"
+    Scenario: Verify that Media Producer is able to create Read&Practice Template 
         When I have logged in as "media_producer_1"
         When I click the create_course button to create course
         When save the value to variable
@@ -15,39 +15,12 @@ Background:
             |course_name         | TestCourse |
             |course_code         | E2E 101 |
             |isbn_number         | 9781464199495 |
-            |course_status       | draft |
+            |course_status       | Draft|
         When I elect to create a course with the following data:
-            #|courseType | ProductModel    | courseName              | courseCode        | ISBN           | courseStatus | cancelBtn | saveBtn |
-            #| Template  | Read & Practice | [$course.templatename] |  [$course.code]   | [$course.ISBN] | Draft        | NA        | Click   |
-        #Then I validate that the course "$course.templatename" is listed in the courses page
-        #And I create a folder named <folderName> on the resources screen
-        And I create a folder named on the resources screen
-            #| folderName |
-            #| Chapter 1  |
-            #| Chapter 2  |
-        Then I will add the following content to the resource page:
-            #| contentName                                  | 
-            #| Chapter 1. Introduction and Research Methods |
-            #| Chapter 1. Background to the Study of Psychology |
-            #| Chapter 1. The People and the Field |
-            #| Chapter 2: North America |
-    
-        Then I move the activity named to the folder named
-        #And I move the activity named <activity> to the folder named <folderName>
-            #| activityName                                     | folderName |
-            #| Chapter 1. Introduction and Research Methods     | Chapter 1  |
-            #| Chapter 1. Background to the Study of Psychology | Chapter 1  |
-            #| Chapter 1. The People and the Field              | Chapter 1  |
-            #| Chapter 2: North America                         | Chapter 2  |
-
-        Then I reorder the items on the course resource page to be in this order:
-            #| itemName  |
-            #| Chapter 1 |
-            #| Chapter 2 |
         And I sign out of Achieve
     
 
-    Scenario: Convert a template from a draft to a Template
+    Scenario: Verify that Media Producer is able to add activities in Read&Practice Template 
         When I have logged in as "media_producer_1"
         And I click on open menu
         When I elect to edit the course named "course1.templatename"
@@ -61,8 +34,10 @@ Background:
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card "Testcourse" template
         And I click on Resource tab
+        And I create a folder named on the resources screen
+        And I reorder the items on the course resource page to be in this order:
         And add content into chapter 
-        And I click on Activity search button and enter "Introduction and Resarch Methods"
+        And I click on Activity search button and enter "Colliding Worlds"
         And I click on add content 
         And I click on Activity search button and enter "American Experiments"
         And I click on add content 
@@ -72,17 +47,21 @@ Background:
         And I click on add content
         And I click on Activity search button and pass the value "DECIMALS"
         And I click on add content 
-        And I click on Activity search button and pass the value "How to Read a Graph"
-        And I click on add content 
+        #And I click on Activity search button and pass the value "How to Read a Graph"
+        #And I click on add content 
         And I click on Activity search button and pass the value "LO asset verification Edited"
         Then I reorder the items
         And I sign out of Achieve
 
-    Scenario: Assign the course to an instructor
-        When I have logged in as "admin_alt" 
+    Scenario: Verify that Media Producer is able to copy the course from Read&Practice Template 
+        When I have logged in as "media_producer_1" 
         When I search for "Testcourse"
         And  I click on open menu
         Then I copy the course named "Testcourse" to the name "E2E101"
+        And I sign out of Achieve
+
+    Scenario: Verify that customer support i sable to add instructor to the read& practice course  
+        When I have logged in as "customer_support_1"
         When I search for "E2E101"
         And I click on open menu
         Then I open the Manage Instructors page on the course named "$course1.name"
@@ -90,9 +69,9 @@ Background:
         And I validate that the Course Specific Link opens the course named "$course1.name"
         And I close the Manage Instructors page
         And I sign out of Achieve
-        
 
-    Scenario: As an instructor, login and mange the course settings and invite students
+    
+    Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
         And I click on open menu
         And I elect to edit the course named "$course1.name"
@@ -100,7 +79,7 @@ Background:
             |values             | course|
             |Template_status    | Active On Date |
             |Active_Date        | @Date('now')   |
-            |course_end_date    | @Date('+1m')   |
+            |course_end_date    | @Date('+2m')   |
         And I elect to edit the course with the following data
                  #|courseStatus         | activeOnDate   | courseEndDate |saveBtn  |
                 #| Active On Date      | @Date('now')   | @Date('+1m')  | Click   |
@@ -135,15 +114,11 @@ Background:
         Given I have opened Achieve "ThirdpartyURL"
         When I log in as "student"
         And I open the invite link and login with "student" account details
-        And I click on Purchase read&Practice button
-
-        #Then validate that the following information is correct on the Course Access Code page
-           # |courseName     | courseCode    | Instructor         | accessType      |
-           # | $course1.name | $course1.code | $instructor1.email | [$course.pm]    |
-
-  
-    Scenario: Student enroll in the class and takes the quiz after reading the content assigned to the student in read&practice activity 
-        When I have logged in as "student"
+        And I click on Grace period
+        And I click on Finish Enrollenment 
+        Then I validate that the following information is correct on the Course Access Code page
+           |courseName     | courseCode    | Instructor         | accessType      |
+           | $course1.name | $course1.code | $instructor1.email | [$course.pm]    |
         And I click on course card "E2E101"
         And I click on Resuource tab
         And I click on Open Folder
@@ -152,13 +127,7 @@ Background:
         And I start the quiz 
         And I answer the questions
         And I click on submit button
-        #And I click on alert message
-        #And I answer the questions
-        #And I click on submit button
-        #And I validate the content 
-        #And I click on close message
-        #And I click on Read&Practice
-        # And I click on Gradebook
+        And I click on alert message
     
     
         

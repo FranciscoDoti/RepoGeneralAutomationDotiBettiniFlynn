@@ -68,7 +68,7 @@ Then('I validate that the course "$course.templatename" is listed in the courses
     if (await pages.authAdmin.checkWebElementExists('course_validation')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -76,7 +76,7 @@ Then('I validate that the course "$course.templatename" is listed in the courses
 });
 
 Then('I create a folder named on the resources screen', async function () {
-  try {
+  /*try {
     log.debug('Clicking on course card');
     await pages.authProducer.populate('card_name', 'click', 'resources_tab');
     log.debug(`create course card was clicked: ${clickedButton}`);
@@ -90,7 +90,7 @@ Then('I create a folder named on the resources screen', async function () {
     log.debug(`create resource tab was clicked: ${clickedButton}`);
   } catch (err) {
     log.error(err);
-  }
+  }*/
 
   try {
     log.debug('Clicking on add folder');
@@ -129,7 +129,7 @@ Then('I create a folder named on the resources screen', async function () {
   }
 });
 
-Then('I will add the following content to the resource page:', async function () {
+/* Then('I will add the following content to the resource page:', async function () {
   try {
     log.debug('Clicking on add folder');
     await pages.authProducer.populate('add_folder', 'click');
@@ -331,7 +331,7 @@ Then('I move the activity named to the folder named', async function () {
   } catch (err) {
     log.error(err);
   }
-});
+});*/
 Then('I reorder the items on the course resource page to be in this order:', async function () {
   try {
     log.debug('Clicking options button');
@@ -407,7 +407,7 @@ Then('I validate that the course card named "course1.templatename" exists on the
     if (await pages.authProducer.checkWebElementExists('Template_validate')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('Failed');
     }
   } catch (err) {
     log.error(err);
@@ -671,12 +671,14 @@ Then(/^I copy the course named "Testcourse" to the name "(.*)"$/, async function
     log.error(err);
   }
   await pages.authAdmin.populate('copy_course_name', copy);
+  await sleep(3000);
   try {
     log.debug('Clicking save button');
     await pages.authAdmin.populate('save_button', 'click');
     log.debug(`Save button was clicked: ${clickedButton}`);
   } catch (err) {
     log.error(err);
+    await sleep(3000);
   }
 });
 When(/^I search "(.*?)"$/, async function (value) {
