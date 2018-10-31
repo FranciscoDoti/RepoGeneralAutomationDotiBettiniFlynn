@@ -17,7 +17,6 @@ const getCourses = function () {
 };
 
 const addAssignment = function (courseId, user, assignmentId) {
-
   courses[courseId][user][assignmentId] =
   {
     attempt: -1,

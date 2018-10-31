@@ -1,6 +1,7 @@
 Feature: Learning Curve Read and Practice Assignment
 
 Scenario: Student Takes a LCRP Assessment
+Given I start a new course as "student1"
 Given I start a new assignment as "student1"
 Given I log into an assignment in "LCRPUrl" as "student1"
 When I view the student landing page for LCRP

@@ -28,7 +28,7 @@ Given(/^I log into an assignment in "(.*)" as "(.*)"$/, async function (urlKey, 
   if (user === 'instructor') {
     url += '&view=instructor'
   }
-  console.log(`Loading URL ${url}`);
+  log.debug(`Loading URL ${url}`);
   await getDriver().get(url);
   await sleep(5000);
 });
@@ -49,7 +49,7 @@ Given(/I retake the assignment as "(.*)"$/, async function (user) {
   let score = await studentView.quizPage.getElementValue('current_score');
   let scores = score.split(/\//);
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, user, lcInfo.assignment);
-  assignmentScore.targetScore = scores[1];
+  assignmentScore.targetScore = parseInt(scores[1]);
 })
 
 Given(/I start a new course as "(.*)"$/, async function (user) {
@@ -144,6 +144,28 @@ Given('I see a question, I can open the ebook', async function () {
   await studentView.commonPage.populate('close_ereader', 'click')
 })
 
+Given('I see a question, I can get a hint', async function () {
+  let question = await helper.parseQuestion();
+  await studentView.quizPage.populate('get_hint', 'click');
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+  question.incorrect = true;
+  let hintModal = await studentView.quizPage.checkWebElementExists('hint_answer_modal');
+  assert(hintModal, 'The Hint modal did not display after clicking the "Get a Hint" button');
+  await helper.checkLevel(question);
+  await helper.answerQuestion(question, question.answer)
+  assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+});
+
+Given('I see a question, I can get the answer', async function () {
+  let question = await helper.parseQuestion();
+  await studentView.quizPage.populate('get_hint', 'click');
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+
+  show_answer_correct_answer
+});
+
 Then('I complete 50% of the assignment', async function () {
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   while (assignmentScore.currentScore / assignmentScore.targetScore < 0.5) {
@@ -158,13 +180,13 @@ Then('I complete 50% of the assignment', async function () {
       await studentView.quizPage.populate('next_question_midway', 'click');
     }
   }
-})
+});
 
 When('I am done with an assessment, I see my score and can retake the assessment', async function () {
   let retakeButton = await studentView.lcrpPage.checkWebElementExists('retake_quiz');
   assert(retakeButton, 'The Retake button does not exist after completing an assignment');
   // Also Check Score
-})
+});
 
 Then('I complete 100% of an LCRP assignment', async function () {
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
@@ -179,7 +201,7 @@ Then('I complete 100% of an LCRP assignment', async function () {
       await studentView.quizPage.populate('complete_quiz_lcrp', 'click');
     }
   }
-})
+});
 
 Then('I complete 100% of an LC assignment', async function () {
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
@@ -196,10 +218,17 @@ Then('I complete 100% of an LC assignment', async function () {
       await studentView.quizPage.populate('back_to_study_plan', 'click')
     }
   }
-})
+});
 
-Given('A question I can get a hint', async function () {})
-Given('A question I can get the answer', async function () {})
+Given('I have completed an LC assignment, I can go back and answer more questions.', async function () {
+  let resumeButton = studentView.lcPage.checkWebElementExists('start_quiz_button');
+  assert(resumeButton, 'The resume activity button is not available after a student has finished a quiz.')
+  await studentView.lcPage.populate('start_quiz_button', 'click');
+  let question = await helper.parseQuestion();
+  assert(question !== undefined, 'Was not able to load question.')
+  studentView.lcPage.populate('next_question', 'click');
+  await sleep(5000)
+});
 
 AfterAll(function () {
   console.log(JSON.stringify(courses.getCourses()));
