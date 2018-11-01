@@ -1,0 +1,176 @@
+{
+	"webElements": [
+        {
+            "name": "course_card_button",
+			"byType": "classname",
+			"definition": "DOD8 CourseCard_active CourseCard_product_1",
+			"frame": "default",
+            "specialInstr": "NA",
+            "waitTobeVsible":"resources_tab"
+        },
+
+        {
+            "name":"resources_tab",
+            "byType":"xpath",
+            "definition":"//*[@id='react-tabs-20']/span",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+
+        {
+            "name":"Open_folder",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div/div/div[4]/div/div/div/div[2]/div[2]/div[1]/div/div/div[1]/div/button[1]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Open_folder_chapter1",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div/div/div[4]/div/div/div/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div/div[1]/div/button[1]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"chapter_1_r&p",
+            "byType":"xpath",
+            "definition":"//*[@class='_3Jn1']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Reading_verification",
+            "byType":"xpath",
+            "definition":"//*[contains(text(),'Next Section')] ",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Quiz",
+            "byType":"classname",
+            "definition":"btn-cdl-main AssignmentReading__takeQuizButton__r_fnP",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Read_ebook",
+            "byType":"xpath",
+            "definition":"//*[@id='root']/div/div/div[2]/div[3]/div/div/div/div[1]/button/div/span",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Hint_after_read_ebook",
+            "byType":"classname",
+            "definition":"btn-cdl-secondary HintButton__hintButtonBase__2Qcn7 HintButton__splitContent__2sAg4",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Highlight",
+            "byType":"classname",
+            "definition":"HighlightOptions__add-highlight__text--1inKwrsW03",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Multiple_choice",
+            "byType":"xpath",
+            "definition":"//*[@id='root']/div/div/div[2]/div[2]/div/div/div/form/fieldset/label[1]/span",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+
+        {
+            "name":"Submit_answer",
+            "byType":"xpath",
+            "definition":"//*[@id='root']/div/div/div[2]/div[3]/div/button",
+            "frame":"default",
+            "specialInstr":"NA"
+        
+        },
+        { 
+            "name":"Next_Question",
+            "byType":"classname",
+            "definition":"//*[@id='root']/div/div/div[2]/div[3]/div/div/div/div[1]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Note_highlight",
+            "byType":"xpath",
+            "definition":"//*[text()='What Is Psychology?']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"view_study_plan",
+            "byType":"classname",
+            "definition":"btn-cdl-main LCRP-CompletedActivityModal__studyPlanButton__2JHhv",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"modal_content",
+            "byType":"xpath",
+            "definition":"//*[@class='modal-content']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"close_message",
+            "byType":"classname",
+            "definition":"LCRP-CompletedActivityModal__closeIcon__1pKDo",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"back_study_plan",
+            "byType":"classname",
+            "definition":"Clickable__base__6UTKl Activity__headerClickable__3Ubz4 Clickable__colorInherit__hnmAj",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+
+        {
+            "name":"close_Reading&Practice",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Close Learning Curve Read & Practice']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Gradebook",
+            "byType":"xpath",
+            "definition":"//*[@id='react-tabs-6']/span",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"alert_message",
+            "byType":"xpath",
+            "definition":"//*[text()='OK']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+
+
+        }
+
+
+    
+    
+    
+
+    ]
+
+}

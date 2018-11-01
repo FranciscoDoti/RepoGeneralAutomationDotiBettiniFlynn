@@ -1,6 +1,6 @@
 const { When, Then} = require('cucumber');
 const path = require('path');
-const { By} = require('selenium-webdriver');
+const { By, until } = require('selenium-webdriver');
 const { loadConfig, loadLogin } = require('../../../app/util');
 const { assert } = require('chai');
 const expect = require('chai')
@@ -12,35 +12,37 @@ let pages = {
   createAccount: new PageObject('createAccount.json', stepsPath),
   navigation: new PageObject('navigation.json', stepsPath)
 }
-When('I verify the functionality of first name and lastname by not entering', async function () {
+When(/^I verify the functionality of first name by entering "(.*)"$/, async function (firstname) {
   try {
-    await pages.createAccount.populate('firstName', '');
-    await pages.createAccount.populate('lastName', '');
+    await pages.createAccount.populate('firstName', firstname);
   } catch (err) {
     log.error(err);
   }
 });
-Then('I verify validation message for first name and last name', async function () {
+When(/^I verify the functionality of last name by entering "(.*)"$/, async function (lastname) {
   try {
-    console.log('Verify that First Name field and last name validations are working as expected')
-    const errorText = await pages.createAccount.getElementValue('first_error');
-    if (errorText == 'First name must not be blank and cannot contain numbers/special characters') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
+    await pages.createAccount.populate('lastName', lastname);
+    if (lastname == '') {
+      await pages.createAccount.populate('email', '');
     }
   } catch (err) {
     log.error(err);
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('Last_error');
-    if (errorText == 'Last name must not be blank and cannot contain numbers/special characters') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+});
+Then('I verify validation message for first name', async function () {
+  const firstNameErrorText = await pages.createAccount.getElementValue('first_error');
+  if (firstNameErrorText == 'First name must not be blank and cannot contain numbers/special characters') {
+    console.log('Passed: Verify that First Name field validations are working as expected');
+  } else {
+    throw new Error('failed');
+  }
+});
+Then('I verify validation message for last name', async function () {
+  const lastNameErrorText = await pages.createAccount.getElementValue('last_error');
+  if (lastNameErrorText == 'Last name must not be blank and cannot contain numbers/special characters') {
+    console.log('Passed: Verify that First Name field validations are working as expected');
+  } else {
+    throw new Error('failed');
   }
 });
 
@@ -53,27 +55,23 @@ When('I verify the functionality of first name and lastname by entering large ch
   }
 });
 
-Then('I verify validation message in first name and last name', async function () {
-  try {
-    console.log('Verify that First Name field and last name validations are working as expected')
-    const errorText = await pages.createAccount.getElementValue('largechar_firstname');
-    if (errorText == 'Limit of 40 characters reached') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+Then('I verify large char validation message in the first name field', async function () {
+  console.log('Verify that First Name field validations are working as expected')
+  const errorText = await pages.createAccount.getElementValue('largechar_firstname');
+  if (errorText == 'Limit of 40 characters reached') {
+    console.log('passed');
+  } else {
+    throw new Error('Failed to show first name character limit error');
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('largechar_lastname');
-    if (errorText == 'Limit of 40 characters reached') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+})
+
+Then('I verify large char validation message in the last name field', async function () {
+  console.log('Verify that Last Name field validations are working as expected')
+  const errorText = await pages.createAccount.getElementValue('largechar_lastname');
+  if (errorText == 'Limit of 40 characters reached') {
+    console.log('passed');
+  } else {
+    throw new Error('Failed to show last name character limit error');
   }
 });
 
@@ -90,34 +88,6 @@ Then('I verify the Sign up button is disabled', async function () {
     log.error(err);
   }
 });
-When('I verify the functionality of first name and lastname by entering numbers', async function () {
-  try {
-    await pages.createAccount.populate('firstName', '1234');
-    await pages.createAccount.populate('lastName', '1234');
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-When('I verify the functionality of first name and lastname by entering symbols', async function () {
-  try {
-    await pages.createAccount.populate('firstName', 'w@0r%');
-    await pages.createAccount.populate('lastName', 'w@0r%');
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-Then(/^I enter the first name, lastname and email address without symbols and number using the "(.*)" account details$/, async function (account) {
-  try {
-    const user = await loadLogin(account)
-    await pages.createAccount.populate('firstName', user.firstName);
-    await pages.createAccount.populate('lastName', user.lastName);
-    await pages.createAccount.populate('email', user.username);
-  } catch (err) {
-    log.error(err);
-  }
-});
 
 When('I enter password having eight characters not fullfilling the criteria', async function () {
   try {
@@ -128,17 +98,14 @@ When('I enter password having eight characters not fullfilling the criteria', as
     log.error(err);
   }
 });
+
 When('I check the error message', async function () {
-  try {
-    console.log('Verify that password field validations are working as expected')
-    const errorText = await pages.createAccount.getElementValue('password_error');
-    if (errorText == 'Not a valid password') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  console.log('Verify that password field validations are working as expected')
+  const errorText = await pages.createAccount.getElementValue('password_error');
+  if (errorText == 'Not a valid password') {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 
@@ -153,7 +120,7 @@ When(/^I enter password from "(.*)" account having eight character fullfilling t
   }
 });
 
-When('I do not enter text in password field and click on confirm password', async function () {
+When('I do not enter text in password field but I do enter text into confirm password field', async function () {
   try {
     log.debug('clicking on password button');
     await pages.createAccount.populate('password', '');
@@ -204,37 +171,97 @@ When(/^I Select SecurityQuestions from "(.*)" account and I enter 150 character 
   }
 });
 
-Then('I verify the message displayed', async function () {
-  try {
-    const errorText = await pages.createAccount.getElementValue('Security_question_1_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+When(/^I verify that if I Select Security Questions of the "(.*)" account then I enter an empty string for the answers$/, async function (account) {
+  // try {    
+    const user = await loadLogin(account)
+    log.debug('clicking on Security Question button');
+    await pages.createAccount.populate('Security_Question_1__c', user.sq1);
+    await pages.createAccount.populate('Security_Question_1_Answer__c', '');
+    await pages.createAccount.populate('Security_Question_2__c', user.sq2);
+    await pages.createAccount.populate('Security_Question_2_Answer__c', '');
+    await pages.createAccount.populate('Security_Question_3__c', user.sq3);
+    await pages.createAccount.populate('Security_Question_3_Answer__c', '');
+    await pages.createAccount.populate('institution', '');
+  // } catch (err) {
+  //   log.error(err);
+  // }
+});
+
+When(/^I enter the value of "(.*)" for each security question answer$/, async function (answer) {
+  log.debug('Filling out each Security Question button');
+  await pages.createAccount.populate('Security_Question_1_Answer__c', answer);
+  await pages.createAccount.populate('Security_Question_2_Answer__c', answer);
+  await pages.createAccount.populate('Security_Question_3_Answer__c', answer);
+  await pages.createAccount.populate('institution', '');
+});
+
+Then(/^I verify the content of the security question error messages displayed is "(.*)" in preprod$/, async function (message) {
+
+  const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_preprod');
+  if (sqOneErrorText == message) {
+    console.log('passed with preprod expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 1, for preprod expectations');
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('Security_question_2_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  const sqTwoErrorText = await pages.createAccount.getElementValue('Security_question_2_error_preprod');
+  if (sqTwoErrorText == message) {
+    console.log('passed with preprod expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 2, for preprod expectations');
   }
-  try {
-    const errorText = await pages.createAccount.getElementValue('Security_question_3_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  const sqThreeErrorText = await pages.createAccount.getElementValue('Security_question_3_error_preprod');
+  if (sqThreeErrorText == message) {
+    console.log('passed with preprod expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 3, for preprod expectations');
   }
+
+})
+
+Then(/^I verify the content of the security question error messages displayed is "(.*)" in preprod_blank$/, async function (message) {
+
+  const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_preprod_blank');
+  if (sqOneErrorText == message) {
+    console.log('passed with preprod_blank expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 1, for preprod_blank expectations');
+  }
+  const sqTwoErrorText = await pages.createAccount.getElementValue('Security_question_2_error_preprod_blank');
+  if (sqTwoErrorText == message) {
+    console.log('passed with preprod_blank expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 2, for preprod_blank expectations');
+  }
+  const sqThreeErrorText = await pages.createAccount.getElementValue('Security_question_3_error_preprod_blank');
+  if (sqThreeErrorText == message) {
+    console.log('passed with preprod_blank expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 3, for preprod_blank expectations');
+  }
+
+})
+
+Then(/^I verify the content of the security question error messages displayed is "(.*)" in int$/, async function (message) {
+
+  const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_int');
+  if (sqOneErrorText == message) {
+    console.log('passed with int expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 1, for int expectations');
+  }
+  const sqTwoErrorText = await pages.createAccount.getElementValue('Security_question_2_error_int');
+  if (sqTwoErrorText == message) {
+    console.log('passed with int expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 2, for int expectations');
+  }
+  const sqThreeErrorText = await pages.createAccount.getElementValue('Security_question_3_error_int');
+  if (sqThreeErrorText == message) {
+    console.log('passed with int expectations')
+  } else {
+    throw new Error('Failed to show correct error message for Security Question 3, for int expectations');
+  }
+
 });
 
 When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any questions$/, async function (account) {
@@ -252,58 +279,12 @@ When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any ques
     log.error(err);
   }
 });
-Then('I Verify Error message is displayed', async function () {
-  try {
-    console.log('Verify that Security Question & Answer validations are working as expected without entering the question and answers');
-    const errorText = await pages.createAccount.getElementValue('sq1');
-    if (errorText == 'Must not be blank') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const errorText = await pages.createAccount.getElementValue('sq2');
-    if (errorText == 'Must not be blank') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const errorText = await pages.createAccount.getElementValue('sq3');
-    if (errorText == 'Must not be blank') {
-      console.log('passed')
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-});
-When(/^I Answer all the three security questions by comparing it to "(.*)" account$/, async function (account) {
-  try {
-    const user = await loadLogin(account)
-    console.log('clicking on securityQuestion button');
-    await pages.createAccount.populate('Security_Question_1__c', user.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', user.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', user.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', user.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', user.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', user.sq3_answer);
-    await pages.createAccount.populate('institution', '');
-  } catch (err) {
-    log.error(err);
-  }
-});
+
 Then(/^I verify list of Primary Institutions or schools will display starting with the letter "(.*)"$/, async function (Primary) {
   try {
     log.debug('Clickig on primary institute button');
     await pages.createAccount.populate('institution', Primary);
+    await pages.createAccount.populate('first_institution', 'click');
     log.debug(`primary institute button is clicked, ${clickedButton}`);
   } catch (err) {
     log.error(err);
@@ -324,27 +305,50 @@ Then('I verify the Sign up is disabled', async function () {
 });
 
 Then(/^I Select "(.*)" in Primary Institution or School text box$/, async function (usacollege) {
-  try {
-    log.debug('Clickig on primary institute button');
+    log.debug('Primary institute field filled');
     await pages.createAccount.populate('institution', usacollege);
-    log.debug(`primary institute button is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+    // I know this sleep is not the best but the populate click does not seem to be working. 
+    // It must have something to do with the type of element.
+    // await pages.createAccount.populate('first_institution', 'click');
+    await sleep(2000)
+    const dropdown = await getDriver().findElement(By.xpath(("//*[@id='react-autowhatever-1--item-0']")))
+    await dropdown.click();
 });
-Then('I verify the Sign up button is disabled when Primary Institution or School text box', async function () {
-  try {
-    console.log('Verify that on selecting a US college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+
+When('I verify the opt-in checkbox is not checked', async function () {
+  const optInBoolean = await pages.createAccount.getElementValue('OptIn', 'selected');
+  if(optInBoolean === false) {
+    console.log('Passed optin is not checked');
+  } else {
+    throw new Error('Checkbox is checked');
   }
+
 });
+
+When('I verify the opt-in checkbox is checked', async function () {
+  const optInBoolean = await pages.createAccount.getElementValue('OptIn', 'selected');
+  if(optInBoolean === true) {
+    console.log('Passed optin is checked');
+  } else {
+    throw new Error('Checkbox is not checked');
+  }
+
+});
+
+// This is not DRY code, this step function is repeated 6 or seven times
+// Then('I verify the Sign up button is disabled when Primary Institution or School text box', async function () {
+//   try {
+//     console.log('Verify that on selecting a US college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
+//     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+//     if (verify.includes('disabled')) {
+//       console.log('passed');
+//     } else {
+//       console.log('failed');
+//     }
+//   } catch (err) {
+//     log.error(err);
+//   }
+// });
 
 When(/^I Select "(.*)" in Primary Institution text box$/, async function (canadacollege) {
   try {
@@ -355,19 +359,21 @@ When(/^I Select "(.*)" in Primary Institution text box$/, async function (canada
     log.error(err);
   }
 });
-Then('I verify the Sign up button is disabled when canada college is selected', async function () {
-  try {
-    console.log('Verify that on selecting a canada college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-});
+
+
+// Then('I verify the Sign up button is disabled when canada college is selected', async function () {
+//   try {
+//     console.log('Verify that on selecting a canada college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
+//     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+//     if (verify.includes('disabled')) {
+//       console.log('passed');
+//     } else {
+//       console.log('failed');
+//     }
+//   } catch (err) {
+//     log.error(err);
+//   }
+// });
 
 Then('I click on checkbox', async function () {
   try {
@@ -378,23 +384,23 @@ Then('I click on checkbox', async function () {
     log.error(err);
   }
 });
-Then('I verify the Sign up button is disabled when I click on check box', async function () {
-  try {
-    console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      throw new Error('failed');
-    } else {
-      console.log('passed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-});
+// Then('I verify the Sign up button is disabled when I click on check box', async function () {
+//   try {
+//     console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
+//     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+//     if (verify.includes('disabled')) {
+//       console.log('failed');
+//     } else {
+//       console.log('passed');
+//     }
+//   } catch (err) {
+//     log.error(err);
+//   }
+// });
 When('I click on privacy notice link', async function () {
   try {
     log.debug('Clickig on privacy noticelink');
-    await pages.createAccount.populate('Privacy_notice', 'click');
+    await pages.createAccount.populate('Privacy_notice', 'selected');
     log.debug(`Privacy notice link is clicked, ${clickedButton}`);
   } catch (err) {
     log.error(err);
@@ -468,17 +474,8 @@ When(/^User "(.*)" has filled all mandatory fields except first name$/, async fu
   await pages.createAccount.populate('termsOfService', 'click');
 });
 When(/^I verify the Sign up button is disabled "(.*)"$/, async function (check) {
-  try {
-    console.log(check);
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
+    await pages.createAccount.assert('signUp_btn', 'disabled');
+    console.log(check)
 });
 
 When(/^User "(.*)" has filled all mandatory fields except last name$/, async function (account) {
@@ -632,166 +629,22 @@ When('I verify that purchase link is directed to Terms of Purchase', async funct
   }
 });
 
-When(/^User "(.*)" has filled all mandatory fields except password$/, async function (password) {
+When(/^User has filled out the form with password: "(.*)"$/, async function (password) {
   try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', '');
-    await pages.createAccount.populate('confirmPassword', '');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
+    await pages.createAccount.populate('password', password);
+    await pages.createAccount.populate('confirmPassword', password);
+  } catch {
     log.error(err);
   }
+
+})
+
+When(/^User "(.*)" has filled all mandatory fields except password$/, async function (user) {
   try {
-    const Login = await loadLogin(password)
+    const Login = await loadLogin(user);
     await pages.createAccount.populate('firstName', Login.firstName);
     await pages.createAccount.populate('lastName', Login.lastName);
     await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABab@12');
-    await pages.createAccount.populate('confirmPassword', 'ABab@12');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABabc@12');
-    await pages.createAccount.populate('confirmPassword', 'ABabc@12');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABabc@123');
-    await pages.createAccount.populate('confirmPassword', 'ABabc@123');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321');
-    await pages.createAccount.populate('confirmPassword', 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321');
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const Login = await loadLogin(password)
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321');
-    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321');
     await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
     await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
     await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
@@ -831,13 +684,13 @@ When('I verify Email- address is disabled', async function () {
 });
 
 When('I click on "OPT-OUT@macmillanlearning.com"', async function () {
-  try {
-    log.debug('Clickig on OPt-outlink');
+  // try {
+    // log.debug('Clickig on OPt-outlink');
     await pages.createAccount.populate('Opt', 'click');
-    log.debug(`Account button is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+    // log.debug(`Account button is clicked, ${clickedButton}`);
+  // } catch (err) {
+  //   log.error(err);
+  // }
 });
 When('I verify it redirects to E-mail', async function () {
   console.log('Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates')
@@ -857,26 +710,21 @@ When('I click on checkbox in account', async function () {
   }
 });
 
-Then('I click on Primary Institution', async function () {
+Then('I input too many characters into the Primary Institution field', async function () {
   try {
-    log.debug('Clickig on Primary Institution');
+    log.debug('I input too many characters into the Primary Institution field');
     await pages.createAccount.populate('institution', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     log.debug(`Primary Institution is clicked, ${clickedButton}`);
   } catch (err) {
-    log.error(err);
+    throw new Error('Unable to input too many characters into the Primary Institution field');
   }
 });
 
-Then('I verify the message', async function () {
-  try {
-    const errorText = await pages.createAccount.getElementValue('institution_message');
-    if (errorText == 'Limit of 150 characters reached') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+Then('I verify the primary institution error message of too many characters', async function () {
+  const errorText = await pages.createAccount.getElementValue('institution_message');
+  if (errorText == 'Limit of 150 characters reached') {
+  } else {
+    throw new Error('Primary institution error message of too many characters not showing')
   }
 });
 
@@ -885,10 +733,10 @@ When('I click on cancle button', async function () {
     log.debug('Clickig on cancle');
     await pages.createAccount.populate('cancle_account', 'click');
     log.debug(`cancle button was clicked, ${clickedButton}`);
+    await sleep(5000);
   } catch (err) {
     log.error(err);
   }
-  await sleep(5000);
 });
 
 When('I verify home page is displayed', async function () {

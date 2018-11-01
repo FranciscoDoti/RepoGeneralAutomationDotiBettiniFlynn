@@ -1,30 +1,24 @@
 Feature: Authentication for Achieve via IAM
 
-
-    Scenario: Verify that First Name field and last name validations are working as expected (without entering)
+    Scenario Outline: Verify that First Name field and last name validations are working as expected (without entering)
         Given I have opened Achieve "UserCreationUrl"
-        When I verify the functionality of first name and lastname by not entering 
-        Then I verify validation message for first name and last name
+        When I verify the functionality of first name by entering <firstname> 
+        When I verify the functionality of last name by entering <lastname>
+        Then I verify validation message for first name
+        And I verify validation message for last name
+        Examples:
+        |firstname | lastname |
+        | ""       | ""       |
+        | "33"     | "444"    |
+        | "e!!!"    |  "#rr"  |
+        | "abcdefghijklmnopqrstuvwxyzabcdefghijklam" | "abcdefghijklmnopqrstuvwxyzabcdefghijklam" |
 
-    Scenario: Verify that First Name field and last name validations are working as expected (enterig neumbers)
-        Given I have opened Achieve "UserCreationUrl"
-        When I verify the functionality of first name and lastname by entering numbers
-        Then I verify validation message for first name and last name
-
-
-    Scenario: Verify that First Name field and last name validations are working as expected (entering symbols )
-        Given I have opened Achieve "UserCreationUrl"
-        When I verify the functionality of first name and lastname by entering symbols
-        Then I verify validation message for first name and last name
-
-    Scenario: Verify that First Name field and last name validations are working as expected (with  entering large character)
-        Given I have opened Achieve "UserCreationUrl"
-        When I verify the functionality of first name and lastname by entering large characters
-        Then I verify validation message in first name and last name
-
-    Scenario: Verify that First Name field and last name validations are working as expected
-        Given I have opened Achieve "UserCreationUrl"
-        Then I enter the first name, lastname and email address without symbols and number using the "student" account details 
+    # Uncomment for pre-prod this is the only applicable place for this test
+    # Scenario: Verify that First Name field and last name validations are working as expected (with  entering large character)
+    #     Given I have opened Achieve "UserCreationUrl"
+    #     When I verify the functionality of first name and lastname by entering large characters
+    #     Then I verify large char validation message in the first name field
+    #     Then I verify large char validation message in the last name field
 
     Scenario: Verify that password field validations are working as expected
         Given I have opened Achieve "UserCreationUrl"
@@ -36,50 +30,69 @@ Feature: Authentication for Achieve via IAM
 
     Scenario: Verify that confirm password field validations are working as expected
         Given I have opened Achieve "UserCreationUrl"
-        When I do not enter text in password field and click on confirm password
+        When I do not enter text in password field but I do enter text into confirm password field
         And I check the error message of confirm password
         And I enter Password and confirm password from "student" account fullfiling all password requirements
 
+    ## TODO Implement populate datatable along with populateAssertDatatable to implement here
+    # Uncomment for Preprod
+    Scenario Outline: Verify that Security Questions & Answer validations are working as expected for preprod with extra characters
+        Given I have opened Achieve "UserCreationUrl"
+        When I verify that if I Select Security Questions of the <account> account then I enter an empty string for the answers
+        Then I enter the value of <answer> for each security question answer
+        And I verify the content of the security question error messages displayed is <message> in preprod
+        Examples:
+        | account   | answer | message |
+        | "student" | "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"    | "Limit of 150 characters reached" |
+
+    Scenario Outline: Verify that Security Questions & Answer validations are working as expected for preprod with blank answers
+        Given I have opened Achieve "UserCreationUrl"
+        When I verify that if I Select Security Questions of the <account> account then I enter an empty string for the answers
+        Then I enter the value of <answer> for each security question answer
+        And I verify the content of the security question error messages displayed is <message> in preprod_blank
+        Examples:
+        | account   | answer | message |
+        | "student" | ""     | "Must not be blank" |
+
+    #Uncomment for int
+    Scenario Outline: Verify that Security Questions & Answer validations are working as expected for int(acccount, value, message)
+        Given I have opened Achieve "UserCreationUrl"
+        When I verify that if I Select Security Questions of the <account> account then I enter an empty string for the answers
+        Then I enter the value of <answer> for each security question answer
+        And I verify the content of the security question error messages displayed is <message> in int
+        Examples:
+        | account   | answer | message |
+        | "student" | "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"    | "Limit of 150 characters reached" |
+        | "student" | ""     | "Must not be blank" |
+
+    # What is this testing, is it verifying the list of the signup button being disabled??
+    #This is not verifying the list of Primary institutions
+    #TODO: Implement check of dropdown list, find first item in options and check to see if it starts with "a"
+    # Scenario: Verify that Primary Institution or School drop down and field working as expected
+    #     Given I have opened Achieve "UserCreationUrl"
+    #     Then I verify list of Primary Institutions or schools will display starting with the letter "a"
+    #     Then I verify the Sign up is disabled
+
+    # This scenario was not being described well enough and the step definitions were also lacking clarity or context
     Scenario: Verify that the application should not allow to enter more than 150 characters in the "Security Question Answer" text box. Moreover on entering 150 characters, the application displays a message "Limit of 150 characters reached"
         Given I have opened Achieve "UserCreationUrl"
-        When I Select SecurityQuestions from "student" account and I enter 150 character value
-        Then I verify the message displayed
+        Then I input too many characters into the Primary Institution field
+        And I verify the primary institution error message of too many characters
 
-    Scenario: Verify that Security Question & Answer validations are working as expected without entering the question and answers
-        Given I have opened Achieve "UserCreationUrl"
-        When I Select SecurityQuestions from "student" account and I dont answer any questions
-        Then I Verify Error message is displayed
-
-    Scenario: Verify that Security Question & Answer validations are working as expected by fullfilling all the criteria
-        Given I have opened Achieve "UserCreationUrl"
-        When I Answer all the three security questions by comparing it to "student" account 
-        Then I verify the Sign up button is disabled 
-
-    Scenario: Verify that Primary Institution or School drop down and field working as expected
-        Given I have opened Achieve "UserCreationUrl"
-        Then I verify list of Primary Institutions or schools will display starting with the letter "a"
-        Then I verify the Sign up is disabled
-
-    Scenario: Verify that the application should not allow to enter more than 150 characters in the "Security Question Answer" text box. Moreover on entering 150 characters, the application displays a message "Limit of 150 characters reached"
-        Given I have opened Achieve "UserCreationUrl"
-        Then I click on Primary Institution 
-        And I verify the message 
-        
     Scenario: Verify that on selecting a US college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box
         Given I have opened Achieve "UserCreationUrl"
         When I Select "Cottey College" in Primary Institution or School text box
-        Then I verify the Sign up button is disabled when Primary Institution or School text box
+        Then I verify the opt-in checkbox is checked
 
     Scenario: Verify that on selecting a Canada College in "Primary Institution or School" text box, the application should not automatically check the "OPT IN" check box
         Given I have opened Achieve "UserCreationUrl"
         When I Select "University of Toronto" in Primary Institution text box
-        Then I verify the Sign up button is disabled when canada college is selected
+        Then I verify the opt-in checkbox is not checked
 
     Scenario: Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate
         Given I have opened Achieve "UserCreationUrl"
-        Then I click on checkbox 
-        Then I verify the Sign up button is disabled when I click on check box
-
+        Then I click on checkbox
+        Then I verify the opt-in checkbox is checked
 
     Scenario: Verify that Privacy Notice Link redirects to appropriate page
         Given I have opened Achieve "UserCreationUrl"
@@ -108,10 +121,22 @@ Feature: Authentication for Achieve via IAM
         When User "student" has filled all mandatory fields except last name
         And I verify the Sign up button is disabled "Verify that without entering all Mandatory Fields (lastname)"
 
-    Scenario: Verify that without entering all Mandatory Fields (password)
+    Scenario Outline: Verify that without entering all Mandatory Fields (login, password)
         Given I have opened Achieve "UserCreationUrl"
-        When User "student" has filled all mandatory fields except password
-        And I verify the Sign up button is disabled "Verify that without entering all Mandatory Fields (password)"
+        When User <login> has filled all mandatory fields except password
+        When User has filled out the form with password: <password>
+        And I verify the Sign up button is disabled <case>
+        Examples:
+        |login        | password | case |
+        |"student"    | "ABab@12"| "if password is too short" |
+        |"student"    | ""       | "if password is empty" |
+        |"student"    | "ABabc@123"  | "if password is perfect" |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@" | "if password is too long??" |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$"| "if password is too long"   |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321"  | "if password has no special char" |
+        |"student"    | "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321"  | "if password has no upper char"   |
+        |"student"    | "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321"  | "if password has no lower char"   |
+
 
     Scenario: Verify the Terms of Purchase link directs to the page
         Given I have opened Achieve "UserCreationUrl"
@@ -148,15 +173,17 @@ Feature: Authentication for Achieve via IAM
         When I click on macmillan learning link 
         Then I verify that macmillan link is directed to macmillan learning page
 
+# According to Greeshma there is a bug reported by manual testers preventing this functionality. (env?)
+    # Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates 
+    #     Given I have opened Achieve "UserCreationUrl"
+    #     When I click on "OPT-OUT@macmillanlearning.com"
+    #     And I verify it redirects to E-mail
 
-    Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates 
-        Given I have opened Achieve "UserCreationUrl"
-        When I click on "OPT-OUT@macmillanlearning.com"
-        And I verify it redirects to E-mail
-
+## These Tests Below seem sort of fragile, they seem to break at intervals. The sign out button cannot be found, maybe the login is persisting
+    ##Sign out of achieve is not working after clicking on cancel button
     Scenario: Verify that E-mail Address shown is disabled and it is same as user created account
         Given I have opened Achieve "loginURL"
-        When I have logged in as "admin"
+        When I have logged in as "admin_alt2"
         And I click on user menu 
         And I click on Account 
         And I verify Email- address is disabled
@@ -166,7 +193,7 @@ Feature: Authentication for Achieve via IAM
 
     Scenario: Verify that Privacy Notice Link redirects to appropriate page
         Given I have opened Achieve "loginURL"
-        When I have logged in as "instructor_1"
+        When I have logged in as "admin_alt2"
         And I click on user menu
         And I click on Account
         And I click on privacy notice link 
@@ -174,9 +201,18 @@ Feature: Authentication for Achieve via IAM
         And I click on cancle button
         And I sign out of Achieve
 
+    Scenario: Verify that aplication return to home page on clicking Cancel Button
+        Given I have opened Achieve "loginURL"
+        When I have logged in as "admin_alt2"
+        And I click on user menu
+        And I click on Account
+        And I click on cancle button
+        And I verify home page is displayed
+        And I sign out of Achieve
+
     Scenario: Verify that Set Password functionality is working as expected
         Given I have opened Achieve "loginURL"
-        When I have logged in as "instructor_1"
+        When I have logged in as "admin_alt2"
         And I click on user menu
         And I click on Account
         And I click setpassword button
@@ -186,12 +222,12 @@ Feature: Authentication for Achieve via IAM
         And I sign out of Achieve
        
 
-    
-   #Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates
-        #Given I have opened Achieve "ThirdpartyURL"
-        #When I log in as "admin_alt"
-        #And I click on compose
-        #And I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanlearning.com" link no -emial updates should be recived regarding macmillan updates
+# #     Why is this Scenario commented out???
+# #    Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates
+# #         Given I have opened Achieve "ThirdpartyURL"
+# #         When I log in as "admin_alt"
+# #         And I click on compose
+# #         And I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanlearning.com" link no -emial updates should be recived regarding macmillan updates
 
 
 

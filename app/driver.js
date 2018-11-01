@@ -90,6 +90,15 @@ const onWaitForWebElementToBeEnabled = async function (webElement) {
   }
 }
 
+const onWaitForWebElementToBeDisabled = async function (webElement) {
+  log.debug(`Waiting for webElement to become disabled...`);
+  try {
+    await driver.wait(webdriver.until.elementIsDisabled(webElement), 3000);
+  } catch (err) {
+    log.error(err.stack);
+  }
+}
+
 const onWaitForElementToBeLocated = async function (element) {
   log.debug(`Waiting for element to become located...`);
   try {
@@ -116,6 +125,7 @@ module.exports = {
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,
   onWaitForWebElementToBeEnabled,
+  onWaitForWebElementToBeDisabled,
   onWaitForElementToBeVisible,
   onWaitForElementToBeInvisible,
   config,
