@@ -162,15 +162,14 @@
             "frame":"default",
             "specialInstr":"NA"
 
-        },
-        {
-            "name":"purchase_R&P_Practice",
-            "byType":"xpath",
-            "definition":"//*[text()='Purchase Read & Practice Access']",
-            "frame":"default",
-            "specialInstr":"NA"
+
 
         }
+
+
+    
+    
+    
 
     ]
 

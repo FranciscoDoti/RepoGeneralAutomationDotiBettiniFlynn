@@ -218,9 +218,6 @@ Feature: Authentication for Achieve via IAM
         And I click setpassword button
         And I click on newpassword
         And I click on save changes button
-        And I click on cancle button
-        And I sign out of Achieve
-       
 
 # #     Why is this Scenario commented out???
 # #    Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates

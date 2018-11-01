@@ -418,7 +418,15 @@
 
 
         },
+        {
+            "name":"course_card_2",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_draft CourseCard_product_2 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible": "Resource_tab_writing"
 
+        },
         {
             "name":"Resource_tab_writing",
             "byType":"xpath",
