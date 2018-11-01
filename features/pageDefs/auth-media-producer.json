@@ -337,32 +337,18 @@
 
         },
         {
-            "name":"chapter1-1",
+            "name":"chapter1",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/button/span",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA"
 
         },
+    
         {
-            "name":"chapter1-2",
+            "name":"chapter2",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div[2]/div[2]/div/div/div[2]/button",
-            "frame":"default",
-            "specialInstr":"NA"
-
-        },
-        {
-            "name":"chapter1-(3)",
-            "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div[2]/div[3]/div/div/div[2]/button",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
-        {
-            "name":"chapter2-1",
-            "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div/div/div[2]/button",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA" 
         },
@@ -376,31 +362,11 @@
         {
             "name":"OpenActionMenuForChapter1",
             "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[3]",
+            "definition":"(//*[@class='_1raI'])[3]",
             "frame":"default",
             "specialInstr":"NA"
         },
-        {
-            "name":"OpenActionMenuForChapter2",
-            "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[4]",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
-        {
-            "name":"OpenActionMenuForChapter3",
-            "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[5]",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
-        {
-            "name":"OpenActionMenuForChapter4",
-            "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[6]",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
+    
         {
             "name":"file_open",
             "byType":"xpath",

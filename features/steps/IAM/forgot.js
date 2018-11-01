@@ -50,7 +50,6 @@ Then('I verify that forgot email info icon tooltip Information is consistent to 
   }
 });
 
-
 When('I click on cancel button', async function () {
   try {
     log.debug('clicking on cancle_button');
@@ -89,17 +88,13 @@ When('click on reset password button', async function () {
   }
 });
 Then('I Verify Error message should be displayed', async function () {
-  try {
-    console.log('Verify that forgot password is showing appropriate message for not registered with macmillan account e-mail address')
-    const errorText = await pages.login.getElementValue('unregistered_username_check');
-    console.log(errorText + 'error');
-    if (errorText == 'Request failed with status code 500') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  console.log('Verify that forgot password is showing appropriate message for not registered with macmillan account e-mail address')
+  const errorText = await pages.login.getElementValue('unregistered_username_check');
+  console.log(errorText + 'error');
+  if (errorText == 'Request failed with status code 500') {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 When(/^I enter existed created e-mail address of "(.*)" which is registered to Macmillan account$/, async function (email) {
@@ -132,18 +127,14 @@ When('click on submit button', async function () {
 });
 
 Then('I Verify Confirmation page says "An email has been sent to you with instructions on how to reset your password."', async function () {
-  try {
-    console.log('Verify that forgot password functionality working fine for existing macmillanaccounts')
-    const errorText = await pages.login.getElementValue('registered_username_check');
-    const message = "An email has been sent with instructions on how to reset your password and includes a link which will expire within 24 hours. If you don't receive an email shortly, check your spam or junk folders, or try again."
+  console.log('Verify that forgot password functionality working fine for existing macmillanaccounts')
+  const errorText = await pages.login.getElementValue('registered_username_check');
+  const message = "An email has been sent with instructions on how to reset your password and includes a link which will expire within 24 hours. If you don't receive an email shortly, check your spam or junk folders, or try again."
 
-    if (errorText == message) {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  if (errorText == message) {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 
@@ -192,18 +183,14 @@ When('I enter newly created e-mail address which is registered to Macmillan acco
   }
 });
 Then('I Verify Confirmation message', async function () {
-  try {
-    console.log('Verify that forgot password functionality working fine for newly created macmillan accounts')
-    const errorText = await pages.login.getElementValue('registered_username_check');
-    const message = "An email has been sent with instructions on how to reset your password and includes a link which will expire within 24 hours. If you don't receive an email shortly, check your spam or junk folders, or try again."
+  console.log('Verify that forgot password functionality working fine for newly created macmillan accounts')
+  const errorText = await pages.login.getElementValue('registered_username_check');
+  const message = "An email has been sent with instructions on how to reset your password and includes a link which will expire within 24 hours. If you don't receive an email shortly, check your spam or junk folders, or try again."
 
-    if (errorText == message) {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  if (errorText == message) {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 
@@ -218,17 +205,13 @@ When('I Enter incorrect Security question answer 1', async function () {
 });
 
 Then(/^I Verify Error Message is displayed as_ "(.*)"$/, async function (verify) {
-  try {
-    console.log('Verify that security questions incorrect attempt shows appropriate error messages and not allow user to move further')
-    const errorText = await pages.login.getElementValue('security_check');
-    console.log(errorText + 'error')
-    if (errorText == verify) {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  console.log('Verify that security questions incorrect attempt shows appropriate error messages and not allow user to move further')
+  const errorText = await pages.login.getElementValue('security_check');
+  console.log(errorText + 'error')
+  if (errorText == verify) {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 

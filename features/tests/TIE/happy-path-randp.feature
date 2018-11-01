@@ -36,7 +36,7 @@ Background:
         And I click on Resource tab
         And I create a folder named on the resources screen
         And I reorder the items on the course resource page to be in this order:
-        And add content into chapter 
+        And add content into chapter by clicking "+" button
         And I click on Activity search button and enter "Colliding Worlds"
         And I click on add content 
         And I click on Activity search button and enter "American Experiments"
@@ -45,12 +45,12 @@ Background:
         And I click on add content
         And I click on Activity search button and pass the value "do not use"
         And I click on add content
+        Then I reorder the items
         And I click on Activity search button and pass the value "DECIMALS"
         And I click on add content 
-        #And I click on Activity search button and pass the value "How to Read a Graph"
-        #And I click on add content 
+        And I click on Activity search button and pass the value "How to Read a Graph"
+        And I click on add content 
         And I click on Activity search button and pass the value "LO asset verification Edited"
-        Then I reorder the items
         And I sign out of Achieve
 
     Scenario: Verify that Media Producer is able to copy the course from Read&Practice Template 
@@ -81,13 +81,9 @@ Background:
             |Active_Date        | @Date('now')   |
             |course_end_date    | @Date('+2m')   |
         And I elect to edit the course with the following data
-                 #|courseStatus         | activeOnDate   | courseEndDate |saveBtn  |
-                #| Active On Date      | @Date('now')   | @Date('+1m')  | Click   |
         And I click on open menu
         Then I capture the invite link and store to variable "inviteLink"
         Then I populate the Invite Students "student" page 
-             #| inviteBtn | sendEmailBtn | emailList                     | cancelBtn | sendInvitesBtn |
-             #| NA        | Click        | "$loginStudent1.email_address"| NA        | Click          |
         And I click on course card "E2E101"
         And I click on Resource tab of Testcourse
         And I click on Open Folder
@@ -110,15 +106,28 @@ Background:
         And I elect it with the following data:
         And I sign out of Achieve
     
-    Scenario: Enroll into course with link and access code
+    #Scenario:Verify that paid access code creater able to generate access code for Read&Practice Template
+       # When I have logged in as "paid_accessCC"
+       # And I search for "Testcourse"
+       # And I click on course card "Testcourse" template
+       # And I click on user menu
+       # And I click on Admin Panel 
+       # Then I click on create access codes
+       # And I select number of use codes
+        # And length of the Access code
+        #And I sign out of Achieve
+
+    Scenario: Verify that student is able to enroll in a Instructor created course created from Read&Practice Template
         Given I have opened Achieve "ThirdpartyURL"
         When I log in as "student"
         And I open the invite link and login with "student" account details
-        And I click on Grace period
-        And I click on Finish Enrollenment 
-        Then I validate that the following information is correct on the Course Access Code page
-           |courseName     | courseCode    | Instructor         | accessType      |
-           | $course1.name | $course1.code | $instructor1.email | [$course.pm]    |
+        And I click on Start grace period
+        And I click on check box for purchace access for grace period 
+        And I click on Finish Enrollment
+        And I sign out of Achieve
+
+    Scenario: Verify that stident is able to attempt activities of Instructor created course from Read&Practice Template    
+        When I have logged in as "student"
         And I click on course card "E2E101"
         And I click on Resuource tab
         And I click on Open Folder
@@ -128,7 +137,6 @@ Background:
         And I answer the questions
         And I click on submit button
         And I click on alert message
-    
     
         
 

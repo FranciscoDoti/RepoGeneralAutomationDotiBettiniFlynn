@@ -164,13 +164,30 @@
 
         },
         {
-            "name":"purchase_R&P_Practice",
+            "name":"start_grace_period",
             "byType":"xpath",
-            "definition":"//*[text()='Purchase Read & Practice Access']",
+            "definition":"/html/body/div[2]/div/div/div[2]/div[1]/article/div[2]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"check_box_grace_period",
+            "byType":"xpath",
+            "definition":"//*[@class='_1UGb']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Finish_enrollment",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div[1]/article/form/button",
             "frame":"default",
             "specialInstr":"NA"
 
         }
+
 
     ]
 

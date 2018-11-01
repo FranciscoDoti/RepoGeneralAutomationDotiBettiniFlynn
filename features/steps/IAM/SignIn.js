@@ -79,17 +79,12 @@ When('I enter invalid username and password', async function () {
   }
 });
 Then('I Verify "Invalid user name and password" message should be displayed', async function () {
-  try {
-    console.log('Invalid user name and password')
-    const errorText = await pages.login.getElementValue('error_sign');
-    if (errorText == 'Invalid username or password') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  console.log('Invalid user name and password')
+  const errorText = await pages.login.getElementValue('error_sign');
+  if (errorText == 'Invalid username or password') {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 
@@ -113,18 +108,13 @@ Then('I login with following credentials:', async function () {
 });
 
 Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed', async function () {
-  try {
-    console.log('Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system')
-    const errorText = await pages.login.getElementValue('userinvalid_errortext');
-    console.log(errorText+'errortext');
-    if (errorText == 'Too many login attempts. Wait 15 minutes and try again') {
-      console.log('passed');
-    } else {
-      throw new Error('failed');
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  console.log('Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system')
+  const errorText = await pages.login.getElementValue('userinvalid_errortext');
+  console.log(errorText + 'errortext');
+  if (errorText == 'Too many login attempts. Wait 15 minutes and try again') {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
   }
 });
 
