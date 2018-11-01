@@ -83,7 +83,7 @@ Then('I click on Reset button', async function () {
   }
 });
 
-/*Then('I Verify error message',async function () {
+/* Then('I Verify error message',async function () {
   try {
     const acctual = await driver().switchTo().alert().getText('An unexpected error');
   console.log('acctual'+acctual);
@@ -126,6 +126,50 @@ When('I check E-mail Notification', async function () {
   }
 });
 
+When('I verfiy the reset password functionality is working fine', async function () {
+  try {
+    await sleep(5000);
+    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
+    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    await pages.createAccount.populate('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
+    await pages.createAccount.populate('confirmPassword', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@');
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    await pages.createAccount.populate('password', 'AB123');
+    await pages.createAccount.populate('confirmPassword', 'ABC123');
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    await pages.createAccount.populate('password', 'abc123');
+    await pages.createAccount.populate('confirmPassword', 'abc123');
+  } catch (err) {
+    log.error(err);
+  }
+  try {
+    await pages.createAccount.populate('password', 'ABab123');
+    await pages.createAccount.populate('confirmPassword', 'ABab123');
+  } catch (err) {
+    log.error(err);
+  }
+});
+
+When('I verify the reset password functionality', async function () {
+  console.log('Password Fuctionality is working fine');
+  var verify = await getDriver().findElement(By.xpath("//*[@id='update']")).getAttribute('outerHTML');
+  if (verify.includes('disabled')) {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
+  }
+});
+
 When(/^I enter Password and confirm password from "(.*)" account for fulfilling the validation criteria$/, async function (account) {
   try {
     const mail = await loadLogin(account);
@@ -139,7 +183,7 @@ When(/^I enter Password and confirm password from "(.*)" account for fulfilling 
 });
 When('I click on Reset password', async function () {
   try {
-    await sleep(10000);
+    await sleep(5000);
     console.log('Clicking on Reset password');
     await pages.authAdmin.populate('reset_password_email', 'click');
     log.debug(`mail was clicked: ${clickedButton}`);
@@ -163,7 +207,7 @@ Then(/^I verify Message is displayed as "(.*)"$/, async function (verify) {
     if (await pages.authAdmin.checkWebElementExists('back_login')) {
       console.log('passed');
     } else {
-      console.log('failed');
+      throw new Error('failed');
     }
   } catch (err) {
     log.error(err);
@@ -174,10 +218,6 @@ Then('Verify that user is able to login using newly created password', async fun
   if (await pages.authAdmin.checkWebElementExists('check')) {
     console.log('passed');
   } else {
-    console.log('failed');
+    throw new Error('failed');
   }
-});
-
-Then('I click on OPT link', async function () {
-
 });

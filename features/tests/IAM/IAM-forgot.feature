@@ -30,6 +30,8 @@ Background:
         Given I have opened Achieve "ThirdpartyURL"
         When I log in as "admin_alt"
         When I check E-mail Notification
+        And I verfiy the reset password functionality is working fine
+        And I verify the reset password functionality
         And I enter Password and confirm password from "admin_alt" account for fulfilling the validation criteria
         And I click on Reset password
         Then I verify Message is displayed as "Your password has been successfully reset. You can now log in to your account" 
