@@ -1,5 +1,5 @@
 
-const { getWebDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
+const { getWebDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
 const {Key} = require('selenium-webdriver');
 const WebElement = require('./WebElement');
 const { log } = require('./logger');
@@ -112,6 +112,14 @@ const populateTextField = async function (eleTarget, strValue, actionElement) {
 
   if (localSpecialInstr.indexOf('tabAfter') > -1) {
     await eleTarget.sendKeys(Key.chord(Key.TAB));
+  }
+  if (localSpecialInstr.indexOf('arrowDownAfter') > -1) {
+    console.log('getting into arrow down')
+    await eleTarget.sendKeys(Key.DOWN);
+  }
+  if (localSpecialInstr.indexOf('enterAfter') > -1) {
+    console.log('getting into return')
+    await eleTarget.sendKeys(Key.RETURN);
   }
 
   if (

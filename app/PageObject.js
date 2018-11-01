@@ -173,7 +173,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         returnValue = await webElement.getText();
       }
       if (attributeName) {
-        returnValue = await webElement.getAttribute(attributeName);
+        if (attributeName === 'selected'){
+          returnValue = await webElement.isSelected();
+        } else {
+          returnValue = await webElement.getAttribute(attributeName);
+        }
       }
       return returnValue;
     } else {
@@ -269,6 +273,79 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  const elementDisabled = async function (strName) {
+    try {
+      log.info(`Starting to check if web element disabled on the page: ${strName}`);
+
+      return await assertDisabled(strName);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const assertDisabled = async function (elementName) {
+    let elementTarget = '';
+    let tempElement = {};
+    log.debug(`Checking to see if element: ${elementName} exists.`)
+    if (await hasElement(elementName)) {
+      tempElement = await getElement(elementName);
+      // If need to hit a iframe, do it
+      await switchFrame(tempElement.frame);
+
+      elementTarget = await WebElement(tempElement);
+      actionElement.webElement = elementTarget;
+
+
+
+      // log.debug(`****genericPopulateElement: ${elementName}`);
+      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
+
+      // const webElement = await elementTarget.getWebElement();
+      return elementTarget.elementDisabled();
+    } else {
+      log.error(`ERROR: WebElement ${elementName} not found in PageElements during checkWebElementExists() attempt.`);
+    }
+  };
+
+  const assert = async function (elementName, condition) {
+    let elementTarget = '';
+    let tempElement = {};
+    log.debug(`Checking to see if element: ${elementName} exists.`)
+    if (await hasElement(elementName)) {
+      tempElement = await getElement(elementName);
+      const actionElement = Object.assign({});
+
+      // Setup all underlying required objects to take action on for this action
+      actionElement.element = tempElement;
+
+      // If need to hit a iframe, do it
+      await switchFrame(tempElement.frame);
+
+      elementTarget = await WebElement(tempElement);
+      actionElement.webElement = elementTarget;
+
+      // log.debug(`****genericPopulateElement: ${elementName}`);
+      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection.`);
+
+      const webElement = await elementTarget.getWebElement();
+      const tagName = await webElement.getTagName();
+
+      switch (condition.toLowerCase()) {
+        case 'disabled':
+          return elementTarget.elementDisabled();
+          break;
+        case 'exists':
+          return elementTarget.elementExists();
+          break;
+        default:
+          log.error(`ERROR: We tried to assert that an unknown tag(${elementName}) is ${condition}\n\tWe failed.`);
+      }
+    } else {
+      log.error(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
+    }
+  };
+
   const assertText = async function (elementName, expectedValue) {
     try {
       const evalString = await getElementValue(elementName);
@@ -279,7 +356,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       throw err;
     }
   };
+  that.assert = assert;
   that.assertText = assertText;
+  that.assertDisabled = assertDisabled;
+  that.elementDisabled = elementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;
   that.getDriver = getDriver;

@@ -91,22 +91,7 @@
 			"byType": "id",
 			"definition": "Security_Question_3_Answer__c",
 			"frame": "default",
-			"specialInstr": "tabAfter"
-		},
-		{
-			"name": "institution_list",
-			"byType": "classname",
-			"definition": "schoolItem",
-			"frame": "default",
 			"specialInstr": "NA"
-		},
-		{
-			"name": "first_institution",
-			"byType": "xpath",
-			"definition": "//*[@id='react-autowhatever-1--item-0']",
-			"frame": "default",
-			"specialInstr": "NA",
-			"waitToBeVisible": "institution_list"
 		},
 		{
 			"name": "institution",
@@ -151,13 +136,7 @@
 			"frame": "default",
 			"specialInstr": "NA"
 		},	
-		{
-			"name": "error_text",
-			"byType": "xpath",
-			"definition": "//*[@class='errorText']",
-			"frame": "default",
-			"specialInstr": "NA"
-		},		
+		
 		{
 			"name": "first_error",
 			"byType": "xpath",
@@ -167,11 +146,11 @@
 		},
 
 		{
-			"name": "last_error",
+			"name": "Last_error",
 			"byType": "xpath",
 			"definition": "//*[@id='lastName_error']",
 			"frame": "default",
-			"specialInstr": "tabAfter"
+			"specialInstr": "NA"
 		},
 		{
 			"name": "password_error",
@@ -432,78 +411,6 @@
 			"name": "Security_question_3_message",
 			"byType": "id",
 			"definition": "Security_Question_3_Answer__c_message",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_1_error_int",
-			"byType": "id",
-			"definition": "Security_Question_1_Answer__c",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_2_error_int",
-			"byType": "id",
-			"definition": "Security_Question_2_Answer__c",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_3_error_int",
-			"byType": "id",
-			"definition": "Security_Question_3_Answer__c",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_1_error_preprod",
-			"byType": "id",
-			"definition": "Security_Question_1_Answer__c_message",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_2_error_preprod",
-			"byType": "id",
-			"definition": "Security_Question_2_Answer__c_message",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_3_error_preprod",
-			"byType": "id",
-			"definition": "Security_Question_3_Answer__c_message",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_1_error_preprod_blank",
-			"byType": "id",
-			"definition": "Security_Question_1_Answer__c_error",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_2_error_preprod_blank",
-			"byType": "id",
-			"definition": "Security_Question_2_Answer__c_error",
-			"frame": "default",
-			"specialInstr": "NA"
-
-		},
-		{
-			"name": "Security_question_3_error_preprod_blank",
-			"byType": "id",
-			"definition": "Security_Question_3_Answer__c_error",
 			"frame": "default",
 			"specialInstr": "NA"
 
