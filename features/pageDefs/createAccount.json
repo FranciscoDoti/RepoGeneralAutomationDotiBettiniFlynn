@@ -96,16 +96,17 @@
 		{
 			"name": "institution_list",
 			"byType": "classname",
-			"definition": "react-autosuggest__suggestions-list",
+			"definition": "schoolItem",
 			"frame": "default",
 			"specialInstr": "NA"
 		},
 		{
 			"name": "first_institution",
-			"byType": "id",
-			"definition": "react-autowhatever-1--item-0",
+			"byType": "xpath",
+			"definition": "//*[@id='react-autowhatever-1--item-0']",
 			"frame": "default",
-			"specialInstr": "NA"
+			"specialInstr": "NA",
+			"waitToBeVisible": "institution_list"
 		},
 		{
 			"name": "institution",

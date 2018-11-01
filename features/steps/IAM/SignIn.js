@@ -116,19 +116,15 @@ Then('I login with following credentials:', async function () {
 });
 
 Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed', async function () {
-  try {
-    console.log('Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system')
-    const errorText = await pages.login.getElementValue('userinvalid_errortext');
-    console.log(errorText+'errortext');
-    if (errorText == 'Too many login attempts. Wait 15 minutes and try again') {
-      console.log('passed');
-    } else {
-      console.log('failed');
-      throw new Error('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
+  // console.log('Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system')
+  await pages.login.getElement('userinvalid_errortext');
+  // console.log(errorText+'errortext');
+  // if (errorText == 'Too many login attempts. Wait 15 minutes and try again') {
+  //   console.log('passed');
+  // } else {
+  //   console.log('failed');
+  //   throw new Error('failed');
+  // }
 });
 
 

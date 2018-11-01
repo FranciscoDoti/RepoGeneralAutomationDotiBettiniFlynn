@@ -305,15 +305,14 @@ Then('I verify the Sign up is disabled', async function () {
 });
 
 Then(/^I Select "(.*)" in Primary Institution or School text box$/, async function (usacollege) {
-  try {
     log.debug('Primary institute field filled');
     await pages.createAccount.populate('institution', usacollege);
-    await pages.createAccount.populate('first_institution', 'click');
-    // What is "clickedButton" where is this coming from, is this boilerplate code?
-    // log.debug(`primary institute button is clicked, ${clickedButton}`);
-  } catch (err) {
-    throw new Error('Institions field has been filled', err);
-  }
+    // I know this sleep is not the best but the populate click does not seem to be working. 
+    // It must have something to do with the type of element.
+    // await pages.createAccount.populate('first_institution', 'click');
+    await sleep(2000)
+    const dropdown = await getDriver().findElement(By.xpath(("//*[@id='react-autowhatever-1--item-0']")))
+    await dropdown.click();
 });
 
 When('I verify the opt-in checkbox is not checked', async function () {
