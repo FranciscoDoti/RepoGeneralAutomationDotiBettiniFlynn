@@ -45,7 +45,7 @@ Background:
         And I click on add content
         And I click on Activity search button and pass the value "do not use"
         And I click on add content
-        Then I reorder the items
+        Then I reorder the activity items to the chapters
         And I click on Activity search button and pass the value "DECIMALS"
         And I click on add content 
         And I click on Activity search button and pass the value "How to Read a Graph"

@@ -146,8 +146,8 @@
         },
         {
             "name":"folder_name",
-            "byType":"id",
-            "definition":"0757b5da-e0a6-48e3-becd-ad4fc96c4bea",
+            "byType":"xpath",
+            "definition":"//*[@name='folderName']",
             "frame":"default",
             "specialInstr":"NA"
         },
@@ -221,6 +221,15 @@
         
         },
         {
+            "name":"options_button_2",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div/div/div[4]/div[1]/div/div/div[2]/div[2]/div[2]/div/div/div[3]/div/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+
+        },
+        {
             "name":"OpenFolder",
             "byType":"xpath",
             "definition":"/html/body/div[2]/div/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div[1]/button",
@@ -243,6 +252,9 @@
             "frame":"default",
             "specialInstr":"NA"
         },
+
+
+
         {
             "name":"chapter_2",
             "byType":"xpath",
@@ -278,9 +290,23 @@
             "specialInstr":"NA"
         },
         {
+            "name":"move_total_down_button",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/div[2]/button[2]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
             "name":"move_down_button",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/button[3]",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/div[2]/button[1]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"move_up_button",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/div[1]/button[2]",
             "frame":"default",
             "specialInstr":"NA"
         },
@@ -366,6 +392,60 @@
             "frame":"default",
             "specialInstr":"NA"
         },
+        {
+            "name":"OpenActionMenu",
+            "byType":"xpath",
+            "definition":"(//*[@class='_1raI'])[5]",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Reorder_Assesment",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div/div/div/div[4]/span",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Place_activity",
+            "byType":"xpath",
+            "definition":"(//*[@class=' IwDV'])[5]",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Place_activity_chapter1",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Place_activity_chapter2",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[2]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Place_activity_chapter3",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Place_activity_chapter4",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
     
         {
             "name":"file_open",
@@ -431,6 +511,14 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"card_name_Qual",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_4 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible":"resources_tab"
         }
 
 	]

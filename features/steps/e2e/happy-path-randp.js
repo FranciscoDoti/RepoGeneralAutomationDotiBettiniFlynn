@@ -492,7 +492,7 @@ Then('I click on add content', async function () {
 
   await sleep(5000);
 });
-Then('I reorder the items', async function () {
+Then('I reorder the activity items to the chapters', async function () {
   try {
     log.debug('CLicking on Open button');
     await pages.authProducer.populate('OpenActionMenuForChapter1', 'click');
