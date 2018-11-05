@@ -1,0 +1,21 @@
+{
+	"instructor":{	
+		"first_name":"Automation",
+		"last_name":"Instructor",
+		"email":"Instructor@auto.test",
+		"user_id":"fake_user_523595208"
+    },
+    "student1":{
+		"first_name":"Automation",
+		"last_name":"Student1",
+		"email":"Student1@auto.test",
+		"user_id":"fake_user_1045355543"
+    },
+    "student2":{
+		"first_name":"Automation",
+		"last_name":"Student2",
+		"email":"Student2@auto.test",
+		"user_id":"fake_user_2029375234"
+
+	}
+}
