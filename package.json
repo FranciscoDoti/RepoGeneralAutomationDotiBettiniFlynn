@@ -20,7 +20,6 @@
     "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"int\"}'",
     "IAM-user-registration-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int\"}'",
     "IAM-user-registration-pre-prod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"pre-prod\"}'"
-
   },
   "dependencies": {
     "any-promise": {
