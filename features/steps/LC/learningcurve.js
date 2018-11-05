@@ -1,108 +1,237 @@
-const { Given, When, Then } = require('cucumber');
+const { Given, When, Then, AfterAll } = require('cucumber');
 const { loadConfig } = require('../../../app/util');
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
 const config = loadConfig('config');
+const lcInfo = loadConfig('lc/lc_info');
+const assert = require('assert');
+const helper = require('./lc-helper');
+const courses = require('./lc-courses');
 
-let pages = {
-  learningCurve: new PageObject('learning-curve.json', stepsPath)
+let studentView = {
+  lcrpPage: new PageObject('lc-student-lcrp.json', stepsPath),
+  lcPage: new PageObject('lc-student-lc.json', stepsPath),
+  commonPage: new PageObject('lc-student-common.json', stepsPath),
+  quizPage: new PageObject('lc-quiz.json', stepsPath)
 };
 
-Given(/^I have opened LC "(.*)" "(.*)"$/, async function (urlKey, topic) {
-  var url = config[urlKey];
-  const epoch = new Date().getTime();
-  if (topic === 'Norris') {
-    url = url + 'lcrp/?user_id=fake_user_' + epoch + '&file=music%2Ftest%2Ffixtures-vitalsource-chucknorris&itemid=' + epoch + '&course_id=' + epoch;
-  } else {
-    url = url + 'lcrp/?user_id=fake_user_' + epoch + '&file=music%2Ftest%2Ffixtures-vitalsource-history&itemid=' + epoch + '&course_id=' + epoch;
+var testInfo = {
+  'currentUser': ''
+}
+
+Given(/^I log into an assignment in "(.*)" as "(.*)"$/, async function (urlKey, user) {
+  let url = config[urlKey];
+  testInfo.currentUser = user;
+  url = url + '?user_id=' + lcInfo[user].user_id + '&file=music%2Ftest%2Fautomation_test_51F1C3&itemid=' + lcInfo.assignment + '&course_id=' + lcInfo.course + '&isfqtoolreferred=V7MkHewcPm5U4Cg4';
+  if (user === 'instructor') {
+    url += '&view=instructor'
   }
   log.debug(`Loading URL ${url}`);
   await getDriver().get(url);
   await sleep(5000);
 });
 
-When('I start a quiz', async function () {
-  log.debug(`Start Quiz.`);
-  await pages.learningCurve.populate('start_quiz_button', 'click');
+Given(/I start a new assignment as "(.*)"$/, async function (user) {
+  const epoch = new Date().getTime();
+  lcInfo.assignment = epoch;
+  testInfo.currentUser = user;
+  if (lcInfo.course === undefined) {
+    lcInfo.course = epoch;
+    courses.addCourse(epoch);
+  }
+})
+
+Given(/I retake the assignment as "(.*)"$/, async function (user) {
+  courses.addAttempt(lcInfo.course, user, lcInfo.assignment);
+  await studentView.lcrpPage.populate('retake_quiz', 'click');
+  let score = await studentView.quizPage.getElementValue('current_score');
+  let scores = score.split(/\//);
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, user, lcInfo.assignment);
+  assignmentScore.targetScore = parseInt(scores[1]);
+})
+
+Given(/I start a new course as "(.*)"$/, async function (user) {
+  const epoch = new Date().getTime();
+  lcInfo.course = epoch;
+  courses.addCourse(lcInfo.course);
 });
 
-Then('I answer a question', async function () {
-  log.debug('Answer Question');
-  await pages.learningCurve.populate('fill_in_the_blank', 'Chuck Norris');
+When('I view the student landing page for LCRP', async function () {
+  let results = await helper.getReadingInfo();
+  if (results[1] !== results[2]) {
+    let lockVisiable = await studentView.lcrpPage.checkWebElementExists('reading_lock');
+    assert(lockVisiable, 'Lock is not present with readings that are unread.');
+  } else {
+    let startQuiz = await studentView.lcrpPage.checkWebElementExists('start_quiz_button');
+    assert(startQuiz, 'When readings are read/none exists, take quiz should be visible.')
+  }
+  courses.addAssignment(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  courses.addAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
 });
 
-Then('I see the reading list', async function () {
-  log.debug('Answering Mutiple Chioce question');
-  var answerList = await pages.learningCurve.getWebElements('reading_list')
-  await answerList.forEach(async function (answer) {
-    const labelText = await answer.getText();
-    console.log('label text' + labelText);
-  });
-  const elementId = await pages.learningCurve.getElementValue('reading_list', 'class')
-  console.log('Class list: ' + elementId);
-  const cssValue = await pages.learningCurve.getElementValue('reading_list', 'style')
-  console.log('Styles: ' + cssValue);
+When('I view the student landing page for LC', async function () {
+  courses.addAssignment(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  courses.addAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  assignmentScore.targetScore = await studentView.lcPage.getElementValue('target_score')
+  let beginActivityButton = studentView.lcPage.checkWebElementExists('start_quiz_button')
+  assert(beginActivityButton, 'The Begin Activity Button is not present on the page.')
 });
 
-Then('I have a Mutiple Choice Question', async function () {
-  log.debug('Answering Mutiple Chioce question');
-  var answerList = await pages.learningCurve.getWebElements('multiple_choice')
-  console.log('elements found' + answerList.length)
-  for (var answer in answerList) {
-    const labelText = await answer.getText();
-    console.log('label text' + labelText);
+When('I click on a reading the ebook view opens', async function () {
+  let readList = await studentView.lcrpPage.getWebElements('reading_list');
+  if (readList.length > 0) {
+    let topic = await readList[0].getText();
+    readList[0].click();
+    await sleep(500);
+    await helper.verifyEbook(topic);
   }
 });
 
-Then('the submit answer buttons appears', async function () {
-  log.debug('submit answer button');
-  await pages.learningCurve.populate('submit_answer_button', 'click')
+When('I read the rest of the ebooks the quiz button is shown', async function () {
+  let readingCount = await helper.getReadingInfo();
+  for (let i = 0; i < readingCount[2]; i++) {
+    let readList = await studentView.lcrpPage.getWebElements('reading_list');
+    let topic = await readList[i].getText();
+    readList[i].click();
+    await sleep(500);
+    await helper.verifyEbook(topic);
+  }
+})
+
+Then(/I can start the assessment "(.*)"/, async function (lc) {
+  if (lc === 'LC') {
+    await studentView.lcPage.populate('start_quiz_button', 'click')
+  } else {
+    let quizButton = await studentView.lcrpPage.checkWebElementExists('start_quiz_button');
+    assert(quizButton, 'The Quiz button was not displayed.')
+    await studentView.lcrpPage.populate('start_quiz_button', 'click');
+  }
+  let score = await studentView.quizPage.getElementValue('current_score');
+  let scores = score.split(/\//)
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  if (assignmentScore.targetScore !== 0) {
+    assert(assignmentScore.targetScore === scores[1], 'The target score does not match the score on the landing page.')
+  } else {
+    assignmentScore.targetScore = scores[1];
+  }
+})
+
+Given(/I see a question, I can answer it "(.*)"/, async function (answer) {
+  let question = await helper.parseQuestion();
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+  await helper.answerQuestion(question, answer);
+  if (answer === 'Correct') {
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+  } else {
+    // evaluate incorrect answer page
+    if (question.Type !== 'FB') {
+      question.incorrect = true;
+    }
+    await helper.answerQuestion(question, 'Correct');
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+  }
+  // evalutate correct answer page
+  await studentView.quizPage.populate('next_question', 'click');
+})
+Given('I see a question, I can open the ebook', async function () {
+  let question = await helper.parseQuestion();
+  await studentView.quizPage.populate('open_ebook', 'click');
+  await helper.verifyEbook(question.ebook);
+  await studentView.commonPage.populate('close_ereader', 'click')
+})
+
+Given('I see a question, I can get a hint', async function () {
+  let question = await helper.parseQuestion();
+  await studentView.quizPage.populate('get_hint', 'click');
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+  question.incorrect = true;
+  let hintModal = await studentView.quizPage.checkWebElementExists('hint_answer_modal');
+  assert(hintModal, 'The Hint modal did not display after clicking the "Get a Hint" button');
+  await helper.checkLevel(question);
+  await helper.answerQuestion(question, question.answer)
+  assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
 });
 
-Then('the answer is correct', async function () {
-  log.debug('Answer is correct');
-  await pages.learningCurve.checkWebElementExists('successful_answer')
-  await pages.learningCurve.populate('next_question', 'click')
+Given('I see a question, I can get the answer', async function () {
+  let question = await helper.parseQuestion();
+  await studentView.quizPage.populate('get_hint', 'click');
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+
+  show_answer_correct_answer
 });
 
-Then('get to the midway point of a test and continue', async function () {
-  while (true) {
-    const question = await pages.learningCurve.getElementValue('question')
-    if (!question.includes('alcohol')) {
-      await pages.learningCurve.populate('fill_in_the_blank', 'Chuck Norris');
+Then('I complete 50% of the assignment', async function () {
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  while (assignmentScore.currentScore / assignmentScore.targetScore < 0.5) {
+    let question = await helper.parseQuestion();
+    assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+    await helper.answerQuestion(question, 'Correct');
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+    if (assignmentScore.currentScore / assignmentScore.targetScore < 0.5) {
+      await studentView.quizPage.populate('next_question', 'click');
     } else {
-      await pages.learningCurve.populate('fill_in_the_blank', '1.3');
+      assert(await studentView.quizPage.checkWebElementExists('midway_modal'), 'Midway modal did not exist after 50% of the target score had been reached.')
+      await studentView.quizPage.populate('next_question_midway', 'click');
     }
-    await pages.learningCurve.populate('submit_answer_button', 'click')
-    try {
-      await pages.learningCurve.populate('next_question_midway', 'click');
-      break;
-    } catch (err) {
-      // Do nothing
-    }
-    await pages.learningCurve.checkWebElementExists('successful_answer')
-    await pages.learningCurve.populate('next_question', 'click')
   }
 });
 
-Then('finish the test', async function () {
-  while (true) {
-    const question = await pages.learningCurve.getElementValue('question')
-    if (!question.includes('alcohol')) {
-      await pages.learningCurve.populate('fill_in_the_blank', 'Chuck Norris');
+When('I am done with an assessment, I see my score and can retake the assessment', async function () {
+  let retakeButton = await studentView.lcrpPage.checkWebElementExists('retake_quiz');
+  assert(retakeButton, 'The Retake button does not exist after completing an assignment');
+  // Also Check Score
+});
+
+Then('I complete 100% of an LCRP assignment', async function () {
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  while (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
+    let question = await helper.parseQuestion();
+    assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+    await helper.answerQuestion(question, 'Correct');
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+    if (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
+      await studentView.quizPage.populate('next_question', 'click');
     } else {
-      await pages.learningCurve.populate('fill_in_the_blank', '1.3');
+      await studentView.quizPage.populate('complete_quiz_lcrp', 'click');
     }
-    await pages.learningCurve.populate('submit_answer_button', 'click')
-    try {
-      await pages.learningCurve.populate('view_study_plan', 'click');
-      break;
-    } catch (err) {
-      // Do nothing
-    }
-    await pages.learningCurve.checkWebElementExists('successful_answer')
-    await pages.learningCurve.populate('next_question', 'click')
   }
+});
+
+Then('I complete 100% of an LC assignment', async function () {
+  let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
+  while (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
+    let question = await helper.parseQuestion();
+    assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
+    await helper.answerQuestion(question, 'Correct');
+    assignmentScore.currentScore += parseInt(await helper.checkLevel(question));
+    if (assignmentScore.currentScore / assignmentScore.targetScore < 1) {
+      await studentView.quizPage.populate('next_question', 'click');
+    } else {
+      let completeQuizModal = await studentView.quizPage.checkWebElementExists('complete_quiz_lc')
+      assert(completeQuizModal, 'While the target score has been reached, the student was not notified of its completion.')
+      await studentView.quizPage.populate('back_to_study_plan', 'click')
+    }
+  }
+});
+
+Given('I have completed an LC assignment, I can go back and answer more questions.', async function () {
+  let resumeButton = studentView.lcPage.checkWebElementExists('start_quiz_button');
+  assert(resumeButton, 'The resume activity button is not available after a student has finished a quiz.')
+  await studentView.lcPage.populate('start_quiz_button', 'click');
+  let question = await helper.parseQuestion();
+  assert(question !== undefined, 'Was not able to load question.')
+  studentView.lcPage.populate('next_question', 'click');
+  await sleep(5000)
+});
+
+AfterAll(function () {
+  console.log(JSON.stringify(courses.getCourses()));
+  getDriver().quit();
+  return Promise.resolve();
 });

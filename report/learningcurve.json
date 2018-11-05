@@ -1,0 +1,149 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Learning Curve Assignment",
+    "line": 1,
+    "id": "learning-curve-assignment",
+    "tags": [],
+    "uri": "features\\tests\\LC\\learningcurve.feature",
+    "elements": [
+      {
+        "id": "learning-curve-assignment;start-a-history-test",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Start a History Test",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have opened LC \"learningCurveUrl\" \"history\"",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9300000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "I see the reading list",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:36"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 743000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "learning-curve-assignment;compelete-chuck-norris-test",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Compelete Chuck Norris Test",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have opened LC \"learningCurveUrl\" \"Norris\"",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5919000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I start a quiz",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 835000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "I answer a question",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 531000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the submit answer buttons appears",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:59"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 610000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the answer is correct",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1134000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "get to the midway point of a test and continue",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20764000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "finish the test",
+            "match": {
+              "location": "features\\steps\\LC\\learningcurve.js:90"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21811000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

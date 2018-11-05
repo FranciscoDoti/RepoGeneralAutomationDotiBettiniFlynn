@@ -1,7 +1,8 @@
 {
 	"baseURL": "https://int-achieve-courseware-frontend.mldev.cloud/",
 	"loginURL": "https://int-achieve-iam.mldev.cloud/login?retURL=https://int-achieve-courseware-frontend.mldev.cloud/courses",
-	"learningCurveUrl": "https://dev-learning-curve-learningcurve.mldev.cloud/",
+	"LCUrl": "https://dev-learning-curve-learningcurve.mldev.cloud/",
+	"LCRPUrl": "https://dev-learning-curve-learningcurve.mldev.cloud/lcrp/",
 	"driver": {
 		"type": "chrome",
 		"headless": false
