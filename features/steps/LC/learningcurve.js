@@ -1,5 +1,6 @@
 const { Given, When, Then, AfterAll } = require('cucumber');
 const { loadConfig } = require('../../../app/util');
+const jwt = require('../../../app/jwt');
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
@@ -24,12 +25,20 @@ var testInfo = {
 Given(/^I log into an assignment in "(.*)" as "(.*)"$/, async function (urlKey, user) {
   let url = config[urlKey];
   testInfo.currentUser = user;
-  url = url + '?user_id=' + lcInfo[user].user_id + '&file=music%2Ftest%2Fautomation_test_51F1C3&itemid=' + lcInfo.assignment + '&course_id=' + lcInfo.course + '&isfqtoolreferred=V7MkHewcPm5U4Cg4';
+  url = url + '?user_id=' + lcInfo[user].userId + '&file=music%2Ftest%2Fautomation_test_51F1C3&itemid=' + lcInfo.assignment + '&course_id=' + lcInfo.course + '&isfqtoolreferred=V7MkHewcPm5U4Cg4';
   if (user === 'instructor') {
     url += '&view=instructor'
   }
   log.debug(`Loading URL ${url}`);
   await getDriver().get(url);
+  var token = jwt.generateJWT(lcInfo[user], [lcInfo.course]);
+  await getDriver().manage().addCookie(
+    {
+      'name': 'id_token',
+      'value': token,
+      'path': '/',
+      'domain': '.mldev.cloud'});
+
   await sleep(5000);
 });
 
@@ -162,8 +171,6 @@ Given('I see a question, I can get the answer', async function () {
   await studentView.quizPage.populate('get_hint', 'click');
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   assignmentScore.totalPossible += parseInt(await helper.checkLevel(question));
-
-  show_answer_correct_answer
 });
 
 Then('I complete 50% of the assignment', async function () {
@@ -224,9 +231,9 @@ Given('I have completed an LC assignment, I can go back and answer more question
   let resumeButton = studentView.lcPage.checkWebElementExists('start_quiz_button');
   assert(resumeButton, 'The resume activity button is not available after a student has finished a quiz.')
   await studentView.lcPage.populate('start_quiz_button', 'click');
-  let question = await helper.parseQuestion();
-  assert(question !== undefined, 'Was not able to load question.')
-  studentView.lcPage.populate('next_question', 'click');
+  let nextQuestionButton = studentView.quizPage.checkWebElementExists('next_question')
+  assert(nextQuestionButton !== undefined, 'Not on the last question')
+  studentView.quizPage.populate('next_question', 'click');
   await sleep(5000)
 });
 

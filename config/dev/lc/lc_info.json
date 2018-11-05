@@ -1,21 +1,26 @@
 {
-	"instructor":{	
-		"first_name":"Automation",
-		"last_name":"Instructor",
+	"instructor":{
+		"firstName":"Automation",
+		"lastName":"Instructor",
 		"email":"Instructor@auto.test",
-		"user_id":"fake_user_523595208"
+    "userId":"fake_user_191697968",
+    "userType": "instructor",
+    "admin": false
     },
     "student1":{
-		"first_name":"Automation",
-		"last_name":"Student1",
+		"firstName":"Automation",
+		"lastName":"Student1",
 		"email":"Student1@auto.test",
-		"user_id":"fake_user_1045355543"
+    "userId":"fake_user_1181076082",
+    "userType": "student",
+    "admin": false
     },
     "student2":{
-		"first_name":"Automation",
-		"last_name":"Student2",
+		"firstName":"Automation",
+		"lastName":"Student2",
 		"email":"Student2@auto.test",
-		"user_id":"fake_user_2029375234"
-
+		"userId":"fake_user_1949024581",
+    "userType": "student",
+    "admin": false
 	}
 }
