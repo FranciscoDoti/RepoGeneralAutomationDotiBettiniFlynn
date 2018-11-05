@@ -306,6 +306,7 @@ Then('I verify the Sign up is disabled', async function () {
   }
 });
 
+// Why do I have to do a .click here?
 Then(/^I Select "(.*)" in Primary Institution or School text box$/, async function (usacollege) {
     log.debug('Primary institute field filled');
     await pages.createAccount.populate('institution', usacollege);
