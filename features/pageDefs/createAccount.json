@@ -17,9 +17,24 @@
 			"specialInstr": "NA"
 		},
 		{
+			"name": "firstNameAccount",
+			"byType": "id",
+			"definition": "FirstName",
+			"frame": "default",
+			"waitToBeVisible": "headerLogo",
+			"specialInstr": "NA"
+		},
+		{
 			"name": "lastName",
 			"byType": "id",
 			"definition": "lastName",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "lastNameAccount",
+			"byType": "id",
+			"definition": "LastName",
 			"frame": "default",
 			"specialInstr": "NA"
 		},
@@ -516,7 +531,7 @@
 			"specialInstr": "NA"
 		},
 		{
-			"name": "cancle_account",
+			"name": "cancel_account",
 			"byType": "id",
 			"definition": "cancel",
 			"frame": "default",

@@ -40,7 +40,7 @@ Then('I verify validation message for first name', async function () {
 Then('I verify validation message for last name', async function () {
   const lastNameErrorText = await pages.createAccount.getElementValue('last_error');
   if (lastNameErrorText == 'Last name must not be blank and cannot contain numbers/special characters') {
-    console.log('Passed: Verify that First Name field validations are working as expected');
+    console.log('Passed: Verify that Last Name field validations are working as expected');
   } else {
     throw new Error('failed');
   }
@@ -57,9 +57,11 @@ When('I verify the functionality of first name and lastname by entering large ch
 
 Then('I verify large char validation message in the first name field', async function () {
   console.log('Verify that First Name field validations are working as expected')
-  const errorText = await pages.createAccount.getElementValue('largechar_firstname');
-  if (errorText == 'Limit of 40 characters reached') {
-    console.log('passed');
+  const lastNameErrorText = await pages.createAccount.getElementValue('largechar_firstname').catch((err)=>{
+    throw new Error('Failed to show first name character limit error', err)
+  });
+  if (lastNameErrorText == 'Limit of 40 characters reached') {
+    console.log('Passed: I verify large char validation message in the first name field');
   } else {
     throw new Error('Failed to show first name character limit error');
   }
@@ -67,9 +69,9 @@ Then('I verify large char validation message in the first name field', async fun
 
 Then('I verify large char validation message in the last name field', async function () {
   console.log('Verify that Last Name field validations are working as expected')
-  const errorText = await pages.createAccount.getElementValue('largechar_lastname');
-  if (errorText == 'Limit of 40 characters reached') {
-    console.log('passed');
+  const firstNameErrorText = await pages.createAccount.getElementValue('largechar_lastname');
+  if (firstNameErrorText == 'Limit of 40 characters reached') {
+    console.log('Passed: I verify large char validation message in the last name field');
   } else {
     throw new Error('Failed to show last name character limit error');
   }
@@ -304,6 +306,7 @@ Then('I verify the Sign up is disabled', async function () {
   }
 });
 
+// Why do I have to do a .click here?
 Then(/^I Select "(.*)" in Primary Institution or School text box$/, async function (usacollege) {
     log.debug('Primary institute field filled');
     await pages.createAccount.populate('institution', usacollege);
@@ -349,6 +352,16 @@ When('I verify the opt-in checkbox is checked', async function () {
 //     log.error(err);
 //   }
 // });
+
+Then(/^I verify the password inputed "(.*)" is not the same as the one that was allowed$/, async function (password) {
+  const passwordAllowed = await pages.createAccount.getElementValue('password', 'value')
+  
+  if(password === passwordAllowed) {
+    throw new Error('The password that was allowed was too long, passwordAllowed', passAllowed, 'password inputed: ', password);
+  } else {
+    console.log('Passed: The Password that was allowed was ', passwordAllowed, 'even though the password inputed was ', password);
+  }
+})
 
 When(/^I Select "(.*)" in Primary Institution text box$/, async function (canadacollege) {
   try {
@@ -398,21 +411,10 @@ Then('I click on checkbox', async function () {
 //   }
 // });
 When('I click on privacy notice link', async function () {
-  try {
-    log.debug('Clickig on privacy noticelink');
     await pages.createAccount.populate('Privacy_notice', 'selected');
-    log.debug(`Privacy notice link is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
 });
 Then('I verify that I am redirected to privacy notice link page', async function () {
-  console.log('Verify that Privacy Notice Link redirects to appropriate page')
-  if (await pages.createAccount.checkWebElementExists('privacy_check')) {
-    console.log('passed');
-  } else {
-    console.log('failed');
-  }
+  await pages.createAccount.checkWebElementExists('privacy_check')
 });
 
 When('I click on user agreement checkbox', async function () {
@@ -669,18 +671,43 @@ When('I click on Account', async function () {
   }
 });
 
-When('I verify Email- address is disabled', async function () {
-  try {
-    console.log('Verify that E-mail Address shown is disabled and it is same as user created account');
-    var verify = await getDriver().findElement(By.xpath(("//*[@id='app']/div/div/div/div/div/div[4]/div"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    }
-  } catch (err) {
-    log.error(err);
+//This test case is deprecated
+// When('I verify Email- address is disabled', async function () {
+//     console.log('Verify that E-mail Address shown is disabled and it is same as user created account');
+//     await pages.createAccount.assert('Email_disabled', 'disabled');
+// });
+
+When(/^I verify that the account information for "(.*)" displayed is correct$/, async function (user) {
+  const Login = await loadLogin(user);
+  const firstName = await pages.createAccount.getElementValue('firstNameAccount', 'value');
+  const lastName = await pages.createAccount.getElementValue('lastNameAccount', 'value');
+  const email = await pages.createAccount.getElementValue('Email_disabled');
+  const sq1answer = await pages.createAccount.getElementValue('Security_Question_1_Answer__c', 'value');
+  const sq2answer = await pages.createAccount.getElementValue('Security_Question_2_Answer__c', 'value');
+  const sq3answer = await pages.createAccount.getElementValue('Security_Question_3_Answer__c', 'value');
+  const institution = await pages.createAccount.getElementValue('institution', 'value');
+  if(firstName !== Login.firstName){
+    throw new Error('Not the correct first name ', firstName, ' is displayed instead');
   }
+  if(lastName !== Login.lastName){
+    throw new Error('Not the correct last name ', lastName, ' is displayed instead');
+  }
+  if(email !== Login.username){
+    throw new Error('Not the correct email ', email, ' is displayed instead');
+  }
+  if(sq1answer !== 'answer'){
+    throw new Error('Not the correct security question 1 answer ', sq1answer, ' is displayed instead');
+  }
+  if(sq2answer !== 'answer'){
+    throw new Error('Not the correct security question 2 answer ', sq2answer, ' is displayed instead');
+  }
+  if(sq3answer !== 'answer'){
+    throw new Error('Not the correct security question 3 answer ', sq3answer, ' is displayed instead');
+  }
+  if(institution !== 'Macmillan Education'){
+    throw new Error('Not the institution ', institution, ' is displayed instead');
+  }
+
 });
 
 When('I click on "OPT-OUT@macmillanlearning.com"', async function () {
@@ -711,13 +738,7 @@ When('I click on checkbox in account', async function () {
 });
 
 Then('I input too many characters into the Primary Institution field', async function () {
-  try {
-    log.debug('I input too many characters into the Primary Institution field');
-    await pages.createAccount.populate('institution', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    log.debug(`Primary Institution is clicked, ${clickedButton}`);
-  } catch (err) {
-    throw new Error('Unable to input too many characters into the Primary Institution field');
-  }
+    await pages.createAccount.populate('institution', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTU');
 });
 
 Then('I verify the primary institution error message of too many characters', async function () {
@@ -728,23 +749,21 @@ Then('I verify the primary institution error message of too many characters', as
   }
 });
 
-When('I click on cancle button', async function () {
-  try {
-    log.debug('Clickig on cancle');
-    await pages.createAccount.populate('cancle_account', 'click');
-    log.debug(`cancle button was clicked, ${clickedButton}`);
-    await sleep(5000);
-  } catch (err) {
-    log.error(err);
+Then('I verify the primary institution field does not allow more than 150 characters', async function () {
+  const institutionText = await pages.createAccount.getElementValue('institution', 'value');
+  if (institutionText.length !== 150) {
+    throw new Error('Primary institution error message of too many characters not showing')
+  } else {
+    log.debug('Institution field does not allow more than 150 characters');
   }
 });
 
+When('I click on cancel button in User Acccount Menu', async function () {
+  await pages.createAccount.populate('cancel_account', 'click');
+});
+
 When('I verify home page is displayed', async function () {
-  if (await pages.createAccount.checkWebElementExists('cancle_account_verification')) {
-    console.log('passed');
-  } else {
-    console.log('failed');
-  }
+  await pages.createAccount.checkWebElementExists('cancle_account_verification')
 });
 
 When('I click on compose', async function () {
@@ -800,29 +819,12 @@ When('I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanle
   }
 });
 When('I click setpassword button', async function () {
-  try {
-    log.debug('Clickig on setpassword button');
     await pages.createAccount.populate('setpassword_button', 'click');
-    log.debug(`setpassword button  was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
 });
 When('I click on newpassword', async function () {
-  try {
-    log.debug('Clickig on new password button');
     await pages.createAccount.populate('password', 'ABCabc@123');
-    log.debug(`new password button  was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
 });
 When('I click on save changes button', async function () {
-  try {
-    log.debug('Clickig on savechanges button');
     await pages.createAccount.populate('save_button', 'click');
-    log.debug(`save changes button  was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+    await sleep(3000);
 });
