@@ -302,7 +302,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
 
       // const webElement = await elementTarget.getWebElement();
-      return elementTarget.elementDisabled();
+      return await elementTarget.elementDisabled();
     } else {
       log.error(`ERROR: WebElement ${elementName} not found in PageElements during checkWebElementExists() attempt.`);
     }

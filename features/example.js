@@ -15,7 +15,7 @@ let pages = {
 };
 
 When(/^I want to test (.*) and (.*)$/, async function (user, random) {
-  try {
+  // try {
     var that = {
       ScenarioData: ScenarioData
     };
@@ -24,45 +24,45 @@ When(/^I want to test (.*) and (.*)$/, async function (user, random) {
     let username = sp.strEval(user);
     let somerandom = sp.strEval(random);
     log.debug(`Finished ${username} - ${somerandom}`);
-  } catch (err) {
-    log.error(err.stack);
-  }
+  // } catch (err) {
+  //   log.error(err.stack);
+  // }
 });
 
 When(/^I want to load (.*) from json$/, async function (dataFileAndField) {
-  try {
+  // try {
     const that = {
       ScenarioData: ScenarioData
     };
     let sp = StringProcessing(that.ScenarioData);
     let fieldValue = sp.strEval(dataFileAndField);
     log.debug(`Got Data Field ${dataFileAndField} - ${fieldValue}`);
-  } catch (err) {
-    log.error(err.stack);
-  }
+  // } catch (err) {
+  //   log.error(err.stack);
+  // }
 });
 
 Then(/^I want assert "(.*)" matches "(.*)"$/, async function (dataFileAndField, assertValue) {
-  try {
+  // try {
     const authAdmin = new PageObject('mainPage.json', pagePath)
     await authAdmin.assertText(dataFileAndField, assertValue);
     log.debug(`Asserted Data Field ${dataFileAndField} - ${assertValue}`);
-  } catch (err) {
-    log.error(err.stack);
-  }
+  // } catch (err) {
+  //   log.error(err.stack);
+  // }
 });
 
 Then(/^I visually confirm that date (.*) will /, async function (date) {
-  try {
+  // try {
     let that = {ScenarioData};
     let sp = StringProcessing(that.ScenarioData);
     let datetime = new Date(sp.strEval(date))
     log.debug(`-----`);
     log.debug(datetime)
     log.debug(`-----`);
-  } catch (err) {
-    log.error(err.stack);
-  }
+  // } catch (err) {
+  //   log.error(err.stack);
+  // }
 });
 
 Then(/^I visually confirm it failed that login data is bad (.*) has error /, async function (login) {
