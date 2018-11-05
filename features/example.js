@@ -15,68 +15,48 @@ let pages = {
 };
 
 When(/^I want to test (.*) and (.*)$/, async function (user, random) {
-  // try {
-    var that = {
-      ScenarioData: ScenarioData
-    };
-    let sp = StringProcessing(that.ScenarioData);
+  var that = {
+    ScenarioData: ScenarioData
+  };
+  let sp = StringProcessing(that.ScenarioData);
 
-    let username = sp.strEval(user);
-    let somerandom = sp.strEval(random);
-    log.debug(`Finished ${username} - ${somerandom}`);
-  // } catch (err) {
-  //   log.error(err.stack);
-  // }
+  let username = sp.strEval(user);
+  let somerandom = sp.strEval(random);
+  log.debug(`Finished ${username} - ${somerandom}`);
 });
 
 When(/^I want to load (.*) from json$/, async function (dataFileAndField) {
-  // try {
-    const that = {
-      ScenarioData: ScenarioData
-    };
-    let sp = StringProcessing(that.ScenarioData);
-    let fieldValue = sp.strEval(dataFileAndField);
-    log.debug(`Got Data Field ${dataFileAndField} - ${fieldValue}`);
-  // } catch (err) {
-  //   log.error(err.stack);
-  // }
+  const that = {
+    ScenarioData: ScenarioData
+  };
+  let sp = StringProcessing(that.ScenarioData);
+  let fieldValue = sp.strEval(dataFileAndField);
+  log.debug(`Got Data Field ${dataFileAndField} - ${fieldValue}`);
 });
 
 Then(/^I want assert "(.*)" matches "(.*)"$/, async function (dataFileAndField, assertValue) {
-  // try {
-    const authAdmin = new PageObject('mainPage.json', pagePath)
-    await authAdmin.assertText(dataFileAndField, assertValue);
-    log.debug(`Asserted Data Field ${dataFileAndField} - ${assertValue}`);
-  // } catch (err) {
-  //   log.error(err.stack);
-  // }
+  const authAdmin = new PageObject('mainPage.json', pagePath)
+  await authAdmin.assertText(dataFileAndField, assertValue);
+  log.debug(`Asserted Data Field ${dataFileAndField} - ${assertValue}`);
 });
 
 Then(/^I visually confirm that date (.*) will /, async function (date) {
-  // try {
-    let that = {ScenarioData};
-    let sp = StringProcessing(that.ScenarioData);
-    let datetime = new Date(sp.strEval(date))
-    log.debug(`-----`);
-    log.debug(datetime)
-    log.debug(`-----`);
-  // } catch (err) {
-  //   log.error(err.stack);
-  // }
+  let that = {ScenarioData};
+  let sp = StringProcessing(that.ScenarioData);
+  let datetime = new Date(sp.strEval(date))
+  log.debug(`-----`);
+  log.debug(datetime)
+  log.debug(`-----`);
 });
 
 Then(/^I visually confirm it failed that login data is bad (.*) has error /, async function (login) {
-  try {
-    let that = {ScenarioData};
-    let sp = StringProcessing(that.ScenarioData);
-    let username = sp.strEval(login);
-    if (!username) {
-      throw new Error(`Nothing was found for: ${login}`);
-    }
-    log.debug(`Found username ${username} from ${login}`);
-  } catch (err) {
-    log.error(err.stack);
+  let that = {ScenarioData};
+  let sp = StringProcessing(that.ScenarioData);
+  let username = sp.strEval(login);
+  if (!username) {
+    throw new Error(`Nothing was found for: ${login}`);
   }
+  log.debug(`Found username ${username} from ${login}`);
 });
 
 Then(/^I visually confirm that login data (.*) /, async function (login) {
@@ -87,14 +67,8 @@ Then(/^I visually confirm that login data (.*) /, async function (login) {
 });
 
 Then(/^I generate a dataTabe for this page Object/, async function () {
-  try {
-    var returnString = pages.navigation.generateDataTable(25);
-
-    console.log (returnString);
-  } catch (err) {
-    log.error(err.stack); 
-  }
-
-  //log.debug(`Found username ${username} from ${login}`);
+  var returnString = pages.navigation.generateDataTable(25);
+  console.log (returnString);
+  log.error(err.stack); 
 });
 
