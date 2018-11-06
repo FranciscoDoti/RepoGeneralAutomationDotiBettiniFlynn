@@ -192,7 +192,7 @@
 		{
 			"name":"close",
             "byType":"xpath",
-            "definition":".//*[@class='e1ZR']",
+            "definition":".//*[@aria-label='close']",
             "frame":"default",
             "specialInstr":"NA"
 

@@ -317,10 +317,9 @@ Then('I move the activity named to the folder named', async function () {
 
   try {
     log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
+    await pages.authProducer.populate('place_item_button', 'click')
   } catch (err) {
-  log.error(err);
+    log.error(err);
   }
 });
 Then('I reorder the items on the course resource page to be in this order:', async function () {
@@ -390,12 +389,15 @@ Then('I click on link of the file', async function () {
   await sleep(5000);
 });
 Then('I click on add content', async function () {
-  log.debug('Clicking on add content');
-  await pages.authProducer.populate('Adding_chapter_content', 'click');
-  log.debug('CLicking on add selection button');
-  await pages.authProducer.populate('AddSelectionsToResource', 'click');
-  log.debug(`Add Selection button is clicked: ${clickedButton}`);
-  await sleep(5000);
+  try {
+    log.debug('Clicking on add content');
+    await pages.authProducer.populate('Adding_chapter_content', 'click');
+    log.debug('CLicking on add selection button');
+    await pages.authProducer.populate('AddSelectionsToResource', 'click');
+    await sleep(5000);
+  } catch (err) {
+    log.error(err.stack);
+  }
 });
 Then('I reorder the activity items to the chapters', async function () {
   log.debug('CLicking on Open button');
@@ -418,15 +420,17 @@ Then('I reorder the activity items to the chapters', async function () {
 });
 
 When(/^I search for "(.*)"$/, async function (temp) {
-  log.debug('Clicking on search button');
-  await sleep(3000);
-  await pages.authAdmin.populate('search_course', temp);
+  try {
+    log.debug('Clicking on search button');
+    await sleep(3000);
+    await pages.authAdmin.populate('search_course', temp);
+  } catch (err) {
+    log.error(err);
+  }
 });
 
 Then(/^I copy the course named "Testcourse" to the name "(.*)"$/, async function (copy) {
-  await pages.authAdmin.populate('copy_course_name', copy);
   await pages.authAdmin.populate('copy_course', 'click');
-  await pages.authAdmin.populate('copy_course_name', 'click');
   await pages.authAdmin.populate('copy_course_name', copy);
   await sleep(3000);
   await pages.authAdmin.populate('save_button', 'click');
@@ -532,7 +536,6 @@ Then('I click on Resource tab of Testcourse', async function () {
   await sleep(3000);
   log.debug('Clicking on Resource button');
   await pages.authInstructor.populate('Resource_button_instructor', 'click');
-  log.debug(`Target button was clicked: ${clickedButton}`);
 });
 
 Then('I click on Target points', async function () {
@@ -565,7 +568,6 @@ Then('I click on Open Folder for activity', async function () {
 Then('I elect to assign the course', async function () {
   log.debug('Clicking on assign course button');
   await pages.authInstructor.populate('activity_assign', 'click');
-  log.debug(`activity assign course button was clicked: ${clickedButton}`);
 });
 Then('assign the values to variable', async function (dataTable) {
   Assigncourse = dataTable
@@ -608,7 +610,6 @@ Then('I click on Read and Practice', async function () {
 Then('I click on chapter 1 R&P folder', async function () {
   log.debug('Clicking on chapter 1 open folder');
   await pages.authInstructor.populate('open_folder_chapter1_activity', 'click');
-  log.debug(`chapter 1 open folder was clicked: ${clickedButton}`);
 });
 
 When('I click on Start grace period', async function () {
