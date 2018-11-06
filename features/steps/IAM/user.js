@@ -641,33 +641,24 @@ When(/^User has filled out the form with password: "(.*)"$/, async function (pas
 });
 
 When(/^User "(.*)" has filled all mandatory fields except password$/, async function (user) {
-  try {
-    const Login = await loadLogin(user);
-    await pages.createAccount.populate('firstName', Login.firstName);
-    await pages.createAccount.populate('lastName', Login.lastName);
-    await pages.createAccount.populate('email', Login.username);
-    await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
-    await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
-    await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
-    await pages.createAccount.populate('institution', Login.primarySchool);
-    await pages.createAccount.populate('OptIn', 'NA');
-    await pages.createAccount.populate('termsOfService', 'click');
-  } catch (err) {
-    log.error(err);
-  }
+  const Login = await loadLogin(user);
+  await pages.createAccount.populate('firstName', Login.firstName);
+  await pages.createAccount.populate('lastName', Login.lastName);
+  await pages.createAccount.populate('email', Login.username);
+  await pages.createAccount.populate('Security_Question_1__c', Login.sq1);
+  await pages.createAccount.populate('Security_Question_1_Answer__c', Login.sq1_answer);
+  await pages.createAccount.populate('Security_Question_2__c', Login.sq2);
+  await pages.createAccount.populate('Security_Question_2_Answer__c', Login.sq2_answer);
+  await pages.createAccount.populate('Security_Question_3__c', Login.sq3);
+  await pages.createAccount.populate('Security_Question_3_Answer__c', Login.sq3_answer);
+  await pages.createAccount.populate('institution', Login.primarySchool);
+  await pages.createAccount.populate('OptIn', 'NA');
+  await pages.createAccount.populate('termsOfService', 'click');
 });
 
 When('I click on Account', async function () {
-  try {
-    log.debug('Clickig on Account ');
-    await pages.createAccount.populate('Account', 'click');
-    log.debug(`Account button is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  // await sleep(3000)
+  await pages.createAccount.populate('Account', 'click');
 });
 
 //This test case is deprecated
@@ -710,13 +701,7 @@ When(/^I verify that the account information for "(.*)" displayed is correct$/, 
 });
 
 When('I click on "OPT-OUT@macmillanlearning.com"', async function () {
-  // try {
-    // log.debug('Clickig on OPt-outlink');
     await pages.createAccount.populate('Opt', 'click');
-    // log.debug(`Account button is clicked, ${clickedButton}`);
-  // } catch (err) {
-  //   log.error(err);
-  // }
 });
 When('I verify it redirects to E-mail', async function () {
   console.log('Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates')
@@ -759,6 +744,7 @@ Then('I verify the primary institution field does not allow more than 150 charac
 
 When('I click on cancel button in User Acccount Menu', async function () {
   await pages.createAccount.populate('cancel_account', 'click');
+  await sleep(3000);
 });
 
 When('I verify home page is displayed', async function () {

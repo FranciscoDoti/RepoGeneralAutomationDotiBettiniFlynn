@@ -39,8 +39,8 @@ When('save the value to variable', async function (dataTable) {
 });
 
 When('I elect to create a course with the following data:', async function () {
-  log.debug(`I populated table`);
-  try {
+  // log.debug(`I populated table`);
+  // try {
     log.info(fieldValue.rows().length);
     var e;
     for (e = 0; e < fieldValue.rows().length; e++) {
@@ -48,17 +48,17 @@ When('I elect to create a course with the following data:', async function () {
       log.info(fieldValue.hashes()[e].value);
       await pages.authProducer.populate(fieldValue.hashes()[e].variablename, fieldValue.hashes()[e].value);
     }
-  } catch (err) {
-    log.error(err.stack);
-  }
+  // } catch (err) {
+  //   log.error(err.stack);
+  // }
 
-  try {
-    log.debug('Clicking on save button');
-    await pages.authProducer.populate('save_button', 'click');
-    log.debug(`create course button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  // try {
+  //   log.debug('Clicking on save button');
+  //   await pages.authProducer.populate('save_button', 'click');
+  //   log.debug(`create course button was clicked: ${clickedButton}`);
+  // } catch (err) {
+  //   log.error(err);
+  // }
 });
 Then('I validate that the course "$course.templatename" is listed in the courses page', async function () {
   try {

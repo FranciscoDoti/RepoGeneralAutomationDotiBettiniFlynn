@@ -185,14 +185,14 @@ Feature: Authentication for Achieve via IAM
     #     And I verify it redirects to E-mail
 
 ## These Tests Below seem sort of fragile, they seem to break at intervals. The sign out button cannot be found, maybe the login is persisting
-    Scenario: Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account
-        Given I have opened Achieve "loginURL"
-        When I have logged in as "admin_alt"
-        And I click on user menu 
-        And I click on Account 
-        And I verify that the account information for "admin_alt" displayed is correct 
-        And I click on cancel button in User Acccount Menu
-        And I sign out of Achieve
+    # Scenario: Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account
+    #     Given I have opened Achieve "loginURL"
+    #     When I have logged in as "admin_alt"
+    #     And I click on user menu 
+    #     And I click on Account 
+    #     And I verify that the account information for "admin_alt" displayed is correct 
+    #     And I click on cancel button in User Acccount Menu
+    #     And I sign out of Achieve
 
     Scenario: Verify that aplication return to home page on clicking Cancel Button
         Given I have opened Achieve "loginURL"
