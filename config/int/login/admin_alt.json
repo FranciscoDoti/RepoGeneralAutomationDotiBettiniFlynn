@@ -1,6 +1,7 @@
 {
-    "username": "coursewareachieve@gmail.com",
+    "username": "james@pay-mon.com",
     "password": "ABCabc@123",
+<<<<<<< HEAD
     "firstName": "Addy",
     "lastName": "min",
     "sq1": "What high school did you attend?",
@@ -11,4 +12,9 @@
     "sq3_answer": "answer",
     "primarySchool": "Miami University"
     
+=======
+    "firstName": "james",
+    "lastName": "roster"
+
+>>>>>>> Read
 }

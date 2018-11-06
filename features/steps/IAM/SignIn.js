@@ -82,6 +82,7 @@ When('I enter invalid username and password', async function () {
 //Are we sure we are testing this correctly, it seems to be passing the tests but logging an error in the terminal from one of these tests or more
 //TODO: Find which test is logging an error, find out why and remove noisy console logs
 Then('I Verify "Invalid user name and password" message should be displayed', async function () {
+<<<<<<< HEAD
   try {
     console.log('Invalid user name and password')
     const errorText = await pages.login.getElementValue('error_sign');
@@ -93,6 +94,14 @@ Then('I Verify "Invalid user name and password" message should be displayed', as
     }
   } catch (err) {
     log.error(err);
+=======
+  console.log('Invalid user name and password')
+  const errorText = await pages.login.getElementValue('error_sign');
+  if (errorText == 'Invalid username or password') {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
+>>>>>>> Read
   }
 });
 
@@ -116,6 +125,7 @@ Then('I login with following credentials:', async function () {
 });
 
 Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed', async function () {
+<<<<<<< HEAD
   // console.log('Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system')
   await pages.login.getElement('userinvalid_errortext');
   // console.log(errorText+'errortext');
@@ -125,6 +135,16 @@ Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" mes
   //   console.log('failed');
   //   throw new Error('failed');
   // }
+=======
+  console.log('Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system')
+  const errorText = await pages.login.getElementValue('userinvalid_errortext');
+  console.log(errorText + 'errortext');
+  if (errorText == 'Too many login attempts. Wait 15 minutes and try again') {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
+  }
+>>>>>>> Read
 });
 
 

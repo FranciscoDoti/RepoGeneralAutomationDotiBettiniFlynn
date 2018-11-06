@@ -158,6 +158,7 @@ Then('I click on login button to return to login page', async function () {
   }
 });
 Then(/^I verify Message is displayed as "(.*)"$/, async function (verify) {
+<<<<<<< HEAD
   try {
     console.log('Verify the user is able to luanch the url and reset the password')
     if (await pages.authAdmin.checkWebElementExists('back_login')) {
@@ -167,6 +168,13 @@ Then(/^I verify Message is displayed as "(.*)"$/, async function (verify) {
     }
   } catch (err) {
     log.error(err);
+=======
+  console.log('Verify the user is able to luanch the url and reset the password')
+  if (await pages.authAdmin.checkWebElementExists('back_login')) {
+    console.log('passed');
+  } else {
+    throw new Error('failed');
+>>>>>>> Read
   }
 });
 Then('Verify that user is able to login using newly created password', async function () {

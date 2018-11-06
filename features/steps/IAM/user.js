@@ -19,6 +19,7 @@ When(/^I verify the functionality of first name by entering "(.*)"$/, async func
     log.error(err);
   }
 });
+<<<<<<< HEAD
 When(/^I verify the functionality of last name by entering "(.*)"$/, async function (lastname) {
   try {
     await pages.createAccount.populate('lastName', lastname);
@@ -44,6 +45,22 @@ Then('I verify validation message for last name', async function () {
   } else {
     throw new Error('failed');
   }
+=======
+Then('I verify validation message for first name and last name', async function () {
+    console.log('Verify that First Name field and last name validations are working as expected')
+    const errorText = await pages.createAccount.getElementValue('first_error');
+    if (errorText == 'First name must not be blank and cannot contain numbers/special characters') {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+    const errorText = await pages.createAccount.getElementValue('Last_error');
+    if (errorText == 'Last name must not be blank and cannot contain numbers/special characters') {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+>>>>>>> Read
 });
 
 When('I verify the functionality of first name and lastname by entering large characters', async function () {
@@ -55,6 +72,7 @@ When('I verify the functionality of first name and lastname by entering large ch
   }
 });
 
+<<<<<<< HEAD
 Then('I verify large char validation message in the first name field', async function () {
   console.log('Verify that First Name field validations are working as expected')
   const lastNameErrorText = await pages.createAccount.getElementValue('largechar_firstname').catch((err)=>{
@@ -75,10 +93,25 @@ Then('I verify large char validation message in the last name field', async func
   } else {
     throw new Error('Failed to show last name character limit error');
   }
+=======
+Then('I verify validation message in first name and last name', async function () {
+    console.log('Verify that First Name field and last name validations are working as expected')
+    const errorText = await pages.createAccount.getElementValue('largechar_firstname');
+    if (errorText == 'Limit of 40 characters reached') {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+    const errorText = await pages.createAccount.getElementValue('largechar_lastname');
+    if (errorText == 'Limit of 40 characters reached') {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+>>>>>>> Read
 });
 
 Then('I verify the Sign up button is disabled', async function () {
-  try {
     console.log('Verify that Security Question & Answer validations are working as expected by fullfilling all the criteria');
     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
     if (verify.includes('disabled')) {
@@ -86,9 +119,6 @@ Then('I verify the Sign up button is disabled', async function () {
     } else {
       console.log('failed');
     }
-  } catch (err) {
-    log.error(err);
-  }
 });
 
 When('I enter password having eight characters not fullfilling the criteria', async function () {
@@ -102,6 +132,7 @@ When('I enter password having eight characters not fullfilling the criteria', as
 });
 
 When('I check the error message', async function () {
+<<<<<<< HEAD
   console.log('Verify that password field validations are working as expected')
   const errorText = await pages.createAccount.getElementValue('password_error');
   if (errorText == 'Not a valid password') {
@@ -109,6 +140,15 @@ When('I check the error message', async function () {
   } else {
     throw new Error('failed');
   }
+=======
+    console.log('Verify that password field validations are working as expected')
+    const errorText = await pages.createAccount.getElementValue('password_error');
+    if (errorText == 'Not a valid password') {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+>>>>>>> Read
 });
 
 When(/^I enter password from "(.*)" account having eight character fullfilling the criteria$/, async function (account) {
@@ -133,7 +173,6 @@ When('I do not enter text in password field but I do enter text into confirm pas
   }
 });
 When('I check the error message of confirm password', async function () {
-  try {
     console.log('Verify that confirm password field validations are working as expected')
     const errorText = await pages.createAccount.getElementValue('confirmpassword_error');
     if (errorText == 'Passwords must match') {
@@ -141,9 +180,6 @@ When('I check the error message of confirm password', async function () {
     } else {
       throw new Error('failed');
     }
-  } catch (err) {
-    log.error(err);
-  }
 });
 When(/^I enter Password and confirm password from "(.*)" account fullfiling all password requirements$/, async function (account) {
   try {
@@ -173,8 +209,34 @@ When(/^I Select SecurityQuestions from "(.*)" account and I enter 150 character 
   }
 });
 
+<<<<<<< HEAD
 When(/^I verify that if I Select Security Questions of the "(.*)" account then I enter an empty string for the answers$/, async function (account) {
   // try {    
+=======
+Then('I verify the message displayed', async function () {
+    const errorText = await pages.createAccount.getElementValue('Security_question_1_message');
+    if (errorText == 'Limit of 150 characters reached') {
+      console.log('passed')
+    } else {
+      throw new Error('failed');
+    }
+    const errorText = await pages.createAccount.getElementValue('Security_question_2_message');
+    if (errorText == 'Limit of 150 characters reached') {
+      console.log('passed')
+    } else {
+      throw new Error('failed');
+    }
+    const errorText = await pages.createAccount.getElementValue('Security_question_3_message');
+    if (errorText == 'Limit of 150 characters reached') {
+      console.log('passed')
+    } else {
+      throw new Error('failed');
+    }
+});
+
+When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any questions$/, async function (account) {
+  try {
+>>>>>>> Read
     const user = await loadLogin(account)
     log.debug('clicking on Security Question button');
     await pages.createAccount.populate('Security_Question_1__c', user.sq1);
@@ -188,6 +250,7 @@ When(/^I verify that if I Select Security Questions of the "(.*)" account then I
   //   log.error(err);
   // }
 });
+<<<<<<< HEAD
 
 When(/^I enter the value of "(.*)" for each security question answer$/, async function (answer) {
   log.debug('Filling out each Security Question button');
@@ -264,6 +327,28 @@ Then(/^I verify the content of the security question error messages displayed is
     throw new Error('Failed to show correct error message for Security Question 3, for int expectations');
   }
 
+=======
+Then('I Verify Error message is displayed', async function () {
+    console.log('Verify that Security Question & Answer validations are working as expected without entering the question and answers');
+    const errorText = await pages.createAccount.getElementValue('sq1');
+    if (errorText == 'Must not be blank') {
+      console.log('passed')
+    } else {
+      throw new Error('failed');
+    }
+    const errorText = await pages.createAccount.getElementValue('sq2');
+    if (errorText == 'Must not be blank') {
+      console.log('passed')
+    } else {
+      throw new Error('failed');
+    }
+    const errorText = await pages.createAccount.getElementValue('sq3');
+    if (errorText == 'Must not be blank') {
+      console.log('passed')
+    } else {
+      throw new Error('failed');
+    }
+>>>>>>> Read
 });
 
 When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any questions$/, async function (account) {
@@ -293,7 +378,6 @@ Then(/^I verify list of Primary Institutions or schools will display starting wi
   }
 });
 Then('I verify the Sign up is disabled', async function () {
-  try {
     console.log('Verify that Primary Institution or School drop down and field working as expected');
     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
     if (verify.includes('disabled')) {
@@ -301,9 +385,6 @@ Then('I verify the Sign up is disabled', async function () {
     } else {
       console.log('failed');
     }
-  } catch (err) {
-    log.error(err);
-  }
 });
 
 // Why do I have to do a .click here?
@@ -327,6 +408,7 @@ When('I verify the opt-in checkbox is not checked', async function () {
   }
 
 });
+<<<<<<< HEAD
 
 When('I verify the opt-in checkbox is checked', async function () {
   const optInBoolean = await pages.createAccount.getElementValue('OptIn', 'selected');
@@ -362,6 +444,17 @@ Then(/^I verify the password inputed "(.*)" is not the same as the one that was 
     console.log('Passed: The Password that was allowed was ', passwordAllowed, 'even though the password inputed was ', password);
   }
 })
+=======
+Then('I verify the Sign up button is disabled when Primary Institution or School text box', async function () {
+    console.log('Verify that on selecting a US college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
+    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+    if (verify.includes('disabled')) {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+});
+>>>>>>> Read
 
 When(/^I Select "(.*)" in Primary Institution text box$/, async function (canadacollege) {
   try {
@@ -372,6 +465,7 @@ When(/^I Select "(.*)" in Primary Institution text box$/, async function (canada
     log.error(err);
   }
 });
+<<<<<<< HEAD
 
 
 // Then('I verify the Sign up button is disabled when canada college is selected', async function () {
@@ -387,6 +481,17 @@ When(/^I Select "(.*)" in Primary Institution text box$/, async function (canada
 //     log.error(err);
 //   }
 // });
+=======
+Then('I verify the Sign up button is disabled when canada college is selected', async function () {
+    console.log('Verify that on selecting a canada college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box');
+    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+    if (verify.includes('disabled')) {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+});
+>>>>>>> Read
 
 Then('I click on checkbox', async function () {
   try {
@@ -397,6 +502,7 @@ Then('I click on checkbox', async function () {
     log.error(err);
   }
 });
+<<<<<<< HEAD
 // Then('I verify the Sign up button is disabled when I click on check box', async function () {
 //   try {
 //     console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
@@ -410,6 +516,17 @@ Then('I click on checkbox', async function () {
 //     log.error(err);
 //   }
 // });
+=======
+Then('I verify the Sign up button is disabled when I click on check box', async function () {
+    console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
+    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+    if (verify.includes('disabled')) {
+      throw new Error('failed');
+    } else {
+      console.log('passed');
+    }
+});
+>>>>>>> Read
 When('I click on privacy notice link', async function () {
     await pages.createAccount.populate('Privacy_notice', 'selected');
 });
@@ -427,7 +544,6 @@ When('I click on user agreement checkbox', async function () {
   }
 });
 Then('I verify that all the fields are empty', async function () {
-  try {
     console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
     var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
     if (verify.includes('disabled')) {
@@ -435,9 +551,6 @@ Then('I verify that all the fields are empty', async function () {
     } else {
       console.log('failed');
     }
-  } catch (err) {
-    log.error(err);
-  }
 });
 
 When('I click on Terms of use link', async function () {
@@ -476,8 +589,18 @@ When(/^User "(.*)" has filled all mandatory fields except first name$/, async fu
   await pages.createAccount.populate('termsOfService', 'click');
 });
 When(/^I verify the Sign up button is disabled "(.*)"$/, async function (check) {
+<<<<<<< HEAD
     await pages.createAccount.assert('signUp_btn', 'disabled');
     console.log(check)
+=======
+    console.log(check);
+    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+    if (verify.includes('disabled')) {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+>>>>>>> Read
 });
 
 When(/^User "(.*)" has filled all mandatory fields except last name$/, async function (account) {
@@ -670,6 +793,7 @@ When('I click on Account', async function () {
   }
 });
 
+<<<<<<< HEAD
 //This test case is deprecated
 // When('I verify Email- address is disabled', async function () {
 //     console.log('Verify that E-mail Address shown is disabled and it is same as user created account');
@@ -707,6 +831,16 @@ When(/^I verify that the account information for "(.*)" displayed is correct$/, 
     throw new Error('Not the institution ', institution, ' is displayed instead');
   }
 
+=======
+When('I verify Email- address is disabled', async function () {
+    console.log('Verify that E-mail Address shown is disabled and it is same as user created account');
+    var verify = await getDriver().findElement(By.xpath(("//*[@id='app']/div/div/div/div/div/div[4]/div"))).getAttribute('outerHTML')
+    if (verify.includes('disabled')) {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+>>>>>>> Read
 });
 
 When('I click on "OPT-OUT@macmillanlearning.com"', async function () {
@@ -740,12 +874,22 @@ Then('I input too many characters into the Primary Institution field', async fun
     await pages.createAccount.populate('institution', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTU');
 });
 
+<<<<<<< HEAD
 Then('I verify the primary institution error message of too many characters', async function () {
   const errorText = await pages.createAccount.getElementValue('institution_message');
   if (errorText == 'Limit of 150 characters reached') {
   } else {
     throw new Error('Primary institution error message of too many characters not showing')
   }
+=======
+Then('I verify the message', async function () {
+    const errorText = await pages.createAccount.getElementValue('institution_message');
+    if (errorText == 'Limit of 150 characters reached') {
+      console.log('passed');
+    } else {
+      throw new Error('failed');
+    }
+>>>>>>> Read
 });
 
 Then('I verify the primary institution field does not allow more than 150 characters', async function () {
@@ -810,7 +954,7 @@ When('I click on compose', async function () {
   }
 });
 When('I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanlearning.com" link no -emial updates should be recived regarding macmillan updates', async function () {
-  await sleep(10000);
+  await sleep(5000);
   if (await pages.createAccount.checkWebElementExists('opt_verfication')) {
     console.log('passed');
   } else {
