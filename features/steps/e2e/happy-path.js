@@ -34,7 +34,7 @@ When('save the value to variable', async function (dataTable) {
 });
 
 When('I elect to create a course with the following data:', async function () {
-  log.debug(`I populated table`);
+  // log.debug(`I populated table`);
   try {
     log.info(fieldValue.rows().length);
     var e;
@@ -47,6 +47,7 @@ When('I elect to create a course with the following data:', async function () {
     log.error(err.stack);
   }
   await pages.authProducer.populate('save_button', 'click');
+
 });
 Then('I validate that the course "$course.templatename" is listed in the courses page', async function () {
   if (await pages.authAdmin.checkWebElementExists('course_validation')) {

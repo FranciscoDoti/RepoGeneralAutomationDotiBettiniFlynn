@@ -72,6 +72,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
+  const genericPopulateDatable = async function (table) {
+    for (let e = 0; e < table.rows().length; e++) {
+      await genericPopulateElement(table.hashes()[e].variablename, table.hashes()[e].value);
+    }
+  }
+
   const genericPopulateElement = async function (elementName, value) {
     let elementTarget = '';
     let tempElement = {};

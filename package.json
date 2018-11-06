@@ -12,6 +12,7 @@
     "create-test-accounts": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'",
     "happy-path-randp": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-randp.feature --world-parameters='{\"config\": \"int\"}'",
     "happy-path-wrt": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-wrt.feature --world-parameters='{\"config\": \"int\"}'",
+    "test-feat": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/test.feature --world-parameters='{\"config\": \"int\"}'",
     "randp-happy-path-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/R&P_PM/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'",
     "lc-parser": "node ./lc-parser.js",
     "example": "node ./node_modules/cucumber/bin/cucumber-js features/example.feature --world-parameters='{\"config\": \"int\"}'",
