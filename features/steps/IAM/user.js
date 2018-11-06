@@ -635,11 +635,10 @@ When(/^User has filled out the form with password: "(.*)"$/, async function (pas
   try {
     await pages.createAccount.populate('password', password);
     await pages.createAccount.populate('confirmPassword', password);
-  } catch {
+  } catch (err) {
     log.error(err);
   }
-
-})
+});
 
 When(/^User "(.*)" has filled all mandatory fields except password$/, async function (user) {
   try {
