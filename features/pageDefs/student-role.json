@@ -162,9 +162,6 @@
             "frame":"default",
             "specialInstr":"NA"
 
-<<<<<<< HEAD
-
-=======
         },
         {
             "name":"start_grace_period",
@@ -188,18 +185,10 @@
             "definition":"/html/body/div[2]/div/div/div[2]/div[1]/article/form/button",
             "frame":"default",
             "specialInstr":"NA"
->>>>>>> Read
 
         }
 
 
-<<<<<<< HEAD
-    
-    
-    
-
-=======
->>>>>>> Read
     ]
 
 }

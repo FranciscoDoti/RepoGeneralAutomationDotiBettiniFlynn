@@ -71,11 +71,7 @@ Then('I validate that the course "$course.templatename" is listed in the courses
 });
 
 Then('I create a folder named on the resources screen', async function () {
-<<<<<<< HEAD:features/steps/e2e/happy-path.js
-  try {
-=======
   /* try {
->>>>>>> Read:features/steps/e2e/happy-path-randp.js
     log.debug('Clicking on course card');
     await pages.authProducer.populate('card_name', 'click', 'resources_tab');
     log.debug(`create course card was clicked: ${clickedButton}`);
@@ -89,11 +85,7 @@ Then('I create a folder named on the resources screen', async function () {
     log.debug(`create resource tab was clicked: ${clickedButton}`);
   } catch (err) {
     log.error(err);
-<<<<<<< HEAD:features/steps/e2e/happy-path.js
-  }
-=======
   } */
->>>>>>> Read:features/steps/e2e/happy-path-randp.js
 
   try {
     log.debug('Clicking on add folder');
@@ -330,11 +322,7 @@ Then('I move the activity named to the folder named', async function () {
   } catch (err) {
   log.error(err);
   }
-<<<<<<< HEAD:features/steps/e2e/happy-path.js
 });
-=======
-}); */
->>>>>>> Read:features/steps/e2e/happy-path-randp.js
 Then('I reorder the items on the course resource page to be in this order:', async function () {
   await pages.authProducer.populate('options_button', 'click');
   await pages.authProducer.populate('reorder_button', 'click');
@@ -367,243 +355,6 @@ Then('I elect to edit the course with the following data:', async function () {
 });
 
 Then('I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"', async function () {
-<<<<<<< HEAD:features/steps/e2e/happy-path.js
-  try {
-    if (await pages.authProducer.checkWebElementExists('Template_validate')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    }
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-When('I click on course card "Testcourse" template', async function () {
-  try {
-    log.debug('Clicking on course card');
-    await pages.authProducer.populate('', 'click');
-    log.debug(`create resource tab was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-When('I click on Resource tab', async function () {
-  try {
-    log.debug('Clicking on resources tab');
-    await pages.authProducer.populate('resources_tab', 'click');
-    log.debug(`create resource tab was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-When('add content into chapter', async function () {
-  try {
-    log.debug('Clicking on add button');
-    await pages.authProducer.populate('Add_button', 'click');
-    log.debug(`Add button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-When(/^I click on Activity search button and enter "(.*)"$/, async function (chapterName) {
-  try {
-    log.debug('Clicking search and entering the value');
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(3000);
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(5000);
-    log.debug(`The value is entered: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-When(/^I click on Activity search button and pass the value "(.*)"$/, async function (chapterName) {
-  try {
-    log.debug('Clicking search and entering the value');
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(3000);
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(3000);
-    await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    // await sleep(3000);
-    // await pages.authProducer.populate('ActivitySearchInput', chapterName);
-    await sleep(5000);
-    log.debug(`The value is entered: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-When('I click on add Introduction and Research Methods content', async function () {
-  try {
-    log.debug('Clicking on add Introduction and Research Methods content');
-    await pages.authProducer.populate('Adding_chapter_content', 'click');
-    log.debug(`Chapter content was added : ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('CLicking on add selection button');
-    await pages.authProducer.populate('AddSelectionsToResource', 'click');
-    log.debug(`Add Selection button is clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-Then('I reorder the items', async function () {
-  try {
-    log.debug('CLicking on Open button');
-    await pages.authProducer.populate('OpenActionMenuForChapter1', 'click');
-    log.debug(`Open button is clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on open folder');
-    await pages.authProducer.populate('OpenFolder', 'click');
-    log.debug(`Open folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on chapter 1');
-    await pages.authProducer.populate('chapter1-1', 'click');
-    log.debug(`Chapter 1 was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('CLicking on Open button');
-    await pages.authProducer.populate('OpenActionMenuForChapter1', 'click');
-    log.debug(`Open button is clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on open folder');
-    await pages.authProducer.populate('OpenFolder', 'click');
-    log.debug(`Open folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on chapter 2');
-    await pages.authProducer.populate('chapter1-2', 'click');
-    log.debug(`Chapter 1 was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('CLicking on Open button');
-    await pages.authProducer.populate('OpenActionMenuForChapter1', 'click');
-    log.debug(`Open button is clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on open folder');
-    await pages.authProducer.populate('OpenFolder', 'click');
-    log.debug(`Open folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on chapter 3');
-    await pages.authProducer.populate('chapter1-(3)', 'click');
-    log.debug(`Chapter 1 was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('CLicking on Open button');
-    await pages.authProducer.populate('OpenActionMenuForChapter1', 'click');
-    log.debug(`Open button is clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on open folder');
-    await pages.authProducer.populate('OpenFolder1', 'click');
-    log.debug(`Open folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking on chapter 2-1');
-    await pages.authProducer.populate('chapter2-1', 'click');
-    log.debug(`Chapter 1 was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-When(/^I search for "(.*)"$/, async function (temp) {
-  try {
-    log.debug('Clicking on search button');
-    await sleep(10000);
-    await pages.authAdmin.populate('search_course', temp);
-    log.debug('Entered click in search button');
-  } catch (err) {
-    log.error(err);
-  }
-=======
   if (await pages.authProducer.checkWebElementExists('Template_validate')) {
     console.log('passed');
   } else {
@@ -670,7 +421,6 @@ When(/^I search for "(.*)"$/, async function (temp) {
   log.debug('Clicking on search button');
   await sleep(3000);
   await pages.authAdmin.populate('search_course', temp);
->>>>>>> Read:features/steps/e2e/happy-path-randp.js
 });
 
 Then(/^I copy the course named "Testcourse" to the name "(.*)"$/, async function (copy) {
@@ -678,19 +428,9 @@ Then(/^I copy the course named "Testcourse" to the name "(.*)"$/, async function
   await pages.authAdmin.populate('copy_course', 'click');
   await pages.authAdmin.populate('copy_course_name', 'click');
   await pages.authAdmin.populate('copy_course_name', copy);
-<<<<<<< HEAD:features/steps/e2e/happy-path.js
-  try {
-    log.debug('Clicking save button');
-    await pages.authAdmin.populate('save_button', 'click');
-    log.debug(`Save button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-=======
   await sleep(3000);
   await pages.authAdmin.populate('save_button', 'click');
   await sleep(3000);
->>>>>>> Read:features/steps/e2e/happy-path-randp.js
 });
 When(/^I search "(.*?)"$/, async function (value) {
   log.debug('Clicking on search_course');
@@ -774,38 +514,6 @@ Then('I select number of use codes', async function () {
 });
 
 When(/^I open the invite link and login with "(.*)" account details$/, async function (username) {
-<<<<<<< HEAD:features/steps/e2e/happy-path.js
-  try {
-    await sleep(5000);
-    log.debug('Clicking on mail');
-    await pages.authInstructor.populate('macmillanMail', 'click');
-    log.debug(`mail was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    const hyperlink = await getDriver().findElement(By.xpath("//a[contains(@href, 'https://int-achieve-courseware-frontend.mldev.cloud/courses/n8pzzu')]")).getAttribute('href');
-    log.debug(hyperlink + 'hyperlink');
-    log.debug('Clicking on reset password');
-    await getDriver().get(hyperlink);
-    log.debug(`reset password was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    await sleep(5000);
-    const login = await loadLogin(username)
-    log.debug('Clicking on username and password');
-    await pages.login.populate('txt_username', login.username);
-    await pages.login.populate('txt_password', login.password);
-    await pages.login.populate('sign_in', 'click');
-    log.debug(`account details are entered: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-
-=======
   await sleep(5000);
   log.debug('Clicking on mail');
   const hyperlink = await getDriver().findElement(By.xpath("(//*[@target='_blank'])[32]")).getAttribute('href');
@@ -878,7 +586,6 @@ Then('I elect it with the following data:', async function () {
   }
 });
 
->>>>>>> Read:features/steps/e2e/happy-path-randp.js
 When('I click on course card "E2E101"', async function () {
   log.debug('Clicking on course card');
   await pages.student.populate('course_card_button', 'click', 'resource_tab');
@@ -894,16 +601,6 @@ When('I click on Open Folder', async function () {
   await pages.student.populate('Open_folder_chapter1', 'click');
 });
 Then('I click on Read and Practice', async function () {
-<<<<<<< HEAD:features/steps/e2e/happy-path.js
-  try {
-    log.debug('Clicking on Read and practice');
-    await pages.student.populate('chapter_1_r&p', 'click');
-    log.debug(`Read and practice was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-});
-=======
   log.debug('Clicking on Read and practice');
   await pages.student.populate('chapter_1_r&p', 'click');
 });
@@ -1004,4 +701,3 @@ Then('I click on alert message', async function () {
   log.debug('Clicking on alert message');
   await pages.student.populate('alert_message', 'click');
 });
->>>>>>> Read:features/steps/e2e/happy-path-randp.js

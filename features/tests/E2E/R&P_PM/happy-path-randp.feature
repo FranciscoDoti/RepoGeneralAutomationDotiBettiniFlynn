@@ -60,7 +60,7 @@ Background:
         Then I copy the course named "Testcourse" to the name "E2E101"
         And I sign out of Achieve
 
-    Scenario: Verify that customer support i sable to add instructor to the read& practice course  
+    Scenario: Verify that customer support is able to add instructor to the read& practice course  
         When I have logged in as "customer_support_1"
         When I search for "E2E101"
         And I click on open menu

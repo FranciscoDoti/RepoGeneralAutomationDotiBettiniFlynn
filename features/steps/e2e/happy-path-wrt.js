@@ -24,8 +24,11 @@ let pages = {
 
 }
 When('I click on create course plus button', async function () {
-  log.debug('Clicking on create course button');
-  await pages.authProducer.populate('Plus_button', 'click');
+  if (await pages.authProducer.checkWebElementExists('Plus_button')) {
+    await pages.authProducer.populate('Plus_button', 'click');
+  } else {
+    await pages.authProducer.populate('create_course', 'click');
+  }
 });
 When('I click on open menu for skills template', async function () {
   log.debug('Clicking on edit button');
