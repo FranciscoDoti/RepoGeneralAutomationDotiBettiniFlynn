@@ -80,5 +80,20 @@ Background:
         And I sign out of Achieve
     
     Scenario: Verify Instructor is able to custom created assesment acitvity in a Instructor created course in Qualitative Template 
-        
+        When I have logged in as "instructor_1"
+        And I search for "E301"
+        And I click on open menu
+        And I elect to edit the course named "$course1.name"
+        When save the values to course  
+            |values             | course|
+            |Template_status    | Active On Date |
+            |Active_Date        | @Date('now')   |
+            |course_end_date    | @Date('+2m')   |
+        And I elect to edit the course with the following data
+        And I click on open menu
+        Then I capture the invite link and store to variable "inviteLink"
+        And I populate the Invite Students "student" page 
+        And I click on course card "E2E101"
+        And I click on Resource tab of Testcourse
+
 

@@ -245,15 +245,6 @@
             "specialInstr":"NA"
 
         },
-        {
-            "name":"move_item_button",
-            "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div/div/div/div[2]/span/div/div/div/span",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
-
-
 
         {
             "name":"chapter_2",
@@ -401,14 +392,6 @@
 
         },
         {
-            "name":"Reorder_Assesment",
-            "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div/div/div/div[4]/span",
-            "frame":"default",
-            "specialInstr":"NA"
-
-        },
-        {
             "name":"Place_activity",
             "byType":"xpath",
             "definition":"(//*[@class=' IwDV'])[5]",
@@ -419,7 +402,7 @@
         {
             "name":"Place_activity_chapter1",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/button",
+            "definition":"(//*[text()='Chapter 1: Pre-made Assesment'])[2]",
             "frame":"default",
             "specialInstr":"NA"
 
@@ -427,14 +410,14 @@
         {
             "name":"Place_activity_chapter2",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[2]/button",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA"
         },
         {
             "name":"Place_activity_chapter3",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/button",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[3]/div/div/div[2]/button/span",
             "frame":"default",
             "specialInstr":"NA"
 
@@ -442,7 +425,7 @@
         {
             "name":"Place_activity_chapter4",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/button",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[4]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA"
         },
@@ -519,6 +502,16 @@
             "frame":"default",
             "specialInstr":"NA",
             "waitToBeVisible":"resources_tab"
+        },
+        {
+            "name":"move_item_button",
+            "byType":"xpath",
+            "definition":"//*[text() ='Move Item to Folder']",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible":"resources_tab"
+
+
         }
 
 	]

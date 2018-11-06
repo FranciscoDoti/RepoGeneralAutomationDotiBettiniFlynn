@@ -73,6 +73,7 @@ Background:
     
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
+        And I search for "E301"
         And I click on open menu
         And I elect to edit the course named "$course1.name"
         When save the values to course  
