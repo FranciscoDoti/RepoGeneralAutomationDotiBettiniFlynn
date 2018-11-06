@@ -103,7 +103,6 @@ When(/^I enter Password and confirm password from "(.*)" account fullfiling all 
     log.debug('clicking on password button');
     await pages.createAccount.populate('password', user.password);
     await pages.createAccount.populate('confirmPassword', user.password);
-    log.debug(`forgot button was clicked: ${clickedButton}`);
 });
 
 When(/^I Select SecurityQuestions from "(.*)" account and I enter 150 character value$/, async function (account) {
@@ -190,7 +189,6 @@ When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any ques
 Then(/^I verify list of Primary Institutions or schools will display starting with the letter "(.*)"$/, async function (Primary) {
     await pages.createAccount.populate('institution', Primary);
     await pages.createAccount.populate('first_institution', 'click');
-    log.debug(`primary institute button is clicked, ${clickedButton}`);
 });
 Then('I verify the Sign up is disabled', async function () {
     console.log('Verify that Primary Institution or School drop down and field working as expected');

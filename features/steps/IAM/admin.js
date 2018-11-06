@@ -7,8 +7,8 @@ const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
 const chromePath = require('chromedriver').path;
 const { log } = require('../../../app/logger');
-const {getDriver, getWebDriver, sleep} = require('../../../app/driver');
-const { By} = require('selenium-webdriver'); 
+const { getDriver, sleep } = require('../../../app/driver');
+const { By } = require('selenium-webdriver'); 
 const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';
 
 // Scenario setup

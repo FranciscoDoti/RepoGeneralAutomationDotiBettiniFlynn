@@ -2,8 +2,8 @@
 const { Given, When, Then } = require('cucumber');
 const path = require('path');
 const { loadConfig, loadLogin } = require('../../../app/util');
-const { getDriver, sleep} = require('../../../app/driver');
-const { By} = require('selenium-webdriver');
+const { getDriver, sleep } = require('../../../app/driver');
+const { By } = require('selenium-webdriver');
 
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
