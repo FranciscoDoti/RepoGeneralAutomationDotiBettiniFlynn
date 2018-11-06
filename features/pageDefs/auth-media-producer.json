@@ -146,8 +146,8 @@
         },
         {
             "name":"folder_name",
-            "byType":"id",
-            "definition":"0757b5da-e0a6-48e3-becd-ad4fc96c4bea",
+            "byType":"xpath",
+            "definition":"//*[@name='folderName']",
             "frame":"default",
             "specialInstr":"NA"
         },
@@ -221,6 +221,15 @@
         
         },
         {
+            "name":"options_button_2",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div/div/div[4]/div[1]/div/div/div[2]/div[2]/div[2]/div/div/div[3]/div/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+
+        },
+        {
             "name":"OpenFolder",
             "byType":"xpath",
             "definition":"/html/body/div[2]/div/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div[1]/button",
@@ -236,13 +245,7 @@
             "specialInstr":"NA"
 
         },
-        {
-            "name":"move_item_button",
-            "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div/div/div/div[2]/span/div/div/div/span",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
+
         {
             "name":"chapter_2",
             "byType":"xpath",
@@ -278,9 +281,23 @@
             "specialInstr":"NA"
         },
         {
+            "name":"move_total_down_button",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/div[2]/button[2]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
             "name":"move_down_button",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/button[3]",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/div[2]/button[1]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"move_up_button",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div[2]/div[1]/button[2]",
             "frame":"default",
             "specialInstr":"NA"
         },
@@ -337,32 +354,18 @@
 
         },
         {
-            "name":"chapter1-1",
+            "name":"chapter1",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/button/span",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA"
 
         },
+    
         {
-            "name":"chapter1-2",
+            "name":"chapter2",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div[2]/div[2]/div/div/div[2]/button",
-            "frame":"default",
-            "specialInstr":"NA"
-
-        },
-        {
-            "name":"chapter1-(3)",
-            "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[1]/div[2]/div[3]/div/div/div[2]/button",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
-        {
-            "name":"chapter2-1",
-            "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div/div/div[2]/button",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA" 
         },
@@ -376,31 +379,57 @@
         {
             "name":"OpenActionMenuForChapter1",
             "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[3]",
+            "definition":"(//*[@class='_1raI'])[3]",
             "frame":"default",
             "specialInstr":"NA"
         },
         {
-            "name":"OpenActionMenuForChapter2",
+            "name":"OpenActionMenu",
             "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[4]",
+            "definition":"(//*[@class='_1raI'])[5]",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Place_activity",
+            "byType":"xpath",
+            "definition":"(//*[@class=' IwDV'])[5]",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Place_activity_chapter1",
+            "byType":"xpath",
+            "definition":"(//*[text()='Chapter 1: Pre-made Assesment'])[2]",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Place_activity_chapter2",
+            "byType":"xpath",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA"
         },
         {
-            "name":"OpenActionMenuForChapter3",
+            "name":"Place_activity_chapter3",
             "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[5]",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[3]/div/div/div[2]/button/span",
             "frame":"default",
             "specialInstr":"NA"
+
         },
         {
-            "name":"OpenActionMenuForChapter4",
+            "name":"Place_activity_chapter4",
             "byType":"xpath",
-            "definition":"(//*[@class='_3xl4'])[6]",
+            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[4]/div/div/div[2]/button",
             "frame":"default",
             "specialInstr":"NA"
         },
+    
         {
             "name":"file_open",
             "byType":"xpath",
@@ -472,6 +501,24 @@
             "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[2]/button/span",
             "frame":"default",
             "specialInstr":"NA"
+
+        },
+        {
+            "name":"card_name_Qual",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_4 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible":"resources_tab"
+        },
+        {
+            "name":"move_item_button",
+            "byType":"xpath",
+            "definition":"//*[text() ='Move Item to Folder']",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible":"resources_tab"
+
 
         }
 

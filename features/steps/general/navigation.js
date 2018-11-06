@@ -2,8 +2,8 @@
 const { Given, When, Then } = require('cucumber');
 const path = require('path');
 const { loadConfig, loadLogin } = require('../../../app/util');
-const { getDriver, sleep} = require('../../../app/driver');
-const { By} = require('selenium-webdriver');
+const { getDriver, sleep } = require('../../../app/driver');
+const { By } = require('selenium-webdriver');
 
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
@@ -55,6 +55,7 @@ Then('I sign out of Achieve', async function () {
 When('I click on open menu', async function () {
   try {
     log.debug('Clicking open_menu button');
+    await sleep(5000);
     await pages.navigation.populate('open_menu', 'click');
     log.debug(`open_menu was clicked: ${clickedButton}`);
   } catch (err) {

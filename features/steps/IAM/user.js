@@ -57,7 +57,7 @@ When('I verify the functionality of first name and lastname by entering large ch
 
 Then('I verify large char validation message in the first name field', async function () {
   console.log('Verify that First Name field validations are working as expected')
-  const lastNameErrorText = await pages.createAccount.getElementValue('largechar_firstname').catch((err)=>{
+  const lastNameErrorText = await pages.createAccount.getElementValue('largechar_firstname').catch((err) => {
     throw new Error('Failed to show first name character limit error', err)
   });
   if (lastNameErrorText == 'Limit of 40 characters reached') {
@@ -174,16 +174,16 @@ When(/^I Select SecurityQuestions from "(.*)" account and I enter 150 character 
 });
 
 When(/^I verify that if I Select Security Questions of the "(.*)" account then I enter an empty string for the answers$/, async function (account) {
-  // try {    
-    const user = await loadLogin(account)
-    log.debug('clicking on Security Question button');
-    await pages.createAccount.populate('Security_Question_1__c', user.sq1);
-    await pages.createAccount.populate('Security_Question_1_Answer__c', '');
-    await pages.createAccount.populate('Security_Question_2__c', user.sq2);
-    await pages.createAccount.populate('Security_Question_2_Answer__c', '');
-    await pages.createAccount.populate('Security_Question_3__c', user.sq3);
-    await pages.createAccount.populate('Security_Question_3_Answer__c', '');
-    await pages.createAccount.populate('institution', '');
+  // try {
+  const user = await loadLogin(account)
+  log.debug('clicking on Security Question button');
+  await pages.createAccount.populate('Security_Question_1__c', user.sq1);
+  await pages.createAccount.populate('Security_Question_1_Answer__c', '');
+  await pages.createAccount.populate('Security_Question_2__c', user.sq2);
+  await pages.createAccount.populate('Security_Question_2_Answer__c', '');
+  await pages.createAccount.populate('Security_Question_3__c', user.sq3);
+  await pages.createAccount.populate('Security_Question_3_Answer__c', '');
+  await pages.createAccount.populate('institution', '');
   // } catch (err) {
   //   log.error(err);
   // }
@@ -198,7 +198,6 @@ When(/^I enter the value of "(.*)" for each security question answer$/, async fu
 });
 
 Then(/^I verify the content of the security question error messages displayed is "(.*)" in preprod$/, async function (message) {
-
   const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_preprod');
   if (sqOneErrorText == message) {
     console.log('passed with preprod expectations')
@@ -217,11 +216,9 @@ Then(/^I verify the content of the security question error messages displayed is
   } else {
     throw new Error('Failed to show correct error message for Security Question 3, for preprod expectations');
   }
-
 })
 
 Then(/^I verify the content of the security question error messages displayed is "(.*)" in preprod_blank$/, async function (message) {
-
   const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_preprod_blank');
   if (sqOneErrorText == message) {
     console.log('passed with preprod_blank expectations')
@@ -240,11 +237,9 @@ Then(/^I verify the content of the security question error messages displayed is
   } else {
     throw new Error('Failed to show correct error message for Security Question 3, for preprod_blank expectations');
   }
-
 })
 
 Then(/^I verify the content of the security question error messages displayed is "(.*)" in int$/, async function (message) {
-
   const sqOneErrorText = await pages.createAccount.getElementValue('Security_question_1_error_int');
   if (sqOneErrorText == message) {
     console.log('passed with int expectations')
@@ -263,7 +258,6 @@ Then(/^I verify the content of the security question error messages displayed is
   } else {
     throw new Error('Failed to show correct error message for Security Question 3, for int expectations');
   }
-
 });
 
 When(/^I Select SecurityQuestions from "(.*)" account and I dont answer any questions$/, async function (account) {
@@ -308,34 +302,32 @@ Then('I verify the Sign up is disabled', async function () {
 
 // Why do I have to do a .click here?
 Then(/^I Select "(.*)" in Primary Institution or School text box$/, async function (usacollege) {
-    log.debug('Primary institute field filled');
-    await pages.createAccount.populate('institution', usacollege);
-    // I know this sleep is not the best but the populate click does not seem to be working. 
-    // It must have something to do with the type of element.
-    // await pages.createAccount.populate('first_institution', 'click');
-    await sleep(2000)
-    const dropdown = await getDriver().findElement(By.xpath(("//*[@id='react-autowhatever-1--item-0']")))
-    await dropdown.click();
+  log.debug('Primary institute field filled');
+  await pages.createAccount.populate('institution', usacollege);
+  // I know this sleep is not the best but the populate click does not seem to be working.
+  // It must have something to do with the type of element.
+  // await pages.createAccount.populate('first_institution', 'click');
+  await sleep(2000)
+  const dropdown = await getDriver().findElement(By.xpath(("//*[@id='react-autowhatever-1--item-0']")))
+  await dropdown.click();
 });
 
 When('I verify the opt-in checkbox is not checked', async function () {
   const optInBoolean = await pages.createAccount.getElementValue('OptIn', 'selected');
-  if(optInBoolean === false) {
+  if (optInBoolean === false) {
     console.log('Passed optin is not checked');
   } else {
     throw new Error('Checkbox is checked');
   }
-
 });
 
 When('I verify the opt-in checkbox is checked', async function () {
   const optInBoolean = await pages.createAccount.getElementValue('OptIn', 'selected');
-  if(optInBoolean === true) {
+  if (optInBoolean === true) {
     console.log('Passed optin is checked');
   } else {
     throw new Error('Checkbox is not checked');
   }
-
 });
 
 // This is not DRY code, this step function is repeated 6 or seven times
@@ -355,8 +347,8 @@ When('I verify the opt-in checkbox is checked', async function () {
 
 Then(/^I verify the password inputed "(.*)" is not the same as the one that was allowed$/, async function (password) {
   const passwordAllowed = await pages.createAccount.getElementValue('password', 'value')
-  
-  if(password === passwordAllowed) {
+
+  if (password === passwordAllowed) {
     throw new Error('The password that was allowed was too long, passwordAllowed', passAllowed, 'password inputed: ', password);
   } else {
     console.log('Passed: The Password that was allowed was ', passwordAllowed, 'even though the password inputed was ', password);
@@ -372,7 +364,6 @@ When(/^I Select "(.*)" in Primary Institution text box$/, async function (canada
     log.error(err);
   }
 });
-
 
 // Then('I verify the Sign up button is disabled when canada college is selected', async function () {
 //   try {
@@ -411,7 +402,7 @@ Then('I click on checkbox', async function () {
 //   }
 // });
 When('I click on privacy notice link', async function () {
-    await pages.createAccount.populate('Privacy_notice', 'selected');
+  await pages.createAccount.populate('Privacy_notice', 'selected');
 });
 Then('I verify that I am redirected to privacy notice link page', async function () {
   await pages.createAccount.checkWebElementExists('privacy_check')
@@ -476,8 +467,8 @@ When(/^User "(.*)" has filled all mandatory fields except first name$/, async fu
   await pages.createAccount.populate('termsOfService', 'click');
 });
 When(/^I verify the Sign up button is disabled "(.*)"$/, async function (check) {
-    await pages.createAccount.assert('signUp_btn', 'disabled');
-    console.log(check)
+  await pages.createAccount.assert('signUp_btn', 'disabled');
+  console.log(check)
 });
 
 When(/^User "(.*)" has filled all mandatory fields except last name$/, async function (account) {
@@ -661,7 +652,7 @@ When('I click on Account', async function () {
   await pages.createAccount.populate('Account', 'click');
 });
 
-//This test case is deprecated
+// This test case is deprecated
 // When('I verify Email- address is disabled', async function () {
 //     console.log('Verify that E-mail Address shown is disabled and it is same as user created account');
 //     await pages.createAccount.assert('Email_disabled', 'disabled');
@@ -676,32 +667,31 @@ When(/^I verify that the account information for "(.*)" displayed is correct$/, 
   const sq2answer = await pages.createAccount.getElementValue('Security_Question_2_Answer__c', 'value');
   const sq3answer = await pages.createAccount.getElementValue('Security_Question_3_Answer__c', 'value');
   const institution = await pages.createAccount.getElementValue('institution', 'value');
-  if(firstName !== Login.firstName){
+  if (firstName !== Login.firstName) {
     throw new Error('Not the correct first name ', firstName, ' is displayed instead');
   }
-  if(lastName !== Login.lastName){
+  if (lastName !== Login.lastName) {
     throw new Error('Not the correct last name ', lastName, ' is displayed instead');
   }
-  if(email !== Login.username){
+  if (email !== Login.username) {
     throw new Error('Not the correct email ', email, ' is displayed instead');
   }
-  if(sq1answer !== 'answer'){
+  if (sq1answer !== 'answer') {
     throw new Error('Not the correct security question 1 answer ', sq1answer, ' is displayed instead');
   }
-  if(sq2answer !== 'answer'){
+  if (sq2answer !== 'answer') {
     throw new Error('Not the correct security question 2 answer ', sq2answer, ' is displayed instead');
   }
-  if(sq3answer !== 'answer'){
+  if (sq3answer !== 'answer') {
     throw new Error('Not the correct security question 3 answer ', sq3answer, ' is displayed instead');
   }
-  if(institution !== 'Macmillan Education'){
+  if (institution !== 'Macmillan Education') {
     throw new Error('Not the institution ', institution, ' is displayed instead');
   }
-
 });
 
 When('I click on "OPT-OUT@macmillanlearning.com"', async function () {
-    await pages.createAccount.populate('Opt', 'click');
+  await pages.createAccount.populate('Opt', 'click');
 });
 When('I verify it redirects to E-mail', async function () {
   console.log('Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates')
@@ -722,7 +712,7 @@ When('I click on checkbox in account', async function () {
 });
 
 Then('I input too many characters into the Primary Institution field', async function () {
-    await pages.createAccount.populate('institution', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTU');
+  await pages.createAccount.populate('institution', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTU');
 });
 
 Then('I verify the primary institution error message of too many characters', async function () {
@@ -804,12 +794,12 @@ When('I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanle
   }
 });
 When('I click setpassword button', async function () {
-    await pages.createAccount.populate('setpassword_button', 'click');
+  await pages.createAccount.populate('setpassword_button', 'click');
 });
 When('I click on newpassword', async function () {
-    await pages.createAccount.populate('password', 'ABCabc@123');
+  await pages.createAccount.populate('password', 'ABCabc@123');
 });
 When('I click on save changes button', async function () {
-    await pages.createAccount.populate('save_button', 'click');
-    await sleep(3000);
+  await pages.createAccount.populate('save_button', 'click');
+  await sleep(3000);
 });
