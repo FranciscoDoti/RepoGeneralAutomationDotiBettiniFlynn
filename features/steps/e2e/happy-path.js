@@ -26,12 +26,8 @@ let pages = {
 }
 
 When('I click the create_course button to create course', async function () {
-  try {
-    log.debug('Clicking on create course button');
-    await pages.authProducer.populate('create_course', 'click');
-  } catch (err) {
-    log.error(err);
-  }
+  log.debug('Clicking on create course button');
+  await pages.authProducer.populate('create_course', 'click');
 });
 When('save the value to variable', async function (dataTable) {
   fieldValue = dataTable;
@@ -50,23 +46,13 @@ When('I elect to create a course with the following data:', async function () {
   } catch (err) {
     log.error(err.stack);
   }
-
-  try {
-    log.debug('Clicking on save button');
-    await pages.authProducer.populate('save_button', 'click');
-  } catch (err) {
-    log.error(err);
-  }
+  await pages.authProducer.populate('save_button', 'click');
 });
 Then('I validate that the course "$course.templatename" is listed in the courses page', async function () {
-  try {
-    if (await pages.authAdmin.checkWebElementExists('course_validation')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  if (await pages.authAdmin.checkWebElementExists('course_validation')) {
+    console.log('passed');
+  } else {
+    console.log('failed');
   }
 });
 
@@ -86,241 +72,54 @@ Then('I create a folder named on the resources screen', async function () {
   } catch (err) {
     log.error(err);
   } */
-
-  try {
-    log.debug('Clicking on add folder');
-    await pages.authProducer.populate('add_folder', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-
+  await pages.authProducer.populate('add_folder', 'click');
   await pages.authProducer.populate('folder_name', 'Chapter 1');
-
-  try {
-    log.debug('Adding folder');
-    await pages.authProducer.populate('add_folder_button', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking on add folder');
-    await pages.authProducer.populate('add_folder', 'click');
-  } catch (err) {
-    log.error(err);
-  }
-
+  await pages.authProducer.populate('add_folder_button', 'click');
+  await pages.authProducer.populate('add_folder', 'click');
   await pages.authProducer.populate('folder_name', 'Chapter 2');
-
-  try {
-    log.debug('Adding folder');
-    await pages.authProducer.populate('add_folder_button', 'click');
-  } catch (err) {
-    log.error(err);
-  }
+  await pages.authProducer.populate('add_folder_button', 'click');
 });
 
 Then('I will add the following content to the resource page:', async function () {
-  try {
-    log.debug('Clicking on add folder');
-    await pages.authProducer.populate('add_folder', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
+  await pages.authProducer.populate('add_folder', 'click');
   await pages.authProducer.populate('folder_name', 'Chapter 1. Introduction and Research Methods');
-
-  try {
-    log.debug('Adding folder');
-    await pages.authProducer.populate('add_folder_button', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking on add folder');
-    await pages.authProducer.populate('add_folder', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
+  await pages.authProducer.populate('add_folder_button', 'click');
+  await pages.authProducer.populate('add_folder', 'click');
   await pages.authProducer.populate('folder_name', 'Chapter 1. Background to the Study of Psychology');
-
-  try {
-    log.debug('Adding folder');
-    await pages.authProducer.populate('add_folder_button', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking on add folder');
-    await pages.authProducer.populate('add_folder', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
+  await pages.authProducer.populate('add_folder_button', 'click');
+  await pages.authProducer.populate('add_folder', 'click');
   await pages.authProducer.populate('folder_name', 'Chapter 1. The People and the Field');
-
-  try {
-    log.debug('Adding folder');
-    await pages.authProducer.populate('add_folder_button', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking on add folder');
-    await pages.authProducer.populate('add_folder', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
+  await pages.authProducer.populate('add_folder_button', 'click');
+  await pages.authProducer.populate('add_folder', 'click');
   await pages.authProducer.populate('folder_name', 'Chapter 2: North America');
-
-  try {
-    log.debug('Adding folder');
-    await pages.authProducer.populate('add_folder_button', 'click');
-    log.debug(`create add folder was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  await pages.authProducer.populate('add_folder_button', 'click');
 });
 
 Then('I move the activity named to the folder named', async function () {
-  try {
-    log.debug('Clicking options button');
-    await pages.authProducer.populate('options_button', 'click');
-    log.debug(`options button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Select chapter 2 from the list');
-    await pages.authProducer.populate('chapter_2', 'click');
-    log.debug(`Chapter 2 was selected: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking options button');
-    await pages.authProducer.populate('options_button', 'click');
-    log.debug(`options button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Select chapter 1 from the list');
-    await pages.authProducer.populate('chapter_2', 'click');
-    log.debug(`Chapter 1 was selected: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking options button');
-    await pages.authProducer.populate('options_button', 'click');
-    log.debug(`options button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Select chapter 1 from the list');
-    await pages.authProducer.populate('chapter_1_3', 'click');
-    log.debug(`Chapter 1 was selected: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking options button');
-    await pages.authProducer.populate('options_button', 'click');
-    log.debug(`options button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug(`Move item button was clicked: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Select chapter 1 from the list');
-    await pages.authProducer.populate('chapter_1_4', 'click');
-    log.debug(`Chapter 1 was selected: ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-
-  try {
-    log.debug('Clicking place item button');
-    await pages.authProducer.populate('place_item_button', 'click')
-  } catch (err) {
-    log.error(err);
-  }
+  log.debug('Clicking options button');
+  await pages.authProducer.populate('options_button', 'click');
+  log.debug('Clicking move item button');
+  await pages.authProducer.populate('move_item_button', 'click');
+  await pages.authProducer.populate('chapter_2', 'click');
+  log.debug('Clicking place item button');
+  await pages.authProducer.populate('place_item_button', 'click');
+  log.debug('Clicking options button');
+  await pages.authProducer.populate('options_button', 'click');
+  log.debug('Clicking move item button');
+  await pages.authProducer.populate('move_item_button', 'click');
+  await pages.authProducer.populate('chapter_2', 'click');
+  await pages.authProducer.populate('place_item_button', 'click');
+  await pages.authProducer.populate('options_button', 'click');
+  log.debug('Clicking move item button');
+  await pages.authProducer.populate('move_item_button', 'click');
+  log.debug('Select chapter 1 from the list');
+  await pages.authProducer.populate('chapter_1_3', 'click');
+  log.debug('Clicking place item button');
+  await pages.authProducer.populate('place_item_button', 'click');
+  await pages.authProducer.populate('options_button', 'click');
+  await pages.authProducer.populate('move_item_button', 'click');
+  await pages.authProducer.populate('chapter_1_4', 'click');
+  await pages.authProducer.populate('place_item_button', 'click');
 });
 Then('I reorder the items on the course resource page to be in this order:', async function () {
   await pages.authProducer.populate('options_button', 'click');
@@ -366,6 +165,7 @@ Then('I click on course card "Testcourse" template', async function () {
   await pages.student.populate('course_card_button', 'click', 'resources_tab');
 });
 Then('I click on Resource tab', async function () {
+  await sleep(2000);
   log.debug('Clicking on resources tab');
   await pages.authProducer.populate('resources_tab', 'click');
 });

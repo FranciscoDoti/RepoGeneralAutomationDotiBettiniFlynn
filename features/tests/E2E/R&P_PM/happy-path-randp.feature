@@ -1,4 +1,4 @@
-giFeature: R&P happy path workflow 1
+Feature: R&P happy path workflow 1
 
 Media Producer creates a course
    

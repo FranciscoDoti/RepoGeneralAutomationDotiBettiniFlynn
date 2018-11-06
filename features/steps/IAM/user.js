@@ -81,7 +81,6 @@ When(/^I enter password from "(.*)" account having eight character fullfilling t
     const user = await loadLogin(account)
     log.debug('clicking on password button');
     await pages.createAccount.populate('password', user.password);
-    console.log(`forgot button was clicked: ${clickedButton}`);
 });
 
 When('I do not enter text in password field but I do enter text into confirm password field', async function () {
