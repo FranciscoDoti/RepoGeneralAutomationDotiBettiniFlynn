@@ -1,5 +1,5 @@
 // features/support/steps.js
-const { Given, When, Then } = require('cucumber');
+const { Given, When, Then, After } = require('cucumber');
 const path = require('path');
 const { loadConfig, loadLogin } = require('../../../app/util');
 const { getDriver, sleep } = require('../../../app/driver');
@@ -13,7 +13,8 @@ const config = loadConfig('config');
 
 // Scenario setup
 let pages = {
-  navigation: new PageObject('navigation.json', stepsPath)
+  navigation: new PageObject('navigation.json', stepsPath),
+  createAccount: new PageObject('createAccount.json', stepsPath),
 };
 
 Given(/^I have opened Achieve "(.*)"$/, async function (urlKey) {
@@ -51,6 +52,25 @@ Then('I sign out of Achieve', async function () {
   await pages.navigation.populate('menu_system', 'click');
   await pages.navigation.populate('logout', 'click');
 });
+
+After('@admin', async function () {
+  await pages.navigation.populate('menu_system', 'click');
+  await pages.navigation.populate('logout', 'click');
+})
+
+After('@admin-save', async function () {
+  await pages.createAccount.populate('save_button', 'click');
+  await sleep(3000);
+  await pages.navigation.populate('menu_system', 'click');
+  await pages.navigation.populate('logout', 'click');
+})
+
+After('@admin-cancel', async function () {
+  await pages.createAccount.populate('cancel_account', 'click');
+  await sleep(3000);
+  await pages.navigation.populate('menu_system', 'click');
+  await pages.navigation.populate('logout', 'click');
+})
 
 When('I click on open menu', async function () {
   try {
