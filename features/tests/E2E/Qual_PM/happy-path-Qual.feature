@@ -74,13 +74,14 @@ Background:
         When I search for "E301"
         And I click on open menu
         Then I open the Manage Instructors page on the course named "$course1.name"
-        And I manage the instructors on the course and add the "instructor_1" loginUser
+        And I manage the instructors on the course and add the "instructor_2" loginUser
         And I validate that the Course Specific Link opens the course named "$course1.name"
         And I close the Manage Instructors page
         And I sign out of Achieve
-    
-    Scenario: Verify Instructor is able to custom created assesment acitvity in a Instructor created course in Qualitative Template 
-        When I have logged in as "instructor_1"
+
+
+     Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Qualitative Template  
+        When I have logged in as "instructor_2"
         And I search for "E301"
         And I click on open menu
         And I elect to edit the course named "$course1.name"
@@ -93,7 +94,26 @@ Background:
         And I click on open menu
         Then I capture the invite link and store to variable "inviteLink"
         And I populate the Invite Students "student" page 
-        And I click on course card "E2E101"
-        And I click on Resource tab of Testcourse
-
+        And I click on course card "Qual Testcourse" template present in instructor
+        And I click on Resource tab
+        And add content into chapter by clicking "+" button
+        And I click on create custom button
+        And I select activity button as assesment
+        And create a custom task by passing the values for Assesement 1
+        And I validate Custom Assesement is created
+        And I close the assesment tab
+        And I add the coustom task 
+        And I click on create custom button
+        And I select activity button as assesment
+        And create a custom task by passing the values for Assesement 2
+        And I validate Custom Assesement is created
+        And I close the assesment tab
+        And I add the coustom task
+        And I sign out of Achieve
+    
+    Scenario: Verify that instructor is able to assign the activities in Qualitative Template
+        When I have logged in as "instructor_2"
+        And I click on course card "Qual Testcourse" template present in instructor
+        And I click on Resource tab
+       
 

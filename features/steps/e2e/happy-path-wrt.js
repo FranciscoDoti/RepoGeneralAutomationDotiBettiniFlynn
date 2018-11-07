@@ -24,13 +24,24 @@ let pages = {
 
 }
 When('I click on create course plus button', async function () {
-  if (await pages.authProducer.checkWebElementExists('Plus_button')) {
-    await pages.authProducer.populate('Plus_button', 'click');
-  } else {
+// var text = await getDriver().findElement(By.xpath("//*[@id='container']/div/div[2]/div/div/div/div/div[3]/div/button/div/div/span")).getText();
+// console.log('text'+text);
+  try {
     await pages.authProducer.populate('create_course', 'click');
+  } catch (err) {
+    await pages.authProducer.populate('Plus_button', 'click');
+    log.error(err);
   }
+  // let booleanVal = await pages.authProducer.checkWebElementExists('create_course');
+  // if (booleanVal) {
+  //   await pages.authProducer.populate('create_course', 'click');
+  // } else {
+  //   await pages.authProducer.populate('Plus_button', 'click');
+  // }
 });
 When('I click on open menu for skills template', async function () {
   log.debug('Clicking on edit button');
   await pages.authProducer.populate('edit_button_writing', 'click');
 });
+
+

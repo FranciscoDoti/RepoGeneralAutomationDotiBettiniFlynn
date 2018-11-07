@@ -8,8 +8,8 @@ const parse = require('parse-duration');
 const ScenarioData = require('../../../app/scenarioData');
 const StringProcessing = require('../../../app/stringProcessing');
 const {getDriver, sleep} = require('../../../app/driver');
-const { By} = require('selenium-webdriver');
-const {Key} = require('selenium-webdriver');
+const { By } = require('selenium-webdriver');
+const { Key } = require('selenium-webdriver');
 var fieldValue;
 var AssignValue;
 var CourseValue;
@@ -34,7 +34,7 @@ When('save the value to variable', async function (dataTable) {
 });
 
 When('I elect to create a course with the following data:', async function () {
-  // log.debug(`I populated table`);
+  log.debug(`I populated table`);
   try {
     log.info(fieldValue.rows().length);
     var e;
@@ -47,7 +47,6 @@ When('I elect to create a course with the following data:', async function () {
     log.error(err.stack);
   }
   await pages.authProducer.populate('save_button', 'click');
-
 });
 Then('I validate that the course "$course.templatename" is listed in the courses page', async function () {
   if (await pages.authAdmin.checkWebElementExists('course_validation')) {
@@ -166,7 +165,7 @@ Then('I click on course card "Testcourse" template', async function () {
   await pages.student.populate('course_card_button', 'click', 'resources_tab');
 });
 Then('I click on Resource tab', async function () {
-  await sleep(2000);
+  await sleep(3000);
   log.debug('Clicking on resources tab');
   await pages.authProducer.populate('resources_tab', 'click');
 });
@@ -261,6 +260,7 @@ Then('I close the Manage Instructors page', async function () {
   await pages.authAdmin.populate('close', 'click');
 });
 When('I elect to edit the course named "$course1.name"', async function () {
+  await sleep(2000);
   log.debug('Clicking on edit_button ');
   await pages.authProducer.populate('edit_button', 'click');
 });

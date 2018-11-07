@@ -309,11 +309,50 @@
             "specialInstr":"NA"
 
 
-        }
-       
+        },
+        {
+            "name":"create_custom_task",
+            "byType":"xpath",
+            "definition":"//*[text()=' Create Custom Activity']",
+            "frame":"default",
+            "specialInstr":"NA"
 
        
 	
+		
+        },
+        {
+            "name":"Select_activity_button",
+            "byType":"xpath",
+            "definition":"//*[@class='_1-Ze']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"course_card_instructor",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_4",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"close_assesment_frame",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div/div/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Add_custom_task",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div/div/div[4]/div[2]/div[2]/div/div[2]/div[1]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        }
 		
 	]
 }
