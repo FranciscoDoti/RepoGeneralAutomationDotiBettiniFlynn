@@ -33,7 +33,6 @@ Feature: Authentication for Achieve via IAM
         And I enter Password and confirm password from "student" account fullfiling all password requirements
 
     # ## TODO Implement populate datatable along with populateAssertDatatable to implement here
-    # # Uncomment for Preprod
     Scenario Outline: Verify that Security Questions & Answer validations are working as expected for preprod with extra characters
         Given I have opened Achieve "UserCreationUrl"
         When I verify that if I Select Security Questions of the <account> account then I enter an empty string for the answers
@@ -52,24 +51,24 @@ Feature: Authentication for Achieve via IAM
         | account   | answer | message |
         | "student" | ""     | "Must not be blank" |
 
-    # #Uncomment for int
-    # # Scenario Outline: Verify that Security Questions & Answer validations are working as expected for int(acccount, value, message)
-    # #     Given I have opened Achieve "UserCreationUrl"
-    # #     When I verify that if I Select Security Questions of the <account> account then I enter an empty string for the answers
-    # #     Then I enter the value of <answer> for each security question answer
-    # #     And I verify the content of the security question error messages displayed is <message> in int
-    # #     Examples:
-    # #     | account   | answer | message |
-    # #     | "student" | "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"    | "Limit of 150 characters reached" |
-    # #     | "student" | ""     | "Must not be blank" |
+    #Uncomment for int
+    # Scenario Outline: Verify that Security Questions & Answer validations are working as expected for int(acccount, value, message)
+    #     Given I have opened Achieve "UserCreationUrl"
+    #     When I verify that if I Select Security Questions of the <account> account then I enter an empty string for the answers
+    #     Then I enter the value of <answer> for each security question answer
+    #     And I verify the content of the security question error messages displayed is <message> in int
+    #     Examples:
+    #     | account   | answer | message |
+    #     | "student" | "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"    | "Limit of 150 characters reached" |
+    #     | "student" | ""     | "Must not be blank" |
 
-    # # What is this testing, is it verifying the list of the signup button being disabled??
-    # #This is not verifying the list of Primary institutions
-    # #TODO: Implement check of dropdown list, find first item in options and check to see if it starts with "a"
-    # # Scenario: Verify that Primary Institution or School drop down and field working as expected
-    # #     Given I have opened Achieve "UserCreationUrl"
-    # #     Then I verify list of Primary Institutions or schools will display starting with the letter "a"
-    # #     Then I verify the Sign up is disabled
+    # What is this testing, is it verifying the list of the signup button being disabled??
+    #This is not verifying the list of Primary institutions
+    #TODO: Implement check of dropdown list, find first item in options and check to see if it starts with "a"
+    # Scenario: Verify that Primary Institution or School drop down and field working as expected
+    #     Given I have opened Achieve "UserCreationUrl"
+    #     Then I verify list of Primary Institutions or schools will display starting with the letter "a"
+    #     Then I verify the Sign up is disabled
 
     Scenario: Verify that the application should not allow to enter more than 150 characters in the Primary institution text box. Moreover on entering 150 characters, the application displays a message "Limit of 150 characters reached"
         Given I have opened Achieve "UserCreationUrl"
@@ -178,51 +177,46 @@ Feature: Authentication for Achieve via IAM
         When I click on macmillan learning link 
         Then I verify that macmillan link is directed to macmillan learning page
 
-# According to Greeshma there is a bug reported by manual testers preventing this functionality. (env?)
-    # Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates 
-    #     Given I have opened Achieve "UserCreationUrl"
-    #     When I click on "OPT-OUT@macmillanlearning.com"
-    #     And I verify it redirects to E-mail
+    Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates 
+        Given I have opened Achieve "UserCreationUrl"
+        When I click on "OPT-OUT@macmillanlearning.com"
+        And I verify it redirects to E-mail
 
-## These Tests Below seem sort of fragile, they seem to break at intervals. The sign out button cannot be found, maybe the login is persisting
-    # Scenario: Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account
-    #     Given I have opened Achieve "loginURL"
-    #     When I have logged in as "admin_alt"
-    #     And I click on user menu 
-    #     And I click on Account 
-    #     And I verify that the account information for "admin_alt" displayed is correct 
-    #     And I click on cancel button in User Acccount Menu
-    #     And I sign out of Achieve
+    @admin-cancel
+    Scenario: Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account
+        Given I have opened Achieve "loginURL"
+        When I have logged in as "media_producer_2"
+        And I click on user menu 
+        And I click on Account 
+        And I verify that the account information for "media_producer_2" displayed is correct 
 
+    @admin
     Scenario: Verify that aplication return to home page on clicking Cancel Button
         Given I have opened Achieve "loginURL"
-        When I have logged in as "admin_alt"
+        When I have logged in as "media_producer_2"
         And I click on user menu
         And I click on Account
         And I click on cancel button in User Acccount Menu
         And I verify home page is displayed
-        And I sign out of Achieve
 
+    @admin-save
     Scenario: Verify that Set Password functionality is working as expected
         Given I have opened Achieve "loginURL"
-        When I have logged in as "admin_alt"
+        When I have logged in as "media_producer_2"
         And I click on user menu
         And I click on Account
         And I click setpassword button
         And I click on newpassword
-        And I click on save changes button
-        And I sign out of Achieve
 
+    @admin-cancel
     Scenario: Verify that Privacy Notice Link redirects to appropriate page
         Given I have opened Achieve "loginURL"
-        When I have logged in as "admin_alt"
+        When I have logged in as "media_producer_2"
         And I click on user menu
         And I click on Account
-        # And I verify that the account information for "admin_alt" displayed is correct
+        And I verify that the account information for "media_producer_2" displayed is correct
         And I click on privacy notice link 
         Then I verify that I am redirected to privacy notice link page
-        And I click on cancel button in User Acccount Menu
-        And I sign out of Achieve
 
     # Why is this Scenario commented out???
     # Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates

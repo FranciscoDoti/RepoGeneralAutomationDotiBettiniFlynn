@@ -19,7 +19,7 @@ let pages = {
 When('I click on user menu', async function () {
   log.debug('Clicking menu_system button');
   await pages.authAdmin.populate('menu_system', 'click');
-  await sleep(5000);
+  await sleep(7000);
 });
 When('I click on Admin Panel', async function () {
   log.debug('Clicking admin_panel button');

@@ -276,6 +276,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       return elementTarget.elementExists();
     } else {
       log.error(`ERROR: WebElement ${elementName} not found in PageElements during checkWebElementExists() attempt.`);
+      return false;
     }
   };
 
