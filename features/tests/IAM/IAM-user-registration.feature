@@ -218,7 +218,7 @@ Feature: Authentication for Achieve via IAM
         When I have logged in as "admin_alt"
         And I click on user menu
         And I click on Account
-        And I verify that the account information for "admin_alt" displayed is correct
+        # And I verify that the account information for "admin_alt" displayed is correct
         And I click on privacy notice link 
         Then I verify that I am redirected to privacy notice link page
         And I click on cancel button in User Acccount Menu
