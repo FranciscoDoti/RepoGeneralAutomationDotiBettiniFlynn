@@ -62,7 +62,7 @@
         {
             "name":"create_course",
             "byType":"xpath",
-            "definition":"//*[@id='container']/div/div[2]/div/div/div/div/div[3]/div/button/div/div/span",
+            "definition":"//*[@id='container']/div/div[2]/div/div/div/div/div[3]/div/button",
             "frame":"default",
             "specialInstr":"NA"
         },

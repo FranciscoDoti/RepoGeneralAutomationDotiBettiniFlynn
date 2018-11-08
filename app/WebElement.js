@@ -30,7 +30,15 @@ const WebElement = function (element) {
 
   that.elementExists = async function () {
     const elementDef = await this.getBy();
-    const returnExists = await my.driver.findElements(elementDef).size != 0;
+    // const returnExists = await my.driver.findElements(elementDef).size != 0;
+    let returnExists = true;
+    try {
+      await my.driver.findElement(elementDef).isDisplayed();
+    } catch(err) {
+      // console.log(err);
+      returnExists = false;
+      return returnExists;
+    }
     return returnExists;
   };
 

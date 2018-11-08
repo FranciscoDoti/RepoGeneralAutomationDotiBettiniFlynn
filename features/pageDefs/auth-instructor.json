@@ -316,10 +316,6 @@
             "definition":"//*[text()=' Create Custom Activity']",
             "frame":"default",
             "specialInstr":"NA"
-
-       
-	
-		
         },
         {
             "name":"Select_activity_button",
