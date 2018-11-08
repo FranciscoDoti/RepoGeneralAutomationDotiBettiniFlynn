@@ -15,7 +15,8 @@ Background:
             |course_name         | TestCourse |
             |course_code         | E2E 101 |
             |isbn_number         | 9781464199495 |
-            |course_status       | Draft|
+            |course_status       | Draft |
+            |save_button         | click |
         When I elect to create a course with the following data:
         And I sign out of Achieve
     

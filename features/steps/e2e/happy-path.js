@@ -46,7 +46,6 @@ When('I elect to create a course with the following data:', async function () {
   } catch (err) {
     log.error(err.stack);
   }
-  await pages.authProducer.populate('save_button', 'click');
 });
 Then('I validate that the course "$course.templatename" is listed in the courses page', async function () {
   if (await pages.authAdmin.checkWebElementExists('course_validation')) {

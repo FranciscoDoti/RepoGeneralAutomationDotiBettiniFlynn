@@ -110,6 +110,14 @@
             "specialInstr":"NA"
         },
         {
+            "name":"save_button_reorder",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Save']",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible":"Add_button"
+        },
+        {
             "name":"isbn_number",
             "byType":"id",
             "definition":"__createCourse_isbnInput",
@@ -139,8 +147,8 @@
         },
         {
             "name":"add_folder",
-            "byType":"classname",
-            "definition":"_1tkc _1C6k",
+            "byType":"xpath",
+            "definition":"//*[@class='_1tkc _1C6k']",
             "frame":"default",
             "specialInstr":"NA"
         },
@@ -208,7 +216,7 @@
         {
             "name":"add_folder_button",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[3]/div[2]/button",
+            "definition":"//*[@class='_1tkc undefined']",
             "frame":"default",
             "specialInstr":"NA"
         },
@@ -377,9 +385,9 @@
             "specialInstr":"NA"
         },
         {
-            "name":"OpenActionMenuForChapter1",
+            "name":"OpenActionMenu_custom_assesment",
             "byType":"xpath",
-            "definition":"(//*[@class='_1raI'])[3]",
+            "definition":"(//*[@class='_3xl4'])[1]",
             "frame":"default",
             "specialInstr":"NA"
         },
