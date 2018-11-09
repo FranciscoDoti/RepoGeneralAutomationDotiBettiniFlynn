@@ -3,7 +3,7 @@
         {
             "name": "course_card_button",
 			"byType": "classname",
-			"definition": "DOD8 CourseCard_active CourseCard_product_1",
+            "definition": "DOD8 CourseCard_active CourseCard_product_1",
 			"frame": "default",
             "specialInstr": "NA",
             "waitTobeVsible":"resources_tab"

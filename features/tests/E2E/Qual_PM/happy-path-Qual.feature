@@ -19,6 +19,7 @@ Background:
             |course_status       | Draft |
             |save_button         | click |
         When I elect to create a course with the following data:
+        And I validate that the course "$course.templatename" is listed in the courses page
         And I sign out of Achieve
     
     Scenario: Verify that Media Producer is able to add activities in Qunat Template
@@ -173,6 +174,7 @@ Background:
     Scenario: Verify that student is able to enroll in a Instructor created course created from Quantitative Template
         Given I have opened Achieve "ThirdpartyURL"
         When I log in as "student"
+        And I click on invite link send by instructor
         And I open the invite link and login with "student" account details
         And I click on Start grace period
         And I click on check box for purchace access for grace period 

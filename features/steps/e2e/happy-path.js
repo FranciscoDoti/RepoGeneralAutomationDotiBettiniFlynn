@@ -54,9 +54,9 @@ Then('I validate that the course "$course.templatename" is listed in the courses
     console.log('failed');
   }
 });
-
-Then('I create a folder named on the resources screen', async function () {
-  /* try {
+// commented this step definition becuase I am no longer using it
+// Then('I create a folder named on the resources screen', async function () {
+/* try {
     log.debug('Clicking on course card');
     await pages.authProducer.populate('card_name', 'click', 'resources_tab');
     log.debug(`create course card was clicked: ${clickedButton}`);
@@ -71,62 +71,62 @@ Then('I create a folder named on the resources screen', async function () {
   } catch (err) {
     log.error(err);
   } */
-  await pages.authProducer.populate('add_folder', 'click');
-  await pages.authProducer.populate('folder_name', 'Chapter 1');
-  await pages.authProducer.populate('add_folder_button', 'click');
-  await pages.authProducer.populate('add_folder', 'click');
-  await pages.authProducer.populate('folder_name', 'Chapter 2');
-  await pages.authProducer.populate('add_folder_button', 'click');
-});
+//   await pages.authProducer.populate('add_folder', 'click');
+//   await pages.authProducer.populate('folder_name', 'Chapter 1');
+//   await pages.authProducer.populate('add_folder_button', 'click');
+//   await pages.authProducer.populate('add_folder', 'click');
+//   await pages.authProducer.populate('folder_name', 'Chapter 2');
+//   await pages.authProducer.populate('add_folder_button', 'click');
+// });
 
-Then('I will add the following content to the resource page:', async function () {
-  await pages.authProducer.populate('add_folder', 'click');
-  await pages.authProducer.populate('folder_name', 'Chapter 1. Introduction and Research Methods');
-  await pages.authProducer.populate('add_folder_button', 'click');
-  await pages.authProducer.populate('add_folder', 'click');
-  await pages.authProducer.populate('folder_name', 'Chapter 1. Background to the Study of Psychology');
-  await pages.authProducer.populate('add_folder_button', 'click');
-  await pages.authProducer.populate('add_folder', 'click');
-  await pages.authProducer.populate('folder_name', 'Chapter 1. The People and the Field');
-  await pages.authProducer.populate('add_folder_button', 'click');
-  await pages.authProducer.populate('add_folder', 'click');
-  await pages.authProducer.populate('folder_name', 'Chapter 2: North America');
-  await pages.authProducer.populate('add_folder_button', 'click');
-});
+// Then('I will add the following content to the resource page:', async function () {
+//   await pages.authProducer.populate('add_folder', 'click');
+//   await pages.authProducer.populate('folder_name', 'Chapter 1. Introduction and Research Methods');
+//   await pages.authProducer.populate('add_folder_button', 'click');
+//   await pages.authProducer.populate('add_folder', 'click');
+//   await pages.authProducer.populate('folder_name', 'Chapter 1. Background to the Study of Psychology');
+//   await pages.authProducer.populate('add_folder_button', 'click');
+//   await pages.authProducer.populate('add_folder', 'click');
+//   await pages.authProducer.populate('folder_name', 'Chapter 1. The People and the Field');
+//   await pages.authProducer.populate('add_folder_button', 'click');
+//   await pages.authProducer.populate('add_folder', 'click');
+//   await pages.authProducer.populate('folder_name', 'Chapter 2: North America');
+//   await pages.authProducer.populate('add_folder_button', 'click');
+// });
 
-Then('I move the activity named to the folder named', async function () {
-  log.debug('Clicking options button');
-  await pages.authProducer.populate('options_button', 'click');
-  log.debug('Clicking move item button');
-  await pages.authProducer.populate('move_item_button', 'click');
-  await pages.authProducer.populate('chapter_2', 'click');
-  log.debug('Clicking place item button');
-  await pages.authProducer.populate('place_item_button', 'click');
-  log.debug('Clicking options button');
-  await pages.authProducer.populate('options_button', 'click');
-  log.debug('Clicking move item button');
-  await pages.authProducer.populate('move_item_button', 'click');
-  await pages.authProducer.populate('chapter_2', 'click');
-  await pages.authProducer.populate('place_item_button', 'click');
-  await pages.authProducer.populate('options_button', 'click');
-  log.debug('Clicking move item button');
-  await pages.authProducer.populate('move_item_button', 'click');
-  log.debug('Select chapter 1 from the list');
-  await pages.authProducer.populate('chapter_1_3', 'click');
-  log.debug('Clicking place item button');
-  await pages.authProducer.populate('place_item_button', 'click');
-  await pages.authProducer.populate('options_button', 'click');
-  await pages.authProducer.populate('move_item_button', 'click');
-  await pages.authProducer.populate('chapter_1_4', 'click');
-  await pages.authProducer.populate('place_item_button', 'click');
-});
-Then('I reorder the items on the course resource page to be in this order:', async function () {
-  await pages.authProducer.populate('options_button', 'click');
-  await pages.authProducer.populate('reorder_button', 'click');
-  await pages.authProducer.populate('move_down_button', 'click');
-  await pages.authProducer.populate('save_reordered_button', 'click');
-  await sleep(5000);
-});
+// Then('I move the activity named to the folder named', async function () {
+//   log.debug('Clicking options button');
+//   await pages.authProducer.populate('options_button', 'click');
+//   log.debug('Clicking move item button');
+//   await pages.authProducer.populate('move_item_button', 'click');
+//   await pages.authProducer.populate('chapter_2', 'click');
+//   log.debug('Clicking place item button');
+//   await pages.authProducer.populate('place_item_button', 'click');
+//   log.debug('Clicking options button');
+//   await pages.authProducer.populate('options_button', 'click');
+//   log.debug('Clicking move item button');
+//   await pages.authProducer.populate('move_item_button', 'click');
+//   await pages.authProducer.populate('chapter_2', 'click');
+//   await pages.authProducer.populate('place_item_button', 'click');
+//   await pages.authProducer.populate('options_button', 'click');
+//   log.debug('Clicking move item button');
+//   await pages.authProducer.populate('move_item_button', 'click');
+//   log.debug('Select chapter 1 from the list');
+//   await pages.authProducer.populate('chapter_1_3', 'click');
+//   log.debug('Clicking place item button');
+//   await pages.authProducer.populate('place_item_button', 'click');
+//   await pages.authProducer.populate('options_button', 'click');
+//   await pages.authProducer.populate('move_item_button', 'click');
+//   await pages.authProducer.populate('chapter_1_4', 'click');
+//   await pages.authProducer.populate('place_item_button', 'click');
+// });
+// Then('I reorder the items on the course resource page to be in this order:', async function () {
+//   await pages.authProducer.populate('options_button', 'click');
+//   await pages.authProducer.populate('reorder_button', 'click');
+//   await pages.authProducer.populate('move_down_button', 'click');
+//   await pages.authProducer.populate('save_reordered_button', 'click');
+//   await sleep(5000);
+// });
 When('I elect to edit the course named "course1.templatename"', async function () {
   await pages.authProducer.populate('edit_button', 'click');
 });
@@ -317,6 +317,10 @@ Then('I select number of use codes', async function () {
   await pages.authAdmin.populate('single_use_code', '2');
 });
 
+When('I click on invite link send by instructor', async function () {
+  await pages.authInstructor.populate('Invite_link', 'click');
+});
+
 When(/^I open the invite link and login with "(.*)" account details$/, async function (username) {
   await sleep(5000);
   log.debug('Clicking on mail');
@@ -427,6 +431,7 @@ When('I click on Finish Enrollment', async function () {
   await sleep(5000);
 });
 
+// I am still working on this (learning curve)
 Then('I click on the reading material and validate whether the content is available', async function () {
   await getDriver().findElements(By.xpath("//*[@type='checkbox']")).then(function (elems) {
     countlinks = elems.length;

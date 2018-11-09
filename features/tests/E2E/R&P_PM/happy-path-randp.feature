@@ -7,8 +7,8 @@ Background:
     
     Scenario: Verify that Media Producer is able to create Read&Practice Template 
         When I have logged in as "media_producer_1"
-        When I click the create_course button to create course
-        When save the value to variable
+        And I click on create course plus button
+        And save the value to variable
             |variablename        | value    |
             |course_type         | Template |
             |product_model       | Read & Practice |
@@ -17,25 +17,24 @@ Background:
             |isbn_number         | 9781464199495 |
             |course_status       | Draft |
             |save_button         | click |
-        When I elect to create a course with the following data:
+        And I elect to create a course with the following data:
+        Then I validate that the course "$course.templatename" is listed in the courses page
         And I sign out of Achieve
     
 
     Scenario: Verify that Media Producer is able to add activities in Read&Practice Template 
         When I have logged in as "media_producer_1"
         And I click on open menu
-        When I elect to edit the course named "course1.templatename"
-        When save the value to variables 
+        And I elect to edit the course named "course1.templatename"
+        And save the value to variables 
             |variablesname     | value |
             |Template_status   | Active On Date |
             |Active_Date       | @Date('now')   |
-        When I elect to edit the course with the following data:
-            #|courseStatus   | activeOnDate   | saveBtn |
-            #| Template      | @Date('now')   | Click   |
+        And I elect to edit the course with the following data:
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card "Testcourse" template
         And I click on Resource tab
-               And I click on Add folder button for adding folder 
+        And I click on Add folder button for adding folder 
         And I create a folder with the name "Chapter 1: Read&Practice"
         And I click on add folder button in order to save it
         And I click on Add folder button for adding folder 
@@ -82,7 +81,7 @@ Background:
         And I click on Activity search button and pass the value "LO asset verification Edited"
         And I click on add content
         And I click on Activity search button and pass the value "new test epub"
-        And I click on add content  
+        And I click on add content 
         And save the value to variable 
              |variablename            | value    |
              |OpenActionMenu          | click    |
@@ -109,17 +108,10 @@ Background:
              |move_item_button        | click    |
              |Place_activity_chapter4 | click    |
              |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter3 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter3 | click    |
-             |save_button             | click    |
         And I elect to create a course with the following data:
         And I validate the activities are added  
-        And I sign out of Achieve  
+        And I sign out of Achieve   
+ 
 
     Scenario: Verify that Media Producer is able to copy the course from Read&Practice Template 
         When I have logged in as "media_producer_1" 
@@ -189,6 +181,7 @@ Background:
     Scenario: Verify that student is able to enroll in a Instructor created course created from Read&Practice Template
         Given I have opened Achieve "ThirdpartyURL"
         When I log in as "student"
+        When I click on invite link send by instructor
         And I open the invite link and login with "student" account details
         And I click on Start grace period
         And I click on check box for purchace access for grace period 
@@ -211,7 +204,7 @@ Background:
         #And I validate the content 
         #And I click on close message
         #And I click on Read&Practice
-        # And I click on Gradebook
+        #And I click on Gradebook
     
         
 

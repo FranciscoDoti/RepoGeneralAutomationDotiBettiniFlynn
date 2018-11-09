@@ -365,6 +365,17 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"Invite_link",
+            "byType":"xpath",
+            "definition":"//*[text()='You have been invited to join a course']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+
+
+            
         }
 
 		
