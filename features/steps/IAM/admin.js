@@ -67,6 +67,7 @@ When(/^I log in as "(.*)"$/, async function (Login) {
   await pages.authAdmin.populate('temp_password_next', 'click');
   await sleep(3000);
   await pages.authAdmin.populate('gmail', 'click');
+  await sleep(3000);
 });
 When('I check E-mail Notification', async function () {
   log.debug('Clicking on mail');

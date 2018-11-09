@@ -169,7 +169,7 @@ Then('I add the coustom task', async function () {
   await pages.authInstructor.populate('Add_custom_task', 'click');
 });
 Then('create a custom task by passing the values for Assesement 2', async function () {
-  await getDriver().switchTo().frame(0); 
+  await getDriver().switchTo().frame(0);
   await pages.authProducer.populate('Assignment_Title', 'PracticeTest2');
   await pages.authProducer.populate('Assignment_Type', 'Test', 'click');
   await pages.authProducer.populate('Save_Assesement_button', 'click');
@@ -180,7 +180,11 @@ Then('create a custom task by passing the values for Assesement 2', async functi
 When('I add the custom activity to chapter', async function () {
   await pages.authProducer.populate('OpenActionMenu_custom_assesment', 'click');
   await pages.authProducer.populate('move_item_button', 'click');
-  await pages.authProducer.populate('Place_activity_chapter2', 'click');
+  await pages.authProducer.populate('Place_activity_chapter3', 'click');
   await pages.authProducer.populate('save_button', 'click');
 });
-
+When('I click on Assesment open menu action button to assign the course', async function () {
+  await pages.authInstructor.populate('open_folder_activity ', 'click');
+  await sleep(2000);
+  await pages.authInstructor.populate('open_folder_Assesment', 'click');
+});

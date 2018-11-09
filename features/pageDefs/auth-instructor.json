@@ -205,7 +205,7 @@
         {
             "name":"activity_assign",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div/div/div/div[1]/span/div/div/div/span",
+            "definition":"/html/body/div[2]/div/div/div/div/div/div[1]/span/div/div/div",
             "frame":"default",
             "specialInstr":"NA"
 
@@ -286,7 +286,7 @@
         {
             "name":"open_folder_activity",
             "byType":"xpath",
-            "definition":"//*[@id='container']/div/div/div/div[4]/div/article/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/button[1]",
+            "definition":"(//*[@class='_1WIu'])[1]",
             "frame":"default",
             "specialInstr":"NA"
 
@@ -310,6 +310,15 @@
 
 
         },
+        {
+            "name":"open_folder_Assesment",
+            "byType":"xpath",
+            "definition":"(//*[@class='_15F5'])[2]",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+
         {
             "name":"create_custom_task",
             "byType":"xpath",
