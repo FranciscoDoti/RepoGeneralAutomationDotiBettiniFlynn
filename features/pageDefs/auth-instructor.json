@@ -36,22 +36,25 @@
             "specialInstr":"NA"
 
 
+
 		},
 		{
 			"name":"course_end_date1",
             "byType":"xpath",
             "definition":"(.//*[@class='EVUx '])[2]",
             "frame":"default",
-            "specialInstr":"NA"
+            "specialInstr":"NA",
+            "waitForElementToBevisible":"Next_Month"
 
 
 		},
 		{
 			"name":"Active_Date1",
             "byType":"xpath",
-            "definition":"(.//*[@class='EVUx '])[1]",
+            "definition":"(//*[@class='EVUx '])[1]",
             "frame":"default",
-            "specialInstr":"NA"
+            "specialInstr":"NA",
+            "waitForElementToBeVisible": "course_end_date1"
 
 		},
 		{
@@ -59,7 +62,8 @@
             "byType":"classname",
             "definition":"_2eGJ wbLx",
             "frame":"default",
-            "specialInstr":"NA"
+            "specialInstr":"NA",
+            "waitForElementToBeVisible": "Select_Date"
 		},
 		{
 			"name":"Select_Date",
