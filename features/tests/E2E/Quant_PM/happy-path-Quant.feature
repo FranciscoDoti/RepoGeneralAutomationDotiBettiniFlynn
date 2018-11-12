@@ -141,7 +141,7 @@ Background:
         And I click on open menu
         Then I capture the invite link and store to variable "inviteLink"
         And I populate the Invite Students "student" page 
-        And I click on course card of Quant Template 
+        And I click on course card of Quant Template as instructor 
         And I click on Resource tab
         And add content into chapter by clicking "+" button
         And I click on create custom button
@@ -154,7 +154,7 @@ Background:
     
     Scenario: Verify that instructor is able to assign the activities in Quantitative Template
         When I have logged in as "instructor_3"
-        And I click on course card of Quant Template 
+        And I click on course card of Quant Template as instructor 
         And I click on Resource tab
         And I add the custom activity to chapter 
         And I click on courseplanner
@@ -162,6 +162,7 @@ Background:
         And assign the values to variable
                 |values                          | variable     |
                 |activity_assign                 | click        |
+                |Assign_To                       | macmillanstudent4@gmail.com |
                 |Date_assign                     | @Date('now') |
                 |Time_Hour                       | 12           |
                 |Time_minute                     |  30          |

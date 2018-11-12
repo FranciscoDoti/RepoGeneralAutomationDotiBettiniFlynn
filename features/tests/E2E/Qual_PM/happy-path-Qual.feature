@@ -162,6 +162,7 @@ Background:
         And assign the values to variable
                 |values                          | variable     |
                 |activity_assign                 | click        |
+                |Assign_To                       | macmillanstudent4@gmail.com |
                 |Date_assign                     | @Date('now') |
                 |Time_Hour                       | 12           |
                 |Time_minute                     |  30          |

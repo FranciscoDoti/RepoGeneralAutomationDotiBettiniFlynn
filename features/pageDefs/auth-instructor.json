@@ -358,10 +358,23 @@
             "definition":"//*[text()='You have been invited to join a course']",
             "frame":"default",
             "specialInstr":"NA"
-
-
-
             
+        },
+        {
+            "name":"course_card_quant_instructor",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_3",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Assign_To ",
+            "byType":"classname",
+            "definition":"_2Srk",
+            "frame":"default",
+            "specialInstr":"NA"
+
         }
 
 		

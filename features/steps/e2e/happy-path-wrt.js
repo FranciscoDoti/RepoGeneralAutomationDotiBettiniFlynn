@@ -28,7 +28,7 @@ When('I click on create course plus button', async function () {
   let booleanVal = await pages.authProducer.checkWebElementExists('create_course');
   if (booleanVal == false) {
     await pages.authProducer.populate('Plus_button', 'click');
-  } else if (booleanVal == true){
+  } else if (booleanVal == true) {
     await pages.authProducer.populate('create_course', 'click');
   }
 });
@@ -36,5 +36,3 @@ When('I click on open menu for skills template', async function () {
   log.debug('Clicking on edit button');
   await pages.authProducer.populate('edit_button_writing', 'click');
 });
-
-

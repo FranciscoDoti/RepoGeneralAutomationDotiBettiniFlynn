@@ -150,7 +150,7 @@ Then('create a custom task by passing the values for Assesement 1', async functi
   await getDriver().switchTo().frame(0);
   await pages.authProducer.populate('Assignment_Title', 'Practice test');
   await pages.authProducer.populate('Assignment_Type', 'Test', 'click');
- // await pages.authProducer.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
+  await pages.authProducer.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
   await pages.authProducer.populate('Save_Assesement_button', 'click');
   await sleep(5000);
   // await getDriver().switchTo().defaultContent();
