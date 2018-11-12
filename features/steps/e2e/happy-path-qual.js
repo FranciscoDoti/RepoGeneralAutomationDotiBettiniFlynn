@@ -7,7 +7,7 @@ const {log} = require('../../../app/logger');
 const parse = require('parse-duration');
 const ScenarioData = require('../../../app/scenarioData');
 const StringProcessing = require('../../../app/stringProcessing');
-const {getDriver, getWebDriver, sleep} = require('../../../app/driver');
+const {getDriver, getWebDriver, sleep, actions} = require('../../../app/driver');
 const { By} = require('selenium-webdriver');
 const {Key} = require('selenium-webdriver');
 let pages = {
@@ -127,6 +127,7 @@ Then('I click on add folder button in order to save it', async function () {
 // });
 When('I validate the activities are added', async function () {
   await pages.authInstructor.checkWebElementExists('Validation_activities');
+  //try to include this refresh in framework 
   getDriver().navigate().refresh();
   await sleep(3000);
 });
@@ -134,7 +135,9 @@ When('I click on course card "Qual Testcourse" template present in instructor', 
   await pages.authInstructor.populate('course_card_instructor', 'click');
 });
 Then('I click on create custom button', async function () {
-  await getDriver().executeScript('arguments[0].scrollIntoView()', getDriver().findElement(By.xpath("//*[@id='container']/div/div/div/div[4]/div[2]/div[2]/div/div[2]/div/button")))
+  //Executer is required for scroll into view
+  await pages.authInstructor.scrollIntoView('create_custom_task');
+  //Is this really needed?
   await sleep(5000);
   await pages.authInstructor.populate('create_custom_task', 'click');
 });
@@ -143,10 +146,11 @@ Then('I select activity button as assesment', async function () {
   await sleep(10000);
 });
 Then('create a custom task by passing the values for Assesement 1', async function () {
+ // where you switch frame
   await getDriver().switchTo().frame(0);
   await pages.authProducer.populate('Assignment_Title', 'Practice test');
   await pages.authProducer.populate('Assignment_Type', 'Test', 'click');
-  await pages.authProducer.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
+ // await pages.authProducer.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
   await pages.authProducer.populate('Save_Assesement_button', 'click');
   await sleep(5000);
   // await getDriver().switchTo().defaultContent();

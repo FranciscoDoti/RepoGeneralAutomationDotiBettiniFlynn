@@ -42,6 +42,13 @@ const WebElement = function (element) {
     return returnExists;
   };
 
+  that.scrollIntoView = async function () {
+    const elementDef = await this.getBy();
+    const returnElement = await my.driver.findElement(elementDef);
+    const scrollToElement = await getDriver().executeScript('arguments[0].scrollIntoView()', returnElement);
+    return scrollToElement;
+  };
+
   that.elementDisabled = async function () {
     const elementDef = await this.getBy();
     const returnElement = await my.driver.findElement(elementDef);

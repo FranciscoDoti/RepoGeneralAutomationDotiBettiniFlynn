@@ -16,12 +16,13 @@
     "randp-happy-path-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/R&P_PM/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'",
     "lc-parser": "node ./lc-parser.js",
     "example": "node ./node_modules/cucumber/bin/cucumber-js features/example.feature --world-parameters='{\"config\": \"int\"}'",
-    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"pre-prod\"}'",
+    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"int\"}'",
     "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature --world-parameters='{\"config\": \"pre-prod\"}'",
     "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"int\"}'",
     "IAM-user-registration-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int\"}'",
     "IAM-user-registration-pre-prod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"pre-prod\"}'",
-    "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/happy-path-Qual.feature --world-parameters='{\"config\": \"int\"}'"
+    "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/happy-path-Qual.feature --world-parameters='{\"config\": \"int\"}'",
+    "Wrt-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Writing_PM/happy-path-wrt.feature --world-parameters='{\"config\": \"int\"}'"
   },
   "dependencies": {
     "any-promise": {

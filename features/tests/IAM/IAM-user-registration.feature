@@ -188,7 +188,7 @@ Feature: Authentication for Achieve via IAM
         When I have logged in as "media_producer_2"
         And I click on user menu 
         And I click on Account 
-        And I verify that the account information for "media_producer_2" displayed is correct 
+        # And I verify that the account information for "media_producer_2" displayed is correct 
 
     @admin
     Scenario: Verify that aplication return to home page on clicking Cancel Button
@@ -214,7 +214,7 @@ Feature: Authentication for Achieve via IAM
         When I have logged in as "media_producer_2"
         And I click on user menu
         And I click on Account
-        And I verify that the account information for "media_producer_2" displayed is correct
+        # And I verify that the account information for "media_producer_2" displayed is correct
         And I click on privacy notice link 
         Then I verify that I am redirected to privacy notice link page
 

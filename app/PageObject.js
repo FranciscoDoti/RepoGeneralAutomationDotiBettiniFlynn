@@ -280,6 +280,41 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  const scrollIntoView = async function (strName) {
+    try {
+      log.info(`Scrolling into view: ${strName}`);
+      return await scrollElementIntoView(strName);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const scrollElementIntoView = async function (elementName) {
+    let elementTarget = '';
+    let tempElement = {};
+    log.debug(`Scrolling element: ${elementName} into view.`)
+    if (await hasElement(elementName)) {
+      tempElement = await getElement(elementName);
+      const actionElement = Object.assign({});
+      // If need to hit a iframe, do it
+      await switchFrame(tempElement.frame);
+
+      elementTarget = await WebElement(tempElement);
+      actionElement.webElement = elementTarget;
+
+
+
+      // log.debug(`****genericPopulateElement: ${elementName}`);
+      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
+
+      // const webElement = await elementTarget.getWebElement();
+      return await elementTarget.scrollIntoView();
+    } else {
+      log.error(`ERROR: WebElement ${elementName} not found in PageElements during scrollElementIntoView() attempt.`);
+    }
+  };
+
   const elementDisabled = async function (strName) {
     try {
       log.info(`Starting to check if web element disabled on the page: ${strName}`);
@@ -377,6 +412,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.checkWebElementExists = checkWebElementExists;
   that.getWebElements = getWebElements;
   that.generateDataTable = generateDataTable;
+  that.scrollElementIntoView = scrollElementIntoView;
+  that.scrollIntoView = scrollIntoView;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }
