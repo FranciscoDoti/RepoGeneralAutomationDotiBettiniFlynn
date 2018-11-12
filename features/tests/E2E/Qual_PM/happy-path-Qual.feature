@@ -117,7 +117,7 @@ Background:
         And I sign out of Achieve
     
     Scenario: Verify that customer support is able to add instructor to the course copied from Qualitative Template
-        When I have logged in as "customer_support_1"
+        When I have logged in as "customer_support_2"
         When I search for "E301"
         And I click on open menu
         Then I open the Manage Instructors page on the course named "$course1.name"
@@ -171,15 +171,15 @@ Background:
         And I elect it with the following data:
         And I sign out of Achieve
     
-    Scenario: Verify that student is able to enroll in a Instructor created course created from Quantitative Template
-        Given I have opened Achieve "ThirdpartyURL"
-        When I log in as "student"
-        And I click on invite link send by instructor
-        And I open the invite link and login with "student" account details
-        And I click on Start grace period
-        And I click on check box for purchace access for grace period 
-        And I click on Finish Enrollment
-        And I sign out of Achieve
+    # Scenario: Verify that student is able to enroll in a Instructor created course created from Quantitative Template
+    #     Given I have opened Achieve "ThirdpartyURL"
+    #     When I log in as "student"
+    #     And I click on invite link send by instructor
+    #     And I open the invite link and login with "student" account details
+    #     And I click on Start grace period
+    #     And I click on check box for purchace access for grace period 
+    #     And I click on Finish Enrollment
+    #     And I sign out of Achieve
 
        
 
