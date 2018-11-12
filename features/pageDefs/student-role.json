@@ -3,10 +3,21 @@
         {
             "name": "course_card_button",
 			"byType": "classname",
+            "definition": "DOD8 CourseCard_active CourseCard_product_1 CourseCard_template",
+			"frame": "default",
+            "specialInstr": "NA",
+            "waitTobeVsible":"resources_tab"
+        },
+        {
+            "name": "course_card_button_instructor",
+			"byType": "classname",
             "definition": "DOD8 CourseCard_active CourseCard_product_1",
 			"frame": "default",
             "specialInstr": "NA",
             "waitTobeVsible":"resources_tab"
+
+
+
         },
 
         {
@@ -20,14 +31,14 @@
         {
             "name":"Open_folder",
             "byType":"xpath",
-            "definition":"//*[@id='container']/div/div/div/div[4]/div/div/div/div[2]/div[2]/div[1]/div/div/div[1]/div/button[1]",
+            "definition":"(//*[@class='_3LhD'])[1]",
             "frame":"default",
             "specialInstr":"NA"
         },
         {
             "name":"Open_folder_chapter1",
             "byType":"xpath",
-            "definition":"//*[@id='container']/div/div/div/div[4]/div/div/div/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div/div[1]/div/button[1]",
+            "definition":"(//*[@class='_3UBu'])[1]",
             "frame":"default",
             "specialInstr":"NA"
         },

@@ -157,7 +157,7 @@ Background:
         And I click on Resource tab
         And I add the custom activity to chapter 
         And I click on courseplanner
-        And I click on Assesment open menu action button to assign the course 
+        And I click on Open Folder in order to activate the activity 
         And assign the values to variable
                 |values                          | variable     |
                 |activity_assign                 | click        |

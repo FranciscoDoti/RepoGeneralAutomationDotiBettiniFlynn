@@ -410,7 +410,7 @@
         {
             "name":"Place_activity_chapter1",
             "byType":"xpath",
-            "definition":"(//*[text()='Chapter 1: Pre-made Assesment'])[2]",
+            "definition":"(//*[@class='_3S0D'])[2]",
             "frame":"default",
             "specialInstr":"NA"
 
@@ -418,14 +418,14 @@
         {
             "name":"Place_activity_chapter2",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[2]/button",
+            "definition":"(//*[@class='_3S0D'])[3]",
             "frame":"default",
             "specialInstr":"NA"
         },
         {
             "name":"Place_activity_chapter3",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[3]/div/div/div[2]/button/span",
+            "definition":"(//*[@class='_3S0D'])[4]",
             "frame":"default",
             "specialInstr":"NA"
 
@@ -433,7 +433,7 @@
         {
             "name":"Place_activity_chapter4",
             "byType":"xpath",
-            "definition":"/html/body/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[4]/div/div/div[2]/button",
+            "definition":"(//*[@class='_3S0D'])[5]",
             "frame":"default",
             "specialInstr":"NA"
         },

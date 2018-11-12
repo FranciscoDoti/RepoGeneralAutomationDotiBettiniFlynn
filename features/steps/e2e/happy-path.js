@@ -318,6 +318,8 @@ Then('I select number of use codes', async function () {
 });
 
 When('I click on invite link send by instructor', async function () {
+  await sleep(3000);
+
   await pages.authInstructor.populate('Invite_link', 'click');
 });
 
@@ -342,17 +344,17 @@ Then('I click on Resource tab of Testcourse', async function () {
   await pages.authInstructor.populate('Resource_button_instructor', 'click');
 });
 
-Then('I click on Target points', async function () {
-  await sleep(3000);
-  log.debug('Clicking on Target points');
-  await pages.authInstructor.populate('Change_Target_points', 'click');
-  log.debug('Clicking on edit target button');
-  await pages.authInstructor.populate('Edit_Target_points', '5');
-  log.debug('Clicking on change target score button');
-  await pages.authInstructor.populate('Change_Target_score', 'click');
-  log.debug('Clicking on A very short score button');
-  await pages.authInstructor.populate('Very_short_button', 'click');
-});
+// Then('I click on Target points', async function () {
+//   await sleep(3000);
+//   log.debug('Clicking on Target points');
+//   await pages.authInstructor.populate('Change_Target_points', 'click');
+//   log.debug('Clicking on edit target button');
+//   await pages.authInstructor.populate('Edit_Target_points', '5');
+//   log.debug('Clicking on change target score button');
+//   await pages.authInstructor.populate('Change_Target_score', 'click');
+//   log.debug('Clicking on A very short score button');
+//   await pages.authInstructor.populate('Very_short_button', 'click');
+// });
 
 Then('I click on courseplanner', async function () {
   await sleep(5000);
@@ -360,13 +362,11 @@ Then('I click on courseplanner', async function () {
   await pages.authInstructor.populate('courseplanner_button', 'click');
 });
 
-Then('I click on Open Folder for activity', async function () {
+Then('I click on Open Folder in order to activate the activity', async function () {
   log.debug('Clicking on open folder for activity button');
-  await pages.authInstructor.populate('open_folder_activity', 'click');
+  await pages.student.populate('Open_folder', 'click');
   log.debug('Clicking on open folder for activity button');
-  await pages.authInstructor.populate('open_folder_chapter1_activity', 'click');
-  log.debug('Clicking on open folder for activity button');
-  await pages.authInstructor.populate('open_folder_chapterR&P_activity', 'click');
+  await pages.authInstructor.populate('open_folder_Assesment', 'click');
 });
 
 Then('I elect to assign the course', async function () {
@@ -394,7 +394,7 @@ Then('I elect it with the following data:', async function () {
 
 When('I click on course card "E2E101"', async function () {
   log.debug('Clicking on course card');
-  await pages.student.populate('course_card_button', 'click', 'resource_tab');
+  await pages.student.populate('course_card_button_instructor', 'click', 'resource_tab');
 });
 When('I click on Resuource tab', async function () {
   log.debug('Clicking on Resource tab');
