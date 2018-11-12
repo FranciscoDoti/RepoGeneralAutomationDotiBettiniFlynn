@@ -6,7 +6,7 @@ Background:
         Given I have opened Achieve "loginURL"
     
     Scenario: Verify that Media Producer is able to create Quant Template 
-        When I have logged in as "media_producer_1"
+        When I have logged in as "media_producer_2"
         And I click on create course plus button
         And save the value to variable
             |variablename        | value    |
@@ -23,7 +23,7 @@ Background:
         And I sign out of Achieve
     
     Scenario: Verify that Media Producer is able to add activities in Qunat Template
-        When I have logged in as "media_producer_1"
+        When I have logged in as "media_producer_2"
         And I search for "Qual Testcourse"
         And I click on open menu
         When I elect to edit the course named "course1.templatename"
@@ -110,7 +110,7 @@ Background:
         And I sign out of Achieve    
     
     Scenario: Verify that Media Producer is able to add copy the course from Qualitative template
-        When I have logged in as "media_producer_1" 
+        When I have logged in as "media_producer_2" 
         When I search for "Qual Testcourse"
         And  I click on open menu
         Then I copy the course named "Testcourse" to the name "E301"

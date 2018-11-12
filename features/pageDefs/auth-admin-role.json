@@ -340,7 +340,7 @@
 		{ 
 			"name":"course_validation",
             "byType":"xpath",
-            "definition":"//*[text()='Courses']",
+            "definition":"//*[text()='Draft Template']",
             "frame":"default",
             "specialInstr":"NA"
 
