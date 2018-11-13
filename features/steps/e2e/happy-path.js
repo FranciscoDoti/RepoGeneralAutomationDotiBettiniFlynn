@@ -363,9 +363,6 @@ Then('I click on courseplanner', async function () {
 });
 
 Then('I click on Open Folder in order to activate the activity', async function () {
-  log.debug('Clicking on open folder for activity button');
-  await pages.student.populate('Open_folder', 'click');
-  log.debug('Clicking on open folder for activity button');
   await pages.authInstructor.populate('open_folder_Assesment', 'click');
 });
 

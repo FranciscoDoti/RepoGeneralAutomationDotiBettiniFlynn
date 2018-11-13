@@ -34,38 +34,7 @@ Background:
         And I elect to edit the course with the following data:
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card "Testcourse" template
-        And I click on Resource tab
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 1: Read&Practice"
-        And I click on add folder button in order to save it
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 2: Learning Curve"
-        And I click on add folder button in order to save it
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 3: Reading"
-        And I click on add folder button in order to save it
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 4: File"
-        And I click on add folder button in order to save it
-        And save the value to variable 
-             |variablename            | value    |
-             |options_button          | click    |
-             |reorder_button          | click    |
-             |move_total_down_button  | click    |
-             |save_reordered_button   | click    |
-             |options_button          | click    |
-             |reorder_button          | click    |
-             |move_down_button        | click    |
-             |save_reordered_button   | click    |
-             |options_button_2        | click    |
-             |reorder_button          | click    |
-             |move_down_button        | click    |
-             |save_reordered_button   | click    |
-             |options_button_2        | click    |
-             |reorder_button          | click    |
-             |move_up_button          | click    |
-             |save_reordered_button   | click    |      
-        And I elect to create a course with the following data:      
+        And I click on Resource tab       
         And add content into chapter by clicking "+" button
         And I click on Activity search button and enter "Colliding Worlds"
         And I click on add content 
@@ -85,50 +54,6 @@ Background:
         And I click on add content 
         And I validate the activities are added 
         And I sign out of Achieve
-
-    Scenario: Verify that Media Producer is able to add activities to the assigned chapters in Read&Practice Template
-        When I have logged in as "media_producer_1"
-        And I search for "R&P Testcourse"
-        And I click on course card "Testcourse" template
-        And I click on Resource tab
-        And save the value to variable 
-             |variablename            | value    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter1 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          |  click   |
-             |move_item_button        | click    |
-             |Place_activity_chapter1 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter2 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter2 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter4 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter4 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter3 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter | click    |
-             |save_button             | click    |
-        And I elect to create a course with the following data: 
-        And I validate the activities are added 
-        And I sign out of Achieve   
- 
 
     Scenario: Verify that Media Producer is able to copy the course from Read&Practice Template 
         When I have logged in as "media_producer_1" 

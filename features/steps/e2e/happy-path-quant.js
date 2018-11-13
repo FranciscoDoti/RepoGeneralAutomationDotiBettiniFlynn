@@ -26,5 +26,5 @@ When('I click on course card of Quant Template', async function () {
   await pages.authProducer.populate('course_card_Qant', 'click');
 });
 When('I click on course card of Quant Template as instructor', async function () {
-  await pages.authProducer.populate('course_card_quant_instructor', 'click', 'resources_tab');
+  await pages.authInstructor.populate('course_card_quant_instructor', 'click', 'resources_tab');
 });

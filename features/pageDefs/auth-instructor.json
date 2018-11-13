@@ -299,7 +299,7 @@
         {
             "name":"open_folder_Assesment",
             "byType":"xpath",
-            "definition":"(//*[@class='_15F5'])[2]",
+            "definition":"(//*[@class='_15F5'])[1]",
             "frame":"default",
             "specialInstr":"NA"
 
@@ -370,10 +370,19 @@
         },
         {
             "name":"Assign_To ",
-            "byType":"classname",
-            "definition":"_2Srk",
+            "byType":"xpath",
+            "definition":"//*[@class='_2Srk']",
             "frame":"default",
             "specialInstr":"NA"
+
+        },
+        {
+            "name":"Student_Visibility",
+            "byType":"xpath",
+            "definition":"(//*[@class='_1AoW'])[1]",
+            "frame":"default",
+            "specialInstr":"NA"
+
 
         }
 

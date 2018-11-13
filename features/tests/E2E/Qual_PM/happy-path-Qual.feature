@@ -13,7 +13,7 @@ Background:
             |course_type         | Template |
             |product_model       | Qualitative |
             |course_name         | Qual Testcourse |
-            |learning_Objective  | Introduction to Economics |
+            |learning_Objective  | Principles of Economics |
             |course_code         | E2E 301 |
             |isbn_number         | 9781464199498 |
             |course_status       | Draft |
@@ -34,79 +34,20 @@ Background:
         When I elect to edit the course with the following data:
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card "Qual Testcourse" template
-        And I click on Resource tab
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 1: Pre-made Assesment"
-        And I click on add folder button in order to save it
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 2: Reading"
-        And I click on add folder button in order to save it
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 3: Custom-made Assesment"
-        And I click on add folder button in order to save it
-        And I click on Add folder button for adding folder 
-        And I create a folder with the name "Chapter 4: File"
-        And I click on add folder button in order to save it
-        And save the value to variable 
-             |variablename            | value    |
-             |options_button          | click    |
-             |reorder_button          | click    |
-             |move_total_down_button  | click    |
-             |save_reordered_button   | click    |
-             |options_button          | click    |
-             |reorder_button          | click    |
-             |move_down_button        | click    |
-             |save_reordered_button   | click    |
-             |options_button_2        | click    |
-             |reorder_button          | click    |
-             |move_down_button        | click    |
-             |save_reordered_button   | click    |
-             |options_button_2        | click    |
-             |reorder_button          | click    |
-             |move_up_button          | click    |
-             |save_reordered_button   | click    |      
-        And I elect to create a course with the following data:      
+        And I click on Resource tab     
         And add content into chapter by clicking "+" button
         And I click on Activity search button and enter "Homework"
         And I click on add content 
-        And I click on Activity search button and enter "Guided learn and practice"
+        And I click on Activity search button and enter "Animation"
         And I click on add content 
-        And I click on Activity search button and enter "Fractions"
+        And I click on Activity search button and enter "Analyzing Drama"
         And I click on add content
-        And I click on Activity search button and pass the value "The story of Psycology"
+        And I click on Activity search button and pass the value "Dedication"
         And I click on add content
         And I click on Activity search button and pass the value "new test epub"
         And I click on add content
         And I click on Activity search button and pass the value "AT1nov"
-        And I click on add content
-        And save the value to variable 
-             |variablename            | value    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter1 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          |  click   |
-             |move_item_button        | click    |
-             |Place_activity_chapter1 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter2 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter2 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter4 | click    |
-             |save_button             | click    |
-             |OpenActionMenu          | click    |
-             |move_item_button        | click    |
-             |Place_activity_chapter4 | click    |
-             |save_button             | click    |
-        And I elect to create a course with the following data:
-        And I validate the activities are added  
+        And I click on add content   
         And I sign out of Achieve    
     
     Scenario: Verify that Media Producer is able to add copy the course from Qualitative template
@@ -121,14 +62,14 @@ Background:
         When I search for "E301"
         And I click on open menu
         Then I open the Manage Instructors page on the course named "$course1.name"
-        And I manage the instructors on the course and add the "instructor_2" loginUser
+        And I manage the instructors on the course and add the "instructor_3" loginUser
         And I validate that the Course Specific Link opens the course named "$course1.name"
         And I close the Manage Instructors page
         And I sign out of Achieve
 
 
     Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Qualitative Template  
-        When I have logged in as "instructor_2"
+        When I have logged in as "instructor_3"
         And I search for "E301"
         And I click on open menu
         And I elect to edit the course named "$course1.name"
@@ -149,20 +90,19 @@ Background:
         And create a custom task by passing the values for Assesement 1
         And I validate Custom Assesement is created
         And add content into chapter by clicking "+" button
-        And I add the coustom task 
+        And I add the coustom task
         And I sign out of Achieve
     
     Scenario: Verify that instructor is able to assign the activities in Qualitative Template
-        When I have logged in as "instructor_2"
+        When I have logged in as "instructor_3"
         And I click on course card "Qual Testcourse" template present in instructor
-        And I click on Resource tab
-        And I add the custom activity to chapter 
         And I click on courseplanner
         And I click on Open Folder in order to activate the activity 
         And assign the values to variable
                 |values                          | variable     |
                 |activity_assign                 | click        |
-                |Assign_To                       | macmillanstudent4@gmail.com |
+                |Assign_To                       | macmillaninstructor@rsvhr.com |
+                |Student_Visibility              | click        |
                 |Date_assign                     | @Date('now') |
                 |Time_Hour                       | 12           |
                 |Time_minute                     |  30          |
