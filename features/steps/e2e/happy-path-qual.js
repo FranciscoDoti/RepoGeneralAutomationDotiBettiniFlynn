@@ -1,4 +1,4 @@
-const {When, Then} = require('cucumber');
+const {When, Then, After} = require('cucumber');
 const path = require('path');
 const {loadConfig, loadLogin} = require('../../../app/util');
 const stepsPath = process.cwd() + '/features/pageDefs/';
@@ -17,9 +17,14 @@ let pages = {
   authAdmin: new PageObject('auth-admin-role.json', stepsPath),
   authInstructor: new PageObject('auth-instructor.json', stepsPath),
   createAccount: new PageObject('createAccount.json', stepsPath),
-  student: new PageObject('student-role.json', stepsPath)
-
+  student: new PageObject('student-role.json', stepsPath),
+  navigation: new PageObject('navigation.json', stepsPath)
 }
+
+After('@Qual', async function(){
+  await pages.navigation.populate('menu_system', 'click');
+  await pages.navigation.populate('logout', 'click');
+})
 
 When('I click on course card "Qual Testcourse" template', async function () {
   log.debug('Clicking on course card of Qual');

@@ -4,7 +4,7 @@ Media Producer creates a course
    
 Background:
         Given I have opened Achieve "loginURL"
-    
+
     Scenario: Verify that Media Producer is able to create Quant Template 
         When I have logged in as "media_producer_2"
         And I click on create course plus button
@@ -121,15 +121,15 @@ Background:
         And I click on check box for purchace access for grace period 
         And I click on Finish Enrollment
         And I sign out of Achieve
-
- Scenario: Verify that user is able to delete the course
-        When I have logged in as "media_producer_2"
-        And I search for "Qual Testcourse"
-        And I click on open menu 
-        And I click on delete the course
-        And I search for "E301"
-        And I click on open menu 
-        And I click on delete the course
-        And I sign out of Achieve
+        
+    Scenario: Verify that user is able to delete the course
+            When I have logged in as "media_producer_2"
+            And I search for "Qual Testcourse"
+            And I click on open menu 
+            And I click on delete the course
+            And I search for "E301"
+            And I click on open menu 
+            And I click on delete the course
+            And I sign out of Achieve
        
 
