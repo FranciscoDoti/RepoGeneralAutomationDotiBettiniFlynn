@@ -86,7 +86,22 @@
 			"definition":"_1plU _1j68",
 			"frame":"default",
 			"specialInstr":"NA"
-		}	
+		},
+		{
+		    "name":"Delete_course",
+			"byType":"xpath",
+			"definition":"//*[text()='Delete Course']",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+		{
+		    "name":"Confirm_Delete_course",
+			"byType":"xpath",
+			"definition":"//*[text()='Yes, Delete']",
+			"frame":"default",
+			"specialInstr":"NA"
+		}
+
 		
 	]
 }

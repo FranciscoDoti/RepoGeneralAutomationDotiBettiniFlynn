@@ -172,12 +172,23 @@ Background:
         And I elect it with the following data:
         And I sign out of Achieve
     
-    # Scenario: Verify that student is able to enroll in a Instructor created course created from Quantitative Template
-    #     Given I have opened Achieve "ThirdpartyURL"
-    #     When I log in as "student"
-    #     And I click on invite link send by instructor
-    #     And I open the invite link and login with "student" account details
-    #     And I click on Start grace period
-    #     And I click on check box for purchace access for grace period 
-    #     And I click on Finish Enrollment
-    #     And I sign out of Achieve
+    Scenario: Verify that student is able to enroll in a Instructor created course created from Quantitative Template
+        Given I have opened Achieve "ThirdpartyURL"
+        When I log in as "student"
+        And I click on invite link send by instructor
+        And I open the invite link and login with "student" account details
+        And I click on Start grace period
+        And I click on check box for purchace access for grace period 
+        And I click on Finish Enrollment
+        And I sign out of Achieve
+
+    Scenario: Verify that user is able to delete the course
+        When I have logged in as "media_producer_1"
+        And I search for "Qunat Testcourse"
+        And I click on open menu 
+        And I click on delete the course
+        And I search for "E2E201"
+        And I click on open menu 
+        And I click on delete the course
+        And I sign out of Achieve
+

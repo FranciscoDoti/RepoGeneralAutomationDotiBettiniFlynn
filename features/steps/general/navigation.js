@@ -39,7 +39,6 @@ When(/^I have logged in as "(.*)"$/, async function (userFile) {
     log.debug(`Using user ${user.username}`);
     await pages.navigation.populate('txt_username', user.username);
     await pages.navigation.populate('txt_password', user.password);
-
     await pages.navigation.populate('signin_button', 'click');
     log.debug(`Login button was clicked`);
   } catch (err) {
@@ -81,4 +80,9 @@ When('I click on open menu', async function () {
   } catch (err) {
     log.error(err);
   }
+});
+// use this step to delete the course and commentit when you are not using( example is available in Qual_Pm, Quant_Pm)
+When('I click on delete the course', async function () {
+  await pages.navigation.populate('Delete_course', 'click');
+  await pages.navigation.populate('Confirm_Delete_course', 'click');
 });
