@@ -180,7 +180,6 @@ Background:
         And I click on Start grace period
         And I click on check box for purchace access for grace period 
         And I click on Finish Enrollment
-        And I sign out of Achieve
 
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_1"
