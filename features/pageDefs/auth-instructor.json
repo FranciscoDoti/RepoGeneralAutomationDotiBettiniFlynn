@@ -14,11 +14,10 @@
 		},
 		{
 			"name":"Template_status",
-            "byType":"classname",
-            "definition":"_2oIm _1bTe",
+            "byType":"xpath",
+            "definition":"/html/body/div[3]/div/div/div[2]/div/div[4]/div/div/select",
             "frame":"default",
-			"specialInstr":"enterAfter", 
-			"waitToBeVisible":"Template_status_DD_value"
+			"specialInstr":"NA"
 
 		},
 		{
@@ -41,7 +40,7 @@
 		{
 			"name":"course_end_date1",
             "byType":"xpath",
-            "definition":"(.//*[@class='EVUx '])[2]",
+            "definition":"(//*[@class='undefined _282D _3opI _2x2P'])[2]",
             "frame":"default",
             "specialInstr":"NA",
             "waitForElementToBevisible":"Next_Month"
@@ -51,7 +50,7 @@
 		{
 			"name":"Active_Date1",
             "byType":"xpath",
-            "definition":"(//*[@class='EVUx '])[1]",
+            "definition":"(//*[@class='undefined _282D _3opI _2x2P'])[1]",
             "frame":"default",
             "specialInstr":"NA",
             "waitForElementToBeVisible": "course_end_date1"
@@ -59,8 +58,8 @@
 		},
 		{
 			"name":"Next_Month",
-            "byType":"classname",
-            "definition":"_2eGJ wbLx",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Next Month']",
             "frame":"default",
             "specialInstr":"NA",
             "waitForElementToBeVisible": "Select_Date"
