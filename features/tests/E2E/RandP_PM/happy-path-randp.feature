@@ -18,6 +18,7 @@ Background:
             |course_status       | Draft |
             |save_button         | click |
         And I elect to create a course with the following data:
+        And I validate the message "R&P TestCourse Created."
         Then I validate that the course "$course.templatename" is listed in the courses page
         And I sign out of Achieve
     
@@ -32,6 +33,7 @@ Background:
             |Template_status   | Active On Date |
             |Active_Date       | @Date('now')   |
         And I elect to edit the course with the following data:
+        And I validate the message "R&P TestCourse Updated."
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card "Testcourse" template
         And I click on Resource tab       
@@ -60,6 +62,7 @@ Background:
         And  I search for "R&P Testcourse"
         And  I click on open menu
         Then I copy the course named "Testcourse" to the name "E2E101"
+        And I validate the message "Course Copied."
         And I sign out of Achieve
 
     Scenario: Verify that customer support is able to add instructor to the read& practice course  
@@ -68,13 +71,13 @@ Background:
         And I click on open menu
         Then I open the Manage Instructors page on the course named "$course1.name"
         Then I manage the instructors on the course and add the "instructor_1" loginUser
-        And I validate that the Course Specific Link opens the course named "$course1.name"
         And I close the Manage Instructors page
         And I sign out of Achieve
 
     
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
+        #And I validate enrolled course should be displayed in instructor 
         And I click on open menu
         And I elect to edit the course named "$course1.name"
         When save the values to course  
@@ -92,6 +95,7 @@ Background:
         And I elect to assign the course
         And assign the values to variable
                 |values           | variable |
+                |activity_assign  | click        |
                 |Assign_To        | macmillanstudent4@gmail.com |
                 |Date_assign      | @Date('now') |
                 |Time_Hour        | 12         |
@@ -124,23 +128,33 @@ Background:
         And I sign out of Achieve
 
     # Scenario: Verify that student is able to attempt activities of Instructor created course from Read&Practice Template    
-    #     When I have logged in as "student"
-    #     And I click on course card "E2E101"
-    #     And I click on Resuource tab
-    #     And I click on Open Folder
-    #     Then I click on Read and Practice 
-    #     And I click on the reading material and validate whether the content is available 
-    #     And I start the quiz 
-    #     And I answer the questions
-    #     And I click on submit button
-    #     And I click on alert message
-        #And I answer the questions
-        #And I click on submit button
-        #And I validate the content 
-        #And I click on close message
-        #And I click on Read&Practice
-        #And I click on Gradebook
-    
+    #   When I have logged in as "student"
+    #   And I click on course card "E2E101"
+    #   And I click on Resuource tab
+    #   And I click on Open Folder
+    #   Then I click on Read and Practice 
+    #   And I click on the reading material and validate whether the content is available 
+    #   And I start the quiz 
+    #   And I answer the questions
+    #   And I click on submit button
+    #   And I click on alert message
+    #   And I answer the questions
+    #   And I click on submit button
+    #   And I validate the content 
+    #   And I click on close message
+    #   And I click on Read&Practice
+    #   And I click on Gradebook
+
+    Scenario: Verify that user is able to delete the course
+        When I have logged in as "media_producer_1"
+        And I search for "R&P Testcourse"
+        And I click on open menu 
+        And I click on delete the course
+        And I search for "E2E 101"
+        And I click on open menu 
+        And I click on delete the course
+        And I sign out of Achieve
+
         
 
 

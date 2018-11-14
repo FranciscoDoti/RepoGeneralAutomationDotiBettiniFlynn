@@ -382,6 +382,13 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"course_message_validation",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div[2]/div[2]/span",
+            "frame":"default",
+            "specialInstr":"NA"
 
         }
 
