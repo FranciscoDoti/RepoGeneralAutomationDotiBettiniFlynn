@@ -3,6 +3,7 @@
 	"loginURL": "https://int-achieve-iam.mldev.cloud/login?retURL=https://int-achieve-courseware-frontend.mldev.cloud/courses",
 	"LCUrl": "https://dev-achieve-learningcurve.mldev.cloud/",
 	"LCRPUrl": "https://dev-achieve-learningcurve.mldev.cloud/lcrp/",
+	"MathUrl": "http://mth72.saplinglearning.me/ams/",
 	"driver": {
 		"type": "chrome",
 		"headless": false
