@@ -1,27 +1,27 @@
 Feature: Authentication for Achieve Admin via IAM
     
 
-    Scenario: Verify Close icon is working fine and verifying password reset is showing error when invalid emailid is entered 
-        Given I have opened Achieve "loginURL"
-        And I have logged in as "admin"
-        When I click on user menu 
-        And I click on Admin Panel 
-        And I click on Password reset
-        And I enter Invalid E-mail Address not regitered in macmillan account
-        And I click on Reset button
-        Then I click on Close Icon
-        And I sign out of Achieve
+    # Scenario: Verify Close icon is working fine and verifying password reset is showing error when invalid emailid is entered 
+    #     Given I have opened Achieve "loginURL"
+    #     And I have logged in as "admin"
+    #     When I click on user menu 
+    #     And I click on Admin Panel 
+    #     And I click on Password reset
+    #     And I enter Invalid E-mail Address not regitered in macmillan account
+    #     And I click on Reset button
+    #     Then I click on Close Icon
+    #     And I sign out of Achieve
         
-    Scenario:Verifying password reset functionality is working fine
-        Given I have opened Achieve "loginURL"
-        When I have logged in as "admin"
-        And I click on user menu 
-        And I click on Admin Panel 
-        And I click on Password reset
-        Then I enter "admin" account details which is registered in macmillan account
-        And I click on Reset button
-        And I click on Close Icon
-        And I sign out of Achieve
+    # Scenario:Verifying password reset functionality is working fine
+    #     Given I have opened Achieve "loginURL"
+    #     When I have logged in as "admin"
+    #     And I click on user menu 
+    #     And I click on Admin Panel 
+    #     And I click on Password reset
+    #     Then I enter "admin" account details which is registered in macmillan account
+    #     And I click on Reset button
+    #     And I click on Close Icon
+    #     And I sign out of Achieve
 
 
     Scenario: Verify the user is able to luanch the url and reset the password

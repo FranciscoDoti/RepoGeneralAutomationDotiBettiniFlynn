@@ -11,13 +11,16 @@ const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
 const { By } = require('selenium-webdriver'); 
 const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';
+const {emailImapFunction, utilFunction} = require('../../../app/imap');
+// user: 'coursewareachieve@gmail.com',
+// password: 'ABCabc@123',
 
 // Scenario setup
 let pages = {
   authAdmin: new PageObject('auth-admin-role.json', stepsPath),
   createAccount: new PageObject('createAccount.json', stepsPath)
 }
-var adminRestLink = '';
+// var adminResetLink = '';
 
 When('I click on user menu', async function () {
   log.debug('Clicking menu_system button');
@@ -73,52 +76,55 @@ When(/^I log in as "(.*)"$/, async function (Login) {
   await sleep(3000);
 });
 When('I check E-mail Notification', async function () {
+  // await emailImapFunction('coursewareachieve@gmail.com', 'ABCabc@123');
+  const adminResetLink = await emailImapFunction('coursewareachieve@gmail.com', 'ABCabc@123');
+  await getDriver().get(adminResetLink);
   // log.debug('Clicking on mail');
   // await pages.authAdmin.populate('mail', 'click');
   // const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Reset your password']")).getAttribute('href');
   // log.debug(hyperlink + 'hyperlink');
   // log.debug('Clicking on reset password');
   // await getDriver().get(hyperlink);
-  var imap = new Imap({
-    user: 'coursewareachieve@gmail.com',
-    password: 'ABCabc@123',
-    host: 'imap.gmail.com',
-    port: 993,
-    tls: true
-  });
+  // var imap = new Imap({
+  //   user: 'coursewareachieve@gmail.com',
+  //   password: 'ABCabc@123',
+  //   host: 'imap.gmail.com',
+  //   port: 993,
+  //   tls: true
+  // });
   
-  function openInbox(cb) {
-    imap.openBox('INBOX', true, cb);
-  }
+  // function openInbox(cb) {
+  //   imap.openBox('INBOX', true, cb);
+  // }
 
-  imap.once('ready', function() {
-      openInbox(function(err, box) {
-          if (err) throw err;
-          var f = imap.seq.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
-          f.on('message', function(msg, seqno) {
-              // console.log('Message #%d', seqno);
-              var prefix = '(#' + seqno + ') ';
-              msg.on('body', function(stream, info) {
-                  simpleParser(stream).then((parsed) => {
-                      var regex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
-                      if(parsed.textAsHtml){
-                          adminResetLink = parsed.textAsHtml;
-                          adminResetLink = adminResetLink.match(regex);
-                          adminResetLink = adminResetLink[0]
-                          console.log(adminResetLink);
-                      }
-                  })
-              });
-          });
-          f.once('error', function(err) {
-              console.log('Fetch error: ' + err);
-          });
-          f.once('end', function() {
-              console.log('Done fetching all messages!');
-              imap.end();
-          });
-      });
-  });
+  // imap.once('ready', function() {
+  //     openInbox(function(err, box) {
+  //         if (err) throw err;
+  //         var f = imap.seq.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
+  //         f.on('message', function(msg, seqno) {
+  //             // console.log('Message #%d', seqno);
+  //             var prefix = '(#' + seqno + ') ';
+  //             msg.on('body', function(stream, info) {
+  //                 simpleParser(stream).then((parsed) => {
+  //                     var regex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
+  //                     if(parsed.textAsHtml){
+  //                         adminResetLink = parsed.textAsHtml;
+  //                         adminResetLink = adminResetLink.match(regex);
+  //                         adminResetLink = adminResetLink[0]
+  //                         console.log(adminResetLink);
+  //                     }
+  //                 })
+  //             });
+  //         });
+  //         f.once('error', function(err) {
+  //             console.log('Fetch error: ' + err);
+  //         });
+  //         f.once('end', function() {
+  //             console.log('Done fetching all messages!');
+  //             imap.end();
+  //         });
+  //     });
+  // });
   
   // imap.once('error', function(err) {
   //   console.log(err);
@@ -130,13 +136,13 @@ When('I check E-mail Notification', async function () {
   //   await getDriver().get(adminResetLink)
   // });
   
-  imap.connect();
+  // imap.connect();
 });
 
 When(/^I enter Password and confirm password from "(.*)" account for fulfilling the validation criteria$/, async function (account) {
   const mail = await loadLogin(account);
   await sleep(5000);
-  await getDriver().get(adminResetLink);
+  // await getDriver().get(adminResetLink);
   log.debug(`clicking on Password and confirm password button, ${account}`);
   await pages.createAccount.populate('password', mail.newpassword);
   await pages.createAccount.populate('confirmPassword', mail.newpassword);
