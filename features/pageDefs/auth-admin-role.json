@@ -15,8 +15,6 @@
 			"definition": "//*[text()='Admin Panel']",
 			"frame": "default",
 			"specialInstr": "NA"
-			
-
 		},
 		{
 			"name": "password_reset",
@@ -46,6 +44,13 @@
 			"frame": "default",
 			"specialInstr": "NA"
 
+		},
+		{
+			"name": "close_example",
+			"byType": "xpath",
+			"definition": ".//*[@data-test-id='e1ZR']",
+			"frame": "default",
+			"specialInstr": "NA"
 		},
 		{
 			"name": "close_cheackAccount",
