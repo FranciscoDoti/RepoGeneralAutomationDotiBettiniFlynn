@@ -1,0 +1,22 @@
+{
+  "webElements": [{
+      "name": "input_username",
+      "byType": "xpath",
+      "definition": "//*[@id='username']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "input_password",
+      "byType": "xpath",
+      "definition": "//*[@id='password']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "login",
+      "byType": "xpath",
+      "definition": "//*[@id='submitButton']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}
