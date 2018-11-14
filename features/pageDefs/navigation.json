@@ -37,7 +37,7 @@
 			"frame": "default",
 			"specialInstr": "NA"
 		},
-			{
+		{
 			"name": "menu_system",
 			"byType": "xpath",
 			"definition": "//button[@aria-label='Toggle User Menu']",
