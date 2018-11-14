@@ -1,0 +1,10 @@
+{
+  "saviVerification": "http://savipo2.saplinglearning.me/ibiscms/mod/flcn/view.php?id=4195348",
+  "loginURL": "https://savipo2.saplinglearning.me/ibiscms/login/",
+  "driver": {
+    "type": "chrome",
+    "headless": false
+  },
+  "chromeDriver_location_windows": "NA",
+  "timeout": "60"
+}
