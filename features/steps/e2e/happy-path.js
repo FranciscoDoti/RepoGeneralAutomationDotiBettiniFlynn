@@ -280,7 +280,7 @@ When('I elect to edit the course with the following data', async function () {
   } catch (err) {
     log.error(err.stack);
   }
-  // await pages.authInstructor.populate('Template_status', 'click');
+  await pages.authInstructor.populate('Template_status', 'Active On Date');
   await pages.authInstructor.populate('Active_Date1', 'click');
   await pages.authInstructor.populate('course_end_date1', 'click');
   await pages.authInstructor.populate('Next_Month', 'click');
