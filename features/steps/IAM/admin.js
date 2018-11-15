@@ -72,10 +72,10 @@ When(/^I log in as "(.*)"$/, async function (Login) {
   await pages.authAdmin.populate('gmail', 'click');
   await sleep(3000);
 });
-When(/^I check E-mail Notification of "(.*)"$/, async function (Login) {
+When(/^I check E-mail Notification of "(.*)" for "(.*)"$/, async function (Login, regexChoice) {
   const account = await loadLogin(Login);
-  var Link = await connectClient(account.username, account.password);
-  await getDriver().get(Link);
+  var hrefLink = await connectClient(account.username, account.password, regexChoice);
+  await getDriver().get(hrefLink);
 });
 
 When(/^I enter Password and confirm password from "(.*)" account for fulfilling the validation criteria$/, async function (account) {
@@ -86,9 +86,10 @@ When(/^I enter Password and confirm password from "(.*)" account for fulfilling 
   await pages.createAccount.populate('confirmPassword', mail.newpassword);
 });
 When('I click on Reset password', async function () {
-  await sleep(10000);
+  await sleep(1000);
   console.log('Clicking on Reset password');
   await pages.authAdmin.populate('reset_password_email', 'click');
+  await sleep(2000);
 });
 Then('I click on login button to return to login page', async function () {
   await sleep(5000);

@@ -27,7 +27,7 @@ Feature: Authentication for Achieve Admin via IAM
     Scenario: Verify the user is able to luanch the url and reset the password
         # Given I have opened Achieve "ThirdpartyURL"
         # When I log in as "admin"
-        When I check E-mail Notification of "admin"
+        When I check E-mail Notification of "admin" for "IAM"
         And I enter Password and confirm password from "admin" account for fulfilling the validation criteria
         And I click on Reset password
         Then I verify Message is displayed as "Your password has been successfully reset. You can now log in to your account"

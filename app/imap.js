@@ -4,7 +4,8 @@ var simpleParser = require("mailparser").simpleParser;
 const { getDriver, sleep } = require('./driver');
 let Link;
 
-const connectClient = async function(user, password) {
+const connectClient = async function(user, password, regexChoice) {
+    var regex = regexChoice || null;
     var client = new Imap({
         user: user,
         password: password,
@@ -48,14 +49,28 @@ const connectClient = async function(user, password) {
             f.on('message', function(msg, seqno) {
                 msg.on('body', function(stream, info) {
                     simpleParser(stream).then((parsed) => {
-                        var regex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
-                        if(parsed.textAsHtml){
-                            Link = parsed.textAsHtml;
-                            Link = Link.match(regex);
-                            Link = Link[0];
-                            // console.log(Link, 'inside the imap functions');
-                            resolve(Link);
+                        if(regex === 'IAM') {
+                            var iamRegex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
+                            if(parsed.textAsHtml){
+                                Link = parsed.textAsHtml;
+                                Link = Link.match(iamRegex);
+                                Link = Link[0];
+                                // console.log(Link, 'inside the imap functions');
+                                resolve(Link);
+                            }
+                        } else if (regex === "courseware"){
+                            var iamRegex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
+                            if(parsed.textAsHtml){
+                                Link = parsed.textAsHtml;
+                                Link = Link.match(iamRegex);
+                                Link = Link[0];
+                                // console.log(Link, 'inside the imap functions');
+                                resolve(Link);
+                            }
+                        } else {
+                            resolve(parsed);
                         }
+
                     })
                 });
             })
@@ -70,6 +85,7 @@ const connectClient = async function(user, password) {
             });
         })
     }
+    // https://github.com/mscdex/node-imap/issues/359
     const sortMessages = async function (results){
         return new Promise((resolve, reject) => {
             client.search([ 'NEW' ], function(err, results) {
@@ -92,12 +108,6 @@ const connectClient = async function(user, password) {
         const box = await openInbox();
 
         return await fetchMessages(box);
-
-        // const msg = await messageEventListener('ready', fetch);
-
-        // client.seq.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
-
-        // console.log(box, 'running the connectClient code here', fetch, 'msg outside promise~~~~~')
 
     } catch(err) {
         console.log(err, 'err in connectClient')
