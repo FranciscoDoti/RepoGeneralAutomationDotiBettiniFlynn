@@ -402,8 +402,15 @@ Then('I click on checkbox', async function () {
 //   }
 // });
 When('I click on privacy notice link', async function () {
+  await sleep(2000);
   await pages.createAccount.populate('Privacy_notice', 'selected');
 });
+
+When('I click on privacy notice link within user account view', async function () {
+  await sleep(2000);
+  await pages.createAccount.populate('Privacy_notice_account', 'selected');
+});
+
 Then('I verify that I am redirected to privacy notice link page', async function () {
   await pages.createAccount.checkWebElementExists('privacy_check')
 });
@@ -646,7 +653,7 @@ When(/^I verify that the account information for "(.*)" displayed is correct$/, 
   if (sq3answer !== 'answer') {
     throw new Error('Not the correct security question 3 answer ', sq3answer, ' is displayed instead');
   }
-  if (institution !== 'Macmillan Education') {
+  if (institution !== Login.primarySchool) {
     throw new Error('Not the institution ', institution, ' is displayed instead');
   }
 });

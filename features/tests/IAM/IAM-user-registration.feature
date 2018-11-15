@@ -214,8 +214,8 @@ Feature: Authentication for Achieve via IAM
         When I have logged in as "media_producer_2"
         And I click on user menu
         And I click on Account
-        # And I verify that the account information for "media_producer_2" displayed is correct
-        And I click on privacy notice link 
+        And I verify that the account information for "media_producer_2" displayed is correct
+        And I click on privacy notice link within user account view
         Then I verify that I am redirected to privacy notice link page
 
     # Why is this Scenario commented out???
@@ -224,8 +224,6 @@ Feature: Authentication for Achieve via IAM
     #     When I log in as "admin_alt"
     #     And I click on compose
     #     And I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanlearning.com" link no -emial updates should be recived regarding macmillan updates
-
-
 
 
 

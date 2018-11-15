@@ -275,6 +275,13 @@
 			"specialInstr": "NA"	
 		},
 		{
+			"name": "Privacy_notice_account",
+			"byType": "xpath",
+			"definition": "//*[@id='app']/div/div/div/div/div/div[5]/div/label/span/a[2]",
+			"frame": "default",
+			"specialInstr": "NA"	
+		},
+		{
 			"name": "privacy_check",
 			"byType": "xpath",
 			"definition": "//*[@class='header_mobile_text']",

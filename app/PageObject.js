@@ -27,16 +27,17 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.driver = getDriver();
   that.webdriver = getWebDriver();
 
-  log.debug(`New PageObject: ${pageNameInput}`);
+  // log.debug(`New PageObject: ${pageNameInput}`);
 
   const loadPageDefinitionFile = function (fullFileName) {
-    log.debug(`Opening file ${fullFileName} from ${__filename} `);
+    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
     var jsonContent = loadJSONFile(fullFileName);
 
     for (var i in jsonContent.webElements) {
       var element = jsonContent.webElements[i];
       addElement(element.name, element)
-      log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
+      // This was adding so much noise to the console output
+      // log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
     }
   }
 
