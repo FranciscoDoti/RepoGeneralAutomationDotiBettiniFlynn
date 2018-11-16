@@ -20,7 +20,7 @@ let pages = {
   createAccount: new PageObject('createAccount.json', stepsPath),
   student: new PageObject('student-role.json', stepsPath),
   navigation: new PageObject('navigation.json', stepsPath),
-  courseDirectory: new PageObject('course-template-directory.json', coursewareStepsPath)
+  courseDirectory: new PageObject('\\course-template-directory.json', coursewareStepsPath)
 }
 
 After('@Qual', async function(){
