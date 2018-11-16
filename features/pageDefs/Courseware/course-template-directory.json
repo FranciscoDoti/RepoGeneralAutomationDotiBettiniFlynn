@@ -1,0 +1,14 @@
+
+{
+	"webElements": [
+        {
+            "name":"card_name_Qual",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_4 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible":"resources_tab"
+        }
+
+    ]
+}

@@ -2,6 +2,7 @@ const {When, Then, After} = require('cucumber');
 const path = require('path');
 const {loadConfig, loadLogin} = require('../../../app/util');
 const stepsPath = process.cwd() + '/features/pageDefs/';
+const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware';
 const {PageObject} = require('../../../app/pageObject');
 const {log} = require('../../../app/logger');
 const parse = require('parse-duration');
@@ -18,7 +19,8 @@ let pages = {
   authInstructor: new PageObject('auth-instructor.json', stepsPath),
   createAccount: new PageObject('createAccount.json', stepsPath),
   student: new PageObject('student-role.json', stepsPath),
-  navigation: new PageObject('navigation.json', stepsPath)
+  navigation: new PageObject('navigation.json', stepsPath),
+  courseDirectory: new PageObject('course-template-directory.json', coursewareStepsPath)
 }
 
 After('@Qual', async function(){
@@ -28,7 +30,7 @@ After('@Qual', async function(){
 
 When('I click on course card "Qual Testcourse" template', async function () {
   log.debug('Clicking on course card of Qual');
-  await pages.authProducer.populate('card_name_Qual', 'click', 'resources_tab');
+  await pages.courseDirectory.populate('card_name_Qual', 'click', 'resources_tab');
 });
 
 Then('I click on Add folder button for adding folder', async function () {
