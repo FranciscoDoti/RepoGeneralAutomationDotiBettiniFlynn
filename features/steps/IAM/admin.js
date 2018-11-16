@@ -1,23 +1,15 @@
-const path = require('path');
-var Imap = require('imap')
-var simpleParser = require("mailparser").simpleParser;
 const { When, Then } = require('cucumber');
-const { loadConfig, loadLogin } = require('../../../app/util');
-const expect = require('chai')
-const stepsPath = process.cwd() + '/features/pageDefs/';
+const { loadLogin } = require('../../../app/util');
 const { PageObject } = require('../../../app/pageObject');
-const chromePath = require('chromedriver').path;
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
 const { By } = require('selenium-webdriver'); 
-const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';
-const {emailImapFunction, utilFunction, connectClient} = require('../../../app/imap');
-
+const { connectClient } = require('../../../app/imap');
+const stepsPath = process.cwd().concat('/features/pageDefs/');
+const authAdmin = new PageObject('auth-admin-role.json', stepsPath);
+const createAccount = new PageObject('createAccount.json', stepsPath);
 // Scenario setup
-let pages = {
-  authAdmin: new PageObject('auth-admin-role.json', stepsPath),
-  createAccount: new PageObject('createAccount.json', stepsPath)
-}
+let pages = { authAdmin, createAccount };
 
 When('I click on user menu', async function () {
   log.debug('Clicking menu_system button');
@@ -39,6 +31,7 @@ Then('I click on Close Icon', async function () {
 });
 Then('I enter Invalid E-mail Address not regitered in macmillan account', async function () {
   log.debug('Clicking password_reset_input button');
+  var emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';
   await pages.authAdmin.populate('password_reset_input', emailid);
 });
 Then(/^I enter "(.*)" account details which is registered in macmillan account$/, async function (passwordreset) {
