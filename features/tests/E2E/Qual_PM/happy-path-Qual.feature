@@ -83,44 +83,7 @@ Background:
         Then I capture the invite link and store to variable "inviteLink"
         And I populate the Invite Students "student" page 
         And I click on course card "Qual Testcourse" template present in instructor
-        And I click on Resource tab
-        And add content into chapter by clicking "+" button
-        And I click on create custom button
-        And I select activity button as assesment
-        And create a custom task by passing the values for Assesement 1
-        And I validate Custom Assesement is created
-        And add content into chapter by clicking "+" button
-        And I add the coustom task
-        And I sign out of Achieve
     
-    Scenario: Verify that instructor is able to assign the activities in Qualitative Template
-        When I have logged in as "instructor_3"
-        And I click on course card "Qual Testcourse" template present in instructor
-        And I click on courseplanner
-        And I click on Open Folder in order to activate the activity 
-        And assign the values to variable
-                |values                          | variable     |
-                |activity_assign                 | click        |
-                |Assign_To                       | macmillaninstructor@rsvhr.com |
-                |Student_Visibility              | click        |
-                |Date_assign                     | @Date('now') |
-                |Time_Hour                       | 12           |
-                |Time_minute                     |  30          |
-                |Time_period                     | AM           |
-                |points_minimum                  | 5            |
-                |Assign_button                   | click        |
-        And I elect it with the following data:
-        And I sign out of Achieve
-    
-    Scenario: Verify that student is able to enroll in a Instructor created course created from Quantitative Template
-        Given I have opened Achieve "ThirdpartyURL"
-        When I log in as "student"
-        And I click on invite link send by instructor
-        And I open the invite link and login with "student" account details
-        And I click on Start grace period
-        And I click on check box for purchace access for grace period 
-        And I click on Finish Enrollment
-        And I sign out of Achieve
         
     Scenario: Verify that user is able to delete the course
             When I have logged in as "media_producer_2"

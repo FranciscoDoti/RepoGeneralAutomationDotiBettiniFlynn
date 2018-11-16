@@ -40,9 +40,9 @@ Background:
         And add content into chapter by clicking "+" button
         And I click on Activity search button and enter "Colliding Worlds"
         And I click on add content 
-        And I click on Activity search button and enter "American Experiments"
+        And I click on Activity search button and enter "Chapter 2:American Experiments"
         And I click on add content 
-        And I click on Activity search button and enter "Personality Development in Adulthood"
+        And I click on Activity search button and enter "Argument: Reasoning and Logical Fallacies"
         And I click on add content
         And I click on Activity search button and pass the value "do not use"
         And I click on add content
@@ -50,9 +50,9 @@ Background:
         And I click on add content
         And I click on Activity search button and pass the value "How to Read a Graph"
         And I click on add content
-        And I click on Activity search button and pass the value "LO asset verification Edited"
+        And I click on Activity search button and pass the value "9897989798187_FC.jpg"
         And I click on add content
-        And I click on Activity search button and pass the value "new test epub"
+        And I click on Activity search button and pass the value "9897989798183_FC.jpg"
         And I click on add content 
         And I validate the activities are added 
         And I sign out of Achieve
@@ -77,7 +77,7 @@ Background:
     
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
-        #And I validate enrolled course should be displayed in instructor 
+        And I validate enrolled course should be displayed in instructor 
         And I click on open menu
         And I elect to edit the course named "$course1.name"
         When save the values to course  
@@ -91,59 +91,7 @@ Background:
         Then I populate the Invite Students "student" page 
         And I click on course card "E2E101"
         And I click on courseplanner
-        And I click on Open Folder in order to activate the activity 
-        And I elect to assign the course
-        And assign the values to variable
-                |values           | variable |
-                |activity_assign  | click        |
-                |Assign_To        | macmillanstudent4@gmail.com |
-                |Date_assign      | @Date('now') |
-                |Time_Hour        | 12         |
-                |Time_minute      |  30         |
-                |Time_period      | AM          |
-                |points_minimum   | 5           |
-                |Assign_button    | click |
-        And I elect it with the following data:
-        And I sign out of Achieve
-    
-    # Scenario:Verify that paid access code creater able to generate access code for Read&Practice Template
-    #    When I have logged in as "paid_accessCC"
-    #    And I search for "Testcourse"
-    #    And I click on course card "Testcourse" template
-    #    And I click on user menu
-    #    And I click on Admin Panel 
-    #    Then I click on create access codes
-    #    And I select number of use codes
-    #     And length of the Access code
-    #     And I sign out of Achieve
-
-    Scenario: Verify that student is able to enroll in a Instructor created course created from Read&Practice Template
-        Given I have opened Achieve "ThirdpartyURL"
-        When I log in as "student"
-        When I click on invite link send by instructor
-        And I open the invite link and login with "student" account details
-        And I click on Start grace period
-        And I click on check box for purchace access for grace period 
-        And I click on Finish Enrollment
-        And I sign out of Achieve
-
-    # Scenario: Verify that student is able to attempt activities of Instructor created course from Read&Practice Template    
-    #   When I have logged in as "student"
-    #   And I click on course card "E2E101"
-    #   And I click on Resuource tab
-    #   And I click on Open Folder
-    #   Then I click on Read and Practice 
-    #   And I click on the reading material and validate whether the content is available 
-    #   And I start the quiz 
-    #   And I answer the questions
-    #   And I click on submit button
-    #   And I click on alert message
-    #   And I answer the questions
-    #   And I click on submit button
-    #   And I validate the content 
-    #   And I click on close message
-    #   And I click on Read&Practice
-    #   And I click on Gradebook
+       
 
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_1"

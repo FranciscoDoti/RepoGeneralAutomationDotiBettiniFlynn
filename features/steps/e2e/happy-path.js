@@ -4,6 +4,7 @@ const {loadConfig, loadLogin} = require('../../../app/util');
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const {PageObject} = require('../../../app/pageObject');
 const {log} = require('../../../app/logger');
+const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
 const parse = require('parse-duration');
 const ScenarioData = require('../../../app/scenarioData');
 const StringProcessing = require('../../../app/stringProcessing');
@@ -13,22 +14,20 @@ const { Key } = require('selenium-webdriver');
 var fieldValue;
 var AssignValue;
 var CourseValue;
-var Assigncourse;
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
 let pages = {
-  authProducer: new PageObject('auth-media-producer.json', stepsPath),
   mainPage: new PageObject('mainPage.json', stepsPath),
   login: new PageObject('loginPage.json', stepsPath),
-  authAdmin: new PageObject('auth-admin-role.json', stepsPath),
-  authInstructor: new PageObject('auth-instructor.json', stepsPath),
   createAccount: new PageObject('createAccount.json', stepsPath),
-  student: new PageObject('student-role.json', stepsPath)
-
+  CourseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
+  activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
+  resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath)
 }
+
 
 When('I click the create_course button to create course', async function () {
   log.debug('Clicking on create course button');
-  await pages.authProducer.populate('create_course', 'click');
+  await pages.CourseTemplate.populate('create_course', 'click');
 });
 When('save the value to variable', async function (dataTable) {
   fieldValue = dataTable;
@@ -42,7 +41,7 @@ When('I elect to create a course with the following data:', async function () {
     for (e = 0; e < fieldValue.rows().length; e++) {
       log.info(fieldValue.hashes()[e].variablename);
       log.info(fieldValue.hashes()[e].value);
-      await pages.authProducer.populate(fieldValue.hashes()[e].variablename, fieldValue.hashes()[e].value);
+      await pages.CourseTemplate.populate(fieldValue.hashes()[e].variablename, fieldValue.hashes()[e].value);
     }
   } catch (err) {
     log.error(err.stack);
@@ -50,7 +49,7 @@ When('I elect to create a course with the following data:', async function () {
 });
 
 When(/^I validate the message "(.*)"$/, async function (message) {
-  const coursemessage = await pages.authInstructor.getElementValue('course_message_validation');
+  const coursemessage = await pages.CourseTemplate.getElementValue('course_message_validation');
   if (coursemessage == message) {
     console.log('passed')
   } else {
@@ -58,14 +57,14 @@ When(/^I validate the message "(.*)"$/, async function (message) {
   }
 });
 Then('I validate that the course "$course.templatename" is listed in the courses page', async function () {
-  if (await pages.authAdmin.checkWebElementExists('course_validation')) {
+  if (await pages.CourseTemplate.checkWebElementExists('course_validation')) {
     console.log('passed');
   } else {
     console.log('failed');
   }
 });
 When('I elect to edit the course named "course1.templatename"', async function () {
-  await pages.authProducer.populate('edit_button', 'click');
+  await pages.CourseTemplate.populate('edit_button', 'click');
 });
 
 When('save the value to variables', async function (dataTable) {
@@ -80,16 +79,16 @@ Then('I elect to edit the course with the following data:', async function () {
     for (x = 0; x < AssignValue.rows().length; x++) {
       log.info(AssignValue.hashes()[x].variablesname);
       log.info(AssignValue.hashes()[x].value);
-      await pages.authProducer.populate(AssignValue.hashes()[x].variablesname, AssignValue.hashes()[x].value);
+      await pages.CourseTemplate.populate(AssignValue.hashes()[x].variablesname, AssignValue.hashes()[x].value);
     }
   } catch (err) {
     log.error(err.stack);
   }
-  await pages.authProducer.populate('save_button', 'click');
+  await pages.CourseTemplate.populate('save_button', 'click');
 });
 
 Then('I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"', async function () {
-  if (await pages.authProducer.checkWebElementExists('Template_validate')) {
+  if (await pages.CourseTemplate.checkWebElementExists('Template_validate')) {
     console.log('passed');
   } else {
     throw new Error('Failed');
@@ -98,38 +97,38 @@ Then('I validate that the course card named "course1.templatename" exists on the
 
 Then('I click on course card "Testcourse" template', async function () {
   log.debug('Clicking on course card');
-  await pages.student.populate('course_card_button', 'click', 'resources_tab');
+  await pages.CourseTemplate.populate('course_card_button', 'click', 'resources_tab');
 });
 Then('I click on Resource tab', async function () {
   await sleep(3000);
   log.debug('Clicking on resources tab');
-  await pages.authProducer.populate('resources_tab', 'click');
+  await pages.activityTab.populate('resources_tab', 'click');
 });
 Then('add content into chapter by clicking "+" button', async function () {
-  await pages.authProducer.populate('Add_button', 'click');
+  await pages.resourceView.populate('Add_button', 'click');
 });
 When(/^I click on Activity search button and enter "(.*)"$/, async function (chapterName) {
   log.debug('Clicking search and entering the value');
-  await pages.authProducer.populate('ActivitySearchInput', chapterName);
+  await pages.resourceView.populate('ActivitySearchInput', chapterName);
   await sleep(5000);
 });
 Then(/^I click on Activity search button and pass the value "(.*)"$/, async function (chapterName) {
-  await pages.authProducer.populate('ActivitySearchInput', chapterName);
+  await pages.resourceView.populate('ActivitySearchInput', chapterName);
   await sleep(5000);
 });
 
 Then('I click on link of the file', async function () {
   log.debug('Clicking on file');
-  await pages.authProducer.populate('file_open', 'click');
+  await pages.resourceView.populate('file_open', 'click');
   await getDriver().navigate().back();
   await sleep(5000);
 });
 Then('I click on add content', async function () {
   try {
     log.debug('Clicking on add content');
-    await pages.authProducer.populate('Adding_chapter_content', 'click');
+    await pages.resourceView.populate('Adding_chapter_content', 'click');
     log.debug('CLicking on add selection button');
-    await pages.authProducer.populate('AddSelectionsToResource', 'click');
+    await pages.resourceView.populate('AddSelectionsToResource', 'click');
     await sleep(5000);
   } catch (err) {
     log.error(err.stack);
@@ -139,46 +138,46 @@ When(/^I search for "(.*)"$/, async function (temp) {
   try {
     log.debug('Clicking on search button');
     await sleep(3000);
-    await pages.authAdmin.populate('search_course', temp);
+    await pages.CourseTemplate.populate('search_course', temp);
   } catch (err) {
     log.error(err);
   }
 });
 
 Then(/^I copy the course named "Testcourse" to the name "(.*)"$/, async function (copy) {
-  await pages.authAdmin.populate('copy_course', 'click');
-  await pages.authAdmin.populate('copy_course_name', copy);
+  await pages.CourseTemplate.populate('copy_course', 'click');
+  await pages.CourseTemplate.populate('copy_course_name', copy);
   await sleep(3000);
-  await pages.authAdmin.populate('save_button', 'click');
+  await pages.CourseTemplate.populate('save_button', 'click');
   await sleep(3000);
 });
 When(/^I search "(.*?)"$/, async function (value) {
   log.debug('Clicking on search_course');
-  await pages.authAdmin.populate('search_course', value);
+  await pages.CourseTemplate.populate('search_course', value);
 });
 Then('I open the Manage Instructors page on the course named "$course1.name"', async function () {
-  await pages.authAdmin.populate('Manage_Instructor', 'click');
+  await pages.CourseTemplate.populate('Manage_Instructor', 'click');
 });
 Then(/^I manage the instructors on the course and add the "(.*)" loginUser$/, async function (username) {
   const login = await loadLogin(username);
   log.debug('Clicking Instructor_Email button');
-  await pages.authAdmin.populate('Instructor_Email', login.username);
+  await pages.CourseTemplate.populate('Instructor_Email', login.username);
   log.debug('Clicking Add_instructor button');
-  await pages.authAdmin.populate('Add_instructor', 'click');
+  await pages.CourseTemplate.populate('Add_instructor', 'click');
 });
 Then('I validate that the Course Specific Link opens the course named "$course1.name"', async function () {
   log.debug('Clicking copy link button');
-  await pages.authAdmin.populate('copy_link', 'click');
+  await pages.CourseTemplate.populate('copy_link', 'click');
 });
 
 Then('I close the Manage Instructors page', async function () {
   log.debug('Clicking close button');
-  await pages.authAdmin.populate('close', 'click');
+  await pages.CourseTemplate.populate('close', 'click');
 });
 When('I elect to edit the course named "$course1.name"', async function () {
   await sleep(2000);
   log.debug('Clicking on edit_button ');
-  await pages.authProducer.populate('edit_button', 'click');
+  await pages.CourseTemplate.populate('edit_button', 'click');
 });
 When('save the values to course', async function (dataTable) {
   CourseValue = dataTable;
@@ -192,52 +191,43 @@ When('I elect to edit the course with the following data', async function () {
     for (x = 0; x < CourseValue.rows().length; x++) {
       log.info(CourseValue.hashes()[x].values);
       log.info(CourseValue.hashes()[x].course);
-      await pages.authInstructor.populate(CourseValue.hashes()[x].values, CourseValue.hashes()[x].course);
+      await pages.CourseTemplate.populate(CourseValue.hashes()[x].values, CourseValue.hashes()[x].course);
     }
   } catch (err) {
     log.error(err.stack);
   }
-  await pages.authInstructor.populate('Template_status', 'Active On Date');
-  await pages.authInstructor.populate('Active_Date1', 'click');
-  await pages.authInstructor.populate('course_end_date1', 'click');
-  await pages.authInstructor.populate('Next_Month', 'click');
-  await pages.authInstructor.populate('Next_Month', 'click');
-  await pages.authInstructor.populate('Select_Date', 'click');
-  await pages.authProducer.populate('save_button', 'click');
+  await pages.CourseTemplate.populate('Template_status', 'Active On Date');
+  await pages.CourseTemplate.populate('Active_Date1', 'click');
+  await pages.CourseTemplate.populate('Active_Date@now', 'click');
+  await pages.CourseTemplate.populate('course_end_date1', 'click');
+  await pages.CourseTemplate.populate('Next_Month', 'click');
+  await pages.CourseTemplate.populate('Next_Month', 'click');
+  await pages.CourseTemplate.populate('Select_Date', 'click');
+  await pages.CourseTemplate.populate('save_button', 'click');
 });
 
 Then('I capture the invite link and store to variable "inviteLink"', async function () {
   log.debug('Clicking on Invite_Students button');
-  await pages.authInstructor.populate('Invite_Students', 'click');
+  await pages.CourseTemplate.populate('Invite_Students', 'click');
   log.debug('Clicking on Send_Invite button');
-  await pages.authInstructor.populate('Send_Invite', 'click');
+  await pages.CourseTemplate.populate('Send_Invite', 'click');
 });
 Then(/^I populate the Invite Students "(.*)" page$/, async function (email) {
   const user = await loadLogin(email)
   log.debug('Clicking on enter_emailid button');
-  await pages.authInstructor.populate('enter_emailid', user.username);
-  await pages.authInstructor.populate('enter_emailid', ' ');
-  await pages.authInstructor.populate('send_button', 'click');
+  await pages.CourseTemplate.populate('enter_emailid', user.username);
+  await pages.CourseTemplate.populate('enter_emailid', ' ');
+  await pages.CourseTemplate.populate('send_button', 'click');
   await sleep(5000);
 });
 When('I click on course card "Testcourse"', async function () {
   log.debug('Clicking on course_card button');
-  await pages.authAdmin.populate('course_card', 'click');
+  await pages.CourseTemplate.populate('course_card', 'click');
 });
-Then('I click on create access code', async function () {
-  log.debug('Clicking on create_acces_code button');
-  await pages.authAdmin.populate('create_access_code', 'click');
-});
-Then('I select number of use codes', async function () {
-  await sleep(10000);
-  log.debug('clicking on single use code');
-  await pages.authAdmin.populate('single_use_code', '2');
-});
-
 When('I click on invite link send by instructor', async function () {
   await sleep(3000);
 
-  await pages.authInstructor.populate('Invite_link', 'click');
+  await pages.CourseTemplate.populate('Invite_link', 'click');
 });
 
 When(/^I open the invite link and login with "(.*)" account details$/, async function (username) {
@@ -255,98 +245,22 @@ When(/^I open the invite link and login with "(.*)" account details$/, async fun
   await pages.login.populate('sign_in', 'click');
 });
 
-Then('I click on Resource tab of Testcourse', async function () {
-  await sleep(3000);
-  log.debug('Clicking on Resource button');
-  await pages.authInstructor.populate('Resource_button_instructor', 'click');
-});
-
-// Then('I click on Target points', async function () {
-//   await sleep(3000);
-//   log.debug('Clicking on Target points');
-//   await pages.authInstructor.populate('Change_Target_points', 'click');
-//   log.debug('Clicking on edit target button');
-//   await pages.authInstructor.populate('Edit_Target_points', '5');
-//   log.debug('Clicking on change target score button');
-//   await pages.authInstructor.populate('Change_Target_score', 'click');
-//   log.debug('Clicking on A very short score button');
-//   await pages.authInstructor.populate('Very_short_button', 'click');
-// });
 
 Then('I click on courseplanner', async function () {
   await sleep(5000);
   log.debug('Clicking on course planner button');
-  await pages.authInstructor.populate('courseplanner_button', 'click');
-});
-
-Then('I click on Open Folder in order to activate the activity', async function () {
-  await pages.authInstructor.populate('open_folder_Assesment', 'click');
-});
-
-Then('I elect to assign the course', async function () {
-  log.debug('Clicking on assign course button');
-  await pages.authInstructor.populate('activity_assign', 'click');
-});
-Then('assign the values to variable', async function (dataTable) {
-  Assigncourse = dataTable
-});
-Then('I elect it with the following data:', async function () {
-  try {
-    log.info(Assigncourse.rows().length);
-    var x;
-    for (x = 0; x < Assigncourse.rows().length; x++) {
-      log.info(Assigncourse.hashes()[x].values);
-      log.info(Assigncourse.hashes()[x].variable);
-      await pages.authInstructor.populate(Assigncourse.hashes()[x].values, Assigncourse.hashes()[x].variable);
-    }
-    await getDriver().navigate().refresh();
-    await sleep(3000);
-  } catch (err) {
-    log.error(err.stack);
-  }
+  await pages.activityTab.populate('courseplanner_button', 'click');
 });
 
 When('I click on course card "E2E101"', async function () {
   log.debug('Clicking on course card');
-  await pages.student.populate('course_card_button_instructor', 'click', 'resource_tab');
-});
-When('I click on Resuource tab', async function () {
-  log.debug('Clicking on Resource tab');
-  await pages.student.populate('resources_tab', 'click');
-});
-When('I click on Open Folder', async function () {
-  log.debug('Clicking on OpenFolder');
-  await pages.student.populate('Open_folder', 'click');
-  log.debug('Clicking on OpenFolder of chapter 1');
-  await pages.student.populate('Open_folder_chapter1', 'click');
-});
-Then('I click on Read and Practice', async function () {
-  log.debug('Clicking on Read and practice');
-  await pages.student.populate('chapter_1_r&p', 'click');
+  await pages.CourseTemplate.populate('course_card_button_instructor', 'click', 'resource_tab');
 });
 
-Then('I click on chapter 1 R&P folder', async function () {
-  log.debug('Clicking on chapter 1 open folder');
-  await pages.authInstructor.populate('open_folder_chapter1_activity', 'click');
-});
 When('I validate enrolled course should be displayed in instructor', async function () {
-await pages.authAdmin.checkWebElementExists()
+  await pages.CourseTemplate.checkWebElementExists('coustomer_support_validation')
 });
 
-When('I click on Start grace period', async function () {
-  await sleep(5000);
-  log.debug('Clicking on start grace period');
-  await pages.student.populate('start_grace_period', 'click');
-});
-When('I click on check box for purchace access for grace period', async function () {
-  log.debug('Clicking on start Check box');
-  await pages.student.populate('check_box_grace_period', 'click');
-});
-When('I click on Finish Enrollment', async function () {
-  log.debug('Clicking on finish enrollment button');
-  await pages.student.populate('Finish_enrollment', 'click');
-  await sleep(5000);
-});
 
 // I am still working on this (learning curve)
 Then('I click on the reading material and validate whether the content is available', async function () {
@@ -404,23 +318,4 @@ Then('I validate the content', async function () {
   } else {
     console.log('failed');
   }
-});
-
-Then('I click on close message', async function () {
-  log.debug('Clicking on close message');
-  await pages.student.populate('close_message', 'click');
-  log.debug('Clicking on  back to study plan');
-  await pages.student.populate('back_study_plan', 'click');
-});
-Then('I click on Read&Practice', async function () {
-  log.debug('Clicking on close Read&Practice');
-  await pages.student.populate('close_Reading&Practice', 'click');
-});
-Then('I click on Gradebook', async function () {
-  log.debug('Clicking on Gradebook_button');
-  await pages.student.populate('Gradebook', 'click');
-});
-Then('I click on alert message', async function () {
-  log.debug('Clicking on alert message');
-  await pages.student.populate('alert_message', 'click');
 });

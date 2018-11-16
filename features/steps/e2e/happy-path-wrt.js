@@ -9,6 +9,7 @@ const ScenarioData = require('../../../app/scenarioData');
 const StringProcessing = require('../../../app/stringProcessing');
 const {getDriver, sleep} = require('../../../app/driver');
 const { By} = require('selenium-webdriver');
+const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
 const {Key} = require('selenium-webdriver');
 const fs = require('fs');
 // var FieldValues;
@@ -20,19 +21,16 @@ let pages = {
   authAdmin: new PageObject('auth-admin-role.json', stepsPath),
   authInstructor: new PageObject('auth-instructor.json', stepsPath),
   createAccount: new PageObject('createAccount.json', stepsPath),
-  student: new PageObject('student-role.json', stepsPath)
+  student: new PageObject('student-role.json', stepsPath),
+  CourseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath)
 
 }
 When('I click on create course plus button', async function () {
 // var text = await getDriver().findElement(By.xpath("//*[@id='container']/div/div[2]/div/div/div/div/div[3]/div/button/div/div/span")).getText();
-  let booleanVal = await pages.authProducer.checkWebElementExists('create_course');
+  let booleanVal = await pages.CourseTemplate.checkWebElementExists('create_course');
   if (booleanVal == false) {
-    await pages.authProducer.populate('Plus_button', 'click');
+    await pages.CourseTemplate.populate('Plus_button', 'click');
   } else if (booleanVal == true) {
-    await pages.authProducer.populate('create_course', 'click');
+    await pages.CourseTemplate.populate('create_course', 'click');
   }
-});
-When('I click on open menu for skills template', async function () {
-  log.debug('Clicking on edit button');
-  await pages.authProducer.populate('edit_button_writing', 'click');
 });
