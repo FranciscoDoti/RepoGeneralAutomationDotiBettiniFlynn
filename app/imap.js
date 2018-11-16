@@ -1,7 +1,5 @@
 var Imap = require('imap')
-// var  inspect = require('util').inspect;
 var simpleParser = require("mailparser").simpleParser;
-const { getDriver, sleep } = require('./driver');
 let Link;
 
 const connectClient = async function(user, password, regexChoice) {

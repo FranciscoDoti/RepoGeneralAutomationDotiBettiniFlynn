@@ -7,7 +7,6 @@
 			"frame": "default",
 			"specialInstr": "NA"
 		},
-				
 		{
 			"name": "firstName",
 			"byType": "id",
@@ -567,8 +566,6 @@
 			"definition": "update",
 			"frame": "default",
 			"specialInstr": "NA"
-
 		}
-
 	]
 }

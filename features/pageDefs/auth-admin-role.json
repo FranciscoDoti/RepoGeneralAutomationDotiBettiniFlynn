@@ -135,7 +135,6 @@
 			"specialInstr": "NA"
 			
 		},
-	
 		{
 			"name":"copy_course",
             "byType":"xpath",
@@ -345,9 +344,5 @@
             "specialInstr":"NA"
 
 		}
-		
-
-
-
 	]
 }

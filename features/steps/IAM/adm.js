@@ -1,9 +1,9 @@
+
 const { When, Then } = require('cucumber');
 const { loadLogin } = require('../../../app/util');
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
-const { By } = require('selenium-webdriver'); 
 const { connectClient } = require('../../../app/imap');
 const stepsPath = process.cwd().concat('/features/pageDefs/');
 const authAdmin = new PageObject('auth-admin-role.json', stepsPath);
