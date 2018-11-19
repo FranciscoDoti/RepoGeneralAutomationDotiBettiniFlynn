@@ -8,8 +8,8 @@ const config = loadConfig('config');
 const login = loadConfig('login');
 const assert = require('assert');
 
-const saviVerification1 = new PageObject('savi-verification1.json', stepsPath);
 const loginPage = new PageObject('saplinglearning-login.json', stepsPath);
+const saviVerification1 = new PageObject('savi-verification1.json', stepsPath);
 
 Given('I login to sapling SAVIPO2', async function () {
   const url = config.loginURL;
@@ -19,20 +19,25 @@ Given('I login to sapling SAVIPO2', async function () {
   await loginPage.populate('input_username', login.username);
   await loginPage.populate('input_password', login.password);
   await loginPage.populate('login', 'click');
-  await sleep(5000);
+  // await sleep(5000);
 });
 
 When('I open the Brightcove Player', async function () {
   const url = config.saviVerification;
   log.debug(`Loading URL ${url}`);
   await getDriver().get(url);
-  // await sleep(5000);
-  await saviVerification1.populate('open_brightcove_player', 'click');
+  await saviVerification1.populate('open_assignment', 'click');
+  await sleep(5000);
+  // var elementIframe = await saviVerification1.getElement('ae_iframe');
+  // getDriver().switchTo().frame('aeIframe');
 });
 
 Then('I can play a video', async function () {
-  const playButton = await saviVerification1.checkWebElementExists('play_brightcove_player');
-  assert(playButton, 'The play button was not displayed.');
+  await sleep(5000);
+  await saviVerification1.populate('play_brightcove_player', 'click');
+  // const playButton = await saviVerification1.checkWebElementExists('play_brightcove_player');
+  // assert(playButton, 'The play button was not displayed.');
+  await sleep(5000);
 });
 
 // AfterAll(function () {

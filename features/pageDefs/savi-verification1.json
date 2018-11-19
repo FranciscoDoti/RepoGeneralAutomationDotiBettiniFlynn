@@ -1,5 +1,17 @@
 {
   "webElements": [{
+      "name": "ae_iframe",
+      "byType": "id",
+      "definition": "aeIframe",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "open_assignment",
+      "byType": "id",
+      "definition": "assignment",
+      "frame": "ae_iframe",
+      "specialInstr": "NA"
+    },{
       "name": "open_brightcove_player",
       "byType": "xpath",
       "definition": "//*[@id='items-table']/div[1]/div/div[3]/div/button",
@@ -7,8 +19,8 @@
       "specialInstr": "NA"
     },{
       "name": "play_brightcove_player",
-      "byType": "xpath",
-      "definition": "//*[@id='vjs_video_3278']/div[4]/button[1]",
+      "byType": "classname",
+      "definition": "vjs-big-play-button",
       "frame": "default",
       "specialInstr": "NA"
     },{
