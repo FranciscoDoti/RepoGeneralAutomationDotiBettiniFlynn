@@ -109,13 +109,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       elementTarget = await WebElement(tempElement);
       actionElement.webElement = elementTarget;
 
-      log.debug(`****genericPopulateElement: ${elementName}`);
+      // log.debug(`****genericPopulateElement: ${elementName}`);
       log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection.`);
 
       const webElement = await elementTarget.getWebElement();
-      log.info(webElement);
       const tagName = await webElement.getTagName();
-      log.info(tagName);
       switch (tagName.toLowerCase()) {
         case 'input':
           await populateInput(webElement, value, actionElement);
@@ -156,7 +154,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const getWebElements = async function (elementName) {
-    log.info('........... getWebElements ...........');
     if (await hasElement(elementName)) {
       let tempElement = {};
       tempElement = await getElement(elementName);
