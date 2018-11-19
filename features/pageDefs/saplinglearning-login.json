@@ -13,8 +13,8 @@
       "specialInstr": "NA"
     },{
       "name": "login",
-      "byType": "xpath",
-      "definition": "//*[@id='submitButton']",
+      "byType": "id",
+      "definition": "submitButton",
       "frame": "default",
       "specialInstr": "NA"
     }

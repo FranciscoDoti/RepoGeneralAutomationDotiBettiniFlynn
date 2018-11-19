@@ -19,7 +19,7 @@ Given('I login to sapling SAVIPO2', async function () {
   await loginPage.populate('input_username', login.username);
   await loginPage.populate('input_password', login.password);
   await loginPage.populate('login', 'click');
-  // await sleep(5000);
+  await sleep(5000);
 });
 
 When('I open the Brightcove Player', async function () {
@@ -35,7 +35,7 @@ Then('I can play a video', async function () {
   assert(playButton, 'The play button was not displayed.');
 });
 
-AfterAll(function () {
-  getDriver().quit();
-  return Promise.resolve();
-});
+// AfterAll(function () {
+//   getDriver().quit();
+//   return Promise.resolve();
+// });
