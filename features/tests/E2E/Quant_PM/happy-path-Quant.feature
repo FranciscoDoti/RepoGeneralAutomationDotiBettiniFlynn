@@ -17,7 +17,9 @@ Background:
             |course_code         | E2E 201 |
             |isbn_number         | 9781464199497 |
             |course_status       | Draft|
+            |save_button         | click |
         When I elect to create a course with the following data:
+        Then I validate that the course "$course.templatename" is listed in the courses page
         And I sign out of Achieve
     
     Scenario: Verify that Media Producer is able to add activities in Qunat Template
@@ -31,37 +33,65 @@ Background:
             |Active_Date       | @Date('now')   |
         When I elect to edit the course with the following data:
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
-        And I click on course card "Testcourse" template
-        And I click on Resource tab
-        And I create a folder named on the resources screen
-        And I reorder the items on the course resource page to be in this order:
+        And I click on course card of Quant Template 
+        And I click on Resource tab      
         And add content into chapter by clicking "+" button
-        And I click on Activity search button and enter ""
+        And I click on Activity search button and enter "Homework"
         And I click on add content 
-        And I click on Activity search button and enter ""
+        And I click on Activity search button and enter "Guided learn and practice"
         And I click on add content 
-        And I click on Activity search button and enter "Thinking about genres and media"
+        And I click on Activity search button and enter "Fractions"
         And I click on add content
-        And I click on Activity search button and pass the value "Revising thesis and support"
+        And I click on Activity search button and pass the value "The story of Psycology"
         And I click on add content
-        Then I reorder the items 
-        And I click on Activity search button and pass the value ""
-        And I sign out of Achieve
+        And I click on Activity search button and pass the value "new test epub"
+        And I click on add content
+        And I click on Activity search button and pass the value "AT1nov"
+        And I click on add content  
+        And I sign out of Achieve    
 
 
     Scenario: Verify that Media Producer is able to copy the course from Quantitative Template 
         When I have logged in as "media_producer_1" 
-        When I search for "Testcourse"
+        When I search for "Quant Testcourse"
         And  I click on open menu
-        Then I copy the course named "Testcourse" to the name "E2E202"
+        Then I copy the course named "Testcourse" to the name "E2E201"
         And I sign out of Achieve
 
     Scenario: Verify that customer support is able to add instructor to the Quantitative course  
         When I have logged in as "customer_support_1"
-        When I search for "E2E202"
+        When I search for "E2E201"
         And I click on open menu
         Then I open the Manage Instructors page on the course named "$course1.name"
-        Then I manage the instructors on the course and add the "instructor_1" loginUser
+        Then I manage the instructors on the course and add the "instructor_3" loginUser
         And I validate that the Course Specific Link opens the course named "$course1.name"
         And I close the Manage Instructors page
         And I sign out of Achieve
+    
+
+    Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Quantitative Template  
+        When I have logged in as "instructor_3"
+        And I click on open menu
+        And I elect to edit the course named "$course1.name"
+        When save the values to course  
+            |values             | course|
+            |Template_status    | Active On Date |
+            |Active_Date        | @Date('now')   |
+            |course_end_date    | @Date('+2m')   |
+        And I elect to edit the course with the following data
+        And I click on open menu
+        Then I capture the invite link and store to variable "inviteLink"
+        And I populate the Invite Students "student" page 
+        And I click on course card of Quant Template as instructor 
+        And I click on courseplanner
+        
+    Scenario: Verify that user is able to delete the course
+        When I have logged in as "media_producer_1"
+        And I search for "Quant Testcourse"
+        And I click on open menu 
+        And I click on delete the course
+        And I search for "E2E201"
+        And I click on open menu 
+        And I click on delete the course
+        And I sign out of Achieve
+

@@ -1,14 +1,14 @@
 {
     "username": "mediaproducer@rupayamail.com",
     "password": "ABCabc@123",
-    "firstName": "Media",
-    "lastName": "Producer",
-    "sq1": "What high school did you attend?",
+    "firstName": "media",
+    "lastName": "producer",
+    "sq1": "What is the name of your first school?",
     "sq1_answer": "answer",
-    "sq2": "What is your favorite movie?",
+    "sq2": "What high school did you attend?",
     "sq2_answer": "answer",
-    "sq3": "What is your favorite color?",
+    "sq3": "What is the name of your favorite pet?",
     "sq3_answer": "answer",
-    "primarySchool": "Miami University"
+    "primarySchool": "macmillan.com"
     
 }

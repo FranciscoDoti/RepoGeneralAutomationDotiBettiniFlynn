@@ -1,0 +1,40 @@
+{
+    "webElements": [
+			{
+                "name": "menu_system",
+                "byType": "xpath",
+                "definition": "//button[@aria-label='Toggle User Menu']",
+                "frame": "default",
+                "specialInstr": "NA"
+                
+            },
+            {
+                "name": "admin_panel",
+                "byType": "xpath",
+                "definition": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div/div[2]",
+                "frame": "default",
+                "specialInstr": "NA"
+            },	
+            {
+                "name": "main_signin",
+                "byType": "xpath",
+                "definition": "//*[@id='container']/div/div/div/div[2]/a/button",
+                "frame": "default",
+                "specialInstr": "NA"
+            },
+            {
+                "name": "logout",
+                "byType": "xpath",
+                "definition": "//div[contains(text(),'Sign Out')]",
+                "frame": "default",
+                "specialInstr": "NA"
+            },
+            {
+                "name":"sign_in",
+                "byType":"xpath",
+                "definition":"//*[@id='container']/div/div/div/div[2]/a/button",
+                "frame":"default",
+                "specialInstr":"NA"
+            }
+    ]
+}

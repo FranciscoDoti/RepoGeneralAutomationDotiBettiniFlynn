@@ -402,8 +402,15 @@ Then('I click on checkbox', async function () {
 //   }
 // });
 When('I click on privacy notice link', async function () {
+  await sleep(2000);
   await pages.createAccount.populate('Privacy_notice', 'selected');
 });
+
+When('I click on privacy notice link within user account view', async function () {
+  await sleep(2000);
+  await pages.createAccount.populate('Privacy_notice_account', 'selected');
+});
+
 Then('I verify that I am redirected to privacy notice link page', async function () {
   await pages.createAccount.checkWebElementExists('privacy_check')
 });
@@ -418,27 +425,18 @@ When('I click on user agreement checkbox', async function () {
   }
 });
 Then('I verify that all the fields are empty', async function () {
-  try {
-    console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
-    var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
-    if (verify.includes('disabled')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    }
-  } catch (err) {
-    log.error(err);
+  console.log('Verify that Checkbox "Opt IN" is selectable and E-mail notification should generate');
+  var verify = await getDriver().findElement(By.xpath(("//*[@class='pad']//button[1]"))).getAttribute('outerHTML')
+  if (verify.includes('disabled')) {
+    console.log('passed');
+  } else {
+    console.log('failed');
   }
 });
 
 When('I click on Terms of use link', async function () {
-  try {
-    log.debug('Clickig on Terms use link');
-    await pages.createAccount.populate('TermsOfUse', 'click');
-    log.debug(`Privacy notice link is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  log.debug('Clickig on Terms use link');
+  await pages.createAccount.populate('TermsOfUse', 'click');
 });
 Then('I verify that I am redirected to terms of use page', async function () {
   console.log('Verify that Terms of use link redirects to appropriate page')
@@ -544,15 +542,10 @@ When(/^User "(.*)" has filled all mandatory fields except institution$/, async f
 });
 
 When('I click on privacy link', async function () {
-  try {
-    const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Privacy']")).getAttribute('href');
-    log.debug(hyperlink + 'hyperlink');
-    log.debug('Clickig on privacy link');
-    await getDriver().get(hyperlink);
-    log.debug(`Privacy notice link is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Privacy']")).getAttribute('href');
+  log.debug(hyperlink + 'hyperlink');
+  log.debug('Clickig on privacy link');
+  await getDriver().get(hyperlink);
 });
 Then('I verify that privacy link is directed to privacy page', async function () {
   console.log('Verify that Privacy Link redirects to appropriate page')
@@ -563,15 +556,10 @@ Then('I verify that privacy link is directed to privacy page', async function ()
   }
 });
 When('I click on piracy link', async function () {
-  try {
-    const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Piracy']")).getAttribute('href');
-    log.debug(hyperlink + 'hyperlink');
-    log.debug('Clickig on piracylink');
-    await getDriver().get(hyperlink);
-    log.debug(`Privacy notice link is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Piracy']")).getAttribute('href');
+  log.debug(hyperlink + 'hyperlink');
+  log.debug('Clickig on piracylink');
+  await getDriver().get(hyperlink);
 });
 Then('I verify that piracy link is directed to piracy page', async function () {
   console.log(' Verify that Piracy Link redirects to appropriate page')
@@ -582,15 +570,10 @@ Then('I verify that piracy link is directed to piracy page', async function () {
   }
 });
 When('I click on macmillan learning link', async function () {
-  try {
-    const hyperlink = await getDriver().findElement(By.xpath("//*[text()='macmillanlearning.com']")).getAttribute('href');
-    log.debug(hyperlink + 'hyperlink');
-    log.debug('Clickig on macmillan learning link');
-    await getDriver().get(hyperlink);
-    log.debug(`macmillan learning link is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  const hyperlink = await getDriver().findElement(By.xpath("//*[text()='macmillanlearning.com']")).getAttribute('href');
+  log.debug(hyperlink + 'hyperlink');
+  log.debug('Clickig on macmillan learning link');
+  await getDriver().get(hyperlink);
 });
 
 Then('I verify that macmillan link is directed to macmillan learning page', async function () {
@@ -603,15 +586,10 @@ Then('I verify that macmillan link is directed to macmillan learning page', asyn
 });
 
 When('I click on Terms of Purchase', async function () {
-  try {
-    const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Terms of Purchase']")).getAttribute('href');
-    log.debug(hyperlink + 'hyperlink');
-    log.debug('Clickig on Terms of Purchase link');
-    await getDriver().get(hyperlink);
-    log.debug(`Terms of purchase link is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Terms of Purchase']")).getAttribute('href');
+  log.debug(hyperlink + 'hyperlink');
+  log.debug('Clickig on Terms of Purchase link');
+  await getDriver().get(hyperlink);
 });
 When('I verify that purchase link is directed to Terms of Purchase', async function () {
   console.log('Verify the Terms of Purchase link directs to the page')
@@ -623,12 +601,8 @@ When('I verify that purchase link is directed to Terms of Purchase', async funct
 });
 
 When(/^User has filled out the form with password: "(.*)"$/, async function (password) {
-  try {
-    await pages.createAccount.populate('password', password);
-    await pages.createAccount.populate('confirmPassword', password);
-  } catch (err) {
-    log.error(err);
-  }
+  await pages.createAccount.populate('password', password);
+  await pages.createAccount.populate('confirmPassword', password);
 });
 
 When(/^User "(.*)" has filled all mandatory fields except password$/, async function (user) {
@@ -648,15 +622,9 @@ When(/^User "(.*)" has filled all mandatory fields except password$/, async func
 });
 
 When('I click on Account', async function () {
-  // await sleep(3000)
+  await sleep(3000)
   await pages.createAccount.populate('Account', 'click');
 });
-
-// This test case is deprecated
-// When('I verify Email- address is disabled', async function () {
-//     console.log('Verify that E-mail Address shown is disabled and it is same as user created account');
-//     await pages.createAccount.assert('Email_disabled', 'disabled');
-// });
 
 When(/^I verify that the account information for "(.*)" displayed is correct$/, async function (user) {
   const Login = await loadLogin(user);
@@ -685,7 +653,7 @@ When(/^I verify that the account information for "(.*)" displayed is correct$/, 
   if (sq3answer !== 'answer') {
     throw new Error('Not the correct security question 3 answer ', sq3answer, ' is displayed instead');
   }
-  if (institution !== 'Macmillan Education') {
+  if (institution !== Login.primarySchool) {
     throw new Error('Not the institution ', institution, ' is displayed instead');
   }
 });
@@ -702,13 +670,8 @@ When('I verify it redirects to E-mail', async function () {
   }
 });
 When('I click on checkbox in account', async function () {
-  try {
-    log.debug('Clickig on checkbox');
-    await pages.createAccount.populate('checkbox', 'click');
-    log.debug(`checkbox is clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
+  log.debug('Clickig on checkbox');
+  await pages.createAccount.populate('checkbox', 'click');
 });
 
 Then('I input too many characters into the Primary Institution field', async function () {
@@ -742,48 +705,26 @@ When('I verify home page is displayed', async function () {
 });
 
 When('I click on compose', async function () {
-  try {
-    await sleep(3000);
-    log.debug('Clickig on compose');
-    await pages.createAccount.populate('compose', 'click');
-    log.debug(`compose button was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    await sleep(3000);
-    log.debug('Clickig on To button');
-    await pages.createAccount.populate('To_email', 'OPT-OUT@macmillanlearning.com', 'click');
-    log.debug(`To button was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    await sleep(3000);
-    log.debug('Clickig on subject');
-    await pages.createAccount.populate('Subject_email', 'verification');
-    log.debug(`subject was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-  }
-  try {
-    await sleep(3000);
-    log.debug('Clickig on send button');
-    await pages.createAccount.populate('send_email', 'click');
-    log.debug(`send button was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-    await sleep(3000);
-  }
-  try {
-    await sleep(3000);
-    log.debug('Clickig on inbox');
-    await pages.createAccount.populate('Inbox_email', 'click');
-    log.debug(`Inbox was clicked, ${clickedButton}`);
-  } catch (err) {
-    log.error(err);
-    await sleep(3000);
-  }
+  await sleep(3000);
+  log.debug('Clicking on compose');
+  await pages.createAccount.populate('compose', 'click');
+  log.debug(`compose button was clicked`);
+  await sleep(3000);
+  log.debug('Clicking on To button');
+  await pages.createAccount.populate('To_email', 'OPT-OUT@macmillanlearning.com', 'click');
+  log.debug(`To button was clicked`);
+  await sleep(3000);
+  log.debug('Clicking on subject');
+  await pages.createAccount.populate('Subject_email', 'verification');
+  log.debug(`subject was clicked`);
+  await sleep(3000);
+  log.debug('Clicking on send button');
+  await pages.createAccount.populate('send_email', 'click');
+  log.debug(`send button was clicked`);
+  await sleep(3000);
+  log.debug('Clicking on inbox');
+  await pages.createAccount.populate('Inbox_email', 'click');
+  await sleep(3000);
 });
 When('I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanlearning.com" link no -emial updates should be recived regarding macmillan updates', async function () {
   await sleep(10000);

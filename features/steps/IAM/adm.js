@@ -1,25 +1,20 @@
-const path = require('path');
 
 const { When, Then } = require('cucumber');
-const { loadConfig, loadLogin } = require('../../../app/util');
-const expect = require('chai')
-const stepsPath = process.cwd() + '/features/pageDefs/';
+const { loadLogin } = require('../../../app/util');
 const { PageObject } = require('../../../app/pageObject');
-const chromePath = require('chromedriver').path;
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
-const { By } = require('selenium-webdriver'); 
-const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';
-
+const { connectClient } = require('../../../app/imap');
+const stepsPath = process.cwd().concat('/features/pageDefs/');
+const authAdmin = new PageObject('auth-admin-role.json', stepsPath);
+const createAccount = new PageObject('createAccount.json', stepsPath);
 // Scenario setup
-let pages = {
-  authAdmin: new PageObject('auth-admin-role.json', stepsPath),
-  createAccount: new PageObject('createAccount.json', stepsPath)
-}
+let pages = { authAdmin, createAccount };
+
 When('I click on user menu', async function () {
   log.debug('Clicking menu_system button');
   await pages.authAdmin.populate('menu_system', 'click');
-  await sleep(5000);
+  await sleep(7000);
 });
 When('I click on Admin Panel', async function () {
   log.debug('Clicking admin_panel button');
@@ -36,6 +31,7 @@ Then('I click on Close Icon', async function () {
 });
 Then('I enter Invalid E-mail Address not regitered in macmillan account', async function () {
   log.debug('Clicking password_reset_input button');
+  var emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';
   await pages.authAdmin.populate('password_reset_input', emailid);
 });
 Then(/^I enter "(.*)" account details which is registered in macmillan account$/, async function (passwordreset) {
@@ -67,14 +63,12 @@ When(/^I log in as "(.*)"$/, async function (Login) {
   await pages.authAdmin.populate('temp_password_next', 'click');
   await sleep(3000);
   await pages.authAdmin.populate('gmail', 'click');
+  await sleep(3000);
 });
-When('I check E-mail Notification', async function () {
-  log.debug('Clicking on mail');
-  await pages.authAdmin.populate('mail', 'click');
-  const hyperlink = await getDriver().findElement(By.xpath("//*[text()='Reset your password']")).getAttribute('href');
-  log.debug(hyperlink + 'hyperlink');
-  log.debug('Clicking on reset password');
-  await getDriver().get(hyperlink);
+When(/^I check E-mail Notification of "(.*)" for "(.*)"$/, async function (Login, regexChoice) {
+  const account = await loadLogin(Login);
+  var hrefLink = await connectClient(account.username, account.password, regexChoice);
+  await getDriver().get(hrefLink);
 });
 
 When(/^I enter Password and confirm password from "(.*)" account for fulfilling the validation criteria$/, async function (account) {
@@ -85,9 +79,10 @@ When(/^I enter Password and confirm password from "(.*)" account for fulfilling 
   await pages.createAccount.populate('confirmPassword', mail.newpassword);
 });
 When('I click on Reset password', async function () {
-  await sleep(10000);
+  await sleep(1000);
   console.log('Clicking on Reset password');
   await pages.authAdmin.populate('reset_password_email', 'click');
+  await sleep(2000);
 });
 Then('I click on login button to return to login page', async function () {
   await sleep(5000);

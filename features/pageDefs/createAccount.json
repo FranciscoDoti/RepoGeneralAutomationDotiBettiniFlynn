@@ -7,7 +7,6 @@
 			"frame": "default",
 			"specialInstr": "NA"
 		},
-				
 		{
 			"name": "firstName",
 			"byType": "id",
@@ -271,6 +270,13 @@
 			"name": "Privacy_notice",
 			"byType": "xpath",
 			"definition": "//*[@id='frm1']/div[13]/div/label/span/a[2]",
+			"frame": "default",
+			"specialInstr": "NA"	
+		},
+		{
+			"name": "Privacy_notice_account",
+			"byType": "xpath",
+			"definition": "//*[@id='app']/div/div/div/div/div/div[5]/div/label/span/a[2]",
 			"frame": "default",
 			"specialInstr": "NA"	
 		},
@@ -560,8 +566,6 @@
 			"definition": "update",
 			"frame": "default",
 			"specialInstr": "NA"
-
 		}
-
 	]
 }

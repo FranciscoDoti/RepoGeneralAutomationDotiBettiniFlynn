@@ -1,19 +1,15 @@
 const { When, Then, And } = require('cucumber');
 const path = require('path');
 
-const { loadConfig, loadLogin } = require('../../../app/util');
+const { loadLogin } = require('../../../app/util');
 const { assert } = require('chai');
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
 const { By } = require('selenium-webdriver');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
-// const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';
 const randomex = Math.random().toString(36).substr(2, 6)
 const emailid = randomex + '@gmail.com'
-var answer;
-var value;
-var account;
 let pages = {
   authAdmin: new PageObject('auth-admin-role.json', stepsPath),
   mainPage: new PageObject('mainPage.json', stepsPath),
@@ -74,7 +70,7 @@ Then('I Verify Error message should be displayed', async function () {
 });
 When(/^I enter existed created e-mail address of "(.*)" which is registered to Macmillan account$/, async function (email) {
   const existingAccount = await loadLogin(email);
-  await log.info(`Entering the existing email address: ${account}`);
+  await log.info(`Entering the existing email address: ${existingAccount.username}`);
   await pages.login.populate('email_address', existingAccount.username);
 });
 When(/^I enter security question from "(.*)" account$/, async function (security) {

@@ -22,7 +22,7 @@ const getConfigDirectory = function () {
 
 const loadJSONFile = function (fullFileName) {
   try {
-    log.debug(`Opening file ${fullFileName} from ${__filename} `);
+    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
     var contents = fs.readFileSync(fullFileName);
     var jsonContent = JSON.parse(contents);
     return jsonContent;
@@ -36,7 +36,8 @@ const loadConfig = function (configName) {
   try {
     const configDirectory = getConfigDirectory() || 'e2e';
     const configPath = `./config/${configDirectory}/${configName}.json`;
-    log.debug(`Opening config directory ${configDirectory} and file ${configPath}`);
+    // Adding noise to debug output
+    // log.debug(`Opening config directory ${configDirectory} and file ${configPath}`);
     var contents = fs.readFileSync(configPath);
     var jsonContent = JSON.parse(contents);
     return jsonContent;
@@ -50,7 +51,7 @@ const loadLogin = function (login) {
   try {
     const configDirectory = getConfigDirectory() || 'e2e';
     const loginPath = `./config/${configDirectory}/login/${login}.json`;
-    log.debug(`Opening config ${configDirectory} and config file ${loginPath}`);
+    // log.debug(`Opening config ${configDirectory} and config file ${loginPath}`);
     const contents = fs.readFileSync(loginPath);
     const jsonContent = JSON.parse(contents);
     return jsonContent;

@@ -366,13 +366,7 @@
             "frame":"default",
             "specialInstr":"NA" 
         },
-        {
-            "name":"AddSelectionsToResource",
-            "byType":"classname",
-            "definition":"_1tkc undefined",
-            "frame":"default",
-            "specialInstr":"NA"
-        },
+        
         {
             "name":"OpenActionMenuForChapter1",
             "byType":"xpath",
