@@ -18,8 +18,8 @@ const getReadingInfo = async function () {
 }
 
 const verifyEbook = async function (topic) {
-  let ebookPanel = await studentView.commonPage.checkWebElementExists('ebook_pane');
-  assert(ebookPanel, 'Ebook panel did not open.')
+  // let ebookPanel = await studentView.commonPage.checkWebElementExists('ebook_pane');
+  // assert(ebookPanel, 'Ebook panel did not open.')
   let ebookTitle = await studentView.commonPage.getElementValue('ebook_iframe', 'name');
   assert(topic.trim() === ebookTitle.trim(), 'The wrong ebook opened, actually: ' + ebookTitle + '\n expected: ' + topic);
 }
