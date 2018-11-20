@@ -36,7 +36,6 @@ const writeAccessibilitiesResults = async function (pageName, violations) {
     var result = '\n"' + pageName + '", "' + element.help + '", "' + element.impact + '", "' + element.nodes.length + '", "' + element.helpUrl + '", "' + element.id + '", "' + element.tags + '"' + html;
     fs.appendFile(accessibilityFile, result, (err) => {
       if (err) throw err;
-      console.log('Appended Results');
     });
   });
 }
