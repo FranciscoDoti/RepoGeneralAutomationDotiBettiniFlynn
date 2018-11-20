@@ -3,9 +3,13 @@ const axe = require('axe-webdriverjs');
 const { Then, BeforeAll } = require('cucumber');
 const { getDriver } = require('../../../app/driver');
 
+var accessibilityFile = '';
 BeforeAll({tags: '@Accessibility'}, function () {
-  var header = 'Page Name, Violation Description, Impact lvl, Instances, Help url, Rule Name, Tags, Html'
-  fs.writeFile('access_results.csv', header, (err) => {
+  let date = new Date();
+  let header = 'Page Name, Violation Description, Impact lvl, Instances, Help url, Rule Name, Tags, Html'
+  let dateStr = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear() + '_' + date.getTime();
+  accessibilityFile = 'accessibility_report-' + dateStr + '.csv';
+  fs.writeFile(accessibilityFile, header, (err) => {
     if (err) throw err;
     console.log('File Created');
   });
@@ -30,7 +34,7 @@ const writeAccessibilitiesResults = async function (pageName, violations) {
       html += ',' + node.html;
     })
     var result = '\n"' + pageName + '", "' + element.help + '", "' + element.impact + '", "' + element.nodes.length + '", "' + element.helpUrl + '", "' + element.id + '", "' + element.tags + '"' + html;
-    fs.appendFile('access_results.csv', result, (err) => {
+    fs.appendFile(accessibilityFile, result, (err) => {
       if (err) throw err;
       console.log('Appended Results');
     });
