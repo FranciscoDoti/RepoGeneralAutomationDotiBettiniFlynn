@@ -47,7 +47,7 @@ const connectClient = async function(user, password, regexChoice) {
             f.on('message', function(msg, seqno) {
                 msg.on('body', function(stream, info) {
                     simpleParser(stream).then((parsed) => {
-                        if(regex === 'IAM') {
+                        if(regex === "IAM") {
                             var iamRegex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
                             if(parsed.textAsHtml){
                                 Link = parsed.textAsHtml;
@@ -57,7 +57,7 @@ const connectClient = async function(user, password, regexChoice) {
                                 resolve(Link);
                             }
                         } else if (regex === "courseware"){
-                            var iamRegex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
+                            var iamRegex = /(?<=Go to  <strong><a style="color:#080808" href=")(.*?)(?=">)/
                             if(parsed.textAsHtml){
                                 Link = parsed.textAsHtml;
                                 Link = Link.match(iamRegex);
