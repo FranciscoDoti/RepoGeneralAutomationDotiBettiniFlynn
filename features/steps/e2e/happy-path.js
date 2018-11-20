@@ -296,21 +296,21 @@ Then('I click on the reading material and validate whether the content is availa
 });
 
 When('I click on Instructor button', async function () {
-  await sleep(3000);
   await pages.CourseTemplate.populate('instructor_tab', 'click');
 });
 
 When('I click on show library button', async function () {
   await pages.courseplanner.populate('Show_Library', 'click');
 });
-When('I click on Activity type button', async function () {
-  await pages.courseplanner.populate('Activity_Type', 'Read and Practice');
-  // await sleep(5000);
-  // await pages.courseplanner.populate('Add_assignment').then(function (elements) {
-  //   count = elements.length;
-  // });
-  // var i = 0
-  // for (i = 1; i <= count; i++) {
-  //   await pages.courseplanner.populate('Add_assignment' + i, 'click');
-  // }
+When('I click on Add button to add activities', async function () {
+  await getDriver().findElements(By.xpath("//*[@aria-label='Add assignment']")).then(function (elems) {
+    countlinks = elems.length;
+  });
+  var i;
+  for (i = 1; i <= countlinks;) {
+    await sleep(3000);
+    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).isDisplayed();
+
+    await getDriver().findElement(By.xpath("//*[@aria-label='Add assignment'][" + i + ']')).click();
+  }
 });

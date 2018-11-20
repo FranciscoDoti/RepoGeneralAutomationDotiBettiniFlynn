@@ -78,21 +78,21 @@ Background:
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
         And I click on Instructor button
-        And I click on course settings
-        And I elect to edit the course named "$course1.name"
-        When save the values to course  
-            |values             | course|
-            |Template_status    | Active On Date |
-            |Active_Date        | @Date('now')   |
-            |course_end_date    | @Date('+2m')   |
-        And I elect to edit the course with the following data
-        And I click on course settings
-        Then I capture the invite link and store to variable "inviteLink"
-        Then I populate the Invite Students "student" page 
+        # And I click on course settings
+        # And I elect to edit the course named "$course1.name"
+        # When save the values to course  
+        #     |values             | course|
+        #     |Template_status    | Active On Date |
+        #     |Active_Date        | @Date('now')   |
+        #     |course_end_date    | @Date('+2m')   |
+        # And I elect to edit the course with the following data
+        # And I click on course settings
+        # Then I capture the invite link and store to variable "inviteLink"
+        # Then I populate the Invite Students "student" page 
         And I click on course card "E2E101"
         And I click on courseplanner
         And I click on show library button 
-        And I click on Activity type button 
+        And I click on Add button to add activities 
         
        
 
