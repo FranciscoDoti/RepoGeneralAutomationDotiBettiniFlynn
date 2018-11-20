@@ -1,0 +1,27 @@
+{
+	"webElements": [
+        {
+            "name":"Show_Library",
+            "byType":"xpath",
+            "definition":"//*[text()='Show Library']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Activity_Type",
+            "byType":"xpath",
+            "definition":"//*[text()='Activity Type']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Add_assignment",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Add assignment']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        }
+    ]
+}

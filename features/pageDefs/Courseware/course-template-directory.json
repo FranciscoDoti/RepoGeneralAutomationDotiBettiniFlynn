@@ -341,7 +341,13 @@
             "definition":"//*[@id='container']/div/div[2]/div[2]/button",
             "frame":"default",
             "specialInstr":"NA"
-
+        },
+        {
+            "name":"instructor_tab",
+            "byType":"xpath",
+            "definition":"//*[text()='INSTRUCTOR']",
+            "frame":"default",
+            "specialInstr":"NA"
 
         }
 

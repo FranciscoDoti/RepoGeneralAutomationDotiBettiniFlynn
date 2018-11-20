@@ -22,9 +22,9 @@ let pages = {
   createAccount: new PageObject('createAccount.json', stepsPath),
   CourseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
-  resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath)
+  resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
+  courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath)
 }
-
 
 When('I click the create_course button to create course', async function () {
   log.debug('Clicking on create course button');
@@ -246,7 +246,6 @@ When(/^I open the invite link and login with "(.*)" account details$/, async fun
   await pages.login.populate('sign_in', 'click');
 });
 
-
 Then('I click on courseplanner', async function () {
   await sleep(5000);
   log.debug('Clicking on course planner button');
@@ -262,12 +261,10 @@ When('I validate enrolled course should be displayed in instructor', async funct
   await pages.CourseTemplate.checkWebElementExists('coustomer_support_validation')
 });
 
-
 // I am still working on this (learning curve)
 Then('I click on the reading material and validate whether the content is available', async function () {
   await getDriver().findElements(By.xpath("//*[@type='checkbox']")).then(function (elems) {
     countlinks = elems.length;
-    console.log('countlinks' + countlinks);
   });
   var i;
   for (i = 1; i <= countlinks; i++) {
@@ -297,26 +294,23 @@ Then('I click on the reading material and validate whether the content is availa
   // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + 1 + ']')).click();
   await getDriver().navigate().refresh();
 });
-Then('I start the quiz', async function () {
-  await sleep(5000);
-  console.log('Clicking on Quiz');
-  await pages.student.populate('Quiz', 'click');
-  getDriver().findElement(By.xpath("//*[@class='btn-cdl-main AssignmentReading__takeQuizButton__r_fnP']")).click();
-});
-Then('I answer the questions', async function () {
-  log.debug('Clicking on Multiple choice');
-  await pages.student.populate('Multiple_choice', 'click');
+
+When('I click on Instructor button', async function () {
+  await sleep(3000);
+  await pages.CourseTemplate.populate('instructor_tab', 'click');
 });
 
-Then('I click on submit button', async function () {
-  log.debug('Clicking on submit button');
-  await pages.student.populate('Submit_answer', 'click');
+When('I click on show library button', async function () {
+  await pages.courseplanner.populate('Show_Library', 'click');
 });
-
-Then('I validate the content', async function () {
-  if (await pages.authProducer.checkWebElementExists('modal_content')) {
-    console.log('passed');
-  } else {
-    console.log('failed');
-  }
+When('I click on Activity type button', async function () {
+  await pages.courseplanner.populate('Activity_Type', 'Read and Practice');
+  // await sleep(5000);
+  // await pages.courseplanner.populate('Add_assignment').then(function (elements) {
+  //   count = elements.length;
+  // });
+  // var i = 0
+  // for (i = 1; i <= count; i++) {
+  //   await pages.courseplanner.populate('Add_assignment' + i, 'click');
+  // }
 });
