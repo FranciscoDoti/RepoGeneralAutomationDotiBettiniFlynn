@@ -4,12 +4,12 @@ Media Producer creates a course
    
 Background:
         Given I have opened Achieve "loginURL"
-    
+    @admin
     Scenario: Verify that Media Producer is able to create Quant Template 
         When I have logged in as "media_producer_1"
         And I click on create course plus button
-        And save the value to variable
-            |variablename        | value    |
+        And I fill out the form to create a new course
+            |pageDef             | value    |
             |course_type         | Template |
             |product_model       | Quantitative |
             |course_name         | Quant Testcourse |
@@ -18,9 +18,9 @@ Background:
             |isbn_number         | 9781464199497 |
             |course_status       | Draft|
             |save_button         | click |
-        When I elect to create a course with the following data:
+        # When I elect to create a course with the following data:
         Then I validate that the course "$course.templatename" is listed in the courses page
-        And I sign out of Achieve
+        # And I sign out of Achieve
     
     Scenario: Verify that Media Producer is able to add activities in Qunat Template
         When I have logged in as "media_producer_1"

@@ -4,16 +4,16 @@ const { Then, BeforeAll } = require('cucumber');
 const { getDriver } = require('../../../app/driver');
 
 var accessibilityFile = '';
-BeforeAll({tags: '@Accessibility'}, function () {
-  let date = new Date();
-  let header = 'Page Name, Violation Description, Impact lvl, Instances, Help url, Rule Name, Tags, Html'
-  let dateStr = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear() + '_' + date.getTime();
-  accessibilityFile = 'accessibility_report-' + dateStr + '.csv';
-  fs.writeFile(accessibilityFile, header, (err) => {
-    if (err) throw err;
-    console.log('File Created');
-  });
-});
+// BeforeAll({tags: '@Accessibility'}, function () {
+//   let date = new Date();
+//   let header = 'Page Name, Violation Description, Impact lvl, Instances, Help url, Rule Name, Tags, Html'
+//   let dateStr = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear() + '_' + date.getTime();
+//   accessibilityFile = 'accessibility_report-' + dateStr + '.csv';
+//   fs.writeFile(accessibilityFile, header, (err) => {
+//     if (err) throw err;
+//     console.log('File Created');
+//   });
+// });
 
 Then(/I check accessibility on "(.+)" page/, async function (pageName) {
   await analyzeAccessibility().then(results => {

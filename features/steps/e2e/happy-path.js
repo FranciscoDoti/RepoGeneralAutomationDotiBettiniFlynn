@@ -34,6 +34,11 @@ When('save the value to variable', async function (dataTable) {
   fieldValue = dataTable;
 });
 
+When('I fill out the form to create a new course', async function (dataTable) {
+  await pages.CourseTemplate.populateDatatable(dataTable);
+});
+
+
 When('I elect to create a course with the following data:', async function () {
   log.debug(`I populated table`);
   try {
