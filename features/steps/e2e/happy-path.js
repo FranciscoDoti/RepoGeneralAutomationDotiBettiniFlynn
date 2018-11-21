@@ -310,12 +310,24 @@ When('I click on show library button', async function () {
 When('I click on Add button to add activities', async function () {
   await getDriver().findElements(By.xpath("//*[@aria-label='Add assignment']")).then(function (elems) {
     countlinks = elems.length;
+    console.log(countlinks+ 'countlinks');
   });
-  var i;
-  for (i = 1; i <= countlinks;) {
+  var i = countlinks-1;
+  while (i >= 0) {
     await sleep(3000);
-    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).isDisplayed();
-
-    await getDriver().findElement(By.xpath("//*[@aria-label='Add assignment'][" + i + ']')).click();
+    await pages.courseplanner.populate('Add_assignment', 'click');
+  }
+});
+When('I change the course from unassigned to assign', async function () {
+  await getDriver().findElements(By.xpath("//*[@aria-label='Assign Item']")).then(function (elems) {
+    countlinks = elems.length;
+  });
+  var x = 0;
+  while (x < countlinks) {
+    await pages.courseplanner.populate('Assign_Item', 'click');
+    await pages.courseplanner.populate('Possible_points', '5');
+    await pages.courseplanner.populate('Active_date_Assign', 'click');
+    await pages.courseplanner.populate('select_date_complete_assignment', 'click');
+    await pages.courseplanner.populate('Assign_Button', 'click');
   }
 });

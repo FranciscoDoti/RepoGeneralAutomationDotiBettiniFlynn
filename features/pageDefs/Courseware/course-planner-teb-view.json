@@ -22,6 +22,45 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"Assign_Item",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Assign Item']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        }, 
+        {
+            "name":"Possible_points",
+            "byType":"xpath",
+            "definition":"//*[@name='pointsPossible']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Active_date_Assign",
+            "byType":"xpath",
+            "definition":"//*[@class='EVUx ']",
+            "frame":"default",
+            "specialInstr":"NA"
+        }, 
+        {
+            "name":"select_date_complete_assignment",
+            "byType":"classname",
+            "definition":"_2XMC _1PUF",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Assign_Button",
+            "byType":"xpath",
+            "definition":"//*[@class='_1tkc undefined']",
+            "frame":"default",
+            "specialInstr":"NA"
+
         }
+
+        
     ]
 }
