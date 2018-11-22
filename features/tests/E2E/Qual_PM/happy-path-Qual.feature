@@ -4,7 +4,7 @@ Media Producer creates a course
    
 Background:
         Given I have opened Achieve "loginURL"
-    @admin
+    # @admin
     # Scenario: Verify that Media Producer is able to create Quant Template 
     #     When I have logged in as "media_producer_2"
     #     And I click on create course plus button
@@ -18,7 +18,7 @@ Background:
     #         |isbn_number         | 9781464199498 |
     #         |course_status       | Draft |
     #         |save_button         | click |
-    #     # When I elect to create a course with the following data:
+    #     When I elect to create a course with the following data:
     #     And I validate that the course "$course.templatename" is listed in the courses page
     #     # And I sign out of Achieve
     
@@ -50,22 +50,22 @@ Background:
     #     And I click on add content   
     #     And I sign out of Achieve    
     
-    # Scenario: Verify that Media Producer is able to add copy the course from Qualitative template
-    #     When I have logged in as "media_producer_2" 
-    #     When I search for "Qual Testcourse"
-    #     And  I click on course settings
-    #     Then I copy the course named "Testcourse" to the name "E301"
-    #     And I sign out of Achieve
+    Scenario: Verify that Media Producer is able to add copy the course from Qualitative template
+        When I have logged in as "media_producer_2" 
+        When I search for "Qual Testcourse"
+        And  I click on course settings
+        Then I copy the course named "Testcourse" to the name "E301"
+        And I sign out of Achieve
     
-    # Scenario: Verify that customer support is able to add instructor to the course copied from Qualitative Template
-    #     When I have logged in as "customer_support_2"
-    #     When I search for "E301"
-    #     And I click on course settings
-    #     Then I open the Manage Instructors page on the course named "$course1.name"
-    #     And I manage the instructors on the course and add the "instructor_1" loginUser
-    #     And I validate that the Course Specific Link opens the course named "$course1.name"
-    #     And I close the Manage Instructors page
-    #     And I sign out of Achieve
+    Scenario: Verify that customer support is able to add instructor to the course copied from Qualitative Template
+        When I have logged in as "customer_support_2"
+        When I search for "E301"
+        And I click on course settings
+        Then I open the Manage Instructors page on the course named "$course1.name"
+        And I manage the instructors on the course and add the "instructor_1" loginUser
+        And I validate that the Course Specific Link opens the course named "$course1.name"
+        And I close the Manage Instructors page
+        And I sign out of Achieve
 
 
     Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Qualitative Template  
@@ -87,7 +87,7 @@ Background:
         And I click on show library button 
         And I click on Custom content button
         And I click on create custom activity button 
-        And I click on Select asctivity Assesment Button
+        And I click on Select activity Assesment Button
         Then create a custom task by passing the values for Assesement 1
         And I validate Custom Assesement is created
         And I click on Add button to add activities

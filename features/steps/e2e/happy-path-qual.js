@@ -56,8 +56,6 @@ When('I validate the activities are added', async function () {
 When('I click on course card "Qual Testcourse" template present in instructor', async function () {
   await pages.CourseTemplate.populate('course_card_instructor', 'click');
 });
-
-});
 Then('create a custom task by passing the values for Assesement 1', async function () {
   // where you switch frame
   await getDriver().switchTo().frame(0);
@@ -85,12 +83,13 @@ Then('I validate Custom Assesement is created', async function () {
 // });
 
 When('I click on Custom content button', async function () {
+  await sleep(3000);
   await pages.courseplanner.populate('Custom_content_button', 'click');
 });
 When('I click on create custom activity button', async function () {
   await pages.courseplanner.scrollIntoView('Create_custom_button');
   await pages.courseplanner.populate('Create_custom_button', 'click');
 });
-When('I click on Select asctivity Assesment Button', async function () {
+When('I click on Select activity Assesment Button', async function () {
   await pages.courseplanner.populate('Select_activity_type_button', 'click');
 });
