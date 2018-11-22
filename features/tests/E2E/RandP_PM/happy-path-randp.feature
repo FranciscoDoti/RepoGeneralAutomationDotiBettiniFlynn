@@ -77,7 +77,7 @@ Background:
     
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
-        And I click on Instructor button
+        # And I click on Instructor button
         And I click on course settings
         And I elect to edit the course named "$course1.name"
         When save the values to course  
@@ -95,6 +95,26 @@ Background:
         And I click on Add button to add activities
         And I change the course from unassigned to assign
         And I sign out of Achieve
+
+    Scenario: Enroll into course with link and access code
+        Given I have opened Achieve "ThirdpartyURL"
+        When I check E-mail Notification of "student" for "IAM"
+        And I open the invite link and login with "student" account details
+        And I click on Grace period
+        And I click on Finish Enrollenment 
+        Then I validate that the following information is correct on the Course Access Code page
+           |courseName     | courseCode    | Instructor         | accessType      |
+           | $course1.name | $course1.code | $instructor1.email | [$course.pm]    |
+        And I click on course card "E2E101"
+        And I click on Resuource tab
+        And I click on Open Folder
+        Then I click on Read and Practice 
+        And I click on the reading material and validate whether the content is available 
+        And I start the quiz 
+        And I answer the questions
+        And I click on submit button
+        And I click on alert message
+
 
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_1"

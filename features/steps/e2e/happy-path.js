@@ -38,7 +38,6 @@ When('I fill out the form to create a new course', async function (dataTable) {
   await pages.CourseTemplate.populateDatatable(dataTable);
 });
 
-
 When('I elect to create a course with the following data:', async function () {
   log.debug(`I populated table`);
   try {
@@ -310,20 +309,21 @@ When('I click on show library button', async function () {
 When('I click on Add button to add activities', async function () {
   await getDriver().findElements(By.xpath("//*[@aria-label='Add assignment']")).then(function (elems) {
     countlinks = elems.length;
-    console.log(countlinks+ 'countlinks');
   });
-  var i = countlinks-1;
+  var i = countlinks - 1;
   while (i >= 0) {
-    await sleep(3000);
+    i--;
     await pages.courseplanner.populate('Add_assignment', 'click');
   }
+  await sleep(5000);
 });
 When('I change the course from unassigned to assign', async function () {
   await getDriver().findElements(By.xpath("//*[@aria-label='Assign Item']")).then(function (elems) {
     countlinks = elems.length;
   });
-  var x = 0;
-  while (x < countlinks) {
+  var x = countlinks - 1;
+  while (x >=0) {
+    x--;
     await pages.courseplanner.populate('Assign_Item', 'click');
     await pages.courseplanner.populate('Possible_points', '5');
     await pages.courseplanner.populate('Active_date_Assign', 'click');

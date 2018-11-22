@@ -59,7 +59,32 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"Custom_content_button",
+            "byType":"id",
+            "definition":"react-tabs-32",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Create_custom_button",
+            "byType":"xpath",
+            "definition":"//*[text()='Create Custom Content']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Select_activity_type_button",
+            "byType":"xpath",
+            "definition":"//*[@type='assessment_assignment']",
+            "frame":"default",
+            "specialInstr":"NA"
+
         }
+
 
         
     ]

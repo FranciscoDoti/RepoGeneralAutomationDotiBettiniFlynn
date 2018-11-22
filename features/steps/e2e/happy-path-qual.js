@@ -19,7 +19,8 @@ let pages = {
   navigation: new PageObject('navigation.json', stepsPath),
   CourseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
-  resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath)
+  resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
+  courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath)
 }
 
 After('@Qual', async function () {
@@ -55,31 +56,21 @@ When('I validate the activities are added', async function () {
 When('I click on course card "Qual Testcourse" template present in instructor', async function () {
   await pages.CourseTemplate.populate('course_card_instructor', 'click');
 });
-Then('I click on create custom button', async function () {
-  // Executer is required for scroll into view
-  await pages.resourceView.scrollIntoView('create_custom_task');
-  // Is this really needed?
-  // yes this needed without scrolling the element is not visible
-  await sleep(5000);
-  await pages.resourceView.populate('create_custom_task', 'click');
-});
-Then('I select activity button as assesment', async function () {
-  await pages.resourceView.populate('Select_activity_button', 'click');
-  await sleep(10000);
+
 });
 Then('create a custom task by passing the values for Assesement 1', async function () {
   // where you switch frame
   await getDriver().switchTo().frame(0);
-  await pages.resourceView.populate('Assignment_Title', 'Practice test');
-  await pages.resourceView.populate('Assignment_Type', 'Test', 'click');
-  await pages.resourceView.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
-  await pages.resourceView.populate('Save_Assesement_button', 'click');
+  await pages.courseplanner.populate('Assignment_Title', 'Practice test');
+  await pages.courseplanner.populate('Assignment_Type', 'Test', 'click');
+  await pages.courseplanner.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
+  await pages.courseplanner.populate('Save_Assesement_button', 'click');
   await sleep(5000);
   // await getDriver().switchTo().defaultContent();
 });
 
 Then('I validate Custom Assesement is created', async function () {
-  if (await pages.authProducer.checkWebElementExists('Assignment_Assesmnet_Validation')) {
+  if (await pages.courseplanner.checkWebElementExists('Assignment_Assesmnet_Validation')) {
     console.log('custom Assesement is created');
   } else {
     console.log('custom Assesement is not created');
@@ -92,20 +83,14 @@ Then('I validate Custom Assesement is created', async function () {
 //   await pages.authInstructor.populate('close_assesment_frame', 'click');
 //   await sleep(3000);
 // });
-Then('I add the coustom task', async function () {
-  await pages.authInstructor.populate('Add_custom_task', 'click');
-});
 
-// use this when you want to create custom task 2
-Then('create a custom task by passing the values for Assesement 2', async function () {
-  await getDriver().switchTo().frame(0);
-  await pages.authProducer.populate('Assignment_Title', 'PracticeTest2');
-  await pages.authProducer.populate('Assignment_Type', 'Test', 'click');
-  await pages.authProducer.populate('Save_Assesement_button', 'click');
-  await sleep(5000);
+When('I click on Custom content button', async function () {
+  await pages.courseplanner.populate('Custom_content_button', 'click');
 });
-When('I click on Assesment open menu action button to assign the course', async function () {
-  await pages.authInstructor.populate('open_folder_activity ', 'click');
-  await sleep(2000);
-  await pages.authInstructor.populate('open_folder_Assesment', 'click');
+When('I click on create custom activity button', async function () {
+  await pages.courseplanner.scrollIntoView('Create_custom_button');
+  await pages.courseplanner.populate('Create_custom_button', 'click');
+});
+When('I click on Select asctivity Assesment Button', async function () {
+  await pages.courseplanner.populate('Select_activity_type_button', 'click');
 });
