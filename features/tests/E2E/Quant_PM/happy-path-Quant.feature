@@ -18,7 +18,7 @@ Background:
             |isbn_number         | 9781464199497 |
             |course_status       | Draft|
             |save_button         | click |
-        # When I elect to create a course with the following data:
+        And I populate from the dataTable
         Then I validate that the course "$course.templatename" is listed in the courses page
         # And I sign out of Achieve
     
@@ -84,7 +84,21 @@ Background:
         And I populate the Invite Students "student" page 
         And I click on course card of Quant Template as instructor 
         And I click on courseplanner
-        
+         And I click on show library button 
+        And I click on Custom content button
+        And I click on create custom activity button 
+        And I click on Select activity Assesment Button
+        And I fill out the form to create a new course
+            |pagedef                | value         |
+            |Assignment_Title       | Practice Test |
+            |Assignment_Type        | Test          |
+            |Home_taxonomy          | Interactive General Chemistry V1 |
+            |Save_Assesement_button | click |
+        And I populate from the dataTable
+        And I validate Custom Assesement is created
+        And I click on Add button to add activities
+        And I sign out of Achieve
+    
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_1"
         And I search for "Quant Testcourse"

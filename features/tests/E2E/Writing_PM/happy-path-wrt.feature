@@ -16,7 +16,7 @@ Background:
             |isbn_number         | 9781464199499 |
             |course_status       | Draft |
             |save_button         | click |
-        When I elect to create a course with the following data:
+        And I populate from the dataTable
         Then I validate that the course "$course.templatename" is listed in the courses page
         And I sign out of Achieve
        
