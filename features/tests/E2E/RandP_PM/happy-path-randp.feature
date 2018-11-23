@@ -8,8 +8,8 @@ Background:
     Scenario: Verify that Media Producer is able to create Read&Practice Template 
         When I have logged in as "media_producer_1"
         And I click on create course plus button
-        And save the value to variable
-            |variablename        | value    |
+        And I fill out the form to create a new course
+            |pagedef             | value    |
             |course_type         | Template |
             |product_model       | Read & Practice |
             |course_name         | R&P TestCourse |

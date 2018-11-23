@@ -34,3 +34,6 @@ When('I click on create course plus button', async function () {
     await pages.CourseTemplate.populate('create_course', 'click');
   }
 });
+Then("I click on course card 'TestingCourse Writer's Help 3.0' template", async function () {
+  await pages.CourseTemplate.populate('course_card_writing', 'click');
+});

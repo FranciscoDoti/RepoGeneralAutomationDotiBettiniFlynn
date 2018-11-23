@@ -44,9 +44,9 @@ When('I elect to create a course with the following data:', async function () {
     log.info(fieldValue.rows().length);
     var e;
     for (e = 0; e < fieldValue.rows().length; e++) {
-      log.info(fieldValue.hashes()[e].variablename);
+      log.info(fieldValue.hashes()[e].pagedef);
       log.info(fieldValue.hashes()[e].value);
-      await pages.CourseTemplate.populate(fieldValue.hashes()[e].variablename, fieldValue.hashes()[e].value);
+      await pages.CourseTemplate.populate(fieldValue.hashes()[e].pagedef, fieldValue.hashes()[e].value);
     }
   } catch (err) {
     log.error(err.stack);

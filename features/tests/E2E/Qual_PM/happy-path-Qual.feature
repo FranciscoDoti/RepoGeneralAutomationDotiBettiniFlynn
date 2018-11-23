@@ -4,51 +4,51 @@ Media Producer creates a course
    
 Background:
         Given I have opened Achieve "loginURL"
-    # @admin
-    # Scenario: Verify that Media Producer is able to create Quant Template 
-    #     When I have logged in as "media_producer_2"
-    #     And I click on create course plus button
-    #     And I fill out the form to create a new course
-    #         |pageDef             | value    |
-    #         |course_type         | Template |
-    #         |product_model       | Qualitative |
-    #         |course_name         | Qual Testcourse |
-    #         |learning_Objective  | Principles of Economics |
-    #         |course_code         | E2E 301 |
-    #         |isbn_number         | 9781464199498 |
-    #         |course_status       | Draft |
-    #         |save_button         | click |
-    #     When I elect to create a course with the following data:
-    #     And I validate that the course "$course.templatename" is listed in the courses page
-    #     # And I sign out of Achieve
+    @admin
+    Scenario: Verify that Media Producer is able to create Quant Template 
+        When I have logged in as "media_producer_2"
+        And I click on create course plus button
+        And I fill out the form to create a new course
+            |pageDef             | value    |
+            |course_type         | Template |
+            |product_model       | Qualitative |
+            |course_name         | Qual Testcourse |
+            |learning_Objective  | Principles of Economics |
+            |course_code         | E2E 301 |
+            |isbn_number         | 9781464199498 |
+            |course_status       | Draft |
+            |save_button         | click |
+        When I elect to create a course with the following data:
+        And I validate that the course "$course.templatename" is listed in the courses page
+        # And I sign out of Achieve
     
-    # Scenario: Verify that Media Producer is able to add activities in Qunat Template
-    #     When I have logged in as "media_producer_2"
-    #     And I search for "Qual Testcourse"
-    #     And I click on course settings
-    #     When I elect to edit the course named "course1.templatename"
-    #     When save the value to variables 
-    #         |variablesname     | value |
-    #         |Template_status   | Active On Date |
-    #         |Active_Date       | @Date('now')   |
-    #     When I elect to edit the course with the following data:
-    #     Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
-    #     And I click on course card "Qual Testcourse" template
-    #     And I click on Resource tab     
-    #     And add content into chapter by clicking "+" button
-    #     And I click on Activity search button and enter "Homework"
-    #     And I click on add content 
-    #     And I click on Activity search button and enter "Animation"
-    #     And I click on add content 
-    #     And I click on Activity search button and enter "Analyzing Drama"
-    #     And I click on add content
-    #     And I click on Activity search button and pass the value "Dedication"
-    #     And I click on add content
-    #     And I click on Activity search button and pass the value "new test epub"
-    #     And I click on add content
-    #     And I click on Activity search button and pass the value "AT1nov"
-    #     And I click on add content   
-    #     And I sign out of Achieve    
+    Scenario: Verify that Media Producer is able to add activities in Qunat Template
+        When I have logged in as "media_producer_2"
+        And I search for "Qual Testcourse"
+        And I click on course settings
+        When I elect to edit the course named "course1.templatename"
+        When save the value to variables 
+            |variablesname     | value |
+            |Template_status   | Active On Date |
+            |Active_Date       | @Date('now')   |
+        When I elect to edit the course with the following data:
+        Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
+        And I click on course card "Qual Testcourse" template
+        And I click on Resource tab     
+        And add content into chapter by clicking "+" button
+        And I click on Activity search button and enter "Homework"
+        And I click on add content 
+        And I click on Activity search button and enter "Animation"
+        And I click on add content 
+        And I click on Activity search button and enter "Analyzing Drama"
+        And I click on add content
+        And I click on Activity search button and pass the value "Dedication"
+        And I click on add content
+        And I click on Activity search button and pass the value "new test epub"
+        And I click on add content
+        And I click on Activity search button and pass the value "AT1nov"
+        And I click on add content   
+        And I sign out of Achieve    
     
     Scenario: Verify that Media Producer is able to add copy the course from Qualitative template
         When I have logged in as "media_producer_2" 
@@ -70,7 +70,6 @@ Background:
 
     Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Qualitative Template  
         When I have logged in as "instructor_1"
-        And I search for "E301"
         And I click on course settings
         And I elect to edit the course named "$course1.name"
         When save the values to course  

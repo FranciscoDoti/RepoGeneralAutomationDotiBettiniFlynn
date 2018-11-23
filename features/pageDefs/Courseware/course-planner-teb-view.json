@@ -62,8 +62,8 @@
         },
         {
             "name":"Custom_content_button",
-            "byType":"xpath",
-            "definition":"//*[@id='react-tabs-32']",
+            "byType":"classname",
+            "definition":"_11lb bJTD",
             "frame":"default",
             "specialInstr":"NA"
 
