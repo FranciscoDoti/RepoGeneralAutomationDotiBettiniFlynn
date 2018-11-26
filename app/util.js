@@ -21,17 +21,17 @@ const getConfigDirectory = function () {
   return 'e2e';
 };
 
-// const loadJSONFile = function (fullFileName) {
-//   try {
-//     // log.debug(`Opening file ${fullFileName} from ${__filename} `);
-//     var contents = fs.readFileSync(fullFileName);
-//     var jsonContent = JSON.parse(contents);
-//     return jsonContent;
-//   } catch (err) {
-//     log.error(err);
-//     throw err;
-//   }
-// };
+const loadJSONFile = function (fullFileName) {
+  try {
+    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
+    var contents = fs.readFileSync(fullFileName);
+    var jsonContent = JSON.parse(contents);
+    return jsonContent;
+  } catch (err) {
+    log.error(err);
+    throw err;
+  }
+};
 
 const loadConfig = function (configName) {
   try {
@@ -48,16 +48,16 @@ const loadConfig = function (configName) {
   }
 };
 
-const loadTextFile = function (TxtFile) {
-  try {
-    const contents = parser.readFileSync(TxtFile);
-    //const parserContent = JSON.parse(contents);
-    return contents;
-  } catch (err) {
-    log.error(err);
-    throw err;
-  }
-}
+// const loadTextFile = function (TxtFile) {
+//   try {
+//     const contents = parser.readFileSync(TxtFile);
+//     //const parserContent = JSON.parse(contents);
+//     return contents;
+//   } catch (err) {
+//     log.error(err);
+//     throw err;
+//   }
+// }
 
 const loadLogin = function (login) {
   try {
