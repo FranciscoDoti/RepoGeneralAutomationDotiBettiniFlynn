@@ -1,6 +1,6 @@
 const fs = require('fs');
 const world = require('./worldData');
-const parser = require('../lc-parser')
+//const parser = require('../lc-parser')
 const { log } = require('./logger');
 
 process.argv.forEach(function (value, index, array) {
@@ -21,17 +21,17 @@ const getConfigDirectory = function () {
   return 'e2e';
 };
 
-const loadJSONFile = function (fullFileName) {
-  try {
-    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
-    var contents = fs.readFileSync(fullFileName);
-    var jsonContent = JSON.parse(contents);
-    return jsonContent;
-  } catch (err) {
-    log.error(err);
-    throw err;
-  }
-};
+// const loadJSONFile = function (fullFileName) {
+//   try {
+//     // log.debug(`Opening file ${fullFileName} from ${__filename} `);
+//     var contents = fs.readFileSync(fullFileName);
+//     var jsonContent = JSON.parse(contents);
+//     return jsonContent;
+//   } catch (err) {
+//     log.error(err);
+//     throw err;
+//   }
+// };
 
 const loadConfig = function (configName) {
   try {

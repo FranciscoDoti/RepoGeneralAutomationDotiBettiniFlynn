@@ -46,16 +46,16 @@ When('I click on course card "Qual Testcourse" template present in instructor', 
   await pages.coursetemplate.populate('course_card_instructor', 'click');
 });
 
-// Then('create a custom task by passing the values for Assesement 1', async function () {
-//   // where you switch frame
-//   await getDriver().switchTo().frame(0);
-//   await pages.courseplanner.populate('Assignment_Title', 'Practice test');
-//   await pages.courseplanner.populate('Assignment_Type', 'Test', 'click');
-//   await pages.courseplanner.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
-//   await pages.courseplanner.populate('Save_Assesement_button', 'click');
-//   await sleep(5000);
-//   // await getDriver().switchTo().defaultContent();
-// });
+Then('create a custom task by passing the values for Assesement 1', async function () {
+  // where you switch frame
+  await getDriver().switchTo().frame(0);
+  await pages.courseplanner.populate('Assignment_Title', 'Practice test');
+  await pages.courseplanner.populate('Assignment_Type', 'Test', 'click');
+  await pages.courseplanner.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
+  await pages.courseplanner.populate('Save_Assesement_button', 'click');
+  await sleep(5000);
+  // await getDriver().switchTo().defaultContent();
+});
 
 Then('I validate Custom Assesement is created', async function () {
   if (await pages.courseplanner.checkWebElementExists('Assignment_Assesmnet_Validation')) {

@@ -5,6 +5,7 @@ const {log} = require('../../../app/logger');
 const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
 const {getDriver, sleep} = require('../../../app/driver');
 const { By } = require('selenium-webdriver');
+const assert = require('assert');
 var fieldValue;
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
 let pages = {
@@ -17,9 +18,6 @@ let pages = {
 When('I click the create_course button to create course', async function () {
   log.debug('Clicking on create course button');
   await pages.coursetemplate.populate('create_course', 'click');
-});
-When('save the value to variable', async function (dataTable) {
-  fieldValue = dataTable;
 });
 
 When('I fill out the form to create a new course', async function (dataTable) {
@@ -43,11 +41,7 @@ When('I populate from the dataTable', async function () {
 
 When(/^I validate the message "(.*)"$/, async function (message) {
   const coursemessage = await pages.coursetemplate.getElementValue('course_message_validation');
-  if (coursemessage == message) {
-    console.log('passed')
-  } else {
-    throw new Error('failed')
-  }
+  assert(coursemessage !== message, 'The course is not created');
 });
 Then('I validate that the course "$course.templatename" is listed in the courses page', async function () {
   if (await pages.coursetemplate.checkWebElementExists('course_validation')) {
@@ -152,11 +146,6 @@ When('I elect to edit the course named "$course1.name"', async function () {
   log.debug('Clicking on edit_button ');
   await pages.coursetemplate.populate('edit_button', 'click');
 });
-When('save the values to course', async function (dataTable) {
-  CourseValue = dataTable;
-  log.debug('course value');
-});
-
 Then('I capture the invite link and store to variable "inviteLink"', async function () {
   log.debug('Clicking on Invite_Students button');
   await pages.coursetemplate.populate('Invite_Students', 'click');

@@ -91,17 +91,11 @@ Background:
         And I populate the Invite Students "student" page 
         And I click on course card of Quant Template as instructor 
         And I click on courseplanner
-         And I click on show library button 
+        And I click on show library button 
         And I click on Custom content button
         And I click on create custom activity button 
         And I click on Select activity Assesment Button
-        And I fill out the form to create a new course
-            |pagedef                | value         |
-            |Assignment_Title       | Practice Test |
-            |Assignment_Type        | Test          |
-            |Home_taxonomy          | Interactive General Chemistry V1 |
-            |Save_Assesement_button | click |
-        And I populate from the dataTable
+        And create a custom task by passing the values for Assesement 1
         And I validate Custom Assesement is created
         And I click on Add button to add activities
      
