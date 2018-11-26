@@ -45,7 +45,7 @@ Given('I open the standalone link to a video', async function () {
 
 Then('I can play a video', async function () {
   await sleep(8000);
-
+  // the step below still not working...
   await saviAssignment.populate('big_play_button', 'click');
   await sleep(2000);
 

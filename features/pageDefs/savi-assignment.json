@@ -2,7 +2,7 @@
   "webElements": [{
       "name": "big_play_button",
       "byType": "xpath",
-      "definition": "//*[@class='vjs-big-play-button']",
+      "definition": ".//*[@class='vjs-play-control']",
       "frame": "default",
       "specialInstr": "NA"
     },{
