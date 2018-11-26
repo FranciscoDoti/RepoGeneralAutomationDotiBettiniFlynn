@@ -4,7 +4,8 @@ Media Producer creates a course
    
 Background:
         Given I have opened Achieve "loginURL"
-    
+
+    @admin
     Scenario: Verify that Media Producer is able to create Read&Practice Template 
         When I have logged in as "media_producer_1"
         And I click on create course plus button
@@ -17,22 +18,37 @@ Background:
             |isbn_number         | 9781464199495 |
             |course_status       | Draft |
             |save_button         | click |
-        And I elect to create a course with the following data:
+        And I populate from the dataTable
         And I validate the message "R&P TestCourse Created."
         Then I validate that the course "$course.templatename" is listed in the courses page
-        And I sign out of Achieve
-    
 
+    
+    @admin
     Scenario: Verify that Media Producer is able to add activities in Read&Practice Template 
         When I have logged in as "media_producer_1"
         And I search for "R&P Testcourse"
         And I click on course settings
         And I elect to edit the course named "course1.templatename"
-        And save the value to variables 
-            |variablesname     | value |
-            |Template_status   | Active On Date |
-            |Active_Date       | @Date('now')   |
-        And I elect to edit the course with the following data:
+        And I fill out the form to create a new course
+            |pagedef         | value    |
+            |Template_status | Active On Date|
+            |Active_Date     | @Date('now') |
+        And I populate from the dataTable
+        And I click on course card "Qual Testcourse" template
+        And I click on Resource tab     
+        And add content into chapter by clicking "+" button
+        And I click on Activity search button and enter "Homework"
+        And I click on add content 
+        And I click on Activity search button and enter "Animation"
+        And I click on add content 
+        And I click on Activity search button and enter "Analyzing Drama"
+        And I click on add content        And I click on Activity search button and pass the value "Dedication"
+        And I click on add content
+        And I click on Activity search button and pass the value "new test epub"
+        And I click on add content
+        And I click on Activity search button and pass the value "AT1nov"
+        And I click on add content    
+        And I populate from the dataTable
         And I validate the message "R&P TestCourse Updated."
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card "Testcourse" template
@@ -54,17 +70,16 @@ Background:
         And I click on add content
         And I click on Activity search button and pass the value "9897989798183_FC.jpg"
         And I click on add content 
-        And I validate the activities are added 
-        And I sign out of Achieve
 
+    @admin
     Scenario: Verify that Media Producer is able to copy the course from Read&Practice Template 
         When I have logged in as "media_producer_1" 
         And  I search for "R&P Testcourse"
         And  I click on course settings
         Then I copy the course named "Testcourse" to the name "E2E101"
         And I validate the message "Course Copied."
-        And I sign out of Achieve
-
+        
+    @admin
     Scenario: Verify that customer support is able to add instructor to the read& practice course  
         When I have logged in as "customer_support_1"
         When I search for "E2E101"
@@ -72,20 +87,25 @@ Background:
         Then I open the Manage Instructors page on the course named "$course1.name"
         Then I manage the instructors on the course and add the "instructor_1" loginUser
         And I close the Manage Instructors page
-        And I sign out of Achieve
+       
 
-    
+    @admin
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
-        # And I click on Instructor button
+        And I fill out the form to create a new course
+            |pagedef             | value    |
+            |Template_status     | Active On Date  |
+            |Active_Date1        | click |
+            |Active_Date@now     | click |
+            |course_end_date1    | click |
+            |Next_Month          | click |
+            |Next_Month          | click |
+            |Select_Date         | click |
+            |save_button         | click |
+        And I populate from the dataTable
         And I click on course settings
         And I elect to edit the course named "$course1.name"
-        When save the values to course  
-            |values             | course|
-            |Template_status    | Active On Date |
-            |Active_Date        | @Date('now')   |
-            |course_end_date    | @Date('+2m')   |
-        And I elect to edit the course with the following data
+        And I Activate the course 
         And I click on course settings
         Then I capture the invite link and store to variable "inviteLink"
         Then I populate the Invite Students "student" page 
@@ -94,8 +114,8 @@ Background:
         And I click on show library button 
         And I click on Add button to add activities
         And I change the course from unassigned to assign
-        And I sign out of Achieve
-
+        
+    @admin
     Scenario: Enroll into course with link and access code
         Given I have opened Achieve "ThirdpartyURL"
         When I check E-mail Notification of "student" for "IAM"
@@ -103,8 +123,6 @@ Background:
         And I click on Grace period
         And I click on Finish Enrollenment 
         Then I validate that the following information is correct on the Course Access Code page
-           |courseName     | courseCode    | Instructor         | accessType      |
-           | $course1.name | $course1.code | $instructor1.email | [$course.pm]    |
         And I click on course card "E2E101"
         And I click on Resuource tab
         And I click on Open Folder
@@ -115,7 +133,7 @@ Background:
         And I click on submit button
         And I click on alert message
 
-
+    @admin
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_1"
         And I search for "R&P Testcourse"
@@ -124,7 +142,7 @@ Background:
         And I search for "E2E 101"
         And I click on course settings 
         And I click on delete the course
-        And I sign out of Achieve
+      
 
         
 

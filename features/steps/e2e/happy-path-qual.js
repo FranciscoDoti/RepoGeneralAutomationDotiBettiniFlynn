@@ -1,23 +1,12 @@
 const {When, Then, After} = require('cucumber');
-const path = require('path');
-const {loadConfig, loadLogin} = require('../../../app/util');
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
 const {PageObject} = require('../../../app/pageObject');
 const {log} = require('../../../app/logger');
-const parse = require('parse-duration');
-const ScenarioData = require('../../../app/scenarioData');
-const StringProcessing = require('../../../app/stringProcessing');
-const {getDriver, getWebDriver, sleep, actions} = require('../../../app/driver');
-const { By} = require('selenium-webdriver');
-const {Key} = require('selenium-webdriver');
+const {getDriver, sleep} = require('../../../app/driver');
 let pages = {
-  mainPage: new PageObject('mainPage.json', stepsPath),
-  login: new PageObject('loginPage.json', stepsPath),
-  createAccount: new PageObject('createAccount.json', stepsPath),
-  student: new PageObject('student-role.json', stepsPath),
   navigation: new PageObject('navigation.json', stepsPath),
-  CourseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
+  coursetemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
   courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath)
@@ -30,7 +19,7 @@ After('@Qual', async function () {
 
 When('I click on course card "Qual Testcourse" template', async function () {
   log.debug('Clicking on course card of Qual');
-  await pages.CourseTemplate.populate('card_name_Qual', 'click');
+  await pages.coursetemplate.populate('card_name_Qual', 'click');
 });
 
 Then('I click on Add folder button for adding folder', async function () {
@@ -54,18 +43,19 @@ When('I validate the activities are added', async function () {
   await sleep(3000);
 });
 When('I click on course card "Qual Testcourse" template present in instructor', async function () {
-  await pages.CourseTemplate.populate('course_card_instructor', 'click');
+  await pages.coursetemplate.populate('course_card_instructor', 'click');
 });
-Then('create a custom task by passing the values for Assesement 1', async function () {
-  // where you switch frame
-  await getDriver().switchTo().frame(0);
-  await pages.courseplanner.populate('Assignment_Title', 'Practice test');
-  await pages.courseplanner.populate('Assignment_Type', 'Test', 'click');
-  await pages.courseplanner.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
-  await pages.courseplanner.populate('Save_Assesement_button', 'click');
-  await sleep(5000);
-  // await getDriver().switchTo().defaultContent();
-});
+
+// Then('create a custom task by passing the values for Assesement 1', async function () {
+//   // where you switch frame
+//   await getDriver().switchTo().frame(0);
+//   await pages.courseplanner.populate('Assignment_Title', 'Practice test');
+//   await pages.courseplanner.populate('Assignment_Type', 'Test', 'click');
+//   await pages.courseplanner.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
+//   await pages.courseplanner.populate('Save_Assesement_button', 'click');
+//   await sleep(5000);
+//   // await getDriver().switchTo().defaultContent();
+// });
 
 Then('I validate Custom Assesement is created', async function () {
   if (await pages.courseplanner.checkWebElementExists('Assignment_Assesmnet_Validation')) {
@@ -76,7 +66,7 @@ Then('I validate Custom Assesement is created', async function () {
   getDriver().navigate().refresh();
   await sleep(5000);
 });
-// Use thi sstep dfeinition when you want to close specific activity when you open it
+// Use this step definition when you want to close specific activity when you open it
 // Then('I close the assesment tab', async function () {
 //   await pages.authInstructor.populate('close_assesment_frame', 'click');
 //   await sleep(3000);
