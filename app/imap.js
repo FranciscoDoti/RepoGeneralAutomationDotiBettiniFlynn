@@ -51,19 +51,27 @@ const connectClient = async function(user, password, regexChoice) {
                             var iamRegex = /(?<=If the link has expired you can initiate another password reset request<\/p><p><a href=")(.*?)(?=">)/
                             if(parsed.textAsHtml){
                                 Link = parsed.textAsHtml;
-                                Link = Link.match(iamRegex);
-                                Link = Link[0];
-                                // console.log(Link, 'inside the imap functions');
-                                resolve(Link);
+                                var linkFound = Link.match(iamRegex);
+                                console.log(linkFound)
+                                if(linkFound){
+                                    linkFound = linkFound[0];
+                                    resolve(linkFound);
+                                } else {
+                                    resolve('www.google.com');
+                                }
                             }
                         } else if (regex === "courseware"){
-                            var iamRegex = /(?<=Go to  <strong><a style="color:#080808" href=")(.*?)(?=">)/
+                            var coursewareRegex = /(?<=Go to  <strong><a style="color:#080808" href=")(.*?)(?=">)/
                             if(parsed.textAsHtml){
                                 Link = parsed.textAsHtml;
-                                Link = Link.match(iamRegex);
-                                Link = Link[0];
-                                // console.log(Link, 'inside the imap functions');
-                                resolve(Link);
+                                var linkFound = Link.match(coursewareRegex);
+                                console.log(linkFound)
+                                if(linkFound){
+                                    linkFound = linkFound[0];
+                                    resolve(linkFound);
+                                } else {
+                                    resolve('www.google.com');
+                                }
                             }
                         } else {
                             resolve(parsed);

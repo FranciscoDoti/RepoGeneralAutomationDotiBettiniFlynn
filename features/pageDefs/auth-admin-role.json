@@ -35,7 +35,7 @@
 		{
 			"name": "reset_button",
 			"byType": "classname",
-			"definition": "_1tkc undefined",
+			"definition": "_1tkc",
 			"frame": "default",
 			"specialInstr": "NA"
 		},

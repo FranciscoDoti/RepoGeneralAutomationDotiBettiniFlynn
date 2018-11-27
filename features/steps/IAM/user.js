@@ -13,20 +13,12 @@ let pages = {
   navigation: new PageObject('navigation.json', stepsPath)
 }
 When(/^I verify the functionality of first name by entering "(.*)"$/, async function (firstname) {
-  try {
-    await pages.createAccount.populate('firstName', firstname);
-  } catch (err) {
-    log.error(err);
-  }
+  await pages.createAccount.populate('firstName', firstname);
 });
 When(/^I verify the functionality of last name by entering "(.*)"$/, async function (lastname) {
-  try {
-    await pages.createAccount.populate('lastName', lastname);
-    if (lastname == '') {
-      await pages.createAccount.populate('email', '');
-    }
-  } catch (err) {
-    log.error(err);
+  await pages.createAccount.populate('lastName', lastname);
+  if (lastname == '') {
+    await pages.createAccount.populate('email', '');
   }
 });
 Then('I verify validation message for first name', async function () {
