@@ -1,7 +1,7 @@
 const { Given, When, Then, AfterAll } = require('cucumber');
 const { loadConfig } = require('../../../app/util');
 const jwt = require('../../../app/jwt');
-const stepsPath = process.cwd() + '/features/pageDefs/';
+const stepsPath = process.cwd() + '/features/pageDefs/LearningCurve/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');

@@ -1,4 +1,4 @@
-const stepsPath = process.cwd() + '/features/pageDefs/';
+const stepsPath = process.cwd() + '/features/pageDefs/LearningCurve/';
 const { PageObject } = require('../../../app/pageObject');
 const { sleep } = require('../../../app/driver');
 const assert = require('assert');
