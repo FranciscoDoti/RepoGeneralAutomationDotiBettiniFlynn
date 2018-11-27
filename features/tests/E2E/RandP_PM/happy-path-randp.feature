@@ -5,7 +5,7 @@ Media Producer creates a course
 Background:
         Given I have opened Achieve "loginURL"
 
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to create Read&Practice Template 
         When I have logged in as "media_producer_1"
         And I click on create course plus button
@@ -22,7 +22,7 @@ Background:
         Then I validate that the course "$course.templatename" is listed in the courses page
 
     
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to add activities in Read&Practice Template 
         When I have logged in as "media_producer_1"
         And I search for "R&P Testcourse"
@@ -54,7 +54,7 @@ Background:
         And I click on Activity search button and pass the value "9897989798183_FC.jpg"
         And I click on add content 
 
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to copy the course from Read&Practice Template 
         When I have logged in as "media_producer_1" 
         And  I search for "R&P Testcourse"
@@ -62,7 +62,7 @@ Background:
         Then I copy the course named "Testcourse" to the name "E2E101"
         And I validate the message "Course Copied."
         
-    @admin
+    @courseware-logout
     Scenario: Verify that customer support is able to add instructor to the read& practice course  
         When I have logged in as "customer_support_1"
         When I search for "E2E101"
@@ -72,7 +72,7 @@ Background:
         And I close the Manage Instructors page
        
 
-    @admin
+    @courseware-logout
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
         And  I click on course settings
@@ -87,7 +87,7 @@ Background:
         And I click on Add button to add activities
         And I change the course from unassigned to assign
         
-    #  @admin
+    #  @courseware-logout
     # Scenario: Enroll into course with link and access code
     #     Given I have opened Achieve "ThirdpartyURL"
     #     When I log in as "student"  
@@ -105,7 +105,7 @@ Background:
     #     And I click on submit button
     #     And I click on alert message
 
-    @admin
+    @courseware-logout
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_1"
         And I search for "R&P Testcourse"

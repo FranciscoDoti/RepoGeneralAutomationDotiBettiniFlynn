@@ -5,7 +5,7 @@ Media Producer creates a course
 Background:
         Given I have opened Achieve "loginURL"
         
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to create Quant Template 
         When I have logged in as "media_producer_1"
         And I click on create course plus button
@@ -22,7 +22,7 @@ Background:
         And I validate the message "Quant Testcourse Created."
         Then I validate that the course "$course.templatename" is listed in the courses page
         
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to add activities in Qunat Template
         When I have logged in as "media_producer_1"
         And I search for "Quant Testcourse"
@@ -51,7 +51,7 @@ Background:
         And I click on add content  
           
 
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to copy the course from Quantitative Template 
         When I have logged in as "media_producer_1" 
         When I search for "Quant Testcourse"
@@ -59,7 +59,7 @@ Background:
         Then I copy the course named "Testcourse" to the name "E2E201"
     
 
-    @admin
+    @courseware-logout
     Scenario: Verify that customer support is able to add instructor to the Quantitative course  
         When I have logged in as "customer_support_1"
         When I search for "E2E201"
@@ -70,7 +70,7 @@ Background:
         And I close the Manage Instructors page
       
     
-    @admin
+    @courseware-logout
     Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Quantitative Template  
         When I have logged in as "instructor_3"
         And I click on course settings
@@ -89,7 +89,7 @@ Background:
         And I validate Custom Assesement is created
         And I click on Add button to add activities
      
-    @admin
+    @courseware-logout
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_1"
         And I search for "Quant Testcourse"

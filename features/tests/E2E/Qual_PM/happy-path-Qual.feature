@@ -4,7 +4,7 @@ Media Producer creates a course
    
 Background:
         Given I have opened Achieve "loginURL"
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to create Quant Template 
         When I have logged in as "media_producer_2"
         And I click on create course plus button
@@ -21,7 +21,7 @@ Background:
         And I validate the message "Qual Testcourse Created."
         And I validate that the course "$course.templatename" is listed in the courses page
        
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to add activities in Qunat Template
         When I have logged in as "media_producer_2"
         And I search for "Qual Testcourse"
@@ -47,7 +47,7 @@ Background:
         And I click on Activity search button and pass the value "AT1nov"
         And I click on add content 
 
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to copy the course from Qual Template 
         When I have logged in as "media_producer_1" 
         And  I search for "Qual Testcourse"
@@ -56,7 +56,7 @@ Background:
         And I validate the message "Course Copied."
           
          
-    @admin
+    @courseware-logout
     Scenario: Verify that customer support is able to add instructor to the course copied from Qualitative Template
         When I have logged in as "customer_support_2"
         When I search for "E301"
@@ -67,7 +67,7 @@ Background:
         And I close the Manage Instructors page
 
 
-    @admin
+    @courseware-logout
     Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Qualitative Template  
         When I have logged in as "instructor_1"
         And I click on course settings
@@ -88,7 +88,7 @@ Background:
         And I change the course from unassigned to assign
         
     
-    @admin   
+    @courseware-logout   
     Scenario: Verify that user is able to delete the course
         When I have logged in as "media_producer_2"
         And I search for "Qual Testcourse"

@@ -1,12 +1,25 @@
-const {When, Then} = require('cucumber');
-const {loadLogin} = require('../../../app/util');
-const {PageObject} = require('../../../app/pageObject');
-const {log} = require('../../../app/logger');
+const {
+  When,
+  Then, After
+} = require('cucumber');
+const {
+  loadLogin
+} = require('../../../app/util');
+const {
+  PageObject
+} = require('../../../app/pageObject');
+const {
+  log
+} = require('../../../app/logger');
 const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
-const {getDriver, sleep} = require('../../../app/driver');
-const { By } = require('selenium-webdriver');
+const {
+  getDriver,
+  sleep
+} = require('../../../app/driver');
+const {
+  By
+} = require('selenium-webdriver');
 const assert = require('assert');
-var fieldValue;
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
 let pages = {
   courseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
@@ -14,6 +27,14 @@ let pages = {
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
   courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath)
 }
+
+After('@courseware-logout', async function () {
+  await pages.navigation.populate('menu_system', 'click');
+  await pages.navigation.populate('logout', 'click');
+  const url = config[loginURL];
+  log.debug(`Loading URL ${url}`);
+  await getDriver().get(url);
+})
 
 When('I click the create_course button to create course', async function () {
   log.debug('Clicking on create course button');
@@ -188,7 +209,8 @@ Then('I click on the reading material and validate whether the content is availa
     // var topicArray = topicName.split(':');
     /* var text = topicArray[2];
     var textuppercase = text.toLocaleUpperCase();
-    console.log(textuppercase + 'testuppercas'); 
+    console.log(textuppercase + 'testuppercas');
+
     //console.log(await getDriver().findElement(By.xpath("//*[text()='"+textuppercase+"']")).isDisplayed()); */
 
     // console.log( await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label') + 'gettext1');
@@ -237,7 +259,7 @@ When('I change the course from unassigned to assign', async function () {
     await pages.courseplanner.populate('Assign_Button', 'click');
   }
 });
-// Still working on this 
+// Still working on this
 // When(/^I open the invite link and login with "(.*)" account details$/,async function (account) {
 //   await sleep(3000);
 //   await pages.courseTemplate.populate('invite_link', 'click');
@@ -249,5 +271,5 @@ When('I change the course from unassigned to assign', async function () {
 //   await sleep(5000);
 //   log.debug(`clicking on Password and confirm password button, ${account}`);
 //   await pages.createAccount.populate('password', mail.newpassword);
-//   await pages.createAccount.populate('confirmPassword', mail.newpassword); 
+//   await pages.createAccount.populate('confirmPassword', mail.newpassword);
 // });

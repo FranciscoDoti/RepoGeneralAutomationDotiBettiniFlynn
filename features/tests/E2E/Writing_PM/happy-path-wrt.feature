@@ -4,7 +4,7 @@ Feature: R&P happy path workflow 2
 Background:
         Given I have opened Achieve "loginURL"
 
-    @admin
+    @courseware-logout
     Scenario: Create Course in Achieve for Writing 
         When I have logged in as "media_producer_2"
         And I click on create course plus button
@@ -20,7 +20,7 @@ Background:
         And I populate from the dataTable
         Then I validate that the course "$course.templatename" is listed in the courses page
        
-    @admin  
+    @courseware-logout  
     Scenario: Convert a Skills template from a draft to a Template
         When I have logged in as "media_producer_2"
         #And I search for 'TestingCourse Writer's Help 3.0'
@@ -54,7 +54,7 @@ Background:
         And I click on Activity search button and pass the value "9897989798187_FC.jpg"
         And I click on add content 
            
-    @admin
+    @courseware-logout
     Scenario: Verify that Media Producer is able to copy the course from Writing Template 
         When I have logged in as "media_producer_1" 
         #And  I search for "TestingCourse Writer's Help 3.0"
@@ -62,7 +62,7 @@ Background:
         Then I copy the course named "Testcourse" to the name "E2E201"
         And I validate the message "Course Copied."
       
-    @admin
+    @courseware-logout
     Scenario: Verify that customer support is able to add instructor to the Writing course  
         When I have logged in as "customer_support_1"
         When I search for "E2E201"
@@ -71,7 +71,7 @@ Background:
         Then I manage the instructors on the course and add the "instructor_1" loginUser
         And I close the Manage Instructors page
     
-    @admin
+    @courseware-logout
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
         And I click on course settings
