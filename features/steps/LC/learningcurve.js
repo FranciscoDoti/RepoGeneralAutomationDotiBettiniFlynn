@@ -1,4 +1,4 @@
-const { Given, When, Then, AfterAll } = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const { loadConfig } = require('../../../app/util');
 const jwt = require('../../../app/jwt');
 const stepsPath = process.cwd() + '/features/pageDefs/LearningCurve/';

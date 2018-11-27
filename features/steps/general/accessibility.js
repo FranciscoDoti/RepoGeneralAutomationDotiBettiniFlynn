@@ -20,7 +20,7 @@ const analyzeAccessibility = async function () {
 const writeAccessibilitiesResults = async function (pageName, violations) {
   if (accessibilityFile === null) {
     let date = new Date();
-    let header = 'Page Name, Violation Description, Impact lvl, Instances, Help url, Rule Name, Tags, Html'
+    let header = 'Page Name,Violation Description,Impact lvl, Instances,Help url,Rule Name,Tags,Html'
     let dateStr = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear() + '_' + date.getTime();
     accessibilityFile = 'accessibility_report-' + dateStr + '.csv';
     fs.writeFile(accessibilityFile, header, (err) => {
@@ -33,7 +33,7 @@ const writeAccessibilitiesResults = async function (pageName, violations) {
     element.nodes.map(node => {
       html += ',' + node.html;
     })
-    let result = '\n"' + pageName + '", "' + element.help + '", "' + element.impact + '", "' + element.nodes.length + '", "' + element.helpUrl + '", "' + element.id + '", "' + element.tags + '"' + html;
+    let result = '\n' + pageName + ',' + element.help + ',' + element.impact + ',' + element.nodes.length + ',' + element.helpUrl + ',' + element.id + ',"' + element.tags + '"' + html;
     fs.appendFile(accessibilityFile, result, (err) => {
       if (err) throw err;
     });
