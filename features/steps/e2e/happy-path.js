@@ -1,26 +1,14 @@
-const {
-  When,
-  Then, After
-} = require('cucumber');
-const {
-  loadLogin
-} = require('../../../app/util');
-const {
-  PageObject
-} = require('../../../app/pageObject');
-const {
-  log
-} = require('../../../app/logger');
+const {When, Then, After} = require('cucumber');
+const {loadLogin} = require('../../../app/util');
+const {PageObject} = require('../../../app/pageObject');
+const {log} = require('../../../app/logger');
 const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
+const { loadConfig } = require('../../../app/util');
 const stepsPath = process.cwd() + '/features/pageDefs/';
-const {
-  getDriver,
-  sleep
-} = require('../../../app/driver');
-const {
-  By
-} = require('selenium-webdriver');
+const {getDriver, sleep} = require('../../../app/driver');
+const {By} = require('selenium-webdriver');
 const assert = require('assert');
+const config = loadConfig('config');
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
 let pages = {
   courseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
@@ -31,11 +19,11 @@ let pages = {
 }
 
 After('@courseware-logout', async function () {
+  const url = config['baseURL'];
+  await getDriver().get(url);
+  await sleep(3000);
   await pages.navigation.populate('menu_system', 'click');
   await pages.navigation.populate('logout', 'click');
-  const url = config[loginURL];
-  log.debug(`Loading URL ${url}`);
-  await getDriver().get(url);
 })
 
 When('I click the create_course button to create course', async function () {

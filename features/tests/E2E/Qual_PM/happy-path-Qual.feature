@@ -49,7 +49,7 @@ Background:
 
     @courseware-logout
     Scenario: Verify that Media Producer is able to copy the course from Qual Template 
-        When I have logged in as "media_producer_1" 
+        When I have logged in as "media_producer_2" 
         And  I search for "Qual Testcourse"
         And  I click on course settings
         Then I copy the course named "Testcourse" to the name "E301"
