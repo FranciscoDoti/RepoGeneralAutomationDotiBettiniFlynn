@@ -9,7 +9,7 @@ const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
 const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
-const { getDriver, getWebDriver } = require('./driver');
+const { getDriver, getWebDriver, sleep } = require('./driver');
 const { log } = require('./logger');
 
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
@@ -69,6 +69,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       } else {
         var frameElementObj = await getElement(elementName);
         that.driver.switchTo().frame(frameElementObj.definition);
+        await sleep(500);
       }
     }
   }
@@ -114,7 +115,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       const webElement = await elementTarget.getWebElement();
       const tagName = await webElement.getTagName();
-
       switch (tagName.toLowerCase()) {
         case 'input':
           await populateInput(webElement, value, actionElement);

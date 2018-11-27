@@ -31,6 +31,13 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
         log.debug('Bypassing the checkbox click');
       }
       break;
+    case 'submit':
+      if (strValue.toLowerCase() === 'click') {
+        await populateClick(eleTarget, strValue, actionElement);
+      } else {
+        log.debug('Bypassing the submit click');
+      }
+      break;
     case 'button':
       if (strValue.toLowerCase() === 'click') {
         await populateClick(eleTarget, strValue, actionElement);
