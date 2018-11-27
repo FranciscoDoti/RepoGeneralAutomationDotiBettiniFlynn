@@ -1,4 +1,4 @@
-Feature: Learning Curve Read and Practice Assignment
+ Feature: Learning Curve Read and Practice Assignment
 
 Scenario: Student Takes a LCRP Assessment
   Given I start a new course as "student1"

@@ -2,25 +2,28 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "test-dev": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"dev\"}'",
-    "test-int": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"int\"}'",
-    "test-int-rpt": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"int\"}' -f 'json:./report/cucumber_report_1.json'",
-    "test-dev-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/auth-admin-role.feature --world-parameters='{\"config\": \"dev\"}'",
-    "test-int-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/randp-happy-path-1.feature --world-parameters='{\"config\": \"int\"}'",
-    "test-example": "node ./node_modules/cucumber/bin/cucumber-js features/example.feature --world-parameters='{\"config\": \"int\"}'",
+    "test-dev": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"dev/achieve\"}'",
+    "test-int": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"int/achieve\"}'",
+    "test-int-rpt": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"int/achieve\"}' -f 'json:./report/cucumber_report_1.json'",
+    "test-dev-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/auth-admin-role.feature --world-parameters='{\"config\": \"dev/achieve\"}'",
+    "test-int-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/randp-happy-path-1.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "test-example": "node ./node_modules/cucumber/bin/cucumber-js features/example.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "test-prod": "node ./node_modules/cucumber/bin/cucumber-js --world-parameters='{\"config\": \"prod\"}'",
-    "create-test-accounts": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'",
-    "happy-path-randp": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-randp.feature --world-parameters='{\"config\": \"int\"}'",
-    "happy-path-wrt": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-wrt.feature --world-parameters='{\"config\": \"int\"}'",
-    "test-feat": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/test.feature --world-parameters='{\"config\": \"int\"}'",
-    "randp-happy-path-feature": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/R&P_PM/create-test-accounts.feature --world-parameters='{\"config\": \"int\"}'",
+    "create-test-accounts": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/create-test-accounts.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "happy-path-randp": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "happy-path-wrt": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/happy-path-wrt.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "test-feat": "node ./node_modules/cucumber/bin/cucumber-js features/tests/TIE/test.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "lc-parser": "node ./lc-parser.js",
-    "example": "node ./node_modules/cucumber/bin/cucumber-js features/example.feature --world-parameters='{\"config\": \"int\"}'",
-    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"pre-prod\"}'",
-    "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature --world-parameters='{\"config\": \"pre-prod\"}'",
-    "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"int\"}'",
-    "IAM-user-registration-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int\"}'",
-    "IAM-user-registration-pre-prod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"pre-prod\"}'"
+    "example": "node ./node_modules/cucumber/bin/cucumber-js features/example.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature --world-parameters='{\"config\": \"int/pre-prod\"}'",
+    "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "IAM-user-registration-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "IAM-user-registration-pre-prod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int/pre-prod\"}'",
+    "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/happy-path-Qual.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "Wrt-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Writing_PM/happy-path-wrt.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/happy-path-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "test-savi-brightcove": "node ./node_modules/cucumber/bin/cucumber-js features/tests/SAVI/brightcoveplayer.feature --world-parameters='{\"config\": \"savi\"}'"
   },
   "dependencies": {
     "any-promise": {
@@ -48,6 +51,7 @@
       "resolved": "https://registry.npmjs.org/assertion-error-formatter/-/assertion-error-formatter-2.0.1.tgz",
       "version": "2.0.1"
     },
+    "axe-webdriverjs": "^2.1.0",
     "babel-runtime": {
       "integrity": "sha1-llxwWGaOgrVde/4E/yM3vItWR/4=",
       "requires": {
@@ -277,6 +281,7 @@
       "resolved": "https://registry.npmjs.org/glob/-/glob-7.1.2.tgz",
       "version": "7.1.2"
     },
+    "imap": "^0.8.19",
     "indent-string": {
       "integrity": "sha1-Sl/W0nzDMvN+VBmlBNu4NxBckok=",
       "resolved": "https://registry.npmjs.org/indent-string/-/indent-string-3.2.0.tgz",
@@ -325,6 +330,7 @@
       "resolved": "https://registry.npmjs.org/lower-case/-/lower-case-1.1.4.tgz",
       "version": "1.1.4"
     },
+    "mailparser": "^2.4.2",
     "minimatch": {
       "integrity": "sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==",
       "requires": {

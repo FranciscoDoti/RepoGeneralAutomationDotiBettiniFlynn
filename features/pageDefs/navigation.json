@@ -37,7 +37,7 @@
 			"frame": "default",
 			"specialInstr": "NA"
 		},
-			{
+		{
 			"name": "menu_system",
 			"byType": "xpath",
 			"definition": "//button[@aria-label='Toggle User Menu']",
@@ -81,12 +81,27 @@
             "specialInstr":"NA"
 		},
 		{
-		    "name":"open_menu",
-			"byType":"classname",
-			"definition":"_1plU _1j68",
+		    "name":"Course_setting",
+			"byType":"xpath",
+			"definition":"//*[@title='Course Settings']",
 			"frame":"default",
 			"specialInstr":"NA"
-		}	
+		},
+		{
+		    "name":"Delete_course",
+			"byType":"xpath",
+			"definition":"//*[text()='Delete Course']",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+		{
+		    "name":"Confirm_Delete_course",
+			"byType":"xpath",
+			"definition":"//*[text()='Yes, Delete']",
+			"frame":"default",
+			"specialInstr":"NA"
+		}
+
 		
 	]
 }

@@ -9,7 +9,7 @@ const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
 const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
-const { getDriver, getWebDriver } = require('./driver');
+const { getDriver, getWebDriver, sleep } = require('./driver');
 const { log } = require('./logger');
 
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
@@ -27,16 +27,17 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.driver = getDriver();
   that.webdriver = getWebDriver();
 
-  log.debug(`New PageObject: ${pageNameInput}`);
+  // log.debug(`New PageObject: ${pageNameInput}`);
 
   const loadPageDefinitionFile = function (fullFileName) {
-    log.debug(`Opening file ${fullFileName} from ${__filename} `);
+    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
     var jsonContent = loadJSONFile(fullFileName);
 
     for (var i in jsonContent.webElements) {
       var element = jsonContent.webElements[i];
       addElement(element.name, element)
-      log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
+      // This was adding so much noise to the console output
+      // log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
     }
   }
 
@@ -68,13 +69,15 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       } else {
         var frameElementObj = await getElement(elementName);
         that.driver.switchTo().frame(frameElementObj.definition);
+        await sleep(500);
       }
     }
   }
 
   const genericPopulateDatable = async function (table) {
+    log.debug(`I populated table`);
     for (let e = 0; e < table.rows().length; e++) {
-      await genericPopulateElement(table.hashes()[e].variablename, table.hashes()[e].value);
+      await genericPopulateElement(table.hashes()[e].pageDef, table.hashes()[e].value);
     }
   }
 
@@ -112,7 +115,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       const webElement = await elementTarget.getWebElement();
       const tagName = await webElement.getTagName();
-
       switch (tagName.toLowerCase()) {
         case 'input':
           await populateInput(webElement, value, actionElement);
@@ -232,7 +234,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const elementExists = async function (strName) {
     try {
       log.info(`Starting to check if web element exists on the page: ${strName}`);
-
       return await checkWebElementExists(strName);
     } catch (err) {
       log.error(err.stack);
@@ -276,6 +277,42 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       return elementTarget.elementExists();
     } else {
       log.error(`ERROR: WebElement ${elementName} not found in PageElements during checkWebElementExists() attempt.`);
+      return false;
+    }
+  };
+
+  const scrollIntoView = async function (strName) {
+    try {
+      log.info(`Scrolling into view: ${strName}`);
+      return await scrollElementIntoView(strName);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const scrollElementIntoView = async function (elementName) {
+    let elementTarget = '';
+    let tempElement = {};
+    log.debug(`Scrolling element: ${elementName} into view.`)
+    if (await hasElement(elementName)) {
+      tempElement = await getElement(elementName);
+      const actionElement = Object.assign({});
+      // If need to hit a iframe, do it
+      await switchFrame(tempElement.frame);
+
+      elementTarget = await WebElement(tempElement);
+      actionElement.webElement = elementTarget;
+
+
+
+      // log.debug(`****genericPopulateElement: ${elementName}`);
+      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
+
+      // const webElement = await elementTarget.getWebElement();
+      return await elementTarget.scrollIntoView();
+    } else {
+      log.error(`ERROR: WebElement ${elementName} not found in PageElements during scrollElementIntoView() attempt.`);
     }
   };
 
@@ -371,11 +408,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getDriver = getDriver;
   that.populate = populateElement;
   that.getElementValue = getElementValue;
+  that.populateDatatable = genericPopulateDatable;
   that.populateElement = populateElement;
   that.elementExists = elementExists;
   that.checkWebElementExists = checkWebElementExists;
   that.getWebElements = getWebElements;
   that.generateDataTable = generateDataTable;
+  that.scrollElementIntoView = scrollElementIntoView;
+  that.scrollIntoView = scrollIntoView;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

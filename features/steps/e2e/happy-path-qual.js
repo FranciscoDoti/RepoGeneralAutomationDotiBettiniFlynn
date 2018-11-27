@@ -1,133 +1,85 @@
-const {When, Then} = require('cucumber');
-const path = require('path');
-const {loadConfig, loadLogin} = require('../../../app/util');
+const {When, Then, After} = require('cucumber');
 const stepsPath = process.cwd() + '/features/pageDefs/';
+const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
 const {PageObject} = require('../../../app/pageObject');
 const {log} = require('../../../app/logger');
-const parse = require('parse-duration');
-const ScenarioData = require('../../../app/scenarioData');
-const StringProcessing = require('../../../app/stringProcessing');
 const {getDriver, sleep} = require('../../../app/driver');
-const { By} = require('selenium-webdriver');
-const {Key} = require('selenium-webdriver');
-const fs = require('fs');
-
 let pages = {
-  authProducer: new PageObject('auth-media-producer.json', stepsPath),
-  mainPage: new PageObject('mainPage.json', stepsPath),
-  login: new PageObject('loginPage.json', stepsPath),
-  authAdmin: new PageObject('auth-admin-role.json', stepsPath),
-  authInstructor: new PageObject('auth-instructor.json', stepsPath),
-  createAccount: new PageObject('createAccount.json', stepsPath),
-  student: new PageObject('student-role.json', stepsPath)
-
+  navigation: new PageObject('navigation.json', stepsPath),
+  courseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
+  activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
+  resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
+  courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath)
 }
+
+After('@Qual', async function () {
+  await pages.navigation.populate('menu_system', 'click');
+  await pages.navigation.populate('logout', 'click');
+})
 
 When('I click on course card "Qual Testcourse" template', async function () {
   log.debug('Clicking on course card of Qual');
-  await pages.authProducer.populate('card_name_Qual', 'click', 'resources_tab');
+  await pages.courseTemplate.populate('card_name_Qual', 'click');
 });
 
 Then('I click on Add folder button for adding folder', async function () {
   log.debug('Clicking on add folder button');
-  await pages.authProducer.populate('add_folder', 'click');
+  await pages.resourceView.populate('add_folder', 'click');
 });
 
 Then(/^I create a folder with the name "(.*)"$/, async function (FolderName) {
   log.debug('Clicking on folder name button');
-  await pages.authProducer.populate('folder_name', FolderName);
+  await pages.resourceView.populate('folder_name', FolderName);
 });
 
 Then('I click on add folder button in order to save it', async function () {
   log.debug('Clicking on Add folder button');
-  await pages.authProducer.populate('add_folder_button', 'click');
+  await pages.resourceView.populate('add_folder_button', 'click');
+});
+When('I validate the activities are added', async function () {
+  await pages.resourceView.checkWebElementExists('Validation_activities');
+  // try to include this refresh in framework
+  getDriver().navigate().refresh();
+  await sleep(3000);
+});
+When('I click on course card "Qual Testcourse" template present in instructor', async function () {
+  await pages.courseTemplate.populate('course_card_instructor', 'click');
 });
 
-Then('I reorder the chapters in resource page', async function () {
-  log.debug('Clicking options button');
-  await pages.authProducer.populate('options_button', 'click');
-  log.debug('Clicking reorder button');
-  await pages.authProducer.populate('reorder_button', 'click');
-  log.debug('Clicking move down button');
-  await pages.authProducer.populate('move_total_down_button', 'click');
-  log.debug('Clicking save button');
-  await pages.authProducer.populate('save_reordered_button', 'click');
-  log.debug('Clicking options button');
-  await pages.authProducer.populate('options_button', 'click');
-  log.debug('Clicking reorder button');
-  await pages.authProducer.populate('reorder_button', 'click');
-  log.debug('Clicking move down button');
-  await pages.authProducer.populate('move_down_button', 'click');
-  log.debug('Clicking save button');
-  await pages.authProducer.populate('save_reordered_button', 'click');
-  log.debug('Clicking options button');
-  await pages.authProducer.populate('options_button_2', 'click');
-  log.debug('Clicking reorder button');
-  await pages.authProducer.populate('reorder_button', 'click');
-  log.debug('Clicking move down button');
-  await pages.authProducer.populate('move_down_button', 'click');
-  log.debug('Clicking save button');
-  await pages.authProducer.populate('save_reordered_button', 'click');
-  log.debug('Clicking options button');
-  await pages.authProducer.populate('options_button_2', 'click');
-  log.debug('Clicking reorder button');
-  await pages.authProducer.populate('reorder_button', 'click');
-  log.debug('Clicking move up button');
-  await pages.authProducer.populate('move_up_button', 'click');
-  log.debug('Clicking save button');
-  await pages.authProducer.populate('save_reordered_button', 'click');
+Then('create a custom task by passing the values for Assesement 1', async function () {
+  // where you switch frame
+  await getDriver().switchTo().frame(0);
+  await pages.courseplanner.populate('Assignment_Title', 'Practice test');
+  await pages.courseplanner.populate('Assignment_Type', 'Test', 'click');
+  await pages.courseplanner.populate('Home_taxonomy', 'Interactive General Chemistry V1', 'click');
+  await pages.courseplanner.populate('Save_Assesement_button', 'click');
+  await sleep(5000);
+  // await getDriver().switchTo().defaultContent();
 });
 
-When('I move the activities to the chapters assigned to it', async function () {
-  try {
-    log.debug('Clicking on open action menu');
-    await pages.authProducer.populate('OpenActionMenu', 'click');
-    log.debug('Clicking on move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug('Clicking on place item button');
-    await pages.authProducer.populate('Place_activity_chapter1', 'click');
-    await pages.authProducer.populate('save_button', 'click');
-    log.debug('Clicking on open action menu');
-    await pages.authProducer.populate('OpenActionMenu', 'click');
-    log.debug('Clicking on move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug('Clicking on activity content and place in respective chapters');
-    await pages.authProducer.populate('Place_activity_chapter1', 'click');
-    log.debug('Clicking on place item button');
-    await pages.authProducer.populate('save_button', 'click');
-    log.debug('Clicking on open action menu');
-    await pages.authProducer.populate('OpenActionMenu', 'click');
-    log.debug('Clicking on move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug('Clicking on activity content and place in respective chapters');
-    await pages.authProducer.populate('Place_activity_chapter2', 'click');
-    await pages.authProducer.populate('save_button', 'click');
-    log.debug('Clicking on open action menu');
-    await pages.authProducer.populate('OpenActionMenu', 'click');
-    await pages.authProducer.populate('move_item_button', 'click');
-    await pages.authProducer.populate('Place_activity_chapter2', 'click');
-    log.debug('Clicking on place item button');
-    await pages.authProducer.populate('save_button', 'click');
-    log.debug('Clicking on open action menu');
-    await pages.authProducer.populate('OpenActionMenu', 'click');
-    log.debug('Clicking on move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug('Clicking on activity content and place in respective chapters');
-    await pages.authProducer.populate('Place_activity_chapter4', 'click');
-    log.debug('Clicking on place item button');
-    await pages.authProducer.populate('save_button', 'click');
-    log.debug('Clicking on open action menu');
-    await pages.authProducer.populate('OpenActionMenu', 'click');
-    log.debug('Clicking on move item button');
-    await pages.authProducer.populate('move_item_button', 'click');
-    log.debug('Clicking on activity content and place in respective chapters');
-    await pages.authProducer.populate('Place_activity_chapter4', 'click');
-    log.debug('Clicking on place item button');
-    await pages.authProducer.populate('save_button', 'click');
-    await sleep(2000);
-    await getDriver().navigate().refresh();
-    await sleep(3000);
-  } catch (err) {
-    log.error(err.stack);
+Then('I validate Custom Assesement is created', async function () {
+  if (await pages.courseplanner.checkWebElementExists('Assignment_Assesmnet_Validation')) {
+    console.log('custom Assesement is created');
+  } else {
+    console.log('custom Assesement is not created');
   }
+  getDriver().navigate().refresh();
+  await sleep(5000);
+});
+// Use this step definition when you want to close specific activity when you open it
+// Then('I close the assesment tab', async function () {
+//   await pages.authInstructor.populate('close_assesment_frame', 'click');
+//   await sleep(3000);
+// });
+
+When('I click on Custom content button', async function () {
+  await sleep(3000);
+  await pages.courseplanner.populate('Custom_content_button', 'click');
+});
+When('I click on create custom activity button', async function () {
+  await pages.courseplanner.scrollIntoView('Create_custom_button');
+  await pages.courseplanner.populate('Create_custom_button', 'click');
+});
+When('I click on Select activity Assesment Button', async function () {
+  await pages.courseplanner.populate('Select_activity_type_button', 'click');
 });

@@ -1,12 +1,11 @@
-const { Given, When, Then, AfterAll } = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const { loadConfig } = require('../../../app/util');
 const jwt = require('../../../app/jwt');
-const stepsPath = process.cwd() + '/features/pageDefs/';
+const stepsPath = process.cwd() + '/features/pageDefs/LearningCurve/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
 const config = loadConfig('config');
-const lcInfo = loadConfig('lc/lc_info');
 const assert = require('assert');
 const helper = require('./lc-helper');
 const courses = require('./lc-courses');
@@ -18,7 +17,8 @@ let studentView = {
   quizPage: new PageObject('lc-quiz.json', stepsPath)
 };
 
-var testInfo = {
+let lcInfo;
+let testInfo = {
   'currentUser': ''
 }
 
@@ -43,6 +43,9 @@ Given(/^I log into an assignment in "(.*)" as "(.*)"$/, async function (urlKey, 
 });
 
 Given(/I start a new assignment as "(.*)"$/, async function (user) {
+  if (lcInfo === undefined || lcInfo === null) {
+    lcInfo = loadConfig('lc/lc_info');
+  }
   const epoch = new Date().getTime();
   lcInfo.assignment = epoch;
   testInfo.currentUser = user;
@@ -62,6 +65,9 @@ Given(/I retake the assignment as "(.*)"$/, async function (user) {
 })
 
 Given(/I start a new course as "(.*)"$/, async function (user) {
+  if (lcInfo === undefined || lcInfo === null) {
+    lcInfo = loadConfig('lc/lc_info');
+  }
   const epoch = new Date().getTime();
   lcInfo.course = epoch;
   courses.addCourse(lcInfo.course);
@@ -237,8 +243,8 @@ Given('I have completed an LC assignment, I can go back and answer more question
   await sleep(5000)
 });
 
-AfterAll(function () {
-  console.log(JSON.stringify(courses.getCourses()));
-  getDriver().quit();
-  return Promise.resolve();
-});
+// AfterAll(function () {
+//   console.log(JSON.stringify(courses.getCourses()));
+//   getDriver().quit();
+//   return Promise.resolve();
+// });
