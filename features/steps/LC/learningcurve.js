@@ -243,8 +243,8 @@ Given('I have completed an LC assignment, I can go back and answer more question
   await sleep(5000)
 });
 
-AfterAll(function () {
-  console.log(JSON.stringify(courses.getCourses()));
-  getDriver().quit();
-  return Promise.resolve();
-});
+// AfterAll(function () {
+//   console.log(JSON.stringify(courses.getCourses()));
+//   getDriver().quit();
+//   return Promise.resolve();
+// });

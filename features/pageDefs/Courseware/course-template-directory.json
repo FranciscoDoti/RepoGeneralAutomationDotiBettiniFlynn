@@ -349,7 +349,16 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"course_card_writing",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_2 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA"
+
         }
+
 
     ]
 }

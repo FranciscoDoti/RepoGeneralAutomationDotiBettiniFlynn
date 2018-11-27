@@ -1,6 +1,6 @@
 const fs = require('fs');
 const world = require('./worldData');
-const parser = require('../lc-parser')
+//const parser = require('../lc-parser')
 const { log } = require('./logger');
 
 process.argv.forEach(function (value, index, array) {
@@ -48,16 +48,16 @@ const loadConfig = function (configName) {
   }
 };
 
-const loadTextFile = function (TxtFile) {
-  try {
-    const contents = parser.readFileSync(TxtFile);
-    //const parserContent = JSON.parse(contents);
-    return contents;
-  } catch (err) {
-    log.error(err);
-    throw err;
-  }
-}
+// const loadTextFile = function (TxtFile) {
+//   try {
+//     const contents = parser.readFileSync(TxtFile);
+//     //const parserContent = JSON.parse(contents);
+//     return contents;
+//   } catch (err) {
+//     log.error(err);
+//     throw err;
+//   }
+// }
 
 const loadLogin = function (login) {
   try {
