@@ -153,7 +153,7 @@
 		{
 			"name":"course_end_date1",
             "byType":"xpath",
-            "definition":"(//*[@class='undefined _282D _3opI _2x2P '])[2]",
+            "definition":"(//*[@class='EVUx '])[2]",
             "frame":"default",
             "specialInstr":"NA",
             "waitForElementToBevisible":"Next_Month"
@@ -163,7 +163,7 @@
 		{
 			"name":"Active_Date1",
             "byType":"xpath",
-            "definition":"(//*[@class='undefined _282D _3opI _2x2P '])[1]",
+            "definition":"(//*[@class='EVUx '])[1]",
             "frame":"default",
             "specialInstr":"NA",
             "waitForElementToBeVisible": "Active_Date@now"
@@ -357,6 +357,20 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"invite_link",
+            "byType":"xpath",
+            "definition":"//*[@class='bog']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"course_invite_link",
+            "byType":"xpath",
+            "definition":"(//*[@target='_blank'])[37]",
+            "frame":"default",
+            "specialInstr":"NA"
         }
 
 

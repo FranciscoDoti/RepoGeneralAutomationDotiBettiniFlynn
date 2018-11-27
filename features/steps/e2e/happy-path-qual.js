@@ -6,7 +6,7 @@ const {log} = require('../../../app/logger');
 const {getDriver, sleep} = require('../../../app/driver');
 let pages = {
   navigation: new PageObject('navigation.json', stepsPath),
-  coursetemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
+  courseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
   courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath)
@@ -19,7 +19,7 @@ After('@Qual', async function () {
 
 When('I click on course card "Qual Testcourse" template', async function () {
   log.debug('Clicking on course card of Qual');
-  await pages.coursetemplate.populate('card_name_Qual', 'click');
+  await pages.courseTemplate.populate('card_name_Qual', 'click');
 });
 
 Then('I click on Add folder button for adding folder', async function () {
@@ -43,7 +43,7 @@ When('I validate the activities are added', async function () {
   await sleep(3000);
 });
 When('I click on course card "Qual Testcourse" template present in instructor', async function () {
-  await pages.coursetemplate.populate('course_card_instructor', 'click');
+  await pages.courseTemplate.populate('course_card_instructor', 'click');
 });
 
 Then('create a custom task by passing the values for Assesement 1', async function () {

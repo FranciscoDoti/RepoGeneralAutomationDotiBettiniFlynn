@@ -19,7 +19,7 @@ Background:
             |isbn_number         | 9781464199497 |
             |course_status       | Draft|
             |save_button         | click |
-        And I populate from the dataTable
+        And I validate the message "Quant Testcourse Created."
         Then I validate that the course "$course.templatename" is listed in the courses page
         
     @admin
@@ -31,7 +31,7 @@ Background:
         And I fill out the form to create a new course
             |pageDef         |  value |
             |Template_status | Active On Date|
-            |Active_Date     | @Date('now') |
+            |save_button         | click |
         And I populate from the dataTable
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card of Quant Template 
@@ -75,17 +75,7 @@ Background:
         When I have logged in as "instructor_3"
         And I click on course settings
         And I elect to edit the course named "$course1.name"
-        And I fill out the form to create a new course
-            |pagedef             | value    |
-            |Template_status     | Active On Date  |
-            |Active_Date1        | click |
-            |Active_Date@now     | click |
-            |course_end_date1    | click |
-            |Next_Month          | click |
-            |Next_Month          | click |
-            |Select_Date         | click |
-            |save_button         | click |
-        And I populate from the dataTable
+        And I activate the course
         And I click on course settings
         Then I capture the invite link and store to variable "inviteLink"
         And I populate the Invite Students "student" page 

@@ -10,7 +10,7 @@ Background:
         When I have logged in as "media_producer_1"
         And I click on create course plus button
         And I fill out the form to create a new course
-            |pagedef             | value    |
+            |pageDef             | value    |
             |course_type         | Template |
             |product_model       | Read & Practice |
             |course_name         | R&P TestCourse |
@@ -18,7 +18,6 @@ Background:
             |isbn_number         | 9781464199495 |
             |course_status       | Draft |
             |save_button         | click |
-        And I populate from the dataTable
         And I validate the message "R&P TestCourse Created."
         Then I validate that the course "$course.templatename" is listed in the courses page
 
@@ -30,25 +29,9 @@ Background:
         And I click on course settings
         And I elect to edit the course named "course1.templatename"
         And I fill out the form to create a new course
-            |pagedef         | value    |
+            |pageDef         | value    |
             |Template_status | Active On Date|
-            |Active_Date     | @Date('now') |
-        And I populate from the dataTable
-        And I click on course card "Qual Testcourse" template
-        And I click on Resource tab     
-        And add content into chapter by clicking "+" button
-        And I click on Activity search button and enter "Homework"
-        And I click on add content 
-        And I click on Activity search button and enter "Animation"
-        And I click on add content 
-        And I click on Activity search button and enter "Analyzing Drama"
-        And I click on add content        And I click on Activity search button and pass the value "Dedication"
-        And I click on add content
-        And I click on Activity search button and pass the value "new test epub"
-        And I click on add content
-        And I click on Activity search button and pass the value "AT1nov"
-        And I click on add content    
-        And I populate from the dataTable
+            |save_button     | click |    
         And I validate the message "R&P TestCourse Updated."
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card "Testcourse" template
@@ -92,20 +75,9 @@ Background:
     @admin
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
-        And I fill out the form to create a new course
-            |pagedef             | value    |
-            |Template_status     | Active On Date  |
-            |Active_Date1        | click |
-            |Active_Date@now     | click |
-            |course_end_date1    | click |
-            |Next_Month          | click |
-            |Next_Month          | click |
-            |Select_Date         | click |
-            |save_button         | click |
-        And I populate from the dataTable
-        And I click on course settings
-        And I elect to edit the course named "$course1.name"
-        And I Activate the course 
+        And  I click on course settings
+        And I elect to edit the course named "course1.templatename"
+        And I activate the course
         And I click on course settings
         Then I capture the invite link and store to variable "inviteLink"
         Then I populate the Invite Students "student" page 
@@ -115,23 +87,23 @@ Background:
         And I click on Add button to add activities
         And I change the course from unassigned to assign
         
-    @admin
-    Scenario: Enroll into course with link and access code
-        Given I have opened Achieve "ThirdpartyURL"
-        When I check E-mail Notification of "student" for "IAM"
-        And I open the invite link and login with "student" account details
-        And I click on Grace period
-        And I click on Finish Enrollenment 
-        Then I validate that the following information is correct on the Course Access Code page
-        And I click on course card "E2E101"
-        And I click on Resuource tab
-        And I click on Open Folder
-        Then I click on Read and Practice 
-        And I click on the reading material and validate whether the content is available 
-        And I start the quiz 
-        And I answer the questions
-        And I click on submit button
-        And I click on alert message
+    #  @admin
+    # Scenario: Enroll into course with link and access code
+    #     Given I have opened Achieve "ThirdpartyURL"
+    #     When I log in as "student"  
+    #     And I open the invite link and login with "student" account details
+    #     And I click on Grace period
+    #     And I click on Finish Enrollenment 
+    #     Then I validate that the following information is correct on the Course Access Code page
+    #     And I click on course card "E2E101"
+    #     And I click on Resuource tab
+    #     And I click on Open Folder
+    #     Then I click on Read and Practice 
+    #     And I click on the reading material and validate whether the content is available 
+    #     And I start the quiz 
+    #     And I answer the questions
+    #     And I click on submit button
+    #     And I click on alert message
 
     @admin
     Scenario: Verify that user is able to delete the course

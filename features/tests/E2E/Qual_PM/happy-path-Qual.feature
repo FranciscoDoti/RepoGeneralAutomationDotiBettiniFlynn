@@ -18,7 +18,7 @@ Background:
             |isbn_number         | 9781464199498 |
             |course_status       | Draft |
             |save_button         | click |
-        And I populate from the dataTable
+        And I validate the message "Qual Testcourse Created."
         And I validate that the course "$course.templatename" is listed in the courses page
        
     @admin
@@ -30,8 +30,7 @@ Background:
         And I fill out the form to create a new course
             |pageDef         |  value |
             |Template_status | Active On Date|
-            |Active_Date     | @Date('now') |
-        And I populate from the dataTable
+            |save_button         | click |
         And I click on course card "Qual Testcourse" template
         And I click on Resource tab     
         And add content into chapter by clicking "+" button
@@ -46,7 +45,16 @@ Background:
         And I click on Activity search button and pass the value "new test epub"
         And I click on add content
         And I click on Activity search button and pass the value "AT1nov"
-        And I click on add content   
+        And I click on add content 
+
+    @admin
+    Scenario: Verify that Media Producer is able to copy the course from Qual Template 
+        When I have logged in as "media_producer_1" 
+        And  I search for "Qual Testcourse"
+        And  I click on course settings
+        Then I copy the course named "Testcourse" to the name "E301"
+        And I validate the message "Course Copied."
+          
          
     @admin
     Scenario: Verify that customer support is able to add instructor to the course copied from Qualitative Template
@@ -57,22 +65,14 @@ Background:
         And I manage the instructors on the course and add the "instructor_1" loginUser
         And I validate that the Course Specific Link opens the course named "$course1.name"
         And I close the Manage Instructors page
-   
+
+
+    @admin
     Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Qualitative Template  
         When I have logged in as "instructor_1"
         And I click on course settings
         And I elect to edit the course named "$course1.name"
-        And I fill out the form to create a new course
-            |pagedef             | value    |
-            |Template_status     | Active On Date  |
-            |Active_Date1        | click |
-            |Active_Date@now     | click |
-            |course_end_date1    | click |
-            |Next_Month          | click |
-            |Next_Month          | click |
-            |Select_Date         | click |
-            |save_button         | click |
-        And I populate from the dataTable
+        And I activate the course
         And I click on course settings
         Then I capture the invite link and store to variable "inviteLink"
         And I populate the Invite Students "student" page 
