@@ -1,6 +1,6 @@
 const fs = require('fs');
 const world = require('./worldData');
-//const parser = require('../lc-parser')
+// const parser = require('../lc-parser')
 const { log } = require('./logger');
 
 process.argv.forEach(function (value, index, array) {
