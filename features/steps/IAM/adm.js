@@ -14,7 +14,7 @@ let pages = { authAdmin, createAccount };
 When('I click on user menu', async function () {
   log.debug('Clicking menu_system button');
   await pages.authAdmin.populate('menu_system', 'click');
-  await sleep(7000);
+  await sleep(3000);
 });
 When('I click on Admin Panel', async function () {
   log.debug('Clicking admin_panel button');
@@ -23,11 +23,13 @@ When('I click on Admin Panel', async function () {
 When('I click on Password reset', async function () {
   log.debug('Clicking password_reset button');
   await pages.authAdmin.populate('password_reset', 'click');
+  await sleep(5000);  
 });
 
 Then('I click on Close Icon', async function () {
-  log.debug('Clicking close button');
-  await pages.authAdmin.populate('close', 'click');
+  await sleep(5000);  
+  // log.debug('Clicking close button');
+  // await pages.authAdmin.populate('close', 'click');
 });
 Then('I enter Invalid E-mail Address not regitered in macmillan account', async function () {
   log.debug('Clicking password_reset_input button');
@@ -40,6 +42,7 @@ Then(/^I enter "(.*)" account details which is registered in macmillan account$/
   await pages.authAdmin.populate('password_reset_input', user.username);
 });
 Then('I click on Reset button', async function () {
+  await sleep(1000);
   log.debug('Clicking reset_button ');
   await pages.authAdmin.populate('reset_button', 'click');
 });

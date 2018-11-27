@@ -75,8 +75,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const genericPopulateDatable = async function (table) {
+    log.debug(`I populated table`);
     for (let e = 0; e < table.rows().length; e++) {
-      await genericPopulateElement(table.hashes()[e].variablename, table.hashes()[e].value);
+      await genericPopulateElement(table.hashes()[e].pageDef, table.hashes()[e].value);
     }
   }
 
@@ -233,7 +234,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const elementExists = async function (strName) {
     try {
       log.info(`Starting to check if web element exists on the page: ${strName}`);
-
       return await checkWebElementExists(strName);
     } catch (err) {
       log.error(err.stack);
@@ -408,6 +408,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getDriver = getDriver;
   that.populate = populateElement;
   that.getElementValue = getElementValue;
+  that.populateDatatable = genericPopulateDatable;
   that.populateElement = populateElement;
   that.elementExists = elementExists;
   that.checkWebElementExists = checkWebElementExists;

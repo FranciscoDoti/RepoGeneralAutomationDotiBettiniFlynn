@@ -51,6 +51,7 @@
       "resolved": "https://registry.npmjs.org/assertion-error-formatter/-/assertion-error-formatter-2.0.1.tgz",
       "version": "2.0.1"
     },
+    "axe-webdriverjs": "^2.1.0",
     "babel-runtime": {
       "integrity": "sha1-llxwWGaOgrVde/4E/yM3vItWR/4=",
       "requires": {

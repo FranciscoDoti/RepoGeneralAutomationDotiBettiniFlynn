@@ -81,9 +81,9 @@
             "specialInstr":"NA"
 		},
 		{
-		    "name":"open_menu",
-			"byType":"classname",
-			"definition":"_1plU _1j68",
+		    "name":"Course_setting",
+			"byType":"xpath",
+			"definition":"//*[@title='Course Settings']",
 			"frame":"default",
 			"specialInstr":"NA"
 		},
