@@ -234,7 +234,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const elementExists = async function (strName) {
     try {
       log.info(`Starting to check if web element exists on the page: ${strName}`);
-
       return await checkWebElementExists(strName);
     } catch (err) {
       log.error(err.stack);

@@ -12,6 +12,7 @@ const {
   log
 } = require('../../../app/logger');
 const coursewareStepsPath = process.cwd() + '/features/pageDefs/Courseware/';
+const stepsPath = process.cwd() + '/features/pageDefs/';
 const {
   getDriver,
   sleep
@@ -25,7 +26,8 @@ let pages = {
   courseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
-  courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath)
+  courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath),
+  navigation: new PageObject('navigation.json', stepsPath)
 }
 
 After('@courseware-logout', async function () {
