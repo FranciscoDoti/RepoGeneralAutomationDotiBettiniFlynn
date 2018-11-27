@@ -1,9 +1,5 @@
-// ------------ Start up the chrome server ------------
+// ------------ Start up the cselenium webdriver ------------
 const webdriver = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
-const firefox = require('selenium-webdriver/firefox');
-const chromePath = require('chromedriver').path;
-const firefoxPath = require('geckodriver').path;
 const { log } = require('./logger');
 const { loadConfig } = require('./util');
 
@@ -15,6 +11,12 @@ const config = loadConfig('config');
 // setDefaultTimeout(60 * 500);
 setDefaultTimeout(700 * 700); 
 let service;
+
+// Show Process config files
+process.argv.forEach(function (val, index, array) {
+  log.debug(index + ': ' + val);
+});
+
 const buildDriver = function () {
   const config = loadConfig('config');
 
@@ -47,87 +49,55 @@ const buildDriver = function () {
   return driver.build();
 }
 
-const getDriver = function () {
-  return driver;
-};
-
-const getWebDriver = function () {
-  return webdriver;
-};
-
-const onPageLoadedWaitById = async function (elementIdOnNextPage) {
-  let by = webdriver.By.id(elementIdOnNextPage);
-  log.debug(`Page Loaded - waited on id: ${elementIdOnNextPage}`);
-  onWaitForElementToBeVisible(by);
-}
-
-const onWaitForElementToBeVisible = async function (element) {
-  log.debug(`Waiting for element (${element}) to appear...`);
-  try {
-    await driver.wait(webdriver.until.elementLocated(element, 10000));
-    await driver.wait(webdriver.until.elementIsVisible(driver.findElement(element)), 10000);
-  } catch (err) {
-    log.error(err.stack);
-  }
-}
-
-const onWaitForElementToBeInvisible = async function (element) {
-  log.debug(`Waiting for element to disappear...`);
-  try {
-    await driver.wait(webdriver.until.elementLocated(element, 10000));
-    await driver.wait(webdriver.until.elementIsNotVisible(driver.findElement(element)), 15000);
-  } catch (err) {
-    log.error(err.stack);
-  }
-}
-
-const onWaitForWebElementToBeEnabled = async function (webElement) {
-  log.debug(`Waiting for webElement to become enabled...`);
-  try {
-    await driver.wait(webdriver.until.elementIsEnabled(webElement, 10000));
-  } catch (err) {
-    log.error(err.stack);
-  }
-}
-
-const onWaitForWebElementToBeDisabled = async function (webElement) {
-  log.debug(`Waiting for webElement to become disabled...`);
-  try {
-    await driver.wait(webdriver.until.elementIsDisabled(webElement), 3000);
-  } catch (err) {
-    log.error(err.stack);
-  }
-}
-
-const onWaitForElementToBeLocated = async function (element) {
-  log.debug(`Waiting for element to become located...`);
-  try {
-    await driver.wait(webdriver.until.elementLocated(element, 10000));
-  } catch (err) {
-    log.error(err.stack);
-  }
-}
-
-function sleep (ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-const driver = buildDriver();
-
-// Show Process config files
-process.argv.forEach(function (val, index, array) {
-  log.debug(index + ': ' + val);
-});
 
 module.exports = {
-  getDriver,
-  getWebDriver,
-  onPageLoadedWaitById,
-  onWaitForElementToBeLocated,
-  onWaitForWebElementToBeEnabled,
-  onWaitForWebElementToBeDisabled,
-  onWaitForElementToBeVisible,
-  onWaitForElementToBeInvisible,
-  config,
-  sleep
+  build: build
 };
+
+
+/**
+ * http://usejsdoc.org/
+ */
+'use strict';
+const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const { log } = require('./logger');
+
+var coreAutomation = function (worldData) {
+  let that = {};
+  that.config = require('../../../config/config.json');
+  log.debug('Configuration loaded');
+  that.loginAccounts = {};
+
+  log.debug('baseURL:' + that.config['baseURL']);
+
+  that.initChrome = function () {
+    var path = require('chromedriver').path;
+
+    var chromeService = new chrome.ServiceBuilder(path).build();
+    chrome.setDefaultService(chromeService);
+
+    var driver = new webdriver.Builder()
+      .withCapabilities(webdriver.Capabilities.chrome())
+      .build();
+  };
+
+  that.initDriver = function () {
+    switch (that.config.loaddriver) {
+      case 'chrome': {
+        that.initChrome;
+        break;
+      }
+      default: {
+        that.initChrome;
+      }
+    }
+  };
+  that.test = function () {
+    log.debug('Executing test() function in coreAutomation');
+  };
+
+  return that;
+};
+
+module.exports = coreAutomation;
