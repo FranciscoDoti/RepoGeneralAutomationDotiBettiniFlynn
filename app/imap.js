@@ -63,9 +63,9 @@ const connectClient = async function(user, password, regexChoice) {
                         } else if (regex === "courseware"){
                             var coursewareRegex = /(?<=Go to  <strong><a style="color:#080808" href=")(.*?)(?=">)/
                             if(parsed.textAsHtml){
-                                Link = parsed.textAsHtml;
+                                Link = parsed.Html;
                                 var linkFound = Link.match(coursewareRegex);
-                                console.log(linkFound)
+                                console.log(parsed.Html)
                                 if(linkFound){
                                     linkFound = linkFound[0];
                                     resolve(linkFound);
