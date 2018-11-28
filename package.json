@@ -26,8 +26,7 @@
     "test-savi-brightcove": "node ./node_modules/cucumber/bin/cucumber-js features/tests/SAVI/brightcoveplayer.feature --world-parameters='{\"config\": \"savi\"}'"
   },
   "dependencies": {
-    "any-promise": "1.3.0"
-    },
+    "any-promise": "1.3.0",
     "assert-plus": {
       "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
       "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
