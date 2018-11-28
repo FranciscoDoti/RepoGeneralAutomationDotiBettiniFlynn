@@ -1,0 +1,24 @@
+{
+	"webElements": [ 
+
+        {
+            "name":"resources_tab",
+            "byType":"xpath",
+            "definition":"//*[text()= 'RESOURCES']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"courseplanner_button",
+            "byType":"xpath",
+            "definition":"//*[text()='COURSE PLANNER']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        }
+
+
+
+
+    ]
+}

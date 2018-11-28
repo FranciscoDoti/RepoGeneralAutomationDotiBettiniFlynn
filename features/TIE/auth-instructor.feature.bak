@@ -1,0 +1,29 @@
+Feature: Authentication for Achieve Instructor via IAM
+
+Background:
+    Given That I have opened the Achieve <$env> in the <$browser>
+
+##Change the emails to what ever you are using.
+
+#Question:  Where does the access code come from in this scenario?
+Scenario Outline: Invite student by providing a course-specific URL
+    Given I have logged in as <instructor>
+    Then I land on the instructor course list
+    When I elect to invite a student to the course
+    Given I elect to Copy to copy the invite link
+    When Send the link to <student_email> along with <access_code>
+    Then As <student_user> I verify that I am able to access the invited course
+    Examples:
+    | instructor           | student_email           | access_code    | student_account |
+    | "login_instructor_1" | testuser+st01@gmail.com | <$access_code> | login_student_1 |
+
+Scenario: Invite students by sending Email invite
+    Given I have logged in as <$login_instructor_2>
+    Then I land on the instructor course list
+    When I elect to invite a student to the course
+    And I select to send and email invite to "testuser+st02@gmail.com, testuser+st03@gmail.com"
+    Then As <student_user> I verify that I receive and a properly formated email
+    | txt_student_user | 
+    | login_student_2 |
+    | login_student_3 |
+

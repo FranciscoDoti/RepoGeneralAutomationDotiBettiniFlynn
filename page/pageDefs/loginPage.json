@@ -1,0 +1,220 @@
+{
+	"webElements": [
+		{
+			"name": "iframe_login",
+			"byType": "id",
+			"definition": "ctl00_cphContent_ifLogin",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "txt_username",
+			"byType": "id",
+			"definition": "username",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name":"sign_in",
+            "byType":"id",
+            "definition":"signin",
+            "frame":"default",
+            "specialInstr":"NA"
+
+		},
+		{
+			"name": "txt_password",
+			"byType": "id",
+			"definition": "password",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "btn_signin",
+			"byType": "id",
+			"definition": "signin",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "txt_loginFailed",
+			"byType": "classname",
+			"definition": "errorText",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+
+		{
+			"name":"view_box",
+            "byType":"xpath",
+            "definition":"//*[@class='tooltip sc-iwsKbI cxkSpP']",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
+		
+		{
+			"name":"forgot_password",
+            "byType":"xpath",
+            "definition":"//*[@id='RegisterForm']/div[2]/div[1]/span[2]/a",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
+
+		{
+			"name":"help_link",
+            "byType":"xpath",
+            "definition":"///*[@id='app']/div/div/div/div/div[3]/div/ul/li[7]/a",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
+		{
+			"name":"cancle_button",
+            "byType":"xpath",
+            "definition":".//*[@id='cancel']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+		},
+		{
+			"name":"email_address",
+            "byType":"xpath",
+            "definition":"//*[@id='email']",
+            "frame":"default",
+			"specialInstr":"NA",
+			"waittobevisible": "reset_password"
+		
+		},
+		{
+
+			"name":"reset_password",
+            "byType":"xpath",
+            "definition":"//*[@id='resetpassword']",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
+		{
+			"name":"security_question",
+            "byType":"id",
+            "definition":"answerText",
+            "frame":"default",
+            "specialInstr":"NA"
+
+		},
+		{
+			"name":"submit_button",
+            "byType":"xpath",
+            "definition":"//*[@id='submitanswer']",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
+		{
+			"name":"backto_login",
+            "byType":"id",
+            "definition":"backToLogin",
+            "frame":"default",
+            "specialInstr":"NA"
+
+		},
+		{
+			"name":"help_button",
+			"byType":"xpath",
+			"definition":"//*[@id='app']/div/div/div/div/div[3]/div/ul/li[7]/a",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+		{
+			"name":"signInValidationMsg",
+			"byType":"xpath",
+			"definition":"//*[@class='errorText']",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+
+		{
+			"name":"error_sign",
+			"byType":"xpath",
+			"definition":"//*[@class='errorText']",
+			"frame":"default",
+			"specialInstr":"NA"
+
+		},
+		{
+			"name":"help_check",
+			"byType":"xpath",
+			"definition":"//*[text()='How Can We Help?']",
+			"frame":"default",
+			"specialInstr":"NA"
+
+		},
+
+		{
+			"name":"forgot_check",
+			"byType":"xpath",
+			"definition":"//*[text()='PASSWORD RESET']",
+			"frame":"default",
+			"specialInstr":"NA"
+
+		},
+		{
+			"name":"existinguser_check",
+			"byType":"xpath",
+			"definition":"//*[@class='_12lX']",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+		{
+			"name":"userinvalid_errortext",
+			"byType":"xpath",
+			"definition":"//*[@class='errorText']",
+			"frame":"default",
+			"specialInstr":"NA"
+
+		},
+		{
+			"name":"Tooltip_verifiaction",
+			"byType":"xpath",
+			"definition":"//*[@class='tooltipContent']",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+		{
+			"name":"unregistered_username_check",
+			"byType":"xpath",
+			"definition":"//*[text()='Request failed with status code 500']",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+		{
+			"name":"registered_username_check",
+			"byType":"xpath",
+			"definition":"//*[@id='confirm']/div/p",
+			"frame":"default",
+			"specialInstr":"NA"
+
+		},
+		{
+			"name":"security_check",
+			"byType":"xpath",
+			"definition":"//*[@class='errorText']",
+			"frame":"default",
+			"specialInstr":"NA"
+
+		},
+		{
+			"name":"email_forgot",
+			"byType":"xpath",
+			"definition":"//*[@class='help_outlineIcon']",
+			"frame":"default",
+			"specialInstr":"NA"
+		},
+		{
+			"name":"email_forgot_check",
+			"byType":"xpath",
+			"definition":"//*[@class='tooltipContent']",
+			"frame":"default",
+			"specialInstr":"NA"
+		}
+
+
+	]
+}

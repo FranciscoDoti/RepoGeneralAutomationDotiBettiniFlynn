@@ -1,0 +1,39 @@
+{
+	"webElements": [
+		{
+			"name": "btn_login",
+			"byType": "id",
+			"definition": "ctl00_ucHeaderContactUsToolBar_aLoginLink",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "ExampleObject2",
+			"byType": "xpath",
+			"definition": "totalCost2",
+			"specialInstr": "overwrite"
+		},
+	
+		{
+			"name":"enter_emailid",
+            "byType":"xpath",
+            "definition":".//*[@name='emailInput']",
+            "frame":"default",
+			"specialInstr":"NA",
+			"waitToBeVisible":"send_button"
+
+		},
+
+		{
+			"name":"send_button",
+            "byType":"xpath",
+            "definition":".//*[@class='_1tkc undefined']",
+            "frame":"default",
+            "specialInstr":"NA"
+		}
+		
+       
+        
+        
+		
+	]
+}
