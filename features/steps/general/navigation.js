@@ -69,3 +69,8 @@ When('I click on delete the course', async function () {
   await pages.navigation.populate('Delete_course', 'click');
   await pages.navigation.populate('Confirm_Delete_course', 'click');
 });
+
+// AfterAll(function () {
+//   getDriver().quit();
+//   return Promise.resolve();
+// });
