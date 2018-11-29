@@ -17,21 +17,17 @@ Background:
             |isbn_number         | 9781464199499 |
             |course_status       | Draft |
             |save_button         | click |
-        And I populate from the dataTable
         Then I validate that the course "$course.templatename" is listed in the courses page
        
     @courseware-logout  
     Scenario: Convert a Skills template from a draft to a Template
         When I have logged in as "media_producer_2"
-        #And I search for 'TestingCourse Writer's Help 3.0'
         And I click on course settings
         And I elect to edit the course named "course1.templatename"
         And I fill out the form to create a new course
             |pagedef         | value    |
             |Template_status | Active On Date|
-            |Active_Date     | @Date('now') |
             |save_button         | click |
-        And I populate from the dataTable
         And I elect to edit the course with the following data:
         Then I validate that the course card named "course1.templatename" exists on the course page with the status of "Template"
         And I click on course card 'TestingCourse Writer's Help 3.0' template

@@ -9,6 +9,9 @@ const {getDriver, sleep} = require('../../../app/driver');
 const {By} = require('selenium-webdriver');
 const assert = require('assert');
 const config = loadConfig('config');
+const { connectClient } = require('../../../app/imap');
+var countlinks
+
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
 let pages = {
   courseTemplate: new PageObject('course-template-directory.json', coursewareStepsPath),
@@ -249,6 +252,10 @@ When('I change the course from unassigned to assign', async function () {
     await pages.courseplanner.populate('Assign_Button', 'click');
   }
 });
+When('I check E-mail for the invite link and use my "(.*)" details to login in "(.*)"', async function () {
+
+});
+
 // Still working on this
 // When(/^I open the invite link and login with "(.*)" account details$/,async function (account) {
 //   await sleep(3000);

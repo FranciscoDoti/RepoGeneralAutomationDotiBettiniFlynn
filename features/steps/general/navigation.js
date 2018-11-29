@@ -1,5 +1,5 @@
 // features/support/steps.js
-const { Given, When, Then, After } = require('cucumber');
+const { Given, When, Then, After, AfterAll } = require('cucumber');
 const { loadConfig, loadLogin } = require('../../../app/util');
 const { getDriver, sleep } = require('../../../app/driver');
 const stepsPath = process.cwd() + '/features/pageDefs/';
@@ -69,3 +69,8 @@ When('I click on delete the course', async function () {
   await pages.navigation.populate('Delete_course', 'click');
   await pages.navigation.populate('Confirm_Delete_course', 'click');
 });
+
+// AfterAll(function () {
+//   getDriver().quit();
+//   return Promise.resolve();
+// });

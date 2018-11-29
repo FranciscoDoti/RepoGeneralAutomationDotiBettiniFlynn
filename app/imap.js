@@ -62,10 +62,11 @@ const connectClient = async function(user, password, regexChoice) {
                                 }
                             }
                         } else if (regex === "courseware"){
-                            var coursewareRegex = /(?<=Go to  <strong><a style="color:#080808" href=")(.*?)(?=">)/
+                            var coursewareRegex = /(?<=Go\st=\no\s\s<strong><a\sstyle=3D"color:\s#080808;"\shref=3D")(.*?)(?=">)/
                             if(parsed.textAsHtml){
-                                Link = parsed.textAsHtml;
+                                Link = parsed.text;
                                 var linkFound = Link.match(coursewareRegex);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                                 console.log(linkFound)
 =======
@@ -73,6 +74,12 @@ const connectClient = async function(user, password, regexChoice) {
                                 const href = $('a[style=3D"color: #080808;"]').text();
                                 console.log('mailObject~~~~~~~~~~~~~~~~~~',parsed.text, '~~~~~mailObject', info, '~~~~~~~~~~~href ', href, 'href~~~~~~~~~~~~~')
 >>>>>>> Stashed changes
+=======
+                                // const $ = cheerio.load(parsed.text); 
+                                // const href = $(['Go to  <strong><a style="color:#080808" href=3D"https://int-achieve-coursew=are-frontend.mldev.cloud"']).attr('href').replace('coursew=are','courseware');
+                                console.log(Link);
+                                console.log(linkFound);
+>>>>>>> fad9ebe3446d22704db7d1ca46a967a294531ecc
                                 if(linkFound){
                                     linkFound = linkFound[0];
                                     resolve(linkFound);
