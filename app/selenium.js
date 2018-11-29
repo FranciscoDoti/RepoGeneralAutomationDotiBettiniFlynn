@@ -75,6 +75,20 @@ module.exports = function(driver) {
       yield this._exists(false, locator, timeout);
     }),
 
+    populate: Promise.coroutine(function*(selector, text) {
+      if(text === "click") {
+        this.click(selector);
+      } else {
+        this.input(selector, text);
+      }
+    }),
+
+    populateDatatable: Promise.coroutine(function*(table) {
+      for (let i = 0; i < table.rows().length; i++) {
+        await populate(table.hashes()[i].pageDef, table.hashes()[i].value);
+      }
+    }),
+
     input: Promise.coroutine(function*(selector, text) {
       var locator = this._locator(selector);
       yield this._exists(true, locator);
