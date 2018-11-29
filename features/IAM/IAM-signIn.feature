@@ -30,28 +30,28 @@ Feature: Sign in
     Scenario: Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system
         Given I have opened Achieve
         When I click on sign In button on top right corner
-    #    And I login using invalid login credentials for 6 times
-    #        |UserName        | Password    |
-    #        |txt_username    | coursewareachieve@gmail.com |
-    #        |txt_password    | password1   |
-    #        |sign_in         | click       |
-    #        |txt_username    | coursewareachieve@gmail.com |
-    #        |txt_password    | password2   |
-    #        |sign_in         | click       |
-    #        |txt_username    | coursewareachieve@gmail.com  |
-    #        |txt_password    | password3   |
-    #        |sign_in         | click       |
-    #        |txt_username    | coursewareachieve@gmail.com |
-    #        |txt_password    | password4   |
-    #        |sign_in         | click       |
-    #        |txt_username    | coursewareachieve@gmail.com |
-    #        |txt_password    | password5   |
-    #        |sign_in         | click       |
-    #        |txt_username    | coursewareachieve@gmail.com |
-    #        |txt_password    | password6   |
-    #        |sign_in         | click       |
-    #    Then I login with following credentials:
-    #    Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed
+        And I login using invalid login credentials for 6 times
+            |UserName        | Password    |
+            |txt_username    | coursewareachieve@gmail.com |
+            |txt_password    | password1   |
+            |sign_in         | click       |
+            |txt_username    | coursewareachieve@gmail.com |
+            |txt_password    | password2   |
+            |sign_in         | click       |
+            |txt_username    | coursewareachieve@gmail.com  |
+            |txt_password    | password3   |
+            |sign_in         | click       |
+            |txt_username    | coursewareachieve@gmail.com |
+            |txt_password    | password4   |
+            |sign_in         | click       |
+            |txt_username    | coursewareachieve@gmail.com |
+            |txt_password    | password5   |
+            |sign_in         | click       |
+            |txt_username    | coursewareachieve@gmail.com |
+            |txt_password    | password6   |
+            |sign_in         | click       |
+        Then I login with following credentials:
+        Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed
 
 
   #  Scenario:Verify whether user able to login without waiting for 15minutes

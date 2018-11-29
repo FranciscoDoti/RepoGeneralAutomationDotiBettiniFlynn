@@ -1,7 +1,9 @@
 const { When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../../page/a_master.js');
-const chai = require('chai');
+const assertions = require('../../../assert/iam.json');
+const expect = require('chai').expect;
+
 
 When('I click on create an account button', async function() {
   await pages.navigation.populate('create_account_button', 'click');
@@ -45,14 +47,23 @@ When('I login using invalid login credentials for 6 times', async function(dataT
 });
 
 Then('I login with following credentials:', async function() {
+  let qa = new selenium(this.driver);
+
   var e;
+  console.log('ROWSSS ',invalid.rows().length)
   for (e = 0; e < invalid.rows().length; e++) {
-    await pages.login.populate(invalid.hashes()[e].UserName, invalid.hashes()[e].Password);
+    await qa.input(page.login.username, invalid.hashes()[e].UserName);
+    await qa.input(page.login.password, invalid.hashes()[e].Password);
+    await qa.click(page.login.sign_in);
   }
 });
 
 Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed', async function() {
-  await pages.login.getElementValue('userinvalid_errortext');
+  let qa = new selenium(this.driver);
+
+  let text = await qa.getText(page.login.errortext);
+  console.log('TEXT IS ', text);
+  expect(text).to.equal(assertions.too_many_attempts);
 });
 
 Then('I click on help Link', async function() {

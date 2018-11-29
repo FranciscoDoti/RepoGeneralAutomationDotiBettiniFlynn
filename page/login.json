@@ -1,7 +1,12 @@
 {
+  "signin": "._3GtB",
+  "username": ".username",
+  "password": "#password",
+  "errortext": ".errorText",
+
+  "userinvalid_errortext": ".errorText",
   "iframe_login": "#ctl00_cphContent_ifLogin",
   "txt_username": "#username",
-  "signin": "._3GtB",
   "sign_in": "#signin",
   "txt_password": "#password",
   "btn_signin": "#signin",
@@ -21,7 +26,6 @@
   "help_check": "//*[text()='How Can We Help?']",
   "forgot_check": "//*[text()='PASSWORD RESET']",
   "existinguser_check": "//*[@class='_12lX']",
-  "userinvalid_errortext": "//*[@class='errorText']",
   "Tooltip_verifiaction": "//*[@class='tooltipContent']",
   "unregistered_username_check": "//*[text()='Request failed with status code 500']",
   "registered_username_check": "//*[@id='confirm']/div/p",
