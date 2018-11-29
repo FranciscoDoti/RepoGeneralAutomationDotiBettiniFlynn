@@ -5,6 +5,7 @@ const process = require("process");
 const minimist = require("minimist");
 
 function CustomWorld() {
+  var argv = minimist(process.argv.slice(2));
   var builder;
   var capabilities = {
     "browserName": argv.browser || "chrome",
