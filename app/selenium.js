@@ -1,5 +1,5 @@
 var Promise = require("bluebird");
-var properties = require("../properties");
+var config = require("../config");
 
 Promise.longStackTraces();
 
@@ -29,7 +29,7 @@ module.exports = function(driver) {
     }),
 
     sleep: Promise.coroutine(function*(timeout) {
-      yield Promise.delay(timeout * 1000 || properties.sleep);
+      yield Promise.delay(timeout * 1000 || config.sleep);
     }),
 
     click: Promise.coroutine(function*(selector) {
@@ -115,7 +115,7 @@ module.exports = function(driver) {
         return handles;
       });
 
-      var handles = yield poll_().timeout(properties.timeout, "Polling for new window timed out.");
+      var handles = yield poll_().timeout(config.timeout, "Polling for new window timed out.");
       yield driver.switchTo().window(handles[1]);
       yield func();
       yield driver.switchTo().window(handles[0]);
@@ -137,6 +137,15 @@ module.exports = function(driver) {
         yield driver.executeScript('window.scrollBy(0, window.innerHeight)');
         yield this.sleep(0.250);
       }
+    }),
+
+    scrollIntoView: Promise.coroutine(function*(selector) {
+      var locator = this._locator(selector);
+      yield driver.executeScript('arguments[0].scrollIntoView()', locator);
+    }),
+
+    switchFrame: Promise.coroutine(function*(selector) {
+      yield driver.switchTo().frame(selector);
     }),
 
     /* ----- */
@@ -173,7 +182,7 @@ module.exports = function(driver) {
       }
       var message = (should_exist ? `Element '${name}' is not present.` : `Element '${name}' is present.`);
 
-      yield driver.wait(poll, (timeout || properties.timeout), message);
+      yield driver.wait(poll, (timeout || config.timeout), message);
     }),
 
     _locator: function(selector) {
