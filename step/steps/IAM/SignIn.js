@@ -50,7 +50,6 @@ Then('I login with following credentials:', async function() {
   let qa = new selenium(this.driver);
 
   var e;
-  console.log('ROWSSS ',invalid.rows().length)
   for (e = 0; e < invalid.rows().length; e++) {
     await qa.input(page.login.username, invalid.hashes()[e].UserName);
     await qa.input(page.login.password, invalid.hashes()[e].Password);
@@ -62,7 +61,6 @@ Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" mes
   let qa = new selenium(this.driver);
 
   let text = await qa.getText(page.login.errortext);
-  console.log('TEXT IS ', text);
   expect(text).to.equal(assertions.too_many_attempts);
 });
 
