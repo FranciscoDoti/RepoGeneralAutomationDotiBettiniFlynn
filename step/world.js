@@ -1,13 +1,11 @@
-const webdriver = require('selenium-webdriver');
-const config = require('../config.js');
+const {setWorldConstructor} = require('cucumber');
+const seleniumWebdriver = require('selenium-webdriver');
+const config = require('../config/config.js');
 const process = require("process");
 const minimist = require("minimist");
 
-
-const buildDriver = function() {
+function CustomWorld() {
   var builder;
-  var argv = minimist(process.argv.slice(2));
-
   var capabilities = {
     "browserName": argv.browser || "chrome",
     "takesScreenshot": true,
@@ -32,10 +30,9 @@ const buildDriver = function() {
       .build();
   }
 
-  return builder;
-}
+  this.driver = builder;
 
-
-module.exports = {
-  build: build
 };
+
+setDefaultTimeout(700 * 700); 
+setWorldConstructor(CustomWorld);

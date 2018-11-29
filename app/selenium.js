@@ -150,7 +150,6 @@ module.exports = function(driver) {
 
     /* ----- */
 
-
     _click: Promise.coroutine(function*(locator) {
       yield this._exists(true, locator);
       yield driver.findElement(locator).click();
