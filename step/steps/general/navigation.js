@@ -6,7 +6,9 @@ const config = require('../../../config/config.js');
 
 
 Given(/^I have opened Achieve "(.*)"$/, async function (url) {
-  await selenium.goTo(url);
+  let qa = new selenium(this.driver);
+
+  await qa.goTo('https://int-achieve-iam.mldev.cloud/login?retURL=https://int-achieve-courseware-frontend.mldev.cloud/courses');
 });
 
 When('I click on sign In button on top right corner', async function () {

@@ -3,6 +3,7 @@ const seleniumWebdriver = require('selenium-webdriver');
 const config = require('../config/config.js');
 const process = require("process");
 const minimist = require("minimist");
+require('chromedriver');
 
 function CustomWorld() {
   var argv = minimist(process.argv.slice(2));
@@ -14,18 +15,18 @@ function CustomWorld() {
   };
 
   if (config.mode === 'local') {
-    builder = new WebDriver.Builder()
+    builder = new seleniumWebdriver.Builder()
       .withCapabilities(capabilities)
       .build();
   } else if (config.mode === 'browserstack') {
     capabilities = _.merge(capabilities, config.browserstack);
 
-    builder = new WebDriver.Builder()
+    builder = new seleniumWebdriver.Builder()
       .usingServer('http://hub-cloud.browserstack.com/wd/hub')
       .withCapabilities(capabilities)
       .build();
   } else {
-    builder = new WebDriver.Builder()
+    builder = new seleniumWebdriver.Builder()
       .usingServer("http://selenium:4444/wd/hub")
       .withCapabilities(capabilities)
       .build();
