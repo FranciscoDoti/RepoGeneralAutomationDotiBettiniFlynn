@@ -1,5 +1,6 @@
-var Imap = require('imap')
+var Imap = require('imap');
 var simpleParser = require("mailparser").simpleParser;
+var cheerio = require('cheerio');
 let Link;
 
 const connectClient = async function(user, password, regexChoice) {
@@ -43,7 +44,7 @@ const connectClient = async function(user, password, regexChoice) {
     const fetchMessages = async function (box){
         return new Promise((resolve, reject) => {
             // get only the latest email
-            var f = client.seq.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
+            var f = client.seq.fetch(box.messages.total + ':', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
             f.on('message', function(msg, seqno) {
                 msg.on('body', function(stream, info) {
                     simpleParser(stream).then((parsed) => {
@@ -65,7 +66,13 @@ const connectClient = async function(user, password, regexChoice) {
                             if(parsed.textAsHtml){
                                 Link = parsed.textAsHtml;
                                 var linkFound = Link.match(coursewareRegex);
+<<<<<<< Updated upstream
                                 console.log(linkFound)
+=======
+                                const $ = cheerio.load(parsed.text);
+                                const href = $('a[style=3D"color: #080808;"]').text();
+                                console.log('mailObject~~~~~~~~~~~~~~~~~~',parsed.text, '~~~~~mailObject', info, '~~~~~~~~~~~href ', href, 'href~~~~~~~~~~~~~')
+>>>>>>> Stashed changes
                                 if(linkFound){
                                     linkFound = linkFound[0];
                                     resolve(linkFound);
