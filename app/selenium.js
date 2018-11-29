@@ -85,7 +85,7 @@ module.exports = function(driver) {
 
     populateDatatable: Promise.coroutine(function*(table) {
       for (let i = 0; i < table.rows().length; i++) {
-        await populate(table.hashes()[i].pageDef, table.hashes()[i].value);
+        yield populate(table.hashes()[i].pageDef, table.hashes()[i].value);
       }
     }),
 

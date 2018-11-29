@@ -5,19 +5,20 @@ const page = require('../../../page/a_master.js');
 const config = require('../../../config/config.js');
 
 
-Given(/^I have opened Achieve "(.*)"$/, async function (url) {
+Given(/^I have opened Achieve$/, async function () {
   let qa = new selenium(this.driver);
 
-  await qa.goTo('https://int-achieve-iam.mldev.cloud/login?retURL=https://int-achieve-courseware-frontend.mldev.cloud/courses');
+  await qa.goTo(config.url.achieve.signURL);
 });
 
 When('I click on sign In button on top right corner', async function () {
-  await sleep(5000);
-  await selenium.click(page.login.signin);
-  // await pages.navigation.populate('sign_in', 'click');
+  let qa = new selenium(this.driver);
+
+  await qa.click(page.login.signin);
 });
 
 When(/^I have logged in as "(.*)"$/, async function (userObject) {
+  let qa = new selenium(this.driver);
   let user = userObject || {
     username:'Generic',
     password:'Password'

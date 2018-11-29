@@ -1,6 +1,7 @@
 {
   "iframe_login": "#ctl00_cphContent_ifLogin",
   "txt_username": "#username",
+  "signin": "._3GtB",
   "sign_in": "#signin",
   "txt_password": "#password",
   "btn_signin": "#signin",

@@ -1,7 +1,4 @@
-const {
-  When,
-  Then
-} = require('cucumber');
+const { When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../../page/a_master.js');
 const chai = require('chai');
