@@ -1,4 +1,7 @@
-const { When, Then } = require('cucumber');
+const {
+  When,
+  Then
+} = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../../page/a_master.js');
 const chai = require('chai');
@@ -65,4 +68,5 @@ Then('I verify the help page is displayed', async function() {
 });
 
 Then('I verify that user must not able to login', async function() {
-  await pages.login.checkWebElementExists('existinguser_check')) {});
+  await pages.login.checkWebElementExists('existinguser_check');
+});

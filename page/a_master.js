@@ -1,5 +1,5 @@
 page = {
-    login : require('./login.js')
+    login : require('./login.json')
 };
 
 module.exports = page;

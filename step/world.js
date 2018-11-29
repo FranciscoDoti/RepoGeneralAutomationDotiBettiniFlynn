@@ -34,5 +34,5 @@ function CustomWorld() {
 
 };
 
-setDefaultTimeout(700 * 700); 
+// setDefaultTimeout(700 * 700); 
 setWorldConstructor(CustomWorld);

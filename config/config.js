@@ -1,3 +1,3 @@
 {
-  "mode": "local"
+  mode: "local"
 }

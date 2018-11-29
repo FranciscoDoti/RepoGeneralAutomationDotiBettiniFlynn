@@ -1,41 +1,29 @@
 // features/support/steps.js
 const { Given, When, Then, After } = require('cucumber');
-const path = require('path');
-const { loadConfig, loadLogin } = require('../../../app/util');
-const { getDriver, sleep } = require('../../../app/driver');
-const { By } = require('selenium-webdriver');
+const selenium = require('../../../app/selenium.js');
+const page = require('../../../page/a_master.js');
+const config = require('../../../config/config.js');
 
-const stepsPath = process.cwd() + '/features/pageDefs/';
-const { PageObject } = require('../../../app/pageObject');
-const { log } = require('../../../app/logger');
 
-const config = loadConfig('config');
-
-// Scenario setup
-let pages = {
-  navigation: new PageObject('navigation.json', stepsPath),
-  createAccount: new PageObject('createAccount.json', stepsPath)
-};
-
-Given(/^I have opened Achieve "(.*)"$/, async function (urlKey) {
-  const url = config[urlKey];
-  log.debug(`Loading URL ${url}`);
-  await getDriver().get(url);
+Given(/^I have opened Achieve "(.*)"$/, async function (url) {
+  await selenium.goTo(url);
 });
 
 When('I click on sign In button on top right corner', async function () {
   await sleep(5000);
-  log.debug('clicking on sigin button');
-  await pages.navigation.populate('sign_in', 'click');
+  await selenium.click(page.login.signin);
+  // await pages.navigation.populate('sign_in', 'click');
 });
 
-When(/^I have logged in as "(.*)"$/, async function (userFile) {
-  const user = loadLogin(userFile);
-  log.debug(`Using user ${user.username}`);
-  await pages.navigation.populate('txt_username', user.username);
-  await pages.navigation.populate('txt_password', user.password);
-  await pages.navigation.populate('signin_button', 'click');
-  log.debug(`Login button was clicked`);
+When(/^I have logged in as "(.*)"$/, async function (userObject) {
+  let user = userObject || {
+    username:'Generic',
+    password:'Password'
+  };
+
+  await selenium.input(page.login.username, user.username);
+  await selenium.input(page.login.password, user.password);
+  await selenium.click(page.login.signin);
 });
 
 Then('I sign out of Achieve', async function () {
@@ -63,10 +51,10 @@ After('@admin-cancel', async function () {
 })
 
 When('I click on course settings', async function () {
-  log.debug('Clicking course settings button');
   await sleep(5000);
   await pages.navigation.populate('Course_setting', 'click');
 });
+
 // use this step to delete the course and commentit when you are not using( example is available in Qual_Pm, Quant_Pm)
 When('I click on delete the course', async function () {
   await pages.navigation.populate('Delete_course', 'click');

@@ -1,7 +1,7 @@
 var Promise = require("bluebird");
-var config = require("../config");
+var config = require("../config/config.js");
 
-Promise.longStackTraces();
+// Promise.longStackTraces();
 
 
 module.exports = function(driver) {
