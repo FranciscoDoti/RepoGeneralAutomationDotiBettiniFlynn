@@ -1,4 +1,4 @@
-const { Given, When, Then, AfterAll } = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const { loadConfig } = require('../../../app/util');
 const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
@@ -9,10 +9,12 @@ const login = loadConfig('login');
 const assert = require('assert');
 
 const saviBrightcoveStandalone = new PageObject('savi-brightcove-standalone.json', stepsPath);
+const saviBrightcoveEpub = new PageObject('savi-brightcove-epub.json', stepsPath);
 const loginPage = new PageObject('saplinglearning-login.json', stepsPath);
 const saviVerification1 = new PageObject('savi-verification1.json', stepsPath);
 const saviBrightcoveNGA = new PageObject('savi-brightcove-nga.json', stepsPath);
 
+// Standalone link steps
 Given('I open the standalone Brightcove Player', async function () {
   const url = config.standalone;
   log.debug(`Loading URL ${url}`);
@@ -48,6 +50,28 @@ Then('I can click all the control buttons', async function () {
   await saviBrightcoveStandalone.populate('fullscreen_button', 'click');
 });
 
+// ePub steps
+
+Given('I open the VitalSource link', async function () {
+  const url = config.vitalsource;
+  log.debug(`Loading URL ${url}`);
+  await getDriver().get(url);
+});
+
+Given('I go to a section with Brightcove Player', async function () {
+  log.info('ready');
+});
+
+Given('I can play a video in the ePub', async function () {
+  await sleep(500);
+  const readyState = await saviBrightcoveEpub.getElementValue('video', 'readyState');
+  log.debug(`readyState: ${readyState}`);
+  await saviBrightcoveEpub.populate('big_play_button', 'click');
+  await sleep(1000);
+});
+
+// NGA steps
+
 Given('I login to sapling SAVIPO2', async function () {
   const url = config.loginURL;
   log.debug(`Loading URL ${url}`);
@@ -80,8 +104,3 @@ Then('I can play a video in the assignment', async function () {
   // log.debug(`currentTime: ${currentTime}`);
   // assert(currentTime > 0, 'The video is playing');
 });
-
-// AfterAll(function () {
-//   getDriver().quit();
-//   return Promise.resolve();
-// });
