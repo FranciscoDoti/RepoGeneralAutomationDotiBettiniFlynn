@@ -1,5 +1,6 @@
-var Imap = require('imap')
+var Imap = require('imap');
 var simpleParser = require("mailparser").simpleParser;
+var cheerio = require('cheerio');
 let Link;
 
 const connectClient = async function(user, password, regexChoice) {
@@ -43,7 +44,7 @@ const connectClient = async function(user, password, regexChoice) {
     const fetchMessages = async function (box){
         return new Promise((resolve, reject) => {
             // get only the latest email
-            var f = client.seq.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
+            var f = client.seq.fetch(box.messages.total + ':', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
             f.on('message', function(msg, seqno) {
                 msg.on('body', function(stream, info) {
                     simpleParser(stream).then((parsed) => {
@@ -61,11 +62,14 @@ const connectClient = async function(user, password, regexChoice) {
                                 }
                             }
                         } else if (regex === "courseware"){
-                            var coursewareRegex = /(?<=Go to  <strong><a style="color:#080808" href=")(.*?)(?=">)/
+                            var coursewareRegex = /(?<=Go\st=\no\s\s<strong><a\sstyle=3D"color:\s#080808;"\shref=3D")(.*?)(?=">)/
                             if(parsed.textAsHtml){
-                                Link = parsed.Html;
+                                Link = parsed.text;
                                 var linkFound = Link.match(coursewareRegex);
-                                console.log(parsed.Html)
+                                // const $ = cheerio.load(parsed.text); 
+                                // const href = $(['Go to  <strong><a style="color:#080808" href=3D"https://int-achieve-coursew=are-frontend.mldev.cloud"']).attr('href').replace('coursew=are','courseware');
+                                console.log(Link);
+                                console.log(linkFound);
                                 if(linkFound){
                                     linkFound = linkFound[0];
                                     resolve(linkFound);
