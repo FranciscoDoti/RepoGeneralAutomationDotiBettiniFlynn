@@ -1,4 +1,4 @@
-const { When, Then, AfterAll } = require('cucumber');
+const { When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../../page/a_master.js');
 const assertions = require('../../../assert/iam.json');
