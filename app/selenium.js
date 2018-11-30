@@ -16,11 +16,11 @@ module.exports = function(driver) {
     }),
 
     //This must be used over the close for the 3rd party distributed services
-    close: Promise.coroutine(function*(url) {
+    close: Promise.coroutine(function*() {
       yield driver.quit();
     }),
 
-    quit: Promise.coroutine(function*(url) {
+    quit: Promise.coroutine(function*() {
       yield driver.quit();
     }),
 

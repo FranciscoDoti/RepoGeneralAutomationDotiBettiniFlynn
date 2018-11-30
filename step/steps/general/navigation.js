@@ -24,9 +24,9 @@ When(/^I have logged in as "(.*)"$/, async function (userObject) {
     password:'Password'
   };
 
-  await selenium.input(page.login.username, user.username);
-  await selenium.input(page.login.password, user.password);
-  await selenium.click(page.login.signin);
+  await qa.input(page.login.username, user.username);
+  await qa.input(page.login.password, user.password);
+  await qa.click(page.login.signin);
 });
 
 Then('I sign out of Achieve', async function () {

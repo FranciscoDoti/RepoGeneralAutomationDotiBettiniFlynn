@@ -1,4 +1,4 @@
-const { When, Then } = require('cucumber');
+const { When, Then, AfterAll } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../../page/a_master.js');
 const assertions = require('../../../assert/iam.json');
@@ -61,7 +61,7 @@ Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" mes
   let qa = new selenium(this.driver);
 
   let text = await qa.getText(page.login.errortext);
-  expect(text).to.equal(assertions.too_many_attempts);
+  expect(text).to.equal(assertions.test);
 });
 
 Then('I click on help Link', async function() {
