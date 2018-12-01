@@ -60,7 +60,7 @@ Then('I click on course card "Testcourse" template', async function () {
   await pages.courseTemplate.populate('course_card_button', 'click', 'resources_tab');
 });
 Then('I click on Resource tab', async function () {
-  await sleep(3000);
+  await sleep(5000);
   log.debug('Clicking on resources tab');
   await pages.activityTab.populate('resources_tab', 'click');
 });
