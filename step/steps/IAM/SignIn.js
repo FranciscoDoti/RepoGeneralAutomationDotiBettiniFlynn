@@ -12,6 +12,7 @@ When('I click on create an account button', async function() {
 Then('I hover on icon "i"', async function() {
   await pages.login.populate('view_box', 'click');
 });
+
 Then('I verify that password info icon tooltip Information is consistent to application behavior', async function() {
   await pages.login.checkWebElementExists('Tooltip_verifiaction');
 });
@@ -61,7 +62,7 @@ Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" mes
   let qa = new selenium(this.driver);
 
   let text = await qa.getText(page.login.errortext);
-  expect(text).to.equal(assertions.test);
+  expect(text).to.equal(assertions.too_many_attempts);
 });
 
 Then('I click on help Link', async function() {
