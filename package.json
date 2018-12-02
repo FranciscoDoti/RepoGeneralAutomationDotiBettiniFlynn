@@ -18,6 +18,11 @@
     "bluebird": "^3.5.3",
     "chai": "^4.1.2",
     "chromedriver": "^2.44.0",
+=======
+    "cheerio": "^1.0.0-rc.2",
+>>>>>>> fad9ebe3446d22704db7d1ca46a967a294531ecc
+    "chromedriver": "^2.41.0",
+>>>>>>> origin
     "cucumber": "^4.2.1",
     "eslint": "^4.19.1",
     "geckodriver": "^1.14.1",

@@ -81,7 +81,7 @@ Then('I can play a video in the assignment', async function () {
   // assert(currentTime > 0, 'The video is playing');
 });
 
-AfterAll(function () {
-  getDriver().quit();
-  return Promise.resolve();
-});
+// AfterAll(function () {
+//   getDriver().quit();
+//   return Promise.resolve();
+// });

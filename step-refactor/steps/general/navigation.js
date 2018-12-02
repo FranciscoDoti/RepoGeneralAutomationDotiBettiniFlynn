@@ -21,9 +21,9 @@ When(/^I have logged in as "(.*)"$/, async function (userObject) {
     password:'Password'
   };
 
-  await selenium.input(page.login.username, user.username);
-  await selenium.input(page.login.password, user.password);
-  await selenium.click(page.login.signin);
+  await selenium.populate(page.login.username, user.username);
+  await selenium.populate(page.login.password, user.password);
+  await selenium.populate(page.login.signin, "click");
 });
 
 Then('I sign out of Achieve', async function () {
@@ -60,3 +60,8 @@ When('I click on delete the course', async function () {
   await pages.navigation.populate('Delete_course', 'click');
   await pages.navigation.populate('Confirm_Delete_course', 'click');
 });
+
+// AfterAll(function () {
+//   getDriver().quit();
+//   return Promise.resolve();
+// });
