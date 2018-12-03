@@ -87,33 +87,16 @@ Background:
         And I click on Add button to add activities
         And I change the course from unassigned to assign
         
-    #  @courseware-logout
-    # Scenario: Enroll into course with link and access code
-    #     Given I have opened Achieve "ThirdpartyURL"
-    #     When I log in as "student"  
-    #     And I open the invite link and login with "student" account details
-    #     And I click on Grace period
-    #     And I click on Finish Enrollenment 
-    #     Then I validate that the following information is correct on the Course Access Code page
-    #     And I click on course card "E2E101"
-    #     And I click on Resuource tab
-    #     And I click on Open Folder
-    #     Then I click on Read and Practice 
-    #     And I click on the reading material and validate whether the content is available 
-    #     And I start the quiz 
-    #     And I answer the questions
-    #     And I click on submit button
-    #     And I click on alert message
 
-    @courseware-logout
-    Scenario: Verify that user is able to delete the course
-        When I have logged in as "media_producer_1"
-        And I search for "R&P Testcourse"
-        And I click on course settings 
-        And I click on delete the course
-        And I search for "E2E 101"
-        And I click on course settings 
-        And I click on delete the course
+    # @courseware-logout
+    # Scenario: Verify that user is able to delete the course
+    #     When I have logged in as "media_producer_1"
+    #     And I search for "R&P Testcourse"
+    #     And I click on course settings 
+    #     And I click on delete the course
+    #     And I search for "E2E 101"
+    #     And I click on course settings 
+    #     And I click on delete the course
       
 
         
