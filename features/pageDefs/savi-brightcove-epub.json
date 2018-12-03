@@ -1,5 +1,17 @@
 {
   "webElements": [{
+      "name": "ereader_iframe",
+      "byType": "xpath",
+      "definition": "//*[contains(@id,'easyXDM')]",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "epub_iframe",
+      "byType": "id",
+      "definition": "epub-content",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
       "name": "brightcove_iframe",
       "byType": "id",
       "definition": "heem7c0c2211c419f0ab04a941a20286",
@@ -9,13 +21,13 @@
       "name": "video",
       "byType": "id",
       "definition": "vjs_video_3_html5_api",
-      "frame": "brightcove_iframe",
+      "frame": "default",
       "specialInstr": "NA"
     },{
       "name": "big_play_button",
       "byType": "classname",
       "definition": "vjs-big-play-button",
-      "frame": "brightcove_iframe",
+      "frame": "default",
       "specialInstr": "NA"
     }
   ]

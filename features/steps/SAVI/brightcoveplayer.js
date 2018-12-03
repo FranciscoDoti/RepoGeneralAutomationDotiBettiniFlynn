@@ -64,10 +64,25 @@ Given('I go to a section with Brightcove Player', async function () {
 
 Given('I can play a video in the ePub', async function () {
   await sleep(500);
-  const readyState = await saviBrightcoveEpub.getElementValue('video', 'readyState');
-  log.debug(`readyState: ${readyState}`);
-  await saviBrightcoveEpub.populate('big_play_button', 'click');
-  await sleep(1000);
+  // const readyState = await saviBrightcoveEpub.getElementValue('video', 'readyState');
+  // log.debug(`readyState: ${readyState}`);
+  let ereader = await saviBrightcoveEpub.checkWebElementExists('ereader_iframe');
+  log.debug(`ereader: ${ereader}`);
+  await getDriver().switchTo('ereader_iframe');
+
+  let epubframe = await saviBrightcoveEpub.checkWebElementExists('epub_iframe');
+  log.debug(`epubframe: ${epubframe}`);
+  // await getDriver().switchTo('epub_iframe');
+
+  // let brightcoveframe = await saviBrightcoveEpub.checkWebElementExists('brightcove_iframe');
+  // log.debug(`brightcoveframe: ${brightcoveframe}`);
+  // await getDriver().switchTo('brightcove_iframe');
+
+  // const playbutton = await saviBrightcoveEpub.checkWebElementExists('big_play_button');
+  // log.debug(`playbutton: ${playbutton}`);
+
+  // await saviBrightcoveEpub.populate('big_play_button', 'click');
+  await sleep(2000);
 });
 
 // NGA steps
