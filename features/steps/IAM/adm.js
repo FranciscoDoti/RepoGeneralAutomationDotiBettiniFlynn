@@ -5,6 +5,7 @@ const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
 const { connectClient } = require('../../../app/imap');
+const assert = require('assert');
 const stepsPath = process.cwd().concat('/features/pageDefs/');
 const authAdmin = new PageObject('auth-admin-role.json', stepsPath);
 const createAccount = new PageObject('createAccount.json', stepsPath);
@@ -45,6 +46,7 @@ Then('I click on Reset button', async function () {
   await sleep(1000);
   log.debug('Clicking reset_button ');
   await pages.authAdmin.populate('reset_button', 'click');
+  await sleep(4000);
 });
 
 /* Then('I Verify error message',async function () {
@@ -85,7 +87,6 @@ When('I click on Reset password', async function () {
   await sleep(1000);
   console.log('Clicking on Reset password');
   await pages.authAdmin.populate('reset_password_email', 'click');
-  await sleep(2000);
 });
 Then('I click on login button to return to login page', async function () {
   await sleep(5000);
@@ -100,6 +101,14 @@ Then(/^I verify Message is displayed as "(.*)"$/, async function (verify) {
     throw new Error('failed');
   }
 });
+
+Then(/^I verify reset password Message is displayed as "(.*)"$/, async function (verify) {
+  await sleep(4000);
+  console.log('Verify the user is able to luanch the url and reset the password')
+  const resetPassword = await pages.authAdmin.getElementValue('password_reset_successful');
+  assert(resetPassword === verify, 'The reset password message is not displayed');
+});
+
 Then('Verify that user is able to login using newly created password', async function () {
   console.log(' Verify that user is able to Sign In using new password');
   if (await pages.authAdmin.checkWebElementExists('check')) {

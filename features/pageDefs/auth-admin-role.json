@@ -213,7 +213,13 @@
             "frame":"default",
             "specialInstr":"NA"
 		},
-	
+		{
+			"name":"password_reset_successful",
+            "byType":"xpath",
+            "definition":"//*[@class='pad']",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
 		{
 			"name":"reset_check",
             "byType":"xpath",
