@@ -2,14 +2,11 @@ const fs = require("fs");
 
 
 const writeNewJSON = async function (pageName, file) {
-    let fileName = "./page/pageDefs/" +file + ".json";
+    let fileName = "./page/pageDefs/" + file + ".json";
     var resultObj = {};
     fs.readFile(fileName, "utf-8", (error, pageDef) => {
         if (error) throw error;
-        console.log(fileName, pageDef);
         const pageDefArr = JSON.parse(pageDef)
-        // Object.assign(pageDef)
-        console.log(pageDefArr, '~~~~ARRAY!')
         pageDefArr["webElements"].forEach((ele)=>{
             if(resultObj[ele["name"]]){
                 console.log("Why is the a repeat?")
@@ -29,15 +26,14 @@ const writeNewJSON = async function (pageName, file) {
         })
         var result = {}
         let header = ""
-        console.log(resultObj, '~~~~resultObject~~!!!')
         result[pageName] = resultObj;
-        result = JSON.stringify(result);
-        pageDefFile = pageName + ".json";
+        let resultJSON = JSON.stringify(result);
+        pageDefFile = "./page/" + pageName + ".json";
         fs.writeFile(pageDefFile, header, (err) => {
             if (err) throw err;
-            console.log("File Created");
+            console.log("File Created for ", pageDefFile);
         });
-        fs.appendFile(pageDefFile, result, (err) => {
+        fs.appendFile(pageDefFile, resultJSON, (err) => {
             if (err) throw err;
         });
     });
