@@ -1,1 +1,15 @@
-{"lc_student_lc":{"close_learing_curve":"//a[@data-test-id='closelearningcurve']","assignment_heading":"//div[@data-test-id='pageTitle']","tips_for_success":"//button[@data-test-id='tipsForSuccessBtn']","fqa":"//span[@data-test-id='showFaqPage']","sections_headers":"//div[@data-test-id='studyPlanItemTitleBtn']","section_book_list":"//li[@data-test-id='studyPlanItemSuggestions']","start_quiz_button":"//button[@data-test-id='beginActivityBtn']","current_score":"//span[@data-test-id='progressCurrentScore']","target_score":"//span[@data-test-id='progressTargetScore']","quiz_results_show_details":"//p[@data-test-id='toggleDetailsButton']","section_results":"//div[@data-test-id='studyPlanItem']"}}
+{
+    "lc_student_lc": {
+        "close_learing_curve": "//a[@data-test-id='closelearningcurve']",
+        "assignment_heading": "//div[@data-test-id='pageTitle']",
+        "tips_for_success": "//button[@data-test-id='tipsForSuccessBtn']",
+        "fqa": "//span[@data-test-id='showFaqPage']",
+        "sections_headers": "//div[@data-test-id='studyPlanItemTitleBtn']",
+        "section_book_list": "//li[@data-test-id='studyPlanItemSuggestions']",
+        "start_quiz_button": "//button[@data-test-id='beginActivityBtn']",
+        "current_score": "//span[@data-test-id='progressCurrentScore']",
+        "target_score": "//span[@data-test-id='progressTargetScore']",
+        "quiz_results_show_details": "//p[@data-test-id='toggleDetailsButton']",
+        "section_results": "//div[@data-test-id='studyPlanItem']"
+    }
+}

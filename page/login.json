@@ -13,7 +13,7 @@
   "txt_loginFailed": ".errorText",
   "view_box": "//*[@class='tooltip sc-iwsKbI cxkSpP']",
   "forgot_password": "//*[@id='RegisterForm']/div[2]/div[1]/span[2]/a",
-  "help_link": "///*[@id='app']/div/div/div/div/div[3]/div/ul/li[7]/a",
+  "help_link": "//*[@id='app']/div/div/div/div/div[3]/div/ul/li[7]/a",
   "cancle_button": "//*[@id='cancel']",
   "email_address": "//*[@id='email']",
   "reset_password": "//*[@id='resetpassword']",

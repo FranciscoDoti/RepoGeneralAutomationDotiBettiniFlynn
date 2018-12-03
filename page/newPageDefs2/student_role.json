@@ -1,0 +1,25 @@
+{
+    "/newPageDefs2/student_role": {
+        "course_card_button": ".DOD8 CourseCard_active CourseCard_product_1",
+        "resources_tab": "//*[@id='react-tabs-20']/span",
+        "Open_folder": "//*[@id='container']/div/div/div/div[4]/div/div/div/div[2]/div[2]/div[1]/div/div/div[1]/div/button[1]",
+        "Open_folder_chapter1": "//*[@id='container']/div/div/div/div[4]/div/div/div/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div/div[1]/div/button[1]",
+        "chapter_1_r&p": "//*[@class='_3Jn1']",
+        "Reading_verification": "//*[contains(text(),'Next Section')] ",
+        "Quiz": ".btn-cdl-main AssignmentReading__takeQuizButton__r_fnP",
+        "Read_ebook": "//*[@id='root']/div/div/div[2]/div[3]/div/div/div/div[1]/button/div/span",
+        "Hint_after_read_ebook": ".btn-cdl-secondary HintButton__hintButtonBase__2Qcn7 HintButton__splitContent__2sAg4",
+        "Highlight": ".HighlightOptions__add-highlight__text--1inKwrsW03",
+        "Multiple_choice": "//*[@id='root']/div/div/div[2]/div[2]/div/div/div/form/fieldset/label[1]/span",
+        "Submit_answer": "//*[@id='root']/div/div/div[2]/div[3]/div/button",
+        "Next_Question": ".//*[@id='root']/div/div/div[2]/div[3]/div/div/div/div[1]/button",
+        "Note_highlight": "//*[text()='What Is Psychology?']",
+        "view_study_plan": ".btn-cdl-main LCRP-CompletedActivityModal__studyPlanButton__2JHhv",
+        "modal_content": "//*[@class='modal-content']",
+        "close_message": ".LCRP-CompletedActivityModal__closeIcon__1pKDo",
+        "back_study_plan": ".Clickable__base__6UTKl Activity__headerClickable__3Ubz4 Clickable__colorInherit__hnmAj",
+        "close_Reading&Practice": "//*[@aria-label='Close Learning Curve Read & Practice']",
+        "Gradebook": "//*[@id='react-tabs-6']/span",
+        "alert_message": "//*[text()='OK']"
+    }
+}

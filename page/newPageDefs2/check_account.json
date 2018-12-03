@@ -1,5 +1,5 @@
 {
-    "check_account": {
+    "/newPageDefs2/check_account": {
         "email_field": "#__checkAccount_emailInput",
         "search_btn": "//html/body/div[3]/div/div/div[2]/div/div/button/svg",
         "close_btn": "//html/body/div[3]/div/div/div[2]/div/div/button/svg",

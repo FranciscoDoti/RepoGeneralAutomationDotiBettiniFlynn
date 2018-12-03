@@ -1,1 +1,7 @@
-{"lc_trends_and_insights":{"back_to_instructor_view":"//a[@data-test-id='backToTopicScore']","back_to_student_view":"//a[@data-test-id='backToAssignmentReading']","show_accuracy_distribution":"//input[@data-test-id='distributionCheckbox']"}}
+{
+    "lc_trends_and_insights": {
+        "back_to_instructor_view": "//a[@data-test-id='backToTopicScore']",
+        "back_to_student_view": "//a[@data-test-id='backToAssignmentReading']",
+        "show_accuracy_distribution": "//input[@data-test-id='distributionCheckbox']"
+    }
+}

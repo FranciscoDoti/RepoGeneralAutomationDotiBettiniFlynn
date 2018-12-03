@@ -2,7 +2,7 @@ const fs = require("fs");
 
 
 const writeNewJSON = async function (pageName, file) {
-    let fileName = "./page/pageDefs/" + file + ".json";
+    let fileName = "./page/pageDefs2/" + file + ".json";
     var resultObj = {};
     fs.readFile(fileName, "utf-8", (error, pageDef) => {
         if (error) throw error;
