@@ -7,6 +7,7 @@ const writeNewJSON = async function (pageName, file) {
     fs.readFile(fileName, "utf-8", (error, pageDef) => {
         if (error) throw error;
         const pageDefArr = JSON.parse(pageDef)
+        console.log('pageDeffArr', pageDefArr);
         pageDefArr["webElements"].forEach((ele)=>{
             if(resultObj[ele["name"]]){
                 console.log("Why is the a repeat?")
