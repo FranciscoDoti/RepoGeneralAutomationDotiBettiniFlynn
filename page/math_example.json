@@ -1,9 +1,0 @@
-{
-    "math_example": {
-        "menu_system": "//button[@aria-label='Toggle User Menu']",
-        "admin_panel": "//html/body/div[3]/div/div/div/div/div/div[2]/span/div/div/div[2]",
-        "main_signin": "//*[@id='container']/div/div/div/div[2]/a/button",
-        "logout": "//div[contains(text(),'Sign Out')]",
-        "sign_in": "//*[@id='container']/div/div/div/div[2]/a/button"
-    }
-}

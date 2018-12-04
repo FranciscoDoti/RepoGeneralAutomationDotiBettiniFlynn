@@ -1,9 +1,0 @@
-{
-    "lc_student_common": {
-        "close_learing_curve": "//a[@data-test-id='closelearningcurve']",
-        "ebook_pane": "//div[@data-test-id='lcrpSplitEbookPane']",
-        "ebook_iframe": "#splitScreenEbook",
-        "popout_ereader": "//a[@data-test-id='openSplitScreenNewTabBtn']",
-        "close_ereader": "//a[@data-test-id='closeSplitScreenEbook']"
-    }
-}
