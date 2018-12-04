@@ -266,7 +266,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 */
       // If need to hit a iframe, do it
       await switchFrame(tempElement.frame);
-      log.info(`>>>>>>>>>>>>switched into frame ${tempElement.frame}`);
+
       elementTarget = await WebElement(tempElement);
       actionElement.webElement = elementTarget;
 

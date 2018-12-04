@@ -4,6 +4,7 @@ const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
+const { By } = require('selenium-webdriver');
 const config = loadConfig('config');
 const login = loadConfig('login');
 const assert = require('assert');
@@ -14,7 +15,8 @@ const loginPage = new PageObject('saplinglearning-login.json', stepsPath);
 const saviVerification1 = new PageObject('savi-verification1.json', stepsPath);
 const saviBrightcoveNGA = new PageObject('savi-brightcove-nga.json', stepsPath);
 
-// Standalone link steps
+// STANDALONE AND GENERAL
+
 Given('I open the standalone Brightcove Player', async function () {
   const url = config.standalone;
   log.debug(`Loading URL ${url}`);
@@ -34,14 +36,12 @@ Then('I can play a video', async function () {
   assert(currentTime > 0, 'The video is playing');
 });
 
-Then('I can click all the control buttons', async function () {
+Then('I can use all the video control buttons', async function () {
   await saviBrightcoveStandalone.populate('volume_button', 'click');
   await saviBrightcoveStandalone.populate('mute_button', 'click');
   const muted = await saviBrightcoveStandalone.getElementValue('video', 'muted');
   log.debug(`muted: ${muted}`);
   await saviBrightcoveStandalone.populate('captions_button', 'click');
-  await saviBrightcoveStandalone.populate('audiodescription_button', 'click');
-  await saviBrightcoveStandalone.checkWebElementExists('download_button');
   await saviBrightcoveStandalone.populate('rate_button', 'click');
   await saviBrightcoveStandalone.populate('rate_decrease_button', 'click');
   await saviBrightcoveStandalone.populate('rate_increase_button', 'click');
@@ -50,7 +50,15 @@ Then('I can click all the control buttons', async function () {
   await saviBrightcoveStandalone.populate('fullscreen_button', 'click');
 });
 
-// ePub steps
+Then('I can turn on audio description', async function () {
+  await saviBrightcoveStandalone.populate('audiodescription_button', 'click');
+});
+
+Then('the transcript button is available', async function () {
+  await saviBrightcoveStandalone.checkWebElementExists('download_button');
+});
+
+// EPUB
 
 Given('I open the VitalSource link', async function () {
   const url = config.vitalsource;
@@ -58,34 +66,25 @@ Given('I open the VitalSource link', async function () {
   await getDriver().get(url);
 });
 
-Given('I go to a section with Brightcove Player', async function () {
-  log.info('ready');
-});
-
 Given('I can play a video in the ePub', async function () {
   await sleep(500);
-  // const readyState = await saviBrightcoveEpub.getElementValue('video', 'readyState');
-  // log.debug(`readyState: ${readyState}`);
-  let ereader = await saviBrightcoveEpub.checkWebElementExists('ereader_iframe');
-  log.debug(`ereader: ${ereader}`);
-  await getDriver().switchTo('ereader_iframe');
 
-  let epubframe = await saviBrightcoveEpub.checkWebElementExists('epub_iframe');
-  log.debug(`epubframe: ${epubframe}`);
-  // await getDriver().switchTo('epub_iframe');
+  // switch through series of nested iframes
+  await getDriver().switchTo().frame(0); // first iframe
+  await getDriver().switchTo().frame('epub-content'); // second iframe
+  const studentVideoDan = await saviBrightcoveEpub.getWebElements('studentVideoDan'); // get iframe with student video
+  await getDriver().switchTo().frame(studentVideoDan[0]); // third iframe
 
-  // let brightcoveframe = await saviBrightcoveEpub.checkWebElementExists('brightcove_iframe');
-  // log.debug(`brightcoveframe: ${brightcoveframe}`);
-  // await getDriver().switchTo('brightcove_iframe');
+  await saviBrightcoveEpub.checkWebElementExists('video');
+  await saviBrightcoveEpub.populate('big_play_button', 'click');
+  await sleep(1000);
 
-  // const playbutton = await saviBrightcoveEpub.checkWebElementExists('big_play_button');
-  // log.debug(`playbutton: ${playbutton}`);
-
-  // await saviBrightcoveEpub.populate('big_play_button', 'click');
-  await sleep(2000);
+  let currentTime = await saviBrightcoveEpub.getElementValue('video', 'currentTime');
+  log.debug(`currentTime: ${currentTime}`);
+  assert(currentTime > 0, 'The video is playing');
 });
 
-// NGA steps
+// NGA
 
 Given('I login to sapling SAVIPO2', async function () {
   const url = config.loginURL;

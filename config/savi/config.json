@@ -3,7 +3,7 @@
   "loginURL": "https://savipo2.saplinglearning.me/ibiscms/login/",
   "assignment": "https://savipo2.saplinglearning.me/sac/#/1396//-1",
   "standalone": "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001",
-  "vitalsource": "http://ebooks.macmillanhighered.com/FrankenSavi?cfi=6/30",
+  "vitalsource": "https://ebooks.macmillanhighered.com/9780312486419?cfi=6/70&begin=4/2&end=4/2/16/28",
   "driver": {
     "type": "chrome",
     "headless": false
