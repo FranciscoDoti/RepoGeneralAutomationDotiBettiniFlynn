@@ -3,18 +3,19 @@
         {
             "name":"read_practice_chapter1",
             "byType":"xpath",
-            "definition":"(//*[@class='_2elV'])[1]",
+            "definition":"((//*[@class='_3UBu'])[4]",
             "frame":"default",
             "specialInstr":"NA"
         },
         {
-            "name":"preview_asstudent",
-            "byType":"classname",
-            "definition":"btn-cdl-main InstructorPage__headerButton__TK-Dm",
+            "name":"course_plan",
+            "byType":"id",
+            "definition":"react-tabs-18",
             "frame":"default",
             "specialInstr":"NA"
         }
-
+    
+    
 
     ]
 }

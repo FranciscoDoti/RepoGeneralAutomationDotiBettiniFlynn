@@ -9,7 +9,6 @@ const {getDriver, sleep} = require('../../../app/driver');
 const {By} = require('selenium-webdriver');
 const assert = require('assert');
 const config = loadConfig('config');
-const { connectClient } = require('../../../app/imap');
 var countlinks
 
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
@@ -18,8 +17,7 @@ let pages = {
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
   courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath),
-  navigation: new PageObject('navigation.json', stepsPath),
-  overviewTab: new PageObject('overview-tab.json', coursewareStepsPath)
+  navigation: new PageObject('navigation.json', stepsPath)
 }
 
 After('@courseware-logout', async function () {
@@ -186,41 +184,6 @@ When('I validate enrolled course should be displayed in instructor', async funct
   await pages.courseTemplate.checkWebElementExists('coustomer_support_validation')
 });
 
-// I am still working on this (learning curve)
-Then('I click on the reading material and validate whether the content is available', async function () {
-  await getDriver().findElements(By.xpath("//*[@type='checkbox']")).then(function (elems) {
-    countlinks = elems.length;
-  });
-  var i;
-  for (i = 1; i <= countlinks; i++) {
-    await sleep(3000);
-    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).isDisplayed();
-
-    await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).click();
-
-    // console.log(await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label') + 'gettext1');
-    // var topicName = await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label');
-    // var topicArray = topicName.split(':');
-    /* var text = topicArray[2];
-    var textuppercase = text.toLocaleUpperCase();
-    console.log(textuppercase + 'testuppercas');
-
-    //console.log(await getDriver().findElement(By.xpath("//*[text()='"+textuppercase+"']")).isDisplayed()); */
-
-    // console.log( await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label') + 'gettext1');
-    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).click();
-    // console.log(getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getText()+'gettext2');
-
-    /* if (await pages.student.checkWebElementExists('Reading_verification')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    } */
-  }
-  // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + 1 + ']')).click();
-  await getDriver().navigate().refresh();
-});
-
 When('I click on Instructor button', async function () {
   await pages.courseTemplate.populate('instructor_tab', 'click');
 });
@@ -268,8 +231,3 @@ When('I change the course from unassigned to assign', async function () {
 //   await pages.createAccount.populate('password', mail.newpassword);
 //   await pages.createAccount.populate('confirmPassword', mail.newpassword);
 // });
-
-When('I click on Read and Practice chapter1', async function () {
-  await pages.overviewTab.populate('read_practice_chapter1', 'click');
-  await pages.overviewTab.populate()
-});
