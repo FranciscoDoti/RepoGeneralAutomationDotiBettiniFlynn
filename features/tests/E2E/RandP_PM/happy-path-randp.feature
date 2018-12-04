@@ -86,6 +86,13 @@ Background:
         And I click on show library button 
         And I click on Add button to add activities
         And I change the course from unassigned to assign
+
+    @courseware-logout
+    Scenario: The student solves his assigned taska assigned to him
+        When I have logged in as "instructor_1"
+        And I click on course card "E2E101"
+        And I click on Read and Practice chapter1
+
         
 
     # @courseware-logout

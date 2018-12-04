@@ -121,3 +121,8 @@ Then('I verify that user must not able to login', async function () {
     console.log('passed');
   }
 });
+When('I click on enroll in course button', async function () {
+  await pages.login.populate('enroll_new_course', 'click');
+});
+
+

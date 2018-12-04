@@ -18,7 +18,8 @@ let pages = {
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
   courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath),
-  navigation: new PageObject('navigation.json', stepsPath)
+  navigation: new PageObject('navigation.json', stepsPath),
+  overviewTab: new PageObject('overview-tab.json', coursewareStepsPath)
 }
 
 After('@courseware-logout', async function () {
@@ -245,6 +246,7 @@ When('I change the course from unassigned to assign', async function () {
   var x = countlinks - 1;
   while (x >= 0) {
     x--;
+    await sleep(3000);
     await pages.courseplanner.populate('Assign_Item', 'click');
     await pages.courseplanner.populate('Possible_points', '5');
     await pages.courseplanner.populate('Active_date_Assign', 'click');
@@ -252,10 +254,6 @@ When('I change the course from unassigned to assign', async function () {
     await pages.courseplanner.populate('Assign_Button', 'click');
   }
 });
-When('I check E-mail for the invite link and use my "(.*)" details to login in "(.*)"', async function () {
-
-});
-
 // Still working on this
 // When(/^I open the invite link and login with "(.*)" account details$/,async function (account) {
 //   await sleep(3000);
@@ -270,3 +268,8 @@ When('I check E-mail for the invite link and use my "(.*)" details to login in "
 //   await pages.createAccount.populate('password', mail.newpassword);
 //   await pages.createAccount.populate('confirmPassword', mail.newpassword);
 // });
+
+When('I click on Read and Practice chapter1', async function () {
+  await pages.overviewTab.populate('read_practice_chapter1', 'click');
+  await pages.overviewTab.populate()
+});

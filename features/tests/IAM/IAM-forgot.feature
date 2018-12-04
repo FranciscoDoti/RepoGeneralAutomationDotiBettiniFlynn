@@ -51,7 +51,7 @@ Background:
 
     Scenario: Verify that security questions incorrect attempt shows appropriate error messages and not allow user to move further
         When I click on forgot link
-        And I enter existed created e-mail address of "instructor_1" which is registered to Macmillan account
+        And I enter existed created e-mail address of "instructor_2" which is registered to Macmillan account
         And click on reset password button
         And I Enter incorrect Security question answer 1
         And click on submit button
@@ -62,10 +62,13 @@ Background:
         And I Enter incorrect Security question answer 3 
         And click on submit button
         Then I Verify Error Message is displayed as_ "Your Macmillan Learning Student Store account has been temporarily locked because an attempt was made to log in without the correct authentication. Please try again in 15 minutes."
+        And I have logged in as "instructor_2"
+        And I Verify Error Message is displayed as_ "Your Macmillan Learning Student Store account has been temporarily locked because an attempt was made to log in without the correct authentication. Please try again in 15 minutes."
+
 
     Scenario: Verify that security questions incorrect attempt shows appropriate error messages and not allow user to move further(with one correct question and answer)
         When I click on forgot link
-        And I enter existed created e-mail address of "instructor_1" which is registered to Macmillan account
+        And I enter existed created e-mail address of "instructor_2" which is registered to Macmillan account
         And click on reset password button
         And I Enter incorrect Security question answer 1 
         And click on submit button

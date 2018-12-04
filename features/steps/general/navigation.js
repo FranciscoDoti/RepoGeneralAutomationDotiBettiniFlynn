@@ -21,7 +21,7 @@ Given(/^I have opened Achieve "(.*)"$/, async function (urlKey) {
 });
 
 When('I click on sign In button on top right corner', async function () {
-  await sleep(5000);
+  await sleep(10000);
   log.debug('clicking on sigin button');
   await pages.navigation.populate('sign_in', 'click');
 });

@@ -21,4 +21,6 @@ Student enrolls in the course
     #     And I click on course card "E2E101"
     #     And I click on courseplanner
     #     Then I click on the reading material and validate whether the content is available
+
+
     

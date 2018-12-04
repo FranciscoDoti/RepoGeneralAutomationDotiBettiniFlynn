@@ -213,6 +213,15 @@
 			"definition":"//*[@class='tooltipContent']",
 			"frame":"default",
 			"specialInstr":"NA"
+		},
+		
+		{
+			"name": "enroll_new_course",
+			"byType": "xpath",
+			"definition": "//*[@id='container']/div/div[2]/div/div/div/div/div[2]/div/button",
+			"frame": "default",
+			"specialInstr": "NA"
+
 		}
 
 
