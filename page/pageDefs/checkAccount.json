@@ -1,0 +1,40 @@
+{
+	"webElements": [
+		{
+			"name": "email_field",
+			"byType": "id",
+			"definition": "__checkAccount_emailInput",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "search_btn",
+			"byType": "xpath",
+			"definition": "/html/body/div[3]/div/div/div[2]/div/div/button/svg",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "close_btn",
+			"byType": "xpath",
+			"definition": "/html/body/div[3]/div/div/div[2]/div/div/button/svg",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "invalid_banner",
+			"byType": "xpath",
+			"definition": "/html/body/div[3]/div/div/div[2]/div/div[1]",
+			"frame": "default",
+			"specialInstr": "NA"
+		},
+		{
+			"name": "result_email",
+			"byType": "xpath",
+			"definition": "/html/body/div[3]/div/div/div[2]/div/div[2]/div/div[2]/span[3]",
+			"frame": "default",
+			"specialInstr": "NA"
+		}	
+	
+	]
+}

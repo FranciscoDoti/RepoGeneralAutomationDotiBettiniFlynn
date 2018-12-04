@@ -1,0 +1,11 @@
+{
+	"webElements": [
+		{
+			"name": "btn_login",
+			"byType": "classname",
+			"definition": " _3GtB",
+			"specialInstr": "NA",
+			"waitIdToBeVisibleonNextPage": "username"
+		}
+	]
+}
