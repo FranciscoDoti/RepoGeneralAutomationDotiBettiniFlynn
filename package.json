@@ -10,6 +10,7 @@
     "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/happy-path-Qual.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "Wrt-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Writing_PM/happy-path-wrt.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/happy-path-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
+    "student-randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/student-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "test-savi-brightcove": "node ./node_modules/cucumber/bin/cucumber-js features/tests/SAVI/brightcoveplayer.feature --world-parameters='{\"config\": \"savi\"}'"
   },
   "dependencies": {
