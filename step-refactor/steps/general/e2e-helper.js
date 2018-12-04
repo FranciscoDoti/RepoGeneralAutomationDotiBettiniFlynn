@@ -40,6 +40,40 @@ const writeNewJSON = async function (pageName, file) {
     });
   }
 
+const compareNewJSON = async function (firstPageName, secondPageName) {
+    let firstFileName = "./page/" + firstPageName + ".json";
+    let secondFileName = "./page" + secondPageName + ".json";
+    var firstPageDefObject;
+    var secondPageDefObject;
+    var resultObj = {};
+    fs.readFile(firstFileName, "utf-8", (error, pageDefOne) => {
+        if (error) throw error;
+        firstPageDefObject = JSON.parse(pageDefOne)
+        fs.readFile(secondFileName, "utf-8", (error, pageDefTwo) => {
+            if (error) throw error;
+            secondPageDefObject = JSON.parse(pageDefTwo);
+            if(secondPageDefObject[secondPageName] === firstPageDefObject[firstPageName]){
+                console.log('they are the same object');
+            } else {
+                console.log('there are some differences');
+                var secondObj = secondPageDefObject[secondPageName]
+                var firstObj = firstPageDefObject[firstPageName]
+                var resultObj = {};
+                for (var ele in firstObj){
+                    if(secondObj[ele] == undefined){
+                        resultObj[ele + '1'] = firstObj[ele];
+                    } else if(secondObj[ele] !== firstObj[ele]) {
+                        resultObj[ele + '1'] = firstObj[ele];
+                        resultObj[ele + '2'] = secondObj[ele];
+                    }
+                }
+                console.log(resultObj)
+            }
+        })
+    })
+}
+
   module.exports = {
-    writeNewJSON
+    writeNewJSON,
+    compareNewJSON
   }
