@@ -10,7 +10,6 @@ After('@quit-driver', function() {
 
 After(function(scenarioResult) {
   if (scenarioResult.result.status === 'failed') {
-    console.log('HERE')
     this.driver.takeScreenshot()
       .then(function(data) {
         var title = scenarioResult.pickle.name.replace(/ /g, "_");

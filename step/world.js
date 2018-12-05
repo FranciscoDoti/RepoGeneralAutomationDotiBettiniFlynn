@@ -1,6 +1,6 @@
 const {setWorldConstructor, setDefaultTimeout} = require('cucumber');
 const seleniumWebdriver = require('selenium-webdriver');
-const config = require('../config/config.js');
+const config = require('../config.js');
 const _ = require('lodash');
 const process = require("process");
 const minimist = require("minimist");
@@ -34,7 +34,7 @@ function CustomWorld() {
   }
 
   this.driver = builder;
-  setDefaultTimeout(50 * 1000);
+  setDefaultTimeout(config.timeout);
 };
 
 setWorldConstructor(CustomWorld);

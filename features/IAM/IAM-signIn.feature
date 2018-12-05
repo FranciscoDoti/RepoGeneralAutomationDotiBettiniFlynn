@@ -29,7 +29,7 @@ Feature: Sign in
 
     @quit-driver
     Scenario: Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system
-        Given I have opened Achieve
+        Given I have opened "achieve" "signin"
         When I click on sign In button on top right corner
         And I login using invalid login credentials for 6 times
             |UserName        | Password    |
@@ -55,8 +55,9 @@ Feature: Sign in
         Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed
 
 
-  #  Scenario:Verify whether user able to login without waiting for 15minutes
-  #      Given I have opened Achieve "signURL"
-    #    When I click on sign In button on top right corner
-    #    And I have logged in as "admin_alt"
-    #    Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed
+    @quit-driver
+    Scenario:Verify whether user able to login without waiting for 15minutes
+        Given I have opened Achieve
+        When I click on sign In button on top right corner
+        And I have logged in as "admin_alt"
+        Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed

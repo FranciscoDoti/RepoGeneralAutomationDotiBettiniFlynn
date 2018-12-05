@@ -1,5 +1,5 @@
 var Promise = require("bluebird");
-var config = require("../config/config.js");
+var config = require("../config.js");
 
 // Promise.longStackTraces();
 
