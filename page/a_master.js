@@ -1,7 +1,5 @@
 page = {
-    login : require('./login.json'),
-    createAccount: require('./create-account.json'),
-    authAdm: require('./auth-admin.json')
+    login : require('./login.json')
 };
 
 module.exports = page;

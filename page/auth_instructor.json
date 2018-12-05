@@ -1,8 +1,0 @@
-{
-    "auth_instructor": {
-        "btn_login": "#ctl00_ucHeaderContactUsToolBar_aLoginLink",
-        "ExampleObject2": "/totalCost2",
-        "enter_emailid": ".//*[@name='emailInput']",
-        "send_button": ".//*[@class='_1tkc undefined']"
-    }
-}

@@ -35,7 +35,7 @@
 		{
 			"name": "reset_button",
 			"byType": "classname",
-			"definition": "_1tkc undefined",
+			"definition": "_1tkc",
 			"frame": "default",
 			"specialInstr": "NA"
 		},
@@ -119,93 +119,8 @@
 			"specialInstr": "NA",
 			"waitForElementToBeInvisible": "role_window"
 		},
-		{
-			"name": "search_button",
-			"byType": "xpath",
-			"definition": "//button[contains(@class,'_1Kr1')",
-			"frame": "default",
-			"specialInstr": "NA"
-			
-		},
-		{
-			"name": "search_course",
-			"byType": "xpath",
-			"definition": ".//*[@class='_3dMU _3Gh- ']",
-			"frame": "default",
-			"specialInstr": "NA"
-			
-		},
-	
-		{
-			"name":"copy_course",
-            "byType":"xpath",
-            "definition":"/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div/div/span",
-            "frame":"default",
-            "specialInstr":"NA"
-		},
-		{
-			"name":"copy_course_name",
-            "byType":"id",
-            "definition":"copyCourseName",
-            "frame":"default",
-            "specialInstr":"NA"
-		},
-		{
-			"name":"save_button",
-            "byType":"classname",
-            "definition":"_1tkc undefined",
-            "frame":"default",
-            "specialInstr":"NA"
-		},
-		{
-			"name":"Manage_Instructor",
-            "byType":"xpath",
-            "definition":"/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div/div/span",
-            "frame":"default",
-			"specialInstr":"NA",
-			"waitToBeVisible":"Instructor_Email"
-		},
-		{
-			"name":"Instructor_Email",
-            "byType":"id",
-            "definition":"addInstructor",
-            "frame":"default",
-			"specialInstr":"NA"
-			
-		},
-		{
-			"name":"Add_instructor",
-            "byType":"classname",
-            "definition":"_1tkc _3ASk",
-            "frame":"default",
-			"specialInstr":"NA",
-			"waitToBeVisible":"copy_link"
-		},
-		{
-			"name":"copy_link",
-            "byType":"xpath",
-            "definition":".//*[@class='_1tkc _6KWa']",
-            "frame":"default",
-            "specialInstr":"NA"
-
-		},
-		{
-			"name":"close",
-            "byType":"xpath",
-            "definition":".//*[@class='e1ZR']",
-            "frame":"default",
-            "specialInstr":"NA"
-
-		},
-		{
-			"name":"course_card",
-            "byType":"xpath",
-            "definition":"//*[@id='container']/div/div[2]/div[1]/div/div/div[3]/div",
-            "frame":"default",
-			"specialInstr":"NA", 
-			"waitToBeVisible": "menu_system"
 		
-		},
+	
 		{
 			"name":"refresh",
             "byType":"xpath",
@@ -243,14 +158,6 @@
             "specialInstr":"NA"
 
 		},
-		{
-			"name":"create_access_code",
-            "byType":"xpath",
-            "definition":".//*[text()='Create Access Code']",
-            "frame":"default",
-            "specialInstr":"NA"
-
-		},
 
 		{
 			"name":"users",
@@ -263,19 +170,12 @@
 		{
 			"name":"gmail",
             "byType":"xpath",
-            "definition":"//*[@id='yDmH0d']/div[2]/c-wiz/div/div/div[5]/div[2]/c-wiz/div/div[1]/div/div[1]/div[2]/a[2]",
+            "definition":"//*[@aria-label='Mail']",
             "frame":"default",
             "specialInstr":"NA"
 
 		},
-		{
-			"name":"create_course_button",
-            "byType":"xpath",
-            "definition":"//*[text()='Create Accesscode']",
-            "frame":"default",
-            "specialInstr":"NA"
-
-		},
+		
 		{
 			"name":"mail",
             "byType":"xpath",
@@ -301,8 +201,8 @@
 		}, 
 		{
 			"name":"reset_password_email",
-            "byType":"id",
-            "definition":"update",
+            "byType":"xpath",
+            "definition":"//*[@id='update']",
             "frame":"default",
             "specialInstr":"NA"
 		},
@@ -313,7 +213,13 @@
             "frame":"default",
             "specialInstr":"NA"
 		},
-	
+		{
+			"name":"password_reset_successful",
+            "byType":"xpath",
+            "definition":"//*[@class='pad']",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
 		{
 			"name":"reset_check",
             "byType":"xpath",
@@ -328,26 +234,8 @@
             "frame":"default",
             "specialInstr":"NA"
 
-		},
-		{ 
-			"name":"single_use_code",
-            "byType":"xpath",
-            "definition":"//*[@class='_1qpH']",
-            "frame":"default",
-            "specialInstr":"NA"
-
-		},
-		{ 
-			"name":"course_validation",
-            "byType":"xpath",
-            "definition":"//*[text()='Courses']",
-            "frame":"default",
-            "specialInstr":"NA"
-
 		}
 		
-
-
-
+		
 	]
 }

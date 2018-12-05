@@ -1,0 +1,60 @@
+{
+  "webElements": [{
+      "name": "ae_iframe",
+      "byType": "id",
+      "definition": "aeIframe",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "root",
+      "byType": "id",
+      "definition": "root",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "open_assignment",
+      "byType": "id",
+      "definition": "assignment",
+      "frame": "ae_iframe",
+      "specialInstr": "NA"
+    },{
+      "name": "open_brightcove_player",
+      "byType": "xpath",
+      "definition": "//*[@id='items-table']/div/div/div[3]/div/div/div[2]/button",
+      "frame": "ae_iframe",
+      "specialInstr": "NA"
+    },{
+      "name": "play_brightcove_player",
+      "byType": "xpath",
+      "definition": ".//*[@class='vjs-big-play-button']",
+      "frame": "root",
+      "specialInstr": "NA"
+    },{
+      "name": "video_element",
+      "byType": "xpath",
+      "definition": "//*[@id='vjs_video_3_html5_api']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "next_savi_app",
+      "byType": "xpath",
+      "definition": "//*[@id='root']/div/div/div[2]/div/button[2]",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "prev_savi_app",
+      "byType": "xpath",
+      "definition": "//*[@id='root']/div/div/div[2]/div/button[3]",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "select_periodictable_hydrogen",
+      "byType": "xpath",
+      "definition": "//*[@id='raptorQuestion']/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div[2]/button",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}
+
+

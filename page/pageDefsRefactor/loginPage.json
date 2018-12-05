@@ -47,11 +47,11 @@
 		{
 			"name":"view_box",
             "byType":"xpath",
-            "definition":"//*[@class='tooltip sc-gzVnrw jcSgBr']",
+            "definition":"//*[@class='tooltip sc-iwsKbI cxkSpP']",
             "frame":"default",
             "specialInstr":"NA"
 		},
-	
+		
 		{
 			"name":"forgot_password",
             "byType":"xpath",
@@ -213,6 +213,15 @@
 			"definition":"//*[@class='tooltipContent']",
 			"frame":"default",
 			"specialInstr":"NA"
+		},
+		
+		{
+			"name": "enroll_new_course",
+			"byType": "xpath",
+			"definition": "//*[@id='container']/div/div[2]/div/div/div/div/div[2]/div/button",
+			"frame": "default",
+			"specialInstr": "NA"
+
 		}
 
 
