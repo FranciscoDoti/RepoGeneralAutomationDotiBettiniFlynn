@@ -12,7 +12,8 @@ const config = loadConfig('config');
 var countlinks;
 
 let pages = {
-  overviewTab: new PageObject('overview-tab.json', coursewareStepsPath)
+  overviewTab: new PageObject('overview-tab.json', coursewareStepsPath),
+  readPractice: new PageObject('read-and-practice-page.json', coursewareStepsPath)
 }
 
 When('I click on course plan in student account', async function () {
@@ -56,4 +57,26 @@ Then('I click on the reading material and validate whether the content is availa
   }
   // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + 1 + ']')).click();
   await getDriver().navigate().refresh();
+});
+
+Then('I click on Quiz button', async function () {
+  await pages.readPractice.populate('Quiz_Button', 'click');
+});
+
+Then('I take the Quiz', async function () {
+  await pages.readPractice.populate('Select_option', 'click');
+  await pages.readPractice.populate('Submit_answer', 'click');
+  let booleanVal = await pages.resourceView.checkWebElementExists('Try_again');
+  if (booleanVal === false) {
+    await pages.readPractice.populate('Try_again', 'click');
+    await pages.readPractice.populate('show_answer', 'click');
+    await pages.readPractice.populate('next_question', 'click');
+    let booleanVal = await pages.resourceView.checkWebElementExists('slow_down_button');
+    if (booleanVal === false) {
+      await pages.readPractice.populate('slow_down_button', 'click');
+    }
+    else{
+      
+    }
+  }
 });

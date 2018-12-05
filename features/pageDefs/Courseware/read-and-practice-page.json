@@ -1,0 +1,54 @@
+{
+	"webElements": [ 
+        {
+            "name":"Quiz_Button",
+            "byType":"xpath",
+            "definition":"//*[text()='Take the Quiz!']",
+            "frame":"default",
+            "specialInstr":"NA"
+        }, 
+        {
+            "name":"Select_option",
+            "byType":"xpath",
+            "definition":"//*[@id='root']/div/div/div[2]/div[2]/div/div/div/form/fieldset/label[1]/span",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Submit_answer",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='submitAnswerBtn']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Try_again",
+            "byType":"xpath",
+            "definition":"//*[text()='Try Again.']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"next_question",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='nextQuestionBtn']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"show_answer",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='activityShowAnswerBtn']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"view_study_plan",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='midWayModalStudyPlanBtn']",
+            "frame":"default",
+            "specialInstr":"NA"
+        }
+       
+    ]
+}
