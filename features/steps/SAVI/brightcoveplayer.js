@@ -4,7 +4,6 @@ const stepsPath = process.cwd() + '/features/pageDefs/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
-const { By } = require('selenium-webdriver');
 const config = loadConfig('config');
 const login = loadConfig('login');
 const assert = require('assert');
