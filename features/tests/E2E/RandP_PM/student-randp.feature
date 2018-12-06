@@ -22,6 +22,8 @@ Background:
         And I click on course plan in student account 
         And I click on chapter read and Practice
         Then I click on the reading material and validate whether the content is available
+        And I click on Quiz button 
+        And I take the Quiz
 
 
     
