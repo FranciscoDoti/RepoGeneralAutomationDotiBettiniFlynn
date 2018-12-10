@@ -1,1 +1,12 @@
-{"auth_media_producer":{"menu_system":"._12-z","admin_panel":"//html/body/div[3]/div/div/div/div/div/div[2]/span/div/div/div[2]","manage_roles":"//html/body/div[4]/div/div/div/div/div/div[10]/span/div/div/div/span","enter_email_address":"#__manageRoles_emailInput","choose_role":"._1ogr","role_window":"._3y07","grant_role":"//html/body/div[3]/div/div/div[2]/button[1]/div/span","revoke_role":"//html/body/div[3]/div/div/div[2]/button[2]/div/span"}}
+{
+    "auth_media_producer": {
+        "menu_system": "._12-z",
+        "admin_panel": "//html/body/div[3]/div/div/div/div/div/div[2]/span/div/div/div[2]",
+        "manage_roles": "//html/body/div[4]/div/div/div/div/div/div[10]/span/div/div/div/span",
+        "enter_email_address": "#__manageRoles_emailInput",
+        "choose_role": "._1ogr",
+        "role_window": "._3y07",
+        "grant_role": "//html/body/div[3]/div/div/div[2]/button[1]/div/span",
+        "revoke_role": "//html/body/div[3]/div/div/div[2]/button[2]/div/span"
+    }
+}

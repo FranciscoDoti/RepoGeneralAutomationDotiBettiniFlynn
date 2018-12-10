@@ -1,0 +1,29 @@
+{
+    "lc-quiz": {
+        "back_to_study_plan": "//a[@data-test-id='backToStudyPlanBtn']",
+        "current_score": "//span[@data-test-id='activityScoreValueInfo']",
+        "question_points": "//div[@data-test-id='activityQuestionPoints']",
+        "whole_question": "//div[@data-test-id='question']",
+        "question": "//h1[@data-test-id='activityQuestion']",
+        "mc_answers": "//label[@data-test-id='multipleChoiceAnswer']",
+        "fill_in_the_blank_answer": "//input[@data-test-id='fillInTheBlankAnswer']",
+        "open_ebook": "//button[@data-test-id='readEBookBtn']",
+        "get_hint": "//button[@data-test-id='showHintBtn']",
+        "get_answer": "//button[@data-test-id='activityShowAnswerBtn']",
+        "challenge_question": "//button[@data-test-id='showAnswerModalBtn']",
+        "correct_answer_modal": "//button[@data-test-id='SuccessModal']",
+        "incorrect_answer_modal": "//button[@data-test-id='IncorrectModal']",
+        "hint_answer_modal": "//button[@data-test-id='QuestionHint']",
+        "show_answer_correct_answer": "//h3[@data-test-id='showAnswerModalAnswer']",
+        "submit_answer": "//button[@data-test-id='submitAnswerBtn']",
+        "next_question": "//button[@data-test-id='nextQuestionBtn']",
+        "take_a_break": "//button[@data-test-id='takeBreakBtn']",
+        "complete_quiz_lc": "//div[@data-test-id='quizCompleteModal']",
+        "complete_quiz_lcrp": "//button[text()='View Study Plan']",
+        "slow_down_ok": "//div[@data-test-id='slowDownModalOkBtn']",
+        "slow_down_x": "//div[@data-test-id='slowDownHideModalBtn']",
+        "midway_modal": "//div[@data-test-id='midWayModall']",
+        "back_to_study_plan_midpoint": "//button[@data-test-id='midWayModalStudyPlanBtn']",
+        "next_question_midway": "//button[@data-test-id='midWayModalNextQuestionBtn']"
+    }
+}
