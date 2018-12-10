@@ -1,0 +1,13 @@
+{
+    "savi_verification1": {
+        "ae_iframe": "#aeIframe",
+        "root": "#root",
+        "open_assignment": "#assignment",
+        "open_brightcove_player": "//*[@id='items-table']/div/div/div[3]/div/div/div[2]/button",
+        "play_brightcove_player": ".//*[@class='vjs-big-play-button']",
+        "video_element": "//*[@id='vjs_video_3_html5_api']",
+        "next_savi_app": "//*[@id='root']/div/div/div[2]/div/button[2]",
+        "prev_savi_app": "//*[@id='root']/div/div/div[2]/div/button[3]",
+        "select_periodictable_hydrogen": "//*[@id='raptorQuestion']/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div[2]/button"
+    }
+}

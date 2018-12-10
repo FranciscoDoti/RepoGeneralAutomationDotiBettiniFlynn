@@ -1,0 +1,6 @@
+{
+    "overview_tab": {
+        "read_practice_chapter1": "(//*[@class='_2elV'])[1]",
+        "preview_asstudent": ".btn-cdl-main InstructorPage__headerButton__TK-Dm"
+    }
+}

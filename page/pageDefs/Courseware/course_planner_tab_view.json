@@ -1,0 +1,20 @@
+{
+    "course_planner_tab_view": {
+        "Show_Library": "//*[text()='Show Library']",
+        "Activity_Type": "//*[text()='Activity Type']",
+        "Add_assignment": "//*[@aria-label='Add assignment']",
+        "Assign_Item": "//*[@aria-label='Assign Item']",
+        "Possible_points": "//*[@name='pointsPossible']",
+        "Active_date_Assign": "//*[@class='EVUx ']",
+        "select_date_complete_assignment": "._2XMC _1PUF",
+        "Assign_Button": "//*[@class='_1tkc undefined']",
+        "Custom_content_button": "._11lb bJTD",
+        "Create_custom_button": "//*[text()='Create Custom Content']",
+        "Select_activity_type_button": "//*[@type='assessment_assignment']",
+        "Assignment_Title": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
+        "Assignment_Type": "//*[@id='root']/div/div/div/div/div[2]/h6/div/div/select",
+        "Home_taxonomy": "//*[@id='root']/div/div/div/div/div[2]/h6/div/div[2]/div/select",
+        "Save_Assesement_button": "//*[@id='root']/div/div/div/div/div[3]/div/button",
+        "Assignment_Assesmnet_Validation": "//*[@id='navigation-tabs']/a[2]"
+    }
+}

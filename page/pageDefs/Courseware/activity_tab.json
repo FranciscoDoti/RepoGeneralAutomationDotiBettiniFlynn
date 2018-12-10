@@ -1,0 +1,6 @@
+{
+    "activity_tab": {
+        "resources_tab": "//*[text()= 'RESOURCES']",
+        "courseplanner_button": "//*[text()='COURSE PLANNER']"
+    }
+}
