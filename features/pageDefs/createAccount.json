@@ -242,6 +242,14 @@
 
 		},
 		{
+			"name": "compose_opt_out",
+			"byType": "xpath",
+			"definition": "//*[text() ='OPT-OUT@macmillanlearning.com']",
+			"frame": "default",
+			"specialInstr": "NA"
+
+		},
+		{
 			"name": "toemail",
 			"byType": "xpath",
 			"definition": "//*[@name= 'to']",
@@ -314,7 +322,7 @@
 		{
 			"name": "piracy_check",
 			"byType": "xpath",
-			"definition": "(//*[text()='Anti-Piracy Form'])[2]",
+			"definition": "(//*[text()='Piracy'])",
 			"frame": "default",
 			"specialInstr": "NA"
 		},
@@ -359,14 +367,6 @@
 			"definition": "//*[@id='frm1']/div[13]/div/label/span/a[1]",
 			"frame": "default",
 			"specialInstr": "NA"
-		},
-		{
-			"name": "compose",
-			"byType": "xpath",
-			"definition": "//*[text()='Compose']",
-			"frame": "default",
-			"specialInstr": "NA"
-
 		},
 		{
 			"name": "To_email",
