@@ -27,7 +27,7 @@ Feature: Authentication for Achieve Admin via IAM
         When I check E-mail Notification of "admin" for "IAM"
         And I enter Password and confirm password from "admin" account for fulfilling the validation criteria
         And I click on Reset password
-        Then I verify Message is displayed as "Your password has been successfully reset. You can now log in to your account"
+        Then I verify reset password Message is displayed as "Your password has been successfully reset. You can now log in to your account."
         Then I click on login button to return to login page
 
     Scenario: Verify that user is able to Sign In using new password

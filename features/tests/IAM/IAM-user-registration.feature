@@ -51,25 +51,6 @@ Feature: Authentication for Achieve via IAM
         | account   | answer | message |
         | "student" | ""     | "Must not be blank" |
 
-    #Uncomment for int
-    # Scenario Outline: Verify that Security Questions & Answer validations are working as expected for int(acccount, value, message)
-    #     Given I have opened Achieve "UserCreationUrl"
-    #     When I verify that if I Select Security Questions of the <account> account then I enter an empty string for the answers
-    #     Then I enter the value of <answer> for each security question answer
-    #     And I verify the content of the security question error messages displayed is <message> in int
-    #     Examples:
-    #     | account   | answer | message |
-    #     | "student" | "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"    | "Limit of 150 characters reached" |
-    #     | "student" | ""     | "Must not be blank" |
-
-    # What is this testing, is it verifying the list of the signup button being disabled??
-    #This is not verifying the list of Primary institutions
-    #TODO: Implement check of dropdown list, find first item in options and check to see if it starts with "a"
-    # Scenario: Verify that Primary Institution or School drop down and field working as expected
-    #     Given I have opened Achieve "UserCreationUrl"
-    #     Then I verify list of Primary Institutions or schools will display starting with the letter "a"
-    #     Then I verify the Sign up is disabled
-
     Scenario: Verify that the application should not allow to enter more than 150 characters in the Primary institution text box. Moreover on entering 150 characters, the application displays a message "Limit of 150 characters reached"
         Given I have opened Achieve "UserCreationUrl"
         Then I input too many characters into the Primary Institution field
@@ -188,7 +169,7 @@ Feature: Authentication for Achieve via IAM
         When I have logged in as "media_producer_2"
         And I click on user menu 
         And I click on Account 
-        # And I verify that the account information for "media_producer_2" displayed is correct 
+        And I verify that the account information for "media_producer_2" displayed is correct 
 
     @admin
     Scenario: Verify that aplication return to home page on clicking Cancel Button
@@ -217,14 +198,6 @@ Feature: Authentication for Achieve via IAM
         And I verify that the account information for "media_producer_2" displayed is correct
         And I click on privacy notice link within user account view
         Then I verify that I am redirected to privacy notice link page
-
-    # Why is this Scenario commented out???
-    # Scenario: Verify that on sharing e-mail to the e-mail address OPT-OUT@macmillanlearning.com link no -emial updates should be recived regarding macmillan updates
-    #     Given I have opened Achieve "ThirdpartyURL"
-    #     When I log in as "admin_alt"
-    #     And I click on compose
-    #     And I Verify that on sharing e-mail to the e-mail address "OPT-OUT@macmillanlearning.com" link no -emial updates should be recived regarding macmillan updates
-
 
 
 

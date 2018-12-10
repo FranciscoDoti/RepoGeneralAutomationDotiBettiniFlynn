@@ -9,7 +9,6 @@ const {getDriver, sleep} = require('../../../app/driver');
 const {By} = require('selenium-webdriver');
 const assert = require('assert');
 const config = loadConfig('config');
-const { connectClient } = require('../../../app/imap');
 var countlinks
 
 // const emailid = Math.random().toString(36).substr(2, 6) + '@gmail.com';(adding random email id use this)
@@ -18,7 +17,8 @@ let pages = {
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
   courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath),
-  navigation: new PageObject('navigation.json', stepsPath)
+  navigation: new PageObject('navigation.json', stepsPath),
+  readPractice: new PageObject('read-and-practice-page.json', coursewareStepsPath)
 }
 
 After('@courseware-logout', async function () {
@@ -60,7 +60,7 @@ Then('I click on course card "Testcourse" template', async function () {
   await pages.courseTemplate.populate('course_card_button', 'click', 'resources_tab');
 });
 Then('I click on Resource tab', async function () {
-  await sleep(3000);
+  await sleep(5000);
   log.debug('Clicking on resources tab');
   await pages.activityTab.populate('resources_tab', 'click');
 });
@@ -185,41 +185,6 @@ When('I validate enrolled course should be displayed in instructor', async funct
   await pages.courseTemplate.checkWebElementExists('coustomer_support_validation')
 });
 
-// I am still working on this (learning curve)
-Then('I click on the reading material and validate whether the content is available', async function () {
-  await getDriver().findElements(By.xpath("//*[@type='checkbox']")).then(function (elems) {
-    countlinks = elems.length;
-  });
-  var i;
-  for (i = 1; i <= countlinks; i++) {
-    await sleep(3000);
-    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).isDisplayed();
-
-    await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).click();
-
-    // console.log(await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label') + 'gettext1');
-    // var topicName = await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label');
-    // var topicArray = topicName.split(':');
-    /* var text = topicArray[2];
-    var textuppercase = text.toLocaleUpperCase();
-    console.log(textuppercase + 'testuppercas');
-
-    //console.log(await getDriver().findElement(By.xpath("//*[text()='"+textuppercase+"']")).isDisplayed()); */
-
-    // console.log( await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getAttribute('aria-label') + 'gettext1');
-    // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).click();
-    // console.log(getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + i + ']')).getText()+'gettext2');
-
-    /* if (await pages.student.checkWebElementExists('Reading_verification')) {
-      console.log('passed');
-    } else {
-      console.log('failed');
-    } */
-  }
-  // await getDriver().findElement(By.xpath("(//*[@type='checkbox'])[" + 1 + ']')).click();
-  await getDriver().navigate().refresh();
-});
-
 When('I click on Instructor button', async function () {
   await pages.courseTemplate.populate('instructor_tab', 'click');
 });
@@ -245,6 +210,8 @@ When('I change the course from unassigned to assign', async function () {
   var x = countlinks - 1;
   while (x >= 0) {
     x--;
+    await sleep(3000);
+    await pages.courseplanner.scrollIntoView('Assign_Item', 'click');
     await pages.courseplanner.populate('Assign_Item', 'click');
     await pages.courseplanner.populate('Possible_points', '5');
     await pages.courseplanner.populate('Active_date_Assign', 'click');
@@ -252,10 +219,6 @@ When('I change the course from unassigned to assign', async function () {
     await pages.courseplanner.populate('Assign_Button', 'click');
   }
 });
-When('I check E-mail for the invite link and use my "(.*)" details to login in "(.*)"', async function () {
-
-});
-
 // Still working on this
 // When(/^I open the invite link and login with "(.*)" account details$/,async function (account) {
 //   await sleep(3000);
@@ -270,3 +233,33 @@ When('I check E-mail for the invite link and use my "(.*)" details to login in "
 //   await pages.createAccount.populate('password', mail.newpassword);
 //   await pages.createAccount.populate('confirmPassword', mail.newpassword);
 // });
+
+Then('I reduce the points in the acitivities', async function () {
+  await getDriver().findElements(By.xpath("//*[@class='_3UBu']")).then(function (elems) {
+    countlinks = elems.length;
+    console.log(countlinks);
+  });
+  var i;
+  for (i = 1; i <= countlinks; i++) {
+    await sleep(10000);
+    await getDriver().findElement(By.xpath("//*[@class='_3UBu'][" + i + ']')).click();
+    await sleep(5000);
+    let booleanVal = await pages.courseplanner.checkWebElementExists('edit_target');
+    if (booleanVal === true) {
+      await pages.readPractice.populate('edit_target', 'click');
+      await pages.readPractice.populate('target_score', '5');
+      await pages.readPractice.populate('change_target_score', 'click');
+      await pages.readPractice.populate('Very_short_activity', 'click');
+      await pages.readPractice.populate('close_learning_curve', 'click');
+      await sleep(5000);
+    }
+  }
+});
+
+When('I click on Grace period', async function () {
+  await pages.courseTemplate.populate('grace_period', 'click');
+});
+When('I click on Finish Enrollenment', async function () {
+  await pages.courseTemplate.populate('checkbox_agreement_graceperiod', 'click');
+  await pages.courseTemplate.populate('finish_enrollment', 'click');
+});

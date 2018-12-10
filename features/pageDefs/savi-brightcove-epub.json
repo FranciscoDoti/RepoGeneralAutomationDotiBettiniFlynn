@@ -1,0 +1,22 @@
+{
+  "webElements": [{
+      "name": "video",
+      "byType": "id",
+      "definition": "vjs_video_3_html5_api",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "big_play_button",
+      "byType": "classname",
+      "definition": "vjs-big-play-button",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "studentVideoDan",
+      "byType": "id",
+      "definition": "uzncdac861379d48e2a4ac2d995f8497",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}

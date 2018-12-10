@@ -1,0 +1,21 @@
+{
+	"webElements": [
+        {
+            "name":"read_practice_chapter1",
+            "byType":"xpath",
+            "definition":"((//*[@class='_3UBu'])[4]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"course_plan",
+            "byType":"classname",
+            "definition":"_1cKB",
+            "frame":"default",
+            "specialInstr":"NA"
+        }
+    
+    
+
+    ]
+}

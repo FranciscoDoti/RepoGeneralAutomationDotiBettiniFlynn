@@ -1,6 +1,6 @@
 Feature: Qual happy path workflow 
 
-Media Producer creates a course
+# Media Producer creates a course
    
 Background:
         Given I have opened Achieve "loginURL"
@@ -88,15 +88,15 @@ Background:
         And I change the course from unassigned to assign
         
     
-    @courseware-logout   
-    Scenario: Verify that user is able to delete the course
-        When I have logged in as "media_producer_2"
-        And I search for "Qual Testcourse"
-        And I click on course settings 
-        And I click on delete the course
-        And I search for "E301"
-        And I click on course settings 
-        And I click on delete the course
+    # @courseware-logout   
+    # Scenario: Verify that user is able to delete the course
+    #     When I have logged in as "media_producer_2"
+    #     And I search for "Qual Testcourse"
+    #     And I click on course settings 
+    #     And I click on delete the course
+    #     And I search for "E301"
+    #     And I click on course settings 
+    #     And I click on delete the course
             
        
 

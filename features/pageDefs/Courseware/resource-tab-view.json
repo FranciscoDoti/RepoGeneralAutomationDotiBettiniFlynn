@@ -147,7 +147,40 @@
             "definition":"//*[@data-test-id='add-question-button']",
             "frame":"default",
             "specialInstr":"NA"
+        },
+        {
+            "name":"Add_activity_button",
+            "byType":"xpath",
+            "definition":"//*[@class='_4_Uf']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Add_folder_button",
+            "byType":"xpath",
+            "definition":"//*[text()='Add Folder']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"folder_name",
+            "byType":"xpath",
+            "definition":"//*[@name='folderName']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"add_button",
+            "byType":"xpath",
+            "definition":"//*[@class='_1tkc undefined']",
+            "frame":"default",
+            "specialInstr":"NA"
+
         }
+
        
 
 

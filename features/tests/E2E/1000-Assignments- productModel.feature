@@ -32,6 +32,17 @@ Background:
             |save_button     | click |
         And I click on course card 'TestingCourse Writer's Help 3.0' template
         And I click on Resource tab
-        And I click on create custom activity first
-        And I click on Add button to add activities
+        And add content into chapter by clicking "+" button
+       And I click on create custom activity first
+        And I click on add folder button 
+        And add content into chapter by clicking "+" button
+        And I click on Add plus button to add activities
+    
+    @courseware-logout
+    Scenario: Verify that Media Producer is able to copy the course from Writing Template 
+        When I have logged in as "media_producer_1" 
+        #And  I search for "TestingCourse Writer's Help 3.0"
+        And  I click on course settings
+        Then I copy the course named "Testcourse" to the name "TestingCourse Writer's Help 3.0 E2E301"
+        And I validate the message "Course Copied."
     
