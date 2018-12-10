@@ -17,19 +17,7 @@
     "axe-webdriverjs": "^2.1.0",
     "bluebird": "^3.5.3",
     "chai": "^4.1.2",
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    "check-error": {
-      "integrity": "sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=",
-      "resolved": "https://registry.npmjs.org/check-error/-/check-error-1.0.2.tgz",
-      "version": "1.0.2"
-    },
-=======
     "cheerio": "^1.0.0-rc.2",
->>>>>>> Stashed changes
-=======
-    "cheerio": "^1.0.0-rc.2",
->>>>>>> fad9ebe3446d22704db7d1ca46a967a294531ecc
     "chromedriver": "^2.41.0",
     "cucumber": "^4.2.1",
     "eslint": "^4.19.1",

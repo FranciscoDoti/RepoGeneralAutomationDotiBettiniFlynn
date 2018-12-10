@@ -66,20 +66,9 @@ const connectClient = async function(user, password, regexChoice) {
                             if(parsed.textAsHtml){
                                 Link = parsed.text;
                                 var linkFound = Link.match(coursewareRegex);
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                                console.log(linkFound)
-=======
                                 const $ = cheerio.load(parsed.text);
                                 const href = $('a[style=3D"color: #080808;"]').text();
                                 console.log('mailObject~~~~~~~~~~~~~~~~~~',parsed.text, '~~~~~mailObject', info, '~~~~~~~~~~~href ', href, 'href~~~~~~~~~~~~~')
->>>>>>> Stashed changes
-=======
-                                // const $ = cheerio.load(parsed.text); 
-                                // const href = $(['Go to  <strong><a style="color:#080808" href=3D"https://int-achieve-coursew=are-frontend.mldev.cloud"']).attr('href').replace('coursew=are','courseware');
-                                console.log(Link);
-                                console.log(linkFound);
->>>>>>> fad9ebe3446d22704db7d1ca46a967a294531ecc
                                 if(linkFound){
                                     linkFound = linkFound[0];
                                     resolve(linkFound);
