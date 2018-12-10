@@ -3,7 +3,7 @@ Feature: forgot
 
 Background: 
         Given I have opened Achieve "signURL"
-        When I click on sign In button on top right corner 
+        When I click on the Sign In button on the Home page 
 
     Scenario: Verify Forgot Password page cancel Button redirects to Sign In Page
         When I click on forgot link

@@ -1,0 +1,28 @@
+{
+  "add_course": "._1T-8",
+  "courses":{
+    "list": "._ExY"
+  },
+  "search": "[placeholder='Search for Course Name']",
+  "title": "._1YVk",
+  "user": {
+    "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
+    "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
+    "admin_menu": {
+      "access_code_usage_report": "//span[contains(@class,'_12OR') and contains(text(), 'Access Code Usage Report')]",
+      "check_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Check AccessCode')]",
+      "check_account": "//span[contains(@class,'_12OR') and contains(text(), 'Check Account')]",
+      "course_report": "//span[contains(@class,'_12OR') and contains(text(), 'Course Report')]",
+      "import_resources": "//span[contains(@class,'_12OR') and contains(text(), 'Import Resources')]",
+      "individual_assignment_report": "//span[contains(@class,'_12OR') and contains(text(), 'Individual Assignment Report')]",
+      "manage_product_models_and_indices": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Product Models & Indices')]",
+      "manage_roles": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Roles')]",
+      "password_reset": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
+      "restore_deleted_courses": "//span[contains(@class,'_12OR') and contains(text(), 'Restore Deleted Courses')]",
+      "update_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Update AccessCode')]"
+    },
+    "button": ".QYC0",
+    "menu": "[role = 'menu']",
+    "sign_out": "/html/body/div[3]/div/div/div/div/div/div[3]/span/div/div",
+  }
+}

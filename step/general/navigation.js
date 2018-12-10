@@ -13,28 +13,26 @@ Given(/^I have opened "(.*)" "(.*)"$/, async function(page, endpoint) {
   await qa.goTo(url);
 });
 
-When('I click on sign In button on top right corner', async function() {
+When('I click on the Sign In button on the Home page', async function() {
   let qa = new selenium(this.driver);
 
-  await qa.click(page.login.signin);
+  await qa.click(page.main.home.sign_in);
 });
 
-When(/^I have logged in as "(.*)"$/, async function(userObject) {
+When(/^I have logged in as "(.*)"$/, async function(user_object) {
   let qa = new selenium(this.driver);
-  let payload = require(`../../data/user/${config.environment}/${userObject}.json`);
-  let user = payload || {
-    username: 'Generic',
-    password: 'Password'
-  };
+  let payload = require(`../../data/user/${config.environment}/${user_object}.json`);
 
   await qa.input(page.login.username, user.username);
   await qa.input(page.login.password, user.password);
   await qa.click(page.login.sign_in);
 });
 
-Then('I sign out of Achieve', async function() {
-  await pages.navigation.populate('menu_system', 'click');
-  await pages.navigation.populate('logout', 'click');
+Then('I Sign Out of Achieve', async function() {
+  let qa = new selenium(this.driver);
+
+  await qa.click(page.achieve.user.button);
+  await qa.click(page.achieve.user.sign_out);
 });
 
 After('@admin', async function() {
@@ -44,20 +42,17 @@ After('@admin', async function() {
 
 After('@admin-save', async function() {
   await pages.createAccount.populate('save_button', 'click');
-  await sleep(3000);
   await pages.navigation.populate('menu_system', 'click');
   await pages.navigation.populate('logout', 'click');
 })
 
 After('@admin-cancel', async function() {
   await pages.createAccount.populate('cancel_account', 'click');
-  await sleep(3000);
   await pages.navigation.populate('menu_system', 'click');
   await pages.navigation.populate('logout', 'click');
 })
 
 When('I click on course settings', async function() {
-  await sleep(5000);
   await pages.navigation.populate('Course_setting', 'click');
 });
 

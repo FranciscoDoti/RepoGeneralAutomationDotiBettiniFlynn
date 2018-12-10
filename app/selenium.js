@@ -199,7 +199,7 @@ module.exports = function(driver) {
     }),
 
     _locator: function(selector) {
-      if (selector.startsWith("//")) {
+      if (selector.startsWith("/")) {
         return {
           xpath: selector
         };
