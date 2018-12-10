@@ -2,7 +2,7 @@ const fs = require("fs");
 
 
 const writeNewJSON = async function (pageName, file) {
-    let fileName = "./page/pageDefsRefactor/" + file + ".json";
+    let fileName = "./page/pageDefsRefactor/LearningCurve/" + file + ".json";
     var resultObj = {};
     fs.readFile(fileName, "utf-8", (error, pageDef) => {
         if (error) throw error;
@@ -29,7 +29,7 @@ const writeNewJSON = async function (pageName, file) {
         let header = ""
         result[pageName] = resultObj;
         let resultJSON = JSON.stringify(result);
-        pageDefFile = "./page/pageDefs/" + pageName + ".json";
+        pageDefFile = "./page/pageDefs/LearningCurve/" + pageName + ".json";
         fs.writeFile(pageDefFile, header, (err) => {
             if (err) throw err;
             console.log("File Created for ", pageDefFile);
