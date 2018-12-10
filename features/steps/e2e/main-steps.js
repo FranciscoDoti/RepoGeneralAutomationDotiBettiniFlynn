@@ -1,6 +1,5 @@
 // features/support/steps.js
 const { Given, When, Then } = require('cucumber');
-const path = require('path');
 const assert = require('assert');
 
 const stepsPath = process.cwd() + '/features/pageDefs/';
