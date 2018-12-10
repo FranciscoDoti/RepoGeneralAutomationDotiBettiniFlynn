@@ -66,14 +66,18 @@ Then('I click on Quiz button', async function () {
 Then('I take the Quiz', async function () {
   await pages.readPractice.populate('Select_option', 'click');
   await pages.readPractice.populate('Submit_answer', 'click');
-  let booleanVal = await pages.resourceView.checkWebElementExists('Try_again');
-  if (booleanVal === true) {
-    await pages.readPractice.populate('Try_again', 'click');
-    await pages.readPractice.populate('show_answer', 'click');
-    await pages.readPractice.populate('next_question', 'click');
+  let elementExists = await pages.readPractice.checkWebElementExists('view_study_plan', 'click');
+  var x = elementExists;
+  while (x = true) {
+    x++;
     let booleanVal = await pages.resourceView.checkWebElementExists('slow_down_button');
     if (booleanVal === true) {
       await pages.readPractice.populate('slow_down_button', 'click');
+      await pages.readPractice.populate('Try_again', 'click');
+      await pages.readPractice.populate('show_answer', 'click');
+      await pages.readPractice.populate('next_question', 'click');
+      await pages.readPractice.populate('Select_option', 'click');
+      await pages.readPractice.populate('Submit_answer', 'click');
     } else {
       await pages.readPractice.populate('view_study_plan', 'click');
     }

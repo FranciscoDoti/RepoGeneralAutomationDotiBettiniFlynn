@@ -17,7 +17,8 @@ let pages = {
   activityTab: new PageObject('activity-tab.json', coursewareStepsPath),
   resourceView: new PageObject('resource-tab-view.json', coursewareStepsPath),
   courseplanner: new PageObject('course-planner-teb-view.json', coursewareStepsPath),
-  navigation: new PageObject('navigation.json', stepsPath)
+  navigation: new PageObject('navigation.json', stepsPath),
+  readPractice: new PageObject('read-and-practice-page.json', coursewareStepsPath)
 }
 
 After('@courseware-logout', async function () {
@@ -210,6 +211,7 @@ When('I change the course from unassigned to assign', async function () {
   while (x >= 0) {
     x--;
     await sleep(3000);
+    await pages.courseplanner.scrollIntoView('Assign_Item', 'click');
     await pages.courseplanner.populate('Assign_Item', 'click');
     await pages.courseplanner.populate('Possible_points', '5');
     await pages.courseplanner.populate('Active_date_Assign', 'click');
@@ -231,3 +233,33 @@ When('I change the course from unassigned to assign', async function () {
 //   await pages.createAccount.populate('password', mail.newpassword);
 //   await pages.createAccount.populate('confirmPassword', mail.newpassword);
 // });
+
+Then('I reduce the points in the acitivities', async function () {
+  await getDriver().findElements(By.xpath("//*[@class='_3UBu']")).then(function (elems) {
+    countlinks = elems.length;
+    console.log(countlinks);
+  });
+  var i;
+  for (i = 1; i <= countlinks; i++) {
+    await sleep(10000);
+    await getDriver().findElement(By.xpath("//*[@class='_3UBu'][" + i + ']')).click();
+    await sleep(5000);
+    let booleanVal = await pages.courseplanner.checkWebElementExists('edit_target');
+    if (booleanVal === true) {
+      await pages.readPractice.populate('edit_target', 'click');
+      await pages.readPractice.populate('target_score', '5');
+      await pages.readPractice.populate('change_target_score', 'click');
+      await pages.readPractice.populate('Very_short_activity', 'click');
+      await pages.readPractice.populate('close_learning_curve', 'click');
+      await sleep(5000);
+    }
+  }
+});
+
+When('I click on Grace period', async function () {
+  await pages.courseTemplate.populate('grace_period', 'click');
+});
+When('I click on Finish Enrollenment', async function () {
+  await pages.courseTemplate.populate('checkbox_agreement_graceperiod', 'click');
+  await pages.courseTemplate.populate('finish_enrollment', 'click');
+});

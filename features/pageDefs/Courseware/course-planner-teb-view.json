@@ -123,6 +123,14 @@
             "frame":"default",
             "specialInstr":"NA"
 
+        },
+        {
+            "name":"Activity_links",
+            "byType":"xpath",
+            "definition":"//*[@class='_3UBu']",
+            "frame":"default",
+            "specialInstr":"NA"
+
         }
 
 

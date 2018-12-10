@@ -71,7 +71,6 @@ Background:
         Then I manage the instructors on the course and add the "instructor_1" loginUser
         And I close the Manage Instructors page
        
-
     @courseware-logout
     Scenario: Verify that Instructor is able to invite the students and activate the course 
         When I have logged in as "instructor_1"
@@ -86,6 +85,15 @@ Background:
         And I click on show library button 
         And I click on Add button to add activities
         And I change the course from unassigned to assign
+        # And I reduce the points in the acitivities 
+
+    @coureseware-logout
+    Scenario: Enroll into course with link and access code
+        When I check E-mail Notification of "student" for "courseware"
+        And I have logged in as "student"
+        And I click on Grace period
+        And I click on Finish Enrollenment 
+        Then I validate that the following information is correct on the Course Access Code page
 
 
         

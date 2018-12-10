@@ -371,8 +371,28 @@
             "definition":"(//*[@target='_blank'])[37]",
             "frame":"default",
             "specialInstr":"NA"
+        },
+        {
+            "name":"grace_period",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Start a Grace Period']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"checkbox_agreement_graceperiod",
+            "byType":"xpath",
+            "definition":"//*[@type='checkbox']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"finish_enrollment",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Finish Enrollment']",
+            "frame":"default",
+            "specialInstr":"NA"
         }
-
-
     ]
 }

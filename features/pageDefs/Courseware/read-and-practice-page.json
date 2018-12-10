@@ -48,6 +48,45 @@
             "definition":"//*[@data-test-id='midWayModalStudyPlanBtn']",
             "frame":"default",
             "specialInstr":"NA"
+        },
+        {
+            "name":"edit_target",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"target_score",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='editTargetScoreScore']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"change_target_score",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='editTargetScoreChangeScoreBtn']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Very_short_activity",
+            "byType":"xpath",
+            "definition":"//*[text() ='A very short activity is OK']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"close_learning_curve",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='closelearningcurve']",
+            "frame":"default",
+            "specialInstr":"NA"
+
         }
        
     ]

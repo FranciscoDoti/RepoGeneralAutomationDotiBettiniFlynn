@@ -28,7 +28,7 @@ When('I click on sign In button on top right corner', async function () {
 
 When(/^I have logged in as "(.*)"$/, async function (userFile) {
   const user = loadLogin(userFile);
-  log.debug(`Using user ${user.username}`);
+  // log.debug(`Using user ${user.username}`);
   await pages.navigation.populate('txt_username', user.username);
   await pages.navigation.populate('txt_password', user.password);
   await pages.navigation.populate('signin_button', 'click');
