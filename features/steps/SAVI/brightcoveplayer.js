@@ -5,7 +5,7 @@ const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
 const config = loadConfig('config');
-const login = loadConfig('login');
+//const login = loadConfig('login');
 const assert = require('assert');
 
 const saviBrightcoveStandalone = new PageObject('savi-brightcove-standalone.json', stepsPath);
