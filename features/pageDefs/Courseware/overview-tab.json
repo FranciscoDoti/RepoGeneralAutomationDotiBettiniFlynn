@@ -9,8 +9,8 @@
         },
         {
             "name":"course_plan",
-            "byType":"id",
-            "definition":"react-tabs-18",
+            "byType":"classname",
+            "definition":"_1cKB",
             "frame":"default",
             "specialInstr":"NA"
         }

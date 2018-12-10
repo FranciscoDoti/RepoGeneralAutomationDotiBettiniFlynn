@@ -62,16 +62,16 @@ const connectClient = async function(user, password, regexChoice) {
                                 }
                             }
                         } else if (regex === "courseware"){
-                            var coursewareRegex = /(?<=Go\st=\no\s\s<strong><a\sstyle=3D"color:\s#080808;"\shref=3D")(.*?)(?=">)/
+                            var coursewareRegex = /(?<=frontend.mldev.cloud\/courses\/)(.*?)(?=">)/
                             if(parsed.textAsHtml){
                                 Link = parsed.text;
                                 var linkFound = Link.match(coursewareRegex);
                                 // const $ = cheerio.load(parsed.text); 
                                 // const href = $(['Go to  <strong><a style="color:#080808" href=3D"https://int-achieve-coursew=are-frontend.mldev.cloud"']).attr('href').replace('coursew=are','courseware');
-                                console.log(Link);
-                                console.log(linkFound);
+                                // console.log(Link);
                                 if(linkFound){
-                                    linkFound = linkFound[0];
+                                    linkFound = "https://int-achieve-courseware-frontend.mldev.cloud/courses/" + linkFound[0];
+                                    console.log(linkFound, "~~~~~~~LinkFound!!!!!!!");
                                     resolve(linkFound);
                                 } else {
                                     resolve('www.google.com');
