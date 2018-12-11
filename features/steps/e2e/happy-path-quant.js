@@ -7,6 +7,6 @@ let pages = {
 When('I click on course card of Quant Template', async function () {
   await pages.courseTemplate.populate('course_card_Qant', 'click');
 });
-When('I click on course card of Quant Template as instructor', async function () {
+When('I click on course card of Quant Template', async function () {
   await pages.courseTemplate.populate('course_card_quant_instructor', 'click', 'resources_tab');
 });

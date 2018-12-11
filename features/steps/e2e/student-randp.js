@@ -20,7 +20,7 @@ When('I click on course plan in student account', async function () {
   await sleep(5000);
   await pages.overviewTab.populate('course_plan', 'click');
 });
-When('I click on chapter read and Practice', async function () {
+When('I click on read and Practice activity', async function () {
   await sleep(3000);
   await pages.overviewTab.populate('read_practice_chapter1', 'click');
 });

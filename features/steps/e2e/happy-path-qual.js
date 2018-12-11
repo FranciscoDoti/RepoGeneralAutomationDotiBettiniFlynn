@@ -42,7 +42,7 @@ When('I validate the activities are added', async function () {
   getDriver().navigate().refresh();
   await sleep(3000);
 });
-When('I click on course card "Qual Testcourse" template present in instructor', async function () {
+When('I click on course card Qual Testcourse template', async function () {
   await pages.courseTemplate.populate('course_card_instructor', 'click');
 });
 

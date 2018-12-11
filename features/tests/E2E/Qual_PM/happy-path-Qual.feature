@@ -76,7 +76,7 @@ Background:
         And I click on course settings
         Then I capture the invite link and store to variable "inviteLink"
         And I populate the Invite Students "student" page 
-        And I click on course card "Qual Testcourse" template present in instructor
+        And I click on course card Qual Testcourse template
         And I click on courseplanner
         And I click on show library button 
         And I click on Custom content button
@@ -86,6 +86,14 @@ Background:
         And I validate Custom Assesement is created
         And I click on Add button to add activities
         And I change the course from unassigned to assign
+    
+    @coureseware-logout
+    Scenario: Enroll into course with link and access code
+        When I check E-mail Notification of "student" for "courseware"
+        And I have logged in as "student"
+        And I click on Grace period
+        And I click on Finish Enrollenment 
+        # Then I validate that the following information is correct on the Course Access Code page
         
     
     # @courseware-logout   

@@ -94,6 +94,7 @@ Background:
         And I click on Grace period
         And I click on Finish Enrollenment 
         # Then I validate that the following information is correct on the Course Access Code page
+        
     # @courseware-logout
     # Scenario: Verify that user is able to delete the course
     #     When I have logged in as "media_producer_1"
