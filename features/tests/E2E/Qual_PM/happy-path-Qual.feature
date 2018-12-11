@@ -4,6 +4,7 @@ Feature: Qual happy path workflow
    
 Background:
         Given I have opened Achieve "loginURL"
+        
     @courseware-logout
     Scenario: Verify that Media Producer is able to create Quant Template 
         When I have logged in as "media_producer_2"
