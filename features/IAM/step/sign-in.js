@@ -21,7 +21,7 @@ When('I login with the data table credentials', async function() {
 });
 
 When(/^I have logged in as "(.*)"$/, async function(user_object) {
-  let payload = require(`../../../data/user/${config.environment}/${user_object}.json`);
+  let payload = require(`../../_data/user/${config.environment}/${user_object}.json`);
 
   await signIn(this.driver, payload.username, payload.password);
 });

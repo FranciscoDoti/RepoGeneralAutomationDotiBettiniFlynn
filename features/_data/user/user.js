@@ -1,4 +1,4 @@
-const config = require('../../config.js');
+const config = require('../../../config.js');
 const Promise = require('bluebird');
 
 module.exports.getUser = function(user_object) {

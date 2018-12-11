@@ -2,7 +2,7 @@ const { Given, Then } = require('cucumber');
 const selenium = require('../../app/selenium.js');
 const page = require('../master-page.js');
 const URL = require('./url.js');
-const text_assert = require('../../data/assert/text.js');
+const assert_text = require('../_data/assert/text.js');
 const expect = require('chai').expect;
 const _ = require('lodash');
 
@@ -34,10 +34,10 @@ Given('I load a data table', async function(scenario_table) {
 // Text Assetion //
 Then(/^I verify "(.*)" feature "(.*)" message is displayed$/, async function(feature, text) {
   let qa = new selenium(this.driver);
-  let TEXT_ASSERT = await _.get(text_assert, [feature, text]);
+  let ASSERT_TEXT = await _.get(assert_text, [feature, text]);
 
   let PAGE_TEXT = await qa.getText(page.iam.login.error_text);
-  expect(PAGE_TEXT).to.equal(TEXT_ASSERT);
+  expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
 });
 
 
