@@ -28,36 +28,30 @@ Feature: Sign in
     #     Then I verify the help page is displayed
 
     @quit-driver
-    Scenario: Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system
-        Given I have opened "achieve" "signin"
-        When I click on the Sign In button on the Home page
-        And I login using invalid login credentials for 6 times
-            |UserName        | Password    |
-            |txt_username    | coursewareachieve@gmail.com |
-            |txt_password    | password1   |
-            |sign_in         | click       |
-            |txt_username    | coursewareachieve@gmail.com |
-            |txt_password    | password2   |
-            |sign_in         | click       |
-            |txt_username    | coursewareachieve@gmail.com  |
-            |txt_password    | password3   |
-            |sign_in         | click       |
-            |txt_username    | coursewareachieve@gmail.com |
-            |txt_password    | password4   |
-            |sign_in         | click       |
-            |txt_username    | coursewareachieve@gmail.com |
-            |txt_password    | password5   |
-            |sign_in         | click       |
-            |txt_username    | coursewareachieve@gmail.com |
-            |txt_password    | password6   |
-            |sign_in         | click       |
-        Then I login with following credentials:
-        Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed
+    Scenario: Verify correct message is displayed if invalid attempts threshold
+    is exceeded
+
+        Given I have opened "achieve" "sign_in"
+        And I click on "iam" feature "home" screen "sign_in" element
+        And I load a data table
+            |username                       | password    |
+            |coursewareachieve@gmail.com    | password1   |
+            |coursewareachieve@gmail.com    | password2   |
+            |coursewareachieve@gmail.com    | password3   |
+            |coursewareachieve@gmail.com    | password4   |
+            |coursewareachieve@gmail.com    | password5   |
+            |coursewareachieve@gmail.com    | password6   |
+
+        When I login with the data table credentials
+
+        Then I verify "iam" feature "too_many_attempts" message is displayed
 
 
     @quit-driver
     Scenario:Verify whether user able to login without waiting for 15minutes
-        Given I have opened "achieve" "signin"
-        When I click on the Sign In button on the Home page
-        And I have logged in as "admin_2"
-        Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed
+        Given I have opened "achieve" "sign_in"
+        And I click on "iam" feature "home" screen "sign_in" element
+
+        When I have logged in as "admin_2"
+
+        Then I verify "iam" feature "too_many_attempts" message is displayed

@@ -53,7 +53,7 @@ function courseware_register() {
 module.exports = {
   achieve: {
     base: achieve_base(),
-    signin: achieve_base() + "/start"
+    sign_in: achieve_base() + "/start"
   },
   courseware: {
     login: courseware_base() + courseware_login(),

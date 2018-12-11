@@ -1,6 +1,6 @@
 {
   "add_course": "._1T-8",
-  "courses":{
+  "courses": {
     "find_id": "//span[contains(@class,'3IC5') and contains(text(), 'ID: {id}')]",
     "find_isbn": "//span[contains(@class,'ejL6') and contains(text(), 'ISBN: {isbn}')]",
     "list": "._ExY"
@@ -25,6 +25,6 @@
     },
     "button": ".QYC0",
     "menu": "[role = 'menu']",
-    "sign_out": "/html/body/div[3]/div/div/div/div/div/div[3]/span/div/div",
+    "sign_out": "/html/body/div[3]/div/div/div/div/div/div[3]/span/div/div"
   }
 }

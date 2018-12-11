@@ -1,12 +1,41 @@
 const { When, Then } = require('cucumber');
-const selenium = require('../../app/selenium');
-const page = require('../../page/a_master.js');
-const assertions = require('../../assert/iam.json');
+const selenium = require('../../../app/selenium');
+const page = require('../../master-page.js');
+const config = require('../../../config.js');
 const expect = require('chai').expect;
 
 
+// Login Functionality //
+async function signIn(driver, username, password) {
+  let qa = new selenium(driver);
+
+  await qa.input(page.iam.login.username, username);
+  await qa.input(page.iam.login.password, password);
+  await qa.click(page.iam.login.sign_in);
+};
+
+When('I login with the data table credentials', async function() {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await signIn(this.driver, data_table.hashes()[i].username, data_table.hashes()[i].password);
+  }
+});
+
+When(/^I have logged in as "(.*)"$/, async function(user_object) {
+  let payload = require(`../../../data/user/${config.environment}/${user_object}.json`);
+
+  await signIn(this.driver, payload.username, payload.password);
+});
+
+
+// Refactor //
 When('I click on create an account button', async function() {
   await pages.navigation.populate('create_account_button', 'click');
+});
+
+When('I enter invalid username and password', async function() {
+  await pages.login.populate('txt_username', 'user');
+  await pages.login.populate('txt_password', 'user');
+  await pages.login.populate('sign_in', 'click');
 });
 
 Then('I hover on icon "i"', async function() {
@@ -28,12 +57,6 @@ Then('I Verify User Sign In with existing registered account appropriately', asy
   await pages.login.checkWebElementExists('existinguser_check');
 });
 
-When('I enter invalid username and password', async function() {
-  await pages.login.populate('txt_username', 'user');
-  await pages.login.populate('txt_password', 'user');
-  await pages.login.populate('sign_in', 'click');
-});
-
 // Are we sure we are testing this correctly, it seems to be passing the tests but logging an error in the terminal from one of these tests or more
 // TODO: Find which test is logging an error, find out why and remove noisy console logs
 Then('I Verify "Invalid user name and password" message should be displayed', async function() {
@@ -41,28 +64,6 @@ Then('I Verify "Invalid user name and password" message should be displayed', as
   if (errorText == 'Invalid username or password') {} else {
     throw new Error('failed');
   }
-});
-
-When('I login using invalid login credentials for 6 times', async function(dataTable) {
-  invalid = dataTable;
-});
-
-Then('I login with following credentials:', async function() {
-  let qa = new selenium(this.driver);
-
-  var e;
-  for (e = 0; e < invalid.rows().length; e++) {
-    await qa.input(page.login.username, invalid.hashes()[e].UserName);
-    await qa.input(page.login.password, invalid.hashes()[e].Password);
-    await qa.click(page.login.sign_in);
-  }
-});
-
-Then('I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed', async function() {
-  let qa = new selenium(this.driver);
-
-  let text = await qa.getText(page.login.errortext);
-  expect(text).to.equal(assertions.too_many_attempts);
 });
 
 Then('I click on help Link', async function() {

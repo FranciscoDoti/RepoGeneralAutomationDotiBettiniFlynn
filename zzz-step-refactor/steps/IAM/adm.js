@@ -12,9 +12,9 @@
 // let pages = { authAdmin, createAccount };
 
 const { Given, When, Then, After } = require('cucumber');
-const selenium = require('../../app/selenium.js');
-const page = require('../../page/a_master.js');
-const config = require('../../config.js');
+const selenium = require('../../../app/selenium.js');
+const page = require('../../master-page.js');
+const config = require('../../../config.js');
 
 When('I click on user menu', async function () {
   log.debug('Clicking menu_system button');
