@@ -11,8 +11,6 @@ const assert = require('assert');
 const saviBrightcoveControls = new PageObject('savi-brightcove-controls.json', stepsPath);
 const saviBrightcoveEpub = new PageObject('savi-brightcove-epub.json', stepsPath);
 const loginPage = new PageObject('saplinglearning-login.json', stepsPath);
-const saviVerification1 = new PageObject('savi-verification1.json', stepsPath);
-const saviBrightcoveNGA = new PageObject('savi-brightcove-nga.json', stepsPath);
 
 // STANDALONE AND GENERAL
 
@@ -74,11 +72,11 @@ Given('I can play a video in the ePub', async function () {
   const studentVideoDan = await saviBrightcoveEpub.getWebElements('studentVideoDan'); // get iframe with student video
   await getDriver().switchTo().frame(studentVideoDan[0]); // third iframe
 
-  await saviBrightcoveEpub.checkWebElementExists('video');
-  await saviBrightcoveEpub.populate('big_play_button', 'click');
+  await saviBrightcoveControls.checkWebElementExists('video');
+  await saviBrightcoveControls.populate('big_play_button', 'click');
   await sleep(1000);
 
-  let currentTime = await saviBrightcoveEpub.getElementValue('video', 'currentTime');
+  let currentTime = await saviBrightcoveControls.getElementValue('video', 'currentTime');
   log.debug(`currentTime: ${currentTime}`);
   assert(currentTime > 0, 'The video is playing');
 });
@@ -103,11 +101,11 @@ When('I open the assignment', async function () {
 
 Then('I can play a video in the assignment', async function () {
   await sleep(2000);
-  await saviBrightcoveNGA.checkWebElementExists('video');
-  await saviBrightcoveNGA.populate('big_play_button', 'click');
+  await saviBrightcoveControls.checkWebElementExists('video');
+  await saviBrightcoveControls.populate('big_play_button', 'click');
   await sleep(1000);
 
-  let currentTime = await saviBrightcoveNGA.getElementValue('video', 'currentTime');
+  let currentTime = await saviBrightcoveControls.getElementValue('video', 'currentTime');
   log.debug(`currentTime: ${currentTime}`);
   assert(currentTime > 0, 'The video is playing');
   await sleep(1000);
