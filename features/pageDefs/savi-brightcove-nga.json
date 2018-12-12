@@ -1,5 +1,11 @@
 {
   "webElements": [{
+      "name": "test",
+      "byType": "id",
+      "definition": "main",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
       "name": "video",
       "byType": "id",
       "definition": "vjs_video_1_html5_api",
