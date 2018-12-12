@@ -51,9 +51,33 @@
 			"frame": "default",
 			"specialInstr": "NA"
         },{
-			"name": "assignment_completion",
+			"name": "assignments_started",
             "byType": "xpath",
-			"definition": "//ul[@data-test-id='assignmentCompletion']",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryQuizesStarted']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "assignments_completed",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryQuizesCompleted']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "accuracy_low",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryAccuracyLow']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "accuracy_medium",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryAccuracyMedium']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "accuracy_high",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryAccuracyHigh']",
 			"frame": "default",
 			"specialInstr": "NA"
         },{

@@ -18,6 +18,8 @@ Scenario: Student Takes a LC Assessment
     And I see a question, I can answer it "Correct"
     And I log into an assignment in "LCUrl" as "instructor"
   Then I check accessibility on "Instructor" page
+    And I verify that there are "1" students
+    And I verify the students info is correct for LC
 
 Scenario: Student Takes a LC Assessment
   Given I log into an assignment in "LCUrl" as "student2"
