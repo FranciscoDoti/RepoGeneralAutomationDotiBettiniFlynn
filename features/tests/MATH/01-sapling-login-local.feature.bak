@@ -1,0 +1,9 @@
+
+### I would be addressing the different server logins --local/int in the updated auto framework
+
+Feature: Authentication for local sapling login
+
+Scenario: Verify user logs into local docker successfully
+  Given The local docker "Math-dockAMSUrl" page is loaded
+    When I login as "gozer"
+      Then Verify I can signin successfully

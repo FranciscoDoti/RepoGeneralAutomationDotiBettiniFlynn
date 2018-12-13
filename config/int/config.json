@@ -6,6 +6,8 @@
   "UserCreationUrl":"https://int-achieve-iam.mldev.cloud/register?retURL=https%3A%2F%2Fint-achieve-courseware-frontend.mldev.cloud%2Fcourses",
   "LCUrl": "https://int-achieve-learningcurve.mldev.cloud/",
 	"LCRPUrl": "https://int-achieve-learningcurve.mldev.cloud/lcrp/",
+	"Math-AMSUrl": "https://int.saplinglearning.me/ams/",
+
 	"driver": {
 		"type": "chrome",
 		"headless": false

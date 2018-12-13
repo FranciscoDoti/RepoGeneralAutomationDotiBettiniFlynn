@@ -88,31 +88,31 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       // Setup all underlying required objects to take action on for this action
       actionElement.element = tempElement;
-      if (tempElement && tempElement.waitForElementToBeInvisible) {
-        if (await hasElement(tempElement.waitForElementToBeInvisible)) {
-          const elementToWaitToBeInvisible = await getElement(tempElement.waitForElementToBeInvisible);
-          actionElement.elementToWaitToBeInvisible = elementToWaitToBeInvisible;
-        }
-      }
-      if (tempElement && tempElement.waitToBeVisible) {
-        if (await hasElement(tempElement.waitToBeVisible)) {
-          const waitToBeVisible = await getElement(tempElement.waitToBeVisible);
-          actionElement.waitToBeVisible = waitToBeVisible;
-        }
-      }
+      // if (tempElement && tempElement.waitForElementToBeInvisible) {
+      //   if (await hasElement(tempElement.waitForElementToBeInvisible)) {
+      //     const elementToWaitToBeInvisible = await getElement(tempElement.waitForElementToBeInvisible);
+      //     actionElement.elementToWaitToBeInvisible = elementToWaitToBeInvisible;
+      //   }
+      // }
+      // if (tempElement && tempElement.waitToBeVisible) {
+      //   if (await hasElement(tempElement.waitToBeVisible)) {
+      //     const waitToBeVisible = await getElement(tempElement.waitToBeVisible);
+      //     actionElement.waitToBeVisible = waitToBeVisible;
+      //   }
+      // }
 
       // If need to hit a iframe, do it
       await switchFrame(tempElement.frame);
-
       elementTarget = await WebElement(tempElement);
       actionElement.webElement = elementTarget;
 
       // log.debug(`****genericPopulateElement: ${elementName}`);
-      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection.`);
 
       const webElement = await elementTarget.getWebElement();
       const tagName = await webElement.getTagName();
 
+      log.info(`Info: Page Element ${tagName}:${elementName} retrieved from Page Elements collection.`);
+      
       switch (tagName.toLowerCase()) {
         case 'input':
           await populateInput(webElement, value, actionElement);

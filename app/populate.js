@@ -6,6 +6,7 @@ const { log } = require('./logger');
 
 const populateInput = async function (eleTarget, strValue, actionElement) {
   const type = await eleTarget.getAttribute('type');
+  console.log("POPULATEINPUT::", type)
   switch (type) {
     case 'radio':
       if (strValue.toLowerCase() === 'click') {
@@ -32,6 +33,7 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
       }
       break;
     case 'button':
+    case 'submit':
       if (strValue.toLowerCase() === 'click') {
         await populateClick(eleTarget, strValue, actionElement);
       } else {
@@ -96,7 +98,7 @@ const populateTextField = async function (eleTarget, strValue, actionElement) {
     localSpecialInstr &&
     !localSpecialInstr.toLowerCase().indexOf('noclick') > -1
   ) {
-    log.debug('Clicking text field.');
+    log.debug(`Clicking text field: ${localSpecialInstr}`);
     await eleTarget.click();
   }
 
