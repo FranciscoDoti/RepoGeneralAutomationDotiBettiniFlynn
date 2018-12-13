@@ -17,6 +17,13 @@ let studentView = {
   quizPage: new PageObject('lc-quiz.json', stepsPath)
 };
 
+let instructorView = {
+  commonPage: new PageObject('lc-instructor-common.json', stepsPath),
+  lcrpPage: new PageObject('lc-instructor-lcrp.json', stepsPath),
+  lcPage: new PageObject('lc-instructor-lc.json', stepsPath),
+  trendsPage: new PageObject('lc-trends-and-insights.json', stepsPath)
+}
+
 let lcInfo;
 let testInfo = {
   'currentUser': ''
@@ -90,7 +97,7 @@ When('I view the student landing page for LC', async function () {
   courses.addAssignment(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   courses.addAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
-  assignmentScore.targetScore = await studentView.lcPage.getElementValue('target_score')
+  assignmentScore.targetScore = parseInt(await studentView.lcPage.getElementValue('target_score'))
   let beginActivityButton = studentView.lcPage.checkWebElementExists('start_quiz_button')
   assert(beginActivityButton, 'The Begin Activity Button is not present on the page.')
 });
@@ -128,9 +135,9 @@ Then(/I can start the assessment "(.*)"/, async function (lc) {
   let scores = score.split(/\//)
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   if (assignmentScore.targetScore !== 0) {
-    assert(assignmentScore.targetScore === scores[1], 'The target score does not match the score on the landing page.')
+    assert(assignmentScore.targetScore === parseInt(scores[1]), 'The target score does not match the score on the landing page.')
   } else {
-    assignmentScore.targetScore = scores[1];
+    assignmentScore.targetScore = parseInt(scores[1]);
   }
 })
 
@@ -241,6 +248,45 @@ Given('I have completed an LC assignment, I can go back and answer more question
   assert(nextQuestionButton !== undefined, 'Not on the last question')
   studentView.quizPage.populate('next_question', 'click');
   await sleep(5000)
+});
+
+// this should be updated to cound the number of students in the list as well.
+Then(/I verify that there are "(.*)" students/, async function (students) {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let studentCount = 0;
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      studentCount++;
+    }
+  };
+  assert(studentCount == students, 'The student count did not match: Expected: ' + students + '\nActually: ' + studentCount)
+});
+
+// This will need to be updated to support multiple students once the student list is fixed.
+Then('I verify the students info is correct for LC', async function () {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let studentData = {
+    'started': 0,
+    'completed': 0,
+    'possible': 0,
+    'scores': 0,
+    'low': 0,
+    'medium': 0,
+    'high': 0
+  };
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      let studentName = await instructorView.commonPage.getElementValue('students');
+      // right now this is only designed to check with one student, this will need to be an if when we can get more than the first student.
+      assert(studentName.toLowerCase().includes(key.toLowerCase()), 'The student name is not correct');
+      let studentScore = await instructorView.lcPage.getWebElements('completion_points')[1];
+      assert(studentScore === student[lcInfo.assignment].scores.currentScore, 'Expected Score: ' + student[lcInfo.assignment].scores.currentScore + '\nActual Score: ' + studentScore)
+      helper.collectStudentData(studentData, student, lcInfo.assignment)
+    }
+  }
+  helper.validateStudentData(studentData);
 });
 
 // AfterAll(function () {

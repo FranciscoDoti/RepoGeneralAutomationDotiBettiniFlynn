@@ -3,6 +3,8 @@
 	"loginURL": "https://int-achieve-preprod-iam.mldev.cloud/login?retURL=https://int-achieve-preprod-courseware-frontend.mldev.cloud/courses",
 	"ThirdpartyURL":"http://accounts.google.com/signin/v2",
 	"UserCreationUrl":"https://int-achieve-preprod-iam.mldev.cloud/register",
+	"LCUrl": "https://int-achieve-preprod-learningcurve.mldev.cloud/",
+	"LCRPUrl": "https://int-achieve-preprod-learningcurve.mldev.cloud/lcrp/",
 	"driver": {
 		"type": "chrome",
 		"headless": false

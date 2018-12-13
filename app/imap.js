@@ -66,9 +66,10 @@ const connectClient = async function(user, password, regexChoice) {
                             if(parsed.textAsHtml){
                                 Link = parsed.text;
                                 var linkFound = Link.match(coursewareRegex);
-                                // const $ = cheerio.load(parsed.text); 
-                                // const href = $(['Go to  <strong><a style="color:#080808" href=3D"https://int-achieve-coursew=are-frontend.mldev.cloud"']).attr('href').replace('coursew=are','courseware');
-                                // console.log(Link);
+
+                                const $ = cheerio.load(parsed.text);
+                                const href = $('a[style=3D"color: #080808;"]').text();
+                                console.log('mailObject~~~~~~~~~~~~~~~~~~',parsed.text, '~~~~~mailObject', info, '~~~~~~~~~~~href ', href, 'href~~~~~~~~~~~~~')
                                 if(linkFound){
                                     linkFound = "https://int-achieve-courseware-frontend.mldev.cloud/courses/" + linkFound[0];
                                     console.log(linkFound, "~~~~~~~LinkFound!!!!!!!");
