@@ -1,11 +1,10 @@
-var { After } = require('cucumber');
+var { After, AfterAll } = require('cucumber');
 const selenium = require('../../app/selenium.js');
 var fs = require('fs');
 var sanitize = require("sanitize-filename");
 
 
-After('@quit-driver', function() {
-
+After(function () {
   return this.driver.quit();
 });
 

@@ -1,56 +1,44 @@
 const { Given, Then } = require('cucumber');
 const selenium = require('../../app/selenium.js');
-const page = require('../master-page.js');
 const URL = require('./url.js');
-const assert_text = require('../_data/assert/text.js');
+const page = require('../master-page.js');
+const assert_text = require('../master-text.js');
 const expect = require('chai').expect;
 const _ = require('lodash');
 
-
 // URL Navigation //
-Given(/^I have opened "(.*)" "(.*)"$/, async function(feature, endpoint) {
+Given(/^I have opened "(.*)" "(.*)"$/, async function (system, endpoint) {
   let qa = new selenium(this.driver);
-  let url = await _.get(URL, [feature, endpoint]);
+  let url = await _.get(URL, [system, endpoint]);
 
   await qa.goTo(url);
 });
 
-
 // Page Navigation //
-Given(/^I click on "(.*)" feature "(.*)" screen "(.*)" element$/, async function(feature, screen, element) {
+Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, [feature, screen, element]);
+  let PAGE = await _.get(page, [system, feature, element]);
 
   await qa.click(PAGE);
 });
 
-
 // Load Data Table //
-Given('I load a data table', async function(scenario_table) {
+Given('I load a data table', async function (scenario_table) {
   data_table = scenario_table;
 });
 
-
 // Text Assetion //
-Then(/^I verify "(.*)" feature "(.*)" message is displayed$/, async function(feature, text) {
+Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is displayed$/, async function (system, feature, element, text) {
   let qa = new selenium(this.driver);
-  let ASSERT_TEXT = await _.get(assert_text, [feature, text]);
+  let PAGE = await _.get(page, [system, feature, element]);
+  let PAGE_TEXT = await qa.getText(PAGE);
+  let ASSERT_TEXT = await _.get(assert_text, [system, feature, text]);
 
-  let PAGE_TEXT = await qa.getText(page.iam.login.error_text);
   expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
 });
 
-
-//FIXME This needs to be application specific support file
-// use this step to delete the course and comment it when you are not using
-// ( example is available in Qual_Pm, Quant_Pm)
-Given('I click on delete the course', async function() {
-  await pages.navigation.populate('Delete_course', 'click');
-  await pages.navigation.populate('Confirm_Delete_course', 'click');
-});
-
-//FIXME This needs to be application specific support file
-Given('I Sign Out of Achieve', async function() {
+// FIXME This needs to be application specific support file
+Given('I Sign Out of Achieve', async function () {
   let qa = new selenium(this.driver);
 
   await qa.click(page.achieve.user.button);

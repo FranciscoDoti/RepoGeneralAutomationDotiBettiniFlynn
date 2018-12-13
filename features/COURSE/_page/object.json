@@ -1,0 +1,62 @@
+{
+  "main": {
+    "add_course": "._1T-8",
+    "search": "[placeholder='Search for Course Name']",
+    "title": "._1YVk"
+  },
+  "course_list": {
+    "course_menu": "[title='Course Settings']",
+    "delete_course": "//*[text()='Delete Course']",
+    "confirm_delete" : "//*[text()='Yes, Delete']",
+    "id": "//span[contains(text(), 'ID: {id}')]",
+    "isbn": "//div[contains(text(), 'ISBN: {}')]",
+    "list": "._ExY"
+  },
+  "create_course": {
+    "button": "//*[text()='Create a Course']",
+    "course_code": "#__createCourse_codeInput",
+    "course_name": "#__createCourse_nameInput",
+    "course_status": "[name='courseStatus']",
+    "course_type": "[name='courseType']",
+    "isbn_number": "#__createCourse_isbnInput",
+    "learning_objective": "._2oIm._2lfL._2Kdo._3vV4",
+    "product_model": "[name='productModel']",
+    "save_button": "._1tkc undefined",
+    "meeting_monday": "#2e5f5f47-08e5-4b91-8cf1-da320eafadaa",
+    "meeting_tuesday": "#4640f048-f59d-4b94-afbe-7756f2d30ce1",
+    "meeting_wednesday": "#8c13b46c-bcd3-4051-a314-d88756a9ea7c",
+    "meeting_thursday": "#d348d315-ad79-47fd-8c38-5fa02bd828ef",
+    "meeting_friday": "#8f473c8e-56e5-40e8-91ec-f5a32554c71b",
+    "meeting_saturday": "#a07b1112-be40-40bb-ba15-13de3de7fb6a",
+    "meeting_sunday": "#bd29fc93-c35e-48dd-bc57-afa1804814f0",
+    "meeting_hour": "#__timePickerHour",
+    "meeting_minute": "#__timePickerMinute",
+    "meeting_period": "#__timePickerPeriod",
+    "term": "[name='courseTerm']",
+    "term_year": "[name='courseYear']",
+    "status": "[name='courseStatus']",
+    "cancel" : ".QNU9.undefined",
+    "save": "._1tkc.undefined",
+    "success_message": "//*[@id='container']/div/div[2]/div[2]/span"
+  },
+  "user": {
+    "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
+    "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
+    "admin_menu": {
+      "access_code_usage_report": "//span[contains(@class,'_12OR') and contains(text(), 'Access Code Usage Report')]",
+      "check_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Check AccessCode')]",
+      "check_account": "//span[contains(@class,'_12OR') and contains(text(), 'Check Account')]",
+      "course_report": "//span[contains(@class,'_12OR') and contains(text(), 'Course Report')]",
+      "import_resources": "//span[contains(@class,'_12OR') and contains(text(), 'Import Resources')]",
+      "individual_assignment_report": "//span[contains(@class,'_12OR') and contains(text(), 'Individual Assignment Report')]",
+      "manage_product_models_and_indices": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Product Models & Indices')]",
+      "manage_roles": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Roles')]",
+      "password_reset": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
+      "restore_deleted_courses": "//span[contains(@class,'_12OR') and contains(text(), 'Restore Deleted Courses')]",
+      "update_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Update AccessCode')]"
+    },
+    "button": ".QYC0",
+    "menu": "[role = 'menu']",
+    "sign_out": "/html/body/div[3]/div/div/div/div/div/div[3]/span/div/div"
+  }
+}

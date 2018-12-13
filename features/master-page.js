@@ -1,6 +1,6 @@
 page = {
-  achieve: require('./ACHIEVE/page/object.json'),
-  iam: require('./IAM/page/object.json')
+  course: require('./COURSE/_page/object.json'),
+  iam: require('./IAM/_page/object.json')
 };
 
 module.exports = page;
