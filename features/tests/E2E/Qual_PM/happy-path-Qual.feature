@@ -31,7 +31,7 @@ Background:
         And I fill out the form to create a new course
             |pageDef         |  value |
             |Template_status | Active On Date|
-            |save_button         | click |
+            |save_button     | click |
         And I click on course card "Qual Testcourse" template
         And I click on Resource tab     
         And add content into chapter by clicking "+" button

@@ -248,6 +248,7 @@ Then('I reduce the points in the acitivities', async function () {
     if (booleanVal === true) {
       await pages.readPractice.populate('edit_target', 'click');
       await pages.readPractice.populate('target_score', '5');
+      await sleep(2000);
       await pages.readPractice.populate('change_target_score', 'click');
       await pages.readPractice.populate('Very_short_activity', 'click');
       await pages.readPractice.populate('close_learning_curve', 'click');
