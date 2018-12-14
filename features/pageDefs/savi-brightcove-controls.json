@@ -1,8 +1,8 @@
 {
   "webElements": [{
       "name": "video",
-      "byType": "id",
-      "definition": "vjs_video_3_html5_api",
+      "byType": "classname",
+      "definition": "vjs-tech",
       "frame": "default",
       "specialInstr": "NA"
     },{
