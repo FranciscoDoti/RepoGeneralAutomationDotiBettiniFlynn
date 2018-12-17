@@ -181,7 +181,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         returnValue = await webElement.getText();
       }
       if (attributeName) {
-        if (attributeName === 'selected'){
+        if (attributeName === 'selected') {
           returnValue = await webElement.isSelected();
         } else {
           returnValue = await webElement.getAttribute(attributeName);

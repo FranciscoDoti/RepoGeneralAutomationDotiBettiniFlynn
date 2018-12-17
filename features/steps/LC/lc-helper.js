@@ -102,7 +102,7 @@ const orderedQuestionCheck = async function () {
 }
 
 const collectStudentData = async function (studentData, student, assignment) {
-  let score = student[assignment].scores[student[assignment].scores.length - 1]
+  let score = student[assignment].scores[0]
   if (score.currentScore >= score.targetScore) {
     studentData.completed++;
   } else {
@@ -119,6 +119,16 @@ const collectStudentData = async function (studentData, student, assignment) {
 
   studentData.scores += score.currentScore;
   studentData.possible += score.totalPossible;
+
+  if (student[assignment].scores.length > 1) {
+    for (let score in student[assignment].scores) {
+      if (score.targetScore < score.currentScore) {
+        studentData.retake = score.currentScore / score.totalPossible;
+      } else {
+        studentData.retake = '';
+      }
+    }
+  }
 }
 
 const validateStudentData = async function (studentData) {

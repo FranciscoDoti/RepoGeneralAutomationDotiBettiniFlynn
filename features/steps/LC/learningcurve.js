@@ -281,12 +281,70 @@ Then('I verify the students info is correct for LC', async function () {
       let studentName = await instructorView.commonPage.getElementValue('students');
       // right now this is only designed to check with one student, this will need to be an if when we can get more than the first student.
       assert(studentName.toLowerCase().includes(key.toLowerCase()), 'The student name is not correct');
-      let studentScore = await instructorView.lcPage.getWebElements('completion_points')[1];
-      assert(studentScore === student[lcInfo.assignment].scores.currentScore, 'Expected Score: ' + student[lcInfo.assignment].scores.currentScore + '\nActual Score: ' + studentScore)
+      let studentScoreEle = await instructorView.lcPage.getWebElements('completion_points');
+      let studentScore = parseInt(await studentScoreEle[1].getText());
+      assert(studentScore === student[lcInfo.assignment].scores[0].currentScore, 'Expected Score: ' + student[lcInfo.assignment].scores[0].currentScore + '\nActual Score: ' + studentScore)
       helper.collectStudentData(studentData, student, lcInfo.assignment)
+      helper.validateStudentData(studentData);
+    }
+  }
+});
+
+Then('I verify the students info is correct for LCRP', async function () {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let studentData = {
+    'started': 0,
+    'completed': 0,
+    'possible': 0,
+    'scores': 0,
+    'low': 0,
+    'medium': 0,
+    'high': 0,
+    'retake': '-'
+  };
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      let studentName = await instructorView.commonPage.getElementValue('students');
+      // right now this is only designed to check with one student, this will need to be an if when we can get more than the first student.
+      assert(studentName.toLowerCase().includes(key.toLowerCase()), 'The student name is not correct');
+      let calcScore = student[lcInfo.assignment].scores[0].currentScore / student[lcInfo.assignment].scores[0].totalPossible * 100;
+      helper.collectStudentData(studentData, student, lcInfo.assignment)
+      if (student[lcInfo.assignment].scores[0].currentScore >= student[lcInfo.assignment].scores[0].targetScore) {
+        let studentScore = parseInt(await instructorView.lcrpPage.getElementValue('first_attempt'));
+        assert(calcScore - 1 < studentScore && calcScore + 1 > studentScore, 'Expected Score: ' + calcScore + '± 1\nActual Score: ' + studentScore)
+      } else {
+        let studentScore = await instructorView.lcPage.getElementValue('first_attempt')
+        assert(studentScore === '-', 'Student with score of ' + student[lcInfo.assignment].scores[0].currentScore + '/' + student[lcInfo.assignment].scores[0].targetScore + 'with a score of: ' + studentScore)
+      }
+      let retakeScore = parseInt(await instructorView.lcrpPage.getElementValue('retake_attempt'))
+      assert(retakeScore === studentData.retake || (studentData.retake - 1 < retakeScore && studentData.retake + 1 > retakeScore, 'Expected: ' + studentData.retake + '\nActually: ' + retakeScore))
     }
   }
   helper.validateStudentData(studentData);
+});
+
+Then(/I verify the class average for "(.*)"/, async function (lc) {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let averages = [];
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      averages.push(student[lcInfo.assignment].scores[0].currentScore / student[lcInfo.assignment].scores[0].totalPossible * 100);
+    }
+  }
+  let sum = 0;
+  for (let i = 0; i < averages.length; i++) {
+    sum += averages[i];
+  }
+  let average = sum / averages.length
+  let pageAccuracy;
+  if (lc === 'LC') {
+    pageAccuracy = parseInt(await instructorView.lcPage.getElementValue('topic_performance'))
+  } else {
+    pageAccuracy = parseInt(await instructorView.lcrpPage.getElementValue('topic_performance'))
+  }
+  assert(average - 1 < pageAccuracy && average + 1 > pageAccuracy, 'The accuracy is not correct. Expected: ' + average + '\nActually: ' + pageAccuracy);
 });
 
 // AfterAll(function () {
