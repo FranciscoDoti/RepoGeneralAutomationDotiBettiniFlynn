@@ -22,9 +22,12 @@ Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function
   await qa.click(PAGE);
 });
 
-// Load Data Table //
-Given('I load a data table', async function (scenario_table) {
-  data_table = scenario_table;
+// Generic Input //
+Given(/^I input "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async function (text, system, feature, element) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element]);
+
+  await qa.input(PAGE, text);
 });
 
 // Text Assetion //
@@ -35,12 +38,4 @@ Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is 
   let ASSERT_TEXT = await _.get(assert_text, [system, feature, text]);
 
   expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
-});
-
-// FIXME This needs to be application specific support file
-Given('I Sign Out of Achieve', async function () {
-  let qa = new selenium(this.driver);
-
-  await qa.click(page.achieve.user.button);
-  await qa.click(page.achieve.user.sign_out);
 });

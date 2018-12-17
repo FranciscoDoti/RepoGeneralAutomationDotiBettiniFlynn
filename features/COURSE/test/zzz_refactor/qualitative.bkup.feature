@@ -1,28 +1,7 @@
 Feature: Qual happy path workflow
   Media Producer creates a course
 
-  Background:
-    Given I have opened "achieve" "login"
-    And I click on "iam" feature "home" screen "sign_in" element
-
-  @courseware-logout
-  Scenario: Verify that Media Producer is able to create Quant Template
-    Given I have logged in as "media_producer_2"
-    And I click on "course" feature "create_course" screen "button" element
-
-    When I fill out the form to create a new course
-      | pageDef            | value                   |
-      | course_type        | Template                |
-      | product_model      | Qualitative             |
-      | course_name        | Qual Testcourse         |
-      | learning_Objective | Principles of Economics |
-      | course_code        | E2E 301                 |
-      | isbn_number        | 9781464199498           |
-      | course_status      | Draft                   |
-      | save_button        | click                   |
-
-    Then I verify "COURSE" feature "create_course_success" message is displayed
-    Then I validate that the course "$course.templatename" is listed in the courses page
+###
 
   @skip @courseware-logout
   Scenario: Verify that Media Producer is able to add activities in Qunat Template
@@ -50,6 +29,8 @@ Feature: Qual happy path workflow
     And I click on Activity search button and pass the value "AT1nov"
     And I click on add content
 
+###
+
   @skip @courseware-logout
   Scenario: Verify that Media Producer is able to copy the course from Qual Template
     When I have logged in as "media_producer_2"
@@ -57,6 +38,8 @@ Feature: Qual happy path workflow
     And I click on course settings
     Then I copy the course named "Testcourse" to the name "E301"
     And I validate the message "Course Copied."
+
+###
 
   @skip @courseware-logout
   Scenario: Verify that customer support is able to add instructor to the course copied from Qualitative Template
@@ -68,6 +51,7 @@ Feature: Qual happy path workflow
     And I validate that the Course Specific Link opens the course named "$course1.name"
     And I close the Manage Instructors page
 
+###
   @skip @courseware-logout
   Scenario: Verify That an Instructor is able to add a custom created assesment acitvity in an Instructor created course from Qualitative Template
     When I have logged in as "instructor_1"

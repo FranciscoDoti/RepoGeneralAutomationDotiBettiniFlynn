@@ -34,8 +34,9 @@ Feature: Login
     is exceeded
 
         Given I have opened "achieve" "login"
-        And I click on "iam" feature "home" screen "sign_in" element
-        And I load a data table
+        And I click on "iam" system "home" feature "sign_in" element
+
+        When I login with the following credentials
             |username                       | password    |
             |coursewareachieve@gmail.com    | password1   |
             |coursewareachieve@gmail.com    | password2   |
@@ -44,16 +45,14 @@ Feature: Login
             |coursewareachieve@gmail.com    | password5   |
             |coursewareachieve@gmail.com    | password6   |
 
-        When I login with the data table credentials
-
-        Then I verify "iam" feature "too_many_attempts" message is displayed
+        Then I verify "iam" system "login" feature "error_text" element's "too_many_attempts" message is displayed
 
 
     Scenario:Verify whether user able to login without waiting for 15minutes
 
         Given I have opened "achieve" "login"
-        And I click on "iam" feature "home" screen "sign_in" element
+        And I click on "iam" system "home" feature "sign_in" element
 
         When I have logged in as "admin_2"
 
-        Then I verify "iam" feature "too_many_attempts" message is displayed
+        Then I verify "iam" system "login" feature "error_text" element's "too_many_attempts" message is displayed

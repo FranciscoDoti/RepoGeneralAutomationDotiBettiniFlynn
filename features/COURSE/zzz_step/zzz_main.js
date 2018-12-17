@@ -20,6 +20,14 @@ When('I click the login button', async function () {
   }
 });
 
+// FIXME This needs to be application specific support file
+Given('I Sign Out of Achieve', async function () {
+  let qa = new selenium(this.driver);
+
+  await qa.click(page.achieve.user.button);
+  await qa.click(page.achieve.user.sign_out);
+});
+
 When(/^I click by id "(.*)" button$/, async function (buttonLabel) {
   try {
     log.debug('Clicking on login button');

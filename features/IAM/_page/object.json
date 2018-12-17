@@ -10,22 +10,22 @@
     "error_message": ".loginMessage.loginError",
     "forgot_password": ".linkRow.spacer span a",
     "form": ".formContent",
-    "footer": {
-      "company_link": "sc-gzVnrw.dJLSVG a",
-      "help": "//*[@id='RegisterForm']/div[5]/div/ul/li[7]/a",
-      "piracy": "//*[@id='RegisterForm']/div[5]/div/ul/li[5]/a",
-      "privacy": "//*[@id='RegisterForm']/div[5]/div/ul/li[1]/a",
-      "terms_of_purchase": "//*[@id='RegisterForm']/div[5]/div/ul/li[3]/a"
-    },
     "login_message": ".loginMessage.false",
-    "logos": {
-      "header": ".storeLogo",
-      "student_store": "#studentStore",
-      "achieve": "#achieve",
-      "sapling_learning": "#saplingLearning"
-    },
     "password": "#password",
     "sign_in": "#signin",
     "username": "#username"
+  },
+  "footer": {
+    "company_link": "sc-gzVnrw.dJLSVG a",
+    "help": "//*[@id='RegisterForm']/div[5]/div/ul/li[7]/a",
+    "piracy": "//*[@id='RegisterForm']/div[5]/div/ul/li[5]/a",
+    "privacy": "//*[@id='RegisterForm']/div[5]/div/ul/li[1]/a",
+    "terms_of_purchase": "//*[@id='RegisterForm']/div[5]/div/ul/li[3]/a"
+  },
+  "logos": {
+    "header": ".storeLogo",
+    "student_store": "#studentStore",
+    "achieve": "#achieve",
+    "sapling_learning": "#saplingLearning"
   }
 }

@@ -1,4 +1,4 @@
-Feature: Qualitative Happy Path
+Feature: Create Qualitative Course
   Media Producer creates a course
 
   Background:

@@ -13,7 +13,7 @@ async function signIn(driver, username, password) {
   await qa.click(page.iam.login.sign_in);
 };
 
-When('I login with the data table credentials', async function() {
+When('I login with the following credentials', async function(data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await signIn(this.driver, data_table.hashes()[i].username, data_table.hashes()[i].password);
   }
@@ -24,7 +24,6 @@ When(/^I have logged in as "(.*)"$/, async function(user_object) {
 
   await signIn(this.driver, payload.username, payload.password);
 });
-
 
 // Refactor //
 When('I click on create an account button', async function() {
