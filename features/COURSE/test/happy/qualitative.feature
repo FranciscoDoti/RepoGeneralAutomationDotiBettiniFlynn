@@ -1,14 +1,11 @@
 Feature: Qualitative Happy Path
-  Media Producer creates a course
-
-  Background:
-    Given I have opened "achieve" "login"
-    And I click on "iam" system "home" feature "sign_in" element
 
   @delete-course
-  Scenario: Verify that Media Producer is able to create Quant Template
-    Given I have logged in as "media_producer_2"
+  Scenario: Verify that Media Producer is able to create Qualitative Template
+    Given I login to Achieve
+    And I have logged in as "media_producer_2"
     And I click on "course" system "create_course" feature "button" element
+
     When I fill out the form to edit a course
       | page_object        | value                   |
       | course_type        | Template                |
@@ -20,13 +17,15 @@ Feature: Qualitative Happy Path
       | course_status      | draft                   |
 
     Then I verify "course" system "create_course" feature "success_message" element's "create_course_success" message is displayed
-    Then I validate that the course "isbn" "9781464199498" is listed on the courses page
+    And I verify that the course "isbn" "9781464199498" is listed on the courses page
 
-    When I click on "edit_course" on the course_list menu
+
+    When I click on "edit_course" on "Qual Testcourse" course menu
 
     And I fill out the form to edit a course
       | page_object     | value          |
       | template_status | Active On Date |
+
 
     And I add Activities to course "isbn" "9781464199498"
      | activity        |
@@ -37,11 +36,10 @@ Feature: Qualitative Happy Path
      | new test epub   |
      | AT1nov          |
 
-
     Then I validate data table courses populate the list
 
 
-    When I click on "copy_course" on the course_list menu
+    When I click on "copy_course" on "Qual Testcourse" course menu
     And I fill out the form to edit a course
       | page_object     | value          |
       | course_name | Testcourse |
@@ -55,8 +53,7 @@ Feature: Qualitative Happy Path
 
 
     When I search for "E2E 301" course
-    And I click on "Qual Testcourse" course menu
-    And I click on "course" system "course_list" feature "manage_instructor" element
+    And I click on "manage_instructor" on "Qual Testcourse" course menu
     And I add "instructor_2" instructor's email to the course
     And I validate that the Course Specific Link opens the course named "Testcourse"
     And I click on "course" system "create_course" feature "add_instructor_close" element

@@ -4,6 +4,31 @@ const page = require('../../master-page.js');
 const format = require('string-format')
 const _ = require('lodash');
 
+// Navigation
+When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, ['course', 'course_list', type]);
+  let page_format = format(PAGE, identifier);
+
+  await qa.click(page_format);
+});
+
+When('I fill out the form to edit a course', async function (data_table) {
+  let qa = new selenium(this.driver);
+
+  for (let i = 0; i < data_table.rows().length; i++) {
+    if(data_table.hashes()[i].page_object != 'day') {
+      let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
+      await qa.input(PAGE, data_table.hashes()[i].value);
+    } else {
+      let page_format = format(page.course.create_course.select_day, data_table.hashes()[i].value);
+      await qa.click(page_format);
+    }
+  }
+
+  await qa.click(page.course.create_course.save);
+});
+
 // FIXME Needs Implementation
 When(/^I add Activities to course "(.*)" "(.*)"$/, async function (type, identifier, data_table) {
   let qa = new selenium(this.driver);
@@ -25,14 +50,6 @@ When(/^I add Activities to course "(.*)" "(.*)"$/, async function (type, identif
   await qa.click(page.course.resources.add_activity, activity);
 });
 
-When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
-  let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, ['course', 'course_list', type]);
-  let page_format = format(PAGE, identifier);
-
-  await qa.click(page_format);
-});
-
 // FIXME NEEDS IMPLEMENTED
 When(/^I search for "(.*)" course$/, async function (search) {
   let qa = new selenium(this.driver);
@@ -40,12 +57,20 @@ When(/^I search for "(.*)" course$/, async function (search) {
   await qa.input(page.course.main.search, search);
 });
 
-// FIXME NEEDS IMPLEMENTED
-When(/^I click on "(.*)" course menu$/, async function (course_name) {
+When('I click the Add course button', async function () {
   let qa = new selenium(this.driver);
+
+  await qa.click(page.course.create_course.button);
+});
+
+When(/^I click on "(.*)" on "(.*)" course menu$/, async function (page_object, course_name) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, ['course', 'course_list', page_object]);
   let page_format = format(page.course.course_list.menu_named_course, course_name);
 
-  await qa.click(page_format);
+  await qa.click(page.course.course_list.course_menu);
+  await qa.sleep(1);
+  await qa.click(PAGE);
 });
 
 // FIXME NEEDS IMPLEMENTED
@@ -58,7 +83,7 @@ When(/^I add "(.*)" instructor's email to the course$/, async function (instruct
 });
 
 // FIXME NEEDS IMPLEMENTED
-Then('I validate that the Course Specific Link opens the course named "(.*)"', async function (course_name) {
+Then('I verify that the Course Specific Link opens the course named "(.*)"', async function (course_name) {
   let qa = new selenium(this.driver);
 
   // Click Copy button
@@ -69,26 +94,6 @@ Then('I validate that the Course Specific Link opens the course named "(.*)"', a
   // Get text on screen that has passed in string value
 });
 
-When('I fill out the form to edit a course', async function (data_table) {
-  let qa = new selenium(this.driver);
-
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
-    await qa.input(PAGE, data_table.hashes()[i].value);
-  }
-
-  await qa.click(page.course.create_course.save);
-});
-
-When(/^I click on "(.*)" on the course_list menu$/, async function (page_object) {
-  let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, ['course', 'course_list', page_object]);
-
-  await qa.click(page.course.course_list.course_menu);
-  await qa.sleep(1);
-  await qa.click(PAGE);
-});
-
 When('I logout of the achieve system', async function () {
   let qa = new selenium(this.driver);
 
@@ -97,7 +102,7 @@ When('I logout of the achieve system', async function () {
 });
 
 // Assetions //
-Then(/^I validate that the course "(.*)" "(.*)" is listed on the courses page$/, async function (type, identifier) {
+Then(/^I verify that the course "(.*)" "(.*)" is listed on the courses page$/, async function (type, identifier) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, ['course', 'course_list', type]);
   let page_format = format(PAGE, identifier);
@@ -105,8 +110,15 @@ Then(/^I validate that the course "(.*)" "(.*)" is listed on the courses page$/,
   await qa.exists(page_format);
 });
 
+Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, async function (identifier) {
+  let qa = new selenium(this.driver);
+  let page_format = format(page.course.course_list.course_name, identifier);
+
+  await qa.exists(page_format);
+});
+
 // FIXME Needs Implementation
-Then('Then I validate data table courses populate the list', async function (data_table) {
+Then('Then I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -116,6 +128,16 @@ Then('Then I validate data table courses populate the list', async function (dat
     // VERIFY ACTIVITES HAVE BEEN ADD
     await qa.exists(page_format);
   }
+});
+
+//FIXME Edit courses verify
+Then('Then I verify the updated information', async function () {
+  let qa = new selenium(this.driver);
+
+  // Title equals data_table value
+  // Course # equals data_table value
+  // ISBN equals dtat_table value
+  console.log('DATA? ', data_table);
 });
 
 // Cleanup //

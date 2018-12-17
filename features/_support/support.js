@@ -45,5 +45,5 @@ Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is 
   let PAGE_TEXT = await qa.getText(PAGE);
   let ASSERT_TEXT = await _.get(assert_text, [system, feature, text]);
 
-  expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
+  expect(PAGE_TEXT).to.contain(ASSERT_TEXT);
 });

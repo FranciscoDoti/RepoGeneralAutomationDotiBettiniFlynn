@@ -67,11 +67,19 @@ module.exports = function (driver) {
     exists: Promise.coroutine(function * (selector, timeout) {
       var locator = this._locator(selector);
       yield this._exists(true, locator, timeout);
+      return true;
     }),
 
     doesNotExist: Promise.coroutine(function * (selector, timeout) {
       var locator = this._locator(selector);
       yield this._exists(false, locator, timeout);
+    }),
+
+    isEnabled: Promise.coroutine(function * (selector, timeout) {
+      var locator = this._locator(selector);
+      yield this._exists(false, locator, timeout);
+
+      yield locator.isEnabled();
     }),
 
     input: Promise.coroutine(function * (selector, text, clear) {
