@@ -14,6 +14,14 @@ Given(/^I have opened "(.*)" "(.*)"$/, async function (system, endpoint) {
   await qa.goTo(url);
 });
 
+Given("I login to Achieve", async function () {
+  let qa = new selenium(this.driver);
+  let url = await _.get(URL, ["achieve", "login"]);
+
+  await qa.goTo(url);
+  await qa.click(page.iam.home.sign_in);
+});
+
 // Page Navigation //
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new selenium(this.driver);

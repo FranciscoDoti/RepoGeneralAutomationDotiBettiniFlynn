@@ -74,14 +74,16 @@ module.exports = function (driver) {
       yield this._exists(false, locator, timeout);
     }),
 
-    input: Promise.coroutine(function * (selector, text) {
+    input: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
       yield this._exists(true, locator);
       var elem = yield driver.findElement(locator);
       var tagName = yield elem.getTagName();
 
       yield elem.click();
-      yield elem.clear();
+      if (clear) {
+        yield elem.clear();
+      };
       yield elem.sendKeys(text);
     }),
 

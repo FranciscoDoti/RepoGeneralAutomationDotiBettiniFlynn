@@ -1,16 +1,12 @@
-Feature: Create Qualitative Course
-  Media Producer creates a course
-
-  Background:
-    Given I have opened "achieve" "login"
-    And I click on "iam" system "home" feature "sign_in" element
+Feature: Create Courses
 
   @delete-course
-  Scenario: Verify that Media Producer is able to create Quant Template
+  Scenario: Verify that a Media Producer is able to create a Quantitative Template
+    Given I login to Achieve
     Given I have logged in as "media_producer_2"
     And I click on "course" system "create_course" feature "button" element
 
-    When I fill out the form to create a new course
+    When I fill out the form to edit a course
       | page_object        | value                   |
       | course_type        | Template                |
       | product_model      | Qualitative             |

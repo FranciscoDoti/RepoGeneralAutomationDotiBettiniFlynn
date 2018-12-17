@@ -8,8 +8,8 @@ const config = require('../../../config.js');
 async function signIn(driver, username, password) {
   let qa = new selenium(driver);
 
-  await qa.input(page.iam.login.username, username);
-  await qa.input(page.iam.login.password, password);
+  await qa.input(page.iam.login.username, username, true);
+  await qa.input(page.iam.login.password, password, true);
   await qa.click(page.iam.login.sign_in);
 };
 
