@@ -50,6 +50,15 @@
             "specialInstr":"NA"
         },
         {
+            "name":"Resume_Quiz",
+            "byType":"xpath",
+            "definition":"//*[text()='Resume Quiz']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+
+        },
+        {
             "name":"edit_target",
             "byType":"xpath",
             "definition":"//*[@data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
@@ -84,6 +93,22 @@
             "name":"close_learning_curve",
             "byType":"xpath",
             "definition":"//*[@data-test-id='closelearningcurve']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"slow_down_button",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='slowDownModalOkBtn']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"view_study_plan",
+            "byType":"xpath",
+            "definition":"//*[@data-test-id='midWayModalStudyPlanBtn']",
             "frame":"default",
             "specialInstr":"NA"
 

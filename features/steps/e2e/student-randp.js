@@ -13,7 +13,8 @@ var countlinks;
 
 let pages = {
   overviewTab: new PageObject('overview-tab.json', coursewareStepsPath),
-  readPractice: new PageObject('read-and-practice-page.json', coursewareStepsPath)
+  readPractice: new PageObject('read-and-practice-page.json', coursewareStepsPath),
+  gradebook: new PageObject('gradebook-tab.json', coursewareStepsPath)
 }
 
 When('I click on course plan in student account', async function () {
@@ -21,7 +22,7 @@ When('I click on course plan in student account', async function () {
   await pages.overviewTab.populate('course_plan', 'click');
 });
 When('I click on read and Practice activity', async function () {
-  await sleep(3000);
+  await sleep(5000);
   await pages.overviewTab.populate('read_practice_chapter1', 'click');
 });
 
@@ -60,27 +61,39 @@ Then('I click on the reading material and validate whether the content is availa
 });
 
 Then('I click on Quiz button', async function () {
-  await pages.readPractice.populate('Quiz_Button', 'click');
+  await sleep(3000);
+  let booleanVal = await pages.readPractice.checkWebElementExists('Quiz_Button');
+  if (booleanVal === true) {
+    await pages.readPractice.populate('Quiz_Button', 'click');
+  } else {
+    await pages.readPractice.populate('Resume_Quiz', 'click');
+  }
 });
 
 Then('I take the Quiz', async function () {
   await pages.readPractice.populate('Select_option', 'click');
   await pages.readPractice.populate('Submit_answer', 'click');
-  let elementExists = await pages.readPractice.checkWebElementExists('view_study_plan', 'click');
-  var x = elementExists;
-  while (x = true) {
-    x++;
-    let booleanVal = await pages.resourceView.checkWebElementExists('slow_down_button');
-    if (booleanVal === true) {
+  let i = await pages.readPractice.checkWebElementExists('view_study_plan');
+  while (i = true) {
+    i++;
+    if (await pages.readPractice.checkWebElementExists('slow_down_button')) {
       await pages.readPractice.populate('slow_down_button', 'click');
-      await pages.readPractice.populate('Try_again', 'click');
       await pages.readPractice.populate('show_answer', 'click');
       await pages.readPractice.populate('next_question', 'click');
       await pages.readPractice.populate('Select_option', 'click');
       await pages.readPractice.populate('Submit_answer', 'click');
     } else {
-      await pages.readPractice.populate('view_study_plan', 'click');
+      await pages.readPractice.populate('next_question', 'click');
+      await pages.readPractice.populate('Select_option', 'click');
+      await pages.readPractice.populate('Submit_answer', 'click');
     }
   }
 });
-
+Then('I click on viewstudy plan button', async function () {
+  await pages.readPractice.populate('view_study_plan', 'click');
+  await pages.readPractice.populate('close_learning_curve', 'click');
+});
+Then('I validate the marks are displayed in gradebook', async function () {
+  await sleep(3000);
+  await pages.gradebook.populate('gradebook_tab', 'click');
+})

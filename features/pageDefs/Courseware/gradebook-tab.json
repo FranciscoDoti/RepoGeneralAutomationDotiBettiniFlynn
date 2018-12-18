@@ -1,0 +1,12 @@
+{
+	"webElements": [ 
+        {
+            "name":"gradebook_tab",
+            "byType":"xpath",
+            "definition":"//*[text()='GRADEBOOK']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        }
+    ]
+}

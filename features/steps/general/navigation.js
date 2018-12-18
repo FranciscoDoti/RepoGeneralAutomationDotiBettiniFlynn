@@ -27,6 +27,7 @@ When('I click on sign In button on top right corner', async function () {
 });
 
 When(/^I have logged in as "(.*)"$/, async function (userFile) {
+  await sleep(5000);
   const user = loadLogin(userFile);
   // log.debug(`Using user ${user.username}`);
   await pages.navigation.populate('txt_username', user.username);
@@ -70,7 +71,7 @@ When('I click on delete the course', async function () {
   await pages.navigation.populate('Confirm_Delete_course', 'click');
 });
 
-AfterAll(function () {
-  getDriver().quit();
-  return Promise.resolve();
-});
+// AfterAll(function () {
+//   getDriver().quit();
+//   return Promise.resolve();
+// });

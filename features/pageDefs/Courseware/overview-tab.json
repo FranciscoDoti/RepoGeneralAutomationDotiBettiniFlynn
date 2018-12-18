@@ -3,14 +3,14 @@
         {
             "name":"read_practice_chapter1",
             "byType":"xpath",
-            "definition":"((//*[@class='_3UBu'])[4]",
+            "definition":"(//*[@class='_3UBu'])[1]",
             "frame":"default",
             "specialInstr":"NA"
         },
         {
             "name":"course_plan",
-            "byType":"classname",
-            "definition":"_1cKB",
+            "byType":"id",
+            "definition":"react-tabs-18",
             "frame":"default",
             "specialInstr":"NA"
         }
