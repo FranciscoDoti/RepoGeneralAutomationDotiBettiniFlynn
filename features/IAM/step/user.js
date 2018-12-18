@@ -22,14 +22,6 @@ async function createUser(driver, data_table) {
     await qa.click(page.iam.create_account.terms_of_service);
 };
 
-// Page Navigation //
-Given(/^I click on "(.*)" feature "(.*)" screen "(.*)" element$/, async function (system, feature, element) {
-  let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, [system, feature, element]);
-
-  await qa.click(PAGE);
-});
-
 async function createUserFromPayload(driver, payload, missing) {
     var missingField = missing || "none";
     let qa = new selenium(driver);
@@ -96,16 +88,8 @@ When('I create a user with the data table credentials', async function(data_tabl
     await createUser(this.driver, data_table);
 });
 
-// Input element //
-Given(/^I input "(.*)" into "(.*)" feature "(.*)" screen "(.*)" element$/, async function(text, feature, screen, element) {
-    let qa = new selenium(this.driver);
-    let PAGE = await _.get(page, [feature, screen, element]);
-  
-    await qa.input(PAGE, text);
-  });
-
 // Generic Text Assetion //
-Then(/^I verify for "(.*)" feature "(.*)" screen "(.*)" element that "(.*)" screen "(.*)" message is displayed$/, async function(feature, screen, element, message_screen,text) {
+Then(/^I verify for "(.*)" system "(.*)" feature "(.*)" element that "(.*)" feature "(.*)" message is displayed$/, async function(feature, screen, element, message_screen,text) {
     let qa = new selenium(this.driver);
     let ASSERT_TEXT = await _.get(assert_text, [feature, message_screen, text]);
     let PAGE = await _.get(page, [feature, screen, element]);
