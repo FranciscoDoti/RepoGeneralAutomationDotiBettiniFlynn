@@ -94,8 +94,6 @@ Then(/^I verify for "(.*)" system "(.*)" feature "(.*)" element that "(.*)" feat
     let PAGE = await _.get(page, [feature, screen, element]);
 
     let PAGE_TEXT = await qa.getText(PAGE);
-    // let PAGE_EXISTS = await qa.hasText(PAGE, 12000);
-    console.log(PAGE_TEXT, 'PageText~~~~~~~')
     expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
 });
 
