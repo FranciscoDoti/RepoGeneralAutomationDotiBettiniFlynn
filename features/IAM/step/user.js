@@ -97,44 +97,6 @@ Then(/^I verify for "(.*)" system "(.*)" feature "(.*)" element that "(.*)" feat
     expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
 });
 
-Then(/^I verify that "(.*)" feature "(.*)" screen "(.*)" element link exists$/, async function(feature, screen, element) {
-    let qa = new selenium(this.driver);
-    let PAGE = await _.get(page, [feature, screen, element]);
-    qa.linkExists(PAGE);
-})
-
-Then(/^I verify that the url "(.*)" is the current url in the new window$/, async function(URL) {
-    let qa = new selenium(this.driver);
-    //Not sure why this sleep is neccessary but without it the page load gets interupted
-    await qa.sleep(3)
-    await qa.changeWindow(1)
-    let CURRENTURL = await qa.getUrl()
-    await qa.changeWindow(0)
-    console.log(CURRENTURL, 'currentUrl')
-    expect(CURRENTURL).to.equal(URL);
-})
-
-Then(/^I verify that the url "(.*)" is the current url$/, async function(URL) {
-    let qa = new selenium(this.driver);
-    let CURRENTURL = await qa.getUrl()
-    console.log(CURRENTURL, 'currentUrl')
-    expect(CURRENTURL).to.equal(URL);
-})
-
-Then('I verify the opt-in checkbox is not checked', async function () {
-    let qa = new selenium(this.driver);
-    let PAGE = await _.get(page, ['iam', 'create_account', 'opt_in'])
-    const optInBoolean = await qa.getAttribute(PAGE, 'selected');
-    expect(optInBoolean).to.equal(null);
-});
-
-Then('I verify the opt-in checkbox is checked', async function () {
-    let qa = new selenium(this.driver);
-    let PAGE = await _.get(page, ['iam', 'create_account', 'opt_in'])
-    const optInBoolean = await qa.getAttribute(PAGE, 'selected');
-    expect(optInBoolean).to.equal('true');
-});
-
 Then('I verify the Sign up button is disabled', async function () {
     let qa = new selenium(this.driver);
     let PAGE = await _.get(page, ['iam', 'create_account', 'signup_btn'])

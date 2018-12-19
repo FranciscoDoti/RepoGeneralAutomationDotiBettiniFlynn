@@ -38,7 +38,7 @@ Given(/^I input "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async
   await qa.input(PAGE, text);
 });
 
-// Text Assetion //
+// Text Assertion //
 Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is displayed$/, async function (system, feature, element, text) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
@@ -46,4 +46,46 @@ Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is 
   let ASSERT_TEXT = await _.get(assert_text, [system, feature, text]);
 
   expect(PAGE_TEXT).to.contain(ASSERT_TEXT);
+});
+
+// Link Assertion //
+
+Then(/^I verify that "(.*)" system "(.*)" feature "(.*)" element link exists$/, async function(system, feature, element) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element]);
+  qa.linkExists(PAGE);
+})
+
+// Current Url Assertion (New Window) //
+
+Then(/^I verify that the url "(.*)" is the current url in the new window$/, async function(URL) {
+  let qa = new selenium(this.driver);
+  //Not sure why this sleep is neccessary but without it the page load gets interupted
+  await qa.sleep(3)
+  await qa.changeWindow(1)
+  let CURRENTURL = await qa.getUrl()
+  await qa.changeWindow(0)
+  expect(CURRENTURL).to.equal(URL);
+})
+
+// Current Url Assertion //
+
+Then(/^I verify that the url "(.*)" is the current url$/, async function(URL) {
+  let qa = new selenium(this.driver);
+  let CURRENTURL = await qa.getUrl()
+  console.log(CURRENTURL, 'currentUrl')
+  expect(CURRENTURL).to.equal(URL);
+})
+
+// Checkbox assertion //
+
+Then(/^I verify the "(.*)" system "(.*)" feature "(.*)" element checkbox checked is "(.*)"$/, async function (feature, screen, element, checked) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [feature, screen, element])
+  let optInBoolean = await qa.getAttribute(PAGE, 'selected');
+  if(checked === 'true'){
+      expect(optInBoolean).to.equal('true');
+  } else if (checked === 'false') {
+      expect(optInBoolean).to.equal(null);
+  }
 });
