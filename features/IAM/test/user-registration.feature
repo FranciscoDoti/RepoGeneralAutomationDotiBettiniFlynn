@@ -9,8 +9,8 @@ Feature: Authentication for Achieve via IAM
         | first_name| 444   |
         | last_name | 444   |
 
-        Then I verify for "iam" system "create_account" feature "first_error" element that "create_account" feature "first_error" message is displayed
-        Then I verify for "iam" system "create_account" feature "last_error" element that "create_account" feature "last_error" message is displayed
+        Then I verify for "iam" system "create_account" feature "first_name_error" element that "create_account" feature "first_name_error" message is displayed
+        Then I verify for "iam" system "create_account" feature "last_name_error" element that "create_account" feature "last_name_error" message is displayed
 
     @quit-driver
     Scenario: Verify that First Name field and last name validations are working as expected when entering blank
@@ -20,15 +20,15 @@ Feature: Authentication for Achieve via IAM
         And I input "" into "iam" system "create_account" feature "last_name" element
         And I click on "iam" system "create_account" feature "institution" element
 
-        Then I verify for "iam" system "create_account" feature "first_error" element that "create_account" feature "first_error" message is displayed
-        And I verify for "iam" system "create_account" feature "last_error" element that "create_account" feature "last_error" message is displayed
+        Then I verify for "iam" system "create_account" feature "first_name_error" element that "create_account" feature "first_name_error" message is displayed
+        And I verify for "iam" system "create_account" feature "last_name_error" element that "create_account" feature "last_name_error" message is displayed
 
     @quit-driver
     Scenario: Verify that First Name field and last name validations are working as expected (with  entering large character)
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | element   | input |
+        | element   | input                                      |
         | first_name| abcdefghijklmnopqrstuvwxyzabcdefghijklam   |
         | last_name | abcdefghijklmnopqrstuvwxyzabcdefghijklam   |
 
@@ -63,7 +63,7 @@ Feature: Authentication for Achieve via IAM
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | input | element |
+        | input                            | element             |
         | What high school did you attend? | Security_Question_1 |
         | What high school did you attend? | Security_Question_2 | 
         | What high school did you attend? | Security_Question_3 |
@@ -85,7 +85,7 @@ Feature: Authentication for Achieve via IAM
         
         Then I verify for "iam" system "create_account" feature <security_error> element that "create_account" feature "Security_question_error_blank" message is displayed
         Examples:
-        | security_question | security_answer | security_error |
+        | security_question     | security_answer              | security_error                    |
         | "Security_Question_1" | "Security_Question_1_Answer" | "Security_question_1_error_blank" |
         | "Security_Question_2" | "Security_Question_2_Answer" | "Security_question_2_error_blank" |
         | "Security_Question_3" | "Security_Question_3_Answer" | "Security_question_3_error_blank" |
@@ -95,7 +95,7 @@ Feature: Authentication for Achieve via IAM
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | element | input |
+        | element     | input |
         | institution | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ |
 
         Then I verify for "iam" system "create_account" feature "institution_error_message" element that "create_account" feature "institution_error_message" message is displayed
@@ -105,7 +105,7 @@ Feature: Authentication for Achieve via IAM
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | element | input |
+        | element     | input          |
         | institution | Cottey College |
 
         Then I verify the "iam" system "create_account" feature "opt_in" element checkbox checked is "true"
@@ -118,24 +118,20 @@ Feature: Authentication for Achieve via IAM
         | element | input |
         | institution | University of Toronto |
 
-        Then I verify the "iam" system "create_account" feature "opt_in" element checkbox checked is "false"
+        Then I verify the "iam" system "create_account" feature "opt_in" element checkbox checked is "false"     
     
     @quit-driver
-    Scenario: Verify that Privacy Notice Link exists
+    Scenario: Verify that Privacy Notice Link exists and redirects to appropriate page
         Given I have opened "achieve" "user_creation"
-
+        
         Then I verify that "iam" system "create_account" feature "privacy_notice" element link exists
-    
-    @quit-driver
-    Scenario: Verify that Privacy Notice Link redirects to appropriate page
-        Given I have opened "achieve" "user_creation"
 
         When I click on "iam" system "create_account" feature "privacy_notice" element
 
         Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the new window
     
     @quit-driver
-    Scenario: Verify that if the Checkbox 'I have read and agree to the terms of use' is not checked signup button is disabled
+    Scenario: Verify that the signup button is disabled if the Checkbox 'I have read and agree to the terms of use' is not checked 
         Given I have opened "achieve" "user_creation"
         
         Then I have created a user "admin_6"
@@ -159,19 +155,19 @@ Feature: Authentication for Achieve via IAM
         
         Then I verify the "iam" system "create_account" feature "signup_btn" element disabled attribute is "true"
         Examples:
-        | element |
-        | "email" |
-        | "password" |
-        | "confirm_password" |
-        | "first_name" |
-        | "last_name" |
-        | "Security_Question_1" |
-        | "Security_Question_1_Answer" |
-        | "Security_Question_2" |
-        | "Security_Question_2_Answer" |
-        | "Security_Question_3" |
-        | "Security_Question_3_Answer" |
-        | "institution" |
+        | element                       |
+        | "email"                       |
+        | "password"                    |
+        | "confirm_password"            |
+        | "first_name"                  |
+        | "last_name"                   |
+        | "Security_Question_1"         |
+        | "Security_Question_1_Answer"  |
+        | "Security_Question_2"         |
+        | "Security_Question_2_Answer"  |
+        | "Security_Question_3"         |
+        | "Security_Question_3_Answer"  |
+        | "institution"                 |
 
 
     @quit-driver
@@ -179,17 +175,17 @@ Feature: Authentication for Achieve via IAM
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | element | input |
-        | email | coursewareachieve@gmail.com |
-        | first_name | Addy |
-        | last_name | min |
-        | Security_Question_1 | What high school did you attend? |
-        | Security_Question_1_Answer | answer |
-        | Security_Question_2 | What is your favorite movie? |
-        | Security_Question_2_Answer | answer |
-        | Security_Question_3 | What is your favorite color? |
-        | Security_Question_3_Answer | answer |
-        | institution | Miami University |
+        | element                       | input                             |
+        | email                         | coursewareachieve@gmail.com       |
+        | first_name                    | Addy                              |
+        | last_name                     | min                               |
+        | Security_Question_1           | What high school did you attend?  |
+        | Security_Question_1_Answer    | answer                            |
+        | Security_Question_2           | What is your favorite movie?      |
+        | Security_Question_2_Answer    | answer                            |
+        | Security_Question_3           | What is your favorite color?      |
+        | Security_Question_3_Answer    | answer                            |
+        | institution                   | Miami University                  |
         And I input <password> into "iam" system "create_account" feature "password" element
         And I input <password> into "iam" system "create_account" feature "confirm_password" element 
         
