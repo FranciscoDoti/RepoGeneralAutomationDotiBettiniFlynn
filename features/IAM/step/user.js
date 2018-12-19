@@ -97,16 +97,9 @@ Then(/^I verify for "(.*)" system "(.*)" feature "(.*)" element that "(.*)" feat
     expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
 });
 
-Then('I verify the Sign up button is disabled', async function () {
-    let qa = new selenium(this.driver);
-    let PAGE = await _.get(page, ['iam', 'create_account', 'signup_btn'])
-    const optInBoolean = await qa.getAttribute(PAGE, 'disabled');
-    expect(optInBoolean).to.equal('true');
-});
-
 Then(/^I verify the password inputed "(.*)" is not the same as the one that was allowed "(.*)"$/, async function (password, password_allowed) {
     let qa = new selenium(this.driver);
     let PAGE = await _.get(page, ['iam', 'create_account', 'password'])
-    const actual_password = await qa.getAttribute(PAGE, 'value');
+    let actual_password = await qa.getAttribute(PAGE, 'value');
     expect(password_allowed).to.equal(actual_password);
 })

@@ -89,3 +89,16 @@ Then(/^I verify the "(.*)" system "(.*)" feature "(.*)" element checkbox checked
       expect(optInBoolean).to.equal(null);
   }
 });
+
+// Generic Disabled Attribute Assertion //
+
+Then(/^I verify the "(.*)" system "(.*)" feature "(.*)" element disabled attribute is "(.*)"$/, async function (feature, screen, element, disabled) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [feature, screen, element])
+  let optInBoolean = await qa.getAttribute(PAGE, 'disabled');
+  if (disabled === 'true'){
+      expect(optInBoolean).to.equal('true');
+  } else if (disabled === 'false') {
+      expect(optInBoolean).to.equal(null);
+  }
+});
