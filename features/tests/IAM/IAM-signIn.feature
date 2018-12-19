@@ -59,6 +59,12 @@ Feature: Sign in
         When I click on sign In button on top right corner
         And I have logged in as "admin_alt"
         Then I Verify that "Too many login attempts. Wait 15 minutes and try again" message is displayed
+    
+    Scenario:Verify student enrollment is working as expected
+        Given I have opened Achieve "signURL"
+        When I click on sign In button on top right corner
+        And I have logged in as "student"
+        And I click on enroll in course button 
  
 
 

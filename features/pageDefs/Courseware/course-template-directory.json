@@ -1,0 +1,398 @@
+
+{
+	"webElements": [
+        {
+            "name":"card_name_Qual",
+            "byType":"xpath",
+            "definition":"//*[@class='DOD8 CourseCard_active CourseCard_product_4 CourseCard_template']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"create_course",
+            "byType":"xpath",
+            "definition":"//*[text()='Create a Course']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"course_type",
+            "byType":"name",
+            "definition":"courseType",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"product_model",
+            "byType":"name",
+            "definition":"productModel",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"course_name",
+            "byType":"id",
+            "definition":"__createCourse_nameInput",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"course_code",
+            "byType":"id",
+            "definition":"__createCourse_codeInput",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"learning_Objective",
+            "byType":"classname",
+            "definition":"_2oIm _2lfL _2Kdo _3vV4 ",
+            "frame":"default",
+            "specialInstr":"NA" 
+
+        },
+        {
+            "name":"save_button",
+            "byType":"classname",
+            "definition":"_1tkc undefined",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"isbn_number",
+            "byType":"id",
+            "definition":"__createCourse_isbnInput",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"course_status",
+            "byType":"name",
+            "definition":"courseStatus",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"card_name",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_draft CourseCard_product_1 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitToBeVisible":"resources_tab"
+        },
+        {
+            "name": "course_card_button",
+			"byType": "classname",
+            "definition": "DOD8 CourseCard_active CourseCard_product_1 CourseCard_template",
+			"frame": "default",
+            "specialInstr": "NA",
+            "waitTobeVsible":"resources_tab"
+        },
+        {
+            "name": "course_card_button_instructor",
+			"byType": "classname",
+            "definition": "DOD8 CourseCard_active CourseCard_product_1",
+			"frame": "default",
+            "specialInstr": "NA",
+            "waitTobeVsible":"resources_tab"
+
+        },
+        {
+            "name":"course_message_validation",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div[2]/div[2]/span",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        { 
+			"name":"course_validation",
+            "byType":"xpath",
+            "definition":"//*[text()='Draft Template']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"edit_button",
+            "byType":"xpath",
+            "definition":"/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div/span",
+            "frame":"default",
+            "specialInstr":"NA" 
+        },
+        {
+            "name":"Template_status",
+            "byType":"classname",
+            "definition":"_2oIm _1bTe ",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Active_Date",
+            "byType":"classname",
+            "definition":"_52qp",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        { 
+            "name":"Template_validate",
+            "byType":"xpath",
+            "definition":"//*[text()='Template']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+			"name":"Template_status",
+            "byType":"xpath",
+            "definition":"/html/body/div[3]/div/div/div[2]/div/div[4]/div/div/select",
+            "frame":"default",
+			"specialInstr":"NA"
+
+		},
+		{
+			"name":"course_end_date1",
+            "byType":"xpath",
+            "definition":"(//*[@class='EVUx '])[2]",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitForElementToBevisible":"Next_Month"
+
+
+		},
+		{
+			"name":"Active_Date1",
+            "byType":"xpath",
+            "definition":"(//*[@class='EVUx '])[1]",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitForElementToBeVisible": "Active_Date@now"
+
+		},
+		{
+			"name":"Next_Month",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Next Month']",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitForElementToBeVisible": "Select_Date"
+		},
+		{
+			"name":"Select_Date",
+            "byType":"xpath",
+            "definition":"//div[contains(text(),'12')]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"Active_Date@now",
+            "byType":"xpath",
+            "definition":"//*[@class='_2XMC _1PUF _3CYG']",
+            "frame":"default",
+            "specialInstr":"NA",
+            "waitForElementToBeVisible":"course_end_date1"
+
+        },
+        {
+			"name":"Invite_Students",
+            "byType":"xpath",
+            "definition":"/html/body/div[3]/div/div/div/div/div/div[4]/span/div/div/div/span",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+			"name":"Invite_Link",
+            "byType":"xpath",
+            "definition":".//*[@class='_3aLi _3tRc']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+			"name":"Send_Invite",
+            "byType":"xpath",
+            "definition":".//*[@class='_1JFt']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+			"name":"enter_emailid",
+            "byType":"xpath",
+            "definition":".//*[@name='emailInput']",
+            "frame":"default",
+			"specialInstr":"NA",
+			"waitToBeVisible":"send_button"
+
+		},
+
+		{
+			"name":"send_button",
+            "byType":"xpath",
+            "definition":"//*[text()='Send Invites']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+			"name":"course_card",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div[2]/div[1]/div/div/div[3]/div",
+            "frame":"default",
+			"specialInstr":"NA", 
+			"waitToBeVisible": "menu_system"
+		
+        },
+        {
+			"name": "search_course",
+			"byType": "xpath",
+			"definition":"//*[@placeholder='Search for Course Name']",
+			"frame": "default",
+			"specialInstr": "NA"
+			
+        },
+        {
+			"name":"copy_course",
+            "byType":"xpath",
+            "definition":"//*[text()='Copy Course']",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
+		{
+			"name":"copy_course_name",
+            "byType":"id",
+            "definition":"copyCourseName",
+            "frame":"default",
+            "specialInstr":"NA"
+		},
+		{
+			"name":"save_button",
+            "byType":"classname",
+            "definition":"_1tkc undefined",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+			"name":"Manage_Instructor",
+            "byType":"xpath",
+            "definition":"/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div/div/span",
+            "frame":"default",
+			"specialInstr":"NA",
+			"waitToBeVisible":"Instructor_Email"
+		},
+		{
+			"name":"Instructor_Email",
+            "byType":"id",
+            "definition":"addInstructor",
+            "frame":"default",
+			"specialInstr":"NA"
+			
+        },
+        {
+			"name":"Add_instructor",
+            "byType":"classname",
+            "definition":"_1tkc _3ASk",
+            "frame":"default",
+			"specialInstr":"NA",
+			"waitToBeVisible":"copy_link"
+		},
+		{
+			"name":"copy_link",
+            "byType":"xpath",
+            "definition":".//*[@class='_1tkc _6KWa']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+			"name":"close",
+            "byType":"xpath",
+            "definition":".//*[@aria-label='close']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"course_card_instructor",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_4",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"course_card_Qant",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_3 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"coustomer_support_validation",
+            "byType":"xpath",
+            "definition":"//*[@class='_3ndY']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"Plus_button",
+            "byType":"xpath",
+            "definition":"//*[@id='container']/div/div[2]/div[2]/button",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"instructor_tab",
+            "byType":"xpath",
+            "definition":"//*[text()='INSTRUCTOR']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"course_card_writing",
+            "byType":"classname",
+            "definition":"DOD8 CourseCard_active CourseCard_product_2 CourseCard_template",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"invite_link",
+            "byType":"xpath",
+            "definition":"//*[@class='bog']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"course_invite_link",
+            "byType":"xpath",
+            "definition":"(//*[@target='_blank'])[37]",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"grace_period",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Start a Grace Period']",
+            "frame":"default",
+            "specialInstr":"NA"
+
+        },
+        {
+            "name":"checkbox_agreement_graceperiod",
+            "byType":"xpath",
+            "definition":"//*[@type='checkbox']",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name":"finish_enrollment",
+            "byType":"xpath",
+            "definition":"//*[@aria-label='Finish Enrollment']",
+            "frame":"default",
+            "specialInstr":"NA"
+        }
+    ]
+}

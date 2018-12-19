@@ -9,7 +9,7 @@ const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
 const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
-const { getDriver, getWebDriver } = require('./driver');
+const { getDriver, getWebDriver, sleep } = require('./driver');
 const { log } = require('./logger');
 
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
@@ -27,16 +27,17 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.driver = getDriver();
   that.webdriver = getWebDriver();
 
-  log.debug(`New PageObject: ${pageNameInput}`);
+  // log.debug(`New PageObject: ${pageNameInput}`);
 
   const loadPageDefinitionFile = function (fullFileName) {
-    log.debug(`Opening file ${fullFileName} from ${__filename} `);
+    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
     var jsonContent = loadJSONFile(fullFileName);
 
     for (var i in jsonContent.webElements) {
       var element = jsonContent.webElements[i];
       addElement(element.name, element)
-      log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
+      // This was adding so much noise to the console output
+      // log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
     }
   }
 
@@ -68,13 +69,15 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       } else {
         var frameElementObj = await getElement(elementName);
         that.driver.switchTo().frame(frameElementObj.definition);
+        await sleep(500);
       }
     }
   }
 
   const genericPopulateDatable = async function (table) {
+    log.debug(`I populated table`);
     for (let e = 0; e < table.rows().length; e++) {
-      await genericPopulateElement(table.hashes()[e].variablename, table.hashes()[e].value);
+      await genericPopulateElement(table.hashes()[e].pageDef, table.hashes()[e].value);
     }
   }
 
@@ -110,9 +113,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       const webElement = await elementTarget.getWebElement();
       const tagName = await webElement.getTagName();
-
-      log.info(`Info: Page Element ${tagName}:${elementName} retrieved from Page Elements collection.`);
-      
       switch (tagName.toLowerCase()) {
         case 'input':
           await populateInput(webElement, value, actionElement);
@@ -179,7 +179,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         returnValue = await webElement.getText();
       }
       if (attributeName) {
-        if (attributeName === 'selected'){
+        if (attributeName === 'selected') {
           returnValue = await webElement.isSelected();
         } else {
           returnValue = await webElement.getAttribute(attributeName);
@@ -232,7 +232,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const elementExists = async function (strName) {
     try {
       log.info(`Starting to check if web element exists on the page: ${strName}`);
-
       return await checkWebElementExists(strName);
     } catch (err) {
       log.error(err.stack);
@@ -407,6 +406,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getDriver = getDriver;
   that.populate = populateElement;
   that.getElementValue = getElementValue;
+  that.populateDatatable = genericPopulateDatable;
   that.populateElement = populateElement;
   that.elementExists = elementExists;
   that.checkWebElementExists = checkWebElementExists;

@@ -8,7 +8,7 @@
     },{
       "name": "ebook_pane",
       "byType": "xpath",
-      "definition": "//span[@data-test-id='lcrpSplitEbookPane']",
+      "definition": "//div[@data-test-id='lcrpSplitEbookPane']",
       "frame": "default",
       "specialInstr": "NA"
     },{

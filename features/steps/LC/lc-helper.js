@@ -1,4 +1,4 @@
-const stepsPath = process.cwd() + '/features/pageDefs/';
+const stepsPath = process.cwd() + '/features/pageDefs/LearningCurve/';
 const { PageObject } = require('../../../app/pageObject');
 const { sleep } = require('../../../app/driver');
 const assert = require('assert');
@@ -10,6 +10,13 @@ let studentView = {
   quizPage: new PageObject('lc-quiz.json', stepsPath)
 };
 
+let instructorView = {
+  commonPage: new PageObject('lc-instructor-common.json', stepsPath),
+  lcrpPage: new PageObject('lc-instructor-lcrp.json', stepsPath),
+  lcPage: new PageObject('lc-instructor-lc.json', stepsPath),
+  trendsPage: new PageObject('lc-trends-and-insights.json', stepsPath)
+}
+
 // Returns array of 3 values, 2nd is number of read readings 3rd is total readings.
 const getReadingInfo = async function () {
   let readings = await studentView.lcrpPage.getElementValue('total_readings');
@@ -18,8 +25,8 @@ const getReadingInfo = async function () {
 }
 
 const verifyEbook = async function (topic) {
-  let ebookPanel = await studentView.commonPage.checkWebElementExists('ebook_pane');
-  assert(ebookPanel, 'Ebook panel did not open.')
+  // let ebookPanel = await studentView.commonPage.checkWebElementExists('ebook_pane');
+  // assert(ebookPanel, 'Ebook panel did not open.')
   let ebookTitle = await studentView.commonPage.getElementValue('ebook_iframe', 'name');
   assert(topic.trim() === ebookTitle.trim(), 'The wrong ebook opened, actually: ' + ebookTitle + '\n expected: ' + topic);
 }
@@ -94,11 +101,60 @@ const orderedQuestionCheck = async function () {
 
 }
 
+const collectStudentData = async function (studentData, student, assignment) {
+  let score = student[assignment].scores[0]
+  if (score.currentScore >= score.targetScore) {
+    studentData.completed++;
+  } else {
+    studentData.started++
+  }
+
+  if (score.currentScore / score.totalPossible >= 0.9) {
+    studentData.high++;
+  } else if (score.currentScore / score.totalPossible >= 0.8) {
+    studentData.medium++;
+  } else {
+    studentData.low++;
+  }
+
+  studentData.scores += score.currentScore;
+  studentData.possible += score.totalPossible;
+
+  if (student[assignment].scores.length > 1) {
+    for (let score in student[assignment].scores) {
+      if (score.targetScore < score.currentScore) {
+        studentData.retake = score.currentScore / score.totalPossible;
+      } else {
+        studentData.retake = '';
+      }
+    }
+  }
+}
+
+const validateStudentData = async function (studentData) {
+  let started = parseInt((await instructorView.commonPage.getElementValue('assignments_started')).replace(/Started \(/, '').replace(/\)/, ''))
+  assert(started === studentData.started, 'Expected: ' + studentData.started + '\nActually: ' + started)
+
+  let completed = parseInt((await instructorView.commonPage.getElementValue('assignments_completed')).replace(/Completed \(/, '').replace(/\)/, ''))
+  assert(completed === studentData.completed, 'Expected: ' + studentData.completed + '\n Actually: ' + completed)
+
+  let low = parseInt((await instructorView.commonPage.getElementValue('accuracy_low')).replace(/Under 70% \(/, '').replace(/\)/, ''))
+  assert(low === studentData.low, 'Expected: ' + studentData.low + '\n Actually: ' + low)
+
+  let medium = parseInt((await instructorView.commonPage.getElementValue('accuracy_medium')).replace(/70-89% \(/, '').replace(/\)/, ''))
+  assert(medium === studentData.medium, 'Expected: ' + studentData.medium + '\n Actually: ' + medium)
+
+  let high = parseInt((await instructorView.commonPage.getElementValue('accuracy_high')).replace(/90% and up \(/, '').replace(/\)/, ''))
+  assert(high === studentData.high, 'Expected: ' + studentData.high + '\n Actually: ' + high)
+}
+
 module.exports = {
   getReadingInfo,
   verifyEbook,
   parseQuestion,
   checkLevel,
   answerQuestion,
-  orderedQuestionCheck
+  orderedQuestionCheck,
+  collectStudentData,
+  validateStudentData
 }

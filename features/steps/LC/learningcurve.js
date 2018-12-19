@@ -1,12 +1,11 @@
-const { Given, When, Then, AfterAll } = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const { loadConfig } = require('../../../app/util');
 const jwt = require('../../../app/jwt');
-const stepsPath = process.cwd() + '/features/pageDefs/';
+const stepsPath = process.cwd() + '/features/pageDefs/LearningCurve/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
 const config = loadConfig('config');
-const lcInfo = loadConfig('lc/lc_info');
 const assert = require('assert');
 const helper = require('./lc-helper');
 const courses = require('./lc-courses');
@@ -18,7 +17,15 @@ let studentView = {
   quizPage: new PageObject('lc-quiz.json', stepsPath)
 };
 
-var testInfo = {
+let instructorView = {
+  commonPage: new PageObject('lc-instructor-common.json', stepsPath),
+  lcrpPage: new PageObject('lc-instructor-lcrp.json', stepsPath),
+  lcPage: new PageObject('lc-instructor-lc.json', stepsPath),
+  trendsPage: new PageObject('lc-trends-and-insights.json', stepsPath)
+}
+
+let lcInfo;
+let testInfo = {
   'currentUser': ''
 }
 
@@ -43,6 +50,9 @@ Given(/^I log into an assignment in "(.*)" as "(.*)"$/, async function (urlKey, 
 });
 
 Given(/I start a new assignment as "(.*)"$/, async function (user) {
+  if (lcInfo === undefined || lcInfo === null) {
+    lcInfo = loadConfig('lc/lc_info');
+  }
   const epoch = new Date().getTime();
   lcInfo.assignment = epoch;
   testInfo.currentUser = user;
@@ -62,6 +72,9 @@ Given(/I retake the assignment as "(.*)"$/, async function (user) {
 })
 
 Given(/I start a new course as "(.*)"$/, async function (user) {
+  if (lcInfo === undefined || lcInfo === null) {
+    lcInfo = loadConfig('lc/lc_info');
+  }
   const epoch = new Date().getTime();
   lcInfo.course = epoch;
   courses.addCourse(lcInfo.course);
@@ -84,7 +97,7 @@ When('I view the student landing page for LC', async function () {
   courses.addAssignment(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   courses.addAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
-  assignmentScore.targetScore = await studentView.lcPage.getElementValue('target_score')
+  assignmentScore.targetScore = parseInt(await studentView.lcPage.getElementValue('target_score'))
   let beginActivityButton = studentView.lcPage.checkWebElementExists('start_quiz_button')
   assert(beginActivityButton, 'The Begin Activity Button is not present on the page.')
 });
@@ -122,9 +135,9 @@ Then(/I can start the assessment "(.*)"/, async function (lc) {
   let scores = score.split(/\//)
   let assignmentScore = courses.getCurrentAttempt(lcInfo.course, testInfo.currentUser, lcInfo.assignment);
   if (assignmentScore.targetScore !== 0) {
-    assert(assignmentScore.targetScore === scores[1], 'The target score does not match the score on the landing page.')
+    assert(assignmentScore.targetScore === parseInt(scores[1]), 'The target score does not match the score on the landing page.')
   } else {
-    assignmentScore.targetScore = scores[1];
+    assignmentScore.targetScore = parseInt(scores[1]);
   }
 })
 
@@ -237,8 +250,105 @@ Given('I have completed an LC assignment, I can go back and answer more question
   await sleep(5000)
 });
 
-AfterAll(function () {
-  console.log(JSON.stringify(courses.getCourses()));
-  getDriver().quit();
-  return Promise.resolve();
+// this should be updated to cound the number of students in the list as well.
+Then(/I verify that there are "(.*)" students/, async function (students) {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let studentCount = 0;
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      studentCount++;
+    }
+  };
+  assert(studentCount == students, 'The student count did not match: Expected: ' + students + '\nActually: ' + studentCount)
 });
+
+// This will need to be updated to support multiple students once the student list is fixed.
+Then('I verify the students info is correct for LC', async function () {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let studentData = {
+    'started': 0,
+    'completed': 0,
+    'possible': 0,
+    'scores': 0,
+    'low': 0,
+    'medium': 0,
+    'high': 0
+  };
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      let studentName = await instructorView.commonPage.getElementValue('students');
+      // right now this is only designed to check with one student, this will need to be an if when we can get more than the first student.
+      assert(studentName.toLowerCase().includes(key.toLowerCase()), 'The student name is not correct');
+      let studentScoreEle = await instructorView.lcPage.getWebElements('completion_points');
+      let studentScore = parseInt(await studentScoreEle[1].getText());
+      assert(studentScore === student[lcInfo.assignment].scores[0].currentScore, 'Expected Score: ' + student[lcInfo.assignment].scores[0].currentScore + '\nActual Score: ' + studentScore)
+      helper.collectStudentData(studentData, student, lcInfo.assignment)
+      helper.validateStudentData(studentData);
+    }
+  }
+});
+
+Then('I verify the students info is correct for LCRP', async function () {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let studentData = {
+    'started': 0,
+    'completed': 0,
+    'possible': 0,
+    'scores': 0,
+    'low': 0,
+    'medium': 0,
+    'high': 0,
+    'retake': '-'
+  };
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      let studentName = await instructorView.commonPage.getElementValue('students');
+      // right now this is only designed to check with one student, this will need to be an if when we can get more than the first student.
+      assert(studentName.toLowerCase().includes(key.toLowerCase()), 'The student name is not correct');
+      let calcScore = student[lcInfo.assignment].scores[0].currentScore / student[lcInfo.assignment].scores[0].totalPossible * 100;
+      helper.collectStudentData(studentData, student, lcInfo.assignment)
+      if (student[lcInfo.assignment].scores[0].currentScore >= student[lcInfo.assignment].scores[0].targetScore) {
+        let studentScore = parseInt(await instructorView.lcrpPage.getElementValue('first_attempt'));
+        assert(calcScore - 1 < studentScore && calcScore + 1 > studentScore, 'Expected Score: ' + calcScore + '± 1\nActual Score: ' + studentScore)
+      } else {
+        let studentScore = await instructorView.lcPage.getElementValue('first_attempt')
+        assert(studentScore === '-', 'Student with score of ' + student[lcInfo.assignment].scores[0].currentScore + '/' + student[lcInfo.assignment].scores[0].targetScore + 'with a score of: ' + studentScore)
+      }
+      let retakeScore = parseInt(await instructorView.lcrpPage.getElementValue('retake_attempt'))
+      assert(retakeScore === studentData.retake || (studentData.retake - 1 < retakeScore && studentData.retake + 1 > retakeScore, 'Expected: ' + studentData.retake + '\nActually: ' + retakeScore))
+    }
+  }
+  helper.validateStudentData(studentData);
+});
+
+Then(/I verify the class average for "(.*)"/, async function (lc) {
+  let courseInfo = courses.getCourseById(lcInfo.course);
+  let averages = [];
+  for (var key in courseInfo) {
+    let student = courseInfo[key];
+    if (student[lcInfo.assignment] !== undefined) {
+      averages.push(student[lcInfo.assignment].scores[0].currentScore / student[lcInfo.assignment].scores[0].totalPossible * 100);
+    }
+  }
+  let sum = 0;
+  for (let i = 0; i < averages.length; i++) {
+    sum += averages[i];
+  }
+  let average = sum / averages.length
+  let pageAccuracy;
+  if (lc === 'LC') {
+    pageAccuracy = parseInt(await instructorView.lcPage.getElementValue('topic_performance'))
+  } else {
+    pageAccuracy = parseInt(await instructorView.lcrpPage.getElementValue('topic_performance'))
+  }
+  assert(average - 1 < pageAccuracy && average + 1 > pageAccuracy, 'The accuracy is not correct. Expected: ' + average + '\nActually: ' + pageAccuracy);
+});
+
+// AfterAll(function () {
+//   console.log(JSON.stringify(courses.getCourses()));
+//   getDriver().quit();
+//   return Promise.resolve();
+// });
