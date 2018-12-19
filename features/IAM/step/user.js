@@ -23,7 +23,7 @@ async function createUser(driver, data_table) {
 };
 
 async function createUserFromPayload(driver, payload, missing) {
-    var missingField = missing || "none";
+    let missingField = missing || "none";
     let qa = new selenium(driver);
     for (let key in payload) {
         if(key === missingField){
