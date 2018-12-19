@@ -3,7 +3,7 @@
         {
             "name":"read_practice_chapter1",
             "byType":"xpath",
-            "definition":"(//*[@class='_3UBu'])[1]",
+            "definition":"(//*[@class='_3UBu'])[2]",
             "frame":"default",
             "specialInstr":"NA"
         },

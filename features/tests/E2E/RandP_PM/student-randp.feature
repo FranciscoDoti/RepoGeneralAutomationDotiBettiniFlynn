@@ -10,7 +10,7 @@ Student complete the activities assigned
         And I have logged in as "student"
         And I click on Grace period
         And I click on Finish Enrollenment 
-        # Then I validate that the following information is correct on the Course Access Code page
+        Then I validate that the following information is correct on the Course Access Code page
         
     @coureseware-logout
     Scenario: Verify that Student is able to attempt activities of a Instructor created Read&Practice course created from Read & Practice template 

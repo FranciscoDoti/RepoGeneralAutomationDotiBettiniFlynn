@@ -23,7 +23,7 @@ Background:
         And I click on custom made assement activity
         And I answer the Questions in assement activity 
         And I validate the marks are displayed in gradebook   
-        And I validate the marks are displayed in gradebook 
+
 
     @coureseware-logout
     Scenario: Verify that Student is able to attempt activities of a Instructor created Reading and file course created from Quantitative Template

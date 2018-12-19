@@ -20,6 +20,7 @@ Scenario: Student Takes a LC Assessment
   Then I check accessibility on "Instructor" page
     And I verify that there are "1" students
     And I verify the students info is correct for LC
+    And I verify the class average for "LC"
 
 Scenario: Student Takes a LC Assessment
   Given I log into an assignment in "LCUrl" as "student2"
@@ -31,3 +32,4 @@ Scenario: Student Takes a LC Assessment
   Then I complete 50% of the assignment
     And I complete 100% of an LC assignment
   Given I log into an assignment in "LCUrl" as "instructor"
+  Then I verify the class average for "LC"

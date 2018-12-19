@@ -17,6 +17,9 @@ Scenario: Student Takes a LCRP Assessment
   Given I see a question, I can answer it "Wrong"
   Then I complete 50% of the assignment
     And I complete 100% of an LCRP assignment
+  Given I log into an assignment in "LCRPUrl" as "instructor"
+  Then I verify the students info is correct for LCRP
+    And I verify the class average for "LCRP"
   Given I log into an assignment in "LCRPUrl" as "student2"
   When I view the student landing page for LCRP
     And I click on a reading the ebook view opens
@@ -28,6 +31,7 @@ Scenario: Student Takes a LCRP Assessment
     And I complete 100% of an LCRP assignment
   When I am done with an assessment, I see my score and can retake the assessment
   Given I log into an assignment in "LCRPUrl" as "instructor"
+  Then I verify the class average for "LCRP"
 
 Scenario: Student Takes a LCRP Assessment
   Given I start a new assignment as "student1"
@@ -42,3 +46,5 @@ Scenario: Student Takes a LCRP Assessment
   Then I complete 50% of the assignment
     And I complete 100% of an LCRP assignment
   Given I log into an assignment in "LCRPUrl" as "instructor"
+  Then I verify the students info is correct for LCRP
+    And I verify the class average for "LCRP"

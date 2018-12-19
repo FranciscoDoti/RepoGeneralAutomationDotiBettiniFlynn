@@ -7,7 +7,7 @@
   "LCUrl": "https://int-achieve-learningcurve.mldev.cloud/",
 	"LCRPUrl": "https://int-achieve-learningcurve.mldev.cloud/lcrp/",
 	"R&PUrl": "https://int-achieve-learningcurve.mldev.cloud/lcrp/?user_id=0050n000001ouIBAAY&file=history%2FEdwards9e_QuizPlus%2Fchapter_1__colliding_worlds_14_CABDE2&itemid=d8c62b79-b7e1-42d6-977d-80d95eff7e7b&course_id=d8113ad6-3ed0-4034-87e4-d7d89eef346b&return_url=https%253A%252F%252Fint-achieve-courseware-frontend.mldev.cloud%252Fcourses%252Fd8pa9g%252Fassignments",
-	"courseUrl":"https://int-achieve-iam.mldev.cloud/login?retURL=https://int-achieve-courseware-frontend.mldev.cloud/courses/7r9xzy/assignments",
+	"courseUrl":"https://int-achieve-iam.mldev.cloud/login?retURL=https://int-achieve-courseware-frontend.mldev.cloud/courses/y6ozj8/assignments",
 	"driver": {
 		"type": "chrome",
 		"headless": false
