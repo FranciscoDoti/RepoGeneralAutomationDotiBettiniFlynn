@@ -59,13 +59,13 @@ const WebElement = function (element) {
   that.getBy = async function () {
     let byReturn = null;
     const classType = my.byType.toLowerCase().trim();
-    log.debug(`Getting element ${element.name} By: ${classType}`);
+    log.debug(`Getting element ${element.name} By: ${classType} for ${my.definition}`);
     switch (classType) {
       case 'xpath':
         byReturn = my.by.xpath(my.definition);
         break;
-      case 'cssselector':
-        byReturn = my.by.cssSelector(my.definition);
+      case 'css':
+        byReturn = my.by.css(my.definition);
         break;
       case 'id':
         byReturn = my.by.id(my.definition);

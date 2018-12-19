@@ -3,6 +3,10 @@
 	"loginURL": "https://int-achieve-iam.mldev.cloud/login?retURL=https://int-achieve-courseware-frontend.mldev.cloud/courses",
 	"LCUrl": "https://dev-achieve-learningcurve.mldev.cloud/",
 	"LCRPUrl": "https://dev-achieve-learningcurve.mldev.cloud/lcrp/",
+	"Math-dockAMSUrl": "http://local.saplinglearning.me:3080/login",
+	"Math-saplUrl": "https://int.saplinglearning.me/ibiscms/login/",
+	"Math-AMSUrl":"http://int.saplinglearning.me/ams/",
+
 	"driver": {
 		"type": "chrome",
 		"headless": false

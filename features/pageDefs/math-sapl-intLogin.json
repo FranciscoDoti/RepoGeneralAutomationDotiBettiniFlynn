@@ -1,0 +1,27 @@
+{
+    "webElements": [
+            
+            {
+            "name": "username",
+            "byType": "css",
+            "definition": "input#username",
+            "frame": "default",
+            "specialInstr": "NA"
+            },
+            {
+            "name": "password",
+            "byType": "css",
+            "definition" : "input#password", 
+            "frame": "default",
+            "specialInstr" :"NA"
+
+            },
+            {
+            "name": "saplogin",
+            "byType": "css",
+            "definition": "input#submitButton",
+            "frame": "default",
+            "specialInstr": "NA"
+            }
+        ]
+}
