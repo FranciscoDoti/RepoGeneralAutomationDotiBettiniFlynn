@@ -14,7 +14,7 @@ async function createUser(driver, data_table) {
         let PAGE = await _.get(page, ['iam', 'create_account', data_table.hashes()[i].element]);
         let INPUT = data_table.hashes()[i].input
         await qa.input(PAGE, INPUT);
-        if(data_table.hashes()[i].element == 'institution'){
+        if(data_table.hashes()[i].element === 'institution'){
             await qa.click(page.iam.create_account.institution);
             await qa.click(page.iam.create_account.first_institution);
         }
