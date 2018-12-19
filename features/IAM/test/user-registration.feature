@@ -115,8 +115,8 @@ Feature: Authentication for Achieve via IAM
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | element | input |
-        | institution | University of Toronto |
+        | element       | input                 |
+        | institution   | University of Toronto |
 
         Then I verify the "iam" system "create_account" feature "opt_in" element checkbox checked is "false"     
     
