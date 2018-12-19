@@ -10,7 +10,11 @@ function achieve_base() {
 };
 
 function iam_base() {
-  return 'https://int-achieve-iam.mldev.cloud/register?retURL=https%3A%2F%2Fint-achieve-courseware-frontend.mldev.cloud%2Fcourses'
+  if (config.environment === 'preprod' || config.environment === 'demo') {
+    return `https://int-achieve-${config.environment}-iam.mldev.cloud/register?retURL=https%3A%2F%2Fint-achieve-courseware-frontend.mldev.cloud%2Fcourses`
+  } else {
+    return `https://${config.environment}-achieve-iam.mldev.cloud/register?retURL=https%3A%2F%2Fint-achieve-courseware-frontend.mldev.cloud%2Fcourses`
+  }
 };
 
 function learningcurve_base() {
