@@ -38,7 +38,7 @@ Given(/^I input "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async
   await qa.input(PAGE, text);
 });
 
-// Text Assetion //
+// Text Assertion //
 Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is displayed$/, async function (system, feature, element, text) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
