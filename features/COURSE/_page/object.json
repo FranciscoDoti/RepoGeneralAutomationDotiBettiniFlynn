@@ -1,0 +1,93 @@
+{
+  "main": {
+    "add_course": "._1T-8",
+    "search": "button._1Kr1",
+    "title": "._1YVk",
+    "close_message": ".Bmdu"
+  },
+  "course_list": {
+    "course_menu": ".Q56n",
+    "edit_course": "//*[text()='Edit Course']",
+    "share_template": "//*[text()='Share Template']",
+    "manage_instructor": "//*[text()='Manage Instructor']",
+    "copy_course": "//*[text()='Copy Course']",
+    "delete_course": "//*[text()='Delete Course']",
+    "confirm_delete": "//*[text()='Yes, Delete']",
+    "id": "//div[contains(text(), 'ID: {}')]",
+    "isbn": "//div[contains(text(), 'ISBN: {}')]",
+    "list": "._ExY",
+    "course_name": "//*[@class='gHH9']//*[(text()='{}')]",
+    "course_name_course_code": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='_3ndY']",
+    "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
+    "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
+    "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']"
+  },
+  "create_course": {
+    "add_instructor": "#addInstructor",
+    "add_instructor_button": "._3ASk",
+    "add_instructor_close": "._2FT-",
+    "course_link_input": "._3qpY",
+    "course_link_copy": "._6KWa",
+    "button": "//*[text()='Create a Course']",
+    "course_code": "#__createCourse_codeInput",
+    "edit_course_code": "#courseCode",
+    "course_name": "#__createCourse_nameInput",
+    "edit_course_name": "#courseName",
+    "course_status": "[name='courseStatus']",
+    "course_type": "[name='courseType']",
+    "isbn_number": "#__createCourse_isbnInput",
+    "edit_isbn_number": "#courseIsbn",
+    "learning_objective": "._2oIm._2lfL._2Kdo._3vV4",
+    "product_model": "[name='productModel']",
+    "term": "[name='courseTerm']",
+    "term_year": "[name='courseYear']",
+    "status": "[name='courseStatus']",
+    "template_status": "select._2oIm._1bTe",
+    "cancel": ".QNU9.undefined",
+    "save": "._1tkc.undefined",
+    "message": "._10W9",
+    "success_message": "//*[@id='container']/div/div[2]/div[2]/span",
+    "close_message": ".Bmdu",
+    "select_day": "//span[(text()='{}')]/../../*[@class='_1UGb']",
+    "meeting_hour": "#__timePickerHour",
+    "meeting_minute": "#__timePickerMinute",
+    "meeting_period": "#__timePickerPeriod"
+  },
+  "course_page": {
+    "title":".tNeN",
+    "edit_settings": "._18Qx button",
+    "overview": "",
+    "course_planner": "",
+    "gradebook": "",
+    "reports": "",
+    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
+    "reading": ""
+  },
+  "resources": {
+    "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
+    "custome_activity": "._2TjR",
+    "search_activity": "#__ActivitySearchImput",
+    "close": "[title='Close']",
+    "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]"
+  },
+  "user": {
+    "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
+    "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
+    "button": ".QYC0",
+    "menu": "[title='User menu']",
+    "sign_out": "/html/body/div[3]/div/div/div/div/div/div[3]/span/div/div"
+  },
+  "admin_menu": {
+    "access_code_usage_report": "//span[contains(@class,'_12OR') and contains(text(), 'Access Code Usage Report')]",
+    "check_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Check AccessCode')]",
+    "check_account": "//span[contains(@class,'_12OR') and contains(text(), 'Check Account')]",
+    "course_report": "//span[contains(@class,'_12OR') and contains(text(), 'Course Report')]",
+    "import_resources": "//span[contains(@class,'_12OR') and contains(text(), 'Import Resources')]",
+    "individual_assignment_report": "//span[contains(@class,'_12OR') and contains(text(), 'Individual Assignment Report')]",
+    "manage_product_models_and_indices": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Product Models & Indices')]",
+    "manage_roles": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Roles')]",
+    "password_reset": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
+    "restore_deleted_courses": "//span[contains(@class,'_12OR') and contains(text(), 'Restore Deleted Courses')]",
+    "update_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Update AccessCode')]"
+  }
+}

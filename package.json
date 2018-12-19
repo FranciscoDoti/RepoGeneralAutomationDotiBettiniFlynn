@@ -27,9 +27,15 @@
     "geckodriver": "^1.14.1",
     "imap": "^0.8.19",
     "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
     "mailparser": "^2.4.2",
+    "minimist": "^1.2.0",
     "parse-duration": "^0.1.1",
-    "selenium-webdriver": "^4.0.0-alpha.1"
+    "process": "^0.11.10",
+    "sanitize-filename": "^1.6.1",
+    "select": "^1.1.2",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "string-format": "^2.0.0"
   },
   "devDependencies": {
     "cucumber-html-reporter": "^4.0.4",

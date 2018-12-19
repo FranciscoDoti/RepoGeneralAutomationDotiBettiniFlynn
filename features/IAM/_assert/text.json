@@ -1,0 +1,5 @@
+{
+  "login": {
+    "too_many_attempts": "Too many login attempts. Wait 15 minutes and try again"
+  }
+}
