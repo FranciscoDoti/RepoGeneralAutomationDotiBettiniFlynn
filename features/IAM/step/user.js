@@ -79,9 +79,8 @@ When(/^I have created a user "(.*)" without "(.*)" field$/, async function(user_
 });
 
 When(/^I have created a user "(.*)"$/, async function(user_object) {
-let payload = require(`../../_data/user/${config.environment}/${user_object}.json`);
-
-await createUserFromPayload(this.driver, payload);
+    let payload = require(`../../_data/user/${config.environment}/${user_object}.json`);
+    await createUserFromPayload(this.driver, payload);
 });  
 
 When('I create a user with the data table credentials', async function(data_table) {
