@@ -11,9 +11,9 @@ function achieve_base() {
 
 function iam_base() {
   if (config.environment === 'preprod' || config.environment === 'demo') {
-    return `https://int-achieve-${config.environment}-iam.mldev.cloud/register?retURL=https%3A%2F%2Fint-achieve-courseware-frontend.mldev.cloud%2Fcourses`
+    return `https://int-achieve-${config.environment}-iam.mldev.cloud`
   } else {
-    return `https://${config.environment}-achieve-iam.mldev.cloud/register?retURL=https%3A%2F%2Fint-achieve-courseware-frontend.mldev.cloud%2Fcourses`
+    return `https://${config.environment}-achieve-iam.mldev.cloud`
   }
 };
 
@@ -62,7 +62,7 @@ module.exports = {
   achieve: {
     base: achieve_base(),
     login: achieve_base() + "/start",
-    user_creation: iam_base()
+    user_creation: iam_base() + courseware_register()
   },
   courseware: {
     login: courseware_base() + courseware_login(),
