@@ -1,7 +1,8 @@
 const { When, Then, After } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../master-page.js');
-const format = require('string-format')
+const format = require('string-format');
+const expect = require('chai').expect;
 const _ = require('lodash');
 
 // Navigation
@@ -16,10 +17,11 @@ When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
 When('I fill out the form to edit a course', async function (data_table) {
   let qa = new selenium(this.driver);
 
+  await qa.sleep(1);
   for (let i = 0; i < data_table.rows().length; i++) {
     if(data_table.hashes()[i].page_object != 'day') {
       let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
-      await qa.input(PAGE, data_table.hashes()[i].value);
+      await qa.input(PAGE, data_table.hashes()[i].value, data_table.hashes()[i].clear);
     } else {
       let page_format = format(page.course.create_course.select_day, data_table.hashes()[i].value);
       await qa.click(page_format);
@@ -66,7 +68,7 @@ When('I click the Add course button', async function () {
 When(/^I click on "(.*)" on "(.*)" course menu$/, async function (page_object, course_name) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, ['course', 'course_list', page_object]);
-  let page_format = format(page.course.course_list.menu_named_course, course_name);
+  let page_format = format(page.course.course_list.course_name_menu, course_name);
 
   await qa.click(page.course.course_list.course_menu);
   await qa.sleep(1);
@@ -117,6 +119,18 @@ Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, a
   await qa.exists(page_format);
 });
 
+Then("I verify the course_list data", async function (data_table) {
+  let qa = new selenium(this.driver);
+
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
+    let page_format = await format(PAGE, data_table.hashes()[0].value);
+
+    let text = await qa.getText(page_format);
+    expect(text).to.contain(data_table.hashes()[i].value);
+  }
+});
+
 // FIXME Needs Implementation
 Then('Then I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);
@@ -128,16 +142,6 @@ Then('Then I verify data table courses populate the list', async function (data_
     // VERIFY ACTIVITES HAVE BEEN ADD
     await qa.exists(page_format);
   }
-});
-
-//FIXME Edit courses verify
-Then('Then I verify the updated information', async function () {
-  let qa = new selenium(this.driver);
-
-  // Title equals data_table value
-  // Course # equals data_table value
-  // ISBN equals dtat_table value
-  console.log('DATA? ', data_table);
 });
 
 // Cleanup //

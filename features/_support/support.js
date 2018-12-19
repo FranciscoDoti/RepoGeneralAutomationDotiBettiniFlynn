@@ -44,6 +44,13 @@ Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is 
   let PAGE = await _.get(page, [system, feature, element]);
   let PAGE_TEXT = await qa.getText(PAGE);
   let ASSERT_TEXT = await _.get(assert_text, [system, feature, text]);
+  let close_message = await _.get(page, [system, 'main', 'close_message']);
 
   expect(PAGE_TEXT).to.contain(ASSERT_TEXT);
+  await qa.click(close_message);
+});
+
+Then("I close the popup message", async function () {
+  let qa = new selenium(this.driver);
+  await qa.click(page.iam.main.close_message);
 });
