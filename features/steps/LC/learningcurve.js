@@ -5,6 +5,7 @@ const stepsPath = process.cwd() + '/features/pageDefs/LearningCurve/';
 const { PageObject } = require('../../../app/pageObject');
 const { log } = require('../../../app/logger');
 const { getDriver, sleep } = require('../../../app/driver');
+const {By} = require('selenium-webdriver');
 const config = loadConfig('config');
 const assert = require('assert');
 const helper = require('./lc-helper');
@@ -205,7 +206,16 @@ Then('I complete 50% of the assignment', async function () {
 When('I am done with an assessment, I see my score and can retake the assessment', async function () {
   let retakeButton = await studentView.lcrpPage.checkWebElementExists('retake_quiz');
   assert(retakeButton, 'The Retake button does not exist after completing an assignment');
-  // Also Check Score
+  let assignmentInfo = courses.getAssignment(lcInfo.course, testInfo.currentUser, lcInfo.assignment)
+  let quizResults = await studentView.lcrpPage.getWebElements('quiz_results');
+  assert(assignmentInfo.scores.length === quizResults.length, 'Number of results does not match\nExpected: ' + assignmentInfo.scores.length + '\nActual Results: ' + quizResults.length);
+
+  for (let x = 0; x < quizResults.length; x++) {
+    let accuracy = parseInt(await quizResults[x].findElement(By.xpath('//span[@data-test-id="quizResultsAccuracy"]')).getText());
+    let assignment = assignmentInfo.scores[x];
+    let calcAccuracy = assignment.currentScore / assignment.totalPossible * 100;
+    assert(calcAccuracy - 1 <= accuracy && calcAccuracy + 1 >= accuracy, 'Score does not match: \nExpected: ' + calcAccuracy + '\nActually: ' + accuracy)
+  }
 });
 
 Then('I complete 100% of an LCRP assignment', async function () {

@@ -6,7 +6,6 @@ const { log } = require('./logger');
 
 const populateInput = async function (eleTarget, strValue, actionElement) {
   const type = await eleTarget.getAttribute('type');
-  console.log("POPULATEINPUT::", type)
   switch (type) {
     case 'radio':
       if (strValue.toLowerCase() === 'click') {

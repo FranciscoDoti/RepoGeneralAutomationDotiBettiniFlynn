@@ -125,5 +125,12 @@
       "definition": "//div[@data-test-id='studyPlanItem']",
       "frame": "default",
       "specialInstr": "NA"
+    },{
+      
+      "name": "quiz_results",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='quizResultsPanel']",
+      "frame": "default",
+      "specialInstr": "NA"
     }]
 }
