@@ -14,6 +14,13 @@ When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
   await qa.click(page_format);
 });
 
+When(/^I click on "(.*)" course card$/, async function (name) {
+  let qa = new selenium(this.driver);
+  let page_format = format(page.course.course_list.course_name, name);
+
+  await qa.click(page_format);
+});
+
 When('I fill out the form to edit a course', async function (data_table) {
   let qa = new selenium(this.driver);
 
