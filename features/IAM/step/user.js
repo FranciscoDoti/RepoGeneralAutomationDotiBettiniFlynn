@@ -99,7 +99,8 @@ Then(/^I verify for "(.*)" system "(.*)" feature "(.*)" element that "(.*)" feat
 
 Then(/^I verify the password inputed "(.*)" is not the same as the one that was allowed "(.*)"$/, async function (password, password_allowed) {
     let qa = new selenium(this.driver);
-    let PAGE = await _.get(page, ['iam', 'create_account', 'password'])
+    let PAGE = page.iam.create_account.password;
     let actual_password = await qa.getAttribute(PAGE, 'value');
     expect(password_allowed).to.equal(actual_password);
+    expect(password).to.not.equal(actual_password);
 })
