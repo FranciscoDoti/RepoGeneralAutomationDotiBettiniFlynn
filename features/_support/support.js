@@ -73,7 +73,6 @@ Then(/^I verify that the url "(.*)" is the current url in the new window$/, asyn
 Then(/^I verify that the url "(.*)" is the current url$/, async function(URL) {
   let qa = new selenium(this.driver);
   let CURRENTURL = await qa.getUrl()
-  console.log(CURRENTURL, 'currentUrl')
   expect(CURRENTURL).to.equal(URL);
 })
 

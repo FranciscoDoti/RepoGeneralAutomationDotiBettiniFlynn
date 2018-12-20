@@ -1,5 +1,7 @@
 Feature: Authentication for Achieve via IAM 
-    
+
+    ## Field Validation Scenarios ##
+
     Scenario: Verify that First Name field and last name validations are working as expected when entering number and special characters
         Given I have opened "achieve" "user_creation"
         
@@ -52,7 +54,19 @@ Feature: Authentication for Achieve via IAM
         | confirm_password | Passwooo1!|
         
         Then I verify for "iam" system "create_account" feature "confirm_password_error" element that "create_account" feature "confirm_password_error" message is displayed        
+
+    Scenario Outline: Verify that entering a password that is too long 
+        Given I have opened "achieve" "user_creation"
+
+        When I input <password> into "iam" system "create_account" feature "password" element
+        And I input <password> into "iam" system "create_account" feature "confirm_password" element 
+
+        Then I verify the password inputed <password> is not the same as the one that was allowed <password_allowed>
+        Examples:
+        | password | password_allowed |
+        | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$" | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321" |
     
+
     Scenario: Verify that Security Questions & Answer validations are working as expected with extra characters
         Given I have opened "achieve" "user_creation"
         
@@ -92,6 +106,8 @@ Feature: Authentication for Achieve via IAM
 
         Then I verify for "iam" system "create_account" feature "institution_error_message" element that "create_account" feature "institution_error_message" message is displayed
 
+    ## Opt-in checkbox validation for international schools ##
+
     Scenario: Verify that on selecting a US college in "Primary Institution or School" text box, the application automatically checks the "Opt IN" check box
         Given I have opened "achieve" "user_creation"
         
@@ -109,7 +125,17 @@ Feature: Authentication for Achieve via IAM
         | institution   | University of Toronto |
 
         Then I verify the "iam" system "create_account" feature "opt_in" element checkbox checked is "false"     
-    
+
+    ## Link validations for Privacy and Piracy ## 
+
+    Scenario: Verify that Terms of use link redirects to appropriate page
+        Given I have opened "achieve" "user_creation"
+
+        When I click on "iam" system "create_account" feature "terms_of_use" element
+
+        Then I verify that the url "https://store.macmillanlearning.com/us/termsOfUse" is the current url
+
+
     Scenario: Verify that Privacy Notice Link exists and redirects to appropriate page
         Given I have opened "achieve" "user_creation"
         
@@ -118,7 +144,37 @@ Feature: Authentication for Achieve via IAM
         When I click on "iam" system "create_account" feature "privacy_notice" element
 
         Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the new window
+Scenario: Verify the Terms of Purchase link directs to the page
+        Given I have opened "achieve" "user_creation"
+
+        When I click on "iam" system "create_account" feature "terms_of_purchase" element
+        
+        Then I verify that the url "https://store.macmillanlearning.com/us/terms-of-purchase-rental" is the current url in the new window
+
+    Scenario: Verify that Piracy Link redirects to appropriate page
+        Given I have opened "achieve" "user_creation"
+
+        When I click on "iam" system "create_account" feature "piracy_link" element
+        
+        Then I verify that the url "https://www.macmillanlearning.com/Catalog/page/piracy" is the current url in the new window
+
+    Scenario: Verify that Privacy Link redirects to appropriate page
+        Given I have opened "achieve" "user_creation"
+
+        When I click on "iam" system "create_account" feature "privacy_link" element
+        
+        Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the new window
+
+    Scenario: Verify that macmillan learning redirects to appropriate page
+        Given I have opened "achieve" "user_creation"
+
+        When I click on "iam" system "create_account" feature "macmillan_link" element
+        
+        Then I verify that the url "https://www.macmillanlearning.com/catalog" is the current url
+
     
+    ## Signup Button Disabled Functionality Checks ##
+
     Scenario: Verify that the signup button is disabled if the Checkbox 'I have read and agree to the terms of use' is not checked 
         Given I have opened "achieve" "user_creation"
         
@@ -138,14 +194,6 @@ Feature: Authentication for Achieve via IAM
         | institution | Miami University |
 
         Then I verify the "iam" system "create_account" feature "signup_btn" element disabled attribute is "false"
-
-    Scenario: Verify that Terms of use link redirects to appropriate page
-        Given I have opened "achieve" "user_creation"
-
-        When I click on "iam" system "create_account" feature "terms_of_use" element
-
-        Then I verify that the url "https://store.macmillanlearning.com/us/termsOfUse" is the current url
-
     
     Scenario Outline: Verify that without entering all Mandatory Fields signup button is disabled
         Given I have opened "achieve" "user_creation"
@@ -182,7 +230,7 @@ Feature: Authentication for Achieve via IAM
         | "institution"                 |
 
 
-    Scenario Outline: Verify that without entering all Mandatory Fields (password is too short)
+    Scenario Outline: Verify that signup button is disabled when entering all Mandatory Fields (password is too short)
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
@@ -208,45 +256,8 @@ Feature: Authentication for Achieve via IAM
         | "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321"  |
         | "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321"  |
 
-    Scenario Outline: Verify that entering a password that is too long 
-        Given I have opened "achieve" "user_creation"
-
-        When I input <password> into "iam" system "create_account" feature "password" element
-        And I input <password> into "iam" system "create_account" feature "confirm_password" element 
-
-        Then I verify the password inputed <password> is not the same as the one that was allowed <password_allowed>
-        Examples:
-        | password | password_allowed |
-        | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$" | "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321" |
+    ## Edit Account Options Checks ##
     
-    Scenario: Verify the Terms of Purchase link directs to the page
-        Given I have opened "achieve" "user_creation"
-
-        When I click on "iam" system "create_account" feature "terms_of_purchase" element
-        
-        Then I verify that the url "https://store.macmillanlearning.com/us/terms-of-purchase-rental" is the current url in the new window
-
-    Scenario: Verify that Piracy Link redirects to appropriate page
-        Given I have opened "achieve" "user_creation"
-
-        When I click on "iam" system "create_account" feature "piracy_link" element
-        
-        Then I verify that the url "https://www.macmillanlearning.com/Catalog/page/piracy" is the current url in the new window
-
-    Scenario: Verify that Privacy Link redirects to appropriate page
-        Given I have opened "achieve" "user_creation"
-
-        When I click on "iam" system "create_account" feature "privacy_link" element
-        
-        Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the new window
-
-    Scenario: Verify that macmillan learning redirects to appropriate page
-        Given I have opened "achieve" "user_creation"
-
-        When I click on "iam" system "create_account" feature "macmillan_link" element
-        
-        Then I verify that the url "https://www.macmillanlearning.com/catalog" is the current url
-
     Scenario: Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account
         Given I have opened "achieve" "login"
         

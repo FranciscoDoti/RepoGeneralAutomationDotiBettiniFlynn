@@ -13,9 +13,7 @@ async function createUser(driver, data_table, missing) {
     let qa = new selenium(driver);
     for (let i = 0; i < data_table.rows().length; i++) {
         let USER = data_table.hashes();
-        if(USER[i].element === missingField){
-          console.log(missingField, 'missing Field');
-        } else {
+        if(USER[i].element !== missingField) {
           let PAGE = await _.get(page, ['iam', 'create_account', USER[i].element]);
           let INPUT = USER[i].input
           await qa.input(PAGE, INPUT);
