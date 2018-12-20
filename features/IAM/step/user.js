@@ -1,38 +1,9 @@
-<<<<<<< HEAD:features/steps/IAM/user.js
-const { When, Then} = require('cucumber');
-const { By} = require('selenium-webdriver');
-const { loadLogin } = require('../../../app/util');
-const { assert } = require('chai');
-const stepsPath = process.cwd() + '/features/pageDefs/';
-const { PageObject } = require('../../../app/pageObject');
-const { getDriver, sleep} = require('../../../app/driver');
-let pages = {
-  createAccount: new PageObject('createAccount.json', stepsPath),
-  navigation: new PageObject('navigation.json', stepsPath)
-}
-||||||| merged common ancestors
-const { When, Then} = require('cucumber');
-const path = require('path');
-const { By, until } = require('selenium-webdriver');
-const { loadConfig, loadLogin } = require('../../../app/util');
-const { assert } = require('chai');
-const expect = require('chai')
-const stepsPath = process.cwd() + '/features/pageDefs/';
-const { PageObject } = require('../../../app/pageObject');
-const { log } = require('../../../app/logger');
-const { getDriver, sleep} = require('../../../app/driver');
-let pages = {
-  createAccount: new PageObject('createAccount.json', stepsPath),
-  navigation: new PageObject('navigation.json', stepsPath)
-}
-=======
 const { When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium.js');
 const page = require('../../master-page.js');
 const config = require('../../../config.js');
 
 
->>>>>>> 8c089630c2031cefe936801a7f3efe3953b0d827:features/IAM/step/user.js
 When(/^I verify the functionality of first name by entering "(.*)"$/, async function (firstname) {
   await pages.createAccount.populate('firstName', firstname);
 });
