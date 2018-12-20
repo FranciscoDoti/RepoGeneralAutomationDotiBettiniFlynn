@@ -5,7 +5,7 @@
     "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature --world-parameters='{\"config\": \"int/pre-prod\"}'",
     "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "IAM-user-registration": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/user-registration.feature --world-parameters='{\"config\": \"int/pre-prod\"}'",
+    "User-registration": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/user-registration.feature --world-parameters='{\"config\": \"int/pre-prod\"}'",
     "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/happy-path-Qual.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "Wrt-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Writing_PM/happy-path-wrt.feature --world-parameters='{\"config\": \"int/achieve\"}'",
     "randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/happy-path-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
