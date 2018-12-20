@@ -115,7 +115,7 @@ Feature: Authentication for Achieve via IAM
         | element     | input          |
         | institution | Cottey College |
 
-        Then I verify the "iam" system "create_account" feature "opt_in" element checkbox checked is "true"
+        Then I verify the "iam" system "create_account" feature "opt_in" element checkbox is "checked"
 
     Scenario: Verify that on selecting a Canada College in "Primary Institution or School" text box, the application should not automatically check the "OPT IN" check box
         Given I have opened "achieve" "user_creation"
@@ -124,16 +124,16 @@ Feature: Authentication for Achieve via IAM
         | element       | input                 |
         | institution   | University of Toronto |
 
-        Then I verify the "iam" system "create_account" feature "opt_in" element checkbox checked is "false"     
+        Then I verify the "iam" system "create_account" feature "opt_in" element checkbox is "not checked"     
 
-    ## Link validations for Privacy and Piracy ## 
+    # Link validations for Privacy and Piracy ## 
 
     Scenario: Verify that Terms of use link redirects to appropriate page
         Given I have opened "achieve" "user_creation"
 
         When I click on "iam" system "create_account" feature "terms_of_use" element
 
-        Then I verify that the url "https://store.macmillanlearning.com/us/termsOfUse" is the current url
+        Then I verify that the url "https://store.macmillanlearning.com/us/termsOfUse" is the current url in the "current" window
 
 
     Scenario: Verify that Privacy Notice Link exists and redirects to appropriate page
@@ -143,34 +143,34 @@ Feature: Authentication for Achieve via IAM
 
         When I click on "iam" system "create_account" feature "privacy_notice" element
 
-        Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the new window
+        Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the "new" window
 Scenario: Verify the Terms of Purchase link directs to the page
         Given I have opened "achieve" "user_creation"
 
         When I click on "iam" system "create_account" feature "terms_of_purchase" element
         
-        Then I verify that the url "https://store.macmillanlearning.com/us/terms-of-purchase-rental" is the current url in the new window
+        Then I verify that the url "https://store.macmillanlearning.com/us/terms-of-purchase-rental" is the current url in the "new" window
 
     Scenario: Verify that Piracy Link redirects to appropriate page
         Given I have opened "achieve" "user_creation"
 
         When I click on "iam" system "create_account" feature "piracy_link" element
         
-        Then I verify that the url "https://www.macmillanlearning.com/Catalog/page/piracy" is the current url in the new window
+        Then I verify that the url "https://www.macmillanlearning.com/Catalog/page/piracy" is the current url in the "new" window
 
     Scenario: Verify that Privacy Link redirects to appropriate page
         Given I have opened "achieve" "user_creation"
 
         When I click on "iam" system "create_account" feature "privacy_link" element
         
-        Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the new window
+        Then I verify that the url "https://store.macmillanlearning.com/us/privacy-notice" is the current url in the "new" window
 
     Scenario: Verify that macmillan learning redirects to appropriate page
         Given I have opened "achieve" "user_creation"
 
         When I click on "iam" system "create_account" feature "macmillan_link" element
         
-        Then I verify that the url "https://www.macmillanlearning.com/catalog" is the current url
+        Then I verify that the url "https://www.macmillanlearning.com/catalog" is the current url in the "current" window
 
     
     ## Signup Button Disabled Functionality Checks ##
@@ -193,7 +193,7 @@ Scenario: Verify the Terms of Purchase link directs to the page
         | Security_Question_3_Answer | answer |
         | institution | Miami University |
 
-        Then I verify the "iam" system "create_account" feature "signup_btn" element disabled attribute is "false"
+        Then I verify the "iam" system "create_account" feature "signup_btn" element is "not disabled"
     
     Scenario Outline: Verify that without entering all Mandatory Fields signup button is disabled
         Given I have opened "achieve" "user_creation"
@@ -213,7 +213,7 @@ Scenario: Verify the Terms of Purchase link directs to the page
         | Security_Question_3_Answer | answer |
         | institution | Miami University | 
         
-        Then I verify the "iam" system "create_account" feature "signup_btn" element disabled attribute is "true"
+        Then I verify the "iam" system "create_account" feature "signup_btn" element is "disabled"
         Examples:
         | element                       |
         | "email"                       |
@@ -248,7 +248,7 @@ Scenario: Verify the Terms of Purchase link directs to the page
         And I input <password> into "iam" system "create_account" feature "password" element
         And I input <password> into "iam" system "create_account" feature "confirm_password" element 
         
-        Then I verify the "iam" system "create_account" feature "signup_btn" element disabled attribute is "true"    
+        Then I verify the "iam" system "create_account" feature "signup_btn" element is "disabled"    
         Examples:
         | password |
         | "ABab@12"|
@@ -288,7 +288,7 @@ Scenario: Verify the Terms of Purchase link directs to the page
         And I click on "iam" system "create_account" feature "account" element 
         And I click on "iam" system "create_account" feature "cancel_account" element
 
-        Then I verify that the url "https://int-achieve-courseware-frontend.mldev.cloud/courses" is the current url
+        Then I verify that the url "https://int-achieve-courseware-frontend.mldev.cloud/courses" is the current url in the "current" window
 
     Scenario: Verify that Set Password functionality is working as expected with a new password
         Given I have opened "achieve" "login"
