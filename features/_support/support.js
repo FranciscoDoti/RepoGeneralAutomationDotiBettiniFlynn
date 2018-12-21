@@ -67,7 +67,8 @@ Then(/^I verify that the url "(.*)" is the current url in the "(.*)" window$/, a
     await qa.sleep(3);
     await qa.changeWindow(1);
     currentUrl = await qa.getUrl();
-    await qa.changeWindow(0);
+    // await qa.close();
+    // await qa.changeWindow(0);
     expect(currentUrl).to.equal(url);
   } else if (window === 'current') {
     currentUrl = await qa.getUrl();
