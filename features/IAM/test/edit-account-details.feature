@@ -1,7 +1,7 @@
 Feature: Edit Account Options Checks Achieve via IAM
     
     Scenario: Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account
-        Given I have opened "acheive" "login"
+        Given I have opened "achieve" "login"
         
         When I click on "iam" system "home" feature "sign_in" element
         And I have logged in as "admin_1"
