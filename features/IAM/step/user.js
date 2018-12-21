@@ -25,19 +25,19 @@ async function checkUserAccount(driver, element, input) {
   let qa = new selenium(driver);
       let PAGE = await _.get(page, ['iam', 'create_account', element]);
       if(element === 'email'){
-          let EMAIL_PAGE = await _.get(page, ['iam', 'create_account', 'email_disabled']);
-          VALUE = await qa.getText(EMAIL_PAGE)
+          let emailPage = await _.get(page, ['iam', 'create_account', 'email_disabled']);
+          valueAttribute = await qa.getText(emailPage)
           // Cannot locate this email within this div easily so going to need to add an id here
       } else if (element === 'last_name' || element === 'first_name') {
-          let NEW_KEY = element + '_account';
-          let NAME_PAGE = await _.get(page, ['iam', 'create_account', NEW_KEY]);
-          VALUE = await qa.getAttribute(NAME_PAGE, 'value');
+          let newKey = element + '_account';
+          let NAME_PAGE = await _.get(page, ['iam', 'create_account', newKey]);
+          valueAttribute = await qa.getAttribute(NAME_PAGE, 'value');
       } else if(element === 'password' || element === 'confirm_password') {
-          VALUE = input;            
+          valueAttribute = input;            
       } else {
-          VALUE = await qa.getAttribute(PAGE, 'value');
+          valueAttribute = await qa.getAttribute(PAGE, 'value');
       }
-        expect(VALUE).to.equal(input);    
+        expect(valueAttribute).to.equal(input);    
 };
 
 Then('I check a user account for user from data_table', async function(data_table) {
