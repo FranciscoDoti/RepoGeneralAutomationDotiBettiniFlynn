@@ -17,7 +17,7 @@ Feature: R&P happy path workflow student
 
         Given I have opened "courseware" "login"
 
-        When I search for "(.*)" course
+        When I search for "quantitative_1" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
         And I input "premade assesment 1" into "courseware" system "resources" feature "last_name" element
@@ -32,7 +32,7 @@ Feature: R&P happy path workflow student
         Given I have opened "courseware" "login"
         
         When I have logged in as "student_2"
-        And I search for "(.*)" course
+        And I search for "quantitative_1" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
         And I input "custom assesment 1" into "courseware" system "resources" feature "last_name" element        
@@ -48,7 +48,7 @@ Feature: R&P happy path workflow student
         Given I have opened "courseware" "login"
         
         When I have logged in as "student_2"
-        And I search for "(.*)" course
+        And I search for "quantitative_1" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
         And I input "qualitative assesment 1" into "courseware" system "resources" feature "last_name" element        
