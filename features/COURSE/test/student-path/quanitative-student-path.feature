@@ -1,4 +1,4 @@
-Feature: Qualitative happy path workflow student
+Feature: Quantitative happy path workflow student
 
     Scenario: Student enrolls in course
         Given I check E-mail Notification of "student" for "courseware"
@@ -13,11 +13,11 @@ Feature: Qualitative happy path workflow student
         | element           | value         |
         | element_example   | value_example |
 
-    Scenario: Verify that Student is able to attempt activities of a Instructor created pre-made assesment course created from Qualitative template 
+    Scenario: Verify that Student is able to attempt activities of a Instructor created pre-made assesment course created from Quantitative template 
 
         Given I have opened "courseware" "login"
 
-        When I search for "qualitative_1" course
+        When I search for "quantitative_1" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
         And I input "premade assesment 1" into "courseware" system "resources" feature "last_name" element
@@ -28,11 +28,11 @@ Feature: Qualitative happy path workflow student
 
     
     @coureseware-logout
-    Scenario: Verify that Student is able to attempt activities of a Instructor custom made assesment course created from Qualitative Template
+    Scenario: Verify that Student is able to attempt activities of a Instructor custom made assesment course created from Quantitative Template
         Given I have opened "courseware" "login"
         
         When I have logged in as "student_2"
-        And I search for "qualitative_1" course
+        And I search for "quantitative_1" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
         And I input "custom assesment 1" into "courseware" system "resources" feature "last_name" element        
@@ -44,11 +44,11 @@ Feature: Qualitative happy path workflow student
 
 
     @coureseware-logout
-    Scenario: Verify that Student is able to attempt activities of a Instructor that were created from Qualitative Template
+    Scenario: Verify that Student is able to attempt activities of a Instructor that were created from Quantitative Template
         Given I have opened "courseware" "login"
         
         When I have logged in as "student_2"
-        And I search for "qualitative_1" course
+        And I search for "quantitative_1" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
         And I input "quanitative assesment 1" into "courseware" system "resources" feature "last_name" element        
