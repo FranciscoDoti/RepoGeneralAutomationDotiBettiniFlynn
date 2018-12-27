@@ -6,7 +6,6 @@ const process = require("process");
 const minimist = require("minimist");
 require('chromedriver');
 
-
 function CustomWorld() {
   var argv = minimist(process.argv.slice(2));
   var builder;

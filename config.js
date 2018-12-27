@@ -1,6 +1,6 @@
 module.exports = {
   mode: "local",
-  environment: "int",
+  environment: "local",
   timeout: 10000,
   sleep: 1000,
   headers: {

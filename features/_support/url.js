@@ -1,7 +1,9 @@
 const config = require("../../config.js");
 
-
 function achieve_base() {
+  if (config.environment === 'local') {
+    return `http://courseware-local.mldev.cloud:3000`
+  }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `https://int-achieve-${config.environment}-courseware-frontend.mldev.cloud`
   } else {
@@ -26,6 +28,9 @@ function uat_base() {
 };
 
 function courseware_base() {
+  if (config.environment === 'local') {
+    return `http://courseware-local.mldev.cloud:3000/courses`
+  }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `https://int-achieve-${config.environment}-learningcurve.mldev.cloud`
   } else {
@@ -34,6 +39,9 @@ function courseware_base() {
 };
 
 function courseware_login() {
+  if (config.environment === 'local') {
+    return `/login?retURL=http://courseware-local.mldev.cloud:3000/courses`
+  }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `/login?retURL=https://int-achieve-${config.environment}-courseware-frontend.mldev.cloud/courses`
   } else {
@@ -42,13 +50,15 @@ function courseware_login() {
 };
 
 function courseware_register() {
+  if (config.environment === 'local') {
+    return `/register?retURL=http%3A%2F%2Fcourseware-local.mldev.cloud%3A3000%2Fcourses`
+  }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `/register?retURL=https%3A%2F%2Fint-achieve-${config.environment}-courseware-frontend.mldev.cloud%2Fcourses`
   } else {
     return `/register?retURL=https%3A%2F%2F${config.environment}-achieve-courseware-frontend.mldev.cloud%2Fcourses`
   }
 };
-
 
 module.exports = {
   achieve: {
