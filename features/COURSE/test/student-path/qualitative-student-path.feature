@@ -1,14 +1,14 @@
 Feature: Qualitative happy path workflow student
 
-    Scenario: Student enrolls in course
+   Scenario: Student enrolls in course
         Given I check E-mail Notification of "student" for "courseware"
 
         When I have logged in as "student_2"
-        And I check E-mail Notification of "student" for "courseware"
         And I click on "courseware" system "student_course" feature "grace_period" element
-        And I click on "courseware" system "student_course" feature "finish_enrollenment" element        
-        
-        
+        And I click on "courseware" system "student_course" feature "finish_enrollenment" element 
+
+
+
         Then I validate that the following information is correct on the Course Access Code page
         | element           | value         |
         | element_example   | value_example |
@@ -17,12 +17,11 @@ Feature: Qualitative happy path workflow student
 
         Given I have opened "courseware" "login"
 
-        When I search for "qualitative_1" course
+        When I search for "E2E301" course
         And I click on "courseware" system "course_list" feature "course_name" element
-        And I click on  "courseware" system "course_page" feature "course_name" element 
-        And I input "premade assesment 1" into "courseware" system "resources" feature "last_name" element
-        And I click on  "courseware" system "resources" feature "first_activity" element
-        And I answer the questions in the "premade" assesment activity
+        And I click on  "courseware" system "course_page" feature "course_planner" element 
+        And I click on "courseware" system "course_planner" feature "pre_made_assesment_activity"element
+        And I click on "courseware" system "course_planner" feature "Quiz" element
         
         Then I validate the marks are displayed in gradebook for "premade assesment" activity
 
@@ -32,27 +31,45 @@ Feature: Qualitative happy path workflow student
         Given I have opened "courseware" "login"
         
         When I have logged in as "student_2"
-        And I search for "qualitative_1" course
+        And I search for "E2E301" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
-        And I input "custom assesment 1" into "courseware" system "resources" feature "last_name" element        
-        And I click on  "courseware" system "resources" feature "first_activity" element
-        And I answer the questions in the "custom" assesment activity
+        And I click on "courseware" system "course_planner" feature "custom_made_assesment_activity"element
+        And I click on "courseware" system "course_planner" feature "Quiz" element
+        
+       
         
         Then I validate the marks are displayed in gradebook for "custom assesment" activity
  
-
-
-    @coureseware-logout
+   @coureseware-logout
     Scenario: Verify that Student is able to attempt activities of a Instructor that were created from Qualitative Template
         Given I have opened "courseware" "login"
         
         When I have logged in as "student_2"
-        And I search for "qualitative_1" course
+        And I search for "E2E301" course
         And I click on "courseware" system "course_list" feature "course_name" element
-        And I click on  "courseware" system "course_page" feature "course_name" element 
-        And I input "quanitative assesment 1" into "courseware" system "resources" feature "last_name" element        
-        And I click on  "courseware" system "resources" feature "first_activity" element
-        And I answer the questions in the "qualitative" assesment activity
+        And I click on  "courseware" system "course_page" feature "course_planner" element 
+        And I click on "courseware" system "course_planner" feature "reading_activity"element
+        And I click on "courseware" system "course_planner" feature "reading" element
+      
+       
         
-        Then I validate the marks are displayed in gradebook for "custom assesment" activity
+        Then I validate the marks are displayed in gradebook for "reading_activity" activity
+
+
+    @coureseware-logout
+    Scenario: Verify that Student is able to attempt activities of a Instructor that were created from Quantitative Template
+        Given I have opened "courseware" "login"
+        
+        When I have logged in as "student_2"
+        And I search for "E2E301" course
+        And I click on "courseware" system "course_list" feature "course_name" element
+        And I click on  "courseware" system "course_page" feature "course_planner" element 
+        And I click on "courseware" system "course_planner" feature "file_activiy"element
+        
+      
+       
+        
+        Then I validate the marks are displayed in gradebook for "file_activity" activity
+
+    
