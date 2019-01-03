@@ -29,7 +29,7 @@ function uat_base() {
 
 function courseware_base() {
   if (config.environment === 'local') {
-    return `http://courseware-local.mldev.cloud:3000/courses`
+    return `http://courseware-local.mldev.cloud:3000`
   }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `https://int-achieve-${config.environment}-learningcurve.mldev.cloud`

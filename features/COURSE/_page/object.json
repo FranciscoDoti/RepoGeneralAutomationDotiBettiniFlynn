@@ -28,7 +28,7 @@
     "add_instructor_close": "._2FT-",
     "course_link_input": "._3qpY",
     "course_link_copy": "._6KWa",
-    "button": "//*[text()='Create a Course']",
+    "button": ".styles_add_1T-",
     "course_code": "#__createCourse_codeInput",
     "edit_course_code": "#courseCode",
     "course_name": "#__createCourse_nameInput",
