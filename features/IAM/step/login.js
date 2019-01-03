@@ -25,6 +25,12 @@ When(/^I have logged in as "(.*)"$/, async function(user_object) {
   await signIn(this.driver, payload.username, payload.password);
 });
 
+When(/^I have logged in with a new password "(.*)" as "(.*)"$/, async function(password, user_object) {
+  let payload = require(`../../_data/user/${config.environment}/${user_object}.json`);
+
+  await signIn(this.driver, payload.username, password);
+});
+
 // Refactor //
 When('I click on create an account button', async function() {
   await pages.navigation.populate('create_account_button', 'click');

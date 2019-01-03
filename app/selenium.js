@@ -133,7 +133,7 @@ module.exports = function (driver) {
       return yield elem.getAttribute(attributeName);
     }),
 
-    changeWindow: Promise.coroutine(function * (func) {
+    changeWindow: Promise.coroutine(function * (window) {
       var poll_ = Promise.coroutine(function * poll_ () {
         var handles;
         do {
@@ -144,9 +144,7 @@ module.exports = function (driver) {
       });
 
       var handles = yield poll_().timeout(config.timeout, 'Polling for new window timed out.');
-      yield driver.switchTo().window(handles[1]);
-      yield func();
-      yield driver.switchTo().window(handles[0]);
+      yield driver.switchTo().window(handles[window]);
     }),
 
     waitForUrl: Promise.coroutine(function * (waitUrl, timeout) {
