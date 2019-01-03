@@ -69,13 +69,13 @@ Feature: Field Validation Scenarios for Achieve via IAM Create Account Page
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | input                            | element             |
-        | What high school did you attend? | Security_Question_1 |
-        | What high school did you attend? | Security_Question_2 | 
-        | What high school did you attend? | Security_Question_3 |
-        | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ | Security_Question_1_Answer |
-        | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ | Security_Question_2_Answer |
-        | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ | Security_Question_3_Answer |
+        | element                    | input                            |
+        | Security_Question_1        | What high school did you attend? |
+        | Security_Question_2        | What high school did you attend? |
+        | Security_Question_3        | What high school did you attend? |
+        | Security_Question_1_Answer | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ |
+        | Security_Question_2_Answer | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ |
+        | Security_Question_3_Answer | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ |
 
         Then I verify for "iam" system "create_account" feature "Security_question_1_error" element that "create_account" feature "Security_question_error" message is displayed
         And I verify for "iam" system "create_account" feature "Security_question_2_error" element that "create_account" feature "Security_question_error" message is displayed
