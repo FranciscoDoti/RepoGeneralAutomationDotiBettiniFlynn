@@ -3,7 +3,7 @@ Feature: Qualitative Happy Path
 
   Background:
     Given I have opened "achieve" "login"
-    And I click on "iam" system "home" feature "sign_in" element
+    And I click on "course" system "home" feature "sign_in" element
 
     When I add Activities to course "isbn" "9781464199498"
       | activity        |

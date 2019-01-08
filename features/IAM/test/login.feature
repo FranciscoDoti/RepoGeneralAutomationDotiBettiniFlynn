@@ -34,7 +34,7 @@ Feature: Login
     is exceeded
 
         Given I have opened "achieve" "login"
-        And I click on "iam" system "home" feature "sign_in" element
+        And I click on "course" system "home" feature "sign_in" element
 
         When I login with the following credentials
             |username                       | password    |
@@ -51,7 +51,7 @@ Feature: Login
     Scenario:Verify whether user able to login without waiting for 15minutes
 
         Given I have opened "achieve" "login"
-        And I click on "iam" system "home" feature "sign_in" element
+        And I click on "course" system "home" feature "sign_in" element
 
         When I have logged in as "admin_2"
 

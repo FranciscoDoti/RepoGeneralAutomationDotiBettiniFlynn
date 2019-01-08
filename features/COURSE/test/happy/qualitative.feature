@@ -48,7 +48,7 @@ Feature: Qualitative Happy Path
 
 
     When I logout of the achieve system
-    And I click on "iam" system "home" feature "sign_in" element
+    And I click on "course" system "home" feature "sign_in" element
     And I have logged in as "customer_support_2"
 
 
@@ -60,7 +60,7 @@ Feature: Qualitative Happy Path
 
 
     When I logout of the achieve system
-    And I click on "iam" system "home" feature "sign_in" element
+    And I click on "course" system "home" feature "sign_in" element
     And I have logged in as "instructor_7"
 
 
