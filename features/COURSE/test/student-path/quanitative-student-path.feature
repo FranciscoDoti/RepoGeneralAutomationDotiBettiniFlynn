@@ -20,7 +20,7 @@ Feature: Quantitative happy path workflow student
         When I search for "E2E301" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_planner" element 
-        And I click on "courseware" system "course_planner" feature "pre_made_assesment_activity"element
+        And I click on "courseware" system "course_planner" feature "pre_made_assesment_activity" element
         And I click on "courseware" system "course_planner" feature "Quiz" element
         
         Then I validate the marks are displayed in gradebook for "premade assesment" activity
@@ -34,7 +34,7 @@ Feature: Quantitative happy path workflow student
         And I search for "E2E301" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_name" element 
-        And I click on "courseware" system "course_planner" feature "custom_made_assesment_activity"element
+        And I click on "courseware" system "course_planner" feature "custom_made_assesment_activity" element
         And I click on "courseware" system "course_planner" feature "Quiz" element
         
        
@@ -49,7 +49,7 @@ Feature: Quantitative happy path workflow student
         And I search for "E2E301" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_planner" element 
-        And I click on "courseware" system "course_planner" feature "reading_activity"element
+        And I click on "courseware" system "course_planner" feature "reading_activity" element
         And I click on "courseware" system "course_planner" feature "reading" element
       
        
@@ -65,7 +65,7 @@ Feature: Quantitative happy path workflow student
         And I search for "E2E301" course
         And I click on "courseware" system "course_list" feature "course_name" element
         And I click on  "courseware" system "course_page" feature "course_planner" element 
-        And I click on "courseware" system "course_planner" feature "file_activiy"element
+        And I click on "courseware" system "course_planner" feature "file_activiy" element
         
       
        
