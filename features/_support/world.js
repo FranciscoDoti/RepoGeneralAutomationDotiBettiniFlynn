@@ -3,7 +3,6 @@ const seleniumWebdriver = require('selenium-webdriver');
 const config = require('../../config.js');
 require('chromedriver');
 
-
 function CustomWorld() {
   var builder;
 

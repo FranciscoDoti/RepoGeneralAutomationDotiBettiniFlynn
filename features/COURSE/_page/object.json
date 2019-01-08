@@ -5,6 +5,11 @@
     "title": "._1YVk",
     "close_message": ".Bmdu"
   },
+  "home": {
+    "enroll": "._1o0U",
+    "instructor_access": "._21rl",
+    "sign_in": "._3GtB"
+  },
   "course_list": {
     "course_menu": ".Q56n",
     "edit_course": "//*[text()='Edit Course']",

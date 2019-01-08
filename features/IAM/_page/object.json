@@ -2,11 +2,6 @@
   "main": {
     "close_message": ".Bmdu"
   },
-  "home": {
-    "enroll": "._1o0U",
-    "instructor_access": "._21rl",
-    "sign_in": "._3GtB"
-  },
   "login": {
     "create_account": "#createAccount",
     "error_text": ".errorText",
