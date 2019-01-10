@@ -10,5 +10,5 @@ Feature: Read and Practice happy path workflow student
       Examples:
       | activity                       | type       | course   |
       | "read_and_practice_activity"   | "Quiz"     | "E2E301" |
-      | "learning_curve_activity"      | "Reading"  | "E2E301" |
-      | "file_activiy"                 | "Quiz"     | "E2E301" |
+      | "learning_curve_activity"      | "Reading"  | "E2E302" |
+      | "file_activiy"                 | "Quiz"     | "E2E303" |
