@@ -3,7 +3,7 @@ Feature: Edit Account Options Checks Achieve via IAM
     Scenario: Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account
         Given I have opened "achieve" "login"
         
-        When I click on "iam" system "home" feature "sign_in" element
+        When I click on "course" system "home" feature "sign_in" element
         And I have logged in as "admin_1"
         And I click on "iam" system "create_account" feature "user_menu" element
         And I click on "iam" system "create_account" feature "account" element
@@ -24,7 +24,7 @@ Feature: Edit Account Options Checks Achieve via IAM
     Scenario: Verify that aplication return to home page on clicking Cancel Button
         Given I have opened "achieve" "login"
         
-        When I click on "iam" system "home" feature "sign_in" element
+        When I click on "course" system "home" feature "sign_in" element
         And I have logged in as "admin_1"
         And I click on "iam" system "create_account" feature "user_menu" element
         And I click on "iam" system "create_account" feature "account" element 
@@ -35,7 +35,7 @@ Feature: Edit Account Options Checks Achieve via IAM
     Scenario: Verify that Set Password functionality is working as expected with a new password
         Given I have opened "achieve" "login"
         
-        When I click on "iam" system "home" feature "sign_in" element
+        When I click on "course" system "home" feature "sign_in" element
         And I have logged in as "admin_1"
         And I click on "iam" system "create_account" feature "user_menu" element
         And I click on "iam" system "create_account" feature "account" element
@@ -45,14 +45,14 @@ Feature: Edit Account Options Checks Achieve via IAM
     
     Scenario: Verify that Set Password functionality is working as expected
         Given I have opened "achieve" "login"
-        And I click on "iam" system "home" feature "sign_in" element
+        And I click on "course" system "home" feature "sign_in" element
         
         Then I have logged in with a new password "ABCabc@123456" as "admin_1"
 
     Scenario: Verify that Set Password functionality is working as expected reseting to original password
         Given I have opened "achieve" "login"
         
-        When I click on "iam" system "home" feature "sign_in" element
+        When I click on "course" system "home" feature "sign_in" element
         And I have logged in with a new password "ABCabc@123456" as "admin_1"
         And I click on "iam" system "create_account" feature "user_menu" element
         And I click on "iam" system "create_account" feature "account" element
@@ -62,6 +62,6 @@ Feature: Edit Account Options Checks Achieve via IAM
         
     Scenario: Verify that Set Password functionality is working as expected
         Given I have opened "achieve" "login"
-        And I click on "iam" system "home" feature "sign_in" element
+        And I click on "course" system "home" feature "sign_in" element
         
         Then I have logged in as "admin_1"

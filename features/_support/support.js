@@ -20,7 +20,7 @@ Given("I login to Achieve", async function () {
   let url = await _.get(URL, ["achieve", "login"]);
 
   await qa.goTo(url);
-  await qa.click(page.iam.home.sign_in);
+  await qa.click(page.course.home.sign_in);
 });
 
 // Page Navigation //
