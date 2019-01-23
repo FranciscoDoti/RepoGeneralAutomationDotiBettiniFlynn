@@ -27,10 +27,10 @@ Feature: Copy_course
             | template_status  | Active On Date  ||
 
         Then I verify the course_list data
-            | page_object | value           |
-            | course_name | Edit Testcourse |
-            | course_name_course_code | E2E 301 |
-            | course_name_isbn | 9781464199498   |
+            | page_object             | value           |
+            | course_name             | Edit Testcourse |
+            | course_name_course_code | E2E 301         |
+            | course_name_isbn        | 9781464199498   |
         
         And I click on "course" system "create_course" feature "course_card" element 
         Then I verify that it is redirected to "course_page" 
