@@ -5,14 +5,14 @@ var config = require('../config.js');
 
 module.exports = function (driver) {
   return {
-    getTextArray: Promise.coroutine(function * () {
+    getArray: Promise.coroutine(function * (selector) {
       let locator = this._locator(selector);
       yield this._exists(true, locator);
       let elements = yield driver.findElements(locator);
       let element_array = [];
 
       for (let i = 0; i < elements.length; i++) {
-        element_array.push(yield elements[i].getAttribute("aria-label"));
+        element_array.push(yield elements[i]);
       }
       return element_array;
     }),
