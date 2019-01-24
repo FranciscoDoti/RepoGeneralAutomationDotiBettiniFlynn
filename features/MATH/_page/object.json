@@ -1,0 +1,45 @@
+{
+    "login": {
+        "local": {
+            "username": "div#username > input",
+            "password": "div#password > input",
+            "submit": "div#submit > input",
+            "amslink":"body > ul > li:nth-child(1) > a"
+            },
+        "int": {
+            "username": "input#username",
+            "password": "input#password", 
+            "submit":"input#submitButton"    
+        }
+    },
+        
+    "raptorAms": {
+        "raptorNewItem": "a[data-test-id='newItemRaptorBtn']", 
+        "titleName": "div >* input[value = 'Untitled']", 
+        "moduleTab": "a[href='#module-palette']",
+        "gradedEquationButtonlink": "#module-palette-graded_equation > div.module-palette-button-text", 
+        "questionTab": "a[data-test-id='question-context']", 
+        "questionContent": "#primary-content-area", 
+        "defaultTab": "div > * li > a[data-test-id='default-context']", 
+        "correctTab" : "a[data-test-id='correct-context']", 
+        "text1": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > div > textarea",
+        "text2": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > textarea",
+        "authoranswerText" : "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > div > div.ace_scroller > div",
+        "authorquestionText": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div.ace_scroller > div",
+        "takeModeButton":"button#take-button",
+        "takeModeAnswerText": "span.mq-math-mode", 
+        "takeModeAnswer2": "button[data-test-id='2']",
+        "takeModeAnswerX": "button[data-test-id='x']",
+        "takeModeAnswerPlus": "button[data-test-id='+']",
+        "takeModeAnswer6": "button[data-test-id='6']",
+        "takeModeAnswerEqual": "button[data-test-id='=']",
+        "takeModeAnswer0": "button[data-test-id='0']",
+        "editPanelAnswer": "//*[@data-test-id='ace-label']//textarea[@class='ace_text-input']", 
+        "editPanelQuestion": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > * div.ace_scroller > div > div.ace_layer.ace_text-layer > div >* span",
+        "gradeAs": "select.greq-input[data-test-id='eval-type-dropdown']",
+        "saveButton": "button#save-button",
+        "editButton": "button#edit-button",
+        "simulateButton": "button#check-answer-button",
+        "gradedCorrect": "a.text-center[data-test-id ='correct-context']"
+    }
+}

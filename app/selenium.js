@@ -82,6 +82,16 @@ module.exports = function (driver) {
       yield locator.isEnabled();
     }),
 
+    sendKeys: Promise.coroutine(function * (selector, text) {
+      var locator = this._locator(selector);
+      var elem = yield driver.findElement(locator);
+      yield elem.sendKeys(text);
+    }),
+    
+    executeScript: function (script) {
+      driver.executeScript(script);
+        },
+
     input: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
       yield this._exists(true, locator);

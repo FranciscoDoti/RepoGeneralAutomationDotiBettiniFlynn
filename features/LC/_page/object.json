@@ -1,7 +1,7 @@
 {
 
     "instructor": {
-        "close_learning_curve": "[data-test-id='closelearningcurve']",
+        "_learning_curve": "[data-test-id='closelearningcurve']",
         "page_title":"[data-test-id='pageTitle']",
         "about":"[data-test-id='openInstructorAbout']",
         "preview_as_student":"[data-test-id='']",

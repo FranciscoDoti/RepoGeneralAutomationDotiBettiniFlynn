@@ -68,6 +68,16 @@ function courseware_register() {
   }
 };
 
+function math_base() {
+  if (config.environment === 'local') {
+    return `http://local.saplinglearning.me:3080`
+  } else if (config.environment === 'int') {
+    return `https://int.saplinglearning.me`
+  } else {
+    return `https://${config.environment}-achieve-courseware-frontend.mldev.cloud`
+  }
+};
+
 module.exports = {
   achieve: {
     base: achieve_base(),
@@ -92,6 +102,10 @@ module.exports = {
     loginurl: "https://savipo2.saplinglearning.me/ibiscms/login/",
     assignment: "https://savipo2.saplinglearning.me/sac/#/1396//-1",
     standalone: "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001"
+  },
+  math:{
+    local: math_base() + "/login",
+    int: math_base() + "/ams/"
   },
   third_party: {
     base: "http://accounts.google.com/signin/v2"
