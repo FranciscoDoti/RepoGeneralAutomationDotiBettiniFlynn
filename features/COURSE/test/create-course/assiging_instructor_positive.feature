@@ -1,6 +1,6 @@
-Feature: Copy_course 
+Feature: Assigning the course to the instructor 
 
-    # @delete-course
+@delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
@@ -77,5 +77,9 @@ Feature: Copy_course
         
         Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
         And I verif that a course "Copy of Read &practice Template" is listed on course page 
+
+        And I click on "course" system "main" feature "sign_out" element
+        And I have logged in as "customer_support_1"
+        And I click on "course" system "course_list" feature "search_course" element 
         
-         
+        
