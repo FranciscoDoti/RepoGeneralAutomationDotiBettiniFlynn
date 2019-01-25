@@ -70,7 +70,7 @@
     "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
     "reading": ""
   },
-  "resources_page": {
+  "resources": {
     "share_template": "[data-test-id='share_template']",
     "import_structure": "[data-test-id='import_structure_button']",
     "add_folder": "[data-test-id='add_folder_button']",
@@ -84,9 +84,6 @@
     "search_activity": "#__ActivitySearchImput",
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]"
-  },
-  "activity_list":{
-
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
