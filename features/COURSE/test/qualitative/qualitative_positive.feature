@@ -27,12 +27,8 @@
     And I click on "course" system "create_course" feature "course_card" element 
 
     Then I verify that it is redirected to "course_page" 
-    
-    Then I click on "course" system "resources" feature "Resource_tab" element 
 
-    Then I verify that it is redirected to "resource_page" 
-
-    And I add the <activity> activity to the course
+    And I add the <activity> activity to the course under the resources tab
     Examples: 
         | activity                   |
         | Sequence of Events         |
@@ -65,11 +61,6 @@
 
     Then I verify "course" system "courseplanner" feature "assignment_status" element is displayed
 
-    And I click on "course" system "courseplanner" feature "activity_link" element 
-    And I sign out of Achieve
-    And I have logged in as "student_positive"
-    And I click on "course" system "create_course" feature "course_card" element
-    And I click on "course" system "courseplanner" feature "course_planner_tab" element 
-    And I click on "course" system "courseplanner" feature "activity_link" element
+    And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
 
     Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
