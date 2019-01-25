@@ -25,8 +25,7 @@
     "course_name_course_code": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='_3ndY']",
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
-    "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
-    "search_course": ""
+    "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']"
   },
   "create_course": {
     "add_instructor": "#addInstructor",
