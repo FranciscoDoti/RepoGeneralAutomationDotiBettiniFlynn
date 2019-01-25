@@ -53,11 +53,7 @@
     
     Then I validate that it is redirected to "courseplanner_page"
 
-    And I click on "course" system "courseplanner" feature "custom_content_tab" element
-    And I click on "course" system "courseplanner" feature "content_check_box" element
-    And I click on "course" system "courseplanner" feature "Add_selected_items" element
-    And I click on "course" system "courseplanner" feature "place_unit_button" element 
-    And I click on "course" system "courseplanner" feature "Add_unit_button" element 
+    And I add custom content to the course 
     
     Then I verify the activity list  
         | page_object                                 | value             | clear |
