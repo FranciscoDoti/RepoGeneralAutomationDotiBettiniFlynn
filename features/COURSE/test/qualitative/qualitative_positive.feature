@@ -32,7 +32,7 @@
 
     Then I verify that it is redirected to "resource_page" 
 
-    And I the <activity> activity to the course
+    And I add the <activity> activity to the course
     Examples: 
         | activity                   |
         | Sequence of Events         |
