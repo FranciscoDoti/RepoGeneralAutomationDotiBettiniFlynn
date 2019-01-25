@@ -45,11 +45,7 @@
 
     Then I verify that it is redirected to "course_page" 
     
-    And I click on "course" system "courseplanner" feature "course_planner_tab" element 
-    
-    Then I validate that it is redirected to "courseplanner_page"
-
-    And I add custom content to the course 
+    Then I click on courseplanner and I add custom content to the course 
     
     Then I verify the activity list  
         | page_object                                 | value             | clear |
