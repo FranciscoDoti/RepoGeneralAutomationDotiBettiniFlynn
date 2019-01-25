@@ -38,7 +38,7 @@ Feature: Copy_course
             | course_page             | 
             | overview                | 
             | course_planner          | 
-            | resources               | 
+          
     
         And I click on "course" system "course_page" feature "resources" element 
 
