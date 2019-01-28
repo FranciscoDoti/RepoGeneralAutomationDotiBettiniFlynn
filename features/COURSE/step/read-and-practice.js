@@ -13,3 +13,10 @@ Then(/^I verify "(.*) system "(.*)" data$/, async function (system, feature, dat
     await qa.exists(page_format)
   }
 });
+
+Then(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" input$/, async function (system, feature, element, course) {
+  let qa = new selenium(this.driver);
+  let PAGE = await format(page, [system, feature, element]);
+  await qa.click(PAGE);
+  await qa.input(course);
+});

@@ -76,10 +76,18 @@ Feature: Assigning the course to the instructor
         And I click on "copy_course" on "Read & Practice Template" course menu
         
         Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
-        And I verif that a course "Copy of Read &practice Template" is listed on course page 
+        And I verif that a course "Copy of Edit Testcourse" is listed on course page 
 
         And I click on "course" system "main" feature "sign_out" element
         And I have logged in as "customer_support_1"
-        And I click on "course" system "course_list" feature "search_course" element 
-        
+        And I click on "course" system "course_list" feature "search_course" element "Copy of Edit Testcourse" input 
+        And I click on "course"system "courselist" feature "manage_instructor" element
+        And I click on "course" system "courselist" feature "add_instructor" element "instructor_1" input 
+        And I click on "course" sysytem "courselist" feature "add_button" element 
+
+        Then I verify "course" system "create_course" feature "success_message" element's "instructor_message" message is displayed 
+        And I verify that the course's name "Copy of Edit Testcourse" is listed on the courses page
+
+        And I click on "course" system "main" feature "sign_out" element
+
         

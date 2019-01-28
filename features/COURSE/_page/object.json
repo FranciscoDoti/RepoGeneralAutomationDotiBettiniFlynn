@@ -26,7 +26,10 @@
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
     "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
-    "search_course": ""
+    "search_course": "[data-test-id='course_search_input']",
+    "manage_instructor": "[data-test-id='course_menu_manage_instructors']",
+    "add_instructor" : "#addInstructor",
+    "add_button": "[data-test-id='manage_instructors_modal_add_btn']"
   },
   "create_course": {
     "add_instructor": "#addInstructor",
@@ -67,8 +70,8 @@
     "course_planner": "[data-test-id='course_planner_tab']",
     "gradebook": "[data-test-id='gradebook_tab']",
     "reports": "",
-    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
-    "reading": ""
+    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]"
+    
   },
   "resources_page": {
     "share_template": "[data-test-id='share_template']",
@@ -85,9 +88,7 @@
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]"
   },
-  "activity_list":{
-
-  },
+  
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
     "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
