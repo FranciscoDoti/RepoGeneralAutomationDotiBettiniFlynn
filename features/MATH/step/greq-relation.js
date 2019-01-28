@@ -20,58 +20,47 @@ Given(/^I login to "(.*)" login page as "(.*)"$/, async function(env, user) {
   await qa.input(page.math.login[env].username, account.username, true);
   await qa.input(page.math.login[env].password, account.password, true);
   await qa.click(page.math.login[env].submit);
-  await qa.sleep(2);
   if (env === 'local') {
     await qa.click(page.math.login[env].amslink); 
-    await qa.sleep(2);
   }
 });
 
-Then(/^I am in the AMS page$/, async function () {
+When(/^I am in the AMS page$/, async function () {
   let qa = new selenium(this.driver);
-  await qa.exists(page.math.raptorAms.raptorNewItem, 5);
+  await qa.exists(page.math.raptorAms.raptorNewItem, 10);
 });
 
 When(/^I click on the New Raptor item$/, async function () {
   let qa = new selenium(this.driver);
   await qa.click(page.math.raptorAms.raptorNewItem);
-  await qa.sleep(2)
 });
 
 
-Then(/^I am on the AuthorApp item page$/, async function () {
-
+When(/^I am on the AuthorApp item page$/, async function () {
   let qa = new selenium(this.driver);
   await qa.changeWindow(1);
   await qa.exists(page.math.raptorAms.titleName, 5);
-  await qa.sleep(2);
-
 });
 
-Then(/^I save Graded equation as "(.*)"$/, async function (name) {
+When(/^I select Graded equation and save as "(.*)"$/, async function (name) {
   let qa = new selenium(this.driver);
-
   await qa.input(page.math.raptorAms.titleName, name, true);
   await qa.click(page.math.raptorAms.moduleTab, 2);
-  await qa.sleep(1);
   await qa.exists(page.math.raptorAms.gradedEquationButtonlink, 2);
   await qa.click(page.math.raptorAms.gradedEquationButtonlink);
-  await qa.sleep(1);
   await qa.exists(page.math.raptorAms.questionTab, 2);
 
 });
 
-Then(/^I click on the Question tab, and add an Answer field$/, async function () {
+When(/^I click on the Question tab, and add an Answer field$/, async function () {
   let qa = new selenium(this.driver);
-
   await qa.click(page.math.raptorAms.questionContent);
-  await qa.sleep(2);
 });
 
-Then(/^I set the grade as Relation type and input "(.*)" equation$/, async function (eval) {
+When(/^I set the grade as Relation type and input "(.*)" equation$/, async function (eval) {
+  
   let qa = new selenium(this.driver);
-
-  let evalGrade = require(`../../_data/user/${config.environment}/${eval}.json`);
+  let evalGrade = require(`../../_data/MATH/${eval}.json`);
   await qa.exists(page.math.raptorAms.correctTab, 2);
   await qa.click(page.math.raptorAms.correctTab);
   await qa.input(page.math.raptorAms.gradeAs, 'Relation');
@@ -84,11 +73,10 @@ Then(/^I set the grade as Relation type and input "(.*)" equation$/, async funct
   await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[0].value='${evalGrade.EvalQ1.Equation}'; ta[0].dispatchEvent(new Event('input'))`);
 });
 
-Then(/^I save the module$/, async function () {
+When(/^I save the module$/, async function () {
 
   let qa = new selenium(this.driver);
   await qa.click(page.math.raptorAms.saveButton);
-  await qa.sleep(1);
 });
 
 When(/^I am in Take Mode and input the correct answer$/, async function () {
@@ -96,42 +84,32 @@ When(/^I am in Take Mode and input the correct answer$/, async function () {
   let qa = new selenium(this.driver);
 
   await qa.click(page.math.raptorAms.takeModeButton);
-  await qa.sleep(1);
 
   await qa.click(page.math.raptorAms.takeModeAnswerText);
-  await qa.sleep(1);
   
   await qa.click(page.math.raptorAms.takeModeAnswer2);
-  await qa.sleep(1);
   
   await qa.click(page.math.raptorAms.takeModeAnswerX);
-  await qa.sleep(1);
+
   await qa.click(page.math.raptorAms.takeModeAnswerPlus);
 
-  await qa.sleep(1);
   await qa.click(page.math.raptorAms.takeModeAnswer2);
 
   await qa.click(page.math.raptorAms.takeModeAnswer6);
-  await qa.sleep(1);
 
   await qa.click(page.math.raptorAms.takeModeAnswerEqual);
-  await qa.sleep(1);
 
   await qa.click(page.math.raptorAms.takeModeAnswer0);
-  await qa.sleep(1);
 
 });
-Then(/^I simulate grading$/, async function(){
+When(/^I simulate grading$/, async function(){
   let qa = new selenium(this.driver);
   await qa.exists(page.math.raptorAms.simulateButton, 2);
-  await qa.sleep(1);
   await qa.click(page.math.raptorAms.simulateButton);
-  await qa.sleep(1);
 });
 
 Then(/^My answer is graded correctly$/, async function () {
 
   let qa = new selenium(this.driver);
   await qa.exists(page.math.raptorAms.gradedCorrect, 2);
-  await qa.sleep(1);
 });
