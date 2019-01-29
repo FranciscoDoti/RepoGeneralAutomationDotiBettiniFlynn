@@ -138,6 +138,7 @@ Then("I verify the course_list data", async function (data_table) {
     let text = await qa.getText(PAGE);
     expect(text).to.contain(data_table.hashes()[i].value);
   }
+  await qa.click(page.course.create_course.save);
 });
 
 Then("I verify the create_course data", async function (data_table) {

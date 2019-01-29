@@ -40,7 +40,6 @@
     "edit_course_name": "#courseName",
     "course_status": "[name='courseStatus']",
     "course_type": "[name='courseType']",
-    "course_end_date": "//*[@id='833fd3bc-4eb9-4bf7-aef8-b28786eae00a']",
     "course_menu_button": "//*[@data-test-id='course_menu_button']",
     "course_menu_edit_course": "//*[@data-test-id='course_menu_edit_course']",
     "isbn_number": "#__createCourse_isbnInput",

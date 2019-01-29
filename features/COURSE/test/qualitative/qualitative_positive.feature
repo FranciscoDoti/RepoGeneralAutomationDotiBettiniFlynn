@@ -30,9 +30,9 @@ Feature: Qualitative Positive feature
         | edit_course_name        | Qualitative Template    |
         | edit_course_code        | E2E 302                 |
         | edit_isbn_number        | 1547659765744           |
-    # And I click on "course" system "create_course" feature "course_card" element 
+    And I click on "course" system "create_course" feature "course_card" element 
 
-    # Then I verify that it is redirected to "course_page" 
+    Then I verify that it is redirected to "course_page" 
 
     # And I add the <activity> activity to the course under the resources tab
     # Examples: 
