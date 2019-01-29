@@ -6,7 +6,7 @@
     "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature",
     "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature",
     "User-registration": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/user-registration.feature",
-    "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/happy-path-Qual.feature",
+    "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/qualitative/qualitative_positive.feature",
     "Student-qual": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/student-qual.feature",
     "Student-randp": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/student-randp.feature",
     "CW-smoketest": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/create-course.feature --env local",

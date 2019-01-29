@@ -40,6 +40,8 @@
     "edit_course_name": "#courseName",
     "course_status": "[name='courseStatus']",
     "course_type": "[name='courseType']",
+    "course_end_date": "//*[@class='_3vV4 _282D _3opI _2x2P']",
+    "learning_objective_framework":"//*[@class='_2oIm _2lfL _2Kdo _3vV4']",
     "isbn_number": "#__createCourse_isbnInput",
     "edit_isbn_number": "#courseIsbn",
     "learning_objective": "._2oIm._2lfL._2Kdo._3vV4",

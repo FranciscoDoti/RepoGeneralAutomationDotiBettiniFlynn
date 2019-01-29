@@ -4,9 +4,9 @@ var fs = require('fs');
 var sanitize = require("sanitize-filename");
 
 
-After(function () {
-  return this.driver.quit();
-});
+// After(function () {
+//   return this.driver.quit();
+// });
 
 After(async function(scenarioResult) {
   if (scenarioResult.result.status === 'failed') {
