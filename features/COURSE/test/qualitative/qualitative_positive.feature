@@ -18,13 +18,13 @@ Feature: Qualitative Positive feature
         | course_type                   | Template                                    |
         | product_model                 | Qualitative                                 |
         | course_name                   | Qualitative Template                        |
-        # | learning_objective_framework  | Principles of Microeconomics                |
+        | learning_objective            | Principles of Microeconomics                |
         | course_code                   | E2E 302                                     |
         # | meeting_times                 | monday                                      |
         # | term                          | Spring 2019                                 |
-        | isbn_number                   | 1547659765742                               |
-        | course_status                 | Active on Date                              |
-        | course_end_date               | March 27 2019                               |
+        | isbn_number                   | 1547659765743                               |
+        | course_status                 | Draft                              |
+        # | course_end_date               | March 27 2019                               |
     # And I verify "course" system "create_course" feature "success_message" element's "create_course_success" message is displayed
     # And I verify that the course "isbn" "1547659765742" is listed on the courses page
 
