@@ -26,7 +26,7 @@ When('I fill out the form to edit a course', async function (data_table) {
 
   await qa.sleep(1);
   for (let i = 0; i < data_table.rows().length; i++) {
-    if(data_table.hashes()[i].page_object != 'day') {
+    if (data_table.hashes()[i].page_object != 'day') {
       let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
       await qa.input(PAGE, data_table.hashes()[i].value, data_table.hashes()[i].clear);
     } else {
@@ -126,7 +126,7 @@ Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, a
   await qa.exists(page_format);
 });
 
-Then("I verify the course_list data", async function (data_table) {
+Then('I verify the course_list data', async function (data_table) {
   let qa = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
     let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
@@ -135,14 +135,11 @@ Then("I verify the course_list data", async function (data_table) {
     let text = await qa.getText(page_format);
     expect(text).to.contain(data_table.hashes()[i].value);
   }
-<<<<<<< Updated upstream
-=======
   await qa.sleep(2);
->>>>>>> Stashed changes
   await qa.click(page.course.create_course.cancel);
 });
 
-Then("I verify the create_course data", async function (data_table) {
+Then('I verify the create_course data', async function (data_table) {
   let qa = new selenium(this.driver);
   await qa.click(page.course.create_course.course_menu_button);
   await qa.click(page.course.create_course.course_menu_edit_course);
@@ -154,12 +151,12 @@ Then("I verify the create_course data", async function (data_table) {
     let text = await qa.getAttribute(page_format, 'value');
     expect(text).to.contain(data_table.hashes()[i].value);
   }
-  //race condition, I have to wait for button to be visible
+  // race condition, I have to wait for button to be visible
   await qa.sleep(3);
   await qa.click(page.course.create_course.cancel);
 });
 
-Then(/^I verify that it is redirected to "(.*)" course page$/, async function(course_page){
+Then(/^I verify that it is redirected to "(.*)" course page$/, async function (course_page) {
   let qa = new selenium(this.driver);
   let course_page_element = await _.get(page, ['course', 'create_course', 'course_title']);
 
@@ -167,33 +164,35 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function(co
   expect(text).to.contain(course_page);
 })
 
-Then('I add the activity to the course under the resources tab', async function(data_table){
+Then('I add the activity to the course under the resources tab', async function (data_table) {
   let qa = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
     let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
-    let add_content_button_element =  await _.get(page, ['course', 'course_page', 'add_content_button']);
-    let search_bar = await _.get(page, ['course', 'course_page', 'search_bar']);
-    let add_button_assessment_element = await _.get(page, ['course', 'course_page', 'add_button_assessment']);
-    let add_button_learningcurve_element = await _.get(page, ['course', 'course_page', 'add_button_learningcurve']);
-    let close_resource_search_nav = await _.get(page, ['course', 'course_page', 'close_resource_search_nav']);
+    let add_content_button_element = await _.get(page, ['course', 'resources', 'add_content']);
+    let search_bar = await _.get(page, ['course', 'resources', 'search_bar']);
+    let add_button_assessment_element = await _.get(page, ['course', 'resources', 'add_button_assessment']);
+    let add_button_learningcurve_element = await _.get(page, ['course', 'resources', 'add_button_learningcurve']);
+    let add_button_reading_element = await _.get(page, ['course', 'resources', 'add_reading_button']);
+    let add_button_readandpractice_element = await _.get(page, ['course', 'resources', 'add_button_read&practice']);
+    let add_button_file_element = await _.get(page, ['course', 'resources', 'add_file_button']);
+    let close_resource_search_nav = await _.get(page, ['course', 'resources', 'close_resource_search_nav']);
     await qa.click(resources_tab_element);
     await qa.click(add_content_button_element);
     await qa.input(search_bar, data_table.hashes()[i].activity, 'clear');
-    if(data_table.hashes()[i].type === 'learning_curve'){
-      await  qa.click(add_button_learningcurve_element);
-    } else if (data_table.hashes()[i].type === 'assessment'){
+    if (data_table.hashes()[i].type === 'learning_curve') {
+      await qa.click(add_button_learningcurve_element);
+    } else if (data_table.hashes()[i].type === 'assessment') {
       await qa.click(add_button_assessment_element);
     }
     await qa.click(close_resource_search_nav);
   }
-
 })
 
-Then('I verify activity list', async function(data_table){
+Then('I verify activity list', async function (data_table) {
   let qa = new selenium(this.driver);
   SVGPathSegCurvetoQuadraticAbs.getElements
   for (let i = 0; i < data_table.rows().length; i++) {
-    let activity_element =  await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
+    let activity_element = await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
     await qa.exists(activity_element)
   }
 })

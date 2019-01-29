@@ -36,7 +36,7 @@ Feature: Copy_course
         
         And I click on "course" system "create_course" feature "course_card" element 
 
-        Then I verify "course" system "course_page" data
+        Then I verify the data in course page 
             | course_page            | clear |
             | overview               | true  |
             | course_planner         | true  |
@@ -44,23 +44,23 @@ Feature: Copy_course
     
         And I click on "course" system "course_page" feature "resources" element 
 
-        Then I verify "course" system "resources_page" data
+        Then I verify the data in resource page
             | course_page      |
             | share_template   |
             | import_structure |
             | add_folder       |
 
         And I click on "course" system "resources" feature "add_content" element 
-        And I add Activities to course 
-            |activities                                  |
-            |communicating courteously                   |
-            |amongst                                     |
-            |Active and Passive voice                    |
-            |Evaluating, Integration and Acknowledgement |
-            |Wars of Religion                            |   
-            |Epilogues                                   |    
-            |Aditya Kumar                                |
-            |Sample Chapter 1                            |
+        And I add the activity to the course under the resources tab
+            |activity                                                          | type           |
+            |communicating courteously                                         | Reading        |
+            |amongst                                                           | Reading        |
+            |Active and Passive voice                                          | learning curve |
+            |Evaluating, Integration and Acknowledgement                       | learning curve |
+            |Wars of Religion                                                  | Read&Practice  |
+            |Epilogues                                                         | Read&Practice  |
+            |Aditya Kumar                                                      | File           |
+            |Sample Chapter 1                                                  | File           |
 
         Then I verify "course" system "activity_list" data
             |activities                                  | clear |
