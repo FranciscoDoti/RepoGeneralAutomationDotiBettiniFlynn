@@ -149,7 +149,7 @@ Then("I verify the create_course data", async function (data_table) {
     let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
     let page_format = await format(PAGE, data_table.hashes()[0].value);
 
-    let text = await qa.getText(page_format);
+    let text = await qa.getAttribute(page_format, 'value');
     expect(text).to.contain(data_table.hashes()[i].value);
   }
 });

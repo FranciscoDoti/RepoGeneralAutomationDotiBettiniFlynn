@@ -99,11 +99,7 @@ module.exports = function (driver) {
       var locator = this._locator(selector);
       yield this._exists(true, locator);
       var elem = yield driver.findElement(locator);
-      let text = yield elem.getText();
-      if(text === '') {
-        text = yield elem.getAttribute('value');
-      }
-      return text;
+      return yield elem.getText();
     }),
 
     hasText: Promise.coroutine(function * (selector, timeout) {
