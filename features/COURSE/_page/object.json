@@ -41,6 +41,7 @@
     "edit_course_name": "#courseName",
     "course_status": "[name='courseStatus']",
     "course_type": "[name='courseType']",
+    "course_title": "//*[@data-test-id='course_title']",
     "course_menu_button": "//*[@data-test-id='course_menu_button']",
     "course_menu_edit_course": "//*[@data-test-id='course_menu_edit_course']",
     "isbn_number": "#__createCourse_isbnInput",
@@ -62,14 +63,20 @@
     "meeting_period": "#__timePickerPeriod"
   },
   "course_page": {
+    "add_content_button": "//*[@data-test-id='add_content_button']",
+    "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
+    "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
     "title":".tNeN",
     "edit_settings": "._18Qx button",
     "overview": "",
     "course_planner": "",
+    "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
+    "activity_titles": "._3Jn1",
     "gradebook": "",
     "reports": "",
     "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
-    "reading": ""
+    "reading": "//*[@data-test-id='reading_tab']",
+    "search_bar": "//*[@data-test-id='search_bar']"
   },
   "resources": {
     "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
