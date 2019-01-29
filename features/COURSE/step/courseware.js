@@ -166,7 +166,7 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function(co
   expect(text).to.contain(course_page);
 })
 
-Then(/^I add the activity to the course under the resources tab$/, async function(data_table){
+Then('I add the activity to the course under the resources tab', async function(data_table){
   let qa = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
     let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
@@ -186,6 +186,15 @@ Then(/^I add the activity to the course under the resources tab$/, async functio
     await qa.click(close_resource_search_nav);
   }
 
+})
+
+Then('I verify activity list', async function(data_table){
+  let qa = new selenium(this.driver);
+  SVGPathSegCurvetoQuadraticAbs.getElements
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let activity_element =  await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
+    await qa.exists(activity_element)
+  }
 })
 
 // FIXME Needs Implementation
