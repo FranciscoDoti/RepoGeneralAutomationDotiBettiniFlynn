@@ -26,10 +26,10 @@ Feature: Qualitative Positive feature
     And I verify that the course "isbn" "1547659765744" is listed on the courses page
 
     Then I verify the create_course data
-        | page_object             | value             |
-        | edit_course_name        | Edit Testcourse   |
-        | edit_course_code        | E2E 302           |
-        | edit_isbn_number        | 1547659765744     |
+        | page_object             | value                   |
+        | edit_course_name        | Qualitative Template    |
+        | edit_course_code        | E2E 302                 |
+        | edit_isbn_number        | 1547659765744           |
     # And I click on "course" system "create_course" feature "course_card" element 
 
     # Then I verify that it is redirected to "course_page" 
