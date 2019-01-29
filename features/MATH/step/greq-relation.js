@@ -17,7 +17,7 @@ Given(/^I login to "(.*)" login page as "(.*)"$/, async function(env, user) {
   let qa = new selenium(this.driver);
   let url = await _.get(URL, ["math", env]);
   await qa.goTo(url);
-  let account = require(`../../_data/user/${config.environment}/${user}.json`);
+  let account = require(`../_data/users/${env}-${user}.json`);
   await qa.input(page.math.login[env].username, account.username, true);
   await qa.input(page.math.login[env].password, account.password, true);
   await qa.click(page.math.login[env].submit);
@@ -60,7 +60,7 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
 
 When(/^I set the grade as Relation type and input "(.*)" equation$/, async function (eval) {
   let qa = new selenium(this.driver);
-  let evalGrade = require(`../../_data/MATH/${eval}.json`);
+  let evalGrade = require(`../_data/${eval}.json`);
   await qa.exists(page.math.raptorAms.correctTab);
   await qa.click(page.math.raptorAms.correctTab);
   await qa.input(page.math.raptorAms.gradeAs, 'Relation');
