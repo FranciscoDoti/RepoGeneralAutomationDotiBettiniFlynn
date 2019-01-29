@@ -34,35 +34,35 @@ Feature: Qualitative Positive feature
 
     Then I verify that it is redirected to "course_page" 
 
-    # And I add the <activity> activity to the course under the resources tab
-    # Examples: 
-    #     | activity                   |
-    #     | Sequence of Events         |
-    #     | Monopolistice Competition  |
+    And I add the <activity> activity to the course under the resources tab
+    Examples: 
+        | activity                   |
+        | Sequence of Events         |
+        | Monopolistice Competition  |
 
-    # Then I verify activity list 
-    #     | page_object                                 |  value             | clear |
-    #     | Atwood                                      |  Reading           | true  |
-    #     | Monopolistice Competition                   |  Reading           | true  |
+    Then I verify activity list 
+        | page_object                                 |  value             | clear |
+        | Atwood                                      |  Reading           | true  |
+        | Monopolistice Competition                   |  Reading           | true  |
 
-    # And I sign out of Achieve
-    # And I have logged in as "instructor_positive"
-    # And I click on "course" system "create_course" feature "course_card" element
+    And I sign out of Achieve
+    And I have logged in as "instructor_positive"
+    And I click on "course" system "create_course" feature "course_card" element
 
-    # Then I verify that it is redirected to "course_page" 
+    Then I verify that it is redirected to "course_page" 
     
-    # Then I click on courseplanner and I add custom content to the course 
+    Then I click on courseplanner and I add custom content to the course 
     
-    # Then I verify the activity list  
-    #     | page_object                                 | value             | clear |
-    #     | Atwood                                      | Reading           | true  |
-    #     | Monopolistice Competition                   | Reading           | true  |
-    #     | Table: The Lemonade Market                  | Qualitative       | true  |
+    Then I verify the activity list  
+        | page_object                                 | value             | clear |
+        | Atwood                                      | Reading           | true  |
+        | Monopolistice Competition                   | Reading           | true  |
+        | Table: The Lemonade Market                  | Qualitative       | true  |
 
-    # And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
+    And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
 
-    # Then I verify "course" system "courseplanner" feature "assignment_status" element is displayed
+    Then I verify "course" system "courseplanner" feature "assignment_status" element is displayed
 
-    # And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
+    And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
 
-    # Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
+    Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
