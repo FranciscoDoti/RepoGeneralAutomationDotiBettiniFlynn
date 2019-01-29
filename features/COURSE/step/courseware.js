@@ -158,6 +158,14 @@ Then("I verify the create_course data", async function (data_table) {
   await qa.click(page.course.create_course.cancel);
 });
 
+Then(/^I verify that it is redirected to "(.*)" course page$/, async function(course_page){
+  let qa = new selenium(this.driver);
+  let course_page_element = await _.get(page, ['course', 'create_course', 'course_title']);
+
+  let text = await qa.getText(course_page_element);
+  expect(text).to.contain(course_page);
+})
+
 // FIXME Needs Implementation
 Then('Then I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);

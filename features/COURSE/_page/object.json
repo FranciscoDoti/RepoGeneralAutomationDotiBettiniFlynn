@@ -41,6 +41,7 @@
     "edit_course_name": "#courseName",
     "course_status": "[name='courseStatus']",
     "course_type": "[name='courseType']",
+    "course_title": "//*[@data-test-id='course_title']",
     "course_menu_button": "//*[@data-test-id='course_menu_button']",
     "course_menu_edit_course": "//*[@data-test-id='course_menu_edit_course']",
     "isbn_number": "#__createCourse_isbnInput",
