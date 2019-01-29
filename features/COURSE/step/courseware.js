@@ -128,9 +128,25 @@ Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, a
 
 Then("I verify the course_list data", async function (data_table) {
   let qa = new selenium(this.driver);
+  await qa.click(page.course.create_course.course_menu_button);
+  await qa.click(page.course.create_course.course_menu_edit_course);
 
   for (let i = 0; i < data_table.rows().length; i++) {
     let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
+    let page_format = await format(PAGE, data_table.hashes()[0].value);
+
+    let text = await qa.getText(PAGE);
+    expect(text).to.contain(data_table.hashes()[i].value);
+  }
+});
+
+Then("I verify the create_course data", async function (data_table) {
+  let qa = new selenium(this.driver);
+  await qa.click(page.course.create_course.course_menu_button);
+  await qa.click(page.course.create_course.course_menu_edit_course);
+
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
     let page_format = await format(PAGE, data_table.hashes()[0].value);
 
     let text = await qa.getText(page_format);

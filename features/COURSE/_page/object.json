@@ -41,6 +41,8 @@
     "course_status": "[name='courseStatus']",
     "course_type": "[name='courseType']",
     "course_end_date": "//*[@id='833fd3bc-4eb9-4bf7-aef8-b28786eae00a']",
+    "course_menu_button": "//*[@data-test-id='course_menu_button']",
+    "course_menu_edit_course": "//*[@data-test-id='course_menu_edit_course']",
     "isbn_number": "#__createCourse_isbnInput",
     "edit_isbn_number": "#courseIsbn",
     "learning_objective": "._2oIm._2lfL._2Kdo._3vV4",
