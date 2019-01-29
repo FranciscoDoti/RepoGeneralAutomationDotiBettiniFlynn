@@ -11,6 +11,7 @@ const config = require('../../../config.js');
 const { Key } = require('selenium-webdriver')
 
 /* Scenario 1: Verify sapling AMS page is loaded and navigate to AuthorApp page by clicking new Raptor item link */
+const shortTimeout = 2000
 
 Given(/^I login to "(.*)" login page as "(.*)"$/, async function(env, user) {
   let qa = new selenium(this.driver);
@@ -27,7 +28,7 @@ Given(/^I login to "(.*)" login page as "(.*)"$/, async function(env, user) {
 
 When(/^I am in the AMS page$/, async function () {
   let qa = new selenium(this.driver);
-  await qa.exists(page.math.raptorAms.raptorNewItem, 10);
+  await qa.exists(page.math.raptorAms.raptorNewItem);
 });
 
 When(/^I click on the New Raptor item$/, async function () {
@@ -39,16 +40,16 @@ When(/^I click on the New Raptor item$/, async function () {
 When(/^I am on the AuthorApp item page$/, async function () {
   let qa = new selenium(this.driver);
   await qa.changeWindow(1);
-  await qa.exists(page.math.raptorAms.titleName, 5);
+  await qa.exists(page.math.raptorAms.titleName);
 });
 
 When(/^I select Graded equation and save as "(.*)"$/, async function (name) {
   let qa = new selenium(this.driver);
   await qa.input(page.math.raptorAms.titleName, name, true);
-  await qa.click(page.math.raptorAms.moduleTab, 2);
-  await qa.exists(page.math.raptorAms.gradedEquationButtonlink, 2);
+  await qa.click(page.math.raptorAms.moduleTab);
+  await qa.exists(page.math.raptorAms.gradedEquationButtonlink);
   await qa.click(page.math.raptorAms.gradedEquationButtonlink);
-  await qa.exists(page.math.raptorAms.questionTab, 2);
+  await qa.exists(page.math.raptorAms.questionTab);
 
 });
 
@@ -58,10 +59,9 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
 });
 
 When(/^I set the grade as Relation type and input "(.*)" equation$/, async function (eval) {
-  
   let qa = new selenium(this.driver);
   let evalGrade = require(`../../_data/MATH/${eval}.json`);
-  await qa.exists(page.math.raptorAms.correctTab, 2);
+  await qa.exists(page.math.raptorAms.correctTab);
   await qa.click(page.math.raptorAms.correctTab);
   await qa.input(page.math.raptorAms.gradeAs, 'Relation');
   await qa.click(page.math.raptorAms.gradeAs);
@@ -74,42 +74,34 @@ When(/^I set the grade as Relation type and input "(.*)" equation$/, async funct
 });
 
 When(/^I save the module$/, async function () {
-
   let qa = new selenium(this.driver);
   await qa.click(page.math.raptorAms.saveButton);
+  // have to add sleep after save as there is no easy way to determine if save is done
+  // one technique is to verify the "Save popup" appeared and disappeared
+  await qa.sleep(1);
 });
 
 When(/^I am in Take Mode and input the correct answer$/, async function () {
-
   let qa = new selenium(this.driver);
 
   await qa.click(page.math.raptorAms.takeModeButton);
-
   await qa.click(page.math.raptorAms.takeModeAnswerText);
-  
   await qa.click(page.math.raptorAms.takeModeAnswer2);
-  
   await qa.click(page.math.raptorAms.takeModeAnswerX);
-
   await qa.click(page.math.raptorAms.takeModeAnswerPlus);
-
   await qa.click(page.math.raptorAms.takeModeAnswer2);
-
   await qa.click(page.math.raptorAms.takeModeAnswer6);
-
   await qa.click(page.math.raptorAms.takeModeAnswerEqual);
-
   await qa.click(page.math.raptorAms.takeModeAnswer0);
 
 });
+
 When(/^I simulate grading$/, async function(){
   let qa = new selenium(this.driver);
-  await qa.exists(page.math.raptorAms.simulateButton, 2);
   await qa.click(page.math.raptorAms.simulateButton);
 });
 
 Then(/^My answer is graded correctly$/, async function () {
-
   let qa = new selenium(this.driver);
-  await qa.exists(page.math.raptorAms.gradedCorrect, 2);
+  await qa.exists(page.math.raptorAms.gradedCorrect, shortTimeout);
 });

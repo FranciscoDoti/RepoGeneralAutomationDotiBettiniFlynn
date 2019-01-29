@@ -90,7 +90,7 @@ module.exports = function (driver) {
     
     executeScript: function (script) {
       driver.executeScript(script);
-        },
+    },
 
     input: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
@@ -216,7 +216,6 @@ module.exports = function (driver) {
         name = locator[key];
       }
       var message = (should_exist ? `Element '${name}' is not present.` : `Element '${name}' is present.`);
-
       yield driver.wait(poll, (timeout || config.timeout), message);
     }),
 
