@@ -166,6 +166,28 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function(co
   expect(text).to.contain(course_page);
 })
 
+Then(/^I add the activity to the course under the resources tab$/, async function(data_table){
+  let qa = new selenium(this.driver);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
+    let add_content_button_element =  await _.get(page, ['course', 'course_page', 'add_content_button']);
+    let search_bar = await _.get(page, ['course', 'course_page', 'search_bar']);
+    let add_button_assessment_element = await _.get(page, ['course', 'course_page', 'add_button_assessment']);
+    let add_button_learningcurve_element = await _.get(page, ['course', 'course_page', 'add_button_learningcurve']);
+    let close_resource_search_nav = await _.get(page, ['course', 'course_page', 'close_resource_search_nav']);
+    await qa.click(resources_tab_element);
+    await qa.click(add_content_button_element);
+    await qa.input(search_bar, data_table.hashes()[i].activity, 'clear');
+    if(data_table.hashes()[i].type === 'learning_curve'){
+      await  qa.click(add_button_learningcurve_element);
+    } else if (data_table.hashes()[i].type === 'assessment'){
+      await qa.click(add_button_assessment_element);
+    }
+    await qa.click(close_resource_search_nav);
+  }
+
+})
+
 // FIXME Needs Implementation
 Then('Then I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);
