@@ -19,7 +19,7 @@ Feature: Adding_activities
         Then I verify "course" system "create_course" feature "success_message" element's "create_course_success" message is displayed
         And I verify that the course's name "Read & Practice Template" is listed on the courses page
         
-        Then I click on "edit_course" on "Read & Practice Template" course menu
+        And I click on "edit_course" on "Read & Practice Template" course menu
         And I fill out the form to edit a course
             | page_object      | value           |clear|
             | edit_course_name | Edit Testcourse |true |
@@ -32,18 +32,24 @@ Feature: Adding_activities
             | course_name_course_code | E2E 301         |
             | course_name_isbn        | 9781464199498   |
         
+        And I click on "course" system "create_course" feature "course_card" element 
+
         Then I verify "course" system "course_page" data
             | course_page             | 
             | overview                | 
             | course_planner          | 
             | resources               | 
     
+        And I click on "course" system "course_page" feature "resources" element 
+
         Then I verify "course" system "resources_page" data
             | course_page      |
             | share_template   |
             | import_structure |
             | add_folder       |
 
+        And I click on "course" system "resources" feature "add_content_button" element
+        And I click on "course" system "resources" feature "search_bar" element
         And I add Activities to course "isbn" "9781464199498"
             |activities                                  |
             |communicating courteously                   |

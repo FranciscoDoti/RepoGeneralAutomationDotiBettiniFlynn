@@ -25,7 +25,11 @@
     "course_name_course_code": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='_3ndY']",
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
-    "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']"
+    "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
+    "search_course": "[data-test-id='course_search_input']",
+    "manage_instructor": "[data-test-id='course_menu_manage_instructors']",
+    "add_instructor" : "#addInstructor",
+    "add_button": "[data-test-id='manage_instructors_modal_add_btn']"
   },
   "create_course": {
     "add_instructor": "#addInstructor",
@@ -56,25 +60,35 @@
     "select_day": "//span[(text()='{}')]/../../*[@class='_1UGb']",
     "meeting_hour": "#__timePickerHour",
     "meeting_minute": "#__timePickerMinute",
-    "meeting_period": "#__timePickerPeriod"
+    "meeting_period": "#__timePickerPeriod",
+    "course_card": "//*[@id='container']/div/div[2]/div[1]/div/div/div[3]/div"
   },
   "course_page": {
     "title":".tNeN",
     "edit_settings": "._18Qx button",
-    "overview": "",
-    "course_planner": "",
-    "gradebook": "",
+    "overview": "[data-test-id='overview_tab']",
+    "course_planner": "[data-test-id='course_planner_tab']",
+    "gradebook": "[data-test-id='gradebook_tab']",
     "reports": "",
-    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
-    "reading": ""
+    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]"
+    
   },
-  "resources": {
-    "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
+  "resources_page": {
+    "share_template": "[data-test-id='share_template']",
+    "import_structure": "[data-test-id='import_structure_button']",
+    "add_folder": "[data-test-id='add_folder_button']",
+    "add_content_button": "[data-test-id='add_content_button']",
+    "search_bar": "[data-test-id='search_bar']",
+    "add_activity_reading": "[data-test-id='add_button_reading']",
+    "add_activity_lcrp": "[data-test-id='add_button_learningcurve']",
+    "add_activity_learningcurve": "[data-test-id='add_button_learningcurve']",
+    "add_activity_file": "[data-test-id='add_button_staticfile']",
     "custome_activity": "._2TjR",
     "search_activity": "#__ActivitySearchImput",
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]"
   },
+  
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
     "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
