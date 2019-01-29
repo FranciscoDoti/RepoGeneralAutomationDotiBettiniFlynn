@@ -14,7 +14,10 @@
     "randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/happy-path-randp.feature",
     "student-randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/student-randp.feature",
     "test-savi-brightcove": "node ./node_modules/cucumber/bin/cucumber-js features/tests/SAVI/brightcoveplayer.feature",
-    "edit-account-details": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/edit-account-details.feature"
+    "edit-account-details": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/edit-account-details.feature",
+    "copy-course-feature" : "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/copy_course.feature",
+    "qualitative_positive_feature":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/qualitative/qualitative_positive.feature"
+
   },
   "dependencies": {
     "any-promise": "1.3.0",

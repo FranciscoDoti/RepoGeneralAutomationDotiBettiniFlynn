@@ -48,7 +48,8 @@ Feature: Adding activities and checking the activities are redirected to their r
             | import_structure |
             | add_folder       |
 
-        And I add Activities to course "isbn" "9781464199498"
+        And I click on "course" system "resources" feature "
+        And I add Activities to course 
             |activities                                  |
             |communicating courteously                   |
             |amongst                                     |

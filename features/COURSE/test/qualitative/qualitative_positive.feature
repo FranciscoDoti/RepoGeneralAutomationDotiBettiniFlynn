@@ -5,6 +5,7 @@ Feature: Qualitative Positive feature
     # Given I have opened "achieve" "login"
     # And I have logged in as "media_producer_1"
     # And I click on "course" system "create_course" feature "button" element
+
     Given I have opened "achieve" "login"
     And I click on "course" system "home" feature "sign_in" element
 
@@ -32,21 +33,28 @@ Feature: Qualitative Positive feature
         | edit_isbn_number        | 1547659765744           |
     And I click on "course" system "create_course" feature "course_card" element 
 
-    Then I verify that it is redirected to "course_page" 
+    # Then I verify that it is redirected to "course_page" 
 
-    # And I add the <activity> activity to the course under the resources tab
-    # Examples: 
-    #     | activity                   |
-    #     | Sequence of Events         |
-    #     | Monopolistice Competition  |
+    And I add the activity to the course under the resources tab
+        | activity                                                          | type           |
+        | Monopolistice Competition                                         | assessment     |
+        | Chapter 15. Monopolistic Competition and Product Differentiation  | learning_curve |
 
     # Then I verify activity list 
-    #     | page_object                                 |  value             | clear |
-    #     | Atwood                                      |  Reading           | true  |
-    #     | Monopolistice Competition                   |  Reading           | true  |
+    #     | activity                |
+    #     | learningcurve_activity  |
+    #     | assessment              |
 
     # And I sign out of Achieve
-    # And I have logged in as "instructor_positive"
+    # And I login to Achieve
+    # And I have logged in as "instructor_7"
+
+    # Given I have opened "achieve" "login"
+    # And I click on "course" system "home" feature "sign_in" element
+
+    # When I login with the following credentials
+    #     |username            | password     |
+    #     |baxoye@zsero.com    | ABCabc@123   |
     # And I click on "course" system "create_course" feature "course_card" element
 
     # Then I verify that it is redirected to "course_page" 

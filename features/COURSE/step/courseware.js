@@ -78,7 +78,7 @@ When(/^I click on "(.*)" on "(.*)" course menu$/, async function (page_object, c
   let page_format = format(page.course.course_list.course_name_menu, course_name);
 
   await qa.click(page.course.course_list.course_menu);
-  await qa.sleep(1);
+  await qa.sleep(3);
   await qa.click(PAGE);
 });
 
@@ -128,17 +128,18 @@ Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, a
 
 Then("I verify the course_list data", async function (data_table) {
   let qa = new selenium(this.driver);
-  await qa.click(page.course.create_course.course_menu_button);
-  await qa.click(page.course.create_course.course_menu_edit_course);
-
   for (let i = 0; i < data_table.rows().length; i++) {
     let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
     let page_format = await format(PAGE, data_table.hashes()[0].value);
 
-    let text = await qa.getText(PAGE);
+    let text = await qa.getText(page_format);
     expect(text).to.contain(data_table.hashes()[i].value);
   }
-  await qa.click(page.course.create_course.save);
+<<<<<<< Updated upstream
+=======
+  await qa.sleep(2);
+>>>>>>> Stashed changes
+  await qa.click(page.course.create_course.cancel);
 });
 
 Then("I verify the create_course data", async function (data_table) {
@@ -153,10 +154,52 @@ Then("I verify the create_course data", async function (data_table) {
     let text = await qa.getAttribute(page_format, 'value');
     expect(text).to.contain(data_table.hashes()[i].value);
   }
+  //race condition, I have to wait for button to be visible
+  await qa.sleep(3);
+  await qa.click(page.course.create_course.cancel);
 });
 
+Then(/^I verify that it is redirected to "(.*)" course page$/, async function(course_page){
+  let qa = new selenium(this.driver);
+  let course_page_element = await _.get(page, ['course', 'create_course', 'course_title']);
+
+  let text = await qa.getText(course_page_element);
+  expect(text).to.contain(course_page);
+})
+
+Then('I add the activity to the course under the resources tab', async function(data_table){
+  let qa = new selenium(this.driver);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
+    let add_content_button_element =  await _.get(page, ['course', 'course_page', 'add_content_button']);
+    let search_bar = await _.get(page, ['course', 'course_page', 'search_bar']);
+    let add_button_assessment_element = await _.get(page, ['course', 'course_page', 'add_button_assessment']);
+    let add_button_learningcurve_element = await _.get(page, ['course', 'course_page', 'add_button_learningcurve']);
+    let close_resource_search_nav = await _.get(page, ['course', 'course_page', 'close_resource_search_nav']);
+    await qa.click(resources_tab_element);
+    await qa.click(add_content_button_element);
+    await qa.input(search_bar, data_table.hashes()[i].activity, 'clear');
+    if(data_table.hashes()[i].type === 'learning_curve'){
+      await  qa.click(add_button_learningcurve_element);
+    } else if (data_table.hashes()[i].type === 'assessment'){
+      await qa.click(add_button_assessment_element);
+    }
+    await qa.click(close_resource_search_nav);
+  }
+
+})
+
+Then('I verify activity list', async function(data_table){
+  let qa = new selenium(this.driver);
+  SVGPathSegCurvetoQuadraticAbs.getElements
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let activity_element =  await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
+    await qa.exists(activity_element)
+  }
+})
+
 // FIXME Needs Implementation
-Then('Then I verify data table courses populate the list', async function (data_table) {
+Then('I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);
 
   for (let i = 0; i < data_table.rows().length; i++) {

@@ -1,6 +1,6 @@
 Feature: Copy_course 
 
-    @delete-course
+    # @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
@@ -26,7 +26,9 @@ Feature: Copy_course
             | edit_course_code | E2E 301         |true |
             | template_status  | Active On Date  |     |
 
-        Then I verify the course_list data
+        Then I verify "course" system "create_course" feature "success_message" element's "edit_course_sucess" message is displayed
+        And I click on "edit_course" on "Read & Practice Template" course menu
+        And I verify the course_list data
             | page_object             | value           |
             | course_name             | Edit Testcourse |
             | course_name_course_code | E2E 301         |
@@ -35,9 +37,9 @@ Feature: Copy_course
         And I click on "course" system "create_course" feature "course_card" element 
 
         Then I verify "course" system "course_page" data
-            | course_page             | 
-            | overview                | 
-            | course_planner          | 
+            | course_page            | clear |
+            | overview               | true  |
+            | course_planner         | true  |
           
     
         And I click on "course" system "course_page" feature "resources" element 
@@ -48,7 +50,8 @@ Feature: Copy_course
             | import_structure |
             | add_folder       |
 
-        And I add Activities to course "isbn" "9781464199498"
+        And I click on "course" system "resources" feature "add_content" element 
+        And I add Activities to course 
             |activities                                  |
             |communicating courteously                   |
             |amongst                                     |

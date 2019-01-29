@@ -34,12 +34,14 @@
     "course_link_input": "._3qpY",
     "course_link_copy": "._6KWa",
     "button": "//*[text()='Create a Course']",
+    "course_card": "//*[@data-test-id='course_card']",
     "course_code": "#__createCourse_codeInput",
     "edit_course_code": "#courseCode",
     "course_name": "#__createCourse_nameInput",
     "edit_course_name": "#courseName",
     "course_status": "[name='courseStatus']",
     "course_type": "[name='courseType']",
+    "course_title": "//*[@data-test-id='course_title']",
     "course_menu_button": "//*[@data-test-id='course_menu_button']",
     "course_menu_edit_course": "//*[@data-test-id='course_menu_edit_course']",
     "isbn_number": "#__createCourse_isbnInput",
@@ -50,7 +52,7 @@
     "term_year": "[name='courseYear']",
     "status": "[name='courseStatus']",
     "template_status": "select._2oIm._1bTe",
-    "cancel": ".QNU9.undefined",
+    "cancel": "//*[text()='Cancel']",
     "save": "._1tkc.undefined",
     "message": "._10W9",
     "success_message": "//*[@id='container']/div/div[2]/div[2]/span",
@@ -61,21 +63,34 @@
     "meeting_period": "#__timePickerPeriod"
   },
   "course_page": {
+    "add_content_button": "//*[@data-test-id='add_content_button']",
+    "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
+    "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
     "title":".tNeN",
     "edit_settings": "._18Qx button",
+<<<<<<< Updated upstream
     "overview": "",
     "course_planner": "",
+    "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
+    "activity_titles": "._3Jn1",
+=======
+    "overview": "[data-test-id='overview_tab']",
+    "course_planner": "[data-test-id='course_planner_tab']",
+>>>>>>> Stashed changes
     "gradebook": "",
     "reports": "",
     "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
-    "reading": ""
+    "reading": "//*[@data-test-id='reading_tab']",
+    "search_bar": "//*[@data-test-id='search_bar']"
   },
   "resources": {
     "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
     "custome_activity": "._2TjR",
     "search_activity": "#__ActivitySearchImput",
     "close": "[title='Close']",
-    "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]"
+    "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]",
+    "add_content":"[data-test-id='add_content_button']", 
+    "add_reading_button": "[data-test-id='add_button_reading']"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
