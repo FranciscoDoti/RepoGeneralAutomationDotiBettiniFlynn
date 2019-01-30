@@ -9,10 +9,12 @@
   "home": {
     "enroll": "._1o0U",
     "instructor_access": "._21rl",
-    "sign_in": "._3GtB"
+    "sign_in": "//*[@data-test-id='sign_in_link_button']",
+    "sign_out": "//*[@data-test-id='menu_user_sign_out']", 
+    "toggler_menu": "//*[@data-test-id='user_dropdown_menu_open']"
   },
   "course_list": {
-    "course_menu": ".Q56n",
+    "course_menu": "//*[@data-test-id='course_menu_button']",
     "edit_course": "//*[text()='Edit Course']",
     "share_template": "//*[text()='Share Template']",
     "manage_instructor": "//*[text()='Manage Instructor']",
@@ -26,12 +28,17 @@
     "course_name_course_code": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='_3ndY']",
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
-    "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']"
+    "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
+    "search_for_course_name": "//*[@data-test-id='course_search_input']",
+    "Manage_instructor": "//*[@data-test-id='course_menu_manage_instructors']",
+    "copy_course_name": "//*[@data-test-id='course_name']",
+    "copy_course_name_course_code": "//*[@data-test-id='course_number_date_time']",
+    "copy_course_type": "//*[@data-test-id='course_type']"
   },
   "create_course": {
-    "add_instructor": "#addInstructor",
-    "add_instructor_button": "._3ASk",
-    "add_instructor_close": "._2FT-",
+    "add_instructor": "//*[@id='addInstructor']",
+    "add_instructor_button": "//*[@data-test-id='manage_instructors_modal_add_btn']",
+    "add_instructor_close": "//*[@data-test-id='manage_instructors_modal_close']",
     "course_link_input": "._3qpY",
     "course_link_copy": "._6KWa",
     "button": "//*[text()='Create a Course']",
@@ -92,8 +99,8 @@
     "share_template" : "//*[@data-test-id='share_template']",
     "import_structure": "//*[@data-test-id='import_structure_button']",
     "add_folder": "//*[@data-test-id='add_folder_button']"
-
   },
+
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
     "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
