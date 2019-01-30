@@ -195,13 +195,22 @@ Then('I add the activity to the course under the resources tab', async function 
   }
 })
 
-Then('I verify activity list', async function (data_table) {
+Then('I verify activity list', async function () {
   let qa = new selenium(this.driver);
-  SVGPathSegCurvetoQuadraticAbs.getElements
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let activity_element = await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
-    await qa.exists(activity_element)
-  }
+  // SVGPathSegCurvetoQuadraticAbs.getElements
+  // for (let i = 0; i < data_table.rows().length; i++) {
+  //   let activity_element = await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
+  //   await qa.exists(activity_element)
+  // }
+  let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
+  let activity_element = await _.get(page, ['course', 'resources', 'activity']);
+  let activity_item_title_element = await _.get(page, ['course', 'resources', 'activity_item_title']);
+
+  await qa.click(resources_tab_element);
+  qa.click(activity_element);
+
+  let text = await qa.getAttribute(activity_item_title_element, 'title');
+  expect(text).to.contain('Monopolistic Competition');
 })
 
 // FIXME Needs Implementation
