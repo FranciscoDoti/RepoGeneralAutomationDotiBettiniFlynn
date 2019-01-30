@@ -1,6 +1,6 @@
 Feature: Copy_course 
 
-    # @delete-course
+    @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
@@ -50,33 +50,34 @@ Feature: Copy_course
             | import_structure |
             | add_folder       |
 
-        And I click on "course" system "resources" feature "add_content" element 
+        
         And I add the activity to the course under the resources tab
-            |activity                                                          | type           |
-            |communicating courteously                                         | Reading        |
-            |amongst                                                           | Reading        |
-            |Active and Passive voice                                          | learning curve |
-            |Evaluating, Integration and Acknowledgement                       | learning curve |
-            |Wars of Religion                                                  | Read&Practice  |
-            |Epilogues                                                         | Read&Practice  |
-            |Aditya Kumar                                                      | File           |
-            |Sample Chapter 1                                                  | File           |
+            | activity                                                          | type               |
+            | communicating courteously                                         | Reading            |
+            | amongst                                                           | Reading            |
+            | Active and Passive voice                                          | learning_curve     |
+            | Evaluating, Integration and Acknowledgement                       | learning_curve     |
+            | Wars of Religion                                                  | Read and Practice  |
+            | Epilogues                                                         | Read and Practice  |
+                
 
-        Then I verify "course" system "activity_list" data
-            |activities                                  | clear |
-            |communicating courteously                   | true  |
-            |amongst                                     | true  |
-            |Active and Passive voice                    | true  |
-            |Evaluating, Integration and Acknowledgement | true  |
-            |Wars of Religion                            | true  |
-            |Epilogues                                   | true  |  
-            |Aditya Kumar                                | true  |
-            |Sample Chapter 1                            | true  |
+        # Then I verify "course" system "activity_list" data
+        #     | activities                                  | type              | clear |
+        #     | communicating courteously                   | Reading           | true  |
+        #     | amongst                                     | Reading           | true  |
+        #     | Active and Passive voice                    | learning_curve    | true  |
+        #     | Evaluating, Integration and Acknowledgement | learning_curve    | true  |
+        #     | Wars of Religion                            | Read and Practice | true  |
+        #     | Epilogues                                   | Read and Practice | true  |  
         
-        And I click on "course" system "resource" feature "Achieve_home" element 
+        And I click on "course" system "main" feature "Achieve_home" element 
         And I click on "copy_course" on "Read & Practice Template" course menu
-        
+        And I fill out the form to edit a course
+            | page_object       | value                    |
+            | copy_course       | Read & Practice course   |
+            | copy_course_code  | E2E301                   |
+
         Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
-        And I verif that a course "Copy of Read &practice Template" is listed on course page 
+        
         
          
