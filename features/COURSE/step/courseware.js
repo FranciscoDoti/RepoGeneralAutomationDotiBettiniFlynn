@@ -210,6 +210,7 @@ Then('I verify activity list', async function () {
 
   await qa.click(resources_tab_element);
   await qa.click(activity_element);
+  await qa.switchFrame(1)
   await qa.click(navigation_tabs_element);
 
   let text = await qa.getText(activity_item_topic_element);
