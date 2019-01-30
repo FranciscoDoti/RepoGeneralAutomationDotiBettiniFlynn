@@ -80,6 +80,8 @@
   "resources": {
     "activity": "._3Jn1",
     "activity_item_title": "//*[@data-test-id='item-title-title']",
+    "navigation-tabs": "#navigation-tabs",
+    "item-topic": ".flex-tbl-topic.flex-cell.grow-3",
     "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
     "custome_activity": "._2TjR",
     "search_bar": "//*[@data-test-id='search_bar']",
