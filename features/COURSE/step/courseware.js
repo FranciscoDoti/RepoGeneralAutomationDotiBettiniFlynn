@@ -179,10 +179,17 @@ Then('I add the activity to the course under the resources tab', async function 
     await qa.click(resources_tab_element);
     await qa.click(add_content_button_element);
     await qa.input(search_bar, data_table.hashes()[i].activity, 'clear');
+    // await qa.sleep(1);
     if (data_table.hashes()[i].type === 'learning_curve') {
       await qa.click(add_button_learningcurve_element);
     } else if (data_table.hashes()[i].type === 'assessment') {
       await qa.click(add_button_assessment_element);
+    } else if (data_table.hashes()[i].type === 'Reading') {
+      await qa.click(add_button_reading_element);
+    } else if (data_table.hashes()[i].type === 'Read and Practice') {
+      await qa.click(add_button_readandpractice_element);
+    } else if (data_table.hashes()[i].type === 'file') {
+      await qa.click(add_button_file_element);
     }
     await qa.click(close_resource_search_nav);
   }

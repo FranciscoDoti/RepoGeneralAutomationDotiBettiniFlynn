@@ -1,6 +1,6 @@
 Feature: Adding_activities 
 
-    # @delete-course
+    @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
@@ -19,50 +19,55 @@ Feature: Adding_activities
         Then I verify "course" system "create_course" feature "success_message" element's "create_course_success" message is displayed
         And I verify that the course's name "Read & Practice Template" is listed on the courses page
         
-        Then I click on "edit_course" on "Read & Practice Template" course menu
+        And I click on "edit_course" on "Read & Practice Template" course menu
         And I fill out the form to edit a course
             | page_object      | value           |clear|
             | edit_course_name | Edit Testcourse |true |
             | edit_course_code | E2E 301         |true |
             | template_status  | Active On Date  |     |
 
-        Then I verify the course_list data
+        Then I verify "course" system "create_course" feature "success_message" element's "edit_course_sucess" message is displayed
+        And I click on "edit_course" on "Read & Practice Template" course menu
+        And I verify the course_list data
             | page_object             | value           |
             | course_name             | Edit Testcourse |
             | course_name_course_code | E2E 301         |
             | course_name_isbn        | 9781464199498   |
         
-        Then I verify "course" system "course_page" data
-            | course_page             | 
-            | overview                | 
-            | course_planner          | 
-            | resources               | 
+        And I click on "course" system "create_course" feature "course_card" element 
+
+        Then I verify the data in course page 
+            | course_page            | clear |
+            | overview               | true  |
+            | course_planner         | true  |
+          
     
-        Then I verify "course" system "resources_page" data
+        And I click on "course" system "course_page" feature "resources" element 
+
+        Then I verify the data in resource page
             | course_page      |
             | share_template   |
             | import_structure |
             | add_folder       |
 
-        And I add Activities to course "isbn" "9781464199498"
-            |activities                                  |
-            |communicating courteously                   |
-            |amongst                                     |
-            |Active and Passive voice                    |
-            |Evaluating, Integration and Acknowledgement |
-            |Wars of Religion                            |   
-            |Epilogues                                   |    
-            |Aditya Kumar                                |
-            |Sample Chapter 1                            |
+        
+        And I add the activity to the course under the resources tab
+            | activity                                                          | type               |
+            | communicating courteously                                         | Reading            |
+            | amongst                                                           | Reading            |
+            | Active and Passive voice                                          | learning_curve     |
+            | Evaluating, Integration and Acknowledgement                       | learning_curve     |
+            | Wars of Religion                                                  | Read and Practice  |
+            | Epilogues                                                         | Read and Practice  |
+                
 
-        Then I verify "course" system "activity_list" data
-            |activities                                  | clear |
-            |communicating courteously                   | true  |
-            |amongst                                     | true  |
-            |Active and Passive voice                    | true  |
-            |Evaluating, Integration and Acknowledgement | true  |
-            |Wars of Religion                            | true  |
-            |Epilogues                                   | true  |  
-            |Aditya Kumar                                | true  |
-            |Sample Chapter 1                            | true  |
-
+        # Then I verify "course" system "activity_list" data
+        #     | activities                                  | type              | clear |
+        #     | communicating courteously                   | Reading           | true  |
+        #     | amongst                                     | Reading           | true  |
+        #     | Active and Passive voice                    | learning_curve    | true  |
+        #     | Evaluating, Integration and Acknowledgement | learning_curve    | true  |
+        #     | Wars of Religion                            | Read and Practice | true  |
+        #     | Epilogues                                   | Read and Practice | true  |  
+        
+       
