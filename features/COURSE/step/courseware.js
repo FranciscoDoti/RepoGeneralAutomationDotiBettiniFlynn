@@ -195,13 +195,25 @@ Then('I add the activity to the course under the resources tab', async function 
   }
 })
 
-Then('I verify activity list', async function (data_table) {
+Then('I verify activity list', async function () {
   let qa = new selenium(this.driver);
-  SVGPathSegCurvetoQuadraticAbs.getElements
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let activity_element = await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
-    await qa.exists(activity_element)
-  }
+  // SVGPathSegCurvetoQuadraticAbs.getElements
+  // for (let i = 0; i < data_table.rows().length; i++) {
+  //   let activity_element = await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
+  //   await qa.exists(activity_element)
+  // }
+  let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
+  let activity_element = await _.get(page, ['course', 'resources', 'activity']);
+  let activity_item_title_element = await _.get(page, ['course', 'resources', 'activity_item_title']);
+  let activity_item_topic_element = await _.get(page, ['course', 'resources', 'item-topic']);
+  let navigation_tabs_element = await _.get(page, ['course', 'resources', 'navigation-tabs']);
+
+  await qa.click(resources_tab_element);
+  await qa.click(activity_element);
+  await qa.click(navigation_tabs_element);
+
+  let text = await qa.getText(activity_item_topic_element);
+  expect(text).to.contain('Monopolistic Competition-Bridge - accuracy grade Competition');
 })
 
 // FIXME Needs Implementation
