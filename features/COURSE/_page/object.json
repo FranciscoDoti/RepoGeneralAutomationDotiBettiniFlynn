@@ -24,16 +24,18 @@
     "id": "//div[contains(text(), 'ID: {}')]",
     "isbn": "//div[contains(text(), 'ISBN: {}')]",
     "list": "._ExY",
-    "course_name": "//*[@class='gHH9']//*[(text()='{}')]",
+    "course_name": "//*[@data-test-id='course_name']",
     "course_name_course_code": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='_3ndY']",
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
     "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
     "search_for_course_name": "//*[@data-test-id='course_search_input']",
     "Manage_instructor": "//*[@data-test-id='course_menu_manage_instructors']",
-    "copy_course_name": "//*[@data-test-id='course_name']",
-    "copy_course_name_course_code": "//*[@data-test-id='course_number_date_time']",
-    "copy_course_type": "//*[@data-test-id='course_type']"
+    "end_date": "(//*[@class='EVUx '])[2]",
+    "next_month_button": "//*[@aria-label='next_month_button']", 
+    "select_date": "(//*[@class='_2XMC '])[21]",
+    "course_activation" : "//*[@data-test-id='course_activation_date']"
+
   },
   "create_course": {
     "add_instructor": "//*[@id='addInstructor']",
@@ -70,7 +72,12 @@
     "meeting_minute": "#__timePickerMinute",
     "meeting_period": "#__timePickerPeriod",
     "copy_course":"#copyCourseName",
-    "copy_course_code": "#copyCourseShortName"
+    "copy_course_code": "#copyCourseShortName", 
+    "instructor_button": "//*[@id='react-tabs-2']",
+    "invite_students_button": "//*[@data-test-id='course_menu_invite_students']",
+    "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
+    "input_student_email": "//*[@data-test-id='invite_students_modal_ids_input']",
+    "send_invite_button" : "//*[@data-test-id='invite_students_modal_send_invites_btn']"
   },
   "course_page": {
     "title":".tNeN",
