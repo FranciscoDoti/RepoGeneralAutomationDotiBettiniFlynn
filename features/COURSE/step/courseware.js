@@ -204,17 +204,19 @@ Then('I verify activity list', async function () {
   // }
   let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
   let activity_element = await _.get(page, ['course', 'resources', 'activity']);
-  let activity_item_title_element = await _.get(page, ['course', 'resources', 'activity_item_title']);
   let activity_item_topic_element = await _.get(page, ['course', 'resources', 'item-topic']);
-  let navigation_tabs_element = await _.get(page, ['course', 'resources', 'navigation-tabs']);
+  let close_activity_element = await _.get(page, ['course', 'resources', 'close_activity']);
 
   await qa.click(resources_tab_element);
-  await qa.click(activity_element);
-  await qa.switchFrame(1)
-  await qa.click(navigation_tabs_element);
+  // await qa.click(activity_element);
+  await qa.clickElementInArray(activity_element, 'BR15: Bridge: Monopolistic Competition');
 
-  let text = await qa.getText(activity_item_topic_element);
-  expect(text).to.contain('Monopolistic Competition-Bridge - accuracy grade Competition');
+  // await qa.switchFrame(0)
+
+  // let text = await qa.getText(activity_item_topic_element);
+  // expect(text).to.contain('Monopolistic Competition-Bridge - accuracy grade');
+  // await qa.switchFrame('default');
+  // await qa.click(close_activity_element);
 })
 
 // FIXME Needs Implementation

@@ -79,11 +79,10 @@
   },
   "resources": {
     "activity": "._3Jn1",
-    "activity_item_title": "//*[@data-test-id='item-title-title']",
-    "navigation-tabs": "#navigation-tabs",
-    "item-topic": ".flex-tbl-topic.flex-cell.grow-3",
+    "item-topic": "//*[@data-test-id='item-topic']",
     "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
     "custome_activity": "._2TjR",
+    "close_activity": "//*[@aria-label='Close']",
     "search_bar": "//*[@data-test-id='search_bar']",
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]",
