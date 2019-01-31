@@ -28,8 +28,10 @@ module.exports = function (driver) {
         let elementText = yield element.getText();
         if (elementText === text) {
           console.log(elementText, 'elementText');
-          yield this.elementExists(true, element)
-          yield element.click();
+          let elementExists = yield this.elementExists(true, element)
+          if(elementExists) {
+            yield element.click();
+          }
         }
         // element_array.push(element);
       }
