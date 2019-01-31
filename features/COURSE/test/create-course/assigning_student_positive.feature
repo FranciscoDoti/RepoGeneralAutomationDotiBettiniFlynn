@@ -1,4 +1,4 @@
-Feature: Assigning the course to the instructor 
+Feature: Assigning the course to the student 
 
     @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
@@ -53,12 +53,10 @@ Feature: Assigning the course to the instructor
         
         And I add the activity to the course under the resources tab
             | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |
-            | amongst                                                           | Reading            |
+            | communicating courteously                                         | Reading            |                                                        
             | Active and Passive voice                                          | learning_curve     |
-            | Evaluating, Integration and Acknowledgement                       | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
-            | Epilogues                                                         | Read and Practice  |
+
                 
 
         # Then I verify "course" system "activity_list" data
@@ -96,5 +94,18 @@ Feature: Assigning the course to the instructor
         When I login with the following credentials
         | username                                   | password       |
         | macmillaninstructor3@gmail.com             |  ABCabc@123    | 
+
+        Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
+
+        And I click on "edit_course" on "Read & Practice Template" course menu
+        And I click on "course" system "create_course" feature "template_status" element input "Active On Date" and enter date
+
+        Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
+        And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "activated"
+
+        And I invite the students 
+            | username                    |
+            | macmillanstudent4@gmail.com | 
+        
+       
     
-    Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page

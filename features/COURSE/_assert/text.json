@@ -2,6 +2,7 @@
   "create_course": {
     "create_course_success": "Created.",
     "course_copied": "Course Copied",
-    "edit_course_sucess": "Read & Practice Template Updated."
+    "edit_course_sucess": "Read & Practice Template Updated.", 
+    "course_activation" : "COPY OF Edit TestcourseRead & Practice course Updated."
   }
 }
