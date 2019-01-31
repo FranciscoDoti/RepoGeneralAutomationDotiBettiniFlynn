@@ -203,14 +203,11 @@ Then('I verify activity list', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     let activity_element = await _.get(page, ['course', 'resources', 'activity']);
     let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);
+    if (elementText === undefined){
+      elementText = 'Element Not Found';
+    }
     expect(elementText).to.contain(data_table.hashes()[i].activity);
-    console.log('start of log ',elementText, 'elementText~~~~~')
   }
-
-  // let text = await qa.getText(activity_item_topic_element);
-  // expect(text).to.contain('Monopolistic Competition-Bridge - accuracy grade');
-  // await qa.switchFrame('default');
-  // await qa.click(close_activity_element);
 })
 
 // FIXME Needs Implementation
