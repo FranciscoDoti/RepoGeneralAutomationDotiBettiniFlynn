@@ -5,6 +5,57 @@ var config = require('../config.js');
 
 module.exports = function (driver) {
   return {
+    getArray: Promise.coroutine(function * (selector) {
+      let locator = this._locator(selector);
+      yield this._exists(true, locator);
+      let elements = yield driver.findElements(locator);
+      let element_array = [];
+
+      for (let i = 0; i < elements.length; i++) {
+        element_array.push(elements[i]);
+      }
+      return element_array;
+    }),
+
+    clickElementInArray: Promise.coroutine(function * (selector, text) {
+      let locator = this._locator(selector);
+      yield this._exists(true, locator);
+      let elements = yield driver.findElements(locator);
+      let element_array = [];
+
+      for (let i = 0; i < elements.length; i++) {
+        let element = elements[i];
+        let elementText = yield element.getText();
+        if (elementText === text) {
+          console.log(elementText, 'elementText');
+          yield this.elementExists(true, element)
+          yield element.click();
+        }
+        // element_array.push(element);
+      }
+      // return element_array;
+    }),
+
+    elementExists: Promise.coroutine(function * (should_exist, element) {
+      var tick = Promise.coroutine(function * tick () {
+        var displayed = yield element.isDisplayed();
+        return (should_exist === displayed);
+      });
+      function poll () {
+        return tick().catch(function (e) {
+          switch (e.name) {
+            case 'NoSuchElementError':
+              return !should_exist;
+            case 'StaleElementReferenceError':
+              return false;
+            default:
+              throw e;
+          }
+        });
+      }
+
+    }),
+
     goTo: Promise.coroutine(function * (url) {
       yield driver.get(url);
     }),
@@ -171,7 +222,11 @@ module.exports = function (driver) {
     }),
 
     switchFrame: Promise.coroutine(function * (selector) {
-      yield driver.switchTo().frame(selector);
+      if (selector === 'default') {
+        yield driver.switchTo().defaultContent();
+      } else {
+        yield driver.switchTo().frame(selector);
+      }
     }),
 
     /* ----- */
