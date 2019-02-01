@@ -81,20 +81,17 @@ When(/^I save the module$/, async function () {
   await qa.sleep(1);
 });
 
-When(/^I am in Take Mode and input the correct answer$/, async function () {
+When(/^I am in Take Mode and input the correct equation "(.*)"$/, async function (eqn) {
   let qa = new selenium(this.driver);
 
   await qa.click(page.math.raptorAms.takeModeButton);
   await qa.click(page.math.raptorAms.takeModeAnswerText);
-  await qa.click(page.math.raptorAms.takeModeAnswer2);
-  await qa.click(page.math.raptorAms.takeModeAnswerX);
-  await qa.click(page.math.raptorAms.takeModeAnswerPlus);
-  await qa.click(page.math.raptorAms.takeModeAnswer2);
-  await qa.click(page.math.raptorAms.takeModeAnswer6);
-  await qa.click(page.math.raptorAms.takeModeAnswerEqual);
-  await qa.click(page.math.raptorAms.takeModeAnswer0);
-
-});
+  for(let i = 0; i< eqn.length; i++){
+    const token = eqn.charAt(i);
+    const exp = token === '+' ? 'add' : token 
+    await qa.click(page.math.paletteBasic[exp]);
+  }
+  });
 
 When(/^I simulate grading$/, async function(){
   let qa = new selenium(this.driver);

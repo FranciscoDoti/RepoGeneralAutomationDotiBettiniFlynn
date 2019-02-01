@@ -82,9 +82,12 @@ module.exports = function (driver) {
       yield locator.isEnabled();
     }),
 
-    sendKeys: Promise.coroutine(function * (selector, text) {
+    sendKeys: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
       var elem = yield driver.findElement(locator);
+      if (clear) {
+        yield elem.clear();
+      }
       yield elem.sendKeys(text);
     }),
     
