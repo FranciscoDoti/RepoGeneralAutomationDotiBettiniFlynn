@@ -11,7 +11,7 @@ When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
   let PAGE = await _.get(page, ['course', 'course_list', type]);
   let page_format = format(PAGE, identifier);
 
-  await qa.click(page_format);
+  await qa.exists(page_format);
 });
 
 When(/^I click on "(.*)" course card$/, async function (name) {

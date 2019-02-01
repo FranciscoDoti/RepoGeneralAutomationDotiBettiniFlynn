@@ -1,6 +1,6 @@
 Feature: Adding activities and checking the activities are redirected to their respective pages 
    
-        @delete-course
+    @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
@@ -53,12 +53,10 @@ Feature: Adding activities and checking the activities are redirected to their r
         
         And I add the activity to the course under the resources tab
             | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |
-            | amongst                                                           | Reading            |
+            | communicating courteously                                         | Reading            |                                                        
             | Active and Passive voice                                          | learning_curve     |
-            | Evaluating, Integration and Acknowledgement                       | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
-            | Epilogues                                                         | Read and Practice  |
+
                 
 
         # Then I verify "course" system "activity_list" data
@@ -86,8 +84,8 @@ Feature: Adding activities and checking the activities are redirected to their r
         |  username                                   | password       |
         |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
         And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
-        And I click on "Manage_instructor" element to add instructor 
-        And I click on "course" system "create_course" feature "add_instructor" element "legud@xcodes.net" email
+        And I click on "Manage_instructor" element to add
+        And I click on "course" system "create_course" feature "add_instructor" element "bawi@quick-mail.info" email
         And I click on "course" system "create_course" feature "add_instructor_button" element 
         And I click on "course" system "create_course" feature "add_instructor_close" element 
 
@@ -95,24 +93,39 @@ Feature: Adding activities and checking the activities are redirected to their r
         And I click on "course" system "home" feature "sign_in" element 
         When I login with the following credentials
         | username                                   | password       |
-        | legud@xcodes.net                           |  ABCabc@123    | 
+        | bawi@quick-mail.info                       |  ABCabc@123    | 
+
+        Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
+
+        And I click on "edit_course" on "Read & Practice Template" course menu
+        And I click on "course" system "create_course" feature "template_status" element input "Active On Date" and enter date
+
+        Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
+        And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
+
+        When I click on "invite_students_button" element to add
+        And I invite the students
+            | username                    |
+            | macmillanstudent4@gmail.com | 
+
+        Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
+
+        When I click on "course" system "create_course" feature "course_card" element 
+        And I click on "course" system "course_page" feature "course_planner" element
+        And I click on "course" system "courseplanner" feature "custom_content_button" element 
+        And I click on "course" system "courseplanner" feature "add_assignment_button" elements 
+
+        # Then I verify "course" system "activity_list" data
+        #     | activities                                  | type              | clear |
+        #     | communicating courteously                   | Reading           | true  |
+        #     | amongst                                     | Reading           | true  |
+        #     | Active and Passive voice                    | learning_curve    | true  |
+        #     | Evaluating, Integration and Acknowledgement | learning_curve    | true  |
+        #     | Wars of Religion                            | Read and Practice | true  |
+        #     | Epilogues                                   | Read and Practice | true  |  
+
+        
+        
 
        
-
-        Then I verify the course_list data
-            | page_object                  | value                                            |
-            | copy_course_name             | COPY OF Edit TestcourseRead & Practice course    |
-            | copy_course_name_course_code | COPY OF E2E 301E2E301                            |
-            | copy_course_type             | READ & PRACTICE                                  |
-
-        And I click on "course" system "create_course" feature "course_card" element 
-
-        Then I verify the data in course page 
-            | course_page            | clear |
-            | overview               | true  |
-            | course_planner         | true  |
-        
-        And I click on "course" system "course_page" feature "course_planner" element
-        
-          
     

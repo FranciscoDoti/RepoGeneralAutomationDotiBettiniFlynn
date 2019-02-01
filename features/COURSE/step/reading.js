@@ -28,7 +28,7 @@ Then(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" input$/, as
   await qa.input(page_format, input);
 });
 
-Then(/^I click on "(.*)" element to add instructor$/, async function (element) {
+Then(/^I click on "(.*)" element to add$/, async function (element) {
   let qa =new selenium(this.driver);
   let PAGE = await _.get(page, ['course', 'course_list', element]);
   let page_format = format(PAGE);
@@ -66,29 +66,36 @@ Then(/^I click on "(.*)" system "(.*)" feature "(.*)" element input "(.*)" and e
   await qa.click(page.course.course_list.next_month_button);
   await qa.click(page.course.course_list.next_month_button);
   await qa.click(page.course.course_list.select_date);
+  await qa.click(page.course.create_course.save);
 });
 
 Then(/^I verify that the course "(.*)" is "(.*)"$/, async function (identifier, activation) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, ['course', 'course_list', 'course_name']);
-  let page_format = format(PAGE);
-  await qa.exists(page_format, identifier);
+  let page_format = format(PAGE, identifier);
+  await qa.exists(page_format);
   let PAGE_activation = await _.get(page, ['course', 'course_list', 'course_activation']);
-  let Page_format = format(PAGE_activation);
-  await qa.exists(Page_format, activation);
+  let Page_format = format(PAGE_activation, activation);
+  await qa.exists(Page_format);
 });
 
-Then('I invite the students', async function (data_table) {
+When('I invite the students', async function (data_table) {
   let qa = new selenium(this.driver);
-  await qa.click(page.course.course_list.course_menu)
-  await qa.click(page.course.create_course.invite_students_button);
+  await qa.sleep(1);
   await qa.click(page.course.create_course.send_email_invite);
   for (let i = 0; i < data_table.rows().length; i++) {
     let PAGE = await _.get(page, ['course', 'create_course', 'input_student_email']);
     let page_format = format(PAGE);
+    await qa.click(page_format);
     await qa.input(page_format, data_table.hashes()[i].username);
+    await qa.input(page_format, ' ');
   }
-  await qa.input(page_format, ' ');
   await qa.click(page.course.create_course.send_invite_button);
+});
 
+When(/^I click on "(.*)" system "(.*)" feature "(.*)" elements$/, async function (system, feature, element) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element]);
+  let page_format = format(PAGE);
+  await qa.clickElementInArray(page_format);
 });
