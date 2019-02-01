@@ -41,9 +41,10 @@ Feature: Qualitative Positive feature
     #     | Chapter 15. Monopolistic Competition and Product Differentiation  | learning_curve |
 
     Then I verify activity list 
-        # | activity                |
-        # | learningcurve_activity  |
-        # | assessment              |
+        | activity                                                          |
+        | BR15: Bridge: Monopolistic Competition                            |
+        | PCT15: Pre-Class Tutorial: Monopolistic Competition               |
+        | Chapter 15. Monopolistic Competition and Product Differentiation  |
 
     # And I sign out of Achieve
     # And I login to Achieve
