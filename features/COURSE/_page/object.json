@@ -31,10 +31,11 @@
     "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
     "search_for_course_name": "//*[@data-test-id='course_search_input']",
     "Manage_instructor": "//*[@data-test-id='course_menu_manage_instructors']",
-    "end_date": "(//*[@class='EVUx '])[2]",
+    "end_date": "/html/body/div[3]/div/div/div[2]/div/div[4]/div[2]/div/div/div/div/div[2]/button",
     "next_month_button": "//*[@aria-label='next_month_button']", 
-    "select_date": "(//*[@class='_2XMC '])[21]",
-    "course_activation" : "//*[@data-test-id='course_activation_date']"
+    "select_date": "/html/body/div[3]/div/div/div[2]/div/div[4]/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div[5]/div[2]",
+    "course_activation" : "//*[@data-test-id='course_activation_date']",
+    "invite_students_button": "//*[@data-test-id='course_menu_invite_students']"
 
   },
   "create_course": {
@@ -74,7 +75,6 @@
     "copy_course":"#copyCourseName",
     "copy_course_code": "#copyCourseShortName", 
     "instructor_button": "//*[@id='react-tabs-2']",
-    "invite_students_button": "//*[@data-test-id='course_menu_invite_students']",
     "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
     "input_student_email": "//*[@data-test-id='invite_students_modal_ids_input']",
     "send_invite_button" : "//*[@data-test-id='invite_students_modal_send_invites_btn']"
@@ -110,6 +110,12 @@
     "share_template" : "//*[@data-test-id='share_template']",
     "import_structure": "//*[@data-test-id='import_structure_button']",
     "add_folder": "//*[@data-test-id='add_folder_button']"
+  },
+  "courseplanner": {
+    "add_unit_folder": "//*[@data-test-id='add_unit']", 
+     "custom_content_button": "//*[@data-test-id='custom_content_tab']",
+     "add_assignment_button": "//*[@aria-label='Add assignment']"
+
   },
 
   "user": {

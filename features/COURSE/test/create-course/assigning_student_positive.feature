@@ -84,8 +84,8 @@ Feature: Assigning the course to the student
         |  username                                   | password       |
         |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
         And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
-        And I click on "Manage_instructor" element to add instructor 
-        And I click on "course" system "create_course" feature "add_instructor" element "macmillaninstructor3@gmail.com" email
+        And I click on "Manage_instructor" element to add
+        And I click on "course" system "create_course" feature "add_instructor" element "bawi@quick-mail.info" email
         And I click on "course" system "create_course" feature "add_instructor_button" element 
         And I click on "course" system "create_course" feature "add_instructor_close" element 
 
@@ -93,7 +93,7 @@ Feature: Assigning the course to the student
         And I click on "course" system "home" feature "sign_in" element 
         When I login with the following credentials
         | username                                   | password       |
-        | macmillaninstructor3@gmail.com             |  ABCabc@123    | 
+        | bawi@quick-mail.info                       |  ABCabc@123    | 
 
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
@@ -101,11 +101,20 @@ Feature: Assigning the course to the student
         And I click on "course" system "create_course" feature "template_status" element input "Active On Date" and enter date
 
         Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
-        And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "activated"
+        And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
 
-        And I invite the students 
+        When I click on "invite_students_button" element to add
+        And I invite the students
             | username                    |
             | macmillanstudent4@gmail.com | 
+
+        Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
+
+        When I click on "course" system "create_course" feature "course_card" element 
+        And I click on "course" system "course_page" feature "course_planner" element
+
+
+        
         
        
     
