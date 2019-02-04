@@ -89,15 +89,17 @@
     "course_planner": "[data-test-id='course_planner_tab']",
     "gradebook": "",
     "reports": "",
+<<<<<<< HEAD
     "resources": "/html/body/div/div/div/div/div[2]/div[2]/ul/li[4]/span",
+=======
+    "resources": "//span[contains(@class,'_1dJz') and contains(text(), 'RESOURCES')]",
+>>>>>>> origin/general_courseware_steps
     "reading": "//*[@data-test-id='reading_tab']"
   },
   "resources": {
     "activity": "._3Jn1",
-    "item-topic": "//*[@data-test-id='item-topic']",
     "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
     "custome_activity": "._2TjR",
-    "close_activity": "//*[@aria-label='Close']",
     "search_bar": "//*[@data-test-id='search_bar']",
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]",

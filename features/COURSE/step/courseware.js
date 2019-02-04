@@ -195,28 +195,20 @@ Then('I add the activity to the course under the resources tab', async function 
   }
 })
 
-Then('I verify activity list', async function () {
+Then('I verify activity list', async function (data_table) {
   let qa = new selenium(this.driver);
-  // SVGPathSegCurvetoQuadraticAbs.getElements
-  // for (let i = 0; i < data_table.rows().length; i++) {
-  //   let activity_element = await _.get(page, ['course', 'course_page', data_table.hashes()[i].activity]);
-  //   await qa.exists(activity_element)
-  // }
   let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
-  let activity_element = await _.get(page, ['course', 'resources', 'activity']);
-  let activity_item_topic_element = await _.get(page, ['course', 'resources', 'item-topic']);
-  let close_activity_element = await _.get(page, ['course', 'resources', 'close_activity']);
 
   await qa.click(resources_tab_element);
-  // await qa.click(activity_element);
-  await qa.clickElementInArray(activity_element, 'BR15: Bridge: Monopolistic Competition');
-
-  // await qa.switchFrame(0)
-
-  // let text = await qa.getText(activity_item_topic_element);
-  // expect(text).to.contain('Monopolistic Competition-Bridge - accuracy grade');
-  // await qa.switchFrame('default');
-  // await qa.click(close_activity_element);
+  await qa.sleep(3);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let activity_element = await _.get(page, ['course', 'resources', 'activity']);
+    let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);
+    if (elementText === undefined){
+      elementText = 'Element Not Found';
+    }
+    expect(elementText).to.contain(data_table.hashes()[i].activity);
+  }
 })
 
 // FIXME Needs Implementation
