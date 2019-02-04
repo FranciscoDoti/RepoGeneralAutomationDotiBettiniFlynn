@@ -26,13 +26,13 @@ module.exports = function (driver) {
       for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
         let elementText = yield element.getText();
-        if (elementText === text) {
+        // if (elementText === text) {
           console.log(elementText, 'elementText');
-          let elementExists = yield this.elementExists(true, element)
-          if(elementExists) {
+          // let elementExists = yield this.elementExists(true, element)
+          // if(elementExists) {
             yield element.click();
-          }
-        }
+          // }
+        // }
       }
     }),
 
@@ -44,7 +44,6 @@ module.exports = function (driver) {
       for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
         let elementText = yield element.getText();
-        console.log(elementText, 'elementText');
         if(text === elementText){
           return elementText;
         }

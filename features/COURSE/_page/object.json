@@ -102,7 +102,10 @@
     "import_structure": "//*[@data-test-id='import_structure_button']",
     "add_folder": "//*[@data-test-id='add_folder_button']"
   },
-
+  "course_planner": {
+    "custom_content_tab":"[data-test-id='custom_content_tab']",
+    "add_assignment": "._29SI"
+  },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
     "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
