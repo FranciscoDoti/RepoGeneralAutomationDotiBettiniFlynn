@@ -77,18 +77,22 @@
     "instructor_button": "//*[@id='react-tabs-2']",
     "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
     "input_student_email": "//*[@data-test-id='invite_students_modal_ids_input']",
-    "send_invite_button" : "//*[@data-test-id='invite_students_modal_send_invites_btn']"
+    "send_invite_button" : "//*[@data-test-id='invite_students_modal_send_invites_btn']",
+    "ebook_link": "//*[@id='courseEbookLink']"
   },
   "course_page": {
     "title":".tNeN",
     "edit_settings": "._18Qx button",
+<<<<<<< Updated upstream
     "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
     "activity_titles": "._3Jn1",
+=======
+>>>>>>> Stashed changes
     "overview": "[data-test-id='overview_tab']",
     "course_planner": "[data-test-id='course_planner_tab']",
     "gradebook": "",
     "reports": "",
-    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
+    "resources": "/html/body/div/div/div/div/div[2]/div[2]/ul/li[4]/span",
     "reading": "//*[@data-test-id='reading_tab']"
   },
   "resources": {
@@ -99,6 +103,7 @@
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]",
     "add_content":"[data-test-id='add_content_button']", 
+<<<<<<< Updated upstream
     "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
     "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
     "add_button_read&practice": "//*[@data-test-id='add_button_lcrp']",
@@ -112,8 +117,11 @@
   "courseplanner": {
     "add_unit_folder": "//*[@data-test-id='add_unit']", 
      "custom_content_button": "//*[@data-test-id='custom_content_tab']",
-     "add_assignment_button": "//*[@aria-label='Add assignment']"
+     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
 
+=======
+    "add_reading_button": "[data-test-id='add_button_reading']"
+>>>>>>> Stashed changes
   },
 
   "user": {

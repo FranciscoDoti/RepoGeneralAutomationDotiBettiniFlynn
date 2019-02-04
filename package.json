@@ -16,9 +16,14 @@
     "test-savi-brightcove": "node ./node_modules/cucumber/bin/cucumber-js features/tests/SAVI/brightcoveplayer.feature",
     "edit-account-details": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/edit-account-details.feature",
     "copy-course-feature" : "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/copy_course.feature",
+<<<<<<< Updated upstream
     "assigning_instructor_positive":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/assiging_instructor_positive.feature", 
     "assigning_student_positive": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/assigning_student_positive.feature",
-    "courseplanner": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/course-planner/courseplanner_positive.feature"
+    "courseplanner": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/courseplanner_positive.feature"
+=======
+    "qualitative_positive_feature":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/qualitative/qualitative_positive.feature"
+
+>>>>>>> Stashed changes
   },
   "dependencies": {
     "any-promise": "1.3.0",

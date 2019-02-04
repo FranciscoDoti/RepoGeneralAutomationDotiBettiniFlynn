@@ -151,7 +151,11 @@ Then('I verify the create_course data', async function (data_table) {
     let text = await qa.getAttribute(page_format, 'value');
     expect(text).to.contain(data_table.hashes()[i].value);
   }
+<<<<<<< Updated upstream
   // race condition, I have to wait for button to be visible
+=======
+  //race condition, I have to wait for button to be visible
+>>>>>>> Stashed changes
   await qa.sleep(3);
   await qa.click(page.course.create_course.cancel);
 });
@@ -200,6 +204,7 @@ Then('I verify activity list', async function (data_table) {
   let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
 
   await qa.click(resources_tab_element);
+  await qa.sleep(3);
   for (let i = 0; i < data_table.rows().length; i++) {
     let activity_element = await _.get(page, ['course', 'resources', 'activity']);
     let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);

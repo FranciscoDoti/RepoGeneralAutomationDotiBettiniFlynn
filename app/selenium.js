@@ -44,6 +44,7 @@ module.exports = function (driver) {
       for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
         let elementText = yield element.getText();
+        console.log(elementText, 'elementText');
         if(text === elementText){
           return elementText;
         }
