@@ -89,11 +89,7 @@
     "course_planner": "[data-test-id='course_planner_tab']",
     "gradebook": "",
     "reports": "",
-<<<<<<< HEAD
     "resources": "/html/body/div/div/div/div/div[2]/div[2]/ul/li[4]/span",
-=======
-    "resources": "//span[contains(@class,'_1dJz') and contains(text(), 'RESOURCES')]",
->>>>>>> origin/general_courseware_steps
     "reading": "//*[@data-test-id='reading_tab']"
   },
   "resources": {
