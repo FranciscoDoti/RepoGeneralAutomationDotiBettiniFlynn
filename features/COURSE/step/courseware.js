@@ -200,6 +200,7 @@ Then('I verify activity list', async function (data_table) {
   let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
 
   await qa.click(resources_tab_element);
+  await qa.sleep(3);
   for (let i = 0; i < data_table.rows().length; i++) {
     let activity_element = await _.get(page, ['course', 'resources', 'activity']);
     let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);
