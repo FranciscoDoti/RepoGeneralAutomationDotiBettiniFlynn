@@ -81,7 +81,7 @@
     "course_planner": "[data-test-id='course_planner_tab']",
     "gradebook": "",
     "reports": "",
-    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]",
+    "resources": "//span[contains(@class,'_1dJz') and contains(text(), 'RESOURCES')]",
     "reading": "//*[@data-test-id='reading_tab']"
   },
   "resources": {
