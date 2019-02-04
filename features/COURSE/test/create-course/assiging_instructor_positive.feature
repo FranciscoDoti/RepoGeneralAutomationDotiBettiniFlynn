@@ -1,6 +1,6 @@
 Feature: Assigning the course to the instructor 
 
-    @delete-course
+    # @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"

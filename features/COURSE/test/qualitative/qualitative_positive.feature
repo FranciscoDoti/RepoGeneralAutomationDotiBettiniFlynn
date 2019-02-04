@@ -2,10 +2,6 @@ Feature: Qualitative Positive feature
 
 # @delete-course
   Scenario: Verify that a Media Producer is able to create a Qualitative Template
-    # Given I have opened "achieve" "login"
-    # And I have logged in as "media_producer_1"
-    # And I click on "course" system "create_course" feature "button" element
-
     Given I have opened "achieve" "login"
     And I click on "course" system "home" feature "sign_in" element
 
