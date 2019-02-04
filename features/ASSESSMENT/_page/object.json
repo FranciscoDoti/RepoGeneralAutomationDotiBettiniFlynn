@@ -1,0 +1,6 @@
+{
+  "activityEditor": {
+    "assignmentTab": "a[data-test-id=\"link-to-assignment\"]",
+    "empty": "div[data-test-id=\"empty-message\"]"
+  }
+}
