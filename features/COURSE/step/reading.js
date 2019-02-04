@@ -32,7 +32,7 @@ Then(/^I click on "(.*)" element to add$/, async function (element) {
   let qa =new selenium(this.driver);
   let PAGE = await _.get(page, ['course', 'course_list', element]);
   let page_format = format(PAGE);
-  await qa.sleep(1);
+  await qa.sleep(2);
   await qa.click(page.course.course_list.course_menu);
   await qa.sleep(1);
   await qa.click(page_format);

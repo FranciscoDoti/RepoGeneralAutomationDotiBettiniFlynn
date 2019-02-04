@@ -21,10 +21,11 @@ Feature: Adding activities and checking the activities are redirected to their r
         
         And I click on "edit_course" on "Read & Practice Template" course menu
         And I fill out the form to edit a course
-            | page_object      | value           |clear|
-            | edit_course_name | Edit Testcourse |true |
-            | edit_course_code | E2E 301         |true |
-            | template_status  | Active On Date  |     |
+            | page_object      | value                                                       |clear|
+            | edit_course_name | Edit Testcourse                                             |true |
+            | edit_course_code | E2E 301                                                     |true |
+            | ebook_link       | https://int-achieve-courseware-frontend.mldev.cloud/courses |true |
+            | template_status  | Active On Date                                              |     |
 
         Then I verify "course" system "create_course" feature "success_message" element's "edit_course_sucess" message is displayed
         And I click on "edit_course" on "Read & Practice Template" course menu
@@ -83,7 +84,7 @@ Feature: Adding activities and checking the activities are redirected to their r
         And I login with the following credentials
         |  username                                   | password       |
         |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
-        And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
+        And I click on "course" system "course_list" feature "search_for_course_name" element "Read & Practice course" input 
         And I click on "Manage_instructor" element to add
         And I click on "course" system "create_course" feature "add_instructor" element "bawi@quick-mail.info" email
         And I click on "course" system "create_course" feature "add_instructor_button" element 
@@ -103,17 +104,17 @@ Feature: Adding activities and checking the activities are redirected to their r
         Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
         And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
 
-        When I click on "invite_students_button" element to add
-        And I invite the students
-            | username                    |
-            | macmillanstudent4@gmail.com | 
+        # When I click on "invite_students_button" element to add
+        # And I invite the students
+        #     | username                    |
+        #     | macmillanstudent4@gmail.com | 
 
-        Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
+        # Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
 
         When I click on "course" system "create_course" feature "course_card" element 
         And I click on "course" system "course_page" feature "course_planner" element
         And I click on "course" system "courseplanner" feature "custom_content_button" element 
-        And I click on "course" system "courseplanner" feature "add_assignment_button" elements 
+        And I click on "course" system "courseplanner" feature "add_assignment_button" elements
 
         # Then I verify "course" system "activity_list" data
         #     | activities                                  | type              | clear |

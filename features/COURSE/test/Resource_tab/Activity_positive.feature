@@ -21,10 +21,12 @@ Feature: Adding_activities
         
         And I click on "edit_course" on "Read & Practice Template" course menu
         And I fill out the form to edit a course
-            | page_object      | value           |clear|
-            | edit_course_name | Edit Testcourse |true |
-            | edit_course_code | E2E 301         |true |
-            | template_status  | Active On Date  |     |
+            | page_object      | value                                                       |clear|
+            | edit_course_name | Edit Testcourse                                             |true |
+            | edit_course_code | E2E 301                                                     |true |
+            | ebook_link       | https://int-achieve-courseware-frontend.mldev.cloud/courses |true |
+            | template_status  | Active On Date                                              |     |
+
 
         Then I verify "course" system "create_course" feature "success_message" element's "edit_course_sucess" message is displayed
         And I click on "edit_course" on "Read & Practice Template" course menu

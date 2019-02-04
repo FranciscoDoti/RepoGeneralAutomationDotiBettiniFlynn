@@ -18,7 +18,7 @@
     "copy-course-feature" : "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/copy_course.feature",
     "assigning_instructor_positive":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/assiging_instructor_positive.feature", 
     "assigning_student_positive": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/assigning_student_positive.feature",
-    "courseplanner": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/course-planner/courseplanner_positive.feature"
+    "courseplanner": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/courseplanner_positive.feature"
   },
   "dependencies": {
     "any-promise": "1.3.0",
