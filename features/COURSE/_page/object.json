@@ -83,11 +83,8 @@
   "course_page": {
     "title":".tNeN",
     "edit_settings": "._18Qx button",
-<<<<<<< Updated upstream
     "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
     "activity_titles": "._3Jn1",
-=======
->>>>>>> Stashed changes
     "overview": "[data-test-id='overview_tab']",
     "course_planner": "[data-test-id='course_planner_tab']",
     "gradebook": "",
@@ -103,7 +100,6 @@
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]",
     "add_content":"[data-test-id='add_content_button']", 
-<<<<<<< Updated upstream
     "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
     "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
     "add_button_read&practice": "//*[@data-test-id='add_button_lcrp']",
@@ -119,9 +115,6 @@
      "custom_content_button": "//*[@data-test-id='custom_content_tab']",
      "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
 
-=======
-    "add_reading_button": "[data-test-id='add_button_reading']"
->>>>>>> Stashed changes
   },
 
   "user": {
