@@ -14,12 +14,18 @@ function CustomWorld() {
   var builder;
 
   if (config.mode === 'local-achieve') {
-    builder = new seleniumWebdriver.Builder()
-      .forBrowser('chrome')
-      .setChromeOptions(options)
-      .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
-      .withCapabilities(config.capabilities)
-      .build();
+    if (JSON.parse(config.headless)) {
+      builder = new seleniumWebdriver.Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(options)
+        .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+        .withCapabilities(config.capabilities)
+        .build();
+    } else {
+      builder = new seleniumWebdriver.Builder()
+        .withCapabilities(config.capabilities)
+        .build();
+    }
   } else if (config.mode === 'local') {
     builder = new seleniumWebdriver.Builder()
       .withCapabilities(config.capabilities)

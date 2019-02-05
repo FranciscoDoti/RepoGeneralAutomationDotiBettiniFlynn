@@ -16,15 +16,11 @@ Given(/^I have opened "(.*)" "(.*)"$/, async function (system, endpoint) {
 });
 
 Given("I login to Achieve", async function () {
-  console.log("starting test");
   let qa = new selenium(this.driver);
   let url = await _.get(URL, ["achieve", "login"]);
-  console.log("url-->", url);
 
   await qa.goTo(url);
-  console.log("navigated");
   await qa.click(page.course.home.sign_in);
-  console.log("post sign in");
 });
 
 // Page Navigation //
