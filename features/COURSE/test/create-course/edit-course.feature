@@ -28,5 +28,5 @@ Feature: Edit Course
     Then I verify the course_list data
       | page_object | value           |
       | course_name | Edit Testcourse |
-      | course_name_course_code | E2E 302         |
+      | course_name_course_code | E2E 302 |
       | course_name_isbn | 9781464199499   |

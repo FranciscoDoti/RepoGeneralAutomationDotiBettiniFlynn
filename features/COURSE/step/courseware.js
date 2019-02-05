@@ -151,11 +151,7 @@ Then('I verify the create_course data', async function (data_table) {
     let text = await qa.getAttribute(page_format, 'value');
     expect(text).to.contain(data_table.hashes()[i].value);
   }
-<<<<<<< Updated upstream
   // race condition, I have to wait for button to be visible
-=======
-  //race condition, I have to wait for button to be visible
->>>>>>> Stashed changes
   await qa.sleep(3);
   await qa.click(page.course.create_course.cancel);
 });
