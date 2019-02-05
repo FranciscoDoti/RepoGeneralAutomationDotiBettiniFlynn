@@ -26,6 +26,9 @@ Given("I login to Achieve", async function () {
 // Page Navigation //
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new selenium(this.driver);
+
+  qa.sleep(2);
+
   let PAGE = await _.get(page, [system, feature, element]);
 
   await qa.click(PAGE);

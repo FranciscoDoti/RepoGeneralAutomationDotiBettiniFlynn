@@ -1,6 +1,9 @@
 {
-  "activityEditor": {
-    "assignmentTab": "a[data-test-id=\"link-to-assignment\"]",
+  "activity_editor": {
+    "assignment_tab": "[data-test-id='link-to-assignment']",
     "empty": "div[data-test-id=\"empty-message\"]"
+  },
+  "int": {
+    "submit":"#submitButton"    
   }
 }

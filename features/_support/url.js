@@ -1,6 +1,16 @@
 const config = require("../../config.js");
 
-function achieve_base() {
+const saplingBase = () => {
+  if (config.environment === 'local') {
+    return 'http://local.saplinglearning.me:8081/activityeditor/';
+  }
+
+  if (config.environment === 'int') {
+    return 'http://int.saplinglearning.me/activityeditor/';
+  }
+}
+
+function achieve_base () {
   if (config.environment === 'local') {
     return `http://courseware-local.mldev.cloud:3000`
   }
@@ -92,6 +102,10 @@ module.exports = {
     loginurl: "https://savipo2.saplinglearning.me/ibiscms/login/",
     assignment: "https://savipo2.saplinglearning.me/sac/#/1396//-1",
     standalone: "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001"
+  },
+  sapling: {
+    login: "https://int.saplinglearning.me/ibiscms/login/",
+    empty_activity: saplingBase() + `questionbank/674846`
   },
   third_party: {
     base: "http://accounts.google.com/signin/v2"
