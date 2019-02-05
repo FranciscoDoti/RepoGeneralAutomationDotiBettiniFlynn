@@ -63,13 +63,10 @@ Feature: Adding_activities
             | Epilogues                                                         | Read and Practice  |
                 
 
-        # Then I verify "course" system "activity_list" data
-        #     | activities                                  | type              | clear |
-        #     | communicating courteously                   | Reading           | true  |
-        #     | amongst                                     | Reading           | true  |
-        #     | Active and Passive voice                    | learning_curve    | true  |
-        #     | Evaluating, Integration and Acknowledgement | learning_curve    | true  |
-        #     | Wars of Religion                            | Read and Practice | true  |
-        #     | Epilogues                                   | Read and Practice | true  |  
-        
+        Then I verify the activity list 
+            |  activity                    | 
+            | communicating courteously    |                                                        
+            | Active and Passive voice     |
+            | Wars of Religion             | 
+
        

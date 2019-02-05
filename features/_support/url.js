@@ -91,7 +91,7 @@ module.exports = {
     saviverification: "http://savipo2.saplinglearning.me/ibiscms/mod/flcn/view.php?id=4195376",
     loginurl: "https://savipo2.saplinglearning.me/ibiscms/login/",
     assignment: "https://savipo2.saplinglearning.me/sac/#/1396//-1",
-    standalone: "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001"
+    standalone: "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001",
   },
   third_party: {
     base: "http://accounts.google.com/signin/v2"

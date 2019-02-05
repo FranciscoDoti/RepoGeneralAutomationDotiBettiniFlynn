@@ -59,16 +59,12 @@ Feature: Assigning the course to the student
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
 
-                
-
-        # Then I verify "course" system "activity_list" data
-        #     | activities                                  | type              | clear |
-        #     | communicating courteously                   | Reading           | true  |
-        #     | amongst                                     | Reading           | true  |
-        #     | Active and Passive voice                    | learning_curve    | true  |
-        #     | Evaluating, Integration and Acknowledgement | learning_curve    | true  |
-        #     | Wars of Religion                            | Read and Practice | true  |
-        #     | Epilogues                                   | Read and Practice | true  |  
+        Then I verify the activity list 
+            |  activity                    | 
+            | communicating courteously    |                                                        
+            | Active and Passive voice     |
+            | Wars of Religion             | 
+ 
         
         And I click on "course" system "main" feature "Achieve_home" element 
         And I click on "copy_course" on "Read & Practice Template" course menu

@@ -29,7 +29,7 @@ Then(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" input$/, as
 });
 
 Then(/^I click on "(.*)" element to add$/, async function (element) {
-  let qa =new selenium(this.driver);
+  let qa = new selenium(this.driver);
   let PAGE = await _.get(page, ['course', 'course_list', element]);
   let page_format = format(PAGE);
   await qa.sleep(2);
@@ -98,4 +98,20 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" elements$/, async function
   let PAGE = await _.get(page, [system, feature, element]);
   let page_format = format(PAGE);
   await qa.clickElementInArray(page_format);
+});
+
+When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the activity points$/, async function (system, feature, element) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element]);
+  let page_format = format(PAGE);
+  await qa.clickElementInArray(page_format);
+  let booleanVal = await qa.exists(page.course.courseplanner.edit_target);
+  if (booleanVal === true) {
+    await qa.click(page.course.courseplanner.edit_target);
+    await qa.click(page.course.courseplanner.input_target_score);
+    await qa.click(page.course.courseplanner.very_short_time_button);
+    await qa.click(page.course.courseplanner.close_learning_curve);
+  } else {
+    await qa.click(page.course.courseplanner.close_reading);
+  }
 });

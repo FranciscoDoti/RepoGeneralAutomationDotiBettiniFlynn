@@ -109,12 +109,18 @@
     "share_template" : "//*[@data-test-id='share_template']",
     "import_structure": "//*[@data-test-id='import_structure_button']",
     "add_folder": "//*[@data-test-id='add_folder_button']"
+    
   },
   "courseplanner": {
     "add_unit_folder": "//*[@data-test-id='add_unit']", 
      "custom_content_button": "//*[@data-test-id='custom_content_tab']",
-     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
-
+     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button",
+     "activities_link" : "//*[@class='_3UBu _3kCz']",
+     "edit_target": "//*[@data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
+     "input_target_score": "//*[@data-test-id='editTargetScoreScore']",
+     "very_short_time_button" : "btn-cdl-main EditTargetScoreModal__proceedOkay__2v8Ue",
+     "close_learning_curve" : "//*[@data-test-id='closelearningcurve']",
+     "close_reading" : "//*[@id='container']/div/div/div/button"
   },
 
   "user": {
