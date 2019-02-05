@@ -211,6 +211,17 @@ Then('I verify activity list', async function (data_table) {
   }
 })
 
+Then('I add the courses to the course planner', async function () {
+  let qa = new selenium(this.driver);
+  let course_planner_tab_element = await _.get(page, ['course', 'course_page', 'course_planner']);
+  let custom_content_tab_element = await _.get(page, ['course', 'course_planner', 'custom_content_tab']);
+  let add_assignment_element = await _.get(page, ['course', 'course_planner', 'add_assignment']);  
+
+  await qa.click(course_planner_tab_element);
+  await qa.click(custom_content_tab_element);
+  await qa.clickElementInArray(add_assignment_element);
+})
+
 // FIXME Needs Implementation
 Then('I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);
