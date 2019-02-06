@@ -200,10 +200,10 @@ Then('I verify activity list', async function (data_table) {
   let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
 
   await qa.click(resources_tab_element);
-  await qa.sleep(3);
   for (let i = 0; i < data_table.rows().length; i++) {
     let activity_element = await _.get(page, ['course', 'resources', 'activity']);
-    let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);
+    // let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);
+    let elementText = await qa.getText(activity_element);
     if (elementText === undefined){
       elementText = 'Element Not Found';
     }
@@ -211,7 +211,14 @@ Then('I verify activity list', async function (data_table) {
   }
 })
 
-Then('I add the courses to the course planner', async function () {
+Then('I click on the first course card', async function(){
+  let qa = new selenium(this.driver);
+  let course_card_element = await _.get(page, ['course', 'create_course', 'course_card']);
+  await qa.sleep(2);
+  await qa.click(course_card_element);
+})
+
+Then('I add the activities to the course under the course planner tab', async function () {
   let qa = new selenium(this.driver);
   let course_planner_tab_element = await _.get(page, ['course', 'course_page', 'course_planner']);
   let custom_content_tab_element = await _.get(page, ['course', 'course_planner', 'custom_content_tab']);
@@ -219,7 +226,9 @@ Then('I add the courses to the course planner', async function () {
 
   await qa.click(course_planner_tab_element);
   await qa.click(custom_content_tab_element);
-  await qa.clickElementInArray(add_assignment_element);
+  await qa.sleep(2);
+  await qa.click(add_assignment_element);
+  // await qa.clickElementInArray(add_assignment_element);
 })
 
 // FIXME Needs Implementation
