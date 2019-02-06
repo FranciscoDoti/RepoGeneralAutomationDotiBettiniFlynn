@@ -104,8 +104,13 @@ module.exports = {
     standalone: "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001"
   },
   sapling: {
-    login: "https://int.saplinglearning.me/ibiscms/login/",
-    empty_activity: saplingBase() + `questionbank/674846`
+    int: {
+      login: 'https://int.saplinglearning.me/ibiscms/login/',
+      empty_activity: saplingBase() + `questionbank/674846`
+    },
+    local: {
+      empty_activity: 'http://local.saplinglearning.me:8081/activityeditor/questionbank/61043',
+    }
   },
   third_party: {
     base: "http://accounts.google.com/signin/v2"
