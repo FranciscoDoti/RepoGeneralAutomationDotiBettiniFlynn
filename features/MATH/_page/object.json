@@ -28,7 +28,6 @@
         "authorquestionText": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div.ace_scroller > div",
         "takeModeButton":"button#take-button",
         "takeModeAnswerText1": "span.mq-math-mode",
-        "takeModeAnswerText2": ".hatchling-equation-input > span > span > textarea", 
         "editPanelAnswer": "//*[@data-test-id='ace-label']//textarea[@class='ace_text-input']", 
         "editPanelQuestion": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > * div.ace_scroller > div > div.ace_layer.ace_text-layer > div >* span",
         "gradeAs": "select.greq-input[data-test-id='eval-type-dropdown']",

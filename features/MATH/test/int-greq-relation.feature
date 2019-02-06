@@ -10,8 +10,7 @@ Scenario: User creates a Relation type graded equation 2x+26=0 module and grades
   And I select Graded equation and save as "relationGrad"
   And I click on the Question tab, and add an Answer field
   And I set the grade as Relation type and input "math-eqn" equation
-  #And I do click "math" system "raptorAms" feature "saveButton" element
-  And I save the module
+  And I save the question
   
   When I am in Take Mode and input the correct equation "2x+26=0"
   And I simulate grading
