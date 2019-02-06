@@ -1,0 +1,66 @@
+{
+    "login": {
+        "local": {
+            "username": "div#username > input",
+            "password": "div#password > input",
+            "submit": "div#submit > input",
+            "amslink":"body > ul > li:nth-child(1) > a"
+            },
+        "int": {
+            "username": "input#username",
+            "password": "input#password", 
+            "submit":"input#submitButton"    
+        }
+    },
+        
+    "raptorAms": {
+        "raptorNewItem": "a[data-test-id='newItemRaptorBtn']", 
+        "titleName": "div >* input[value = 'Untitled']", 
+        "moduleTab": "a[href='#module-palette']",
+        "gradedEquationButtonlink": "#module-palette-graded_equation > div.module-palette-button-text", 
+        "questionTab": "a[data-test-id='question-context']", 
+        "questionContent": "#primary-content-area", 
+        "defaultTab": "div > * li > a[data-test-id='default-context']", 
+        "correctTab" : "a[data-test-id='correct-context']", 
+        "text1": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > div > textarea",
+        "text2": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > textarea",
+        "authoranswerText" : "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > div > div.ace_scroller > div",
+        "authorquestionText": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div.ace_scroller > div",
+        "takeModeButton":"button#take-button",
+        "takeModeAnswerText1": "span.mq-math-mode",
+        "editPanelAnswer": "//*[@data-test-id='ace-label']//textarea[@class='ace_text-input']", 
+        "editPanelQuestion": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > * div.ace_scroller > div > div.ace_layer.ace_text-layer > div >* span",
+        "gradeAs": "select.greq-input[data-test-id='eval-type-dropdown']",
+        "saveButton": "button#save-button",
+        "editButton": "button#edit-button",
+        "simulateButton": "button#check-answer-button",
+        "gradedCorrect": "a.text-center[data-test-id ='correct-context']"
+    },
+
+    "paletteBasic":{
+        "1": "button[data-test-id='1']",
+        "2": "button[data-test-id='2']",
+        "3": "button[data-test-id='3']",
+        "4": "button[data-test-id='4']",
+        "5": "button[data-test-id='5']",
+        "6": "button[data-test-id='6']",
+        "7": "button[data-test-id='7']",
+        "8": "button[data-test-id='8']",
+        "9": "button[data-test-id='9']",
+        "0": "button[data-test-id='0']",
+        "/": "button[data-test-id='/']",
+        "*": "button[data-test-id='*']",
+        "add": "button[data-test-id='+']",
+        "-": "button[data-test-id='-']",
+        "=": "button[data-test-id='=']",
+        ".": "button[data-test-id='0']",
+        "x": "button[data-test-id='x']",
+        "y": "button[data-test-id='x']",
+        "z": "button[data-test-id='x']",
+        "t": "button[data-test-id='x']",
+        "π": "button[data-test-id='π']",
+        "∞": "button[data-test-id='∞']",
+        "θ": "button[data-test-id='θ']",
+        "e": "button[data-test-id='e']"
+    }
+}
