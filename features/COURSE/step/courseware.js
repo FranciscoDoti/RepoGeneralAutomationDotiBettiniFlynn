@@ -211,6 +211,13 @@ Then('I verify activity list', async function (data_table) {
   }
 })
 
+Then('I click on the first course card', async function(){
+  let qa = new selenium(this.driver);
+  let course_card_element = await _.get(page, ['course', 'create_course', 'course_card']);
+  await qa.sleep(2);
+  await qa.click(course_card_element);
+})
+
 Then('I add the activities to the course under the course planner tab', async function () {
   let qa = new selenium(this.driver);
   let course_planner_tab_element = await _.get(page, ['course', 'course_page', 'course_planner']);
