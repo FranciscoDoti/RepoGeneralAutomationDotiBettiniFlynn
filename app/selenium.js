@@ -28,11 +28,11 @@ module.exports = function (driver) {
 
     // This must be used over the close for the 3rd party distributed services
     close: Promise.coroutine(function * () {
-      // yield driver.quit();
+      yield driver.quit();
     }),
 
     quit: Promise.coroutine(function * () {
-      // yield driver.quit();
+      yield driver.quit();
     }),
 
     refresh: Promise.coroutine(function * () {
@@ -106,9 +106,6 @@ module.exports = function (driver) {
     executeScript: Promise.coroutine(function * (script) {
       yield driver.executeScript(script);
     }),
-    // executeScript: function (script) {
-    //   driver.executeScript(script);
-    // },
 
     input: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
