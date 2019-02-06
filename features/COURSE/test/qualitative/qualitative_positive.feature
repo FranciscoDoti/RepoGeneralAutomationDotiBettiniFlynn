@@ -51,29 +51,22 @@ Feature: Qualitative Positive feature
 #         | copy_course       | Read & Practice course   |
 #         | copy_course_code  | E2E301                   |
 
-    And I login with the following credentials
-    |  username                                   | password       |
-    |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
-    And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
-    And I click on "Manage_instructor" element to add instructor 
-    And I click on "course" system "create_course" feature "add_instructor" element "legud@xcodes.net" email
-    And I click on "course" system "create_course" feature "add_instructor_button" element 
-    And I click on "course" system "create_course" feature "add_instructor_close" element 
+    # And I login with the following credentials
+    # |  username                                   | password       |
+    # |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
+    # And I click on "Manage_instructor" element to add instructor 
+    # And I click on "course" system "create_course" feature "add_instructor" element "legud@xcodes.net" email
+    # And I click on "course" system "create_course" feature "add_instructor_button" element 
+    # And I click on "course" system "create_course" feature "add_instructor_close" element 
 
 
-    And I sign out of Achieve
-    And I login to Achieve
-    And I have logged in as "instructor_7"
-
-    Given I have opened "achieve" "login"
-    And I click on "course" system "home" feature "sign_in" element
-
+    # And I sign out of Achieve
+    # And I login to Achieve
     When I login with the following credentials
-        |username            | password     |
-        |baxoye@zsero.com    | ABCabc@123   |
-    And I click on "course" system "create_course" feature "course_card" element
-
-    Then I verify that it is redirected to "course_page" 
+    |  username                     | password       |
+    |  legud@xcodes.net             |  ABCabc@123    | 
+    And I click on the first course card
     
     # Then I click on courseplanner and I add custom content to the course 
     
@@ -83,10 +76,10 @@ Feature: Qualitative Positive feature
     #     | Monopolistice Competition                   | Reading           | true  |
     #     | Table: The Lemonade Market                  | Qualitative       | true  |
 
-    And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
+    # And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
 
-    Then I verify "course" system "courseplanner" feature "assignment_status" element is displayed
+    # Then I verify "course" system "courseplanner" feature "assignment_status" element is displayed
 
-    And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
+    # And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
 
-    Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
+    # Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
