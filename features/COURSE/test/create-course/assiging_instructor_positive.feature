@@ -84,9 +84,9 @@ Feature: Assigning the course to the instructor
         |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
         And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
         And I click on "Manage_instructor" element to add instructor 
-        And I click on "course" system "create_course" feature "add_instructor" element "macmillaninstructor3@gmail.com" email
-        And I click on "course" system "create_course" feature "add_instructor_button" element 
-        And I click on "course" system "create_course" feature "add_instructor_close" element 
+        And I assign Instructor to the course
+            | username              | password   |
+            | bawi@quick-mail.info  | ABCabc@123 |
 
         And I "sign_out" of Achieve
         And I click on "course" system "home" feature "sign_in" element 

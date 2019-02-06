@@ -76,7 +76,8 @@
     "copy_course_code": "#copyCourseShortName", 
     "instructor_button": "//*[@id='react-tabs-2']",
     "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
-    "input_student_email": "//*[@data-test-id='invite_students_modal_ids_input']",
+    "Textbox_input": "[data-test-id='invite_students_modal_ids_input']",
+    "input_student_email": "//*[@name='emailInput']",
     "send_invite_button" : "//*[@data-test-id='invite_students_modal_send_invites_btn']",
     "ebook_link": "//*[@id='courseEbookLink']"
   },
