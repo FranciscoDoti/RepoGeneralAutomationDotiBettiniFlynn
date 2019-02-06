@@ -17,22 +17,17 @@ module.exports = function (driver) {
       return element_array;
     }),
 
-    clickElementInArray: Promise.coroutine(function * (selector, text) {
+    clickElementInArray: Promise.coroutine(function * (selector) {
       let locator = this._locator(selector);
       yield this._exists(true, locator);
       let elements = yield driver.findElements(locator);
-      let element_array = [];
 
       for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
-        let elementText = yield element.getText();
-        // if (elementText === text) {
-          console.log(elementText, 'elementText');
-          // let elementExists = yield this.elementExists(true, element)
-          // if(elementExists) {
-            yield element.click();
-          // }
-        // }
+        this.sleep(2);
+        var elem = yield element.getAttribute('aria-label');
+        console.log(elem, 'aria~~~~~~~~~~~~~~');
+        yield element.click();
       }
     }),
 
