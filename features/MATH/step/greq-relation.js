@@ -36,7 +36,6 @@ When(/^I click on the New Raptor item$/, async function () {
   await qa.click(page.math.raptorAms.raptorNewItem);
 });
 
-
 When(/^I am on the AuthorApp item page$/, async function () {
   let qa = new selenium(this.driver);
   await qa.changeWindow(1);
@@ -66,46 +65,45 @@ When(/^I set the grade as Relation type and input "(.*)" equation$/, async funct
   await qa.input(page.math.raptorAms.gradeAs, 'Relation');
   await qa.click(page.math.raptorAms.gradeAs);
  
-  // await qa.sendKeys(".ace_text-input", "42");
+  // await qa.sendKeys(page.math.raptorAms.text2, Key.RETURN)
+  // await qa.sendKeys(page.math.raptorAms.text2, Key.BACK_SPACE)
+  // await qa.sendKeys(".ace_text-input", evalGrade.EvalQ1.Equation);
 
   await qa.sendKeys(page.math.raptorAms.text1, Key.RETURN)
   await qa.sendKeys(page.math.raptorAms.text1, Key.BACK_SPACE)
-// await qa.sendKeys('[data-test-id="ace-label"]', "43");
+  // await qa.sendKeys('[data-test-id="ace-label"]', "42");
   await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[1].value='${evalGrade.EvalQ1.Equation}'; ta[1].dispatchEvent(new Event('input'))`);
 
 
   await qa.sendKeys(page.math.raptorAms.text2, Key.RETURN)
   await qa.sendKeys(page.math.raptorAms.text2, Key.BACK_SPACE)
+  // await qa.sendKeys(".ace_text-input", "42");
   await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[0].value='${evalGrade.EvalQ1.Equation}'; ta[0].dispatchEvent(new Event('input'))`);
 });
 
-When(/^I do click "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
-  let qa = new selenium(this.driver);
-  let pg = await _.get(page, [system, feature, element]);
-  console.log("dosa");
+// When(/^I do click "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
+//   let qa = new selenium(this.driver);
+//   let pg = await _.get(page, [system, feature, element]);
+//   console.log("dosa");
+//   await qa.click(pg);
+//   await qa.sleep(5);
+// });
 
-  await qa.click(pg);
-  await qa.sleep(3);
-
-
-});
-// When(/^I save the module$/, async function () {
-//     let qa = new selenium(this.driver);
-//     await qa.click(page.math.raptorAms.saveButton);
-//     await qa.sleep(1);
-//   });
+When(/^I save the module$/, async function () {
+    let qa = new selenium(this.driver);
+    await qa.click(page.math.raptorAms.saveButton);
+    await qa.sleep(1);
+  });
 
 When(/^I am in Take Mode and input the correct equation "(.*)"$/, async function (eqn) {
   let qa = new selenium(this.driver);
   await qa.click(page.math.raptorAms.takeModeButton);
   await qa.click(page.math.raptorAms.takeModeAnswerText1);
-  await qa.input(page.math.raptorAms.takeModeAnswerText2, eqn);
-
-  // for(let i = 0; i< eqn.length; i++){
-  //   const token = eqn.charAt(i);
-  //   const exp = token === '+' ? 'add' : token 
-  //   await qa.click(page.math.paletteBasic[exp]);
-  // }
+  for(let i = 0; i< eqn.length; i++){
+    const token = eqn.charAt(i);
+    const exp = token === '+' ? 'add' : token 
+    await qa.click(page.math.paletteBasic[exp]);
+  }
 });
 
 When(/^I simulate grading$/, async function(){
