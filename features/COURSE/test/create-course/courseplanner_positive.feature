@@ -84,13 +84,13 @@ Feature: Adding activities and checking the activities are redirected to their r
         And I click on "Manage_instructor" element to add
         And I assign Instructor to the course
             | username              | password   |
-            | bawi@quick-mail.info  | ABCabc@123 |
+            | suge@quick-mail.info  | ABCabc@123 |
 
         And I "sign_out" of Achieve
         And I click on "course" system "home" feature "sign_in" element 
         When I login with the following credentials
         | username                                   | password       |
-        | bawi@quick-mail.info                       |  ABCabc@123    | 
+        | suge@quick-mail.info                       |  ABCabc@123    | 
 
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
@@ -129,7 +129,7 @@ Feature: Adding activities and checking the activities are redirected to their r
 
         And I login with the following credentials
         |  username                                   | password       |
-        |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
+        |  macmillanstudent4@gmail.com                |  ABCabc@123    | 
 
 
         

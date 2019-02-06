@@ -119,13 +119,16 @@
      "activities_link" : "//*[@class='_3UBu _3kCz']",
      "edit_target": "//*[@data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
      "input_target_score": "//*[@data-test-id='editTargetScoreScore']",
+     "change_target_score": "//*[@data-test-id='editTargetScoreChangeScoreBtn']",
      "very_short_time_button" : "btn-cdl-main EditTargetScoreModal__proceedOkay__2v8Ue",
      "close_learning_curve" : "//*[@data-test-id='closelearningcurve']",
      "close_reading" : "//*[@id='container']/div/div/div/button",
      "assign_acitivity" : "[data-test-id='assign_assignment_button']",
      "points_input" : "[data-test-id='points_input']",
      "Assignment_date_picker" : "[data-test-id='Assignment_due_date_picker']",
-     "Assignment_status" : "[data-test-id='assignment_status']"
+     "Assignment_status" : "[data-test-id='assignment_status']",
+     "Assignment_start_date": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[2]/div[5]"
+     
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
