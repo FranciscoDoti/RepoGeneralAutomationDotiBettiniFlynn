@@ -71,10 +71,10 @@ function courseware_register() {
 function math_base() {
   if (config.environment === 'local') {
     return `http://local.saplinglearning.me:3080`
-  } else if (config.environment === 'int') {
-    return `https://int.saplinglearning.me`
+  } else if (config.environment === 'int' || config.environment === 'dev') {
+    return `http://${config.environment}.saplinglearning.me`
   } else {
-    return `https://${config.environment}-achieve-courseware-frontend.mldev.cloud`
+    return `https://int-achieve-${config.environment}-courseware-frontend.mldev.cloud`
   }
 };
 

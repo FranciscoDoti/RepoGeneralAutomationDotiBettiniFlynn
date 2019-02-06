@@ -32,7 +32,7 @@ Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function
 });
 
 // Generic Input //
-Given(/^I input "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async function (text, system, feature, element) {
+Given(/^I input on "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async function (text, system, feature, element) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
 
