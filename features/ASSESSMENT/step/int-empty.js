@@ -12,8 +12,8 @@ const page = require('../../master-page');
 async function signIntoSapling (driver, username, password) {
   // rewriting this function from IAM's login because the submit button
   // is different than Acheive's
-  await driver.input(page.iam.login.username, username, true);
-  await driver.input(page.iam.login.password, password, true);
+  await driver.input(page.assessment.login.username, username, true);
+  await driver.input(page.assessment.login.password, password, true);
   await driver.click(page.assessment.int.submit);
 };
 

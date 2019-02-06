@@ -4,6 +4,8 @@
     "empty": "div[data-test-id=\"empty-message\"]"
   },
   "int": {
-    "submit":"#submitButton"    
+    "username": "input#username",
+    "password": "input#password",
+    "submit":"#submitButton" 
   }
 }
