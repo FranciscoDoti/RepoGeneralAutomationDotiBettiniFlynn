@@ -38,12 +38,14 @@ Then(/^I click on "(.*)" element to add$/, async function (element) {
   await qa.click(page_format);
 });
 
-Then(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" email$/, async function (system, feature, element, email) {
-  let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, [system, feature, element]);
-  let page_format = format(PAGE);
-  await qa.sleep(1);
-  await qa.input(page_format, email);
+Then('I assign Instructor to the course', async function (data_table) {
+  let driver = new selenium(this.driver);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await driver.sleep();
+    await driver.input(page.course.create_course.add_instructor, data_table.hashes()[i].username);
+    await driver.click(page.course.create_course.add_instructor_button);
+    await driver.click(page.course.create_course.add_instructor_close);
+  }
 });
 
 Then(/^I "(.*)" of Achieve$/, async function (element) {
@@ -84,12 +86,11 @@ When('I invite the students', async function (data_table) {
   await qa.sleep(1);
   await qa.click(page.course.create_course.send_email_invite);
   for (let i = 0; i < data_table.rows().length; i++) {
-    let PAGE = await _.get(page, ['course', 'create_course', 'input_student_email']);
-    let page_format = format(PAGE);
-    await qa.click(page_format);
-    await qa.input(page_format, data_table.hashes()[i].username);
-    await qa.input(page_format, ' ');
+    await qa.click(page.course.create_course.Textbox_input);
+    await qa.input(page.course.create_course.input_student_email, data_table.hashes()[i].username);
+    await qa.input(page.course.create_course.input_student_email, ' ')
   }
+  await qa.sleep(1);
   await qa.click(page.course.create_course.send_invite_button);
 });
 
@@ -114,4 +115,22 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the act
   } else {
     await qa.click(page.course.courseplanner.close_reading);
   }
+});
+
+When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and assign the activity$/, async function (system, feature, element) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element]);
+  let page_format = format(PAGE);
+  await qa.clickElementInArray(page_format);
+  await qa.input(page.course.courseplanner.points_input, '5');
+  await qa.click(page.course.courseplanner.Assignment_date_picker);
+  await qa.click(page.course.course_list.end_date);
+  await qa.click(page.course.create_course.save);
+});
+
+Then(/^I verify "(.*)" as open$/, async function (elment) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, ['course', 'courseplanner', element]);
+  let page_format = format(PAGE);
+  await qa.getAttribute(page_format, 'open');
 });

@@ -76,7 +76,8 @@
     "copy_course_code": "#copyCourseShortName", 
     "instructor_button": "//*[@id='react-tabs-2']",
     "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
-    "input_student_email": "//*[@data-test-id='invite_students_modal_ids_input']",
+    "Textbox_input": "[data-test-id='invite_students_modal_ids_input']",
+    "input_student_email": "//*[@name='emailInput']",
     "send_invite_button" : "//*[@data-test-id='invite_students_modal_send_invites_btn']",
     "ebook_link": "//*[@id='courseEbookLink']"
   },
@@ -120,11 +121,11 @@
      "input_target_score": "//*[@data-test-id='editTargetScoreScore']",
      "very_short_time_button" : "btn-cdl-main EditTargetScoreModal__proceedOkay__2v8Ue",
      "close_learning_curve" : "//*[@data-test-id='closelearningcurve']",
-     "close_reading" : "//*[@id='container']/div/div/div/button"
-  },
-  "course_planner": {
-    "custom_content_tab":"[data-test-id='custom_content_tab']",
-    "add_assignment": "._29SI"
+     "close_reading" : "//*[@id='container']/div/div/div/button",
+     "assign_acitivity" : "[data-test-id='assign_assignment_button']",
+     "points_input" : "[data-test-id='points_input']",
+     "Assignment_date_picker" : "[data-test-id='Assignment_due_date_picker']",
+     "Assignment_status" : "[data-test-id='assignment_status']"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
