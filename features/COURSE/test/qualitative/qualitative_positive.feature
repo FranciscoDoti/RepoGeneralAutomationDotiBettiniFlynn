@@ -68,10 +68,8 @@ Feature: Qualitative Positive feature
     |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
 
     When I click on "invite_students_button" element to add
-    And I copy the invite link to open with "student_1"
-    # And I invite the students
-    #     | username                    |
-    #     | macmillanstudent4@gmail.com | 
+    And I copy the invite link to open course with "student_1"
+    And I click on "course" system "student_view" feature "start_grace_period" element
 
     # And I click on the first course card
     

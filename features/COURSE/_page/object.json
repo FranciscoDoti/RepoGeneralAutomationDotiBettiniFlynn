@@ -113,7 +113,9 @@
     "share_template" : "//*[@data-test-id='share_template']",
     "import_structure": "//*[@data-test-id='import_structure_button']",
     "add_folder": "//*[@data-test-id='add_folder_button']"
-    
+  },
+  "student_view": {
+    "start_grace_period": "[data-test-id='access_code_modal_start_gp_btn]"
   },
   "courseplanner": {
     "add_unit_folder": "//*[@data-test-id='add_unit']", 

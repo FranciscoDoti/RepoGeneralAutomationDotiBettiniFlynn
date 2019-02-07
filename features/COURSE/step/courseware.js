@@ -212,7 +212,7 @@ Then('I verify activity list', async function (data_table) {
   }
 })
 
-Then(/^I copy the invite link to open with "(.*)"$/, async function(student_user_object){
+Then(/^I copy the invite link to open course with "(.*)"$/, async function(student_user_object){
   let qa = new selenium(this.driver);
   let invite_link_element = await _.get(page, ['course', 'create_course', 'students_invite_link']);
   let invite_students_modal_close_element = await _.get(page, ['course', 'create_course', 'invite_students_modal_close']);
@@ -223,7 +223,6 @@ Then(/^I copy the invite link to open with "(.*)"$/, async function(student_user
 
   await qa.sleep(1);
   let invite_link = await qa.getAttribute(invite_link_element, 'placeholder');
-  console.log(invite_link, 'invite_link~~~~~~~~~~~~~~~');
   await qa.click(invite_students_modal_close_element);
   await qa.click(toggler_menu_element);
   await qa.sleep(1);
@@ -232,7 +231,9 @@ Then(/^I copy the invite link to open with "(.*)"$/, async function(student_user
   await qa.input(page.iam.login.username, payload.username, true);
   await qa.input(page.iam.login.password, payload.password, true);
   await qa.click(page.iam.login.sign_in);
-
+  await qa.sleep(2);
+  await qa.goTo(invite_link);
+  await qa.sleep(1);
 });
 
 Then('I click on the first course card', async function(){
