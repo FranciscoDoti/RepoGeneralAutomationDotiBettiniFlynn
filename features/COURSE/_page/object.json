@@ -10,8 +10,8 @@
     "enroll": "._1o0U",
     "instructor_access": "._21rl",
     "sign_in": "//*[@data-test-id='sign_in_link_button']",
-    "sign_out": "//*[@data-test-id='menu_user_sign_out']", 
-    "toggler_menu": "//*[@data-test-id='user_dropdown_menu_open']"
+    "sign_out": "[data-test-id='menu_user_sign_out']", 
+    "toggler_menu": "[data-test-id='user_dropdown_menu_open']"
   },
   "course_list": {
     "course_menu": "//*[@data-test-id='course_menu_button']",
@@ -76,6 +76,9 @@
     "copy_course_code": "#copyCourseShortName", 
     "instructor_button": "//*[@id='react-tabs-2']",
     "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
+    "students_invite_link": "[data-test-id='invite_students_modal_invite_link']",
+    "invite_students_modal_close":"[data-test-id='invite_students_modal_close']",
+    "main-menu-dropdown": "[data-id='OpenUserMenuDropdown']",
     "Textbox_input": "[data-test-id='invite_students_modal_ids_input']",
     "input_student_email": "//*[@name='emailInput']",
     "send_invite_button" : "//*[@data-test-id='invite_students_modal_send_invites_btn']",

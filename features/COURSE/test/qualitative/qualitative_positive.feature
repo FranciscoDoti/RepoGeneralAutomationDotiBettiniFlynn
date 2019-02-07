@@ -65,8 +65,13 @@ Feature: Qualitative Positive feature
     # And I login to Achieve
     When I login with the following credentials
     |  username                                     | password       |
-    # |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
-    |  coursewareachieve@gmail.com                  | ABCabc@123     | 
+    |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
+
+    When I click on "invite_students_button" element to add
+    And I copy the invite link to open with "student_1"
+    # And I invite the students
+    #     | username                    |
+    #     | macmillanstudent4@gmail.com | 
 
     # And I click on the first course card
     
