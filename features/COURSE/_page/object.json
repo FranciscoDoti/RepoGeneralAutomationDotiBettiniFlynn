@@ -122,7 +122,7 @@
      "change_target_score": "//*[@data-test-id='editTargetScoreChangeScoreBtn']",
      "very_short_time_button" : "btn-cdl-main EditTargetScoreModal__proceedOkay__2v8Ue",
      "close_learning_curve" : "//*[@data-test-id='closelearningcurve']",
-     "close_reading" : "//*[@id='container']/div/div/div/button",
+     "close_reading" : "//*[@aria-label='Close']",
      "assign_acitivity" : "[data-test-id='assign_assignment_button']",
      "points_input" : "[data-test-id='points_input']",
      "Assignment_date_picker" : "[data-test-id='Assignment_due_date_picker']",

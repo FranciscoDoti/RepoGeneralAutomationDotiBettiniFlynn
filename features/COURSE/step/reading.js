@@ -4,6 +4,7 @@ const page = require('../../master-page.js');
 const format = require('string-format');
 const expect = require('chai').expect;
 const _ = require('lodash');
+const imap = require('../../../app/imap');
 
 Then('I verify the data in course page', async function (data_table) {
   let qa = new selenium(this.driver);
@@ -108,13 +109,15 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the act
   await qa.clickElementInArray(page_format);
   let booleanVal = await qa.exists(page.course.courseplanner.edit_target);
   if (booleanVal === true) {
+    console.log('it exists');
     await qa.click(page.course.courseplanner.edit_target);
-    await qa.clear()
+    await qa.input(page.course.courseplanner.input_target_score, 'clear');
     await qa.input(page.course.courseplanner.input_target_score, '5');
     await qa.click(page.course.courseplanner.change_target_score);
     await qa.click(page.course.courseplanner.very_short_time_button);
     await qa.click(page.course.courseplanner.close_learning_curve);
   } else {
+    console.log('it doesnt exists');
     await qa.click(page.course.courseplanner.close_reading);
   }
 });
@@ -137,3 +140,8 @@ Then(/^I verify "(.*)" as open$/, async function (elment) {
   let page_format = format(PAGE);
   await qa.exists(page_format);
 });
+
+When('I click on the link sent by instructor', async function () {
+  
+
+})

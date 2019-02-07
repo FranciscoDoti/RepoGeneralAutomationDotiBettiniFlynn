@@ -3,7 +3,9 @@ Feature: Assigning the course to the instructor
     # @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
-        And I have logged in as "media_producer_2"
+        And I login with the following credentials
+        | username                                   | password          |
+        | mediaproducer@rupayamail.com               |  ABCabc@123       |
         And I click on "course" system "create_course" feature "button" element
 
         When I fill out the form to edit a course

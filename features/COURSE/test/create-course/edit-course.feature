@@ -3,7 +3,9 @@ Feature: Edit Course
   @delete-course
   Scenario: Verify that Media Producer is able to edit a created Qualitative Template
     Given I login to Achieve
-    And I have logged in as "media_producer_2"
+    And I login with the following credentials
+      | username                                   | password          |
+      | mediaproducer@rupayamail.com               |  ABCabc@123       |
     And I click the Add course button
 
     When I fill out the form to edit a course
