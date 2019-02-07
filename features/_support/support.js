@@ -12,7 +12,12 @@ Given(/^I have opened "(.*)" "(.*)"$/, async function (system, endpoint) {
   let qa = new selenium(this.driver);
   let url = await _.get(URL, [system, endpoint]);
   await qa.goTo(url);
-  await qa.sleep(1);
+});
+
+Given(/^I sleep "(.*)" seconds$/, async function (sleepValue) {
+  let qa = new selenium(this.driver);
+
+  await qa.sleep(sleepValue);
 });
 
 Given("I login to Achieve", async function () {
@@ -26,7 +31,7 @@ Given("I login to Achieve", async function () {
 // Page Navigation //
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new selenium(this.driver);
-  let PAGE = _.get(page, [system, feature, element]);
+  let PAGE = await _.get(page, [system, feature, element]);
   await qa.click(PAGE);
 });
 

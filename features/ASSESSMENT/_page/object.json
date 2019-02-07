@@ -3,7 +3,7 @@
     "assignment_tab": "[data-test-id='link-to-assignment']",
     "empty": "div[data-test-id=\"empty-message\"]"
   },
-  "int": {
+  "signon": {
     "username": "input#username",
     "password": "input#password",
     "submit":"#submitButton" 

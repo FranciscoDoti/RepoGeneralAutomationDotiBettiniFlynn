@@ -35,11 +35,6 @@ function CustomWorld () {
       .usingServer('http://hub-cloud.browserstack.com/wd/hub')
       .withCapabilities(config.capabilities)
       .build();
-  } else if (config.mode === 'assess') {
-    builder = new seleniumWebdriver.Builder()
-      .usingServer('http://int.saplinglearning.me')
-      .withCapabilities(config.capabilities)
-      .build();
   } else {
     builder = new seleniumWebdriver.Builder()
       .usingServer('http://selenium:4444/wd/hub')
