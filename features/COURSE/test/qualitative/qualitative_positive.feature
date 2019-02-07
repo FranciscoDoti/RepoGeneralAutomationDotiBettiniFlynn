@@ -64,9 +64,11 @@ Feature: Qualitative Positive feature
     # And I sign out of Achieve
     # And I login to Achieve
     When I login with the following credentials
-    |  username                     | password       |
-    |  legud@xcodes.net             |  ABCabc@123    | 
-    And I click on the first course card
+    |  username                                     | password       |
+    # |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
+    |  coursewareachieve@gmail.com                  | ABCabc@123     | 
+
+    # And I click on the first course card
     
     # Then I click on courseplanner and I add custom content to the course 
     
