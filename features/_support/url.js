@@ -2,12 +2,30 @@ const config = require("../../config.js");
 
 const saplingBase = () => {
   if (config.environment === 'local') {
-    return 'http://local.saplinglearning.me:8081/activityeditor/';
+    return 'http://local.saplinglearning.me:8081';
   }
 
   if (config.environment === 'int') {
-    return 'http://int.saplinglearning.me/activityeditor/';
+    return 'http://int.saplinglearning.me';
   }
+}
+
+const saplingBaseAssignmentId = () => {
+  if (config.environment === 'local') {
+    return '61043';
+  }
+
+  if (config.environment === 'int') {
+    return '674846';
+  }
+}
+
+const saplingLogin = () => {
+  if (config.environment === 'int') {
+    return 'ibiscms/login/';
+  }
+
+  return `/activityeditor/questionbank/${saplingBaseAssignmentId()}`;
 }
 
 function achieve_base() {
@@ -132,13 +150,8 @@ module.exports = {
     int: math_base() + "/ams/"
   },
   sapling: {
-    int: {
-      login: 'https://int.saplinglearning.me/ibiscms/login/',
-      empty_activity: saplingBase() + `questionbank/674846`
-    },
-    local: {
-      empty_activity: 'http://local.saplinglearning.me:8081/activityeditor/questionbank/61043',
-    }
+    login: `${saplingBase()}/${saplingLogin()}`,
+    empty_activity: `${saplingBase()}/activityeditor/questionbank/${saplingBaseAssignmentId()}`
   },
   third_party: {
     base: "http://accounts.google.com/signin/v2"
