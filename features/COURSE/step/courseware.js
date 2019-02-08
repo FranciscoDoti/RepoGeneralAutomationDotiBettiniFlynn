@@ -236,6 +236,26 @@ Then(/^I copy the invite link to open course with "(.*)"$/, async function(stude
   await qa.sleep(1);
 });
 
+Then(/^I enroll "(.*)" to the current course$/, async function(student_user_object){
+  let qa = new selenium(this.driver);
+  
+  let toggler_menu_element = await _.get(page, ['course', 'home', 'toggler_menu']);
+  let menu_user_admin_element = await _.get(page, ['course', 'home', 'menu_user_admin']);
+  let manage_enrollments_element = await _.get(page, ['course', 'home', 'manage_enrollments']);
+  let manage_enrollments_input_element = await _.get(page, ['course', 'home', 'manage_enrollements_input']);
+  let add_user_button_element = await _.get(page, ['course', 'home', 'add_user_button']);
+  let payload = require(`../../_data/user/${config.environment}/${student_user_object}.json`);
+
+  await qa.click(toggler_menu_element);
+  await qa.sleep(3);
+  await qa.click(menu_user_admin_element);
+  await qa.click(manage_enrollments_element);
+  await qa.input(manage_enrollments_input_element, payload.username);
+  await qa.click(add_user_button_element);
+
+});
+
+
 Then('I click on the first course card', async function(){
   let qa = new selenium(this.driver);
   let course_card_element = await _.get(page, ['course', 'create_course', 'course_card']);

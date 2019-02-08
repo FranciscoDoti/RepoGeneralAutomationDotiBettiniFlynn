@@ -61,15 +61,23 @@ Feature: Qualitative Positive feature
     # And I click on "course" system "create_course" feature "add_instructor_close" element 
 
 
-    # And I sign out of Achieve
+    # When I sign out of Achieve
     # And I login to Achieve
-    When I login with the following credentials
-    |  username                                     | password       |
-    |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
+    # add_instructor_close I login with the following credentials
+    # |  username                                     | password       |
+    # |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
 
-    When I click on "invite_students_button" element to add
-    And I copy the invite link to open course with "student_1"
-    And I click on "course" system "student_view" feature "start_grace_period" element
+    # When I click on "invite_students_button" element to add
+    # And I copy the invite link to open course with "student_1"
+    # And I click on "course" system "student_view" feature "start_grace_period" element
+
+    When I login with the following credentials
+    |  username                              | password       |
+    |  coursewareachieve@gmail.com           | ABCabc@123     |
+    And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    And I click on the first course card
+    And I enroll "student_1" to the current course
+
 
     # And I click on the first course card
     
