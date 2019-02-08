@@ -12,10 +12,14 @@
     "sign_in": "//*[@data-test-id='sign_in_link_button']",
     "sign_out": "[data-test-id='menu_user_sign_out']", 
     "toggler_menu": "[data-test-id='user_dropdown_menu_open']",
-    "menu_user_admin": "[data-test-id='menu_user_admin]",
-    "manage_enrollments": "[data-test-id='menu_user_admin_manage_enrollments]",
-    "manage_enrollements_input": "#__manageEnrollment_emailInput",
-    "add_user_button": "[title='Add User']"
+    "menu_user_admin": "[data-test-id='menu_user_admin']",
+    "manage_enrollments": "[data-test-id='menu_user_admin_manage_enrollments']",
+    "manage_enrollements_input": "[id='__manageEnrollment_emailInput']",
+    "add_user_button": "[title='Add User']",
+    "create_access_code": "[data-test-id='menu_user_admin_check_account']",
+    "generate_access_code": "[data-test-id='generate_access_code_button']",
+    "close_manage_roles": "._2Ft-",
+    "access_code": "._1irm"
   },
   "course_list": {
     "course_menu": "//*[@data-test-id='course_menu_button']",
