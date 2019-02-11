@@ -1,0 +1,11 @@
+{
+  "activity_editor": {
+    "assignment_tab": "[data-test-id='link-to-assignment']",
+    "empty": "div[data-test-id=\"empty-message\"]"
+  },
+  "signon": {
+    "username": "input#username",
+    "password": "input#password",
+    "submit":"#submitButton" 
+  }
+}

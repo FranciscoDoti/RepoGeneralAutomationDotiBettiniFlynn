@@ -11,8 +11,13 @@ const _ = require('lodash');
 Given(/^I have opened "(.*)" "(.*)"$/, async function (system, endpoint) {
   let qa = new selenium(this.driver);
   let url = await _.get(URL, [system, endpoint]);
-
   await qa.goTo(url);
+});
+
+Given(/^I sleep "(.*)" seconds$/, async function (sleepValue) {
+  let qa = new selenium(this.driver);
+
+  await qa.sleep(sleepValue);
 });
 
 Given("I login to Achieve", async function () {
@@ -27,7 +32,6 @@ Given("I login to Achieve", async function () {
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
-
   await qa.click(PAGE);
 });
 
@@ -49,6 +53,15 @@ Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is 
 
   expect(PAGE_TEXT).to.contain(ASSERT_TEXT);
   await qa.click(close_message);
+});
+
+Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is displayed on the page$/, async function (system, feature, element, text) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element]);
+  let PAGE_TEXT = await qa.getText(PAGE);
+  let ASSERT_TEXT = await _.get(assert_text, [system, feature, text]);
+
+  expect(PAGE_TEXT).to.contain(ASSERT_TEXT);
 });
 
 Then("I close the popup message", async function () {
