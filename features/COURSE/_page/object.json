@@ -91,7 +91,10 @@
     "gradebook": "",
     "reports": "",
     "resources": "/html/body/div/div/div/div/div[2]/div[2]/ul/li[4]/span",
-    "reading": "//*[@data-test-id='reading_tab']"
+    "reading": "//*[@data-test-id='reading_tab']",
+    "generate_access_code" : "//*[text()='Generate Access Codes']",
+    "Export_access_code" : "//*[@aria-label='Export List of Generated Codes']",
+    "close_access_code" : "//*[@aria-label='close']"
   },
   "resources": {
     "activity": "._3Jn1",

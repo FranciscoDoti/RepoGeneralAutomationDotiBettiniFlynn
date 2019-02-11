@@ -141,7 +141,14 @@ Then(/^I verify "(.*)" as open$/, async function (elment) {
   await qa.exists(page_format);
 });
 
-When('I click on the link sent by instructor', async function () {
-  
-
-})
+When(/^I generate access code for "(.*)"$/, async function (identifier) {
+  let qa = new selenium(this.driver);
+  let bollenvalue = await qa.hasText(page.course.create_course.course_tittle, identifier);
+  if (bollenvalue === true) {
+    await qa.click(page.course.home.toggler_menu);
+    await qa.click(page.course.user.admin);
+    await qa.click(page.course.course_page.generate_access_code);
+    await qa.click(page.course.course_page.Export_access_code);
+    await qa.click(page.course.course_page.close_access_code);
+  }
+});
