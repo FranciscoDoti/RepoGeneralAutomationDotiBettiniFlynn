@@ -10,7 +10,7 @@ options.setLoggingPrefs(prefs);
 
 require('chromedriver');
 
-function CustomWorld() {
+function CustomWorld () {
   var builder;
 
   if (config.mode === 'local-achieve') {
@@ -37,7 +37,7 @@ function CustomWorld() {
       .build();
   } else {
     builder = new seleniumWebdriver.Builder()
-      .usingServer("http://selenium:4444/wd/hub")
+      .usingServer('http://selenium:4444/wd/hub')
       .withCapabilities(config.capabilities)
       .build();
   }
