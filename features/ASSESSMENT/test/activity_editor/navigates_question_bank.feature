@@ -1,0 +1,14 @@
+Feature: On Empty Assignment View, if I click question button
+
+Scenario: If I click on question bank button, I go to questionbank
+   Given I have opened "sapling" "login"
+      And I have logged into Sapling as "raptoradmin" with password "fasterthansixmill"
+      And I have opened "sapling" "empty_activity"
+      And I sleep "1" seconds
+      And I click on "assessment" system "activity_editor" feature "assignment_tab" element
+
+   
+   When I click on "assessment" system "activity_editor" feature "question_bank_button" element
+      And I wait for "2" seconds
+
+   Then I verify the uri "sapling" "sapling_base_question_bank" for the "current" window

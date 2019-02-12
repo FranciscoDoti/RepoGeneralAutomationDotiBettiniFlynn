@@ -3,7 +3,8 @@
  * we get an empty assignment view
  *
  * @run node_modules/cucumber/bin/cucumber-js \
- * features/ASSESSMENT/test/activity_editor/int_blank_assessment.feature
+ * --env=local \
+ * features/ASSESSMENT/test/activity_editor/blank_assessment.feature
  */
 const { Given } = require('cucumber');
 const Selenium = require('../../../app/selenium.js');

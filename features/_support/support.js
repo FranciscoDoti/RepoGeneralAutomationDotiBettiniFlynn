@@ -32,6 +32,7 @@ Given("I login to Achieve", async function () {
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
+
   await qa.click(PAGE);
 });
 
@@ -96,6 +97,24 @@ Then(/^I verify that the url "(.*)" is the current url in the "(.*)" window$/, a
   }
 })
 
+Then(/^I verify the uri "(.*)" "(.*)" for the "(.*)" window$/, async function (system, endpoint, window) {
+  let qa = new selenium(this.driver);
+  let currentUri = null;
+  let expectedUri = await _.get(URL, [system, endpoint]);
+
+  if (window === 'new') {
+    await qa.sleep(3);
+    await qa.changeWindow(1);
+    currentUri = await qa.getUrl();
+
+    expect(currentUri).to.equal(expectedUri);
+    return;
+  }
+
+  // handle current window
+  currentUri = await qa.getUrl();
+  expect(currentUri).to.equal(expectedUri);
+})
 // Checkbox assertion //
 
 Then(/^I verify the "(.*)" system "(.*)" feature "(.*)" element checkbox is "(.*)"$/, async function (feature, screen, element, checked) {

@@ -20,12 +20,17 @@ const saplingBaseAssignmentId = () => {
   }
 }
 
+const saplingBaseQuestionBank = () => {
+  return saplingBase() + '/activityeditor/questionbank/' +
+    saplingBaseAssignmentId();
+}
+
 const saplingLogin = () => {
   if (config.environment === 'int') {
     return 'ibiscms/login/';
   }
 
-  return `/activityeditor/questionbank/${saplingBaseAssignmentId()}`;
+  return `activityeditor/questionbank/${saplingBaseAssignmentId()}`;
 }
 
 function achieve_base() {
@@ -151,7 +156,8 @@ module.exports = {
   },
   sapling: {
     login: `${saplingBase()}/${saplingLogin()}`,
-    empty_activity: `${saplingBase()}/activityeditor/questionbank/${saplingBaseAssignmentId()}`
+    empty_activity: `${saplingBase()}/activityeditor/questionbank/${saplingBaseAssignmentId()}`,
+    sapling_base_question_bank: saplingBaseQuestionBank()
   },
   third_party: {
     base: "http://accounts.google.com/signin/v2"

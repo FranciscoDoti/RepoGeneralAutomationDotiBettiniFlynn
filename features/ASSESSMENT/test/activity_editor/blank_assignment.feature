@@ -8,4 +8,6 @@ Feature: Int Displays No Items in Assignment when empty
       And I sleep "1" seconds
       And I click on "assessment" system "activity_editor" feature "assignment_tab" element
 
-   Then I verify "assessment" system "activity_editor" feature "empty" element's "empty_assignment_message" message is displayed on the page
+   Then I verify "assessment" system "activity_editor" feature "new_empty" element's "empty_assignment_banner" message is displayed on the page
+
+
