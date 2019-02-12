@@ -25,6 +25,7 @@
     "isbn": "//div[contains(text(), 'ISBN: {}')]",
     "list": "._ExY",
     "course_name": "//*[@data-test-id='course_name']",
+    "course_code": "[id='courseCode']",
     "course_name_course_code": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='_3ndY']",
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
@@ -35,7 +36,8 @@
     "next_month_button": "//*[@aria-label='next_month_button']", 
     "select_date": "/html/body/div[3]/div/div/div[2]/div/div[4]/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div[5]/div[2]",
     "course_activation" : "//*[@data-test-id='course_activation_date']",
-    "invite_students_button": "//*[@data-test-id='course_menu_invite_students']"
+    "invite_students_button": "//*[@data-test-id='course_menu_invite_students']",
+    "template_status": "select._2oIm._1bTe"
 
   },
   "create_course": {
@@ -62,7 +64,6 @@
     "term": "[name='courseTerm']",
     "term_year": "[name='courseYear']",
     "status": "[name='courseStatus']",
-    "template_status": "select._2oIm._1bTe",
     "cancel": "//*[text()='Cancel']",
     "save": "._1tkc.undefined",
     "message": "._10W9",

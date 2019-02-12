@@ -1,7 +1,7 @@
-Feature: Adding_activities in resource tab 
+Feature: Activating the course 
+Feature: Activate the course copied and assigned to an instructor  
 
-    @delete-course
-    Scenario: Verify that a Media Producer is able to create a Read & Practice Course
+  Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
         And I click on "course" system "create_course" feature "button" element
@@ -23,7 +23,6 @@ Feature: Adding_activities in resource tab
             | template_status  | Active On Date                                              |     |
         
         And I click on "course" system "create_course" feature "course_card" element 
-
     
         And I click on "course" system "course_page" feature "resources" element 
 
@@ -33,13 +32,31 @@ Feature: Adding_activities in resource tab
             | communicating courteously                                         | Reading            |                                                        
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
-
-        Then I verify the activity list 
-            | activity                     | 
-            | communicating courteously    |                                                        
-            | Active and Passive voice     |
-            | Wars of Religion             | 
- 
         
 
+        And I fill out the form to copy a course
+            | page_object       | value                    |
+            | copy_course       | Read & Practice course   |
+            | copy_course_code  | E2E301                   |
+
+        And I "sign_out" of Achieve
+        And I have logged in as "customer_support_1"
+        And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
+        And I assign Instructor to the course
+            | username              | password   |
+            | bawi@quick-mail.info  | ABCabc@123 |
+
+        And I "sign_out" of Achieve
+        And I have logged in as "instructor_7"
        
+
+        Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
+
+        When I fill out the form to update the status of course to active 
+            | page_object      | value                | clear |
+            |  course_name     |  Read& Practice      | True  |  
+            |  course_code     |   E2E301             | True  |  
+            | template_status  |  Active On Date      | True  |
+
+        Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
+        And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"

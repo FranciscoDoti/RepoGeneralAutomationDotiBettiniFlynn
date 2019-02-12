@@ -42,6 +42,9 @@ Then(/^I click on "(.*)" element to add$/, async function (element) {
 Then('I assign Instructor to the course', async function (data_table) {
   let driver = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
+    await sleep (1);
+    await driver.click(page.course.course_list.course_menu);
+    await driver.click(page.course.course_list.manage_instructor);
     await driver.sleep();
     await driver.input(page.course.create_course.add_instructor, data_table.hashes()[i].username);
     await driver.click(page.course.create_course.add_instructor_button);
@@ -84,6 +87,8 @@ Then(/^I verify that the course "(.*)" is "(.*)"$/, async function (identifier, 
 
 When('I invite the students', async function (data_table) {
   let qa = new selenium(this.driver);
+  await qa.click(page.course.course_list.course_menu);
+  await qa.click(page.course.course_list.invite_students_button);
   await qa.sleep(1);
   await qa.click(page.course.create_course.send_email_invite);
   for (let i = 0; i < data_table.rows().length; i++) {

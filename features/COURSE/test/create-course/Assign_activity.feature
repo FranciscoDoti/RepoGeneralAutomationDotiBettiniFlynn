@@ -1,7 +1,7 @@
-Feature: Creating paid_acces code 
-   
+Feature: Changing the status of activities from unassigned to assigned 
+
     @delete-course
-Scenario: Verify that a Media Producer is able to create a Read & Practice Course
+    Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
         And I click on "course" system "create_course" feature "button" element
@@ -14,25 +14,23 @@ Scenario: Verify that a Media Producer is able to create a Read & Practice Cours
             | course_code   | E2E 301                  |
             | isbn_number   | 9781464199498            |
             | course_status | draft                    |
-
+        
         And I fill out the form to update the template from draft to Template
             | page_object      | value                                                       |clear|
             | edit_course_name | Edit Testcourse                                             |true |
             | edit_course_code | E2E 301                                                     |true |
             | ebook_link       | https://int-achieve-courseware-frontend.mldev.cloud/courses |true |
             | template_status  | Active On Date                                              |     |
-
         And I click on "course" system "create_course" feature "course_card" element 
 
         And I click on "course" system "course_page" feature "resources" element 
-
         
         And I add the activity to the course under the resources tab
             | activity                                                          | type               |
             | communicating courteously                                         | Reading            |                                                        
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
-        
+
 
         And I fill out the form to copy a course
             | page_object       | value                    |
@@ -60,7 +58,7 @@ Scenario: Verify that a Media Producer is able to create a Read & Practice Cours
         And I invite the students
             | username                    |
             | macmillanstudent4@gmail.com | 
-
+        
         And I add the activities in courseplanner 
             | activity                                                          | type               |
             | communicating courteously                                         | Reading            |                                                        
@@ -72,18 +70,11 @@ Scenario: Verify that a Media Producer is able to create a Read & Practice Cours
             | communicating courteously                                         | Reading            |                                                        
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
+        
+        Then I verify "activity_staus" as open
+
+        
     
-
-        And I "sign_out" of Achieve
-        And I have logged in as "paid_access"
-        
-        When I generate access code for "Edit Testcourse"
-
-        Then I verify the access code is downloaded 
-
-        And I "sign_out" of achieve
         
 
 
-        
-       
