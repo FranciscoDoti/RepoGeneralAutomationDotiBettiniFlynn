@@ -1,4 +1,3 @@
-
 const { Given, When, Then, And, After } = require('cucumber');
 const selenium = require('../../../app/selenium.js');
 const page = require('../../master-page.js');
@@ -12,35 +11,6 @@ const { Key } = require('selenium-webdriver')
 
 /* Scenario 1: Verify sapling AMS page is loaded and navigate to AuthorApp page by clicking new Raptor item link */
 const shortTimeout = 2000
-
-Given(/^I login to "(.*)" login page as "(.*)"$/, async function(env, user) {
-  let qa = new selenium(this.driver);
-  let url = await _.get(URL, ["math", env]);
-  await qa.goTo(url);
-  let account = require(`../_data/users/${env}-${user}.json`);
-  await qa.input(page.math.login[env].username, account.username, true);
-  await qa.input(page.math.login[env].password, account.password, true);
-  await qa.click(page.math.login[env].submit);
-  if (env === 'local') {
-    await qa.click(page.math.login[env].amslink); 
-  }
-});
-
-When(/^I am in the AMS page$/, async function () {
-  let qa = new selenium(this.driver);
-  await qa.exists(page.math.raptorAms.raptorNewItem);
-});
-
-When(/^I click on the New Raptor item$/, async function () {
-  let qa = new selenium(this.driver);
-  await qa.click(page.math.raptorAms.raptorNewItem);
-});
-
-When(/^I am on the AuthorApp item page$/, async function () {
-  let qa = new selenium(this.driver);
-  await qa.changeWindow(1);
-  await qa.exists(page.math.raptorAms.titleName);
-});
 
 When(/^I select Graded equation and save as "(.*)"$/, async function (name) {
   let qa = new selenium(this.driver);

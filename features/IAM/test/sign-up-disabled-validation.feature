@@ -38,7 +38,7 @@
         | Security_Question_3_Answer | answer |
         | institution | Miami University | 
         
-        Then I verify the "iam" system "create_account" feature "signup_btn" element is "disabled"
+        Then  "disabled"
         Examples:
         | element                       |
         | "email"                       |
