@@ -19,11 +19,6 @@ const saplingBaseQuestionBank = () => {
     saplingBaseAssignmentId();
 }
 
-const saplingBaseAssignmentList = () => {
-  return saplingBase() + '/activityeditor/assignment/' +
-    saplingBaseAssignmentId();
-}
-
 const saplingLogin = () => {
   if (config.environment === 'local') {
     return `activityeditor/questionbank/${saplingBaseAssignmentId()}`;
@@ -155,8 +150,7 @@ module.exports = {
   sapling: {
     login: `${saplingBase()}/${saplingLogin()}`,
     empty_activity: `${saplingBase()}/activityeditor/assignment/${saplingBaseAssignmentId()}`,
-    sapling_base_question_bank: saplingBaseQuestionBank(),
-    sapling_base_assignment_list: saplingBaseAssignmentList()
+    sapling_base_question_bank: saplingBaseQuestionBank()
   },
   third_party: {
     base: "http://accounts.google.com/signin/v2"
