@@ -5,6 +5,8 @@ const URL = require('../../_support/url.js');
 const _ = require('lodash');
 const config = require('../../../config.js')
 
+/* Verifies Sapling login, AMS page and navigation to AuthorApp page by clicking new Raptor item link */
+
 Given(/^I login to AMS/, async function() {
     const env = config.environment
     let qa = new selenium(this.driver);
@@ -21,8 +23,6 @@ Given(/^I login to AMS/, async function() {
 
 When(/^I click on the New Raptor item in the AMS page$/, async function () {
     let qa = new selenium(this.driver);
-    await qa.sleep(3);
-    await qa.exists(page.math.raptorAms.raptorNewItem);
     await qa.click(page.math.raptorAms.raptorNewItem);
   });
   

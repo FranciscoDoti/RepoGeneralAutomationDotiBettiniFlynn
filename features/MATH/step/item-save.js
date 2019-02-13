@@ -14,7 +14,7 @@ let fs = require('fs');
 /* Scenario 1: User creates and saves a new AMS raptor item and sets the item status to live */
 const shortTimeout = 2000
 
-Then(/^I create a new graded equation question and save$/, async function () {
+Then(/^I create a new graded (".*") (".*") and save the question$/, async function (eval, eqn) {
   let qa = new selenium(this.driver);
   await qa.input(page.math.raptorAms.titleName, "itemlive", true);
   itemid = await qa.getText(page.math.ams.getItemid);
@@ -24,22 +24,22 @@ Then(/^I create a new graded equation question and save$/, async function () {
   fs.writeFileSync('raptor-itemId.txt', num);
 
   await qa.click(page.math.raptorAms.moduleTab);
-  await qa.exists(page.math.raptorAms.gradedEquationButtonlink);
   await qa.click(page.math.raptorAms.gradedEquationButtonlink);
   await qa.click(page.math.raptorAms.questionContent);
-
-  let evalGrade = require(`../_data/math-eqn.json`);
   await qa.click(page.math.raptorAms.correctTab);
-  await qa.input(page.math.raptorAms.gradeAs, 'Relation');
+  await qa.input(page.math.raptorAms.gradeAs, eval);
   await qa.click(page.math.raptorAms.gradeAs);
-
-  await qa.sendKeys(page.math.raptorAms.text1, Key.RETURN)
-  await qa.sendKeys(page.math.raptorAms.text1, Key.BACK_SPACE)
-  await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[1].value='${evalGrade.EvalQ1.Equation}'; ta[1].dispatchEvent(new Event('input'))`);
-  await qa.sendKeys(page.math.raptorAms.text2, Key.RETURN)
-  await qa.sendKeys(page.math.raptorAms.text2, Key.BACK_SPACE)
-  await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[0].value='${evalGrade.EvalQ1.Equation}'; ta[0].dispatchEvent(new Event('input'))`);
-
-  await qa.click(page.math.raptorAms.saveButton);
-  await qa.sleep(1);
+  for (let i = 0; i< eqn.length; i++) {
+    const expr = eqn.charAt(i);
+    await qa.sendKeys(page.math.raptorAms.equationField, Key.RETURN)
+    await qa.sendKeys(page.math.raptorAms.equationField, Key.BACK_SPACE)
+    await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[1].value='${expr}'; ta[1].dispatchEvent(new Event('input'))`);
+  }
+  for (let i = 0; i< eqn.length; i++) {
+    const expr = eqn.charAt(i);
+    await qa.sendKeys(page.math.raptorAms.prefixField, Key.RETURN)
+    await qa.sendKeys(page.math.raptorAms.prefixField, Key.BACK_SPACE)
+    await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[0].value='${expr}'; ta[0].dispatchEvent(new Event('input'))`);
+  }
+  await qa.click(page.math.raptorAms.saveButton, 1000);
 });
