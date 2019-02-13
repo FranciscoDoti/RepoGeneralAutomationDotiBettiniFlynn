@@ -128,8 +128,9 @@ Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, a
 
 Then('I verify the course_list data', async function (data_table) {
   let qa = new selenium(this.driver);
-  await qa.click(page.course.create_course.course_menu);
-  await qa.click(page.course.create_course.edit_course);
+  await qa.sleep(1);
+  await qa.click(page.course.course_list.course_menu);
+  await qa.click(page.course.course_list.edit_course);
   for (let i = 0; i < data_table.rows().length; i++) {
     let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
     let page_format = await format(PAGE, data_table.hashes()[0].value);
@@ -167,31 +168,21 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function (c
 Then('I add the activity to the course under the resources tab', async function (data_table) {
   let qa = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
-    let resources_tab_element = await _.get(page, ['course', 'course_page', 'resources']);
-    let add_content_button_element = await _.get(page, ['course', 'resources', 'add_content']);
-    let search_bar = await _.get(page, ['course', 'resources', 'search_bar']);
-    let add_button_assessment_element = await _.get(page, ['course', 'resources', 'add_button_assessment']);
-    let add_button_learningcurve_element = await _.get(page, ['course', 'resources', 'add_button_learningcurve']);
-    let add_button_reading_element = await _.get(page, ['course', 'resources', 'add_reading_button']);
-    let add_button_readandpractice_element = await _.get(page, ['course', 'resources', 'add_button_read&practice']);
-    let add_button_file_element = await _.get(page, ['course', 'resources', 'add_file_button']);
-    let close_resource_search_nav = await _.get(page, ['course', 'resources', 'close_resource_search_nav']);
-    await qa.click(resources_tab_element);
-    await qa.click(add_content_button_element);
-    await qa.input(search_bar, data_table.hashes()[i].activity, 'clear');
+    await qa.click(page.course.resources.add_content);
+    await qa.input(page.course.resources.search_bar, data_table.hashes()[i].activity, 'clear', 'enter_after');
+    await qa.click(page.course.resources.search_bar);
     if (data_table.hashes()[i].type === 'learning_curve') {
-      await qa.click(add_button_learningcurve_element);
+      await qa.click(page.course.resources.add_button_learningcurve);
     } else if (data_table.hashes()[i].type === 'assessment') {
-      await qa.click(add_button_assessment_element);
+      await qa.click(page.course.resources.add_button_assessment);
     } else if (data_table.hashes()[i].type === 'Reading') {
-      await qa.click(add_button_reading_element);
+      await qa.click(page.course.resources.add_reading_button);
     } else if (data_table.hashes()[i].type === 'Read and Practice') {
-      await qa.click(add_button_readandpractice_element);
+      await qa.click(page.course.resources.add_button_readandpractice);
     } else if (data_table.hashes()[i].type === 'file') {
-      await qa.click(add_button_file_element);
+      await qa.click(page.course.resources.add_file_button);
     }
-    await qa.click(close_resource_search_nav);
-    
+    await qa.click(page.course.resources.close_resource_search_nav);
   }
 })
 
@@ -205,25 +196,25 @@ Then('I verify activity list', async function (data_table) {
     let activity_element = await _.get(page, ['course', 'resources', 'activity']);
     // let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);
     let elementText = await qa.getText(activity_element);
-    if (elementText === undefined){
+    if (elementText === undefined) {
       elementText = 'Element Not Found';
     }
-    expect(elementText).to.contain(data_table.hashes()[i].activity);
+    expect(elementText).to.contain(data_table.hashes()[i].page);
   }
 })
 
-Then('I click on the first course card', async function(){
+Then('I click on the first course card', async function () {
   let qa = new selenium(this.driver);
   let course_card_element = await _.get(page, ['course', 'create_course', 'course_card']);
   await qa.sleep(2);
   await qa.click(course_card_element);
-})
+});
 
 Then('I add the activities to the course under the course planner tab', async function () {
   let qa = new selenium(this.driver);
   let course_planner_tab_element = await _.get(page, ['course', 'course_page', 'course_planner']);
   let custom_content_tab_element = await _.get(page, ['course', 'course_planner', 'custom_content_tab']);
-  let add_assignment_element = await _.get(page, ['course', 'course_planner', 'add_assignment']);  
+  let add_assignment_element = await _.get(page, ['course', 'course_planner', 'add_assignment']);
 
   await qa.click(course_planner_tab_element);
   await qa.click(custom_content_tab_element);

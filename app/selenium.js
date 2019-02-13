@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
 var config = require('../config.js');
+const seleniumWebdriver = require('selenium-webdriver');
 
 // Promise.longStackTraces();
 
@@ -122,7 +123,7 @@ module.exports = function (driver) {
       yield locator.isEnabled();
     }),
 
-    input: Promise.coroutine(function * (selector, text, clear) {
+    input: Promise.coroutine(function * (selector, text, clear, enter_after) {
       var locator = this._locator(selector);
       yield this._exists(true, locator);
       var elem = yield driver.findElement(locator);
@@ -133,6 +134,9 @@ module.exports = function (driver) {
         yield elem.clear();
       };
       yield elem.sendKeys(text);
+      if (enter_after) {
+        yield elem.sendKeys(seleniumWebdriver.Key.ENTER);
+      }
     }),
 
     getText: Promise.coroutine(function * (selector) {

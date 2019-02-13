@@ -53,15 +53,15 @@ Feature: Happy path flow for Read and Practice
         
         And I add the activity to the course under the resources tab
             | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |                                                        
+            | communicating courteously                                          | Reading            |                                                        
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
 
-        Then I verify the activity list 
-            |  activity                    | 
-            | communicating courteously    |                                                        
-            | Active and Passive voice     |
-            | Wars of Religion             | 
+        # Then I verify the activity list 
+        #     | activity                     |  
+        #     | communicating courteously    |                                                        
+        #     | Active and Passive voice     |
+        #     | Wars of Religion             | 
  
 
         And I fill out the form to copy a course
@@ -72,24 +72,26 @@ Feature: Happy path flow for Read and Practice
         Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
 
         And I "sign_out" of Achieve
+        And I login to Achieve
         And I have logged in as "customer_support_1"
         And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
         
         And I assign Instructor to the course
             | username              | password   |
-            | bawi@quick-mail.info  | ABCabc@123 |
+            | cofikada@webmails.top | ABCabc@123 |
 
         And I "sign_out" of Achieve
+        And I login to Achieve 
         And I have logged in as "instructor_7"
        
 
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
         When I fill out the form to update the status of course to active 
-            | page_object      | value                | clear |
-            |  course_name     |  Read& Practice      | True  |  
-            |  course_code     |   E2E301             | True  |  
-            | template_status  |  Active On Date      | True  |
+            | page_object      | value                | 
+            |  course          |  Read& Practice      | 
+            |  course_code     |   E2E301             |  
+            | template_status  |  Active On Date      | 
 
         Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
         And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
@@ -101,23 +103,18 @@ Feature: Happy path flow for Read and Practice
         Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
 
         And I add the activities in courseplanner 
-            | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |                                                        
-            | Active and Passive voice                                          | learning_curve     |
-            | Wars of Religion                                                  | Read and Practice  |
+            | activity                                                          | 
+            | communicating courteously                                         |                                                        
+            | Active and Passive voice                                          |
+            | Wars of Religion                                                  | 
         
-        Then I verify activity list 
-            |  activity                    | 
-            | communicating courteously    |                                                        
-            | Active and Passive voice     |
-            | Wars of Religion             | 
+        # Then I verify activity list 
+        #     | activity                     | 
+        #     | communicating courteously    |                                                        
+        #     | Active and Passive voice     |
+        #     | Wars of Religion             | 
         
-        And I update the activity status from assigned to unassigned 
-            | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |                                                        
-            | Active and Passive voice                                          | learning_curve     |
-            | Wars of Religion                                                  | Read and Practice  |
-        
+        When I click on "course" system "courseplanner" feature "assign_acitivity" element and assign the activity
         Then I verify "activity_staus" as open
 
         And I "sign_out" of Achieve
@@ -144,14 +141,6 @@ Feature: Happy path flow for Read and Practice
             | Wars of Religion                                                  | Read and Practice  |
 
         
-
-        
-        
-
-
-
-
-
 
         
         
