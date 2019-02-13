@@ -11,7 +11,7 @@ const saplingBaseAssignmentId = () => {
   if (config.environment === 'local') {
     return '61043';
   }
-  return config.sapling_assignment;
+  return config.sap;
 }
 
 const saplingBaseQuestionBank = () => {
