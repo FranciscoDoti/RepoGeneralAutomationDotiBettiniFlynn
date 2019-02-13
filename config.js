@@ -5,6 +5,7 @@ let argv = minimist(process.argv.slice(2));
 module.exports = {
   mode: argv.mode || "local",
   environment: argv.env || "int",
+  sapling_assignment: argv.sapling_assignment || "674846",
   timeout: argv.timeout || 10000,
   sleep: argv.sleep || 1000,
   headless: argv.headless || false,

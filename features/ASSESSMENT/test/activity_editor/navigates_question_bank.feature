@@ -4,9 +4,6 @@ Scenario: If I click on question bank button, I go to questionbank
    Given I have opened "sapling" "login"
       And I have logged into Sapling as "raptoradmin" with password "fasterthansixmill"
       And I have opened "sapling" "empty_activity"
-      And I sleep "1" seconds
-      And I click on "assessment" system "activity_editor" feature "assignment_tab" element
-
    
    When I click on "assessment" system "activity_editor" feature "question_bank_button" element
 
