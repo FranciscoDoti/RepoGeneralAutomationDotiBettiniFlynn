@@ -63,22 +63,29 @@ Feature: Qualitative Positive feature
 
     # When I sign out of Achieve
     # And I login to Achieve
-    # add_instructor_close I login with the following credentials
+    # And I login with the following credentials
     # |  username                                     | password       |
     # |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
 
     # When I click on "invite_students_button" element to add
     # And I copy the invite link to open course with "student_1"
     # And I click on "course" system "student_view" feature "start_grace_period" element
+ 
+    # When I sign out of Achieve
+    And I login to Achieve
+    And I login with the following credentials
+    |  username                                     | password       |
+    |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
+    And I click on the course planner to assign the activity "500" points
 
-    When I login with the following credentials
-    |  username                              | password       |
-    |  coursewareachieve@gmail.com           | ABCabc@123     |
-    And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
-    And I click on the first course card
-    And I enroll "student_1" to the current course
-    And I generate a course code to the current course
-    And I validate the "Qualitative E2E" course is accessible by "student_1"
+    # When I login with the following credentials
+    # |  username                              | password       |
+    # |  coursewareachieve@gmail.com           | ABCabc@123     |
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    # And I click on the first course card
+    # And I enroll "student_1" to the current course
+    # And I generate a course code to the current course
+    # And I validate the "Qualitative E2E" course is accessible by "student_1"
 
     # And I click on the first course card
     

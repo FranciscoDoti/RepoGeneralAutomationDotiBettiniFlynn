@@ -302,6 +302,15 @@ Then(/^I enroll "(.*)" to the current course$/, async function(student_user_obje
 
 });
 
+Then(/^I click on the course planner to assign the activity "(.*)" points$/, async function(points){
+  let qa = new selenium(this.driver);
+
+  await qa.click(page.course.course_page.course_planner)
+  await qa.click(page.course.course_planner.assign_assignment_button)
+  await qa.input(page.course.course_planner.points_input, points);
+  await qa.click(page.course.course_planner.assign_button)
+})
+
 
 Then('I click on the first course card', async function(){
   let qa = new selenium(this.driver);

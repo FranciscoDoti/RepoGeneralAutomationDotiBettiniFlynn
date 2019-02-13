@@ -140,7 +140,10 @@
   },
   "course_planner": {
     "custom_content_tab":"[data-test-id='custom_content_tab']",
-    "add_assignment": "._29SI"
+    "add_assignment": "._29SI",
+    "assign_assignment_button":"[data-test-id='assign_assignment_button']",
+    "points_input":"[data-test-id='points_input']",
+    "assign_button":"[data-test-id='assign_button']"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
