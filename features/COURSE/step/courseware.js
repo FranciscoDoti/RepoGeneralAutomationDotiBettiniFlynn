@@ -244,7 +244,7 @@ Then('I generate a course code to the current course', async function(){
   let generate_access_code_element = await _.get(page, ['course', 'home', 'generate_access_code']);
   let access_code_element = await _.get(page, ['course', 'home', 'access_code']);
   let close_access_code_element = await _.get(page, ['course', 'home', 'close_access_code']);
-  
+
   await qa.sleep(2);  
   await qa.click(toggler_menu_element);
   await qa.sleep(1);
@@ -253,12 +253,30 @@ Then('I generate a course code to the current course', async function(){
   await qa.click(create_access_code_element);
   await qa.sleep(1);
   await qa.click(generate_access_code_element);
-  await qa.sleep(1);  
   let access_code = await qa.getText(access_code_element);
   console.log(access_code, 'access code~~~~~~~');
   await qa.sleep(1);  
   await qa.click(close_access_code_element);
 })
+
+Then(/^I validate the "(.*)" course is accessible by "(.*)"$/, async function(course, student_user_object){
+  let qa = new selenium(this.driver);
+
+  let sign_out_element = await _.get(page, ['course', 'home', 'sign_out']);
+  let sign_in_link_element = await _.get(page, ['course', 'home', 'sign_in']);
+  let payload = require(`../../_data/user/${config.environment}/${student_user_object}.json`);
+
+  await qa.click(page.course.home.toggler_menu);
+  await qa.sleep(1);
+  await qa.click(sign_out_element);
+  await qa.sleep(1);
+  await qa.click(sign_in_link_element);
+  await qa.input(page.iam.login.username, payload.username, true);
+  await qa.input(page.iam.login.password, payload.password, true);
+  await qa.click(page.iam.login.sign_in);
+  await qa.click(page.course.course_list.course_name);
+})
+
 
 Then(/^I enroll "(.*)" to the current course$/, async function(student_user_object){
   let qa = new selenium(this.driver);

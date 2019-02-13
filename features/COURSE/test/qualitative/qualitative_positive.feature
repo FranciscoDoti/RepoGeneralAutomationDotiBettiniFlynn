@@ -78,6 +78,7 @@ Feature: Qualitative Positive feature
     And I click on the first course card
     And I enroll "student_1" to the current course
     And I generate a course code to the current course
+    And I validate the "Qualitative E2E" course is accessible by "student_1"
 
     # And I click on the first course card
     

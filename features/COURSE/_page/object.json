@@ -124,7 +124,13 @@
     "add_folder": "//*[@data-test-id='add_folder_button']"
   },
   "student_view": {
-    "start_grace_period": "[data-test-id='access_code_modal_start_gp_btn]"
+    "start_grace_period": "[data-test-id='access_code_modal_start_gp_btn]",
+    "check_answer_button": "[data-test-id='check-answer-button']",
+    "ungraded_area": "[placeholder='This ungraded area will provide insight to your instructor.']",
+    "submit_all_questions": "[data-test-id='submit-assignment-button']",
+    "multiple_choice_2": "#multipleChoice-nav-2710379093radio1",
+    "submit_final_answers": "[data-test-id='submit-all-modal-submit']",
+    "assignment_score": "[data-test-id='assignment-percentage-score']"
   },
   "courseplanner": {
     "add_unit_folder": "//*[@data-test-id='add_unit']", 
