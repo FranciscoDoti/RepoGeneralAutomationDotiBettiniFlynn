@@ -233,22 +233,43 @@ Then(/^I copy the invite link to open course with "(.*)"$/, async function(stude
   await qa.click(page.iam.login.sign_in);
   await qa.sleep(2);
   await qa.goTo(invite_link);
-  await qa.sleep(1);
 });
+
+Then('I generate a course code to the current course', async function(){
+  let qa = new selenium(this.driver);
+  
+  let toggler_menu_element = await _.get(page, ['course', 'home', 'toggler_menu']);
+  let menu_user_admin_element = await _.get(page, ['course', 'home', 'menu_user_admin']);
+  let create_access_code_element = await _.get(page, ['course', 'home', 'create_access_code']);
+  let generate_access_code_element = await _.get(page, ['course', 'home', 'generate_access_code']);
+  let access_code_element = await _.get(page, ['course', 'home', 'access_code']);
+  let close_access_code_element = await _.get(page, ['course', 'home', 'close_access_code']);
+  
+  await qa.sleep(2);  
+  await qa.click(toggler_menu_element);
+  await qa.sleep(1);
+  await qa.click(menu_user_admin_element);
+  await qa.sleep(1);
+  await qa.click(create_access_code_element);
+  await qa.sleep(1);
+  await qa.click(generate_access_code_element);
+  await qa.sleep(1);  
+  let access_code = await qa.getText(access_code_element);
+  console.log(access_code, 'access code~~~~~~~');
+  await qa.sleep(1);  
+  await qa.click(close_access_code_element);
+})
 
 Then(/^I enroll "(.*)" to the current course$/, async function(student_user_object){
   let qa = new selenium(this.driver);
   
   let toggler_menu_element = await _.get(page, ['course', 'home', 'toggler_menu']);
   let menu_user_admin_element = await _.get(page, ['course', 'home', 'menu_user_admin']);
+  let payload = require(`../../_data/user/${config.environment}/${student_user_object}.json`);
   let manage_enrollments_element = await _.get(page, ['course', 'home', 'manage_enrollments']);
   let manage_enrollments_input_element = await _.get(page, ['course', 'home', 'manage_enrollements_input']);
   let add_user_button_element = await _.get(page, ['course', 'home', 'add_user_button']);
-  let create_access_code_element = await _.get(page, ['course', 'home', 'create_access_code']);
-  let generate_access_code_element = await _.get(page, ['course', 'home', 'generate_access_code']);
   let close_manage_roles_element = await _.get(page, ['course', 'home', 'close_manage_roles']);
-  let access_code_element = await _.get(page, ['course', 'home', 'access_code']);
-  let payload = require(`../../_data/user/${config.environment}/${student_user_object}.json`);
 
   await qa.click(toggler_menu_element);
   await qa.sleep(1);
@@ -259,18 +280,7 @@ Then(/^I enroll "(.*)" to the current course$/, async function(student_user_obje
   await qa.input(manage_enrollments_input_element, payload.username);
   await qa.click(add_user_button_element);
   await qa.click(close_manage_roles_element);
-  await qa.sleep(6);
-
-  await qa.click(toggler_menu_element);
-  await qa.sleep(2);
-  await qa.click(menu_user_admin_element);
   await qa.sleep(1);
-  await qa.click(create_access_code_element);
-  await qa.sleep(1);
-  await qa.click(generate_access_code_element);
-  await qa.sleep(3);  
-  let access_code = await qa.getText(access_code_element)
-  console.log(access_code, 'access code~~~~~~~')
 
 });
 

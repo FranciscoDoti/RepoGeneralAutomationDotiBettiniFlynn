@@ -77,7 +77,7 @@ Feature: Qualitative Positive feature
     And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
     And I click on the first course card
     And I enroll "student_1" to the current course
-
+    And I generate a course code to the current course
 
     # And I click on the first course card
     
