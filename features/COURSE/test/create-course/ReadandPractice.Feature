@@ -57,11 +57,11 @@ Feature: Happy path flow for Read and Practice
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
 
-        Then I verify the activity list 
-            | activity                     |  
-            | communicating courteously    |                                                        
-            | Active and Passive voice     |
-            | Wars of Religion             | 
+        # Then I verify the activity list 
+        #     | activity                     |  
+        #     | communicating courteously    |                                                        
+        #     | Active and Passive voice     |
+        #     | Wars of Religion             | 
  
 
         And I fill out the form to copy a course
@@ -106,11 +106,11 @@ Feature: Happy path flow for Read and Practice
             | Active and Passive voice                                          |
             | Wars of Religion                                                  | 
         
-        Then I verify activity list 
-            | activity                     | 
-            | communicating courteously    |                                                        
-            | Active and Passive voice     |
-            | Wars of Religion             | 
+        # Then I verify activity list 
+        #     | activity                     | 
+        #     | communicating courteously    |                                                        
+        #     | Active and Passive voice     |
+        #     | Wars of Religion             | 
         
         When I update the status of activities from unassigned to assigned
             | page_object  | value |

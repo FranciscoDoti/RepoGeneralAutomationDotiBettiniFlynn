@@ -98,7 +98,7 @@ When('I invite the students', async function (data_table) {
     await qa.input(page.course.create_course.input_student_email, data_table.hashes()[i].username);
     await qa.input(page.course.create_course.input_student_email, ' ')
   }
-  await qa.sleep(1);
+  await qa.click(page.course.create_course.send_invite_button);
   await qa.click(page.course.create_course.send_invite_button);
 });
 
@@ -114,18 +114,18 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the act
   let PAGE = await _.get(page, [system, feature, element]);
   let page_format = format(PAGE);
   await qa.clickElementInArray(page_format);
-  let booleanVal = await qa.exists(page.course.courseplanner.edit_target);
+  let booleanVal = await qa.exists(page.course.course_planner.edit_target);
   if (booleanVal === true) {
     console.log('it exists');
-    await qa.click(page.course.courseplanner.edit_target);
-    await qa.input(page.course.courseplanner.input_target_score, 'clear');
-    await qa.input(page.course.courseplanner.input_target_score, '5');
-    await qa.click(page.course.courseplanner.change_target_score);
-    await qa.click(page.course.courseplanner.very_short_time_button);
-    await qa.click(page.course.courseplanner.close_learning_curve);
+    await qa.click(page.course.course_planner.edit_target);
+    await qa.input(page.course.course_planner.input_target_score, 'clear');
+    await qa.input(page.course.course_planner.input_target_score, '5');
+    await qa.click(page.course.course_planner.change_target_score);
+    await qa.click(page.course.course_planner.very_short_time_button);
+    await qa.click(page.course.course_planner.close_learning_curve);
   } else {
     console.log('it doesnt exists');
-    await qa.click(page.course.courseplanner.close_reading);
+    await qa.click(page.course.course_planner.close_reading);
   }
 });
 
@@ -136,29 +136,31 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and assign the act
   await qa.sleep(1);
   await qa.clickElementInArray(page_format);
   await qa.sleep(1);
-  await qa.input(page.course.courseplanner.points_input, '5');
-  await qa.click(page.course.courseplanner.Assignment_date_picker);
-  await qa.click(page.course.courseplanner.Assignment_start_date);
+  await qa.input(page.course.course_planner.points_input, '5');
+  await qa.click(page.course.course_planner.Assignment_date_picker);
+  await qa.click(page.course.course_planner.Assignment_start_date);
   await qa.click(page.course.create_course.save);
 });
 
 Then(/^I verify "(.*)" as open$/, async function (element) {
   let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, ['course', 'courseplanner', element]);
+  let PAGE = await _.get(page, ['course', 'course_planner', element]);
   let page_format = format(PAGE);
   await qa.exists(page_format);
 });
 
 When(/^I generate access code for "(.*)"$/, async function (identifier) {
   let qa = new selenium(this.driver);
-  let bollenvalue = await qa.hasText(page.course.create_course.course_tittle, identifier);
-  if (bollenvalue === true) {
-    await qa.click(page.course.home.toggler_menu);
-    await qa.click(page.course.user.admin);
-    await qa.click(page.course.course_page.generate_access_code);
-    await qa.click(page.course.course_page.Export_access_code);
-    await qa.click(page.course.course_page.close_access_code);
-  }
+  await qa.input(page.course.course_list.search_for_course_name, identifier);
+  await qa.sleep(1);
+  await qa.click(page.course.create_course.course_card);
+  await qa.click(page.course.home.toggler_menu);
+  await qa.sleep(1);
+  await qa.click(page.course.user.admin);
+  await qa.click(page.course.admin_menu.create_access_code);
+  await qa.click(page.course.course_page.generate_access_code);
+  await qa.click(page.course.course_page.Export_access_code);
+  await qa.click(page.course.course_page.close_access_code);
 });
 
 When('I fill out the form to update the template from draft to Template', async function (data_table) {
@@ -225,21 +227,21 @@ Then('I add the activities in courseplanner', async function (data_table) {
   await qa.click(page.course.create_course.course_card);
   await qa.click(page.course.course_page.course_planner);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await qa.click(page.course.courseplanner.custom_content_button);
-    await qa.input(page.course.courseplanner.library_search_input, data_table.hashes()[i].activity, 'clear', 'enter_after');
-    await qa.click(page.course.courseplanner.library_search_input);
-    await qa.click(page.course.courseplanner.add_assignment_button);
-    await qa.click(page.course.courseplanner.close_courseplanner);
+    await qa.click(page.course.course_planner.custom_content_button);
+    await qa.input(page.course.course_planner.library_search_input, data_table.hashes()[i].activity, 'clear', 'enter_after');
+    await qa.click(page.course.course_planner.library_search_input);
+    await qa.click(page.course.course_planner.add_assignment_button);
+    await qa.click(page.course.course_planner.close_courseplanner);
   }
 });
 
 When('I update the stautus of activities from unassigned to assigened', async function (data_table) {
   let qa = new selenium(this.driver);
-  await qa.clickElementInArray(page.course.courseplanner.assign_acitivity);
+  await qa.clickElementInArray(page.course.course_planner.assign_acitivity);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await qa.input(page.course.courseplanner, data_table.hashes()[i].activity);
+    await qa.input(page.course.course_planner, data_table.hashes()[i].activity);
   }
-  await qa.click(page.course.courseplanner.Assignment_date_picker);
-  await qa.click(page.course.courseplanner.Assignment_start_date);
+  await qa.click(page.course.course_planner.Assignment_date_picker);
+  await qa.click(page.course.course_planner.Assignment_start_date);
   await qa.click(page.course.create_course.assing_button);
 });

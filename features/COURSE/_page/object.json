@@ -20,7 +20,8 @@
     "generate_access_code": "[data-test-id='generate_access_code_button']",
     "close_manage_roles": "._2Ft-",
     "access_code": "[class='_1irm']",
-    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']"
+    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']", 
+    "close_alert" : "[data-test-id='alert_close_btn']"
   },
   "course_list": {
     "course_menu": "[data-test-id='course_menu_button']",
@@ -106,7 +107,7 @@
     "reports": "",
     "resources": "/html/body/div/div/div/div/div[2]/div[2]/ul/li[4]/span",
     "reading": "//*[@data-test-id='reading_tab']",
-    "generate_access_code" : "//*[text()='Generate Access Codes']",
+    "generate_access_code" : "/html/body/div[2]/div/div/div[2]/div/div/div[3]/button[2]",
     "Export_access_code" : "//*[@aria-label='Export List of Generated Codes']",
     "close_access_code" : "//*[@aria-label='close']"
   },
@@ -120,7 +121,7 @@
     "add_content":"[data-test-id='add_content_button']", 
     "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
     "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
-    "add_button_read&practice": "//*[@data-test-id='add_button_lcrp']",
+    "add_button_readandpractice": "//*[@data-test-id='add_button_lcrp']",
     "add_reading_button": "//*[@data-test-id='add_button_reading']", 
     "add_file_button": "//*[data-test-id='add_button_staticfile']",
     "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
@@ -137,22 +138,18 @@
     "submit_final_answers": "[data-test-id='submit-all-modal-submit']",
     "assignment_score": "[data-test-id='assignment-percentage-score']"
   },
-  "courseplanner": {
-    "add_unit_folder": "//*[@data-test-id='add_unit']", 
-     "custom_content_button": "//*[@data-test-id='custom_content_tab']",
-     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
-
-  },
   "course_planner": {
-    "custom_content_tab":"[data-test-id='custom_content_tab']",
-    "add_assignment": "._29SI",
+    "add_unit_folder": "//*[@data-test-id='add_unit']", 
+     "custom_content_button": "[data-test-id='custom_content_tab']",
+     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button",
     "assign_assignment_button":"[data-test-id='assign_assignment_button']",
     "points_input":"[data-test-id='points_input']",
-    "assign_button":"[data-test-id='assign_button']"
+    "assign_button":"[data-test-id='assign_button']",
+    "library_search_input": "[id='__librarySearchInput']"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
-    "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
+    "admin": "[data-test-id='menu_user_admin']",
     "button": ".QYC0",
     "menu": "[title='User menu']",
     "sign_out": "/html/body/div[3]/div/div/div/div/div/div[3]/span/div/div"
@@ -168,6 +165,8 @@
     "manage_roles": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Roles')]",
     "password_reset": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
     "restore_deleted_courses": "//span[contains(@class,'_12OR') and contains(text(), 'Restore Deleted Courses')]",
-    "update_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Update AccessCode')]"
+    "update_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Update AccessCode')]",
+    "create_access_code": "[data-test-id='menu_user_admin_check_account']"
   }
+
 }
