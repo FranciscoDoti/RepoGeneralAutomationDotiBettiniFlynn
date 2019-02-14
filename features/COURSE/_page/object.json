@@ -9,11 +9,6 @@
   "home": {
     "enroll": "._1o0U",
     "instructor_access": "._21rl",
-<<<<<<< HEAD
-    "sign_in": "[data-test-id='sign_in_link_button']",
-    "sign_out": "[data-test-id='menu_user_sign_out']", 
-    "toggler_menu": "[data-test-id='user_dropdown_menu_open']"
-=======
     "sign_in": "//*[@data-test-id='sign_in_link_button']",
     "sign_out": "[data-test-id='menu_user_sign_out']", 
     "toggler_menu": "[data-test-id='user_dropdown_menu_open']",
@@ -26,7 +21,6 @@
     "close_manage_roles": "._2Ft-",
     "access_code": "[class='_1irm']",
     "close_access_code": "[data-test-id='generate_access_code_modal_close_button']"
->>>>>>> general_courseware_steps
   },
   "course_list": {
     "course_menu": "[data-test-id='course_menu_button']",
@@ -92,16 +86,11 @@
     "meeting_period": "#__timePickerPeriod",
     "copy_course":"#copyCourseName",
     "copy_course_code": "#copyCourseShortName", 
-<<<<<<< HEAD
-    "instructor_button": "[id='react-tabs-2']",
-    "send_email_invite": "[testid='invite_students_send_email_toggle']",
-=======
     "instructor_button": "//*[@id='react-tabs-2']",
     "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
     "students_invite_link": "[data-test-id='invite_students_modal_invite_link']",
     "invite_students_modal_close":"[data-test-id='invite_students_modal_close']",
     "main-menu-dropdown": "[data-id='OpenUserMenuDropdown']",
->>>>>>> general_courseware_steps
     "Textbox_input": "[data-test-id='invite_students_modal_ids_input']",
     "input_student_email": "//*[@name='emailInput']",
     "send_invite_button" : "[data-test-id='invite_students_modal_send_invites_btn']"
@@ -129,40 +118,6 @@
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]",
     "add_content":"[data-test-id='add_content_button']", 
-<<<<<<< HEAD
-    "add_button_assessment": "[data-test-id='add_button_assessment']",
-    "add_button_learningcurve":  "[data-test-id='add_button_learningcurve']",
-    "add_button_readandpractice": "[data-test-id='add_button_lcrp']",
-    "add_reading_button": "[data-test-id='add_button_reading']", 
-    "add_file_button": "[data-test-id='add_button_staticfile']",
-    "close_resource_search_nav": "[data-test-id='close_resource_search_nav']",
-    "share_template" : "[data-test-id='share_template']",
-    "import_structure": "[data-test-id='import_structure_button']",
-    "add_folder": "[data-test-id='add_folder_button']", 
-    "search_icon": "[data-test-id='search_icon']"
-    
-  },
-  "courseplanner": {
-    "add_unit_folder": "[data-test-id='add_unit']", 
-     "custom_content_button": "[data-test-id='custom_content_tab']",
-     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button",
-     "activities_link" : "._3UBu _3kCz",
-     "edit_target": "[data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
-     "input_target_score": "[data-test-id='editTargetScoreScore']",
-     "change_target_score": "[data-test-id='editTargetScoreChangeScoreBtn']",
-     "very_short_time_button" : "btn-cdl-main EditTargetScoreModal__proceedOkay__2v8Ue",
-     "close_learning_curve" : "[data-test-id='closelearningcurve']",
-     "close_reading" : "//*[@aria-label='Close']",
-     "assign_acitivity" : "[data-test-id='assign_assignment_button']",
-     "points_input" : "[data-test-id='points_input']",
-     "Assignment_date_picker" : "[data-test-id='Assignment_due_date_picker']",
-     "Assignment_status" : "[data-test-id='assignment_status']",
-     "Assignment_start_date": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[2]/div[5]",
-     "close_courseplanner": "._1gU6",
-     "library_search_input": "[id='__librarySearchInput']",
-     "assing_button": "[data-test-id='assign_button']"
-     
-=======
     "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
     "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
     "add_button_read&practice": "//*[@data-test-id='add_button_lcrp']",
@@ -194,7 +149,6 @@
     "assign_assignment_button":"[data-test-id='assign_assignment_button']",
     "points_input":"[data-test-id='points_input']",
     "assign_button":"[data-test-id='assign_button']"
->>>>>>> general_courseware_steps
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
