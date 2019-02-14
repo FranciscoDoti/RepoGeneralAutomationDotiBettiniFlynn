@@ -51,6 +51,7 @@ Feature: Qualitative Positive feature
 #         | copy_course       | Read & Practice course   |
 #         | copy_course_code  | E2E301                   |
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     And I login with the following credentials
     |  username                                   | password       |
@@ -93,20 +94,57 @@ Feature: Qualitative Positive feature
     # we need to use  data table to reduce the points, if you have any solustion for this we can discuss 
     And I click on the course planner to assign the activity "500" points 
 >>>>>>> Stashed changes
-    And I sign out of Achieve
-    And I login to Achieve
-    And I have logged in as "instructor_7"
+=======
+    # And I login with the following credentials
+    # |  username                                   | password       |
+    # |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
+    # And I click on "Manage_instructor" element to add instructor 
+    # And I click on "course" system "create_course" feature "add_instructor" element "legud@xcodes.net" email
+    # And I click on "course" system "create_course" feature "add_instructor_button" element 
+    # And I click on "course" system "create_course" feature "add_instructor_close" element 
 
-    Given I have opened "achieve" "login"
-    And I click on "course" system "home" feature "sign_in" element
+
+    # When I sign out of Achieve
+    # And I login to Achieve
+    # And I login with the following credentials
+    # |  username                                     | password       |
+    # |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
+
+    # When I click on "invite_students_button" element to add
+    # And I copy the invite link to open course with "student_1"
+    # And I click on "course" system "student_view" feature "start_grace_period" element
+ 
+    # When I sign out of Achieve
+    When I login to Achieve
+    And I login with the following credentials
+    |  username                                     | password       |
+    |  macmillaninstructor2@gmail.com               | ABCabc@123     |
+    And I click on the first course card
+    And I click on the course planner to assign the activity "500" points
+>>>>>>> general_courseware_steps
+    And I sign out of Achieve
+
 
     When I login with the following credentials
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         |username            | password     |
         |baxoye@zsero.com    | ABCabc@123   |
     And I click on "course" system "create_course" feature "course_card" element
 
     Then I verify that it is redirected to "course_page" 
+=======
+    |  username                              | password       |
+    |  coursewareachieve@gmail.com           | ABCabc@123     |
+    And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    And I click on the first course card
+    And I enroll "student_1" to the current course
+    And I generate a course code to the current course
+    And I validate the "Qualitative E2E" course is accessible by "student_1"
+
+    # And I click on the first course card
+>>>>>>> general_courseware_steps
     
 =======
     |  username                              | password       |
@@ -131,6 +169,7 @@ Feature: Qualitative Positive feature
     #     | Monopolistice Competition                   | Reading           | true  |
     #     | Table: The Lemonade Market                  | Qualitative       | true  |
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
 =======
@@ -138,11 +177,15 @@ Feature: Qualitative Positive feature
 
     # And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
 >>>>>>> Stashed changes
+=======
+    # And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
+>>>>>>> general_courseware_steps
 
-    Then I verify "course" system "courseplanner" feature "assignment_status" element is displayed
+    # Then I verify "course" system "courseplanner" feature "assignment_status" element is displayed
 
-    And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
+    # And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
 =======
@@ -151,3 +194,6 @@ Feature: Qualitative Positive feature
 
   
 >>>>>>> Stashed changes
+=======
+    # Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
+>>>>>>> general_courseware_steps
