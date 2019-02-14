@@ -78,7 +78,7 @@ Feature: Qualitative Positive feature
     |  macmillaninstructor2@gmail.com               | ABCabc@123     |
     And I click on the first course card
     And I click on the course planner to assign the activity "500" points
-    And I sign out of Achieve
+    And I logout of the achieve system
 
 
     When I login with the following credentials

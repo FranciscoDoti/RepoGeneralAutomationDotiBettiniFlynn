@@ -106,9 +106,10 @@ Then('I verify that the Course Specific Link opens the course named "(.*)"', asy
 
 When('I logout of the achieve system', async function () {
   let qa = new selenium(this.driver);
+    await qa.click(page.course.user.menu);
+    await qa.sleep(2);
+    await qa.click(page.course.user.sign_out);    
 
-  await qa.click(page.course.user.menu);
-  await qa.click(page.course.user.sign_out);
 });
 
 // Assetions //
@@ -310,6 +311,7 @@ Then(/^I click on the course planner to assign the activity "(.*)" points$/, asy
   await qa.input(page.course.course_planner.points_input, points);
   await qa.sleep(1);
   await qa.click(page.course.course_planner.assign_button)
+  await qa.sleep(4)
 })
 
 

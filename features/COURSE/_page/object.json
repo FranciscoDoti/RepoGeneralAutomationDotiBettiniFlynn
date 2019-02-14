@@ -150,7 +150,7 @@
     "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
     "button": ".QYC0",
     "menu": "[title='User menu']",
-    "sign_out": "/html/body/div[3]/div/div/div/div/div/div[3]/span/div/div"
+    "sign_out": "[data-test-id='menu_user_sign_out']"
   },
   "admin_menu": {
     "access_code_usage_report": "//span[contains(@class,'_12OR') and contains(text(), 'Access Code Usage Report')]",
