@@ -232,3 +232,14 @@ Then('I add the activities in courseplanner', async function (data_table) {
     await qa.click(page.course.courseplanner.close_courseplanner);
   }
 });
+
+When('I update the stautus of activities from unassigned to assigened', async function (data_table) {
+  let qa = new selenium(this.driver);
+  await qa.clickElementInArray(page.course.courseplanner.assign_acitivity);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await qa.input(page.course.courseplanner, data_table.hashes()[i].activity);
+  }
+  await qa.click(page.course.courseplanner.Assignment_date_picker);
+  await qa.click(page.course.courseplanner.Assignment_start_date);
+  await qa.click(page.course.create_course.assing_button);
+});

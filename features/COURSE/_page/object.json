@@ -135,7 +135,8 @@
      "Assignment_status" : "[data-test-id='assignment_status']",
      "Assignment_start_date": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[2]/div[5]",
      "close_courseplanner": "._1gU6",
-     "library_search_input": "[id='__librarySearchInput']"
+     "library_search_input": "[id='__librarySearchInput']",
+     "assing_button": "[data-test-id='assign_button']"
      
   },
   "user": {

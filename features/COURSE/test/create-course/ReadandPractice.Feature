@@ -3,102 +3,102 @@ Feature: Happy path flow for Read and Practice
     @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
-        # And I have logged in as "media_producer_2"
-        # And I click on "course" system "create_course" feature "button" element
+        And I have logged in as "media_producer_2"
+        And I click on "course" system "create_course" feature "button" element
 
-        # When I fill out the form to edit a course
-        #     | page_object   | value                    |
-        #     | course_type   | Template                 |
-        #     | product_model | Read & Practice          |
-        #     | course_name   | Read & Practice Template |
-        #     | course_code   | E2E 301                  |
-        #     | isbn_number   | 9781464199498            |
-        #     | course_status | draft                    |
+        When I fill out the form to edit a course
+            | page_object   | value                    |
+            | course_type   | Template                 |
+            | product_model | Read & Practice          |
+            | course_name   | Read & Practice Template |
+            | course_code   | E2E 301                  |
+            | isbn_number   | 9781464199498            |
+            | course_status | draft                    |
 
 
-        # Then I verify "course" system "create_course" feature "success_message" element's "create_course_success" message is displayed
-        # And I verify that the course's name "Read & Practice Template" is listed on the courses page
+        Then I verify "course" system "create_course" feature "success_message" element's "create_course_success" message is displayed
+        And I verify that the course's name "Read & Practice Template" is listed on the courses page
         
-        # And I fill out the form to update the template from draft to Template
-        #     | page_object      | value                                                       |clear|
-        #     | edit_course_name | Edit Testcourse                                             |true |
-        #     | edit_course_code | E2E 301                                                     |true |
-        #     | ebook_link       | https://int-achieve-courseware-frontend.mldev.cloud/courses |true |
-        #     | template_status  | Active On Date                                              |     |
+        And I fill out the form to update the template from draft to Template
+            | page_object      | value                                                       |clear|
+            | edit_course_name | Edit Testcourse                                             |true |
+            | edit_course_code | E2E 301                                                     |true |
+            | ebook_link       | https://int-achieve-courseware-frontend.mldev.cloud/courses |true |
+            | template_status  | Active On Date                                              |     |
 
 
-        # Then I verify "course" system "create_course" feature "success_message" element's "edit_course_sucess" message is displayed
-        # And I verify the course_list data
-        #     | page_object             | value           |
-        #     | course_name             | Edit Testcourse |
-        #     | course_name_course_code | E2E 301         |
-        #     | course_name_isbn        | 9781464199498   |
+        Then I verify "course" system "create_course" feature "success_message" element's "edit_course_sucess" message is displayed
+        And I verify the course_list data
+            | page_object             | value           |
+            | course_name             | Edit Testcourse |
+            | course_name_course_code | E2E 301         |
+            | course_name_isbn        | 9781464199498   |
         
-        # And I click on "course" system "create_course" feature "course_card" element 
+        And I click on "course" system "create_course" feature "course_card" element 
 
-        # Then I verify the data in course page 
-        #     | course_page            | clear |
-        #     | overview               | true  |
-        #     | course_planner         | true  |
+        Then I verify the data in course page 
+            | course_page            | clear |
+            | overview               | true  |
+            | course_planner         | true  |
           
     
-        # And I click on "course" system "course_page" feature "resources" element 
+        And I click on "course" system "course_page" feature "resources" element 
 
-        # Then I verify the data in resource page
-        #     | course_page      |
-        #     | share_template   |
-        #     | import_structure |
-        #     | add_folder       |
+        Then I verify the data in resource page
+            | course_page      |
+            | share_template   |
+            | import_structure |
+            | add_folder       |
 
         
-        # And I add the activity to the course under the resources tab
-        #     | activity                                                          | type               |
-        #     | communicating courteously                                          | Reading            |                                                        
-        #     | Active and Passive voice                                          | learning_curve     |
-        #     | Wars of Religion                                                  | Read and Practice  |
+        And I add the activity to the course under the resources tab
+            | activity                                                          | type               |
+            | communicating courteously                                         | Reading            |                                                        
+            | Active and Passive voice                                          | learning_curve     |
+            | Wars of Religion                                                  | Read and Practice  |
 
-        # # Then I verify the activity list 
-        # #     | activity                     |  
-        # #     | communicating courteously    |                                                        
-        # #     | Active and Passive voice     |
-        # #     | Wars of Religion             | 
+        Then I verify the activity list 
+            | activity                     |  
+            | communicating courteously    |                                                        
+            | Active and Passive voice     |
+            | Wars of Religion             | 
  
 
-        # And I fill out the form to copy a course
-        #     | page_object       | value                    |
-        #     | copy_course       | Read & Practice course   |
-        #     | copy_course_code  | E2E301                   |
+        And I fill out the form to copy a course
+            | page_object       | value                    |
+            | copy_course       | Read & Practice course   |
+            | copy_course_code  | E2E301                   |
 
-        # Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
+        Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
 
-        # And I "sign_out" of Achieve
-        # And I login to Achieve
-        # And I have logged in as "customer_support_1"
-        # And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
+        And I "sign_out" of Achieve
+        And I login to Achieve
+        And I have logged in as "customer_support_1"
+        And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
         
-        # And I assign Instructor to the course
-        #     | username              | password   |
-        #     | yawur@netmails.info   | ABCabc@123 |
+        And I assign Instructor to the course
+            | username              | password   |
+            | yawur@netmails.info   | ABCabc@123 |
 
-        # And I "sign_out" of Achieve
-        # And I login to Achieve 
+        And I "sign_out" of Achieve
+        And I login to Achieve 
         And I have logged in as "instructor_7"
        
 
-        # Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
+        Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
-        # When I fill out the form to update the status of course to active 
-        #     | page_object      | value                | 
-        #     | template_status  |  Active On Date      | 
+        When I fill out the form to update the status of course to active 
+            | page_object      | value                | 
+            | template_status  |  Active On Date      | 
 
-        # Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
-        # And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
+        Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
+        And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
 
-        # And I invite the students
-        #     | username                    |
-        #     | macmillanstudent4@gmail.com | 
+        And I invite the students
+            | username                    |
+            | macmillanstudent4@gmail.com | 
 
-        # Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
+        Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
 
         And I add the activities in courseplanner 
             | activity                                                          | 
@@ -106,13 +106,16 @@ Feature: Happy path flow for Read and Practice
             | Active and Passive voice                                          |
             | Wars of Religion                                                  | 
         
-        # Then I verify activity list 
-        #     | activity                     | 
-        #     | communicating courteously    |                                                        
-        #     | Active and Passive voice     |
-        #     | Wars of Religion             | 
+        Then I verify activity list 
+            | activity                     | 
+            | communicating courteously    |                                                        
+            | Active and Passive voice     |
+            | Wars of Religion             | 
         
-        When I click on "course" system "courseplanner" feature "assign_acitivity" element and assign the activity
+        When I update the status of activities from unassigned to assigned
+            | page_object  | value |
+            | points_input | 5     | 
+
         Then I verify "activity_staus" as open
 
         And I "sign_out" of Achieve
