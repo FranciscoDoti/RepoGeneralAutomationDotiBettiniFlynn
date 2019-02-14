@@ -72,20 +72,23 @@ Feature: Qualitative Positive feature
     # And I click on "course" system "student_view" feature "start_grace_period" element
  
     # When I sign out of Achieve
-    And I login to Achieve
+    When I login to Achieve
     And I login with the following credentials
     |  username                                     | password       |
-    |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
+    |  macmillaninstructor2@gmail.com               | ABCabc@123     |
+    And I click on the first course card
     And I click on the course planner to assign the activity "500" points
+    And I sign out of Achieve
 
-    # When I login with the following credentials
-    # |  username                              | password       |
-    # |  coursewareachieve@gmail.com           | ABCabc@123     |
-    # And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
-    # And I click on the first course card
-    # And I enroll "student_1" to the current course
-    # And I generate a course code to the current course
-    # And I validate the "Qualitative E2E" course is accessible by "student_1"
+
+    When I login with the following credentials
+    |  username                              | password       |
+    |  coursewareachieve@gmail.com           | ABCabc@123     |
+    And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    And I click on the first course card
+    And I enroll "student_1" to the current course
+    And I generate a course code to the current course
+    And I validate the "Qualitative E2E" course is accessible by "student_1"
 
     # And I click on the first course card
     
