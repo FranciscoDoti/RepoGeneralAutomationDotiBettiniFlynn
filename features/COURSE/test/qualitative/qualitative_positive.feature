@@ -51,19 +51,6 @@ Feature: Qualitative Positive feature
 #         | copy_course       | Read & Practice course   |
 #         | copy_course_code  | E2E301                   |
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    And I login with the following credentials
-    |  username                                   | password       |
-    |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
-    And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
-    And I click on "Manage_instructor" element to add instructor 
-    And I click on "course" system "create_course" feature "add_instructor" element "legud@xcodes.net" email
-    And I click on "course" system "create_course" feature "add_instructor_button" element 
-    And I click on "course" system "create_course" feature "add_instructor_close" element 
-
-
-=======
     # And I login with the following credentials
     # |  username                                   | password       |
     # |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
@@ -93,12 +80,12 @@ Feature: Qualitative Positive feature
     And I click on the first course card
     # we need to use  data table to reduce the points, if you have any solustion for this we can discuss 
     And I click on the course planner to assign the activity "500" points 
->>>>>>> Stashed changes
-=======
+
+    
     # And I login with the following credentials
     # |  username                                   | password       |
     # |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
-    # And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input // use datatable for all this steps
     # And I click on "Manage_instructor" element to add instructor 
     # And I click on "course" system "create_course" feature "add_instructor" element "legud@xcodes.net" email
     # And I click on "course" system "create_course" feature "add_instructor_button" element 
@@ -118,11 +105,17 @@ Feature: Qualitative Positive feature
     # When I sign out of Achieve
     When I login to Achieve
     And I login with the following credentials
-    |  username                                     | password       |
+    #  use as login as " instructor" step 
+    |  username                                     | password       |  
     |  macmillaninstructor2@gmail.com               | ABCabc@123     |
     And I click on the first course card
+<<<<<<< Updated upstream
     And I click on the course planner to assign the activity "500" points
 >>>>>>> general_courseware_steps
+=======
+    # we need to use  data table to reduce the points, if you have any solustion for this we can discuss 
+    And I click on the course planner to assign the activity "500" points 
+>>>>>>> Stashed changes
     And I sign out of Achieve
 
 
@@ -137,6 +130,7 @@ Feature: Qualitative Positive feature
 =======
     |  username                              | password       |
     |  coursewareachieve@gmail.com           | ABCabc@123     |
+    # use datable for this too
     And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
     And I click on the first course card
     And I enroll "student_1" to the current course
@@ -144,6 +138,7 @@ Feature: Qualitative Positive feature
     And I validate the "Qualitative E2E" course is accessible by "student_1"
 
     # And I click on the first course card
+<<<<<<< Updated upstream
 >>>>>>> general_courseware_steps
     
 =======
@@ -161,6 +156,11 @@ Feature: Qualitative Positive feature
     # use the datatable to add th ecativities in courseplanner 
 
 >>>>>>> Stashed changes
+=======
+
+    # use the datatable to add th ecativities in courseplanner 
+
+>>>>>>> Stashed changes
     # Then I click on courseplanner and I add custom content to the course 
     
     # Then I verify the activity list  
@@ -169,6 +169,7 @@ Feature: Qualitative Positive feature
     #     | Monopolistice Competition                   | Reading           | true  |
     #     | Table: The Lemonade Market                  | Qualitative       | true  |
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
     And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
@@ -178,6 +179,10 @@ Feature: Qualitative Positive feature
     # And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
 >>>>>>> Stashed changes
 =======
+=======
+# I am using datatable to change the status from asigned to unassigned you can use that 
+
+>>>>>>> Stashed changes
     # And I click on "course" system "courseplanner" feature "Assign_assignment_button" element
 >>>>>>> general_courseware_steps
 
@@ -185,6 +190,7 @@ Feature: Qualitative Positive feature
 
     # And I sign out of Achieve, log in as "student_positive", and attempt an "qualitative_activity"
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
     Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
@@ -197,3 +203,9 @@ Feature: Qualitative Positive feature
 =======
     # Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
 >>>>>>> general_courseware_steps
+=======
+    # Then I verify "course" system "courseplanner" feature "activity_content" element is displayed correctly
+
+
+  
+>>>>>>> Stashed changes
