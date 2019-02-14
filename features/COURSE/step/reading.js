@@ -89,6 +89,7 @@ Then(/^I verify that the course "(.*)" is "(.*)"$/, async function (identifier, 
 When('I invite the students', async function (data_table) {
   let qa = new selenium(this.driver);
   await qa.click(page.course.course_list.course_menu);
+  await qa.sleep(1);
   await qa.click(page.course.course_list.invite_students_button);
   await qa.sleep(1);
   await qa.click(page.course.create_course.send_email_invite);
@@ -96,8 +97,8 @@ When('I invite the students', async function (data_table) {
     await qa.click(page.course.create_course.Textbox_input);
     await qa.input(page.course.create_course.input_student_email, data_table.hashes()[i].username);
     await qa.input(page.course.create_course.input_student_email, ' ')
-    await qa.sleep(1);
   }
+  await qa.sleep(1);
   await qa.click(page.course.create_course.send_invite_button);
 });
 
@@ -132,8 +133,9 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and assign the act
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
   let page_format = format(PAGE);
+  await qa.sleep(1);
   await qa.clickElementInArray(page_format);
-  await qa.input(page.course.courseplanner.points_input, 'clear');
+  await qa.sleep(1);
   await qa.input(page.course.courseplanner.points_input, '5');
   await qa.click(page.course.courseplanner.Assignment_date_picker);
   await qa.click(page.course.courseplanner.Assignment_start_date);
@@ -201,9 +203,15 @@ When('I fill out the form to update the status of course to active', async funct
   let qa = new selenium(this.driver);
   await qa.click(page.course.course_list.course_menu);
   await qa.click(page.course.course_list.edit_course);
+  await qa.sleep(1);
   for (let i = 0; i < data_table.rows().length; i++) {
-    let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
-    await qa.input(PAGE);
+    if (data_table.hashes()[i].page_object != 'day') {
+      let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
+      await qa.input(PAGE, data_table.hashes()[i].value, data_table.hashes()[i].clear);
+    } else {
+      let page_format = format(page.course.create_course.select_day, data_table.hashes()[i].value);
+      await qa.click(page_format);
+    }
   }
   await qa.click(page.course.course_list.end_date);
   await qa.click(page.course.course_list.next_month_button);
