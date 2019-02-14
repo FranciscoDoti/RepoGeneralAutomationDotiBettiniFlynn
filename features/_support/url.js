@@ -1,23 +1,19 @@
 const config = require("../../config.js");
 
 const saplingBase = () => {
+  let baseUrl = `http://${config.environment}.saplinglearning.me`;
   if (config.environment === 'local') {
-    return 'http://local.saplinglearning.me:8081';
+    baseUrl = 'http://local.saplinglearning.me:8081';
   }
-
-  if (config.environment === 'int') {
-    return 'http://int.saplinglearning.me';
-  }
+  return baseUrl;
 }
 
 const saplingBaseAssignmentId = () => {
+  let assignmentId = config.sap;
   if (config.environment === 'local') {
-    return '61043';
+    assignmentId = '61043';
   }
-
-  if (config.environment === 'int') {
-    return '674846';
-  }
+  return assignmentId;
 }
 
 const saplingBaseQuestionBank = () => {
@@ -26,11 +22,11 @@ const saplingBaseQuestionBank = () => {
 }
 
 const saplingLogin = () => {
-  if (config.environment === 'int') {
-    return 'ibiscms/login/';
+  let loginUrl = 'ibiscms/login/';
+  if (config.environment === 'local') {
+    loginUrl = `activityeditor/questionbank/${saplingBaseAssignmentId()}`;
   }
-
-  return `activityeditor/questionbank/${saplingBaseAssignmentId()}`;
+  return loginUrl;
 }
 
 function achieve_base() {
@@ -156,7 +152,7 @@ module.exports = {
   },
   sapling: {
     login: `${saplingBase()}/${saplingLogin()}`,
-    empty_activity: `${saplingBase()}/activityeditor/questionbank/${saplingBaseAssignmentId()}`,
+    empty_activity: `${saplingBase()}/activityeditor/assignment/${saplingBaseAssignmentId()}`,
     sapling_base_question_bank: saplingBaseQuestionBank()
   },
   third_party: {

@@ -3,7 +3,7 @@
     "assignment_tab": "[data-test-id='link-to-assignment']",
     "empty": "div[data-test-id=\"empty-message\"]",
     "new_empty": "div[data-test-id=\"assignment-create-question-title\"]",
-    "question_bank_button": "button[data-test-id=\"assignment-create-actions-question-bank\"]"
+    "question_bank_button": "a[data-test-id=\"assignment-create-actions-question-bank\"]"
   },
   "signon": {
     "username": "input#username",
