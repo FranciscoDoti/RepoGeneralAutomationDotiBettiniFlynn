@@ -1,17 +1,19 @@
 const config = require("../../config.js");
 
 const saplingBase = () => {
+  let baseUrl = `http://${config.environment}.saplinglearning.me`;
   if (config.environment === 'local') {
-    return 'http://local.saplinglearning.me:8081';
+    baseUrl = 'http://local.saplinglearning.me:8081';
   }
-  return `http://${config.environment}.saplinglearning.me`;
+  return baseUrl;
 }
 
 const saplingBaseAssignmentId = () => {
+  let assignmentId = config.sap;
   if (config.environment === 'local') {
-    return '61043';
+    assignmentId = '61043';
   }
-  return config.sap;
+  return assignmentId;
 }
 
 const saplingBaseQuestionBank = () => {
@@ -20,10 +22,11 @@ const saplingBaseQuestionBank = () => {
 }
 
 const saplingLogin = () => {
+  let loginUrl = 'ibiscms/login/';
   if (config.environment === 'local') {
-    return `activityeditor/questionbank/${saplingBaseAssignmentId()}`;
+    loginUrl = `activityeditor/questionbank/${saplingBaseAssignmentId()}`;
   }
-  return 'ibiscms/login/';
+  return loginUrl;
 }
 
 function achieve_base() {
