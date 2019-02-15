@@ -80,8 +80,8 @@ Then(/^I verify that "(.*)" system "(.*)" feature "(.*)" element link exists$/, 
 
 /** ELEMENT ASSERTIONS */
 Then(/^I verify "(.*)" "(.*)" has "(.*)" element$/, async function (system, feature, element) {
-  const driver = new selenium(this.driver);
-  driver.exists(element);
+  const qa = new selenium(this.driver);
+  qa.exists(element);
 });
 
 // Current Url Assertion (New or Current Window) //
