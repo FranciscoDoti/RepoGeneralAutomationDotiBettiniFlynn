@@ -107,7 +107,7 @@ Then('I verify that the Course Specific Link opens the course named "(.*)"', asy
 When('I logout of the achieve system', async function () {
   let qa = new selenium(this.driver);
     await qa.click(page.course.user.menu);
-    await qa.sleep(2);
+    await qa.sleep(8);
     await qa.click(page.course.user.sign_out);    
 
 });
@@ -269,12 +269,11 @@ Then(/^I validate the "(.*)" course is accessible by "(.*)"$/, async function (c
   await qa.click(page.course.course_list.course_name);
 })
 
-Then(/^I enroll "(.*)" to the current course$/, async function (student_user_object) {
+Then('I enroll the student to the current course', async function (data_table) {
   let qa = new selenium(this.driver);
 
   let toggler_menu_element = await _.get(page, ['course', 'home', 'toggler_menu']);
   let menu_user_admin_element = await _.get(page, ['course', 'home', 'menu_user_admin']);
-  let payload = require(`../../_data/user/${config.environment}/${student_user_object}.json`);
   let manage_enrollments_element = await _.get(page, ['course', 'home', 'manage_enrollments']);
   let manage_enrollments_input_element = await _.get(page, ['course', 'home', 'manage_enrollements_input']);
   let add_user_button_element = await _.get(page, ['course', 'home', 'add_user_button']);
@@ -286,21 +285,26 @@ Then(/^I enroll "(.*)" to the current course$/, async function (student_user_obj
   await qa.sleep(1);
   await qa.click(manage_enrollments_element);
   await qa.sleep(1);
-  await qa.input(manage_enrollments_input_element, payload.username);
-  await qa.click(add_user_button_element);
+
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let payload = require(`../../_data/user/${config.environment}/${data_table.hashes()[i].Student}.json`);
+    await qa.input(manage_enrollments_input_element, payload.username);
+    await qa.click(add_user_button_element);
+  }
   await qa.click(close_manage_roles_element);
   await qa.sleep(1);
 });
 
-Then(/^I click on the course planner to assign the activity "(.*)" points$/, async function (points) {
+Then(/^I click on the course planner to assign the activity and add points$/, async function (data_table) {
   let qa = new selenium(this.driver);
 
   await qa.click(page.course.course_page.course_planner)
   await qa.click(page.course.course_planner.assign_assignment_button)
-  await qa.input(page.course.course_planner.points_input, points);
+  await qa.sleep(1);
+  await qa.input(page.course.course_planner.points_input, data_table.hashes()[0].Points);
   await qa.sleep(1);
   await qa.click(page.course.course_planner.assign_button)
-  await qa.sleep(4)
+  await qa.sleep(2)
 })
 
 Then('I click on the first course card', async function () {

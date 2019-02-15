@@ -73,14 +73,12 @@ Feature: Qualitative Positive feature
     # And I click on "course" system "student_view" feature "start_grace_period" element
  
     # When I sign out of Achieve
-    When I login to Achieve
-    And I login with the following credentials
-    #  use as login as " instructor" step 
-    |  username                                     | password       |  
-    |  macmillaninstructor2@gmail.com               | ABCabc@123     |
-    And I click on the first course card
-    # we need to use  data table to reduce the points, if you have any solustion for this we can discuss 
-    And I click on the course planner to assign the activity "500" points 
+    # When I login to Achieve
+    # And I login with the following credentials
+    # |  username                                     | password       |  
+    # |  macmillaninstructor2@gmail.com               | ABCabc@123     |
+    # And I click on the first course card
+    # And I click on the course planner to assign the activity "500" points 
 
     # And I login with the following credentials
     # |  username                                   | password       |
@@ -104,18 +102,12 @@ Feature: Qualitative Positive feature
  
     # When I sign out of Achieve
     When I login to Achieve
-    And I login with the following credentials
-    |  username                                     | password       |
-    |  macmillaninstructor2@gmail.com               | ABCabc@123     |
+    And I have logged in as "instructor_4"
     And I click on the first course card
-    And I click on the course planner to assign the activity "500" points
-
-
-    And I sign out of Achieve
-
+    And I click on the course planner to assign the activity and add points
+    |   Activity                    |   Points  |
+    |   BR13.1: Bridge: Monopoly    |   500     |
     And I logout of the achieve system
-
-
 
     When I login with the following credentials
 
@@ -123,21 +115,23 @@ Feature: Qualitative Positive feature
     |  coursewareachieve@gmail.com           | ABCabc@123     |
     And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
     And I click on the first course card
-    And I enroll "student_1" to the current course
+    And I enroll the students to the current course
+    |   Student     |
+    |   student_1   |
     And I generate a course code to the current course
-    And I validate the "Qualitative E2E" course is accessible by "student_1"
+    # And I validate the "Qualitative E2E" course is accessible by "student_1"
 
     # And I click on the first course card
     
 
-    |  username                              | password       |
-    |  coursewareachieve@gmail.com           | ABCabc@123     |
-    # use datable for this too
-    And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
-    And I click on the first course card
-    And I enroll "student_1" to the current course
-    And I generate a course code to the current course
-    And I validate the "Qualitative E2E" course is accessible by "student_1"
+    # |  username                              | password       |
+    # |  coursewareachieve@gmail.com           | ABCabc@123     |
+    # # use datable for this too
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    # And I click on the first course card
+    # And I enroll "student_1" to the current course
+    # And I generate a course code to the current course
+    # And I validate the "Qualitative E2E" course is accessible by "student_1"
 
     # And I click on the first course card
 

@@ -20,7 +20,8 @@
     "generate_access_code": "[data-test-id='generate_access_code_button']",
     "close_manage_roles": "._2Ft-",
     "access_code": "[class='_1irm']",
-    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']"
+    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']",
+    "close_alert": "[data-test-id='alert_close_btn']"
   },
   "course_list": {
     "course_menu": "[data-test-id='course_menu_button']",
