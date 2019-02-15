@@ -74,8 +74,8 @@ Feature: Happy path flow for Read and Practice
         And I "sign_out" of Achieve
         And I login to Achieve
         And I have logged in as "customer_support_1"
-        And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
         
+        And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
         And I assign Instructor to the course
             | username              | password   |
             | yawur@netmails.info   | ABCabc@123 |
@@ -86,11 +86,6 @@ Feature: Happy path flow for Read and Practice
        
 
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
-
-        When I fill out the form to update the status of course to active 
-            | page_object      | value                | 
-            | template_status  |  Active On Date      | 
-
         Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
         And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
 
@@ -100,7 +95,7 @@ Feature: Happy path flow for Read and Practice
 
         Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
 
-        And I add the activities in courseplanner 
+        And I add the activities in courseplanner
             | activity                                                          | 
             | communicating courteously                                         |                                                        
             | Active and Passive voice                                          |
@@ -112,9 +107,7 @@ Feature: Happy path flow for Read and Practice
         #     | Active and Passive voice     |
         #     | Wars of Religion             | 
         
-        When I update the status of activities from unassigned to assigned
-            | page_object  | value |
-            | points_input | 5     | 
+        When I click on "course" system "course_planner" feature "assign_assignment_button" element input '5' and assign the activity
 
         Then I verify "activity_staus" as open
 
@@ -127,13 +120,6 @@ Feature: Happy path flow for Read and Practice
 
         And I "sign_out" of achieve
         And I have logged in as "student_1"
-    
-
-        When student completes the following activities assigned to him 
-            | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |                                                        
-            | Active and Passive voice                                          | learning_curve     |
-            | Wars of Religion                                                  | Read and Practice  |
 
         Then I verify grades in Gradebook for following activities
             | activity                                                          | type               |

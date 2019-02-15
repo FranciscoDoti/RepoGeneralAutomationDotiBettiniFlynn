@@ -1,10 +1,10 @@
-const { When, Then, After } = require('cucumber');
+const { When, Then, After, Given } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../master-page.js');
 const format = require('string-format');
 const expect = require('chai').expect;
 const _ = require('lodash');
-const imap = require('../../../app/imap');
+const config = require('../../../config.js');
 
 Then('I verify the data in course page', async function (data_table) {
   let qa = new selenium(this.driver);
@@ -129,14 +129,14 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the act
   }
 });
 
-When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and assign the activity$/, async function (system, feature, element) {
+When(/^I click on "(.*)" system "(.*)" feature "(.*)" element input '(.*)' and assign the activity$/, async function (system, feature, element, points) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
   let page_format = format(PAGE);
   await qa.sleep(1);
   await qa.clickElementInArray(page_format);
   await qa.sleep(1);
-  await qa.input(page.course.course_planner.points_input, '5');
+  await qa.input(page.course.course_planner.points_input, points);
   await qa.click(page.course.course_planner.Assignment_date_picker);
   await qa.click(page.course.course_planner.Assignment_start_date);
   await qa.click(page.course.create_course.save);
@@ -231,17 +231,16 @@ Then('I add the activities in courseplanner', async function (data_table) {
     await qa.input(page.course.course_planner.library_search_input, data_table.hashes()[i].activity, 'clear', 'enter_after');
     await qa.click(page.course.course_planner.library_search_input);
     await qa.click(page.course.course_planner.add_assignment_button);
-    await qa.click(page.course.course_planner.close_courseplanner);
+    await qa.click(page.course.course_planner.close_courseplanner)
   }
 });
 
-When('I update the stautus of activities from unassigned to assigened', async function (data_table) {
+Given(/^I log in as "(.*)"$/, async function (user) {
   let qa = new selenium(this.driver);
-  await qa.clickElementInArray(page.course.course_planner.assign_acitivity);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await qa.input(page.course.course_planner, data_table.hashes()[i].activity);
-  }
-  await qa.click(page.course.course_planner.Assignment_date_picker);
-  await qa.click(page.course.course_planner.Assignment_start_date);
-  await qa.click(page.course.create_course.assing_button);
+  let payload = require(`../../_data/user/${config.environment}/${user}.json`);
+  await qa.input(page.course.third_party.user, payload.username);
+  await qa.click(page.course.third_party.user_next);
+  await qa.sleep(1);
+  await qa.input(page.course.third_party.password, payload.password);
+  await qa.click(page.course.third_party.password_next);
 });

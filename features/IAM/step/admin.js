@@ -52,18 +52,18 @@ Then('I click on Reset button', async function () {
   }
 }); */
 
-When(/^I log in as "(.*)"$/, async function (Login) {
-  const account = await loadLogin(Login);
-  log.debug(`Entering account details: ${account}`);
-  await pages.authAdmin.populate('temp_username', account.username);
-  await pages.authAdmin.populate('temp_next', 'click');
-  await sleep(5000);
-  await pages.authAdmin.populate('temp_password', account.password);
-  await pages.authAdmin.populate('temp_password_next', 'click');
-  await sleep(3000);
-  await pages.authAdmin.populate('gmail', 'click');
-  await sleep(3000);
-});
+// When(/^I log in as "(.*)"$/, async function (Login) {
+//   const account = await loadLogin(Login);
+//   log.debug(`Entering account details: ${account}`);
+//   await pages.authAdmin.populate('temp_username', account.username);
+//   await pages.authAdmin.populate('temp_next', 'click');
+//   await sleep(5000);
+//   await pages.authAdmin.populate('temp_password', account.password);
+//   await pages.authAdmin.populate('temp_password_next', 'click');
+//   await sleep(3000);
+//   await pages.authAdmin.populate('gmail', 'click');
+//   await sleep(3000);
+// });
 
 When(/^I check E-mail Notification of "(.*)" for "(.*)"$/, async function (Login, regexChoice) {
   const account = await loadLogin(Login);
