@@ -144,7 +144,13 @@
      "add_assignment_button": "//*[@aria-label='Add assignment']",
     "assign_assignment_button":"[data-test-id='assign_assignment_button']",
     "points_input":"[data-test-id='points_input']",
-    "assign_button":"[data-test-id='assign_button']"
+    "assign_button":"[data-test-id='assign_button']",
+    "library_search_input": "[id='__librarySearchInput']", 
+    "close_courseplanner": "//*[@id='container']/div/div/div/div[4]/div/aside/div/ul/button", 
+    "Assignment_due_date_picker": "[data-test-id='Assignment_due_date_picker']",
+    "Assignment_date": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[3]/div[6]",
+    "check_box": "[data-test-id='row_checkbox']",
+    "Assign_calender": "//*[@id='container']/div/div/div/div[4]/div/div/div/div/div[1]/button[1]"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
