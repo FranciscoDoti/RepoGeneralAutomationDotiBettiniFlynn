@@ -92,10 +92,7 @@ Feature: Qualitative Positive feature
 
     # When I sign out of Achieve
     # And I login to Achieve
-    # And I login with the following credentials
-    # |  username                                     | password       |
-    # |  macmillaninstructor2@gmail.com               | ABCabc@123     | 
-
+    # And I have logged in as "instructor_4"
     # When I click on "invite_students_button" element to add
     # And I copy the invite link to open course with "student_1"
     # And I click on "course" system "student_view" feature "start_grace_period" element
@@ -109,10 +106,7 @@ Feature: Qualitative Positive feature
     |   BR13.1: Bridge: Monopoly    |   500     |
     And I logout of the achieve system
 
-    When I login with the following credentials
-
-    |  username                              | password       |
-    |  coursewareachieve@gmail.com           | ABCabc@123     |
+    And I have logged in as "admin_1"
     And I search for a course and click on the first course card that appears
     |   Course          |
     |   Qualitative E2E |
