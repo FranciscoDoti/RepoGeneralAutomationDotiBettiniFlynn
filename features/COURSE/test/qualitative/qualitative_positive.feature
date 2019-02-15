@@ -79,15 +79,14 @@ Feature: Qualitative Positive feature
     # |  macmillaninstructor2@gmail.com               | ABCabc@123     |
     # And I click on the first course card
     # And I click on the course planner to assign the activity "500" points 
-
-    # And I login with the following credentials
-    # |  username                                   | password       |
-    # |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
-    # And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
-    # And I click on "Manage_instructor" element to add instructor 
-    # And I click on "course" system "create_course" feature "add_instructor" element "legud@xcodes.net" email
-    # And I click on "course" system "create_course" feature "add_instructor_button" element 
-    # And I click on "course" system "create_course" feature "add_instructor_close" element 
+legud@xcodes.net
+    And I login with the following credentials
+        |  username                                   | password       |
+        |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
+    And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
+    And I assign Instructor to the course
+        | username              | password   |
+        |legud@xcodes.net       | ABCabc@123 |
 
 
     # When I sign out of Achieve
@@ -97,22 +96,22 @@ Feature: Qualitative Positive feature
     # And I copy the invite link to open course with "student_1"
     # And I click on "course" system "student_view" feature "start_grace_period" element
  
-    # When I sign out of Achieve
+    And I "sign_out" of Achieve
     When I login to Achieve
     And I have logged in as "instructor_4"
     And I click on the first course card
     And I click on the course planner to assign the activity and add points
-    |   Activity                    |   Points  |
-    |   BR13.1: Bridge: Monopoly    |   500     |
-    And I logout of the achieve system
-
+        |   Activity                    |   Points  |
+        |   BR13.1: Bridge: Monopoly    |   5       |
+    And I "sign_out" of Achieve
+    And I login to Achieve
     And I have logged in as "admin_1"
     And I search for a course and click on the first course card that appears
-    |   Course          |
-    |   Qualitative E2E |
-    And I enroll the students to the current course
-    |   Student     |
-    |   student_1   |
+        |   Course          |
+        |   Qualitative E2E |
+    And I enroll students to the current course
+        |   Student     |
+        |   student_1   |
     And I generate a course code to the current course
     # And I validate the "Qualitative E2E" course is accessible by "student_1"
 

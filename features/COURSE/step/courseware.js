@@ -167,6 +167,16 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function (c
   expect(text).to.contain(course_page);
 })
 
+Then(/^I click on "(.*)" element to add instructor$/, async function (element) {
+    let qa =new selenium(this.driver);
+    let PAGE = await _.get(page, ['course', 'course_list', element]);
+    let page_format = format(PAGE);
+    await qa.sleep(1);
+    await qa.click(page.course.course_list.course_menu);
+    await qa.sleep(1);
+    await qa.click(page_format);
+  });
+
 Then('I add the activity to the course under the resources tab', async function (data_table) {
   let qa = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -269,7 +279,7 @@ Then(/^I validate the "(.*)" course is accessible by "(.*)"$/, async function (c
   await qa.click(page.course.course_list.course_name);
 })
 
-Then('I enroll the student to the current course', async function (data_table) {
+Then('I enroll students to the current course', async function (data_table) {
   let qa = new selenium(this.driver);
 
   let toggler_menu_element = await _.get(page, ['course', 'home', 'toggler_menu']);
@@ -295,16 +305,17 @@ Then('I enroll the student to the current course', async function (data_table) {
   await qa.sleep(1);
 });
 
-Then(/^I click on the course planner to assign the activity and add points$/, async function (data_table) {
+Then('I click on the course planner to assign the activity and add points', async function (data_table) {
   let qa = new selenium(this.driver);
 
-  await qa.click(page.course.course_page.course_planner)
-  await qa.click(page.course.course_planner.assign_assignment_button)
+  await qa.click(page.course.course_page.course_planner);
+  await qa.click(page.course.course_planner.assign_assignment_button);
   await qa.sleep(1);
-  await qa.input(page.course.course_planner.points_input, data_table.hashes()[0].Points);
+  await qa.input(page.course.course_planner.points_input, data_table.hashes()[0].Points, 'clear');
   await qa.sleep(1);
-  await qa.click(page.course.course_planner.assign_button)
-  await qa.sleep(2)
+  await qa.click(page.course.course_planner.assign_button);
+  await qa.sleep(1);
+  await qa.click(page.course.home.close_alert);
 })
 
 Then('I search for a course and click on the first course card that appears', async function (data_table) {
