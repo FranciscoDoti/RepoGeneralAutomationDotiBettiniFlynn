@@ -113,8 +113,9 @@ Feature: Qualitative Positive feature
 
     |  username                              | password       |
     |  coursewareachieve@gmail.com           | ABCabc@123     |
-    And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
-    And I click on the first course card
+    And I search for a course and click on the first course card that appears
+    |   Course          |
+    |   Qualitative E2E |
     And I enroll the students to the current course
     |   Student     |
     |   student_1   |

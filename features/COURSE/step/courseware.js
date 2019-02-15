@@ -307,6 +307,15 @@ Then(/^I click on the course planner to assign the activity and add points$/, as
   await qa.sleep(2)
 })
 
+Then('I search for a course and click on the first course card that appears', async function (data_table) {
+  let qa = new selenium(this.driver);
+  let course_card_element = await _.get(page, ['course', 'create_course', 'course_card']);
+  let course_search_element = await _.get(page, ['course', 'course_list', 'search_for_course_name']);
+  await qa.input(course_search_element, data_table.hashes()[0].Course)
+  await qa.sleep(2);
+  await qa.click(course_card_element);
+});
+
 Then('I click on the first course card', async function () {
   let qa = new selenium(this.driver);
   let course_card_element = await _.get(page, ['course', 'create_course', 'course_card']);
