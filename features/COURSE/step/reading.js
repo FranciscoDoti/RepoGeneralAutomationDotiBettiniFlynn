@@ -244,3 +244,17 @@ Given(/^I log in as "(.*)"$/, async function (user) {
   await qa.input(page.course.third_party.password, payload.password);
   await qa.click(page.course.third_party.password_next);
 });
+
+Then('I enroll the student in the course', async function (data_table) {
+  let qa = new selenium(this.driver);
+
+  await qa.click(page.course.create_course.course_card);
+  await qa.click(page.course.home.toggler_menu);
+  await qa.click(page.course.user.admin);
+  await qa.click(page.course.home.manage_enrollments);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await qa.input(page.course.home.manage_enrollements_input, data_table.hashes()[i].username);
+    await qa.click(page.course.home.add_user_button);
+  }
+  await qa.click(page.course.home.close_manage_roles);
+})

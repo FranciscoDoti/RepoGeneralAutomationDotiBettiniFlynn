@@ -86,6 +86,13 @@ Feature: Happy path flow for Read and Practice
        
 
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
+
+        When I fill out the form to update the status of course to active 
+            | page_object      | value                | 
+            |  course          |  Read& Practice      | 
+            |  course_code     |   E2E301             |  
+            | template_status  |  Active On Date      | 
+            
         Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
         And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
 
@@ -112,14 +119,18 @@ Feature: Happy path flow for Read and Practice
         Then I verify "activity_staus" as open
 
         And I "sign_out" of Achieve
-        And I have logged in as "paid_access"
+        And I have logged in as "admin"
         
-        When I generate access code for "Edit Testcourse"
-
-        Then I verify the access code is downloaded 
+       And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
+       And I enroll the student in the course 
+       | username                    |
+       | macmillanstudent5@gmail.com |
 
         And I "sign_out" of achieve
-        And I have logged in as "student_1"
+        And I login to Achieve
+        And I have logged in as "student_4"
+
+        Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
         Then I verify grades in Gradebook for following activities
             | activity                                                          | type               |
