@@ -7,6 +7,7 @@ module.exports = {
   environment: argv.env || "int",
   timeout: argv.timeout || 10000,
   sleep: argv.sleep || 1000,
+  headless: argv.headless || false,
   capabilities: {
     "browserName": argv.browser || "chrome",
     "version": argv.version,

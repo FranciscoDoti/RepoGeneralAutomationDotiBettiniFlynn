@@ -5,6 +5,18 @@ var config = require('../config.js');
 
 module.exports = function (driver) {
   return {
+    getArray: Promise.coroutine(function * (selector) {
+      let locator = this._locator(selector);
+      yield this._exists(true, locator);
+      let elements = yield driver.findElements(locator);
+      let element_array = [];
+
+      for (let i = 0; i < elements.length; i++) {
+        element_array.push(yield elements[i]);
+      }
+      return element_array;
+    }),
+
     goTo: Promise.coroutine(function * (url) {
       yield driver.get(url);
     }),
@@ -80,6 +92,19 @@ module.exports = function (driver) {
       yield this._exists(false, locator, timeout);
 
       yield locator.isEnabled();
+    }),
+
+    sendKeys: Promise.coroutine(function * (selector, text, clear) {
+      var locator = this._locator(selector);
+      var elem = yield driver.findElement(locator);
+      if (clear) {
+        yield elem.clear();
+      }
+      yield elem.sendKeys(text);
+    }),
+
+    executeScript: Promise.coroutine(function * (script) {
+      yield driver.executeScript(script);
     }),
 
     input: Promise.coroutine(function * (selector, text, clear) {
@@ -206,7 +231,6 @@ module.exports = function (driver) {
         name = locator[key];
       }
       var message = (should_exist ? `Element '${name}' is not present.` : `Element '${name}' is present.`);
-
       yield driver.wait(poll, (timeout || config.timeout), message);
     }),
 

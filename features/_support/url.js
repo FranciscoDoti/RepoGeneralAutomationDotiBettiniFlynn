@@ -1,6 +1,37 @@
 const config = require("../../config.js");
 
+const saplingBase = () => {
+  if (config.environment === 'local') {
+    return 'http://local.saplinglearning.me:8081';
+  }
+
+  if (config.environment === 'int') {
+    return 'http://int.saplinglearning.me';
+  }
+}
+
+const saplingBaseAssignmentId = () => {
+  if (config.environment === 'local') {
+    return '61043';
+  }
+
+  if (config.environment === 'int') {
+    return '674846';
+  }
+}
+
+const saplingLogin = () => {
+  if (config.environment === 'int') {
+    return 'ibiscms/login/';
+  }
+
+  return `/activityeditor/questionbank/${saplingBaseAssignmentId()}`;
+}
+
 function achieve_base() {
+  if (config.environment === 'local-achieve') {
+    return `https://courseware-frontend.local-mml.cloud`;
+  }
   if (config.environment === 'local') {
     return `http://courseware-local.mldev.cloud:3000`
   }
@@ -12,6 +43,9 @@ function achieve_base() {
 };
 
 function iam_base() {
+  if (config.environment === 'local-achieve') {
+    return `https://iam.local-mml.cloud`;
+  }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `https://int-achieve-${config.environment}-iam.mldev.cloud`
   } else {
@@ -20,6 +54,9 @@ function iam_base() {
 };
 
 function learningcurve_base() {
+  if (config.environment === 'local-achieve') {
+    return `https://learningcurve.local-mml.cloud/`;
+  }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `https://int-learning-curve-${config.environment}-learningcurve.mldev.cloud`
   } else {
@@ -36,6 +73,9 @@ function uat_base() {
 };
 
 function courseware_base() {
+  if (config.environment === 'local-achieve') {
+    return `https://courseware-frontend.local-mml.cloud`;
+  }
   if (config.environment === 'local') {
     return `http://courseware-local.mldev.cloud:3000`
   }
@@ -47,6 +87,9 @@ function courseware_base() {
 };
 
 function courseware_login() {
+  if (config.environment === 'local-achieve') {
+    return `/login?retURL=https://courseware-frontend.local-mml.cloud/courses`;
+  }
   if (config.environment === 'local') {
     return `/login?retURL=http://courseware-local.mldev.cloud:3000/courses`
   }
@@ -58,13 +101,26 @@ function courseware_login() {
 };
 
 function courseware_register() {
-  if (config.environment === 'local') {
+  if (config.environment === 'local-achieve') {
+    return `/login?retURL=https%3A%2F%2Fcourseware-frontend.local-mml.cloud%2Fcourses`;
+  }
+  if (config.environment === 'local') { 
     return `/register?retURL=http%3A%2F%2Fcourseware-local.mldev.cloud%3A3000%2Fcourses`
   }
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `/register?retURL=https%3A%2F%2Fint-achieve-${config.environment}-courseware-frontend.mldev.cloud%2Fcourses`
   } else {
     return `/register?retURL=https%3A%2F%2F${config.environment}-achieve-courseware-frontend.mldev.cloud%2Fcourses`
+  }
+};
+
+function math_base() {
+  if (config.environment === 'local') {
+    return `http://local.saplinglearning.me:3080`
+  } else if (config.environment === 'int' || config.environment === 'dev') {
+    return `http://${config.environment}.saplinglearning.me`
+  } else {
+    return `https://int-achieve-${config.environment}-courseware-frontend.mldev.cloud`
   }
 };
 
@@ -83,17 +139,25 @@ module.exports = {
     base: learningcurve_base(),
     lcrp: learningcurve_base() + "/lcrp"
   },
-  uat: {
-    base: uat_base(),
-    lcrp: uat_base() + "/lcrp"
-  },
   savi: {
     saviverification: "http://savipo2.saplinglearning.me/ibiscms/mod/flcn/view.php?id=4195376",
     loginurl: "https://savipo2.saplinglearning.me/ibiscms/login/",
     assignment: "https://savipo2.saplinglearning.me/sac/#/1396//-1",
     standalone: "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001"
   },
+  math:{
+    local: math_base() + "/login",
+    int: math_base() + "/ams/"
+  },
+  sapling: {
+    login: `${saplingBase()}/${saplingLogin()}`,
+    empty_activity: `${saplingBase()}/activityeditor/questionbank/${saplingBaseAssignmentId()}`
+  },
   third_party: {
     base: "http://accounts.google.com/signin/v2"
+  },
+  uat: {
+    base: uat_base(),
+    lcrp: uat_base() + "/lcrp"
   }
 }
