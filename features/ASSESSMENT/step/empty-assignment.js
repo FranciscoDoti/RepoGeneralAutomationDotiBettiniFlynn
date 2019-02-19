@@ -15,7 +15,7 @@ async function signIntoSapling (driver, username, password) {
   // rewriting this function from IAM's login because the submit button
   // is different than Acheive's
 
-  if (config.environment === 'int') {
+  if (config.environment !== 'local') {
     try {
       await driver.input(page.assessment.signon.username, username, true);
       await driver.input(page.assessment.signon.password, password, true);

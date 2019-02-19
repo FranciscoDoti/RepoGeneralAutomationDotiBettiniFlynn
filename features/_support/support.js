@@ -78,6 +78,12 @@ Then(/^I verify that "(.*)" system "(.*)" feature "(.*)" element link exists$/, 
   qa.linkExists(PAGE);
 })
 
+/** ELEMENT ASSERTIONS */
+Then(/^I verify "(.*)" "(.*)" has "(.*)" element$/, async function (system, feature, element) {
+  const qa = new selenium(this.driver);
+  qa.exists(element);
+});
+
 // Current Url Assertion (New or Current Window) //
 
 Then(/^I verify that the url "(.*)" is the current url in the "(.*)" window$/, async function(url, window) {
