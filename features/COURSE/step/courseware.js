@@ -357,6 +357,27 @@ Then ('I open the activity in the current course', async function(data_table) {
   await qa.click(specific_course_assignment_element);
 })
 
+Then ('I attempt to answer the questions in the current activity assignment', async function(data_table) {
+  let qa = new selenium(this.driver);
+
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let multiple_select_answer_element = await _.get(page, ['course', 'student_activity', 'multiple_select_answer']);
+    let multiple_select_answer_element_format = format(multiple_select_answer_element, )
+    await qa.sleep(4);
+    await qa.switchFrame(0);
+    // await qa.click(multiple_select_answer_element);
+    // await qa.click(page.course.student_activity.button_check)
+    await qa.click(page.course.student_activity.second_question);
+    await qa.click(multiple_select_answer_element);
+    await qa.click(page.course.student_activity.button_check)
+    // await qa.click(page.course.student_activity.third_question);
+    // await qa.click(multiple_select_answer_element);
+    // await qa.click(page.course.student_activity.button_check)
+  }
+
+
+})
+
 // FIXME Needs Implementation
 Then('I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);

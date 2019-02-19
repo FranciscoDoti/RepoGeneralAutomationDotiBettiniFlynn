@@ -131,11 +131,20 @@ Feature: Qualitative Positive feature
     # And I generate a course code to the current course
     # And I validate the "Qualitative E2E" course is accessible by "student_1"
 
+# I log in as a student and open the activity
+
     And I have logged in as "student_1"
     And I click on the first course card
     And I open the activity in the current course
-    |   Activity                    |
-    |   BR13.1: Bridge: Monopoly    |
+    |   Activity                                |
+    |   PrQ13: Practice Quiz - Ch. 13: Monopoly |
+    And I attempt to answer the questions in the current activity assignment
+    |   according to geologists, diamonds are less common than is any other gem-quality stone.  |
+    |   The average total cost curve for firms in the industry becomes horizontal.              |
+    |   earns an economic profit in the long run.                                               |
+
+    # |   BR13.1: Bridge: Monopoly            |
+
 
 
     # Then I click on courseplanner and I add custom content to the course 
