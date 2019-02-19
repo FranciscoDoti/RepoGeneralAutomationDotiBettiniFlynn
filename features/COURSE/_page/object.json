@@ -150,7 +150,7 @@
     "assign_assignment_button":"[data-test-id='assign_assignment_button']",
     "points_input":"[data-test-id='points_input']",
     "assign_button":"[data-test-id='assign_button']",
-    "course_assignment": "//a[contains (text(), 'BR13.1: Bridge: Monopoly') and contains(@class, '_3UBu _3kCz')]"
+    "course_assignment": "//a[contains (text(), '{}') and contains(@class, '_3UBu _3kCz')]"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",

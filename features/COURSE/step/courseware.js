@@ -351,9 +351,10 @@ Then ('I open the activity in the current course', async function(data_table) {
   let qa = new selenium(this.driver);
   let course_planner_tab_element = await _.get(page, ['course', 'course_page', 'course_planner']);
   let course_assignment_element = await _.get(page, ['course', 'course_planner', 'course_assignment']);
+  let specific_course_assignment_element = format(course_assignment_element, data_table.hashes()[0].Activity);
   
   await qa.click(course_planner_tab_element);
-  await qa.click(course_assignment_element);
+  await qa.click(specific_course_assignment_element);
 })
 
 // FIXME Needs Implementation
