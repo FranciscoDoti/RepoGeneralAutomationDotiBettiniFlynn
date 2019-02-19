@@ -131,9 +131,11 @@ Feature: Qualitative Positive feature
     # And I generate a course code to the current course
     # And I validate the "Qualitative E2E" course is accessible by "student_1"
 
-    # And I click on the first course card
-
-    # use the datatable to add th ecativities in courseplanner 
+    And I have logged in as "student_1"
+    And I click on the first course card
+    And I open the activity in the current course
+    |   Activity                    |
+    |   BR13.1: Bridge: Monopoly    |
 
 
     # Then I click on courseplanner and I add custom content to the course 
@@ -143,6 +145,7 @@ Feature: Qualitative Positive feature
     #     | Atwood                                      | Reading           | true  |
     #     | Monopolistice Competition                   | Reading           | true  |
     #     | Table: The Lemonade Market                  | Qualitative       | true  |
+
 
 
 # I am using datatable to change the status from asigned to unassigned you can use that 

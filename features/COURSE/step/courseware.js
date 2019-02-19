@@ -347,6 +347,15 @@ Then('I add the activities to the course under the course planner tab', async fu
   // await qa.clickElementInArray(add_assignment_element);
 })
 
+Then ('I open the activity in the current course', async function(data_table) {
+  let qa = new selenium(this.driver);
+  let course_planner_tab_element = await _.get(page, ['course', 'course_page', 'course_planner']);
+  let course_assignment_element = await _.get(page, ['course', 'course_planner', 'course_assignment']);
+  
+  await qa.click(course_planner_tab_element);
+  await qa.click(course_assignment_element);
+})
+
 // FIXME Needs Implementation
 Then('I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);
