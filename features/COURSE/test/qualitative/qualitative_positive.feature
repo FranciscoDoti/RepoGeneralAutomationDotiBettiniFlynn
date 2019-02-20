@@ -139,10 +139,10 @@ Feature: Qualitative Positive feature
     |   Activity                                |
     |   PrQ13: Practice Quiz - Ch. 13: Monopoly |
     And I attempt to answer the questions in the current activity assignment
-    |   according to geologists, diamonds are less common than is any other gem-quality stone.  |
-    |   The average total cost curve for firms in the industry becomes horizontal.              |
-    |   earns an economic profit in the long run.                                               |
-
+    |   Question    |   Answer                                                                                  |
+    # |   2           |   The average total cost curve for firms in the industry becomes horizontal.              |    
+    |   3           |   earns an economic profit in the long run.                                               |
+    # |   1           |   according to geologists, diamonds are less common than is any other gem-quality stone.  |
     # |   BR13.1: Bridge: Monopoly            |
 
 
