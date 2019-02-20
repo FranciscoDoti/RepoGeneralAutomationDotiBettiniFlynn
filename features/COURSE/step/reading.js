@@ -1,9 +1,7 @@
-const { When, Then, After, Given } = require('cucumber');
+const { When, Then, Given } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const page = require('../../master-page.js');
 const format = require('string-format');
-const expect = require('chai').expect;
-const _ = require('lodash');
 const config = require('../../../config.js');
 
 Then('I verify the data in course page', async function (data_table) {
@@ -247,14 +245,48 @@ Given(/^I log in as "(.*)"$/, async function (user) {
 
 Then('I enroll the student in the course', async function (data_table) {
   let qa = new selenium(this.driver);
-
+  await qa.sleep(1);
   await qa.click(page.course.create_course.course_card);
   await qa.click(page.course.home.toggler_menu);
+  await qa.sleep(1);
   await qa.click(page.course.user.admin);
+  await qa.sleep(1)
   await qa.click(page.course.home.manage_enrollments);
+  await qa.sleep(1);
   for (let i = 0; i < data_table.rows().length; i++) {
     await qa.input(page.course.home.manage_enrollements_input, data_table.hashes()[i].username);
     await qa.click(page.course.home.add_user_button);
   }
   await qa.click(page.course.home.close_manage_roles);
-})
+});
+When('I attempt the activity present in courseware', async function (data_table) {
+  let qa = new selenium(this.driver);
+  await qa.click(page.course.create_course.course_card);
+  await qa.click(page.course.course_page.overview);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var text;
+    text = await qa.getText(page.course.overview.Activity_link)
+    var verify = (text === data_table.hashes()[i].Activity);
+    while (verify === true) {
+      await qa.click(page.course.overview.Activity_link);
+      await qa.click(page.course.overview.resume_activity);
+      await qa.click(page.course.overview.multiple_choice);
+      await qa.click(page.course.overview.submit_button);
+      if (await qa.exists(page.course.overview.next_question_sucess)) {
+        await qa.click(page.course.overview.next_question_sucess)
+        await qa.click(page.course.overview.multiple_choice);
+        await qa.click(page.course.overview.submit_button);
+      } else if (await qa.exists(page.course.overview.slow_down_button)) {
+        await qa.click(page.course.overview.slow_down_button);
+        await qa.click(page.course.overview.multiple_choice);
+        await qa.click(page.course.overview.submit_button);
+      } else if (await qa.doesNotExist(page.course.overview.slow_down_button)) {
+        await qa.click(page.course.overview.multiple_choice);
+        await qa.click(page.course.overview.submit_button);
+      } else if (await qa.exists(page.course.overview.congratulation_message)) {
+        await qa.click(page.course.overview.back_to_studyplan);
+        await qa.click(page.course.overview.close_learnigcurve);
+      }
+    }
+  }
+});

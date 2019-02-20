@@ -4,7 +4,6 @@ const page = require('../../master-page.js');
 const config = require('../../../config.js');
 const format = require('string-format');
 const expect = require('chai').expect;
-const _ = require('lodash');
 
 // Navigation
 When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
@@ -309,6 +308,7 @@ Then('I click on the course planner to assign the activity and add points', asyn
   let qa = new selenium(this.driver);
 
   await qa.click(page.course.course_page.course_planner);
+  await qa.sleep(1);
   await qa.click(page.course.course_planner.assign_assignment_button);
   await qa.sleep(1);
   await qa.input(page.course.course_planner.points_input, data_table.hashes()[0].Points, 'clear');
