@@ -14,6 +14,7 @@
     },
 
     "ams":{
+        "raptorNewItem": "a[data-test-id='newItemRaptorBtn']",
         "getItemid": "div.author-app-item-details > table > tbody > tr > td:nth-child(2)",
         "itemId": "a[data-test-id=item",
         "itemStatus": "select[data-test-id ='details-status']",
@@ -23,7 +24,6 @@
 
     },
     "raptorAms": {
-        "raptorNewItem": "a[data-test-id='newItemRaptorBtn']",
         "titleName": "div >* input[value = 'Untitled']",
         "moduleTab": "a[href='#module-palette']",
         "gradedEquationButtonlink": "#module-palette-graded_equation > div.module-palette-button-text",
@@ -37,6 +37,7 @@
         "authorquestionText": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div.ace_scroller > div",
         "takeModeButton":"button#take-button",
         "takeModeAnswerText1": "span.mq-math-mode",
+        "takeModeAnswerText5": "span[data-test-id ='studentAnswerInput']",
         "editPanelAnswer": "//*[@data-test-id='ace-label']//textarea[@class='ace_text-input']",
         "editPanelQuestion": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > * div.ace_scroller > div > div.ace_layer.ace_text-layer > div >* span",
         "gradeAs": "select.greq-input[data-test-id='eval-type-dropdown']",

@@ -1,9 +1,7 @@
 
-const { Given, When, Then } = require('cucumber');
+const {When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium.js');
 const page = require('../../master-page.js');
-const URL = require('../../_support/url.js');
-const _ = require('lodash');
 const { Key } = require('selenium-webdriver')
 const shortTimeout = 2000
 
