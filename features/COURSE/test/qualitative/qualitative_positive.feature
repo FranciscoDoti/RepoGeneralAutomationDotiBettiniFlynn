@@ -101,22 +101,22 @@ Feature: Qualitative Positive feature
 #  Assign Activity and add points here
 
     # And I "sign_out" of Achieve
-    # When I login to Achieve
-    # And I have logged in as "instructor_4"
-    # And I click on the first course card
-    # And I click on the course planner to assign the activity and add points
-    #     |   Activity                    |   Points  |
-    #     |   BR13.1: Bridge: Monopoly    |   5       |
-    # And I "sign_out" of Achieve
-    # And I login to Achieve
-    # And I have logged in as "admin_1"
-    # And I search for a course and click on the first course card that appears
-    #     |   Course          |
-    #     |   Qualitative E2E |
-    # And I enroll students to the current course
-    #     |   Student     |
-    #     |   student_1   |
-    # And I generate a course code to the current course
+    When I login to Achieve
+    And I have logged in as "instructor_4"
+    And I click on the first course card
+    And I click on the course planner to assign the activity and add points
+        |   Activity                    |   Points  |
+        |   BR13.1: Bridge: Monopoly    |   5       |
+    And I "sign_out" of Achieve
+    And I login to Achieve
+    And I have logged in as "admin_1"
+    And I search for a course and click on the first course card that appears
+        |   Course          |
+        |   Qualitative E2E |
+    And I enroll students to the current course
+        |   Student     |
+        |   student_2   |
+    And I generate a course code to the current course
     # And I validate the "Qualitative E2E" course is accessible by "student_1"
     # And I open the activity in the current course
     #     |   Activity                    |
@@ -140,9 +140,9 @@ Feature: Qualitative Positive feature
     |   PrQ13: Practice Quiz - Ch. 13: Monopoly |
     And I attempt to answer the questions in the current activity assignment
     |   Question    |   Answer                                                                                  |
-    # |   2           |   The average total cost curve for firms in the industry becomes horizontal.              |    
+    |   1           |   diamond producers limit the quantity supplied to the market.                            |
+    |   2           |   The average total cost curve for firms in the industry becomes horizontal.              |   
     |   3           |   earns an economic profit in the long run.                                               |
-    # |   1           |   according to geologists, diamonds are less common than is any other gem-quality stone.  |
     # |   BR13.1: Bridge: Monopoly            |
 
 

@@ -363,18 +363,21 @@ Then ('I attempt to answer the questions in the current activity assignment', as
   let third_question_choice_element = await _.get(page, ['course', 'student_activity', 'third_question']);      
   await qa.sleep(2);  
   await qa.switchFrame(0);  
-  await qa.click(third_question_choice_element);
+  // await qa.click(third_question_choice_element);
 
   for (let i = 0; i < data_table.rows().length; i++) {
     let multiple_select_answer_element = await _.get(page, ['course', 'student_activity', 'multiple_select_answer']);
     let current_question_element = await _.get(page, ['course', 'student_activity', 'current_question']);
-    let multiple_select_answer_element_format = format(multiple_select_answer_element, data_table.rows()[i].Answer);
-    let current_question_element_format = format(current_question_element, '3');
+    let multiple_select_answer_element_format = format(multiple_select_answer_element, data_table.hashes()[i].Answer);
+    // let current_question_element_format = format(current_question_element, '3');
     // await qa.click(multiple_select_answer_element);
     // await qa.click(page.course.student_activity.button_check)
+    console.log(multiple_select_answer_element_format, 'format~~~~~~~', data_table.hashes()[i].Answer, 'undefined?')
+    await qa.click(page.course.student_activity.button_check);
+    await qa.sleep(1);  
     await qa.click(multiple_select_answer_element_format);
     await qa.click(page.course.student_activity.button_check);
-    await qa.click(current_question_element_format);
+    // await qa.click(current_question_element_format);
     // await qa.click(page.course.student_activity.third_question);
     // await qa.click(multiple_select_answer_element);
     // await qa.click(page.course.student_activity.button_check)

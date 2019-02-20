@@ -145,7 +145,7 @@
 
   },
   "student_activity": {
-    "multiple_select_answer":"//span[contains (text(),'{}')]",
+    "multiple_select_answer":"//span[contains (text(), '{}')]",
     "button_check": "[data-test-id='check-answer-button']",
     "current_question": "[data-test-id='side-nav-item-{}-score']",
     "second_question": "[data-test-id='side-nav-item-2-score']",
