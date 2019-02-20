@@ -5,3 +5,4 @@ test.txt
 *.csv
 screenshots/*
 !screenshots/.gitkeep
+raptor-itemId.txt
