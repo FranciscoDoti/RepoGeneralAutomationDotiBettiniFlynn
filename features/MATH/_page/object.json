@@ -16,7 +16,6 @@
     "ams":{
         "raptorNewItem": "a[data-test-id='newItemRaptorBtn']",
         "getItemid": "div.author-app-item-details > table > tbody > tr > td:nth-child(2)",
-        "itemId": "a[data-test-id=item",
         "itemStatus": "select[data-test-id ='details-status']",
         "modalSave": "button[data-test-id='reset-modal-reset-button']",
         "columnStatus": "div#item-panel > * td:nth-child(9)",

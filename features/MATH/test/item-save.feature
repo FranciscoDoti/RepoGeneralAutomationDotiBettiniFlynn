@@ -8,4 +8,4 @@ Scenario Outline: User creates and saves a new AMS raptor item question and save
   And I create a new graded <evaltype> <questionEquation> and save the question
   Examples:
   | evaltype        | questionEquation     |
-  | "Relation"      | "2x+26"            |   
+  | "Expression"      | "2x+26"            |   
