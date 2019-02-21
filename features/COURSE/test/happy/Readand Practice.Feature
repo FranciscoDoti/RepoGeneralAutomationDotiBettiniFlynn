@@ -1,6 +1,6 @@
 Feature: Happy path flow for Read and Practice 
 
-    # @delete-course
+    @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
@@ -53,16 +53,16 @@ Feature: Happy path flow for Read and Practice
         
         And I add the activity to the course under the resources tab
             | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |                                                        
+            | communicating courteously                                          | Reading            |                                                        
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
- 
+
         Then I verify the activity list 
             | activity                     |  
             | communicating courteously    |                                                        
             | Active and Passive voice     |
             | Wars of Religion             | 
-
+ 
 
         And I fill out the form to copy a course
             | page_object       | value                    |
@@ -74,72 +74,64 @@ Feature: Happy path flow for Read and Practice
         And I "sign_out" of Achieve
         And I login to Achieve
         And I have logged in as "customer_support_1"
-        
         And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
+        
         And I assign Instructor to the course
-            | username                     | password   |
-            | kabimigom@digitalmail.info   | ABCabc@123 |
+            | username              | password   |
+            | cofikada@webmails.top | ABCabc@123 |
 
         And I "sign_out" of Achieve
         And I login to Achieve 
         And I have logged in as "instructor_7"
        
-
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
-        When I fill out the form to update the status of course to active 
+        When I fill out the form to update the status of course to active
             | page_object      | value                | 
             |  course          |  Read& Practice      | 
             |  course_code     |   E2E301             |  
             | template_status  |  Active On Date      | 
-            
+
         Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
         And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
 
         And I invite the students
             | username                    |
-            | macmillanstudent5@gmail.com | 
+            | macmillanstudent4@gmail.com | 
 
         Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed 
 
-        And I add the activities in courseplanner
+        And I add the activities in courseplanner 
             | activity                                                          | 
             | communicating courteously                                         |                                                        
             | Active and Passive voice                                          |
             | Wars of Religion                                                  | 
         
-        Then I verify activity list 
-            | activity                     | 
-            | communicating courteously    |                                                        
-            | Active and Passive voice     |
-            | Wars of Religion             | 
+        # Then I verify activity list 
+        #     | activity                     | 
+        #     | communicating courteously    |                                                        
+        #     | Active and Passive voice     |
+        #     | Wars of Religion             | 
         
-      And I click on the course planner to assign the activity and add points
-        |   Activity                    |   Points  |
-        |  Active and Passive voice     |   5       |
-
-        Then I verify "activity_status" as open
+        When I click on "course" system "courseplanner" feature "assign_acitivity" element and assign the activity
+        Then I verify "activity_staus" as open
 
         And I "sign_out" of Achieve
-        And  I login to Achieve
-        And I have logged in as "admin_1"
+        And I have logged in as "paid_access"
         
-       And I click on "course" system "course_list" feature "search_for_course_name" element "COPY OF Edit TestcourseRead & Read& Practice" input 
-       And I enroll the student in the course 
-       | username                    |
-       | macmillanstudent5@gmail.com |
-       And I click on "course" system "home" feature "close_alert" element 
+        When I generate access code for "Edit Testcourse"
 
-        And I "sign_out" of Achieve
-        And I login to Achieve
-        And I have logged in as "student_4"
+        Then I verify the access code is downloaded 
 
-        Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
+        And I "sign_out" of achieve
+        And I have logged in as "student_1"
+    
 
-        When I attempt the activity present in courseware
-            | Activity                 | success | sleep |
-            | Active and Passive Voice | true    | 2     |
-            
+        When student completes the following activities assigned to him 
+            | activity                                                          | type               |
+            | communicating courteously                                         | Reading            |                                                        
+            | Active and Passive voice                                          | learning_curve     |
+            | Wars of Religion                                                  | Read and Practice  |
 
         Then I verify grades in Gradebook for following activities
             | activity                                                          | type               |

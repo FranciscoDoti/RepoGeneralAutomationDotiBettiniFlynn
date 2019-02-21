@@ -123,8 +123,11 @@
     "close_learnigcurve" : "[data-test-id='closelearningcurve']",
     "resume_activity": "//*[text()='Resume activity']",
     "correct_question": "[data-test-id='correctAnswerSuccessModal']",
-    "next_question_sucess": "//*[text()='Next question']"
+    "next_question_success": "//*[text()='Next question']",
+    "slowdownmodel": "[data-test-id='slowDownModal']",
+    "show_answer": "[data-test-id='activityShowAnswerBtn']"
   },
+
   "resources": {
     "activity": "._3Jn1",
     "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
@@ -165,7 +168,8 @@
     "Assignment_date": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[3]/div[6]",
     "check_box": "[data-test-id='row_checkbox']",
     "Assign_calender": "//*[@id='container']/div/div/div/div[4]/div/div/div/div/div[1]/button[1]",
-    "activity_status": "[data-test-id='assignment_status']"
+    "activity_status": "[data-test-id='assignment_status']",
+    "activity_validation":"[class='_3UBu _3kCz']"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
