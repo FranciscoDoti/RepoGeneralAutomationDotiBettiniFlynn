@@ -1,34 +1,31 @@
-const config = require("../../config.js");
+const config = require('../../config.js');
 
 const saplingBase = () => {
+  let baseUrl = `http://${config.environment}.saplinglearning.me`;
   if (config.environment === 'local') {
-    return 'http://local.saplinglearning.me:8081';
+    baseUrl = 'http://local.saplinglearning.me:8081';
   }
-
-  if (config.environment === 'int') {
-    return 'http://int.saplinglearning.me';
-  }
+  return baseUrl;
 }
 
 const saplingBaseAssignmentId = () => {
-  if (config.environment === 'local') {
-    return '61043';
-  }
+  return config.sap;
+}
 
-  if (config.environment === 'int') {
-    return '674846';
-  }
+const saplingBaseQuestionBank = () => {
+  return saplingBase() + '/activityeditor/questionbank/' +
+    saplingBaseAssignmentId();
 }
 
 const saplingLogin = () => {
-  if (config.environment === 'int') {
-    return 'ibiscms/login/';
+  let loginUrl = 'ibiscms/login/';
+  if (config.environment === 'local') {
+    loginUrl = `activityeditor/questionbank/${saplingBaseAssignmentId()}`;
   }
-
-  return `/activityeditor/questionbank/${saplingBaseAssignmentId()}`;
+  return loginUrl;
 }
 
-function achieve_base() {
+function achieve_base () {
   if (config.environment === 'local-achieve') {
     return `https://courseware-frontend.local-mml.cloud`;
   }
@@ -42,7 +39,7 @@ function achieve_base() {
   }
 };
 
-function iam_base() {
+function iam_base () {
   if (config.environment === 'local-achieve') {
     return `https://iam.local-mml.cloud`;
   }
@@ -53,7 +50,7 @@ function iam_base() {
   }
 };
 
-function learningcurve_base() {
+function learningcurve_base () {
   if (config.environment === 'local-achieve') {
     return `https://learningcurve.local-mml.cloud/`;
   }
@@ -64,7 +61,7 @@ function learningcurve_base() {
   }
 };
 
-function uat_base() {
+function uat_base () {
   if (config.environment === 'preprod' || config.environment === 'demo') {
     return `https://int-achieve-${config.environment}-uat-learningcurve.mldev.cloud`
   } else {
@@ -72,7 +69,7 @@ function uat_base() {
   }
 };
 
-function courseware_base() {
+function courseware_base () {
   if (config.environment === 'local-achieve') {
     return `https://courseware-frontend.local-mml.cloud`;
   }
@@ -86,7 +83,7 @@ function courseware_base() {
   }
 };
 
-function courseware_login() {
+function courseware_login () {
   if (config.environment === 'local-achieve') {
     return `/login?retURL=https://courseware-frontend.local-mml.cloud/courses`;
   }
@@ -100,11 +97,11 @@ function courseware_login() {
   }
 };
 
-function courseware_register() {
+function courseware_register () {
   if (config.environment === 'local-achieve') {
     return `/login?retURL=https%3A%2F%2Fcourseware-frontend.local-mml.cloud%2Fcourses`;
   }
-  if (config.environment === 'local') { 
+  if (config.environment === 'local') {
     return `/register?retURL=http%3A%2F%2Fcourseware-local.mldev.cloud%3A3000%2Fcourses`
   }
   if (config.environment === 'preprod' || config.environment === 'demo') {
@@ -114,7 +111,7 @@ function courseware_register() {
   }
 };
 
-function math_base() {
+function math_base () {
   if (config.environment === 'local') {
     return `http://local.saplinglearning.me:3080`
   } else if (config.environment === 'int' || config.environment === 'dev') {
@@ -127,37 +124,38 @@ function math_base() {
 module.exports = {
   achieve: {
     base: achieve_base(),
-    login: achieve_base() + "/start",
+    login: achieve_base() + '/start',
     user_creation: iam_base() + courseware_register()
   },
   courseware: {
     login: courseware_base() + courseware_login(),
     register: courseware_base() + courseware_register(),
-    lcrp: courseware_base() + "/lcrp"
+    lcrp: courseware_base() + '/lcrp'
   },
   learningcurve: {
     base: learningcurve_base(),
-    lcrp: learningcurve_base() + "/lcrp"
+    lcrp: learningcurve_base() + '/lcrp'
   },
   savi: {
-    saviverification: "http://savipo2.saplinglearning.me/ibiscms/mod/flcn/view.php?id=4195376",
-    loginurl: "https://savipo2.saplinglearning.me/ibiscms/login/",
-    assignment: "https://savipo2.saplinglearning.me/sac/#/1396//-1",
-    standalone: "https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001"
+    saviverification: 'http://savipo2.saplinglearning.me/ibiscms/mod/flcn/view.php?id=4195376',
+    loginurl: 'https://savipo2.saplinglearning.me/ibiscms/login/',
+    assignment: 'https://savipo2.saplinglearning.me/sac/#/1396//-1',
+    standalone: 'https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5667507739001'
   },
-  math:{
-    local: math_base() + "/login",
-    int: math_base() + "/ams/"
+  math: {
+    local: math_base() + '/login',
+    int: math_base() + '/ams/'
   },
   sapling: {
     login: `${saplingBase()}/${saplingLogin()}`,
-    empty_activity: `${saplingBase()}/activityeditor/questionbank/${saplingBaseAssignmentId()}`
+    empty_activity: `${saplingBase()}/activityeditor/assignment/${saplingBaseAssignmentId()}`,
+    sapling_base_question_bank: saplingBaseQuestionBank()
   },
   third_party: {
-    base: "http://accounts.google.com/signin/v2"
+    base: 'http://accounts.google.com/signin/v2'
   },
   uat: {
     base: uat_base(),
-    lcrp: uat_base() + "/lcrp"
+    lcrp: uat_base() + '/lcrp'
   }
 }
