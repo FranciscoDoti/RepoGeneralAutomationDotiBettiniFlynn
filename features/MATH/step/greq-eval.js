@@ -1,12 +1,13 @@
 
-const {When, Then } = require('cucumber');
+const { When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium.js');
 const page = require('../../master-page.js');
-const { Key } = require('selenium-webdriver')
-const shortTimeout = 2000
+const assert_text = require('../../../features/master-text.js');
+const expect = require('chai').expect;
+const _ = require('lodash');
 
 
-/* Creating a new AMS raptor item for different Eval types: Relation, Expression */
+/* Creating a new AMS raptor item for different Eval types: Relation, Expression, Point */
 
 
 When(/^I select Graded equation and save as "(.*)"$/, async function (name) {
@@ -20,6 +21,7 @@ When(/^I select Graded equation and save as "(.*)"$/, async function (name) {
 When(/^I click on the Question tab, and add an Answer field$/, async function () {
   let qa = new selenium(this.driver);
   await qa.click(page.math.raptorAms.questionContent);
+  await qa.exists(page.math.raptorAms.answerLabel);
 });
 
 When(/^I set the grade as "(.*)" type and input "(.*)"$/, async function (eval, eqn) {
@@ -27,23 +29,18 @@ When(/^I set the grade as "(.*)" type and input "(.*)"$/, async function (eval, 
   await qa.click(page.math.raptorAms.correctTab);
   await qa.input(page.math.raptorAms.gradeAs, eval);
   await qa.click(page.math.raptorAms.gradeAs);
-  for (let i = 0; i< eqn.length; i++) {
-    const expr = eqn.charAt(i);
-    await qa.sendKeys(page.math.raptorAms.equationField, Key.RETURN)
-    await qa.sendKeys(page.math.raptorAms.equationField, Key.BACK_SPACE)
-    await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[1].value='${expr}'; ta[1].dispatchEvent(new Event('input'))`);
-  }
-  for (let i = 0; i< eqn.length; i++) {
-    const expr = eqn.charAt(i);
-    await qa.sendKeys(page.math.raptorAms.prefixField, Key.RETURN)
-    await qa.sendKeys(page.math.raptorAms.prefixField, Key.BACK_SPACE)
-    await qa.executeScript(`const ta=document.querySelectorAll('textarea.ace_text-input'); ta[0].value='${expr}'; ta[0].dispatchEvent(new Event('input'))`);
-  }
+  await qa.sendKeys(page.math.raptorAms.equationField, eqn);
 });
 
-When(/^I save the question$/, async function () {
+Then(/^I save the question and verify saving message box$/, async function () {
   let qa = new selenium(this.driver);
   await qa.click(page.math.raptorAms.saveButton);
+  // added Save modal message box for verification
+  let getmssg = await qa.getText(page.math.raptorAms.saveMessage);
+  expect(getmssg).to.equal(assert_text.math.messageWindow);
+  // the automation is too fast and tries to click Take-mode element before element is present
+  // tried the exists, isEnabled frame work functions
+  // as last resort added 1 sec sleep after save
   await qa.sleep(1);
 });
 
@@ -52,8 +49,18 @@ When(/^I am in Take Mode and input the correct "(.*)"$/, async function (eqn) {
   await qa.click(page.math.raptorAms.takeModeButton);
   await qa.click(page.math.raptorAms.takeModeAnswerText1);
   for (let i = 0; i< eqn.length; i++) {
+    // each char (token) in the equation is a key in the paletteBasic json object
     const token = eqn.charAt(i);
-    const exp = token === '+' ? 'add' : token
+    // json objects cannot have certain symbols as keys (+,- etc.)
+    // so the keys are substituted with actual words
+    const exp = token === '+' ? 'add' : token === ',' ? 'comma' : token === '-' ? 'subtract' : token
+    // if a comma is encountered in the equation, the rightArrow key is sent before the comma
+    // this is required because the Math component is expecting a comma to signify the end of partial equation
+    // Note: the calculator palette is going through new requirement changes 
+    // and there will be a task to update Answer text field with unique id
+    if(exp === 'comma') {
+       await qa.click(page.math.paletteBasic.rightArrow);
+    }
     await qa.click(page.math.paletteBasic[exp]);
   }
 });
@@ -65,5 +72,5 @@ When(/^I simulate grading$/, async function () {
 
 Then(/^My answer is graded correctly$/, async function () {
   let qa = new selenium(this.driver);
-  await qa.exists(page.math.raptorAms.gradedCorrect, shortTimeout);
+  await qa.exists(page.math.raptorAms.correctAnswer);
 });
