@@ -23,7 +23,7 @@ Given(/^I login to AMS/, async function() {
 
 When(/^I click on the New Raptor item in the AMS page$/, async function () {
     let qa = new selenium(this.driver);
-    await qa.click(page.math.raptorAms.raptorNewItem);
+    await qa.click(page.math.ams.raptorNewItem);
   });
   
   When(/^I navigate to AuthorApp tab$/, async function () {

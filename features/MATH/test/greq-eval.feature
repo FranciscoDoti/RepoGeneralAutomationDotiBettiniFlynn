@@ -9,7 +9,7 @@ Scenario Outline: Author creates a <evaltype> type <questionEquation> equation a
   And I select Graded equation and save as <evaltype>
   And I click on the Question tab, and add an Answer field
   And I set the grade as <evaltype> type and input <questionEquation>
-  And I save the question
+  Then I save the question and verify saving message box
 
   When I am in Take Mode and input the correct <answerEquation> 
   And I simulate grading

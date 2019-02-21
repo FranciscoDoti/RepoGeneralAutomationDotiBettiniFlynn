@@ -28,6 +28,7 @@ When(/^I set the item status to live$/, async function () {
 Then(/^I verify the item in "(.*)" system, with "(.*)" feature, reflects status update in "(.*)" element$/, async function (system, feature, element) {
     let qa = new selenium(this.driver); 
     let pageElement = await _.get(page, [system, feature, element]);
+    // the columnStatus page element id will be updated with data-test-id added in this sprint
     let pageText = await qa.getText(pageElement);
     expect(assert_text.math.statusUpdate).to.include(pageText);     
   });

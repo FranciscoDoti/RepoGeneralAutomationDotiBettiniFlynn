@@ -28,6 +28,7 @@
         "gradedEquationButtonlink": "#module-palette-graded_equation > div.module-palette-button-text",
         "questionTab": "a[data-test-id='question-context']",
         "questionContent": "#primary-content-area",
+        "answerLabel":"span[aria-label ='Answer =']",
         "defaultTab": "div > * li > a[data-test-id='default-context']",
         "correctTab" : "a[data-test-id='correct-context']",
         "equationField": "div[data-test-id='equation-field-container'] > div > div:nth-child(2) > div > div > textarea",
@@ -36,14 +37,16 @@
         "authorquestionText": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div.ace_scroller > div",
         "takeModeButton":"button#take-button",
         "takeModeAnswerText1": "span.mq-math-mode",
-        "takeModeAnswerText5": "span[data-test-id ='studentAnswerInput']",
         "editPanelAnswer": "//*[@data-test-id='ace-label']//textarea[@class='ace_text-input']",
         "editPanelQuestion": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > * div.ace_scroller > div > div.ace_layer.ace_text-layer > div >* span",
         "gradeAs": "select.greq-input[data-test-id='eval-type-dropdown']",
         "saveButton": "button#save-button",
         "editButton": "button#edit-button",
         "simulateButton": "button#check-answer-button",
-        "gradedCorrect": "a.text-center[data-test-id ='correct-context']"
+        "gradedCorrect": "a.text-center[data-test-id ='correct-context']",
+        "incorrectAnswerAlert": "div#primary-content-area > section.red-border",
+        "saveMessage": ".modal-title",
+        "correctAnswer": "div[aria-label ='Correct Answer']"
     },
 
     "paletteBasic":{
