@@ -4,6 +4,7 @@ const page = require('../../master-page.js');
 const config = require('../../../config.js');
 const format = require('string-format');
 const expect = require('chai').expect;
+const _ = require('lodash');
 
 // Navigation
 When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {

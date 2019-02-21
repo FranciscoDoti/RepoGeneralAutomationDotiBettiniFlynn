@@ -84,10 +84,9 @@ Feature: Happy path flow for Read and Practice
         And I login to Achieve 
         And I have logged in as "instructor_7"
        
-
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
-        When I fill out the form to update the status of course to active 
+        When I fill out the form to update the status of course to active
             | page_object      | value                | 
             |  course          |  Read& Practice      | 
             |  course_code     |   E2E301             |  
