@@ -5,7 +5,7 @@ Scenario Outline: User creates and saves a new AMS raptor item question and save
   Given I login to AMS
   When I click on the New Raptor item in the AMS page
   And I navigate to AuthorApp tab
-  And I create a new graded <evaltype> <equation> and save the question
+  And I create a new graded <evaltype> <questionEquation> and save the question
   Examples:
-  | evaltype        | equation     |
-  | "Relation"      | "2x+26=0"    |   
+  | evaltype        | questionEquation     |
+  | "Expression"      | "2x+26"            |   

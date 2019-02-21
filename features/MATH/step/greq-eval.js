@@ -2,7 +2,6 @@
 const { When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium.js');
 const page = require('../../master-page.js');
-const _ = require('lodash');
 
 
 /* Creating a new AMS raptor item for different Eval types: Relation, Expression, Point */
