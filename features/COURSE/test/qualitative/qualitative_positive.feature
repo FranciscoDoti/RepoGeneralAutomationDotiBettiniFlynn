@@ -115,7 +115,7 @@ Feature: Qualitative Positive feature
         |   Qualitative E2E |
     And I enroll students to the current course
         |   Student     |
-        |   student_2   |
+        |   student_4   |
     And I generate a course code to the current course
     # And I validate the "Qualitative E2E" course is accessible by "student_1"
     # And I open the activity in the current course
@@ -133,17 +133,17 @@ Feature: Qualitative Positive feature
 
 # I log in as a student and open the activity
 
-    And I have logged in as "student_1"
-    And I click on the first course card
-    And I open the activity in the current course
-    |   Activity                                |
-    |   PrQ13: Practice Quiz - Ch. 13: Monopoly |
-    And I attempt to answer the questions in the current activity assignment
-    |   Question    |   Answer                                                                                  |
-    |   1           |   diamond producers limit the quantity supplied to the market.                            |
-    |   2           |   The average total cost curve for firms in the industry becomes horizontal.              |   
-    |   3           |   earns an economic profit in the long run.                                               |
-    # |   BR13.1: Bridge: Monopoly            |
+    # And I have logged in as "student_4"
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    # And I click on the first course card
+    # And I open the activity in the current course
+    # |   Activity                                |
+    # |   PrQ13: Practice Quiz - Ch. 13: Monopoly |
+    # And I attempt to answer the questions in the current activity assignment
+    # |   Question    |   Answer                                                                                  |
+    # |   1           |   diamond producers limit the quantity supplied to the market.                            |
+    # |   2           |   The average total cost curve for firms in the industry becomes horizontal.              |   
+    # |   3           |   earns an economic profit in the long run.                                               |
 
 
 
