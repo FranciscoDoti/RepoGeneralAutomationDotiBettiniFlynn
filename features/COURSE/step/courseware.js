@@ -315,7 +315,7 @@ Then ('I open the activity in the current course', async function(data_table) {
 Then ('I attempt to answer the questions in the current activity assignment', async function(data_table) {
   let qa = new selenium(this.driver);   
   await qa.sleep(2);  
-  await qa.switchFrame(0);  
+  await qa.switchFrame(0);
 
   for (let i = 0; i < data_table.rows().length; i++) {
     let multiple_select_answer_element = page.course.student_activity.multiple_select_answer;
@@ -328,7 +328,10 @@ Then ('I attempt to answer the questions in the current activity assignment', as
     await qa.click(page.course.student_activity.button_check);
 
   }
-
+  await qa.click(page.course.student_activity.close_activity);
+  let activity_score = await qa.getText(page.course.student_activity.activity_score);
+  console.log(activity_score, 'activity_score');
+  
 
 })
 

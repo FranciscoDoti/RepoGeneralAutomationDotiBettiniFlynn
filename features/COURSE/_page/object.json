@@ -168,7 +168,8 @@
     "current_question": "[data-test-id='side-nav-item-{}-score']",
     "second_question": "[data-test-id='side-nav-item-2-score']",
     "third_question": "[data-test-id='side-nav-item-3-score']",
-    "activity_score": "[class='AFA5 false CPxV']"
+    "activity_score": "[class='AFA5 false CPxV']",
+    "close_activity": "._1iTu"
   },
   "course_planner": {
     "add_unit_folder": "//*[@data-test-id='add_unit']", 
