@@ -348,6 +348,36 @@ Then('I add the activities to the course under the course planner tab', async fu
   // await qa.clickElementInArray(add_assignment_element);
 })
 
+Then ('I open the activity in the current course', async function(data_table) {
+  let qa = new selenium(this.driver);
+  let course_planner_tab_element = await _.get(page, ['course', 'course_page', 'course_planner']);
+  let course_assignment_element = await _.get(page, ['course', 'course_planner', 'course_assignment']);
+  let specific_course_assignment_element = format(course_assignment_element, data_table.hashes()[0].Activity);
+  
+  await qa.click(course_planner_tab_element);
+  await qa.click(specific_course_assignment_element);
+})
+
+Then ('I attempt to answer the questions in the current activity assignment', async function(data_table) {
+  let qa = new selenium(this.driver);   
+  await qa.sleep(2);  
+  await qa.switchFrame(0);  
+
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let multiple_select_answer_element = await _.get(page, ['course', 'student_activity', 'multiple_select_answer']);
+    let current_question_element = await _.get(page, ['course', 'student_activity', 'current_question']);
+    let multiple_select_answer_element_format = format(multiple_select_answer_element, data_table.hashes()[i].Answer);
+    let current_question_element_format = format(current_question_element, data_table.hashes()[i].Question);
+
+    await qa.click(current_question_element_format)
+    await qa.click(multiple_select_answer_element_format);
+    await qa.click(page.course.student_activity.button_check);
+
+  }
+
+
+})
+
 // FIXME Needs Implementation
 Then('I verify data table courses populate the list', async function (data_table) {
   let qa = new selenium(this.driver);
