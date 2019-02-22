@@ -229,24 +229,6 @@ module.exports = function (driver) {
       yield driver.findElement(locator).click();
     }),
 
-    elementExists: Promise.coroutine(function * (locator) {
-      var element = yield driver.findElement(locator)
-      try {
-        if (element.isDisplayed()) {
-          return true
-        }
-      } catch (err) {
-        return false
-      }
-    }),
-    // elementExists: Promise.coroutine(function * (locator) {
-    //   try {
-    //     yield driver.findElement(locator);
-    //   } catch (err) {
-    //     return false
-    //   }
-    // }),
-
     _exists: Promise.coroutine(function * (should_exist, locator, timeout) {
       var tick = Promise.coroutine(function * tick () {
         var element = yield driver.findElement(locator);
