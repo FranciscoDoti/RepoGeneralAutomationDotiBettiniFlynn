@@ -1,0 +1,32 @@
+{
+  "hatchling": {
+    "item_title_edit": "div[data-test-id=\"hatchling-item-title-edit\"]",
+    "item_title_field": "input[data-test-id=\"hatchling-item-title\"]",
+    "question_prompt_field": "div[data-test-id=\"hatchling-question-prompt\"] [contenteditable]",
+    "create_update_button": "button[data-test-id=\"hatchling-create-update-button\"]",
+    "multiple_choice": {
+      "container": "div[data-test-id=\"hatchling-multiple-choice-container\"]",
+      "correct_choice": "div[data-test-id=\"hatchling-correct-choice\"] [contenteditable]",
+      "add_choice_button": "button[data-test-id=\"add-answer-choice\"]",
+      "incorrect_choice": "div[data-test-id=\"hatchling-incorrect-choice\"] [contenteditable]"
+   },
+    "numeric_entry": {
+      "container": "div[data-test-id=\"hatchling-numeric-entry-container\"]"
+    }
+  },
+  "activity_editor": {
+    "assignment_tab": "[data-test-id='link-to-assignment']",
+    "empty": "div[data-test-id=\"empty-message\"]",
+    "new_empty": "div[data-test-id=\"assignment-create-question-title\"]",
+    "question_bank_button": "a[data-test-id=\"assignment-create-actions-question-bank\"]",
+    "create_hatchling_button": "button[data-test-id=\"assignment-create-actions-create-my-own\"]",
+    "hatchling_multiple_choice_button": "a[data-test-id=\"hatchling-create-multiple_choice\"]",
+    "hatchling_numeric_entry_button": "a[data-test-id=\"hatchling-create-numeric_entry\"]",
+    "assignment_item_row": "div[data-test-id=\"list-item-row\"]"
+  },
+  "signon": {
+    "username": "input#username",
+    "password": "input#password",
+    "submit":"#submitButton" 
+  }
+}

@@ -3,7 +3,7 @@
     "add_course": "._1T-8",
     "search": "button._1Kr1",
     "title": "._1YVk",
-    "close_message": ".Bmdu",
+    "close_message": "[data-test-id='alert_close_btn']",
     "Achieve_home" : "[data-test-id='achieve_logo_link']"
   },
   "home": {
@@ -29,8 +29,8 @@
     "share_template": "//*[text()='Share Template']",
     "manage_instructor": "//*[text()='Manage Instructor']",
     "copy_course": "[data-test-id='course_menu_copy_course']",
-    "delete_course": "//*[text()='Delete Course']",
-    "confirm_delete": "//*[text()='Yes, Delete']",
+    "delete_course": "[data-test-id='course_menu_delete_course']",
+    "confirm_delete": "[data-test-id='delete_course_modal_yes_btn']",
     "id": "//div[contains(text(), 'ID: {}')]",
     "isbn": "//div[contains(text(), 'ISBN: {}')]",
     "list": "._ExY",
@@ -78,9 +78,10 @@
     "status": "[name='courseStatus']",
     "cancel": "//*[text()='Cancel']",
     "save": "._1tkc.undefined",
+    "template_status": "select._2oIm._1bTe",
     "message": "._10W9",
-    "success_message": "//*[@id='container']/div/div[2]/div[2]/span",
-    "close_message": ".Bmdu",
+    "success_message": "[data-test-id='alert'] span",
+    "close_message": "[data-test-id='alert_close_btn']",
     "select_day": "//span[(text()='{}')]/../../*[@class='_1UGb']",
     "meeting_hour": "#__timePickerHour",
     "meeting_minute": "#__timePickerMinute",
@@ -197,6 +198,5 @@
     "user_next": "[id='identifierNext']",
     "password": "[name='password']",
     "password_next": "[id='passwordNext']"
-
   }
 }

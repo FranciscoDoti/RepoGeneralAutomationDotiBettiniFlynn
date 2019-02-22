@@ -2,9 +2,7 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature",
-    "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature",
-    "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature",
+    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/login.feature",
     "User-registration": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/user-registration.feature",
     "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/qualitative/qualitative_positive.feature",
     "Student-qual": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/student-qual.feature",
@@ -20,11 +18,10 @@
     "assigning_student_positive": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/assigning_student_positive.feature",
     "courseplanner": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/assigning_student_positive.feature",
     "read&practice": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/happy/ReadandPractice.feature",
-    "read": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/ReadandPractice.feature"
+    "read": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/ReadandPractice.feature",
+    "generate-lc-test": "node ./features/lc/_data/create-test-manuscript.js"
   },
   "dependencies": {
-    "any-promise": "1.3.0",
-    "axe-webdriverjs": "^2.1.0",
     "bluebird": "^3.5.3",
     "chai": "^4.1.2",
     "cheerio": "^1.0.0-rc.2",

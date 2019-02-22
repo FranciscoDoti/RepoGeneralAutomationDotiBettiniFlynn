@@ -1,0 +1,1 @@
+Feature: Learning Curve Classic Instructor Trends and Insights View

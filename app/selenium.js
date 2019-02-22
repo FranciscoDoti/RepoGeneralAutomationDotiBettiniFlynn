@@ -13,7 +13,7 @@ module.exports = function (driver) {
       let element_array = [];
 
       for (let i = 0; i < elements.length; i++) {
-        element_array.push(elements[i]);
+        element_array.push(yield elements[i]);
       }
       return element_array;
     }),
