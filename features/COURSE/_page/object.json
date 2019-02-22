@@ -3,7 +3,7 @@
     "add_course": "._1T-8",
     "search": "button._1Kr1",
     "title": "._1YVk",
-    "close_message": ".Bmdu",
+    "close_message": "[data-test-id='alert_close_btn']",
     "Achieve_home" : "[data-test-id='achieve_logo_link']"
   },
   "home": {
@@ -20,8 +20,8 @@
     "generate_access_code": "[data-test-id='generate_access_code_button']",
     "close_manage_roles": "._2Ft-",
     "access_code": "[class='_1irm']",
-    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']",
-    "close_alert": "[data-test-id='alert_close_btn']"
+    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']", 
+    "close_alert" : "[data-test-id='alert_close_btn']"
   },
   "course_list": {
     "course_menu": "[data-test-id='course_menu_button']",
@@ -29,8 +29,8 @@
     "share_template": "//*[text()='Share Template']",
     "manage_instructor": "//*[text()='Manage Instructor']",
     "copy_course": "[data-test-id='course_menu_copy_course']",
-    "delete_course": "//*[text()='Delete Course']",
-    "confirm_delete": "//*[text()='Yes, Delete']",
+    "delete_course": "[data-test-id='course_menu_delete_course']",
+    "confirm_delete": "[data-test-id='delete_course_modal_yes_btn']",
     "id": "//div[contains(text(), 'ID: {}')]",
     "isbn": "//div[contains(text(), 'ISBN: {}')]",
     "list": "._ExY",
@@ -78,9 +78,10 @@
     "status": "[name='courseStatus']",
     "cancel": "//*[text()='Cancel']",
     "save": "._1tkc.undefined",
+    "template_status": "select._2oIm._1bTe",
     "message": "._10W9",
-    "success_message": "//*[@id='container']/div/div[2]/div[2]/span",
-    "close_message": ".Bmdu",
+    "success_message": "[data-test-id='alert'] span",
+    "close_message": "[data-test-id='alert_close_btn']",
     "select_day": "//span[(text()='{}')]/../../*[@class='_1UGb']",
     "meeting_hour": "#__timePickerHour",
     "meeting_minute": "#__timePickerMinute",
@@ -107,10 +108,27 @@
     "reports": "",
     "resources": "/html/body/div/div/div/div/div[2]/div[2]/ul/li[4]/span",
     "reading": "//*[@data-test-id='reading_tab']",
-    "generate_access_code" : "//*[text()='Generate Access Codes']",
+    "generate_access_code" : "/html/body/div[2]/div/div/div[2]/div/div/div[3]/button[2]",
     "Export_access_code" : "//*[@aria-label='Export List of Generated Codes']",
     "close_access_code" : "//*[@aria-label='close']"
   },
+  "overview":{
+    "Activity_link": "[data-test-id='activity_name_link']",
+    "Begin_activity": "[data-test-id='beginActivityBtn']",
+    "multiple_choice": "[data-test-id='multipleChoiceAnswer']",
+    "next_question": "[data-test-id='nextQuestionBtn']",
+    "slow_down_button": "[data-test-id='slowDownModalOkBtn']",
+    "submit_button": "[data-test-id='submitAnswerBtn']",
+    "congratulation_message": "[class='CompletedActivityModal__congratulationText__26VY7']",
+    "back_to_studyplan": "[data-test-id='backToStudyPlanBtn']",
+    "close_learnigcurve" : "[data-test-id='closelearningcurve']",
+    "resume_activity": "//*[text()='Resume activity']",
+    "correct_question": "[data-test-id='correctAnswerSuccessModal']",
+    "next_question_success": "//*[text()='Next question']",
+    "slowdownmodel": "[data-test-id='slowDownModal']",
+    "show_answer": "[data-test-id='activityShowAnswerBtn']"
+  },
+
   "resources": {
     "activity": "._3Jn1",
     "add_activity": "//span[contains(@class,'_1Cyp') and contains(text(), '{}')]",
@@ -121,7 +139,7 @@
     "add_content":"[data-test-id='add_content_button']", 
     "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
     "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
-    "add_button_read&practice": "//*[@data-test-id='add_button_lcrp']",
+    "add_button_readandpractice": "//*[@data-test-id='add_button_lcrp']",
     "add_reading_button": "//*[@data-test-id='add_button_reading']", 
     "add_file_button": "//*[data-test-id='add_button_staticfile']",
     "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
@@ -152,16 +170,25 @@
     "third_question": "[data-test-id='side-nav-item-3-score']"
   },
   "course_planner": {
-    "custom_content_tab":"[data-test-id='custom_content_tab']",
-    "add_assignment": "._29SI",
+    "add_unit_folder": "//*[@data-test-id='add_unit']", 
+     "custom_content_button": "[data-test-id='custom_content_tab']",
+     "add_assignment_button": "//*[@aria-label='Add assignment']",
     "assign_assignment_button":"[data-test-id='assign_assignment_button']",
     "points_input":"[data-test-id='points_input']",
     "assign_button":"[data-test-id='assign_button']",
-    "course_assignment": "//a[contains (text(), '{}') and contains(@class, '_3UBu _3kCz')]"
+    "course_assignment": "//a[contains (text(), '{}') and contains(@class, '_3UBu _3kCz')]",
+    "library_search_input": "[id='__librarySearchInput']", 
+    "close_courseplanner": "//*[@id='container']/div/div/div/div[4]/div/aside/div/ul/button", 
+    "Assignment_due_date_picker": "[data-test-id='Assignment_due_date_picker']",
+    "Assignment_date": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[3]/div[6]",
+    "check_box": "[data-test-id='row_checkbox']",
+    "Assign_calender": "//*[@id='container']/div/div/div/div[4]/div/div/div/div/div[1]/button[1]",
+    "activity_status": "[data-test-id='assignment_status']",
+    "activity_validation":"[class='_3UBu _3kCz']"
   },
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
-    "admin": "/html/body/div[3]/div/div/div/div/div/div[2]/span/div/div",
+    "admin": "[data-test-id='menu_user_admin']",
     "button": ".QYC0",
     "menu": "[title='User menu']",
     "sign_out": "[data-test-id='menu_user_sign_out']"
@@ -177,6 +204,13 @@
     "manage_roles": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Roles')]",
     "password_reset": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
     "restore_deleted_courses": "//span[contains(@class,'_12OR') and contains(text(), 'Restore Deleted Courses')]",
-    "update_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Update AccessCode')]"
+    "update_access_code": "//span[contains(@class,'_12OR') and contains(text(), 'Update AccessCode')]",
+    "create_access_code": "[data-test-id='menu_user_admin_check_account']"
+  },
+  "third_party": {
+    "user": "[id='identifierId']",
+    "user_next": "[id='identifierNext']",
+    "password": "[name='password']",
+    "password_next": "[id='passwordNext']"
   }
 }

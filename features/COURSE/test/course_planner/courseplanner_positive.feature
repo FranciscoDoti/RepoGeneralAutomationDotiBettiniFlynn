@@ -61,14 +61,14 @@ Feature: Adding activities and checking the activities are redirected to their r
             | Epilogues                                                         | Read and Practice  |
                 
 
-        # Then I verify "course" system "activity_list" data
-        #     | activities                                  | type              | clear |
-        #     | communicating courteously                   | Reading           | true  |
-        #     | amongst                                     | Reading           | true  |
-        #     | Active and Passive voice                    | learning_curve    | true  |
-        #     | Evaluating, Integration and Acknowledgement | learning_curve    | true  |
-        #     | Wars of Religion                            | Read and Practice | true  |
-        #     | Epilogues                                   | Read and Practice | true  |  
+        Then I verify "course" system "activity_list" data
+            | activities                                  | type              | clear |
+            | communicating courteously                   | Reading           | true  |
+            | amongst                                     | Reading           | true  |
+            | Active and Passive voice                    | learning_curve    | true  |
+            | Evaluating, Integration and Acknowledgement | learning_curve    | true  |
+            | Wars of Religion                            | Read and Practice | true  |
+            | Epilogues                                   | Read and Practice | true  |  
         
         And I click on "course" system "main" feature "Achieve_home" element 
         And I click on "copy_course" on "Read & Practice Template" course menu

@@ -1,0 +1,1885 @@
+-------------------------------------------------------------
+TOPIC: Topic_1
+EBOOK: Topic_1_0 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+-------------------------------------------------------------
+MC: {"Id":1000,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1000","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1000}\)
+_content_hint: Hint for question 1000
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":1001,"Type":"FB","Level":2,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1001","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Understanding"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{1001}\)
+_content_hint: Hint for question 1001
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":1002,"Type":"FB","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1002","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{1002}\)
+_content_hint: Hint for question 1002
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1003,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1003","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1003}\)
+_content_hint: Hint for question 1003
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1004,"Type":"MC","Level":3,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1004","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Understanding","Ordered":true}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{1004}\)
+_content_hint: Hint for question 1004
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1005,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1005","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1005}\)
+_content_hint: Hint for question 1005
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1006,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1006","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1006}\)
+_content_hint: Hint for question 1006
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1007,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1007","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1007}\)
+_content_hint: Hint for question 1007
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1008,"Type":"MC","Level":3,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1008","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1008}\)
+_content_hint: Hint for question 1008
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":1009,"Type":"FB","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1009","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Applying"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{1009}\)
+_content_hint: Hint for question 1009
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":1010,"Type":"SC","Level":3,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1010","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing"}
+<br>Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+*A. Correct [[The Answer is Correct]]
+B. Wrong [[The Answer is Wrong ]]
+C. Wrong [[The Answer is Wrong ]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{1010}\)
+_content_hint: Hint for question 1010
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":1011,"Type":"SC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1011","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Evaluated"}
+<br>Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+A. Wrong [[The Answer is Wrong ]]
+*B. Correct [[The Answer is Correct]]
+C. Wrong [[The Answer is Wrong ]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{1011}\)
+_content_hint: Hint for question 1011
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1012,"Type":"MC","Level":2,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1012","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1012}\)
+_content_hint: Hint for question 1012
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1013,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1013","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1013}\)
+_content_hint: Hint for question 1013
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":1014,"Type":"FB","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1014","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{1014}\)
+_content_hint: Hint for question 1014
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":1015,"Type":"SC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1015","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated"}
+<br>Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+*A. Correct [[The Answer is Correct]]
+B. Wrong [[The Answer is Wrong ]]
+C. Wrong [[The Answer is Wrong ]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{1015}\)
+_content_hint: Hint for question 1015
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1016,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1016","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1016}\)
+_content_hint: Hint for question 1016
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1017,"Type":"MC","Level":2,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1017","CYU":false,"Primary":1,"EbookLink":true,"Blooms":"Analyzing","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{1017}\)
+_content_hint: Hint for question 1017
+_level: 2
+_primary_question: 1
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1018,"Type":"MC","Level":2,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1018","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1018}\)
+_content_hint: Hint for question 1018
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":1019,"Type":"FB","Level":3,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1019","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{1019}\)
+_content_hint: Hint for question 1019
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1020,"Type":"MC","Level":2,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1020","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{1020}\)
+_content_hint: Hint for question 1020
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1021,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1021","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1021}\)
+_content_hint: Hint for question 1021
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1022,"Type":"MC","Level":3,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1022","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1022}\)
+_content_hint: Hint for question 1022
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1023,"Type":"MC","Level":2,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1023","CYU":false,"Primary":1,"EbookLink":true,"Blooms":"Applying","Ordered":true}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{1023}\)
+_content_hint: Hint for question 1023
+_level: 2
+_primary_question: 1
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1024,"Type":"MC","Level":3,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1024","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1024}\)
+_content_hint: Hint for question 1024
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1025,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1025","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{1025}\)
+_content_hint: Hint for question 1025
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":1026,"Type":"FB","Level":3,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1026","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{1026}\)
+_content_hint: Hint for question 1026
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":1027,"Type":"SC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1027","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding"}
+<br>Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+*A. Correct [[The Answer is Correct]]
+B. Wrong [[The Answer is Wrong ]]
+C. Wrong [[The Answer is Wrong ]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{1027}\)
+_content_hint: Hint for question 1027
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1028,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1028","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1028}\)
+_content_hint: Hint for question 1028
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1029,"Type":"MC","Level":1,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1029","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1029}\)
+_content_hint: Hint for question 1029
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":1030,"Type":"MC","Level":2,"ebook:":"Topic_1_0","Answer":"Correct","Hint":"Hint for question 1030","CYU":false,"Primary":1,"EbookLink":false,"Blooms":"Evaluated","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{1030}\)
+_content_hint: Hint for question 1030
+_level: 2
+_primary_question: 1
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+-------------------------------------------------------------
+TOPIC: Topic_2
+EBOOK: Topic_2_0 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+EBOOK: Topic_2_1 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+EBOOK: Topic_2_2 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+-------------------------------------------------------------
+MC: {"Id":2000,"Type":"MC","Level":3,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2000","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2000}\)
+_content_hint: Hint for question 2000
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2001,"Type":"MC","Level":2,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2001","CYU":true,"Primary":0,"EbookLink":false,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2001}\)
+_content_hint: Hint for question 2001
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":2002,"Type":"FB","Level":1,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2002","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{2002}\)
+_content_hint: Hint for question 2002
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2003,"Type":"MC","Level":2,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2003","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{2003}\)
+_content_hint: Hint for question 2003
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":2004,"Type":"FB","Level":2,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2004","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Remembering"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{2004}\)
+_content_hint: Hint for question 2004
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":2005,"Type":"FB","Level":1,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2005","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Applying"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{2005}\)
+_content_hint: Hint for question 2005
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2006,"Type":"MC","Level":1,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2006","CYU":true,"Primary":0,"EbookLink":false,"Blooms":"Evaluated","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{2006}\)
+_content_hint: Hint for question 2006
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":2007,"Type":"FB","Level":2,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2007","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{2007}\)
+_content_hint: Hint for question 2007
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2008,"Type":"MC","Level":3,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2008","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2008}\)
+_content_hint: Hint for question 2008
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2009,"Type":"MC","Level":1,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2009","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":true}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{2009}\)
+_content_hint: Hint for question 2009
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2010,"Type":"MC","Level":3,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2010","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2010}\)
+_content_hint: Hint for question 2010
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2011,"Type":"MC","Level":1,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2011","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2011}\)
+_content_hint: Hint for question 2011
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2012,"Type":"MC","Level":2,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2012","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2012}\)
+_content_hint: Hint for question 2012
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2013,"Type":"MC","Level":1,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2013","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2013}\)
+_content_hint: Hint for question 2013
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2014,"Type":"MC","Level":1,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2014","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{2014}\)
+_content_hint: Hint for question 2014
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":2015,"Type":"FB","Level":2,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2015","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Understanding"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{2015}\)
+_content_hint: Hint for question 2015
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2016,"Type":"MC","Level":3,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2016","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{2016}\)
+_content_hint: Hint for question 2016
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2017,"Type":"MC","Level":3,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2017","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2017}\)
+_content_hint: Hint for question 2017
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2018,"Type":"MC","Level":2,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2018","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2018}\)
+_content_hint: Hint for question 2018
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2019,"Type":"MC","Level":1,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2019","CYU":true,"Primary":0,"EbookLink":false,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2019}\)
+_content_hint: Hint for question 2019
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":2020,"Type":"FB","Level":2,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2020","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{2020}\)
+_content_hint: Hint for question 2020
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":2021,"Type":"FB","Level":1,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2021","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{2021}\)
+_content_hint: Hint for question 2021
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2022,"Type":"MC","Level":3,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2022","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2022}\)
+_content_hint: Hint for question 2022
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2023,"Type":"MC","Level":1,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2023","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2023}\)
+_content_hint: Hint for question 2023
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2024,"Type":"MC","Level":2,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2024","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2024}\)
+_content_hint: Hint for question 2024
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2025,"Type":"MC","Level":1,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2025","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2025}\)
+_content_hint: Hint for question 2025
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2026,"Type":"MC","Level":2,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2026","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2026}\)
+_content_hint: Hint for question 2026
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2027,"Type":"MC","Level":1,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2027","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{2027}\)
+_content_hint: Hint for question 2027
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2028,"Type":"MC","Level":3,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2028","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2028}\)
+_content_hint: Hint for question 2028
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2029,"Type":"MC","Level":2,"ebook:":"Topic_2_1","Answer":"Correct","Hint":"Hint for question 2029","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{2029}\)
+_content_hint: Hint for question 2029
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":2030,"Type":"MC","Level":1,"ebook:":"Topic_2_0","Answer":"Correct","Hint":"Hint for question 2030","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":true}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{2030}\)
+_content_hint: Hint for question 2030
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+-------------------------------------------------------------
+TOPIC: Topic_3
+EBOOK: Topic_3_0 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+EBOOK: Topic_3_1 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+EBOOK: Topic_3_2 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+-------------------------------------------------------------
+MC: {"Id":3000,"Type":"MC","Level":1,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3000","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{3000}\)
+_content_hint: Hint for question 3000
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3001,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3001","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3001}\)
+_content_hint: Hint for question 3001
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3002,"Type":"MC","Level":2,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3002","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3002}\)
+_content_hint: Hint for question 3002
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3003,"Type":"MC","Level":2,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3003","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3003}\)
+_content_hint: Hint for question 3003
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3004,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3004","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3004}\)
+_content_hint: Hint for question 3004
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3005,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3005","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{3005}\)
+_content_hint: Hint for question 3005
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3006,"Type":"MC","Level":2,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3006","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3006}\)
+_content_hint: Hint for question 3006
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3007,"Type":"MC","Level":1,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3007","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3007}\)
+_content_hint: Hint for question 3007
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3008,"Type":"MC","Level":1,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3008","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3008}\)
+_content_hint: Hint for question 3008
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3009,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3009","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3009}\)
+_content_hint: Hint for question 3009
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3010,"Type":"MC","Level":3,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3010","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3010}\)
+_content_hint: Hint for question 3010
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3011,"Type":"MC","Level":2,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3011","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3011}\)
+_content_hint: Hint for question 3011
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3012,"Type":"MC","Level":1,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3012","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3012}\)
+_content_hint: Hint for question 3012
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3013,"Type":"MC","Level":1,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3013","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3013}\)
+_content_hint: Hint for question 3013
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3014,"Type":"MC","Level":2,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3014","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3014}\)
+_content_hint: Hint for question 3014
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3015,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3015","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3015}\)
+_content_hint: Hint for question 3015
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3016,"Type":"MC","Level":1,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3016","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3016}\)
+_content_hint: Hint for question 3016
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3017,"Type":"MC","Level":3,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3017","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3017}\)
+_content_hint: Hint for question 3017
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3018,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3018","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3018}\)
+_content_hint: Hint for question 3018
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3019,"Type":"MC","Level":3,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3019","CYU":true,"Primary":1,"EbookLink":true,"Blooms":"Understanding","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{3019}\)
+_content_hint: Hint for question 3019
+_level: 3
+_primary_question: 1
+_lcrp_cyu_question: true
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3020,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3020","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3020}\)
+_content_hint: Hint for question 3020
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":3021,"Type":"SC","Level":3,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3021","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing"}
+<br>Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+A. Wrong [[The Answer is Wrong ]]
+*B. Correct [[The Answer is Correct]]
+C. Wrong [[The Answer is Wrong ]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{3021}\)
+_content_hint: Hint for question 3021
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3022,"Type":"MC","Level":3,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3022","CYU":true,"Primary":1,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3022}\)
+_content_hint: Hint for question 3022
+_level: 3
+_primary_question: 1
+_lcrp_cyu_question: true
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":3023,"Type":"FB","Level":1,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3023","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{3023}\)
+_content_hint: Hint for question 3023
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3024,"Type":"MC","Level":3,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3024","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Evaluated","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3024}\)
+_content_hint: Hint for question 3024
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3025,"Type":"MC","Level":1,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3025","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3025}\)
+_content_hint: Hint for question 3025
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3026,"Type":"MC","Level":1,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3026","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3026}\)
+_content_hint: Hint for question 3026
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3027,"Type":"MC","Level":2,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3027","CYU":false,"Primary":0,"EbookLink":false,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{3027}\)
+_content_hint: Hint for question 3027
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3028,"Type":"MC","Level":1,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3028","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{3028}\)
+_content_hint: Hint for question 3028
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":3029,"Type":"SC","Level":1,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3029","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated"}
+<br>Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+*A. Correct [[The Answer is Correct]]
+B. Wrong [[The Answer is Wrong ]]
+C. Wrong [[The Answer is Wrong ]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{3029}\)
+_content_hint: Hint for question 3029
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3030,"Type":"MC","Level":2,"ebook:":"Topic_3_0","Answer":"Correct","Hint":"Hint for question 3030","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":true}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{3030}\)
+_content_hint: Hint for question 3030
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":3031,"Type":"MC","Level":1,"ebook:":"Topic_3_1","Answer":"Correct","Hint":"Hint for question 3031","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{3031}\)
+_content_hint: Hint for question 3031
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+-------------------------------------------------------------
+TOPIC: Topic_4
+EBOOK: Topic_4_0 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+EBOOK: Topic_4_1 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+EBOOK: Topic_4_2 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+EBOOK: Topic_4_3 [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]
+-------------------------------------------------------------
+MC: {"Id":4000,"Type":"MC","Level":2,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4000","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4000}\)
+_content_hint: Hint for question 4000
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4001,"Type":"MC","Level":1,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4001","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4001}\)
+_content_hint: Hint for question 4001
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4002,"Type":"MC","Level":1,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4002","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4002}\)
+_content_hint: Hint for question 4002
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4003,"Type":"MC","Level":1,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4003","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4003}\)
+_content_hint: Hint for question 4003
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4004,"Type":"MC","Level":2,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4004","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4004}\)
+_content_hint: Hint for question 4004
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4005,"Type":"MC","Level":1,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4005","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4005}\)
+_content_hint: Hint for question 4005
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":4006,"Type":"FB","Level":2,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4006","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{4006}\)
+_content_hint: Hint for question 4006
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4007,"Type":"MC","Level":2,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4007","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4007}\)
+_content_hint: Hint for question 4007
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4008,"Type":"MC","Level":2,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4008","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":true}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{4008}\)
+_content_hint: Hint for question 4008
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":4009,"Type":"FB","Level":2,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4009","CYU":false,"Primary":1,"EbookLink":true,"Blooms":"Remembering"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{4009}\)
+_content_hint: Hint for question 4009
+_level: 2
+_primary_question: 1
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":4010,"Type":"SC","Level":3,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4010","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated"}
+<br>Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+A. Wrong [[The Answer is Wrong ]]
+B. Wrong [[The Answer is Wrong ]]
+*C. Correct [[The Answer is Correct]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{4010}\)
+_content_hint: Hint for question 4010
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4011,"Type":"MC","Level":2,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4011","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4011}\)
+_content_hint: Hint for question 4011
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":4012,"Type":"FB","Level":2,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4012","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{4012}\)
+_content_hint: Hint for question 4012
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4013,"Type":"MC","Level":3,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4013","CYU":true,"Primary":1,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4013}\)
+_content_hint: Hint for question 4013
+_level: 3
+_primary_question: 1
+_lcrp_cyu_question: true
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4014,"Type":"MC","Level":1,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4014","CYU":true,"Primary":0,"EbookLink":false,"Blooms":"Analyzing","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4014}\)
+_content_hint: Hint for question 4014
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4015,"Type":"MC","Level":1,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4015","CYU":false,"Primary":1,"EbookLink":true,"Blooms":"Applying","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{4015}\)
+_content_hint: Hint for question 4015
+_level: 1
+_primary_question: 1
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":4016,"Type":"SC","Level":1,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4016","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding"}
+<br>Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+*A. Correct [[The Answer is Correct]]
+B. Wrong [[The Answer is Wrong ]]
+C. Wrong [[The Answer is Wrong ]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{4016}\)
+_content_hint: Hint for question 4016
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4017,"Type":"MC","Level":2,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4017","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":true}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{4017}\)
+_content_hint: Hint for question 4017
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4018,"Type":"MC","Level":1,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4018","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4018}\)
+_content_hint: Hint for question 4018
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4019,"Type":"MC","Level":3,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4019","CYU":true,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":true}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: true
+MathJax: \(\frac{\text{test}}{4019}\)
+_content_hint: Hint for question 4019
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: true
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4020,"Type":"MC","Level":2,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4020","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing","Ordered":false}
+<br>
+*A. Correct 0[[The Answer is Correct]]
+B. Wrong 1[[The Answer is Wrong 1]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4020}\)
+_content_hint: Hint for question 4020
+_level: 2
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+FB: {"Id":4021,"Type":"FB","Level":3,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4021","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Analyzing"}
+<br>
+*correct [[The Answer is Correct]
+MathJax: \(\frac{\text{test}}{4021}\)
+_content_hint: Hint for question 4021
+_level: 3
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Analyzing
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4022,"Type":"MC","Level":1,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4022","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4022}\)
+_content_hint: Hint for question 4022
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4023,"Type":"MC","Level":1,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4023","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Understanding","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4023}\)
+_content_hint: Hint for question 4023
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Understanding
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4024,"Type":"MC","Level":1,"ebook:":"Topic_4_1","Answer":"Correct","Hint":"Hint for question 4024","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Remembering","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4024}\)
+_content_hint: Hint for question 4024
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Remembering
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+SC: {"Id":4025,"Type":"SC","Level":1,"ebook:":"Topic_4_0","Answer":"Correct","Hint":"Hint for question 4025","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Evaluated"}
+<br>Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!Text not part of the link! {{Correct Answer}} Text not part of the link!Text not part of the link! {{Wrong Answer}} Text not part of the link!
+A. Wrong [[The Answer is Wrong ]]
+B. Wrong [[The Answer is Wrong ]]
+*C. Correct [[The Answer is Correct]]
+D. Wrong [[The Answer is Wrong ]]MathJax: \(\frac{\text{test}}{4025}\)
+_content_hint: Hint for question 4025
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Evaluated
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4026,"Type":"MC","Level":1,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4026","CYU":false,"Primary":0,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+*B. Correct 1[[The Answer is Correct]]
+C. Wrong 2[[The Answer is Wrong 2]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4026}\)
+_content_hint: Hint for question 4026
+_level: 1
+_primary_question: 0
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+
+MC: {"Id":4027,"Type":"MC","Level":1,"ebook:":"Topic_4_2","Answer":"Correct","Hint":"Hint for question 4027","CYU":false,"Primary":1,"EbookLink":true,"Blooms":"Applying","Ordered":false}
+<br>
+A. Wrong 0[[The Answer is Wrong 0]]
+B. Wrong 1[[The Answer is Wrong 1]]
+*C. Correct 2[[The Answer is Correct]]
+D. Wrong 3[[The Answer is Wrong 3]]
+_never_scramble: false
+MathJax: \(\frac{\text{test}}{4027}\)
+_content_hint: Hint for question 4027
+_level: 1
+_primary_question: 1
+_lcrp_cyu_question: false
+_blooms: Applying
+_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}
+
+

@@ -40,10 +40,10 @@ Feature: Adding activities and checking the activities are redirected to their r
         
         And I click on "course" system "create_course" feature "course_card" element 
 
-        # Then I verify the data in course page 
-        #     | course_page            | clear |
-        #     | overview               | true  |
-        #     | course_planner         | true  |
+        Then I verify the data in course page 
+            | course_page            | clear |
+            | overview               | true  |
+            | course_planner         | true  |
           
     
         And I click on "course" system "course_page" feature "resources" element 
@@ -61,11 +61,11 @@ Feature: Adding activities and checking the activities are redirected to their r
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |   
 
-        # Then I verify activity list 
-        #     |  activity                    | 
-        #     | communicating courteously    |                                                        
-        #     | Active and Passive voice     |
-        #     | Wars of Religion             | 
+        Then I verify activity list 
+            |  activity                    | 
+            | communicating courteously    |                                                        
+            | Active and Passive voice     |
+            | Wars of Religion             | 
 
         
         And I click on "course" system "main" feature "Achieve_home" element 

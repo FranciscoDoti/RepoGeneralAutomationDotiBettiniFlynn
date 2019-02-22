@@ -57,11 +57,11 @@ Feature: Happy path flow for Read and Practice
             | Active and Passive voice                                          | learning_curve     |
             | Wars of Religion                                                  | Read and Practice  |
 
-        # Then I verify the activity list 
-        #     | activity                     |  
-        #     | communicating courteously    |                                                        
-        #     | Active and Passive voice     |
-        #     | Wars of Religion             | 
+        Then I verify the activity list 
+            | activity                     |  
+            | communicating courteously    |                                                        
+            | Active and Passive voice     |
+            | Wars of Religion             | 
  
 
         And I fill out the form to copy a course
@@ -84,10 +84,9 @@ Feature: Happy path flow for Read and Practice
         And I login to Achieve 
         And I have logged in as "instructor_7"
        
-
         Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
-        When I fill out the form to update the status of course to active 
+        When I fill out the form to update the status of course to active
             | page_object      | value                | 
             |  course          |  Read& Practice      | 
             |  course_code     |   E2E301             |  

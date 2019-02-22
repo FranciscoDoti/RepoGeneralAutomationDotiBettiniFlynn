@@ -1,0 +1,10 @@
+{
+    "default":{
+        "lc":"music/test/lc_automation_1_5EBD81",
+        "lcrp":"music/test/lcrp_automation_1_475060"
+    },
+    "prod":{
+        "lc":"music/test/lc_automation_1EF563",
+        "lcrp":"music/test/lcrp_automation_344970"
+    }
+}

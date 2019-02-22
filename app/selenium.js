@@ -13,7 +13,7 @@ module.exports = function (driver) {
       let element_array = [];
 
       for (let i = 0; i < elements.length; i++) {
-        element_array.push(elements[i]);
+        element_array.push(yield elements[i]);
       }
       return element_array;
     }),
@@ -40,7 +40,7 @@ module.exports = function (driver) {
       for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
         let elementText = yield element.getText();
-        if(text === elementText){
+        if (text === elementText) {
           return elementText;
         }
       }
@@ -254,7 +254,6 @@ module.exports = function (driver) {
         name = locator[key];
       }
       var message = (should_exist ? `Element '${name}' is not present.` : `Element '${name}' is present.`);
-
       yield driver.wait(poll, (timeout || config.timeout), message);
     }),
 
