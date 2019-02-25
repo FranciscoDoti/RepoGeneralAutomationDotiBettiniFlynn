@@ -28,10 +28,10 @@ Feature: Activate the course copied and assigned to an instructor
 
         
         And I add the activity to the course under the resources tab
-            | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |                                                        
-            | Active and Passive voice                                          | learning_curve     |
-            | Wars of Religion                                                  | Read and Practice  |
+            | activity                                                          | type                          |
+            | communicating courteously                                         | add_reading_button            |                                                        
+            | Active and Passive voice                                          | add_button_learningcurve      |
+            | Wars of Religion                                                  | add_button_readandpractice    |
         
 
         And I fill out the form to copy a course

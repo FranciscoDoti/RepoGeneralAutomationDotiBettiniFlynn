@@ -156,6 +156,19 @@
     "submit_final_answers": "[data-test-id='submit-all-modal-submit']",
     "assignment_score": "[data-test-id='assignment-percentage-score']"
   },
+  "courseplanner": {
+    "add_unit_folder": "//*[@data-test-id='add_unit']", 
+     "custom_content_button": "//*[@data-test-id='custom_content_tab']",
+     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
+
+  },
+  "student_activity": {
+    "multiple_select_answer":"//span[contains (text(), '{}')]",
+    "button_check": "[data-test-id='check-answer-button']",
+    "current_question": "[data-test-id='side-nav-item-{}-score']",
+    "second_question": "[data-test-id='side-nav-item-2-score']",
+    "third_question": "[data-test-id='side-nav-item-3-score']"
+  },
   "course_planner": {
     "add_unit_folder": "//*[@data-test-id='add_unit']", 
      "custom_content_button": "[data-test-id='custom_content_tab']",
@@ -163,6 +176,7 @@
     "assign_assignment_button":"[data-test-id='assign_assignment_button']",
     "points_input":"[data-test-id='points_input']",
     "assign_button":"[data-test-id='assign_button']",
+    "course_assignment": "//a[contains (text(), '{}') and contains(@class, '_3UBu _3kCz')]",
     "library_search_input": "[id='__librarySearchInput']", 
     "close_courseplanner": "//*[@id='container']/div/div/div/div[4]/div/aside/div/ul/button", 
     "Assignment_due_date_picker": "[data-test-id='Assignment_due_date_picker']",

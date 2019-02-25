@@ -55,13 +55,13 @@ Feature: Copy_course
 
         
         And I add the activity to the course under the resources tab
-            | activity                                                          | type               |
-            | communicating courteously                                         | Reading            |
-            | amongst                                                           | Reading            |
-            | Active and Passive voice                                          | learning_curve     |
-            | Evaluating, Integration and Acknowledgement                       | learning_curve     |
-            | Wars of Religion                                                  | Read and Practice  |
-            | Epilogues                                                         | Read and Practice  |
+            | activity                                                          | type                          |
+            | communicating courteously                                         | add_reading_button            |
+            | amongst                                                           | add_reading_button            |
+            | Active and Passive voice                                          | add_button_learningcurve      |
+            | Evaluating, Integration and Acknowledgement                       | add_button_learningcurve      |
+            | Wars of Religion                                                  | add_button_readandpractice    |
+            | Epilogues                                                         | add_button_readandpractice    |
                 
         Then I verify the activity list 
             |  activity                    | 
