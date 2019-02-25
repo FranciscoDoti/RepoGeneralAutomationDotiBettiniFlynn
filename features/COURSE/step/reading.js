@@ -5,37 +5,19 @@ const format = require('string-format');
 const config = require('../../../config.js');
 const _ = require('lodash');
 
-Then('I verify the data in course page', async function (data_table) {
+Then(/^I verify the data in "(.*)"$/, async function (course, data_table) {
   let qa = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
-    let PAGE = await _.get(page, ['course', 'course_page', data_table.hashes()[i].course_page]);
+    let PAGE = await _.get(page, ['course', course, data_table.hashes()[i].course_page]);
     await qa.exists(PAGE)
   }
 });
-
-Then('I verify the data in resource page', async function (data_table) {
-  let qa = new selenium(this.driver);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let PAGE = await _.get(page, ['course', 'resources', data_table.hashes()[i].course_page]);
-    await qa.exists(PAGE);
-  }
-})
 
 Then(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" input$/, async function (system, feature, element, input) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element])
   let page_format = format(PAGE)
   await qa.input(page_format, input);
-});
-
-Then(/^I click on "(.*)" element to add$/, async function (element) {
-  let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, ['course', 'course_list', element]);
-  let page_format = format(PAGE);
-  await qa.sleep(2);
-  await qa.click(page.course.course_list.course_menu);
-  await qa.sleep(1);
-  await qa.click(page_format);
 });
 
 Then('I assign Instructor to the course', async function (data_table) {
@@ -57,7 +39,7 @@ Then(/^I "(.*)" of Achieve$/, async function (element) {
   let PAGE = await _.get(page, ['course', 'home', element])
   let page_format = format(PAGE);
   await qa.click(page.course.home.toggler_menu);
-  await qa.sleep(1);
+  await qa.sleep();
   await qa.click(page_format);
 });
 
@@ -77,12 +59,8 @@ Then(/^I click on "(.*)" system "(.*)" feature "(.*)" element input "(.*)" and e
 
 Then(/^I verify that the course "(.*)" is "(.*)"$/, async function (identifier, activation) {
   let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, ['course', 'course_list', 'course_name']);
-  let page_format = format(PAGE, identifier);
-  await qa.exists(page_format);
-  let PAGE_activation = await _.get(page, ['course', 'course_list', 'course_activation']);
-  let Page_format = format(PAGE_activation, activation);
-  await qa.exists(Page_format);
+  await qa.exists(page.course.course_list.course_name, identifier);
+  await qa.exists(page.course.course_list.course_activation, activation);
 });
 
 When('I invite the students', async function (data_table) {
@@ -101,18 +79,11 @@ When('I invite the students', async function (data_table) {
   await qa.click(page.course.create_course.send_invite_button);
 });
 
-When(/^I click on "(.*)" system "(.*)" feature "(.*)" elements$/, async function (system, feature, element) {
-  let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, [system, feature, element]);
-  let page_format = format(PAGE);
-  await qa.clickElementInArray(page_format);
-});
-
 When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the activity points$/, async function (system, feature, element) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element]);
   let page_format = format(PAGE);
-  await qa.clickElementInArray(page_format);
+  await qa.click(page_format);
   let booleanVal = await qa.exists(page.course.course_planner.edit_target);
   if (booleanVal === true) {
     console.log('it exists');
@@ -123,31 +94,16 @@ When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the act
     await qa.click(page.course.course_planner.very_short_time_button);
     await qa.click(page.course.course_planner.close_learning_curve);
   } else {
-    console.log('it doesnt exists');
     await qa.click(page.course.course_planner.close_reading);
   }
 });
 
-When(/^I click on "(.*)" system "(.*)" feature "(.*)" element input '(.*)' and assign the activity$/, async function (system, feature, element, points) {
-  let qa = new selenium(this.driver);
-  let PAGE = await _.get(page, [system, feature, element]);
-  let page_format = format(PAGE);
-  await qa.sleep(1);
-  await qa.clickElementInArray(page_format);
-  await qa.sleep(1);
-  await qa.input(page.course.course_planner.points_input, points);
-  await qa.click(page.course.course_planner.Assignment_date_picker);
-  await qa.click(page.course.course_planner.Assignment_start_date);
-  await qa.click(page.course.create_course.save);
-});
-
-Then(/^I verify "(.*)" as open$/, async function (element) {
+Then(/^I verify activity staus as "(.*)"$/, async function (element) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, ['course', 'course_planner', element]);
   let page_format = format(PAGE);
-  await qa.exists(page_format);
-});
-
+  await qa.getText(page.course.course_planner.activity_status, element);
+}); 
 When(/^I generate access code for "(.*)"$/, async function (identifier) {
   let qa = new selenium(this.driver);
   await qa.input(page.course.course_list.search_for_course_name, identifier);
@@ -234,16 +190,6 @@ Then('I add the activities in courseplanner', async function (data_table) {
   }
 });
 
-Given(/^I log in as "(.*)"$/, async function (user) {
-  let qa = new selenium(this.driver);
-  let payload = require(`../../_data/user/${config.environment}/${user}.json`);
-  await qa.input(page.course.third_party.user, payload.username);
-  await qa.click(page.course.third_party.user_next);
-  await qa.sleep(1);
-  await qa.input(page.course.third_party.password, payload.password);
-  await qa.click(page.course.third_party.password_next);
-});
-
 Then('I enroll the student in the course', async function (data_table) {
   let qa = new selenium(this.driver);
   await qa.sleep(1);
@@ -260,6 +206,7 @@ Then('I enroll the student in the course', async function (data_table) {
   }
   await qa.click(page.course.home.close_manage_roles);
 });
+
 async function sucess (driver) {
   let qa = new selenium(driver);
   await qa.click(page.course.overview.multiple_choice);

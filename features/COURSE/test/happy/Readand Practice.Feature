@@ -36,7 +36,7 @@ Feature: Happy path flow for Read and Practice
         
         And I click on "course" system "create_course" feature "course_card" element 
 
-        Then I verify the data in course page 
+        Then I verify the data in "course_page"
             | course_page            | clear |
             | overview               | true  |
             | course_planner         | true  |
@@ -114,7 +114,7 @@ Feature: Happy path flow for Read and Practice
         #     | Wars of Religion             | 
         
         When I click on "course" system "courseplanner" feature "assign_acitivity" element and assign the activity
-        Then I verify "activity_staus" as open
+        Then I verify activity staus as "Open"
 
         And I "sign_out" of Achieve
         And I have logged in as "paid_access"

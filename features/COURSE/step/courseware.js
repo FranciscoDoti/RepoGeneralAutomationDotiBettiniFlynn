@@ -165,17 +165,7 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function (c
 
   let text = await qa.getText(course_page_element);
   expect(text).to.contain(course_page);
-})
-
-Then(/^I click on "(.*)" element to add instructor$/, async function (element) {
-    let qa =new selenium(this.driver);
-    let PAGE = await _.get(page, ['course', 'course_list', element]);
-    let page_format = format(PAGE);
-    await qa.sleep(1);
-    await qa.click(page.course.course_list.course_menu);
-    await qa.sleep(1);
-    await qa.click(page_format);
-  });
+});
 
 Then('I add the activity to the course under the resources tab', async function (data_table) {
   let qa = new selenium(this.driver);
