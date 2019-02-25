@@ -34,9 +34,9 @@ Feature: Qualitative Positive feature
     And I click on "course" system "create_course" feature "course_card" element 
 
     And I add the activity to the course under the resources tab
-        | activity                                                          | type              |
-        | Monopolistice Competition                                         | assessment        |
-        | Chapter 15. Monopolistic Competition and Product Differentiation  | learning_curve    |
+        | activity                                                          | type                      |
+        | Monopolistice Competition                                         | add_button_assessment     |
+        | Chapter 15. Monopolistic Competition and Product Differentiation  | add_button_learningcurve  |
 
     Then I verify activity list 
         | activity                                                          |
@@ -117,7 +117,10 @@ Assign Instructor to course
         |   Student     |
         |   student_4   |
     And I generate a course code to the current course
-    And I validate the "Qualitative E2E" course is accessible by "student_1"
+    And I "sign_out" of Achieve
+    When I login to Achieve
+    And I have logged in as "student_1"
+    And I validate the "Qualitative E2E" course is accessible to user
     And I open the activity in the current course
         |   Activity                    |
         |   BR13.1: Bridge: Monopoly    | 
@@ -129,7 +132,10 @@ Assign Instructor to course
     And I click on the first course card
     And I enroll "student_1" to the current course
     And I generate a course code to the current course
-    And I validate the "Qualitative E2E" course is accessible by "student_1"
+    And I "sign_out" of Achieve
+    When I login to Achieve
+    And I have logged in as "student_1"
+    And I validate the "Qualitative E2E" course is accessible to user
 
 # I log in as a student and open the activity
 

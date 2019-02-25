@@ -24,12 +24,21 @@ module.exports = function (driver) {
       let elements = yield driver.findElements(locator);
 
       for (let i = 0; i < elements.length; i++) {
-        let element = elements[i];
-        this.sleep(2);
-        var elem = yield element.getAttribute('aria-label');
-        console.log(elem, 'aria~~~~~~~~~~~~~~');
-        yield element.click();
+        yield elements[i].click();
       }
+    }),
+
+    sendKeys: Promise.coroutine(function * (selector, text, clear) {
+      var locator = this._locator(selector);
+      var elem = yield driver.findElement(locator);
+      if (clear) {
+        yield elem.clear();
+      }
+      yield elem.sendKeys(text);
+    }),
+
+    executeScript: Promise.coroutine(function * (script) {
+      yield driver.executeScript(script);
     }),
 
     getTextOfElementInArray: Promise.coroutine(function * (selector, text) {
