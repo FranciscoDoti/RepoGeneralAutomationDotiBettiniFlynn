@@ -282,13 +282,11 @@ When('I attempt the activity present in courseware', async function (data_table)
       let slowdown = await qa.exists(page.course.overview.slowdownmodel);
       let congrats = await qa.exists(page.course.overview.congratulation_message);
       if (next === true) {
-        console.log('entered sucess');
         await qa.click(page.course.overview.next_question_success)
         await qa.click(page.course.overview.multiple_choice);
         await qa.click(page.course.overview.submit_button);
         await qa.sleep(1);
       } else if (slowdown === true) {
-        console.log('entered slow down')
         await qa.click(page.course.overview.slow_down_button);
         await qa.click(page.course.overview.show_answer);
         await qa.click(page.course.overview.next_question_success);
@@ -313,7 +311,6 @@ Then('I verify the activity list', async function (data_table) {
     let text = await qa.getText(page.course.course_planner.activity_validation);
     let verify = text === data_table.hashes()[i].activity
     if (verify === data_table.hashes()[i].clear) {
-      console.log('the activity exists');
     }
   }
 });
