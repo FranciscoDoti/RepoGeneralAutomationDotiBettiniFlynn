@@ -16,16 +16,17 @@ let manuscriptJson = {
 
 // Creates 4 topics
 for (var topic = 1; topic < 5; topic++) {
-  manuscriptJson['ebooks']['Topic_' + topic] = []
+  let topicName = 'Topic_' + topic
+  manuscriptJson['ebooks'][topicName] = []
   wsManuscript.write('-------------------------------------------------------------\n')
-  wsManuscript.write('TOPIC: Topic_' + topic + '\n')
+  wsManuscript.write('TOPIC: ' + topicName + '\n')
 
   // Random generates between 1 and 4 books in topic
   var books = getRndInteger(1, 5)
   for (let bookNumber = 0; bookNumber < books; bookNumber++) {
-    let ebookTitle = 'Topic_' + topic + '_' + bookNumber
+    let ebookTitle = topicName + '_' + bookNumber
     wsManuscript.write('EBOOK: ' + ebookTitle + ' [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]\n')
-    manuscriptJson['ebooks']['Topic_' + topic].push(ebookTitle)
+    manuscriptJson['ebooks'][topicName].push(ebookTitle)
   }
   wsManuscript.write('-------------------------------------------------------------\n')
 
@@ -52,7 +53,7 @@ for (var topic = 1; topic < 5; topic++) {
       level = 1
     }
 
-    let ebookTitle = 'Topic_' + topic + '_' + ebook
+    let ebookTitle = topicName + '_' + ebook
     let ebookLink = '\n'
 
     // There is a popup that appears when a question is not associated with a book link, it is rare
@@ -65,6 +66,7 @@ for (var topic = 1; topic < 5; topic++) {
       'Id': qid,
       'Type': '',
       'Level': level,
+      'Topic': topicName,
       'ebook:': ebookTitle,
       'Answer': 'Correct',
       'Hint': '',
