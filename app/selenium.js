@@ -1,6 +1,7 @@
 var Promise = require('bluebird');
 var config = require('../config.js');
 const seleniumWebdriver = require('selenium-webdriver');
+const connectClient = require('./imap.js');
 
 // Promise.longStackTraces();
 
@@ -219,6 +220,10 @@ module.exports = function (driver) {
       } else {
         yield driver.switchTo().frame(selector);
       }
+    }),
+
+    connectClient: Promise.coroutine(function * (user, password, regexChoice) {
+      connectClient(user, password, regexChoice);
     }),
 
     /* ----- */

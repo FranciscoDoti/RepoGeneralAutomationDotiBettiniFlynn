@@ -78,6 +78,22 @@ const connectClient = async function(user, password, regexChoice) {
                                     resolve('www.google.com');
                                 }
                             }
+                        } else if (regex === "registration"){
+                            var coursewareRegex = /(?<=token=)(.*?)(?=">)/
+                            if(parsed.textAsHtml){
+                                Link = parsed.textAsHtml;
+                                var registrationLinkFound = Link.match(coursewareRegex);
+                                // const $ = cheerio.load(parsed.text);
+                                // const href = $('a[style=3D"color: #080808;"]').text();
+                                // console.log('mailObject~~~~~~~~~~~~~~~~~~',parsed.text, '~~~~~mailObject', info, '~~~~~~~~~~~href ', href, 'href~~~~~~~~~~~~~')
+                                if(registrationLinkFound){
+                                    registrationLinkFound = "https://int-achieve-iam.mldev.cloud/iam/confirm?token=" + registrationLinkFound[0];
+                                    console.log(registrationLinkFound, "~~~~~~~LinkFound!!!!!!!");
+                                    resolve(registrationLinkFound);
+                                } else {
+                                    resolve('www.google.com');
+                                }
+                            }
                         } else {
                             resolve(parsed);
                         }

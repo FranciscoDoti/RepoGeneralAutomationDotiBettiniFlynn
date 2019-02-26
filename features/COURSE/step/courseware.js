@@ -5,6 +5,8 @@ const config = require('../../../config.js');
 const format = require('string-format');
 const expect = require('chai').expect;
 const _ = require('lodash');
+const { connectClient } = require('../../../app/imap.js');
+
 
 // Navigation
 When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
@@ -328,6 +330,11 @@ Then ('I attempt to answer the questions in the current activity assignment', as
   }
 
 
+})
+
+Then(/^Check email for "(.*)" user using "(.*)" password$/, async function(user, password) {
+  // let qa = new selenium(this.driver);
+  await connectClient(user, password, 'registration')
 })
 
 // Cleanup //
