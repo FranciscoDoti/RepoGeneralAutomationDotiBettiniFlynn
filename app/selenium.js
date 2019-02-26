@@ -35,14 +35,14 @@ module.exports = function (driver) {
       let locator = this._locator(selector);
       yield this._exists(true, locator);
       let elements = yield driver.findElements(locator);
+      let elementTextArray = [];
 
       for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
         let elementText = yield element.getText();
-        if (text === elementText) {
-          return elementText;
-        }
+        elementTextArray.push(elementText);
       }
+      return elementTextArray;
     }),
 
     goTo: Promise.coroutine(function * (url) {

@@ -175,11 +175,9 @@ Then('I verify activity list', async function (data_table) {
   await qa.click(resources_tab_element);
   for (let i = 0; i < data_table.rows().length; i++) {
     let activity_element = page.course.resources.activity;
-    let elementText = await qa.getTextOfElementInArray(activity_element, data_table.hashes()[i].activity);
-    if (elementText === undefined) {
-      elementText = 'Element Not Found';
-    }
-    expect(elementText).to.contain(data_table.hashes()[i].page);
+    let elementTextArray = await qa.getTextOfElementInArray(activity_element);
+    let elementTextIncludes = elementTextArray.includes(data_table.hashes()[i].activity)
+    expect(elementTextIncludes).to.contain(data_table.hashes()[i].page);
   }
 })
 
