@@ -1,4 +1,4 @@
-Feature: Learning Curve Classic Student Trends and Insights View
+Feature: Learning Curve Read and Practice Student Trends and Insights View
 
   Scenario: Closing the Trends and Insights brings you back to the student view
   Scenario: Can Sees the number of assignments they have completed in the course
