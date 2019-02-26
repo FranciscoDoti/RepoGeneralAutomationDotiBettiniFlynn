@@ -6,7 +6,7 @@
     "User-registration": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/user-registration.feature",
     "CW-smoketest": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/create-course.feature --env local",
     "edit-account-details": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/edit-account-details.feature",
-    "generate-lc-test": "node ./features/lc/_data/create-test-manuscript.js"
+    "generate-lc-test": "node ./app/create-test-manuscript.js"
   },
   "dependencies": {
     "bluebird": "^3.5.3",
