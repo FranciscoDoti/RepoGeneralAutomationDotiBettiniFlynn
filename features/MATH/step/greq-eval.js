@@ -35,13 +35,13 @@ When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.
     await qa.click(page.math.raptorAms.enforceEndpoints);
   } 
   if((tolplus !== "Exact") || (tolminus !== "Exact")){
-   await qa.click(page.math.raptorAms.toleranceNumeric);
-   if(tolplus !== "Exact") {
-      await qa.input(page.math.raptorAms.tolerancePlus, tolplus)
-    }
-  }else if(endpoints === "NA"){
-    console.log("Endpoints Not Applicable");
-    }
+    await qa.click(page.math.raptorAms.toleranceNumeric);
+    if(tolplus !== "Exact") {
+       await qa.input(page.math.raptorAms.tolerancePlus, tolplus)
+     }
+     if(tolminus !== "Exact") {
+     await qa.input(page.math.raptorAms.toleranceMinus, tolminus)
+     }
    }
 });
 
