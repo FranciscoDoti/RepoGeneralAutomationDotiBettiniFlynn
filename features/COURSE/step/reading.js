@@ -213,45 +213,6 @@ async function sucess (driver) {
   await qa.click(page.course.overview.submit_button);
 }
 
-When('I attempt the activity present in courseware', async function (data_table) {
-  let qa = new selenium(this.driver);
-  await qa.click(page.course.create_course.course_card);
-  await qa.click(page.course.course_page.overview);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let text = await qa.getText(page.course.overview.Activity_link);
-    let verify = (text === data_table.hashes()[i].Activity);
-    while (verify === true) {
-      await qa.click(page.course.overview.Activity_link);
-      await qa.click(page.course.overview.resume_activity);
-      await qa.click(page.course.overview.multiple_choice);
-      await qa.click(page.course.overview.submit_button);
-      let next = await qa.exists(page.course.overview.next_question_success);
-      let slowdown = await qa.exists(page.course.overview.slowdownmodel);
-      let congrats = await qa.exists(page.course.overview.congratulation_message);
-      if (next === true) {
-        await qa.click(page.course.overview.next_question_success)
-        await qa.click(page.course.overview.multiple_choice);
-        await qa.click(page.course.overview.submit_button);
-        await qa.sleep(1);
-      } else if (slowdown === true) {
-        await qa.click(page.course.overview.slow_down_button);
-        await qa.click(page.course.overview.show_answer);
-        await qa.click(page.course.overview.next_question_success);
-        await qa.click(page.course.overview.multiple_choice);
-        await qa.click(page.course.overview.submit_button);
-        await qa.sleep(1);
-      } else if (slowdown === false) {
-        await qa.click(page.course.overview.multiple_choice);
-        await qa.click(page.course.overview.submit_button);
-        await qa.sleep(1);
-      } else if (congrats === true) {
-        await qa.click(page.course.overview.back_to_studyplan);
-        await qa.click(page.course.overview.close_learnigcurve);
-      }
-    }
-  }
-});
-
 Then('I verify the activity list', async function (data_table) {
   let qa = new selenium(this.driver)
   for (let i = 0; i < data_table.rows().length; i++) {
