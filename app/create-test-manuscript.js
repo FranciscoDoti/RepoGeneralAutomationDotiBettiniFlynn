@@ -1,12 +1,14 @@
 const fs = require('fs');
 
-let timestamp = Date.now()
-let wsManuscript = fs.createWriteStream('./features/lc/_data/auto_manuscript_' + timestamp + '.txt')
+const timestamp = Date.now()
 
 // Selects a random number between range given, Max exclusive.
 function getRndInteger (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+const lcFileHeader = `ACTIVITY_TITLE: LC${timestamp}\n\n`
+const lcrpFileHeader = `ACTIVITY_TITLE: LCRP${timestamp}\nLCRP_ACTIVITY: true\nLCRP_HEADINGS: true\n\n`
 
 // json for framework version of the test.
 let manuscriptJson = {
@@ -14,21 +16,23 @@ let manuscriptJson = {
   'questions': {}
 }
 
+let content = ''
+
 // Creates 4 topics
-for (var topic = 1; topic < 5; topic++) {
+for (let topic = 1; topic < 5; topic++) {
   let topicName = 'Topic_' + topic
   manuscriptJson['ebooks'][topicName] = []
-  wsManuscript.write('-------------------------------------------------------------\n')
-  wsManuscript.write('TOPIC: ' + topicName + '\n')
+  content += '-------------------------------------------------------------\n'
+  content += 'TOPIC: ' + topicName + '\n'
 
   // Random generates between 1 and 4 books in topic
   var books = getRndInteger(1, 5)
   for (let bookNumber = 0; bookNumber < books; bookNumber++) {
     let ebookTitle = topicName + '_' + bookNumber
-    wsManuscript.write('EBOOK: ' + ebookTitle + ' [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]\n')
+    content += 'EBOOK: ' + ebookTitle + ' [[https://ebooks.macmillanhighered.com/9781319038144?cfi=6/378&begin=4/2/4/6&end=4/2/4/7]]\n'
     manuscriptJson['ebooks'][topicName].push(ebookTitle)
   }
-  wsManuscript.write('-------------------------------------------------------------\n')
+  content += '-------------------------------------------------------------\n'
 
   // Randomly generates questions between 25 and 34. LC requires 100 questions for algorithm to work properly.
   let questionCount = getRndInteger(25, 35)
@@ -83,8 +87,8 @@ for (var topic = 1; topic < 5; topic++) {
       question['Ordered'] = ordered
       question['Type'] = 'MC'
       question['Hint'] = 'Hint for question ' + qid
-      wsManuscript.write('MC: ' + JSON.stringify(question))
-      wsManuscript.write('\n<br>')
+      content += 'MC: ' + JSON.stringify(question)
+      content += '\n<br>'
       let letters = 'ABCD'
 
       // Randomly selects a letter to be correct
@@ -94,27 +98,27 @@ for (var topic = 1; topic < 5; topic++) {
       // Marks the correct letter as correct
       for (let i = 0; i < 4; i++) {
         if (letters[i] === correct) {
-          wsManuscript.write('\n*' + letters[i] + '. Correct ' + counter++ + '[[The Answer is Correct]]')
+          content += '\n*' + letters[i] + '. Correct ' + counter++ + '[[The Answer is Correct]]'
         } else {
-          wsManuscript.write('\n' + letters[i] + '. Wrong ' + counter + '[[The Answer is Wrong ' + counter++ + ']]')
+          content += '\n' + letters[i] + '. Wrong ' + counter + '[[The Answer is Wrong ' + counter++ + ']]'
         }
       }
-      wsManuscript.write('\n_never_scramble: ' + question.Ordered.toString() + '\n')
+      content += '\n_never_scramble: ' + question.Ordered.toString() + '\n'
 
     // FitB question
     } else if (type < 90) {
       question['Type'] = 'FB'
       question['Hint'] = 'Hint for question ' + qid
-      wsManuscript.write('FB: ' + JSON.stringify(question))
-      wsManuscript.write('\n<br>')
-      wsManuscript.write('\n*correct [[The Answer is Correct]\n')
+      content += 'FB: ' + JSON.stringify(question)
+      content += '\n<br>'
+      content += '\n*correct [[The Answer is Correct]\n'
 
     // SC Question
     } else {
       question['Type'] = 'SC'
       question['Hint'] = 'Hint for question ' + qid
-      wsManuscript.write('SC: ' + JSON.stringify(question))
-      wsManuscript.write('\n<br>')
+      content += 'SC: ' + JSON.stringify(question)
+      content += '\n<br>'
       let letters = 'ABCD'
 
       // Randomly chooses a letter
@@ -123,46 +127,68 @@ for (var topic = 1; topic < 5; topic++) {
       // Fills out sentence click area
       for (let i = 0; i < 4; i++) {
         if (letters[i] === correct) {
-          wsManuscript.write('Text not part of the link! {{Correct Answer}} Text not part of the link!')
+          content += 'Text not part of the link! {{Correct Answer}} Text not part of the link!'
         } else {
-          wsManuscript.write('Text not part of the link! {{Wrong Answer}} Text not part of the link!')
+          content += 'Text not part of the link! {{Wrong Answer}} Text not part of the link!'
         }
       }
 
       // Marks the correct sentense as correct
       for (let i = 0; i < 4; i++) {
         if (letters[i] === correct) {
-          wsManuscript.write('\n*' + letters[i] + '. Correct [[The Answer is Correct]]')
+          content += '\n*' + letters[i] + '. Correct [[The Answer is Correct]]'
         } else {
-          wsManuscript.write('\n' + letters[i] + '. Wrong [[The Answer is Wrong ]]')
+          content += '\n' + letters[i] + '. Wrong [[The Answer is Wrong ]]'
         }
       }
     }
 
     // Forces mathjax on to each question
-    wsManuscript.write('MathJax: \\(\\frac{\\text{test}}{' + qid + '}\\)\n')
+    content += 'MathJax: \\(\\frac{\\text{test}}{' + qid + '}\\)\n'
 
     // Stores question by ID into the Json
     manuscriptJson.questions[qid++] = question
 
     // Outputs question details to the manuscript
-    wsManuscript.write('_content_hint: ' + question.Hint + '\n')
-    wsManuscript.write('_level: ' + question.Level + '\n')
-    wsManuscript.write('_primary_question: ' + question.Primary.toString() + '\n')
-    wsManuscript.write('_lcrp_cyu_question: ' + question.CYU.toString() + '\n')
+    content += '_content_hint: ' + question.Hint + '\n'
+    content += '_level: ' + question.Level + '\n'
+    content += '_primary_question: ' + question.Primary.toString() + '\n'
+    content += '_lcrp_cyu_question: ' + question.CYU.toString() + '\n'
     if (question.ebookLink) {
-      wsManuscript.write('_ebook: ' + question.ebook + ' ' + ebookLink + '\n')
+      content += '_ebook: ' + question.ebook + ' ' + ebookLink + '\n'
     } else {
-      wsManuscript.write('_ebook: ' + question.ebook + '\n')
+      content += '_ebook: ' + question.ebook + '\n'
     }
-    wsManuscript.write('_blooms: ' + question.Blooms + '\n')
-    wsManuscript.write('_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}\n')
-    wsManuscript.write('\n\n')
+    content += '_blooms: ' + question.Blooms + '\n'
+    content += '_learning_objectives: {[{"objective":"ff47f90f-9bbe-4f5b-bbb5-c8fdf8212833"}]}\n'
+    content += '\n\n'
   }
 }
 
-// Closes file stream
-wsManuscript.end()
+// Write both the LC and LCRP files to be uploaded to FQ Tool
+// ******** These files must be put in the LC S3 bucket and published to Algolia to be available in the CW environment ******
+fs.writeFileSync('./features/lc/_data/auto_manuscript_lc_' + timestamp + '.txt', lcFileHeader + content)
+fs.writeFileSync('./features/lc/_data/auto_manuscript_lcrp_' + timestamp + '.txt', lcrpFileHeader + content)
 
 // Prints Json to file
-fs.writeFileSync('./features/lc/_data/auto_manuscript_' + timestamp + '.json', JSON.stringify(manuscriptJson))
+fs.writeFileSync('./features/lc/_data/auto_manuscript_' + timestamp + '.json', JSON.stringify(manuscriptJson, null, 2))
+
+// Reads in Activities
+let activities = JSON.parse(fs.readFileSync('./features/lc/_data/activities.json', 'utf-8'))
+// Adds newly created activity file to list
+let newActivity = {
+  'lc': {
+    'fq': 'music/automation/auto_manuscript_lc_' + timestamp,
+    'achieve': 'LC' + timestamp,
+    'file': './features/LC/_data/auto_manuscript_lc_' + timestamp + '.json'
+  },
+  'lcrp': {
+    'fq': 'music/automation/auto_manuscript_lcrp_' + timestamp,
+    'achieve': 'LCRP' + timestamp,
+    'file': './features/LC/_data/auto_manuscript_lcrp_' + timestamp + '.json'
+  }
+}
+activities.default[timestamp] = newActivity
+activities.prod[timestamp] = newActivity
+// Adds new files to activities.json for use by tests
+fs.writeFileSync('./features/lc/_data/activities.json', JSON.stringify(activities, null, 2))
