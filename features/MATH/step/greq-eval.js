@@ -39,10 +39,10 @@ When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.
    if(tolplus !== "Exact") {
       await qa.input(page.math.raptorAms.tolerancePlus, tolplus)
     }
-    if(tolminus !== "Exact") {
-    await qa.input(page.math.raptorAms.toleranceMinus, tolminus)
+  }else if(endpoints === "NA"){
+    console.log("Endpoints Not Applicable");
     }
-  }
+   }
 });
 
 Then(/^I save the question and verify saving message box$/, async function () {
@@ -71,7 +71,7 @@ When(/^I am in Take Mode and input the correct "(.*)"$/, async function (eqn) {
    
     const token = eqn.charAt(i);
 
-    // json objects cannot have certain symbols as keys (+,- etc.)
+    // json objects cannot have certain symbols as keys (+,∪ etc.)
     // so the keys are substituted with actual words
     
     const exp = token === '+' ? 'add' : token === ',' ? 'comma' : token === '∪' ? 'union' : token
