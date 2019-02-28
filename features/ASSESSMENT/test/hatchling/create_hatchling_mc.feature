@@ -7,8 +7,8 @@ Feature: Hatchling Item added to Question Bank
     And I sleep "4" seconds
     And I click on "assessment" system "activity_editor" feature "question_bank_tab" element
     And I click on "assessment" system "activity_editor" feature "private_questions_button" element
-    And I click on "assessment" system "activity_editor" feature "create_hatchling_button" element
-    And I click on "assessment" system "activity_editor" feature "hatchling_multiple_choice_button" element
+    And I click on "assessment" system "activity_editor" feature "add_another_button" element
+    And I click on "assessment" system "activity_editor" feature "qb_hatchling_mc" element
 
   When I submit a hatchling "multiple_choice" item
     Then I verify "assessment" system "activity_editor" feature "multiple_choice_container" element does not exist
