@@ -116,9 +116,9 @@ Feature: Qualitative Positive feature
     #     |   Qualitative E2E |
     # And I enroll students to the current course
     #     |   Student     |
-    #     |   student_4   |
+    #     |   student_6   |
     # And I generate a course code to the current course
-    # And I validate the "Qualitative E2E" course is accessible by "student_1"
+    # And I validate the "Qualitative E2E" course is accessible by "student_6"
     # And I open the activity in the current course
     #     |   Activity                    |
     #     |   BR13.1: Bridge: Monopoly    | 
@@ -134,8 +134,7 @@ Feature: Qualitative Positive feature
 
 # I log in as a student and open the activity
 
-    And I have logged in as "student_4"
-    # And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    And I have logged in as "student_6"
     And I click on the first course card
     And I open the activity in the current course
     |   Activity                                |
