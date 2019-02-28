@@ -83,78 +83,85 @@ Feature: Qualitative Positive feature
 
 # Assign Instructor to course
 
-#     And I login with the following credentials
-#         |  username                                   | password       |
-#         |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
-#     And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
-#     And I assign Instructor to the course
-#         | username              | password   |
-#         |legud@xcodes.net       | ABCabc@123 |
+    # And I login with the following credentials
+    #     |  username                                   | password       |
+    #     |  coustomer.macmillan@gmail.com              |  ABCabc@123    | 
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "DRAFT of Qualitative" input 
+    # And I assign Instructor to the course
+    #     | username              | password   |
+    #     |legud@xcodes.net       | ABCabc@123 |
 
 
-#     When I sign out of Achieve
-#     And I login to Achieve
-#     And I have logged in as "instructor_4"
-#     When I click on "invite_students_button" element to add
-#     And I copy the invite link to open course with "student_1"
-#     And I click on "course" system "student_view" feature "start_grace_period" element
+    # When I sign out of Achieve
+    # And I login to Achieve
+    # And I have logged in as "instructor_4"
+    # When I click on "invite_students_button" element to add
+    # And I copy the invite link to open course with "student_1"
+    # And I click on "course" system "student_view" feature "start_grace_period" element
 
-# #  Assign Activity and add points here
+#  Assign Activity and add points here
 
-#     And I "sign_out" of Achieve
-#     When I login to Achieve
-#     And I have logged in as "instructor_4"
-#     And I click on the first course card
-#     And I click on the course planner to assign the activity and add points
-#         |   Activity                    |   Points  |
-#         |   BR13.1: Bridge: Monopoly    |   5       |
-#     And I "sign_out" of Achieve
-#     And I login to Achieve
-#     And I have logged in as "admin_1"
-#     And I search for a course and click on the first course card that appears
-#         |   Course          |
-#         |   Qualitative E2E |
-#     And I enroll students to the current course
-#         |   Student     |
-#         |   student_4   |
-#     And I generate a course code to the current course
-#     And I "sign_out" of Achieve
-#     When I login to Achieve
-#     And I have logged in as "student_1"
-#     And I validate the "Qualitative E2E" course is accessible to user
-#     And I open the activity in the current course
-#         |   Activity                    |
-#         |   BR13.1: Bridge: Monopoly    | 
+    # And I "sign_out" of Achieve
+    # When I login to Achieve
+    # And I have logged in as "instructor_4"
+    # And I click on the first course card
+    # And I click on the course planner to assign the activity and add points
+    #     |   Activity                    |   Points  |
+    #     |   BR13.1: Bridge: Monopoly    |   5       |
+    # And I "sign_out" of Achieve
+    # And I login to Achieve
+    # And I have logged in as "admin_1"
+    # And I search for a course and click on the first course card that appears
+    #     |   Course          |
+    #     |   Qualitative E2E |
+    # And I enroll students to the current course
+    #     |   Student     |
+    #     |   student_4   |
+    # And I generate a course code to the current course
+    # And I validate the "Qualitative E2E" course is accessible by "student_1"
+    # And I open the activity in the current course
+    #     |   Activity                    |
+    #     |   BR13.1: Bridge: Monopoly    | 
 
-#     |  username                              | password       |
-#     |  coursewareachieve@gmail.com           | ABCabc@123     |
-#     # use datable for this too
-#     And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
-#     And I click on the first course card
-#     And I enroll "student_1" to the current course
-#     And I generate a course code to the current course
-#     And I "sign_out" of Achieve
-#     When I login to Achieve
-#     And I have logged in as "student_1"
-#     And I validate the "Qualitative E2E" course is accessible to user
+    # |  username                              | password       |
+    # |  coursewareachieve@gmail.com           | ABCabc@123     |
+    # # use datable for this too
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    # And I click on the first course card
+    # And I enroll "student_1" to the current course
+    # And I generate a course code to the current course
+    # And I validate the "Qualitative E2E" course is accessible by "student_1"
 
-# # I log in as a student and open the activity
+# I log in as a student and open the activity
 
-#     And I have logged in as "student_4"
-#     And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
-#     And I click on the first course card
-#     And I open the activity in the current course
-#     |   Activity                                |
-#     |   PrQ13: Practice Quiz - Ch. 13: Monopoly |
-#     And I attempt to answer the questions in the current activity assignment
-#     |   Question    |   Answer                                                                                  |
-#     |   1           |   diamond producers limit the quantity supplied to the market.                            |
-#     |   2           |   The average total cost curve for firms in the industry becomes horizontal.              |   
-#     |   3           |   earns an economic profit in the long run.                                               |
+    And I have logged in as "student_4"
+    # And I click on "course" system "course_list" feature "search_for_course_name" element "Qualitative E2E" input
+    And I click on the first course card
+    And I open the activity in the current course
+    |   Activity                                |
+    |   PrQ13: Practice Quiz - Ch. 13: Monopoly |
+    And I attempt to answer the questions in the current activity assignment
+    |   Question    |   Answer                                                                                  |
+    |   1           |   diamond producers limit the quantity supplied to the market.                            |
+    |   2           |   The average total cost curve for firms in the industry becomes horizontal.              |   
+    |   3           |   earns an economic profit in the long run.                                               |
+    |   4           |   also the industry demand curve.                                                         |
+    |   5           |   above the MR curve.                                                                     |
+    |   6           |   marginal cost equals marginal revenue.                                                  |
+    |   7           |   P.                                                                                      |
+    |   8           |   $18.                                                                                    |
+    |   9           |   0PDJ.                                                                                   |
+    |   10          |   $80                                                                                     |
+    |   11          |   the market structure is monopolistic competition.                                       |
+    |   12          |   higher; less elastic                                                                    |
+    |   13          |   the higher price elasticity of demand.                                                  |
+    |   14          |   $0.                                                                                     |
+    |   15          |   $0.                                                                                     |
+    |   16          |   100; $15; $1,000                                                                        |
+    |   17          |   $8.                                                                                     |
 
 
-
-#     Then I click on courseplanner and I add custom content to the course 
+    # Then I click on courseplanner and I add custom content to the course 
     
 #     Then I verify the activity list  
 #         | page_object                                 | value             | clear |
