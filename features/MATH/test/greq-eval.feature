@@ -16,9 +16,9 @@ Scenario Outline: Author creates a <evaltype> type <questionEquation> equation a
   Then My answer is graded correctly
   Examples:
   | evaltype          | questionEquation              | answerEquation              | enforceEndpoints | tolerancePlus   | toleranceMinus   |
-  | "Relation"        | "2x+26=0"                     | "2x+26=0"                   | "NA"             | "Exact"         | "Exact"          |      
-  | "Expression"      | "x+y"                         | "x+y"                       | "NA"             | "Exact"         | "Exact"          |
-  | "Point"           | "(1,4\pi)"                    | "(3/3,2*2*π)"               | "NA"              | "Exact"         | "Exact"          |
-  | "Interval"        | "(0,0.17) \cup (0.64,1)"      | "[0,1−0.83)∪[64/100,1)"     | "unchecked"      | "Exact"         | "Exact"          |
-  | "Vector"          | "\langle.768,0,−0.640\rangle" | "⟨0.768,0,−0.640⟩"          | "NA"             | "0.0006"        | "0.0006"         |
-  | "Parametric"      | "(4t,3-t)"                    | "(2t+2t,3*1−t*1)"           | "NA"             | "Exact"         | "Exact"          |  
+  | "Relation"        | "2x+26=0"                     | "2x+26=0"                   | ""               | ""              | ""               |      
+  | "Expression"      | "x+y"                         | "x+y"                       | ""               | ""              | ""               |
+  | "Point"           | "(1,4\pi)"                    | "(3/3,2*2*π)"               | ""               | ""              | ""               |
+  | "Interval"        | "(0,0.17) \cup (0.64,1)"      | "[0,1−0.83)∪[64/100,1)"     | "unchecked"      | ""              | ""               |
+  | "Vector"          | "\langle.768,0,−0.640\rangle" | "⟨0.768,0,−0.640⟩"          | ""               | "0.0006"        | ""               |
+  | "Parametric"      | "(4t,3-t)"                    | "(2t+2t,3*1−t*1)"           | ""               | ""              | ""               |  

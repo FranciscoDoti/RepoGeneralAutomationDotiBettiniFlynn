@@ -22,7 +22,7 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
   await qa.exists(page.math.raptorAms.answerLabel);
 });
 
-When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, tolplus, tolminus, eqn) {
+When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
   let qa = new selenium(this.driver);
   await qa.click(page.math.raptorAms.correctTab);
   await qa.input(page.math.raptorAms.gradeAs, eval);
@@ -34,16 +34,17 @@ When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.
   if(endpoints === "unchecked") {
     await qa.click(page.math.raptorAms.enforceEndpoints);
   } 
-  if((tolplus !== "Exact") || (tolminus !== "Exact")){
+
+  // Assumes Author always passes valid inputs -- 
+  // either both tolerance limits have numeric values OR at the least one tolerance limit has numeric value with other empty
+    
+  if(upperTolerance || lowerTolerance){
     await qa.click(page.math.raptorAms.toleranceNumeric);
-    if(tolplus !== "Exact") {
-       await qa.input(page.math.raptorAms.tolerancePlus, tolplus)
-     }
-     if(tolminus !== "Exact") {
-     await qa.input(page.math.raptorAms.toleranceMinus, tolminus)
-     }
+    await qa.input(page.math.raptorAms.tolerancePlus, tolplus)
+    await qa.input(page.math.raptorAms.toleranceMinus, tolminus)
    }
-});
+
+   });
 
 Then(/^I save the question and verify saving message box$/, async function () {
   let qa = new selenium(this.driver);
