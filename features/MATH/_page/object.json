@@ -49,9 +49,9 @@
         "correctAnswer": "div[aria-label ='Correct Answer']", 
         "ungradedAnswerText": "div.module-graded-incorrect",
         "enforceEndpoints": ".greq-input[data-test-id='edit-panel-checkbox']",
-        "toleranceNumeric": ".greq-input[data-test-id='numeric-tolerance-radio']",
-        "tolerancePlus": "div.math-tolerance > div:nth-child(2) > input.numeric-entry-input",
-        "toleranceMinus": "div.math-tolerance > div:nth-child(4)> input.numeric-entry-input"
+        "numericTolerance": ".greq-input[data-test-id='numeric-tolerance-radio']",
+        "upperTolerancePlus": "div.math-tolerance > div:nth-child(2) > input.numeric-entry-input",
+        "lowerToleranceMinus": "div.math-tolerance > div:nth-child(4)> input.numeric-entry-input"
     },
 
     "paletteBasic":{

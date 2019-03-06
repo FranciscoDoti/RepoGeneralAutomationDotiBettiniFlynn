@@ -36,12 +36,13 @@ When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.
   } 
 
   // Assumes Author always passes valid inputs -- 
-  // either both tolerance limits have numeric values OR at the least one tolerance limit has numeric value with other empty
+  // either both tolerance limit fields have numeric input OR 
+  // one of the tolerance limit field has numeric input with the other field left empty for infinite value
     
   if(upperTolerance || lowerTolerance){
-    await qa.click(page.math.raptorAms.toleranceNumeric);
-    await qa.input(page.math.raptorAms.tolerancePlus, tolplus)
-    await qa.input(page.math.raptorAms.toleranceMinus, tolminus)
+    await qa.click(page.math.raptorAms.numericTolerance);
+    await qa.input(page.math.raptorAms.upperTolerancePlus, upperTolerance)
+    await qa.input(page.math.raptorAms.lowerToleranceMinus, lowerTolerance)
    }
 
    });
