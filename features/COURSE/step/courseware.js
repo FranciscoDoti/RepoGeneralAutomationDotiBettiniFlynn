@@ -1,11 +1,12 @@
 const { When, Then, After } = require('cucumber');
 const selenium = require('../../../app/selenium');
+const imap = require('../../../app/imap.js');
 const page = require('../../master-page.js');
 const config = require('../../../config.js');
 const format = require('string-format');
 const expect = require('chai').expect;
 const _ = require('lodash');
-const { connectClient } = require('../../../app/imap.js');
+
 
 
 // Navigation
@@ -27,7 +28,7 @@ When(/^I click on "(.*)" course card$/, async function (name) {
 When('I fill out the form to edit a course', async function (data_table) {
   let qa = new selenium(this.driver);
 
-  await qa.sleep();
+  await qa.sleep(config.sleep);
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object != 'day') {
       let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
@@ -81,7 +82,7 @@ When(/^I click on "(.*)" on "(.*)" course menu$/, async function (page_object, c
   let page_format = format(page.course.course_list.course_name_menu, course_name);
 
   await qa.click(page.course.course_list.course_menu);
-  await qa.sleep();
+  await qa.sleep(config.sleep);
   await qa.click(PAGE);
 });
 
@@ -97,8 +98,8 @@ When(/^I add "(.*)" instructor's email to the course$/, async function (instruct
 When('I logout of the achieve system', async function () {
   let qa = new selenium(this.driver);
     await qa.click(page.course.user.menu);
-    await qa.sleep(1);
-    await qa.click(page.course.user.sign_out);    
+    await qa.sleep(config.sleep);
+    await qa.click(page.course.user.sign_out);
 
 });
 
@@ -118,9 +119,10 @@ Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, a
   await qa.exists(page_format);
 });
 
+//FIXME REFACTOR
 Then('I verify the course_list data', async function (data_table) {
   let qa = new selenium(this.driver);
-  await qa.sleep();
+  await qa.sleep(config.sleep);
   await qa.click(page.course.course_list.course_menu);
   await qa.click(page.course.course_list.edit_course);
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -130,6 +132,7 @@ Then('I verify the course_list data', async function (data_table) {
     let text = await qa.getText(page_format);
     expect(text).to.contain(data_table.hashes()[i].value);
   }
+  //CHECK FOR NEEDED OR NOT
   await qa.sleep(2);
   await qa.click(page.course.create_course.cancel);
 });
@@ -307,14 +310,14 @@ Then ('I open the activity in the current course', async function(data_table) {
   let course_planner_tab_element = page.course.course_page.course_planner;
   let course_assignment_element = page.course.course_planner.course_assignment;
   let specific_course_assignment_element = format(course_assignment_element, data_table.hashes()[0].Activity);
-  
+
   await qa.click(course_planner_tab_element);
   await qa.click(specific_course_assignment_element);
 })
 
 Then ('I attempt to answer the questions in the current activity assignment', async function(data_table) {
-  let qa = new selenium(this.driver);   
-  await qa.sleep(2);  
+  let qa = new selenium(this.driver);
+  await qa.sleep(2);
   await qa.switchFrame(0);
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -331,13 +334,13 @@ Then ('I attempt to answer the questions in the current activity assignment', as
   await qa.click(page.course.student_activity.close_activity);
   let activity_score = await qa.getText(page.course.student_activity.activity_score);
   console.log(activity_score, 'activity_score');
-  
+
 
 })
 
 Then(/^Check email for "(.*)" user using "(.*)" password$/, async function(user, password) {
   // let qa = new selenium(this.driver);
-  await connectClient(user, password, 'registration')
+  await imap.connectClient(user, password, 'registration')
 })
 
 // Cleanup //

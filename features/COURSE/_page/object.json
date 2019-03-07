@@ -9,8 +9,8 @@
   "home": {
     "enroll": "._1o0U",
     "instructor_access": "._21rl",
-    "sign_in": "//*[@data-test-id='sign_in_link_button']",
-    "sign_out": "[data-test-id='menu_user_sign_out']", 
+    "sign_in": "[data-test-id='sign_in_link_button']",
+    "sign_out": "[data-test-id='menu_user_sign_out']",
     "toggler_menu": "[data-test-id='user_dropdown_menu_open']",
     "menu_user_admin": "[data-test-id='menu_user_admin']",
     "manage_enrollments": "[data-test-id='menu_user_admin_manage_enrollments']",
@@ -20,7 +20,7 @@
     "generate_access_code": "[data-test-id='generate_access_code_button']",
     "close_manage_roles": "._2Ft-",
     "access_code": "[class='_1irm']",
-    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']", 
+    "close_access_code": "[data-test-id='generate_access_code_modal_close_button']",
     "close_alert" : "[data-test-id='alert_close_btn']"
   },
   "course_list": {
@@ -44,7 +44,7 @@
     "search_for_course_name": "[data-test-id='course_search_input']",
     "Manage_instructor": "[data-test-id='course_menu_manage_instructors']",
     "end_date": "/html/body/div[3]/div/div/div[2]/div/div[4]/div[2]/div/div/div/div/div[2]/button",
-    "next_month_button": "//*[@aria-label='next_month_button']", 
+    "next_month_button": "//*[@aria-label='next_month_button']",
     "select_date": "/html/body/div[3]/div/div/div[2]/div/div[4]/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div[5]/div[2]",
     "course_activation" : "[data-test-id='course_activation_date']",
     "invite_students_button": "[data-test-id='course_menu_invite_students']",
@@ -87,7 +87,7 @@
     "meeting_minute": "#__timePickerMinute",
     "meeting_period": "#__timePickerPeriod",
     "copy_course":"#copyCourseName",
-    "copy_course_code": "#copyCourseShortName", 
+    "copy_course_code": "#copyCourseShortName",
     "instructor_button": "//*[@id='react-tabs-2']",
     "send_email_invite": "//*[@testid='invite_students_send_email_toggle']",
     "students_invite_link": "[data-test-id='invite_students_modal_invite_link']",
@@ -136,11 +136,11 @@
     "search_bar": "[data-test-id='search_bar']",
     "close": "[title='Close']",
     "list": "//span[contains(@class,'_3Jn1') and contains(text(), '{}')]",
-    "add_content":"[data-test-id='add_content_button']", 
+    "add_content":"[data-test-id='add_content_button']",
     "add_button_assessment": "//*[@data-test-id='add_button_assessment']",
     "add_button_learningcurve":  "//*[@data-test-id='add_button_learningcurve']",
     "add_button_readandpractice": "//*[@data-test-id='add_button_lcrp']",
-    "add_reading_button": "//*[@data-test-id='add_button_reading']", 
+    "add_reading_button": "//*[@data-test-id='add_button_reading']",
     "add_file_button": "//*[data-test-id='add_button_staticfile']",
     "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
     "share_template" : "//*[@data-test-id='share_template']",
@@ -157,7 +157,7 @@
     "assignment_score": "[data-test-id='assignment-percentage-score']"
   },
   "courseplanner": {
-    "add_unit_folder": "//*[@data-test-id='add_unit']", 
+    "add_unit_folder": "//*[@data-test-id='add_unit']",
      "custom_content_button": "//*[@data-test-id='custom_content_tab']",
      "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
 
@@ -172,15 +172,15 @@
     "close_activity": "._1iTu"
   },
   "course_planner": {
-    "add_unit_folder": "//*[@data-test-id='add_unit']", 
+    "add_unit_folder": "//*[@data-test-id='add_unit']",
      "custom_content_button": "[data-test-id='custom_content_tab']",
      "add_assignment_button": "//*[@aria-label='Add assignment']",
     "assign_assignment_button":"[data-test-id='assign_assignment_button']",
     "points_input":"[data-test-id='points_input']",
     "assign_button":"[data-test-id='assign_button']",
     "course_assignment": "//a[contains (text(), '{}') and contains(@class, '_3UBu _3kCz')]",
-    "library_search_input": "[id='__librarySearchInput']", 
-    "close_courseplanner": "//*[@id='container']/div/div/div/div[4]/div/aside/div/ul/button", 
+    "library_search_input": "[id='__librarySearchInput']",
+    "close_courseplanner": "//*[@id='container']/div/div/div/div[4]/div/aside/div/ul/button",
     "Assignment_due_date_picker": "[data-test-id='Assignment_due_date_picker']",
     "Assignment_date": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[3]/div[6]",
     "check_box": "[data-test-id='row_checkbox']",

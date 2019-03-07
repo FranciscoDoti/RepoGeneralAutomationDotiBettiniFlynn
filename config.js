@@ -7,7 +7,7 @@ module.exports = {
   environment: argv.env || "int",
   sap: argv.sap || "674846", // sapling assignment id
   timeout: argv.timeout || 10000,
-  sleep: argv.sleep || 1000,
+  sleep: argv.sleep * 1000 || 1000,
   headless: argv.headless || false,
   capabilities: {
     "browserName": argv.browser || "chrome",
