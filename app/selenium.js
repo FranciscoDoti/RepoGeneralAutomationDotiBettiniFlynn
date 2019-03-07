@@ -35,7 +35,7 @@ module.exports = function (driver) {
     }),
 
     sleep: Promise.coroutine(function * (timeout) {
-      yield Promise.delay(timeout * 1000 || config.sleep);
+      yield Promise.delay(timeout || config.sleep);
     }),
 
     click: Promise.coroutine(function * (selector) {
