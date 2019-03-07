@@ -1,6 +1,5 @@
 const Promise = require('bluebird');
 const config = require('../config.js');
-const seleniumWebdriver = require('selenium-webdriver');
 
 // Promise.longStackTraces();
 
@@ -10,26 +9,7 @@ module.exports = function (driver) {
       let locator = this._locator(selector);
       yield this._exists(true, locator);
       let elements = yield driver.findElements(locator);
-      let element_array = [];
-
-      for (let i = 0; i < elements.length; i++) {
-        element_array.push(yield elements[i]);
-      }
-      return element_array;
-    }),
-
-    getTextOfElementInArray: Promise.coroutine(function * (selector, text) {
-      let locator = this._locator(selector);
-      yield this._exists(true, locator);
-      let elements = yield driver.findElements(locator);
-      let elementTextArray = [];
-
-      for (let i = 0; i < elements.length; i++) {
-        let element = elements[i];
-        let elementText = yield element.getText();
-        elementTextArray.push(elementText);
-      }
-      return elementTextArray;
+      return elements;
     }),
 
     goTo: Promise.coroutine(function * (url) {
@@ -122,7 +102,7 @@ module.exports = function (driver) {
       yield driver.executeScript(script);
     }),
 
-    input: Promise.coroutine(function * (selector, text, clear, enter_after) {
+    input: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
       yield this._exists(true, locator);
       var elem = yield driver.findElement(locator);
@@ -133,9 +113,6 @@ module.exports = function (driver) {
         yield elem.clear();
       };
       yield elem.sendKeys(text);
-      if (enter_after) {
-        yield elem.sendKeys(seleniumWebdriver.Key.ENTER);
-      }
     }),
 
     getText: Promise.coroutine(function * (selector) {
