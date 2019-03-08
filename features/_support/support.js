@@ -19,14 +19,6 @@ Given(/^I sleep "(.*)" seconds$/, async function (sleepValue) {
   await qa.sleep(sleepValue);
 });
 
-Given('I login to Achieve', async function () {
-  let qa = new Selenium(this.driver);
-  let url = await get(URL, ['achieve', 'login']);
-
-  await qa.goTo(url);
-  await qa.click(page.course.home.sign_in);
-});
-
 // Page Navigation //
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new Selenium(this.driver);

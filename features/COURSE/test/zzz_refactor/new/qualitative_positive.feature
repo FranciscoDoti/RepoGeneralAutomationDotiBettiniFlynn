@@ -9,7 +9,7 @@ Feature: Qualitative Positive feature
 #     And I have logged in as "media_producer_2"
 #     And I click on "course" system "create_course" feature "button" element
 
-#     When I fill out the form to edit a course
+#     When I fill out the course form
 #         | page_object                   | value                                       |
 #         | course_type                   | Template                                    |
 #         | product_model                 | Qualitative                                 |
@@ -27,7 +27,7 @@ Feature: Qualitative Positive feature
 #         | edit_isbn_number        | 1547659765744           |
 
 #     And I click on "edit_course" on "Read & Practice Template" course menu //Try to use this step in datatable
-#     And I fill out the form to edit a course
+#     And I fill out the course form
 #         | page_object      | value           |clear|
 #         | edit_course_name | Edit Testcourse |true |
 #         | edit_course_code | E2E 301         |true |
@@ -47,7 +47,7 @@ Feature: Qualitative Positive feature
 #     Then I add the activities to the course under the course planner tab  // create a datable for this 
 #     And I click on "course" system "main" feature "Achieve_home" element 
 #     And I click on "copy_course" on "Read & Practice Template" course menu // add above two steps in datatable
-#     And I fill out the form to edit a course
+#     And I fill out the course form
 #         | page_object       | value                    |
 #         | copy_course       | Read & Practice course   |
 #         | copy_course_code  | E2E301                   |

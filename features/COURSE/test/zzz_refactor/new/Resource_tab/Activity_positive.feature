@@ -6,7 +6,7 @@ Feature: Adding_activities in resource tab
         And I have logged in as "media_producer_2"
         And I click on "course" system "create_course" feature "button" element
 
-        When I fill out the form to edit a course
+        When I fill out the course form
             | page_object   | value                    |
             | course_type   | Template                 |
             | product_model | Read & Practice          |

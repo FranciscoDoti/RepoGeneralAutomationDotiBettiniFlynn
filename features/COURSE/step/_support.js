@@ -6,6 +6,8 @@ const config = require('../../../config.js');
 const format = require('string-format');
 const expect = require('chai').expect;
 const _ = require('lodash');
+const URL = require('../../_support/url.js');
+
 
 
 
@@ -18,28 +20,19 @@ When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
   await qa.click(page_format);
 });
 
+Given('I click login to the Achieve product', async function () {
+  let qa = new selenium(this.driver);
+  let url = await _.get(URL, ['achieve', 'login']);
+
+  await qa.goTo(url);
+  await qa.click(page.course.home.sign_in);
+});
+
 When(/^I click on "(.*)" course card$/, async function (name) {
   let qa = new selenium(this.driver);
   let page_format = format(page.course.course_list.course_name, name);
 
   await qa.click(page_format);
-});
-
-When('I fill out the form to edit a course', async function (data_table) {
-  let qa = new selenium(this.driver);
-
-  await qa.sleep(config.sleep);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    if (data_table.hashes()[i].page_object != 'day') {
-      let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
-      await qa.input(PAGE, data_table.hashes()[i].value, data_table.hashes()[i].clear);
-    } else {
-      let page_format = format(page.course.create_course.select_day, data_table.hashes()[i].value);
-      await qa.click(page_format);
-    }
-  }
-
-  await qa.click(page.course.create_course.save);
 });
 
 // FIXME Needs Implementation
@@ -119,23 +112,6 @@ Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, a
   await qa.exists(page_format);
 });
 
-//FIXME REFACTOR
-Then('I verify the course_list data', async function (data_table) {
-  let qa = new selenium(this.driver);
-  await qa.sleep(config.sleep);
-  await qa.click(page.course.course_list.course_menu);
-  await qa.click(page.course.course_list.edit_course);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let PAGE = await _.get(page, ['course', 'course_list', data_table.hashes()[i].page_object]);
-    let page_format = await format(PAGE, data_table.hashes()[0].value);
-
-    let text = await qa.getText(page_format);
-    expect(text).to.contain(data_table.hashes()[i].value);
-  }
-  //CHECK FOR NEEDED OR NOT
-  await qa.sleep(2);
-  await qa.click(page.course.create_course.cancel);
-});
 
 Then('I verify the create_course data', async function (data_table) {
   let qa = new selenium(this.driver);
@@ -160,17 +136,6 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function (c
   expect(text).to.contain(course_page);
 });
 
-Then('I add the activity to the course under the resources tab', async function (data_table) {
-  let qa = new selenium(this.driver);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await qa.click(page.course.resources.add_content);
-    await qa.input(page.course.resources.search_bar, data_table.hashes()[i].activity, 'clear', 'enter_after');
-    await qa.click(page.course.resources.search_bar);
-    let add_button_element = await _.get(page, ['course', 'resources', data_table.hashes()[i].type]);
-    await qa.click(add_button_element);
-    await qa.click(page.course.resources.close_resource_search_nav);
-  }
-})
 
 Then('I verify activity list', async function (data_table) {
   let qa = new selenium(this.driver);
@@ -343,10 +308,10 @@ Then(/^Check email for "(.*)" user using "(.*)" password$/, async function(user,
   await imap.connectClient(user, password, 'registration')
 });
 
-Then(/^I verify the data in "(.*)"$/, async function (course, data_table) {
+Then(/^I verify the data in "(.*)"/, async function (feature, data_table) {
   let qa = new selenium(this.driver);
   for (let i = 0; i < data_table.rows().length; i++) {
-    let PAGE = await _.get(page, ['course', course, data_table.hashes()[i].course_page]);
+    let PAGE = await _.get(page, ['course', feature, data_table.hashes()[i].course_page]);
     await qa.exists(PAGE)
   }
 });

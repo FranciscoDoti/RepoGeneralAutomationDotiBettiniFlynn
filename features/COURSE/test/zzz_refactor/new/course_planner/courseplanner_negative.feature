@@ -1,11 +1,12 @@
-Feature: Assigning the course to the instructor 
-
-  Scenario: Verify that a Media Producer is able to create a Read & Practice Course
+Feature: Adding activities and checking the activities are redirected to their respective pages 
+   
+    @delete-course
+    Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I login to Achieve
         And I have logged in as "media_producer_2"
         And I click on "course" system "create_course" feature "button" element
 
-        When I fill out the form to edit a course
+        When I fill out the course form
             | page_object   | value                    |
             | course_type   | Template                 |
             | product_model | Read & Practice          |
@@ -22,17 +23,15 @@ Feature: Assigning the course to the instructor
             | template_status  | Active On Date                                              |     |
         
         And I click on "course" system "create_course" feature "course_card" element 
-    
         And I click on "course" system "course_page" feature "resources" element 
 
-        
+
         And I add the activity to the course under the resources tab
             | activity                                                          | type                          |
             | communicating courteously                                         | add_reading_button            |                                                        
             | Active and Passive voice                                          | add_button_learningcurve      |
             | Wars of Religion                                                  | add_button_readandpractice    |
         
-
         And I fill out the form to copy a course
             | page_object       | value                    |
             | copy_course       | Read & Practice course   |
@@ -40,6 +39,7 @@ Feature: Assigning the course to the instructor
 
         And I "sign_out" of Achieve
         And I have logged in as "customer_support_1"
+
         And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input 
         And I assign Instructor to the course
             | username              | password   |
@@ -47,9 +47,6 @@ Feature: Assigning the course to the instructor
 
         And I "sign_out" of Achieve
         And I have logged in as "instructor_7"
-       
-
-        Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
 
         When I fill out the form to update the status of course to active 
             | page_object      | value                | clear |
@@ -57,5 +54,26 @@ Feature: Assigning the course to the instructor
             |  course_code     |   E2E301             | True  |  
             | template_status  |  Active On Date      | True  |
 
-        Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
-        And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
+
+        And I invite the students
+            | username                    |
+            | macmillanstudent4@gmail.com | 
+
+            
+         And I add the activities in courseplanner 
+            | activity                                                          | type               |
+            | communicating courteously                                         | Reading            |                                                        
+            | Active and Passive voice                                          | learning_curve     |
+            | Wars of Religion                                                  | Read and Practice  |
+        
+        Then I verify activity list 
+            |  activity                    | 
+            | communicating courteously    |                                                        
+            | Active and Passive voice     |
+            | Wars of Religion             | 
+        
+        
+
+
+
+        

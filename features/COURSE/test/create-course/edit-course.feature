@@ -2,13 +2,13 @@ Feature: Edit Course
 
   @delete-course
   Scenario: Verify that Media Producer is able to edit a created Qualitative Template
-    Given I login to Achieve
+    Given I click login to the Achieve product
     And I login with the following credentials
       | username                                   | password          |
       | mediaproducer@rupayamail.com               |  ABCabc@123       |
     And I click the Add course button
 
-    When I fill out the form to edit a course
+    When I fill out the create course form
       | page_object        | value                   |
       | course_type        | Template                |
       | product_model      | Qualitative             |
@@ -19,7 +19,7 @@ Feature: Edit Course
       | course_status      | draft                   |
 
     And I close the popup message
-    And I fill out the form to update the Template 
+    And I fill out the edit course form
       | page_object      | value           |clear|
       | edit_course_name | Edit Testcourse |true |
       | edit_course_code | E2E 302         |true |

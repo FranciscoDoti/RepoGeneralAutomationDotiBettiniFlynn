@@ -6,7 +6,7 @@ Feature: Add Resources
     And I have logged in as "media_producer_2"
     And I click the Add course button
 
-    When I fill out the form to edit a course
+    When I fill out the course form
       | page_object        | value                   |
       | course_type        | Template                |
       | product_model      | Qualitative             |
