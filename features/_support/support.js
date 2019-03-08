@@ -43,6 +43,13 @@ Given(/^I input "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async
   await qa.input(PAGE, text);
 });
 
+Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" input$/, async function (system, feature, element, input) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element])
+  let page_format = format(PAGE)
+  await qa.input(page_format, input);
+});
+
 // Text Assertion //
 Then(/^I verify "(.*)" system "(.*)" feature "(.*)" element's "(.*)" message is displayed$/, async function (system, feature, element, text) {
   let qa = new Selenium(this.driver);

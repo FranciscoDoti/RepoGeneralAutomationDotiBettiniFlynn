@@ -1,4 +1,4 @@
-const { When, Then, After } = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const selenium = require('../../../app/selenium');
 const imap = require('../../../app/imap.js');
 const page = require('../../master-page.js');
@@ -341,16 +341,50 @@ Then ('I attempt to answer the questions in the current activity assignment', as
 Then(/^Check email for "(.*)" user using "(.*)" password$/, async function(user, password) {
   // let qa = new selenium(this.driver);
   await imap.connectClient(user, password, 'registration')
-})
+});
 
-// Cleanup //
-After('@delete-course', async function () {
+Then(/^I verify the data in "(.*)"$/, async function (course, data_table) {
   let qa = new selenium(this.driver);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let PAGE = await _.get(page, ['course', course, data_table.hashes()[i].course_page]);
+    await qa.exists(PAGE)
+  }
+});
+
+Given(/^I click the "(.*)" button on the user account menu$/, async function (element) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, ['course', 'home', element])
+  let page_format = format(PAGE);
+  await qa.click(page.course.home.toggler_menu);
+  await qa.sleep();
+  await qa.click(page_format);
+});
+
+//FIXME Look into implementation and if it needs refactored
+Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element input "(.*)" and enter date$/, async function (system, feature, element, input) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element]);
+  let page_format = format(PAGE);
   await qa.sleep(1);
-  await qa.click(page.course.course_list.course_menu);
-  await qa.sleep(1);
-  await qa.click(page.course.course_list.delete_course);
-  await qa.sleep(1);
-  await qa.click(page.course.course_list.confirm_delete);
-  await qa.sleep(2);
+  await qa.click(page_format);
+  await qa.input(page_format, input);
+  await qa.click(page.course.course_list.end_date);
+  await qa.click(page.course.course_list.next_month_button);
+  await qa.click(page.course.course_list.next_month_button);
+  await qa.click(page.course.course_list.select_date);
+  await qa.click(page.course.create_course.save);
+});
+
+Then(/^I verify that the course "(.*)" is "(.*)"$/, async function (identifier, activation) {
+  let qa = new selenium(this.driver);
+  await qa.exists(page.course.course_list.course_name, identifier);
+  await qa.exists(page.course.course_list.course_activation, activation);
+});
+
+//FIXME look into which permission level this applies to
+Then(/^I verify activity staus as "(.*)"$/, async function (element) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, ['course', 'course_planner', element]);
+  let page_format = format(PAGE);
+  await qa.getText(page.course.course_planner.activity_status, element);
 });
