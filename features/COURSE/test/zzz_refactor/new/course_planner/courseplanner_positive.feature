@@ -6,7 +6,7 @@ Feature: Adding activities and checking the activities are redirected to their r
         And I have logged in as "media_producer_2"
         And I click on "course" system "create_course" feature "button" element
 
-        When I fill out the form to edit a course
+        When I fill out the course form
             | page_object   | value                    |
             | course_type   | Template                 |
             | product_model | Read & Practice          |
@@ -20,7 +20,7 @@ Feature: Adding activities and checking the activities are redirected to their r
         And I verify that the course's name "Read & Practice Template" is listed on the courses page
         
         And I click on "edit_course" on "Read & Practice Template" course menu
-        And I fill out the form to edit a course
+        And I fill out the course form
             | page_object      | value           |clear|
             | edit_course_name | Edit Testcourse |true |
             | edit_course_code | E2E 301         |true |
@@ -72,7 +72,7 @@ Feature: Adding activities and checking the activities are redirected to their r
         
         And I click on "course" system "main" feature "Achieve_home" element 
         And I click on "copy_course" on "Read & Practice Template" course menu
-        And I fill out the form to edit a course
+        And I fill out the course form
             | page_object       | value                    |
             | copy_course       | Read & Practice course   |
             | copy_course_code  | E2E301                   |
