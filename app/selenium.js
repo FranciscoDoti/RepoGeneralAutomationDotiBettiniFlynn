@@ -1,3 +1,4 @@
+const Key = require('selenium-webdriver').Key;
 const Promise = require('bluebird');
 const config = require('../config.js');
 
@@ -89,6 +90,17 @@ module.exports = function (driver) {
       yield locator.isEnabled();
     }),
 
+    seleniumKeys: Promise.coroutine(function * (selector, key) {
+      var locator = this._locator(selector);
+      var elem = yield driver.findElement(locator);
+      switch (key) {
+        case 'enter':
+          yield elem.sendKeys(Key.ENTER);
+        default:
+          Promise.resolve('Please pass a key');
+      }
+    }),
+
     sendKeys: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
       var elem = yield driver.findElement(locator);
@@ -107,7 +119,6 @@ module.exports = function (driver) {
       yield this._exists(true, locator);
       var elem = yield driver.findElement(locator);
       var tagName = yield elem.getTagName();
-
       yield elem.click();
       if (clear) {
         yield elem.clear();

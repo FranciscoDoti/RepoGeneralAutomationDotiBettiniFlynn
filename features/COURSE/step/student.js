@@ -12,13 +12,3 @@ async function sucess (driver) {
   await qa.click(page.course.overview.multiple_choice);
   await qa.click(page.course.overview.submit_button);
 }
-
-Then('I verify the activity list', async function (data_table) {
-  let qa = new selenium(this.driver)
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let text = await qa.getText(page.course.course_planner.activity_validation);
-    let verify = text === data_table.hashes()[i].activity
-    if (verify === data_table.hashes()[i].clear) {
-    }
-  }
-});
