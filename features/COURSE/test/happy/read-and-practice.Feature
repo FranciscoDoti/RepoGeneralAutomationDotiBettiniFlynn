@@ -41,27 +41,24 @@ Feature: Happy path flow for Read and Practice
             | import_structure |
             | add_folder       |
 
-        #WE'RE HERE
-        And I add the activity to the course under the resources tab
+        Given I add the activity to the course under the resources tab
             | activity                  | type                       |
             | communicating courteously | add_reading_button         |
             | Active and Passive voice  | add_button_learningcurve   |
             | Wars of Religion          | add_button_readandpractice |
-      #
-      #   Then I verify the activity list
-      #       | activity                     |
-      #       | communicating courteously    |
-      #       | Active and Passive voice     |
-      #       | Wars of Religion             |
-      #
-      #
-      #   And I fill out the form to copy a course
-      #   And I fill out the course form
-      #       | page_object       | value                    |
-      #       | copy_course       | Read & Practice course   |
-      #       | copy_course_code  | E2E301                   |
-      #
-      #   Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
+
+        Then I verify the activity list
+            | activity                     |
+            | Communicating courteously    |
+            | Active and Passive voice     |
+            | Wars of Religion             |
+
+        And I fill out the form to copy a course
+            | page_object       | value                    |
+            | copy_course       | Read & Practice course   |
+            | copy_course_code  | E2E301                   |
+
+        Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
       #
       #   And I "sign_out" of Achieve
       #   And I click login to the Achieve product

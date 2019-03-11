@@ -40,6 +40,22 @@ Given('I fill out the edit course form', async function (data_table) {
   await qa.click(page.course.create_course.save);
 });
 
+
+When('I fill out the form to copy a course', async function (data_table) {
+  let qa = new selenium(this.driver);
+
+  await qa.click(page.course.main.achieve_home);
+  await qa.click(page.course.course_list.course_menu);
+  await qa.sleep(config.sleep);
+  await qa.click(page.course.course_list.copy_course);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await formFill(this.driver, 'create_course', data_table.hashes()[i].page_object, data_table.hashes()[i].value, data_table.hashes()[i].clear);
+  };
+  await qa.click(page.course.create_course.save);
+});
+
+
+
 Given(/^I navigate to the course page "(.*)" tab$/, async function (page_object) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, ['course', "course_page", page_object]);
@@ -49,17 +65,19 @@ Given(/^I navigate to the course page "(.*)" tab$/, async function (page_object)
   await qa.click(PAGE);
 });
 
-Then('I add the activity to the course under the resources tab', async function (data_table) {
+Given('I add the activity to the course under the resources tab', async function (data_table) {
   let qa = new selenium(this.driver);
 
   for (let i = 0; i < data_table.rows().length; i++) {
     let PAGE = await _.get(page, ['course', 'resources', data_table.hashes()[i].type]);
 
+    await qa.sleep(config.sleep);
     await qa.click(page.course.resources.add_content);
-    await qa.input(page.course.resources.search_bar, data_table.hashes()[i].activity, 'clear');
-    await qa.sendKeys(page.course.resources.search_bar, Key.RETURN);
+    await qa.input(page.course.resources.search_bar, data_table.hashes()[i].activity, true);
+    await qa.seleniumKeys(page.course.resources.search_bar, "enter");
     await qa.click(page.course.resources.search_bar);
     await qa.click(PAGE);
+    await qa.sleep(config.sleep);
     await qa.click(page.course.resources.close_resource_search_nav);
   }
 });
@@ -85,14 +103,6 @@ Given('I assign Instructor to the course', async function (data_table) {
 });
 
 
-When('I fill out the form to copy a course', async function () {
-  let qa = new selenium(this.driver);
-
-  await qa.click(page.course.main.Achieve_home);
-  await qa.click(page.course.course_list.course_menu);
-  // await qa.sleep(config.sleep);
-  await qa.click(page.course.course_list.copy_course);
-});
 
 
 When('I do the other thing', async function () {
@@ -115,4 +125,13 @@ Then('I verify the course_list data', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     expect(text).to.contain(data_table.hashes()[i].value);
   };
+});
+
+Then('I verify the activity list', async function (data_table) {
+  let qa = new selenium(this.driver);
+
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let text = await qa.getText(page.course.course_planner.activity_validation);
+    expect(text.toLowerCase()).to.include(data_table.hashes()[i].activity.toLowerCase());
+  }
 });
