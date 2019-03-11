@@ -41,7 +41,7 @@
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
     "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
-    "search_for_course_name": "[data-test-id='course_search_input']",
+    "search": "[data-test-id='course_search_input']",
     "Manage_instructor": "[data-test-id='course_menu_manage_instructors']",
     "end_date": "/html/body/div[3]/div/div/div[2]/div/div[4]/div[2]/div/div/div/div/div[2]/button",
     "next_month_button": "//*[@aria-label='next_month_button']",

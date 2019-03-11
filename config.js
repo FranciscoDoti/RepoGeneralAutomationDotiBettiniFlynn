@@ -6,7 +6,7 @@ module.exports = {
   mode: argv.mode || "local",
   environment: argv.env || "int",
   sap: argv.sap || "674846", // sapling assignment id
-  timeout: argv.timeout || 10000,
+  timeout: argv.timeout || 15000,
   sleep: argv.sleep * 1000 || 1000,
   headless: argv.headless || false,
   capabilities: {

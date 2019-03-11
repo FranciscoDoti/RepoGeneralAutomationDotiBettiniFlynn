@@ -44,6 +44,7 @@ module.exports = function (driver) {
       try {
         yield this._click(locator);
       } catch (err) {
+        locator = this._locator(selector);
         yield this._click(locator);
       }
     }),

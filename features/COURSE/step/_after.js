@@ -4,7 +4,6 @@ const URL = require('../../_support/url.js');
 const page = require('../../master-page.js');
 const config = require('../../../config.js');
 
-
 After('@delete-course', async function () {
   let qa = new selenium(this.driver);
   let payload = require(`../../_data/user/${config.environment}/media_producer_2.json`);
@@ -18,10 +17,13 @@ After('@delete-course', async function () {
   await qa.input(page.iam.login.username, payload.username, true);
   await qa.input(page.iam.login.password, payload.password, true);
   await qa.click(page.iam.login.sign_in);
-  await qa.click(page.course.course_list.course_menu);
-  await qa.sleep(config.sleep);
-  await qa.click(page.course.course_list.delete_course);
-  await qa.sleep(config.sleep);
-  await qa.click(page.course.course_list.confirm_delete);
-  await qa.sleep(config.sleep * 2);
+  let elements = await qa.getArray(page.course.create_course.course_card);
+  for (let i = 0; i < elements.length; i++) {
+    await qa.click(page.course.course_list.course_menu);
+    await qa.sleep(config.sleep);
+    await qa.click(page.course.course_list.delete_course);
+    await qa.sleep(config.sleep);
+    await qa.click(page.course.course_list.confirm_delete);
+    await qa.sleep(config.sleep * 2);
+  };
 });
