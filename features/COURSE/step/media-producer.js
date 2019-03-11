@@ -61,6 +61,7 @@ Then('I add the activity to the course under the resources tab', async function 
     await qa.click(page.course.resources.search_bar);
     await qa.click(PAGE);
     await qa.click(page.course.resources.close_resource_search_nav);
+    
   }
 });
 
