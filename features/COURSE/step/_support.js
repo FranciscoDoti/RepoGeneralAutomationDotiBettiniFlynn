@@ -28,11 +28,10 @@ Given('I click login to the Achieve product', async function () {
   await qa.click(page.course.home.sign_in);
 });
 
-When(/^I click on "(.*)" course card$/, async function (name) {
+Given(/^I search for "(.*)" course$/, async function (input) {
   let qa = new selenium(this.driver);
-  let page_format = format(page.course.course_list.course_name, name);
 
-  await qa.click(page_format);
+  await qa.input(page.course.course_list.search, input);
 });
 
 // FIXME Needs Implementation
@@ -56,12 +55,6 @@ When(/^I add Activities to course "(.*)" "(.*)"$/, async function (type, identif
   await qa.click(page.course.resources.add_activity, activity);
 });
 
-// FIXME NEEDS IMPLEMENTED
-When(/^I search for "(.*)" course$/, async function (search) {
-  let qa = new selenium(this.driver);
-
-  await qa.input(page.course.main.search, search);
-});
 
 When('I click the Add course button', async function () {
   let qa = new selenium(this.driver);

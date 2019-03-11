@@ -1,6 +1,5 @@
 Feature: Happy path flow for Read and Practice
 
-    @delete-course
     Scenario: Verify that a Media Producer is able to create a Read & Practice Course
         Given I click login to the Achieve product
         And I have logged in as "media_producer_2"
@@ -48,27 +47,27 @@ Feature: Happy path flow for Read and Practice
             | Wars of Religion          | add_button_readandpractice |
 
         Then I verify the activity list
-            | activity                     |
-            | Communicating courteously    |
-            | Active and Passive voice     |
-            | Wars of Religion             |
+            | activity                  |
+            | Communicating courteously |
+            | Active and Passive voice  |
+            | Wars of Religion          |
 
         And I fill out the form to copy a course
-            | page_object       | value                    |
-            | copy_course       | Read & Practice course   |
-            | copy_course_code  | E2E301                   |
+            | page_object      | value                  | clear |
+            | copy_course      | Read & Practice course | true  |
+            | copy_course_code | E2E301                 | true  |
 
         Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
-      #
-      #   And I "sign_out" of Achieve
-      #   And I click login to the Achieve product
-      #   And I have logged in as "customer_support_1"
-      #
-      #   And I click on "course" system "course_list" feature "search_for_course_name" element "Edit TestcourseRead & Practice course" input
-      #   And I assign Instructor to the course
-      #       | username                     | password   |
-      #       | kabimigom@digitalmail.info   | ABCabc@123 |
-      #     #  | cofikada@webmails.top | ABCabc@123 |
+
+    @delete-course
+    Scenario: Verify that a Customer Support can assign an instructor Read & Practice Course
+        Given I click login to the Achieve product
+        And I have logged in as "customer_support_1"
+        And I search for "Read & Practice course" course
+
+        When I assign Instructor to the course
+            | username                   | 
+            | kabimigom@digitalmail.info |
       #
       #   And I "sign_out" of Achieve
       #   And I click login to the Achieve product

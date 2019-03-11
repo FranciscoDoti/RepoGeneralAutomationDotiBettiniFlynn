@@ -35,6 +35,7 @@ Given(/^I input "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async
   await qa.input(PAGE, text);
 });
 
+//FIXME Kill this function
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" input$/, async function (system, feature, element, input) {
   let qa = new selenium(this.driver);
   let PAGE = await _.get(page, [system, feature, element])

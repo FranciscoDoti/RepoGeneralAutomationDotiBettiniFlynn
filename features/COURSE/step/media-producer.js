@@ -48,6 +48,7 @@ When('I fill out the form to copy a course', async function (data_table) {
   await qa.click(page.course.course_list.course_menu);
   await qa.sleep(config.sleep);
   await qa.click(page.course.course_list.copy_course);
+  await qa.sleep(config.sleep);
   for (let i = 0; i < data_table.rows().length; i++) {
     await formFill(this.driver, 'create_course', data_table.hashes()[i].page_object, data_table.hashes()[i].value, data_table.hashes()[i].clear);
   };
@@ -84,23 +85,6 @@ Given('I add the activity to the course under the resources tab', async function
 
 
 
-
-
-
-Given('I assign Instructor to the course', async function (data_table) {
-  let qa = new selenium(this.driver);
-
-  for (let i = 0; i < data_table.rows().length; i++) {
-    // await qa.sleep(config.sleep);
-    await qa.click(page.course.course_list.course_menu);
-    // await qa.sleep(config.sleep);
-    await qa.click(page.course.course_list.Manage_instructor);
-    // await qa.sleep(config.sleep);
-    await qa.input(page.course.create_course.add_instructor, data_table.hashes()[i].username);
-    await qa.click(page.course.create_course.add_instructor_button);
-    await qa.click(page.course.create_course.add_instructor_close);
-  }
-});
 
 
 
