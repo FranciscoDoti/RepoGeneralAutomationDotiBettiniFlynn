@@ -130,20 +130,6 @@ Then(/^I verify that it is redirected to "(.*)" course page$/, async function (c
 });
 
 
-Then('I verify activity list', async function (data_table) {
-  let qa = new selenium(this.driver);
-  let resources_tab_element = page.course.course_page.resources;
-  await qa.click(page.course.course_list.course_menu);
-  await qa.click(page.course.course_list.ed)
-  await qa.click(resources_tab_element);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let activity_element = page.course.resources.activity;
-    let elementTextArray = await qa.getTextOfElementInArray(activity_element);
-    let elementTextIncludes = elementTextArray.includes(data_table.hashes()[i].activity)
-    expect(elementTextIncludes).to.contain(data_table.hashes()[i].page);
-  }
-})
-
 Then(/^I copy the invite link to open course with "(.*)"$/, async function (student_user_object) {
   let qa = new selenium(this.driver);
   let invite_link_element = page.course.create_course.students_invite_link;
@@ -331,12 +317,6 @@ Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element input "(.*)" and 
   await qa.click(page.course.course_list.next_month_button);
   await qa.click(page.course.course_list.select_date);
   await qa.click(page.course.create_course.save);
-});
-
-Then(/^I verify that the course "(.*)" is "(.*)"$/, async function (identifier, activation) {
-  let qa = new selenium(this.driver);
-  await qa.exists(page.course.course_list.course_name, identifier);
-  await qa.exists(page.course.course_list.course_activation, activation);
 });
 
 //FIXME look into which permission level this applies to

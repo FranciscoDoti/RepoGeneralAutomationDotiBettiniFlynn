@@ -40,6 +40,17 @@ Given('I fill out the edit course form', async function (data_table) {
   await qa.click(page.course.create_course.save);
 });
 
+Given("I select a day next month for the course's End Date", async function () {
+  let qa = new selenium(this.driver);
+
+  await qa.sleep(config.sleep);
+  await qa.click(page.course.course_list.end_date);
+  await qa.click(page.course.course_list.next_month_button);
+  await qa.click(page.course.course_list.select_date);
+  await qa.sleep(config.sleep);
+  await qa.click(page.course.create_course.save);
+  await qa.sleep(config.sleep);
+});
 
 When('I fill out the form to copy a course', async function (data_table) {
   let qa = new selenium(this.driver);
@@ -84,20 +95,6 @@ Given('I add the activity to the course under the resources tab', async function
 });
 
 
-
-
-
-
-
-When('I do the other thing', async function () {
-  let qa = new selenium(this.driver);
-
-  await qa.click(page.course.course_list.end_date);
-  await qa.click(page.course.course_list.next_month_button);
-  await qa.click(page.course.course_list.next_month_button);
-  await qa.click(page.course.course_list.select_date);
-  await qa.click(page.course.create_course.save);
-});
 
 
 

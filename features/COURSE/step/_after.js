@@ -4,7 +4,7 @@ const URL = require('../../_support/url.js');
 const page = require('../../master-page.js');
 const config = require('../../../config.js');
 
-After('@delete-course', async function () {
+After('@delete-all-courses', async function () {
   let qa = new selenium(this.driver);
   let payload = require(`../../_data/user/${config.environment}/media_producer_2.json`);
 
