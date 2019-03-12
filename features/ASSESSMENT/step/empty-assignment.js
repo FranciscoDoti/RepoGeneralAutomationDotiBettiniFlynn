@@ -34,7 +34,7 @@ Given(/^I have logged into Sapling as "(.*)" with password "(.*)"$/, async funct
 When(/^I submit a hatchling "(.*)" item$/, async function (hatchlingType) {
   const qa = new Selenium(this.driver);
   await qa.click(page.assessment.hatchling.item_title_edit);
-  await qa.input(page.assessment.hatchling.item_title_field, 'Cucumber Test ' + config.timestamp)
+  await qa.input(page.assessment.hatchling.item_title_field, 'Cucumber Test')
   await qa.click(page.assessment.hatchling.question_prompt_field)
   await qa.input(page.assessment.hatchling.question_prompt_field, 'Test Prompt')
   if (hatchlingType === 'multiple_choice') {

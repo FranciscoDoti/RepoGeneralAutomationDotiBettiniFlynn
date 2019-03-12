@@ -5,7 +5,7 @@ Feature: Hatchling Item added To Assignment on Creation
       And I have opened "sapling" "empty_activity"
       And I click on "assessment" system "activity_editor" feature "create_hatchling_button" element
       And I click on "assessment" system "activity_editor" feature "hatchling_multiple_choice_button" element
-    
+
     When I submit a hatchling "multiple_choice" item
-      Then I verify "assessment" system "activity_editor" feature "multiple_choice_container" element does not exist
-      And I verify "assessment" system "activity_editor" feature "assignment_item_row" element exists
+      And I verify that "assessment" system "hatchling" feature "multiple_choice_container" element does not exist
+      And I verify that "assessment" system "activity_editor" feature "assignment_item_row" element exists

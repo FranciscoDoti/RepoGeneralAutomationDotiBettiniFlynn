@@ -4,6 +4,7 @@
     "item_title_field": "input[data-test-id=\"hatchling-item-title\"]",
     "question_prompt_field": "div[data-test-id=\"hatchling-question-prompt\"] [contenteditable]",
     "create_update_button": "button[data-test-id=\"hatchling-create-update-button\"]",
+    "multiple_choice_container": "div[data-test-id=\"hatchling-multiple-choice-container\"]",
     "multiple_choice": {
       "container": "div[data-test-id=\"hatchling-multiple-choice-container\"]",
       "correct_choice": "div[data-test-id=\"hatchling-correct-choice\"] [contenteditable]",
