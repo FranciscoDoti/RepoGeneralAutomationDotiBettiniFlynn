@@ -59,53 +59,50 @@ Feature: Happy path flow for Read and Practice
 
         Then I verify "course" system "create_course" feature "success_message" element's "course_copied" message is displayed
 
-    @delete-course
     Scenario: Verify that a Customer Support can assign an instructor Read & Practice Course
         Given I click login to the Achieve product
         And I have logged in as "customer_support_1"
         And I search for "Read & Practice course" course
 
         When I assign Instructor to the course
-            | username                   | 
-            | kabimigom@digitalmail.info |
-      #
-      #   And I "sign_out" of Achieve
-      #   And I click login to the Achieve product
-      #   And I have logged in as "instructor_7"
-      #
-      #
-      #   Then I verify that the course's name "COPY OF Edit TestcourseRead & Practice course" is listed on the courses page
-      #
-      #   When I fill out the form to update the template from draft to Template
-      #   And I fill out the course form
-      #       | page_object      | value                |
-      #       |  course          |  Read& Practice      |
-      #       |  course_code     |   E2E301             |
-      #       | template_status  |  Active On Date      |
-      #   And I do the other thing
-      #
-      #   Then I verify "course" system "create_course" feature "success_message" element's "course_activation" message is displayed
-      #   And I verify that the course "COPY OF Edit TestcourseRead & Practice course" is "course_activation"
-      #
-      #   And I invite the students
-      #       | username                    |
-      #       | macmillanstudent5@gmail.com |
-      #
-      #   Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed
-      #
-      #   And I add the activities in courseplanner
-      #       | activity                                                          |
-      #       | communicating courteously                                         |
-      #       | Active and Passive voice                                          |
-      #       | Wars of Religion                                                  |
-      #
-      #   Then I verify activity list
-      #       | activity                     |
-      #       | communicating courteously    |
-      #       | Active and Passive voice     |
-      #       | Wars of Religion             |
-      #
-      #
+            | username                       |
+            | macmillaninstructor2@gmail.com |
+
+    @delete-all-courses
+    Scenario: Verify that an Instructor can setup a Read & Practice Course and assign students
+        Given I click login to the Achieve product
+        And I have logged in as "instructor_4"
+
+        Then I verify that the course's name "Read & Practice course" is listed on the courses page
+
+        When I fill out the edit course form
+            | page_object     | value                  | clear |
+            | course          | Read & Practice course | true |
+            | course_code     | E2E301                 | true |
+            | template_status | Active On Date         | |
+        And I select a day next month for the course's End Date
+
+        Then I verify "course" system "create_course" feature "success_message" element's "updated" message is displayed
+
+        And I invite the students
+            | username                    |
+            | macmillanstudent5@gmail.com |
+
+      # Then I verify "course" system "create_course" feature "success_message" element's "email_notification" message is displayed
+
+        And I add the activities in course planner
+            | activity                                                          |
+            | communicating courteously                                         |
+            | Active and Passive voice                                          |
+            | Wars of Religion                                                  |
+
+        Then I verify the activity list
+            | activity                     |
+            | communicating courteously    |
+            | Active and Passive voice     |
+            | Wars of Religion             |
+
+
       #
       #
       # And I click on the course planner to assign the activity and add points
