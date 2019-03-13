@@ -156,8 +156,8 @@
     "assignment_score": "[data-test-id='assignment-percentage-score']"
   },
   "courseplanner": {
-    "add_unit_folder": "//*[@data-test-id='add_unit']",
-    "custom_content_button": "//*[@data-test-id='custom_content_tab']",
+    "add_unit_folder": "[data-test-id='add_unit']",
+    "custom_content_button": "[data-test-id='custom_content_tab']",
     "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
 
   },

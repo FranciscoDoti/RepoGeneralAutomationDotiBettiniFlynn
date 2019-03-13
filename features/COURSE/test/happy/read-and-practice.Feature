@@ -14,7 +14,6 @@ Feature: Happy path flow for Read and Practice
             | isbn_number   | 9781464199498            |
             | course_status | draft                    |
 
-
         Then I verify "course" system "create_course" feature "success_message" element's "create_course_success" message is displayed
         And I verify that the course's name "Read & Practice Template" is listed on the courses page
 
@@ -102,8 +101,6 @@ Feature: Happy path flow for Read and Practice
             | Active and Passive voice     |
             | Wars of Religion             |
 
-
-      #
       #
       # And I click on the course planner to assign the activity and add points
       #   |   Activity                    |   Points  |
