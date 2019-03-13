@@ -31,7 +31,7 @@ Given('I login to Achieve', async function () {
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new Selenium(this.driver);
   let PAGE = await get(page, [system, feature, element]);
-
+  console.log(PAGE);
   await qa.click(PAGE);
 });
 
