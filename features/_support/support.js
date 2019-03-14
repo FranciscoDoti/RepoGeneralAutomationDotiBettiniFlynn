@@ -19,14 +19,6 @@ Given(/^I sleep "(.*)" seconds$/, async function (sleepValue) {
   await qa.sleep(sleepValue);
 });
 
-Given('I login to Achieve', async function () {
-  let qa = new Selenium(this.driver);
-  let url = await get(URL, ['achieve', 'login']);
-
-  await qa.goTo(url);
-  await qa.click(page.course.home.sign_in);
-});
-
 // Page Navigation //
 Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element$/, async function (system, feature, element) {
   let qa = new Selenium(this.driver);
@@ -41,6 +33,14 @@ Given(/^I input "(.*)" into "(.*)" system "(.*)" feature "(.*)" element$/, async
   let PAGE = await get(page, [system, feature, element]);
 
   await qa.input(PAGE, text);
+});
+
+//FIXME Kill this function
+Given(/^I click on "(.*)" system "(.*)" feature "(.*)" element "(.*)" input$/, async function (system, feature, element, input) {
+  let qa = new selenium(this.driver);
+  let PAGE = await _.get(page, [system, feature, element])
+  let page_format = format(PAGE)
+  await qa.input(page_format, input);
 });
 
 // Text Assertion //
