@@ -16,17 +16,32 @@
   },
   "activity_editor": {
     "assignment_tab": "[data-test-id='link-to-assignment']",
+    "question_bank_tab": "[data-test-id='link-to-questionbank']",
+    "private_questions_button": "h3[title=\"Private Questions\"]",
     "empty": "div[data-test-id=\"empty-message\"]",
     "new_empty": "div[data-test-id=\"assignment-create-question-title\"]",
     "question_bank_button": "a[data-test-id=\"assignment-create-actions-question-bank\"]",
+    "add_another_button": "[data-test-id=\"add-another-button\"]",
+    "qb_hatchling_mc": "a[data-test-id=\"multiple-choice-hatchling\"]",
     "create_hatchling_button": "button[data-test-id=\"assignment-create-actions-create-my-own\"]",
     "hatchling_multiple_choice_button": "a[data-test-id=\"hatchling-create-multiple_choice\"]",
     "hatchling_numeric_entry_button": "a[data-test-id=\"hatchling-create-numeric_entry\"]",
-    "assignment_item_row": "div[data-test-id=\"list-item-row\"]"
+    "assignment_item_row": "div[data-test-id=\"list-item-row\"]",
+    "item_title": "h4[data-test-id=\"item-title-title\"]"
   },
+  "sac": {
+    "hint_title": "span[id=\"Hint-title\"]",
+    "hint_button": "[data-test-id='hint-icon-span']",
+    "side_nav_list_title": "[data-test-id='side-nav-button-title']",
+    "side_nav_item_3": "[data-test-id='side-nav-item-3']",
+    "side_nav_item_4": "[data-test-id='side-nav-item-4']",
+    "multiple_select": "[data-module-type='mutiple_select']",
+    "numeric_entry": "[data-module-type='numeric_entry']"
+  },
+
   "signon": {
     "username": "input#username",
     "password": "input#password",
-    "submit":"#submitButton" 
+    "submit":"#submitButton"
   }
 }
