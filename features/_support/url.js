@@ -12,6 +12,10 @@ const saplingBaseAssignmentId = () => {
   return config.sap;
 }
 
+const saplingBaseSacId = () => {
+  return config.sac;
+}
+
 const saplingBaseQuestionBank = () => {
   return saplingBase() + '/activityeditor/questionbank/' +
     saplingBaseAssignmentId();
@@ -149,6 +153,7 @@ module.exports = {
   sapling: {
     login: `${saplingBase()}/${saplingLogin()}`,
     empty_activity: `${saplingBase()}/activityeditor/assignment/${saplingBaseAssignmentId()}`,
+    student_sac: `${saplingBase()}/sac/#/${saplingBaseSacId()}`,
     sapling_base_question_bank: saplingBaseQuestionBank()
   },
   third_party: {
