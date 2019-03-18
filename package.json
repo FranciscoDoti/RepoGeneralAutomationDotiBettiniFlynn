@@ -20,7 +20,6 @@
     "read&practice": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/happy/ReadandPractice.feature",
     "read": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/ReadandPractice.feature",
     "generate-lc-test": "node ./app/create-test-manuscript.js"
-
   },
   "dependencies": {
     "bluebird": "3.5.3",
