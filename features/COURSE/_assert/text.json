@@ -1,6 +1,11 @@
 {
   "create_course": {
     "create_course_success": "Created.",
-    "course_copied": "Course Copied"
+    "course_copied": "Course Copied",
+    "edit_course_sucess": "Read & Practice Template Updated.",
+    "updated" : "Updated.",
+    "email_notification": "invites",
+    "enrollement": "Enrolled macmillanstudent5@gmail.com."
+
   }
 }
