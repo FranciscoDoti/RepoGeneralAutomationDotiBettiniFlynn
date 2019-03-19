@@ -91,7 +91,6 @@ Background:
         And I click on show library button
         And I click on Add button to add activities
         And I change the course from unassigned to assign
-<<<<<<< HEAD:features/tests/E2E/Writing_PM/happy-path-wrt.feature
 
     @coureseware-logout
     Scenario: Enroll into course with link and access code
@@ -114,20 +113,3 @@ Background:
 
        
 
-||||||| merged common ancestors
-       
-
-    
-    
-
-
-
-        
-        
-
-
-
-       
-
-=======
->>>>>>> 8c089630c2031cefe936801a7f3efe3953b0d827:features/COURSE/test/zzz_refactor/read-and-practice-2.feature

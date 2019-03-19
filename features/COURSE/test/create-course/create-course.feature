@@ -2,11 +2,13 @@ Feature: Create Template Courses
 
   @delete-course
   Scenario: Verify that a Media Producer is able to create a Qualitative Course
-    Given I login to Achieve
-    And I have logged in as "media_producer_2"
+    Given I click login to the Achieve product
+    And I login with the following credentials
+        | username                                   | password          |
+        | mediaproducer@rupayamail.com               |  ABCabc@123       |
     And I click on "course" system "create_course" feature "button" element
 
-    When I fill out the form to edit a course
+    When I fill out the create course form
       | page_object        | value                   |
       | course_type        | Course                  |
       | product_model      | Qualitative             |
@@ -24,11 +26,11 @@ Feature: Create Template Courses
 
   @delete-course
   Scenario: Verify that a Media Producer is able to create a Qualitative Template
-    Given I login to Achieve
+    Given I click login to the Achieve product
     And I have logged in as "media_producer_2"
     And I click on "course" system "create_course" feature "button" element
 
-    When I fill out the form to edit a course
+    When I fill out the create course form
       | page_object        | value                   |
       | course_type        | Template                |
       | product_model      | Qualitative             |
@@ -45,11 +47,11 @@ Feature: Create Template Courses
 
     @delete-course
     Scenario: Verify that a Media Producer is able to create a Quantitative Course
-      Given I login to Achieve
+      Given I click login to the Achieve product
       And I have logged in as "media_producer_2"
       And I click on "course" system "create_course" feature "button" element
 
-      When I fill out the form to edit a course
+      When I fill out the create course form
         | page_object        | value                   |
         | course_type        | Course                  |
         | product_model      | Quantitative            |
@@ -67,11 +69,11 @@ Feature: Create Template Courses
 
       @delete-course
       Scenario: Verify that a Media Producer is able to create a Quantitative Template
-        Given I login to Achieve
+        Given I click login to the Achieve product
         And I have logged in as "media_producer_2"
         And I click on "course" system "create_course" feature "button" element
 
-        When I fill out the form to edit a course
+        When I fill out the create course form
           | page_object        | value                   |
           | course_type        | Template                |
           | product_model      | Quantitative            |
@@ -88,11 +90,11 @@ Feature: Create Template Courses
 
         @delete-course
         Scenario: Verify that a Media Producer is able to create a Read & Practice Course
-          Given I login to Achieve
+          Given I click login to the Achieve product
           And I have logged in as "media_producer_2"
           And I click on "course" system "create_course" feature "button" element
 
-          When I fill out the form to edit a course
+          When I fill out the create course form
             | page_object   | value                  |
             | course_type   | Course                 |
             | product_model | Read & Practice        |
@@ -109,11 +111,11 @@ Feature: Create Template Courses
 
           @delete-course
           Scenario: Verify that a Media Producer is able to create a Read & Practice Template
-            Given I login to Achieve
+            Given I click login to the Achieve product
             And I have logged in as "media_producer_2"
             And I click on "course" system "create_course" feature "button" element
 
-            When I fill out the form to edit a course
+            When I fill out the form to update the template from
               | page_object   | value                    |
               | course_type   | Template                 |
               | product_model | Read & Practice          |
@@ -129,11 +131,11 @@ Feature: Create Template Courses
 
             @delete-course
             Scenario: Verify that a Media Producer is able to create a Skills Course
-              Given I login to Achieve
+              Given I click login to the Achieve product
               And I have logged in as "media_producer_2"
               And I click on "course" system "create_course" feature "button" element
 
-              When I fill out the form to edit a course
+              When I fill out the create course form
                 | page_object   | value         |
                 | course_type   | Course        |
                 | product_model | Skills        |
@@ -150,11 +152,11 @@ Feature: Create Template Courses
 
               @delete-course
               Scenario: Verify that a Media Producer is able to create a Skills Template
-                Given I login to Achieve
+                Given I click login to the Achieve product
                 And I have logged in as "media_producer_2"
                 And I click on "course" system "create_course" feature "button" element
 
-                When I fill out the form to edit a course
+                When I fill out the create course form
                   | page_object   | value           |
                   | course_type   | Template        |
                   | product_model | Skills          |

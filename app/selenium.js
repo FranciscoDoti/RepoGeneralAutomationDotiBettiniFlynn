@@ -1,10 +1,18 @@
-var Promise = require('bluebird');
-var config = require('../config.js');
+const Key = require('selenium-webdriver').Key;
+const Promise = require('bluebird');
+const config = require('../config.js');
 
 // Promise.longStackTraces();
 
 module.exports = function (driver) {
   return {
+    getArray: Promise.coroutine(function * (selector) {
+      let locator = this._locator(selector);
+      yield this._exists(true, locator);
+      let elements = yield driver.findElements(locator);
+      return elements;
+    }),
+
     goTo: Promise.coroutine(function * (url) {
       yield driver.get(url);
     }),
@@ -28,7 +36,7 @@ module.exports = function (driver) {
     }),
 
     sleep: Promise.coroutine(function * (timeout) {
-      yield Promise.delay(timeout * 1000 || config.sleep);
+      yield Promise.delay(timeout || config.sleep);
     }),
 
     click: Promise.coroutine(function * (selector) {
@@ -36,6 +44,7 @@ module.exports = function (driver) {
       try {
         yield this._click(locator);
       } catch (err) {
+        locator = this._locator(selector);
         yield this._click(locator);
       }
     }),
@@ -82,12 +91,35 @@ module.exports = function (driver) {
       yield locator.isEnabled();
     }),
 
+    seleniumKeys: Promise.coroutine(function * (selector, key) {
+      var locator = this._locator(selector);
+      var elem = yield driver.findElement(locator);
+      switch (key) {
+        case 'enter':
+          yield elem.sendKeys(Key.ENTER);
+        default:
+          Promise.resolve('Please pass a key');
+      }
+    }),
+
+    sendKeys: Promise.coroutine(function * (selector, text, clear) {
+      var locator = this._locator(selector);
+      var elem = yield driver.findElement(locator);
+      if (clear) {
+        yield elem.clear();
+      }
+      yield elem.sendKeys(text);
+    }),
+
+    executeScript: Promise.coroutine(function * (script) {
+      yield driver.executeScript(script);
+    }),
+
     input: Promise.coroutine(function * (selector, text, clear) {
       var locator = this._locator(selector);
       yield this._exists(true, locator);
       var elem = yield driver.findElement(locator);
       var tagName = yield elem.getTagName();
-
       yield elem.click();
       if (clear) {
         yield elem.clear();
@@ -171,7 +203,11 @@ module.exports = function (driver) {
     }),
 
     switchFrame: Promise.coroutine(function * (selector) {
-      yield driver.switchTo().frame(selector);
+      if (selector === 'default') {
+        yield driver.switchTo().defaultContent();
+      } else {
+        yield driver.switchTo().frame(selector);
+      }
     }),
 
     /* ----- */
@@ -206,7 +242,6 @@ module.exports = function (driver) {
         name = locator[key];
       }
       var message = (should_exist ? `Element '${name}' is not present.` : `Element '${name}' is present.`);
-
       yield driver.wait(poll, (timeout || config.timeout), message);
     }),
 

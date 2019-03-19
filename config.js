@@ -5,8 +5,12 @@ let argv = minimist(process.argv.slice(2));
 module.exports = {
   mode: argv.mode || "local",
   environment: argv.env || "int",
-  timeout: argv.timeout || 10000,
+  sap: argv.sap || "674846", // sapling assignment id
+  sac: argv.sac || "715429", // sac assignment id
+  timeout: argv.sleep * 1000 || 10000,
   sleep: argv.sleep || 1000,
+  headless: argv.headless || false,
+  timestamp: argv.timestamp || new Date().getTime(),
   capabilities: {
     "browserName": argv.browser || "chrome",
     "version": argv.version,

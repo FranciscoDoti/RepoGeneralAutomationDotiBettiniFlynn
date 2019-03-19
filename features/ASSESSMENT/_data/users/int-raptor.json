@@ -1,0 +1,11 @@
+{
+    "raptoradmin": {
+        "username": "raptoradmin",
+        "password": "fasterthansixmill"
+    },
+
+    "raptorstudent": {
+        "username": "raptorstudent",
+        "password": "fasterthansixmill"
+    }
+}

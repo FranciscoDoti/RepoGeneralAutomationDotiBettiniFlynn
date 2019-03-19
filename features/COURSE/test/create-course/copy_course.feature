@@ -48,11 +48,8 @@ Feature: Copy_course
             | import_structure |
             | add_folder       |
 
-<<<<<<< HEAD
-=======
         And I click on "course" system "resources" feature "add_content_button" element
         And I click on "course" system "resources" feature "search_bar" element
->>>>>>> E2E_reading
         And I add Activities to course "isbn" "9781464199498"
             |activities                                  |
             |communicating courteously                   |
