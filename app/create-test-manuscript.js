@@ -71,12 +71,12 @@ for (let topic = 1; topic < 5; topic++) {
       'Type': '',
       'Level': level,
       'Topic': topicName,
-      'ebook:': ebookTitle,
+      'ebook': ebookTitle,
       'Answer': 'Correct',
       'Hint': '',
       'CYU': cyu,
       'Primary': primary,
-      'EbookLink': ebookLink.length > 2,
+      'ebookLink': ebookLink.length > 2,
       'Blooms': bloom
     }
 
