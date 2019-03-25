@@ -1,10 +1,30 @@
 {
-    "default":{
-        "lc":"music/test/lc_automation_1_5EBD81",
-        "lcrp":"music/test/lcrp_automation_1_475060"
-    },
-    "prod":{
-        "lc":"music/test/lc_automation_1EF563",
-        "lcrp":"music/test/lcrp_automation_344970"
+  "default": {
+    "1551301608988": {
+      "lc": {
+        "fq": "music/automation/auto_manuscript_lc_1551301608988",
+        "achieve": "LC1551301608988",
+        "file": "./features/LC/_data/auto_manuscript_lc_1551301608988.json"
+      },
+      "lcrp": {
+        "fq": "music/automation/auto_manuscript_lcrp_1551301608988",
+        "achieve": "LCRP1551301608988",
+        "file": "./features/LC/_data/auto_manuscript_lcrp_1551301608988.json"
+      }
     }
+  },
+  "prod": {
+    "1551301608988": {
+      "lc": {
+        "fq": "music/automation/auto_manuscript_lc_1551301608988",
+        "achieve": "LC1551301608988",
+        "file": "./features/LC/_data/auto_manuscript_lc_1551301608988.json"
+      },
+      "lcrp": {
+        "fq": "music/automation/auto_manuscript_lcrp_1551301608988",
+        "achieve": "LCRP1551301608988",
+        "file": "./features/LC/_data/auto_manuscript_lcrp_1551301608988.json"
+      }
+    }
+  }
 }
