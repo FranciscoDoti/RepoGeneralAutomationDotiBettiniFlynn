@@ -21,7 +21,7 @@ let getLcData = function (count) {
   if (count > keys.length) {
     throw new Error('Not Enough Resources \nWanted: ' + count + '\nFound: ' + keys.length)
   }
-  for (let i = 0; i < keys.length && i < count; i++) {
+  for (let i = 0; i < count; i++) {
     activityInfo.push(activitiesList[keys[i]])
   }
   return activityInfo;
