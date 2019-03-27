@@ -1,7 +1,7 @@
 const fs = require('fs');
 const config = require('../../../config.js');
 
-let getLcFiles = function (count) {
+let getLcData = function (count) {
   if (count === undefined || count < 1) {
     count = 1;
   }
@@ -21,7 +21,7 @@ let getLcFiles = function (count) {
   if (count > keys.length) {
     throw new Error('Not Enough Resources \nWanted: ' + count + '\nFound: ' + keys.length)
   }
-  for (let i = 0; i < keys.length || i < count; i++) {
+  for (let i = 0; i < keys.length && i < count; i++) {
     activityInfo.push(activitiesList[keys[i]])
   }
   return activityInfo;
@@ -33,6 +33,6 @@ const loadKey = function (keyData) {
 }
 
 module.exports = {
-  getLcFiles,
+  getLcData,
   loadKey
 }
