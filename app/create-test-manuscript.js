@@ -179,14 +179,13 @@ let activities = JSON.parse(fs.readFileSync('./features/lc/_data/activities.json
 let newActivity = {
   'lc': {
     'fq': 'music/automation/auto_manuscript_lc_' + timestamp,
-    'achieve': 'LC' + timestamp,
-    'file': './features/LC/_data/auto_manuscript_lc_' + timestamp + '.json'
+    'achieve': 'LC' + timestamp
   },
   'lcrp': {
     'fq': 'music/automation/auto_manuscript_lcrp_' + timestamp,
-    'achieve': 'LCRP' + timestamp,
-    'file': './features/LC/_data/auto_manuscript_lcrp_' + timestamp + '.json'
-  }
+    'achieve': 'LCRP' + timestamp
+  },
+  'key': './features/LC/_data/auto_manuscript_' + timestamp + '.json'
 }
 activities.default[timestamp] = newActivity
 activities.prod[timestamp] = newActivity
