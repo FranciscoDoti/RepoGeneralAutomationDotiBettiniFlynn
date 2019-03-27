@@ -27,7 +27,6 @@
     "course_menu": "[data-test-id='course_menu_button']",
     "edit_course": "//*[text()='Edit Course']",
     "share_template": "//*[text()='Share Template']",
-    "manage_instructor": "//*[text()='Manage Instructor']",
     "copy_course": "[data-test-id='course_menu_copy_course']",
     "delete_course": "[data-test-id='course_menu_delete_course']",
     "confirm_delete": "[data-test-id='delete_course_modal_yes_btn']",
@@ -41,6 +40,9 @@
     "course_name_isbn": "//*[@class='gHH9']//*[text()='{}']/../../..//*[@class='ejL6']",
     "course_name_time": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
     "course_name_menu": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
+    "manage_instructor": "[data-test-id='course_menu_manage_instructors']",
+    "add_instructor" : "#addInstructor",
+    "add_button": "[data-test-id='manage_instructors_modal_add_btn']",
     "search": "[data-test-id='course_search_input']",
     "Manage_instructor": "[data-test-id='course_menu_manage_instructors']",
     "end_date": "/html/body/div[3]/div/div/div[2]/div/div[4]/div[2]/div/div/div/div/div[2]/button",
@@ -100,6 +102,23 @@
   "course_page": {
     "title": ".tNeN",
     "edit_settings": "._18Qx button",
+    "overview": "[data-test-id='overview_tab']",
+    "course_planner": "[data-test-id='course_planner_tab']",
+    "gradebook": "[data-test-id='gradebook_tab']",
+    "reports": "",
+    "resources": "//span[contains(@class,'_1cKB') and contains(text(), 'RESOURCES')]"
+    
+  },
+  "resources_page": {
+    "share_template": "[data-test-id='share_template']",
+    "import_structure": "[data-test-id='import_structure_button']",
+    "add_folder": "[data-test-id='add_folder_button']",
+    "add_content_button": "[data-test-id='add_content_button']",
+    "search_bar": "[data-test-id='search_bar']",
+    "add_activity_reading": "[data-test-id='add_button_reading']",
+    "add_activity_lcrp": "[data-test-id='add_button_learningcurve']",
+    "add_activity_learningcurve": "[data-test-id='add_button_learningcurve']",
+    "add_activity_file": "[data-test-id='add_button_staticfile']",
     "close_resource_search_nav": "//*[@data-test-id='close_resource_search_nav']",
     "activity_titles": "._3Jn1",
     "overview": "[data-test-id='overview_tab']",
@@ -155,12 +174,6 @@
     "submit_final_answers": "[data-test-id='submit-all-modal-submit']",
     "assignment_score": "[data-test-id='assignment-percentage-score']"
   },
-  "courseplanner": {
-    "add_unit_folder": "[data-test-id='add_unit']",
-    "custom_content_button": "[data-test-id='custom_content_tab']",
-    "add_assignment_button": "/html/body/div/div/div/div/div[4]/div/aside/div/div/div/div[2]/div[1]/div[3]/button"
-
-  },
   "student_activity": {
     "multiple_select_answer": "//span[contains (text(), '{}')]",
     "button_check": "[data-test-id='check-answer-button']",
@@ -188,6 +201,7 @@
     "activity_validation": "[class='_3I5j']",
     "activity_grid": "[role='grid']"
   },
+  
   "user": {
     "account": "/html/body/div[3]/div/div/div/div/div/div[1]/span/div/div/div",
     "admin": "[data-test-id='menu_user_admin']",
