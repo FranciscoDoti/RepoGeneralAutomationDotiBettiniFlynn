@@ -1,0 +1,33 @@
+{
+    "webElements": [{
+        "name": "company_link",
+        "byType": "id",
+        "definition": "sc-gzVnrw.dJLSVG a",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "help",
+        "byType": "xpath",
+        "definition": "//*[@id='RegisterForm']/div[5]/div/ul/li[7]/a",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "piracy",
+        "byType": "xpath",
+        "definition": "//*[@id='RegisterForm']/div[5]/div/ul/li[5]/a",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "privacy",
+        "byType": "xpath",
+        "definition": "//*[@id='RegisterForm']/div[5]/div/ul/li[1]/a",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "terms_of_purchase",
+        "byType": "xpath",
+        "definition": "//*[@id='RegisterForm']/div[5]/div/ul/li[3]/a",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}

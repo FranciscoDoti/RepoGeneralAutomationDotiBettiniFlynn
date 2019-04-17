@@ -1,43 +1,85 @@
-var fs = require('fs');
-var path = require('path');
-var pagesetup = require('./pagesetup');
+const fs = require('fs');
+const path = require('path');
 
-fs.existsSync('steps') || fs.mkdirSync('steps');
+module.exports = {
+    runner : function(){
+        //creating page object for the feature
+        fs.existsSync("_page") || fs.mkdirSync("_page");
+        
+        var ffn = require.main.filename.split("/");
+        ffn = ffn[ffn.length - 2];
 
-var files = fs.readdirSync('steps');
-files.forEach(f => {
-    var data = fs.readFileSync(`./steps/${f}`);
-    var statements = data.toString().split("\n");
-    statements.forEach(function(s, i){
-        let lineofcode = s;
-        //console.log(s);
-        if (s.includes(".click(")){
-            lineofcode = lineofcode.split(".click(")[1];
-            lineofcode = lineofcode.split(");")[0];
-            lineofcode = lineofcode.split(".");
-            let objectname = lineofcode[lineofcode.length - 1];
-            let pagename = lineofcode[lineofcode.length - 2];
+        //read each page object file and create page object files
+        var includefiles = "";
+        var files = fs.readdirSync(`_page`);
+        var stepsPath = '/features/ffn/_page/';
+
+        files.forEach(f=> {
+            const pages = require(`../${ffn}/_page/${path.basename(f)}`);
+            console.log(`reading file ../${ffn}/_page/${path.basename(f)}.`);
+
+            Object.keys(pages).forEach(p => {
+                //add file name to be included in the file paths
+                includefiles = includefiles + `${p} : new PageObject('${p}.json', stepsPath),\n`
+                
+                var webElements = pages[p];
+                var obj = {
+                    webElements : []
+                };
+
+                //create json with formatted webelements //then //create file and add the formatted webelements json
+                this.formatWebElements(webElements, obj).then(
+                this.writeFile(`_page/${p}.json`, JSON.stringify(obj))
+                );
+            });
+
+            //rename the source file after reading
+            this.renameFile(`./_page/${f}`, `./_page/_${f}`);
+
             
-            statements[i] = `await pages.${pagename}.click(${objectname});`;
-        }
-        else if(s.includes(".input(")){
-            lineofcode = lineofcode.split(".input(")[1];
-            lineofcode = lineofcode.split(");")[0];
-            lineofcode = lineofcode.split(",");
-            let data = lineofcode[1];
-            lineofcode = lineofcode[0].split(".");
-            let objectname = lineofcode[lineofcode.length - 1];
-            let pagename = lineofcode[lineofcode.length - 2];
-            
-            statements[i] = `await pages.${pagename}.populate(${objectname}, ${data});`;
-        };
-        //console.log(s);
-    });
-    //console.log(statements.join("\n"));
+            //create the module name .js file with all file paths
+            this.writeFile(`_page/${ffn}.js`, `const stepsPath = process.cwd() + "${stepsPath}";\n\nlet pages = {\n${includefiles}};\n\nmodule.exports = pages;`);
+        });
+    },
 
-    
-    data = statements.join("\n");
-    pagesetup.renameFile(`./steps/${f}`, `./steps/_${f}`);
-    pagesetup.writeFile(`./steps/${f}`, data);
-    
-});
+    formatWebElements : async function(webElements, obj){
+        Object.keys(webElements).forEach(w => {
+            var value = webElements[w], id;
+            
+            if(value.substring(0,2) == "//"){id = "xpath";}
+            else if(value.substring(0,1) == "." || value.substring(0,1) == "["){id = "css";}
+            else {id = "id";};
+            
+            obj.webElements.push({
+                "name": w,
+                "byType": id,
+                "definition": webElements[w],
+                "frame": "default",
+                "specialInstr": "NA"
+            });
+        });
+    },
+
+    writeFile : async function(path, contents){
+        fs.writeFileSync(path,contents, function(err){
+            if(err){
+                console.log(`Error while creating the file ${path}. ${err}`);
+            }else{
+                console.log(`Created the file at ${path}.`);
+            };
+        });
+    },
+
+    renameFile : async function(oldPath, newPath){
+        fs.renameSync(oldPath,newPath,function(err){
+            if(err){
+                console.log(`error renaming ${oldPath} to ${newPath}. \n ${err}`);
+            }else{
+                console.log(`renamed ${oldPath} to ${newPath}.`);
+            }
+            ;
+        });
+    },
+};
+
+module.exports.runner();

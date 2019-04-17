@@ -71,8 +71,8 @@ Then(/^I verify for "(.*)" system "(.*)" feature "(.*)" element that "(.*)" feat
     let qa = new selenium(this.driver);
     let ASSERT_TEXT = await _.get(assert_text, [feature, message_screen, text]);
     let PAGE = await _.get(page, [feature, screen, element]);
-
     let PAGE_TEXT = await qa.getText(PAGE);
+    
     expect(PAGE_TEXT).to.equal(ASSERT_TEXT);
 });
 
@@ -80,6 +80,7 @@ Then(/^I verify the password inputed "(.*)" is not the same as the one that was 
     let qa = new selenium(this.driver);
     let PAGE = page.iam.create_account.password;
     let actual_password = await qa.getAttribute(PAGE, 'value');
+
     expect(password_allowed).to.equal(actual_password);
     expect(password).to.not.equal(actual_password);
 })

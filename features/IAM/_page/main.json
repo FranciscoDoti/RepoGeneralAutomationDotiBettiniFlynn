@@ -1,0 +1,9 @@
+{
+    "webElements": [{
+        "name": "close_message",
+        "byType": "css",
+        "definition": ".Bmdu",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}
