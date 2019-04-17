@@ -19,7 +19,8 @@
     "courseplanner": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/assigning_student_positive.feature",
     "read&practice": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/happy/ReadandPractice.feature",
     "read": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/create-course/ReadandPractice.feature",
-    "generate-lc-test": "node ./app/create-test-manuscript.js"
+    "generate-lc-test": "node ./app/create-test-manuscript.js",
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/test/login.feature"
   },
   "dependencies": {
     "bluebird": "3.5.3",

@@ -30,12 +30,10 @@ Feature: Login
     #     Then I click on help Link
     #     Then I verify the help page is displayed
 
-    Scenario: Verify correct message is displayed if invalid attempts threshold
-    is exceeded
+    Scenario: Verify correct message is displayed if invalid attempts threshold is exceeded
 
         Given I have opened "achieve" "login"
         And I click on "course" system "home" feature "sign_in" element
-
         When I login with the following credentials
             |username                       | password    |
             |coursewareachieve@gmail.com    | password1   |
@@ -44,15 +42,11 @@ Feature: Login
             |coursewareachieve@gmail.com    | password4   |
             |coursewareachieve@gmail.com    | password5   |
             |coursewareachieve@gmail.com    | password6   |
-
         Then I verify "iam" system "login" feature "error_text" element's "too_many_attempts" message is displayed
-
 
     Scenario:Verify whether user able to login without waiting for 15minutes
 
         Given I have opened "achieve" "login"
         And I click on "course" system "home" feature "sign_in" element
-
         When I have logged in as "admin_2"
-
         Then I verify "iam" system "login" feature "error_text" element's "too_many_attempts" message is displayed
