@@ -1,7 +1,7 @@
 Feature: Graph sorting by Id, Title, Type
 
 Background: Logins to AMS and clicks on Graph Tab
-    Given I login to AMS as "all-permissions-author" with "password"
+    Given I login to AMS as "all-permissions-author"
     When I click on the Graphs Tab
 
     Scenario: Sorting by ID

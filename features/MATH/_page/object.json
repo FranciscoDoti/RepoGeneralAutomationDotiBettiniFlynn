@@ -1,16 +1,8 @@
 {
     "login": {
-        "local": {
-            "username": "div#username > input",
-            "password": "div#password > input",
-            "submit": "div#submit > input",
-            "amslink": "body > ul > li:nth-child(1) > a"
-        },
-        "int": {
-            "username": "input#username",
-            "password": "input#password",
-            "submit": "input#submitButton"
-        }
+        "username": "input#username",
+        "password": "input#password",
+        "submit": "input#submitButton"
     },
     "ams": {
         "raptorNewItem": "a[data-test-id='newItemRaptorBtn']",

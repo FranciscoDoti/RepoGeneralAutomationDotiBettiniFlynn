@@ -1,37 +1,43 @@
 const { Given, When } = require('cucumber');
-const selenium = require('../../../app/selenium.js');
-const page = require('../../master-page.js');
-const URL = require('../../_support/url.js');
 const _ = require('lodash');
-const config = require('../../../config.js')
+
+const urls = require('../../../config/urls.json');
+const users = require('../_data/users.json');
+
+const stepsPath = process.cwd() + '/features/MATH/_pages/';
+const { PageObject } = require('../../../app/pageObject');
+
+let pages = {
+  login: new PageObject('login.json', stepsPath),
+  ams: new PageObject('ams.json', stepsPath),
+  raptorAms: new PageObject('raptorAms.json', stepsPath),
+  graphTab: new PageObject('graphTab.json', stepsPath),
+  newGraph: new PageObject('newGraph.json', stepsPath),
+  paletteBasic: new PageObject('paletteBasic.json', stepsPath),
+};
 
 /* Verifies Sapling login, AMS page and navigation to AuthorApp page by clicking new Raptor item link */
-Given(/^I login to AMS as "(.*)" with "(.*)"/, async function (authUser, password) {
-  // console.log(this.environment);
-  // console.log(this.browser);
-  // console.log(this.screenshots);
+Given(/^I login to AMS as "(.*)"/, async function (userType) {
+  let url = await _.get(urls, ["sapling", this.environment]);
+  let user = await _.get(users, [this.environment, userType]);
 
-  const env = config.environment
-  let qa = new selenium(this.driver);
-  let url = await _.get(URL, ["math", env]);
-  await qa.goTo(url);
-  const user = require(`../_data/user.json`);
+  await this.driver.get(url);
+  await test1.test2();
 
-  await qa.input(page.math.login[env].username, user[env][authUser], true);
-  await qa.input(page.math.login[env].password, user[password], true);
-  await qa.click(page.math.login[env].submit);
-  if (env === 'local') {
-    await qa.click(page.math.login[env].amslink);
-  }
+  await pages.login.populateElement(username, user.username);
+  await pages.login.populate(password, user.password);
+
+  //await pages.login.click(submit);
+  // if (env === 'local') {
+  //   await qa.click(page.math.login[env].amslink);
+  // }
 });
 
 When(/^I click on the New Raptor item in the AMS page$/, async function () {
-  let qa = new selenium(this.driver);
   await qa.click(page.math.ams.raptorNewItem);
 });
 
 When(/^I navigate to AuthorApp tab$/, async function () {
-  let qa = new selenium(this.driver);
   await qa.changeWindow(1);
   await qa.exists(page.math.raptorAms.titleName);
 });

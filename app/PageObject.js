@@ -3,6 +3,7 @@
  */
 'use strict';
 const { assert } = require('chai');
+
 const HashTable = require('./hashtable');
 const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
@@ -10,6 +11,7 @@ const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
 const { getDriver, getWebDriver, sleep } = require('./driver');
 const { log } = require('./logger');
+
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
@@ -18,7 +20,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   let sp = StringProcessing(that.ScenarioData);
   that.sp = sp;
-  
   that.pageName = pageNameInput;
   that.pageDefinitionFileName = pageNameDirectoryInput + pageNameInput;
   that.pageElements = new HashTable({}); // a hash of all of the web elements for this page.
@@ -404,7 +405,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       throw err;
     }
   };
-
   that.assert = assert;
   that.assertText = assertText;
   that.assertDisabled = assertDisabled;
@@ -423,7 +423,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.scrollElementIntoView = scrollElementIntoView;
   that.scrollIntoView = scrollIntoView;
   loadPageDefinitionFile(that.pageDefinitionFileName);
-
   return that;
 }
 

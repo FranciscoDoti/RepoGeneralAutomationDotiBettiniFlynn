@@ -1,15 +1,22 @@
 {
     "achieve":{
-        "local":"",
+        "local":"https://courseware-frontend.local-mml.cloud",
         "int":"https://int-achieve-courseware-frontend.mldev.cloud/start",
         "dev":"https://dev-achieve-courseware-frontend.mldev.cloud/start",
-        "prod":"",
-        "pre-prod":""
+        "dev-gb": "https://dev-gradebook-courseware-frontend.mldev.cloud/start",
+        "dev-triage": "https://dev-cw-triage-courseware-frontend.mldev.cloud/start",
+        "dev-dash": "https://dev-dashboard-courseware-frontend.mldev.cloud/start",
+        "dev-ob": "https://dev-onboarding-courseware-frontend.mldev.cloud/start",
+        "dev-cm1": "https://dev-cw-coursemgmt1-courseware-frontend.mldev.cloud/start",
+        "dev-cm2": "https://dev-cw-coursemgmt2-courseware-frontend.mldev.cloud/start",
+        "uat": "https://dev-achieve-uat-courseware-frontend.mldev.cloud/start",
+        "prod":"https://achieve.macmillanlearning.com/start",
+        "pre-prod":"https://int-achieve-preprod-courseware-frontend.mldev.cloud/"
     },
     "sapling":{
-        "local":"",
-        "int":"",
-        "dev":"",
+        "local":"http://local.saplinglearning.me:3080",
+        "int":"http://int.saplinglearning.me",
+        "dev":"http://dev.saplinglearning.me",
         "prod":"",
         "pre-prod":""
     },

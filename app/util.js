@@ -116,4 +116,5 @@ module.exports = {
   loadLogin,
   loadData,
   loadDataTable,
-  getRandomInt };
+  getRandomInt 
+};
