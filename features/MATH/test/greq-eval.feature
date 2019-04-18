@@ -1,10 +1,10 @@
 Feature: Creating a new AMS raptor item for different Eval types and simulate grading for each
 
-Scenario Outline: Author creates a <evaltype> type <questionEquation> equation and verifies grading for correct answer <answerEquation> input
+  Scenario Outline: Author creates a <evaltype> type <questionEquation> equation and verifies grading for correct answer <answerEquation> input
 
-  Given I login to AMS
-  When I click on the New Raptor item in the AMS page
-  And I navigate to AuthorApp tab
+    Given I login to AMS as "all-permissions-author" with "password"
+    When I click on the New Raptor item in the AMS page
+    And I navigate to AuthorApp tab
 
   And I select Graded equation and save as <evaltype>
   And I click on the Question tab, and add an Answer field

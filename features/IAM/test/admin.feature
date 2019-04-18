@@ -1,4 +1,5 @@
 Feature: Authentication for Achieve Admin via IAM
+    
 
     Scenario: Verify Close icon is working fine and verifying password reset is showing error when invalid emailid is entered 
         Given I have opened Achieve "loginURL"
@@ -21,6 +22,7 @@ Feature: Authentication for Achieve Admin via IAM
         And I click on Reset button
         And I click on Close Icon
         And I sign out of Achieve
+
 
     Scenario: Verify the user is able to luanch the url and reset the password
         # Given I have opened Achieve "ThirdpartyURL"

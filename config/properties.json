@@ -1,0 +1,15 @@
+{
+    "environment": "int",
+    "executionMode": "local",
+    "browser": "chrome",
+    "screenshots": "true",
+    "timeout": 30000,
+
+    "_examples": {
+        "environment": "local | dev | int | pre-prod | prod",
+        "executionMode": "local | headless | browserstack",
+        "browser": "chrome | firefox",
+        "screenshots": "true | onFail | false",
+        "timeout": "Number-In-Milliseconds"
+    }
+}

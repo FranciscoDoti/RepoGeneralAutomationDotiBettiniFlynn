@@ -1,0 +1,23 @@
+{
+    "achieve":{
+        "local":"",
+        "int":"https://int-achieve-courseware-frontend.mldev.cloud/start",
+        "dev":"https://dev-achieve-courseware-frontend.mldev.cloud/start",
+        "prod":"",
+        "pre-prod":""
+    },
+    "sapling":{
+        "local":"",
+        "int":"",
+        "dev":"",
+        "prod":"",
+        "pre-prod":""
+    },
+    "sample":{
+        "local":"",
+        "int":"",
+        "dev":"",
+        "prod":"",
+        "pre-prod":""
+    }
+}

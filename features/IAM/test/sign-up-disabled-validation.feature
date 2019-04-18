@@ -4,19 +4,19 @@
         Given I have opened "achieve" "user_creation"
         
         When I create a user with the data table credentials
-        | element                    | input                            |
-        | email                      | coursewareachieve@gmail.com      |
-        | password                   | ABCabc@123                       |
-        | confirm_password           | ABCabc@123                       |
-        | first_name                 | Addy                             |
-        | last_name                  | min                              |
-        | Security_Question_1        | What high school did you attend? |
-        | Security_Question_1_Answer | answer                           |
-        | Security_Question_2        | What is your favorite movie?     |
-        | Security_Question_2_Answer | answer                           |
-        | Security_Question_3        | What is your favorite color?     |
-        | Security_Question_3_Answer | answer                           |
-        | institution                | Miami University                 |
+            | element                    | input                            |
+            | email                      | coursewareachieve@gmail.com      |
+            | password                   | ABCabc@123                       |
+            | confirm_password           | ABCabc@123                       |
+            | first_name                 | Addy                             |
+            | last_name                  | min                              |
+            | Security_Question_1        | What high school did you attend? |
+            | Security_Question_1_Answer | answer                           |
+            | Security_Question_2        | What is your favorite movie?     |
+            | Security_Question_2_Answer | answer                           |
+            | Security_Question_3        | What is your favorite color?     |
+            | Security_Question_3_Answer | answer                           |
+            | institution                | Miami University                 |
 
         Then I verify the "iam" system "create_account" feature "signup_btn" element is "not disabled"
     
@@ -24,35 +24,35 @@
         Given I have opened "achieve" "user_creation"
 
         When I create a user with the data table credentials but missing <element>
-        | element | input |
-        | email | coursewareachieve@gmail.com |
-        | password | ABCabc@123 |
-        | confirm_password | ABCabc@123 |
-        | first_name | Addy |
-        | last_name | min |
-        | Security_Question_1 | What high school did you attend? |
-        | Security_Question_1_Answer | answer |
-        | Security_Question_2 | What is your favorite movie? |
-        | Security_Question_2_Answer | answer |
-        | Security_Question_3 | What is your favorite color? |
-        | Security_Question_3_Answer | answer |
-        | institution | Miami University | 
+            | element                       | input                             |
+            | email                         | coursewareachieve@gmail.com       |
+            | password                      | ABCabc@123                        |
+            | confirm_password              | ABCabc@123                        |
+            | first_name                    |  Addy                             |
+            | last_name                     | min                               |
+            | Security_Question_1           | What high school did you attend?  |
+            | Security_Question_1_Answer    | answer                            |
+            | Security_Question_2           | What is your favorite movie?      |
+            | Security_Question_2_Answer    | answer                            |
+            | Security_Question_3           | What is your favorite color?      |
+            | Security_Question_3_Answer    | answer                            |
+            | institution                   | Miami University                  | 
         
         Then I verify the "iam" system "create_account" feature "signup_btn" element is "disabled"
         Examples:
-        | element                       |
-        | "email"                       |
-        | "password"                    |
-        | "confirm_password"            |
-        | "first_name"                  |
-        | "last_name"                   |
-        | "Security_Question_1"         |
-        | "Security_Question_1_Answer"  |
-        | "Security_Question_2"         |
-        | "Security_Question_2_Answer"  |
-        | "Security_Question_3"         |
-        | "Security_Question_3_Answer"  |
-        | "institution"                 |
+            | element                       |
+            | "email"                       |
+            | "password"                    |
+            | "confirm_password"            |
+            | "first_name"                  |
+            | "last_name"                   |
+            | "Security_Question_1"         |
+            | "Security_Question_1_Answer"  |
+            | "Security_Question_2"         |
+            | "Security_Question_2_Answer"  |
+            | "Security_Question_3"         |
+            | "Security_Question_3_Answer"  |
+            | "institution"                 |
 
 
     Scenario Outline: Verify that signup button is disabled when entering all Mandatory Fields (password is too short)

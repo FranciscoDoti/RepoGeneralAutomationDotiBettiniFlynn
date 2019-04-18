@@ -1,4 +1,13 @@
 {
-    "statusUpdate": ["in progress", "live", "In Algolia Queue to Process", "Algolia is Processing"],
-    "messageWindow": "Saving..."
+    "statusUpdate": [
+        "in progress",
+        "live",
+        "In Algolia Queue to Process",
+        "Algolia is Processing"
+    ],
+    "messageWindow": "Saving...",
+    "graphType": [
+        "Graded",
+        "Ungraded"
+    ]
 }
