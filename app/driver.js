@@ -1,5 +1,6 @@
 // https://stackoverflow.com/questions/49862078/protractor-and-cucumber-function-timed-out-using-async-await
 
+const { log } = require('./logger');
 const driver = Object.driver;
 const webdriver = Object.webdriver;
 const environment = Object.environment;
@@ -76,10 +77,10 @@ module.exports = {
   sleep
 };
 
-const chromePath = require('chromedriver').path;
-const firefoxPath = require('geckodriver').path;
-const { log } = require('./logger');
-let service;
+// const chromePath = require('chromedriver').path;
+// const firefoxPath = require('geckodriver').path;
+
+// let service;
 
 // const buildDriver = function () {
   // const config = loadConfig('config');
