@@ -22,9 +22,8 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
   let user = await _.get(users, [this.environment, userType]);
 
   await this.driver.get(url);
-  await test1.test2();
 
-  await pages.login.populateElement(username, user.username);
+  await pages.login.populate(username, user.username);
   await pages.login.populate(password, user.password);
 
   //await pages.login.click(submit);

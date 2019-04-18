@@ -5,7 +5,7 @@
 const { setWorldConstructor, setDefaultTimeout } = require('cucumber');
 const seleniumWebDriver = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
-const config = require('../../config/properties.json');
+const config = require('../../config/config.json');
 
 var options = new chrome.Options().headless();
 var prefs = new seleniumWebDriver.logging.Preferences();
