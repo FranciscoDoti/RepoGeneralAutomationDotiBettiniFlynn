@@ -1,59 +1,8 @@
-// ------------ Start up the chrome server ------------
-const webdriver = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
-const firefox = require('selenium-webdriver/firefox');
-const chromePath = require('chromedriver').path;
-const firefoxPath = require('geckodriver').path;
-const { log } = require('./logger');
-const { loadConfig } = require('./util');
-
 // https://stackoverflow.com/questions/49862078/protractor-and-cucumber-function-timed-out-using-async-await
-var {setDefaultTimeout} = require('cucumber');
 
-const config = loadConfig('config');
-
-// setDefaultTimeout(60 * 500);
-setDefaultTimeout(2000 * 2000); 
-let service;
-const buildDriver = function () {
-  const config = loadConfig('config');
-
-  const browser = config && config.driver && config.driver.type ? config.driver.type : 'chrome';
-  const headless = config && config.driver && config.driver.headless !== undefined ? config.driver.headless : true;
-  const screen = {
-    width: 640,
-    height: 480
-  };
-  const driver = new webdriver.Builder();
-  if (browser === 'chrome') {
-    driver.forBrowser(browser)
-      .withCapabilities(webdriver.Capabilities.chrome());
-    if (headless) {
-      driver.setChromeOptions(new chrome.Options().headless().windowSize(screen));
-    }
-    service = new chrome.ServiceBuilder(chromePath).build();
-    chrome.setDefaultService(service);
-  } else if (browser === 'firefox') {
-    driver.forBrowser(browser)
-      .withCapabilities(webdriver.Capabilities.firefox());
-    if (headless) {
-      driver.setFirefoxOptions(new firefox.Options().headless().windowSize(screen));
-    }
-
-    service = new firefox.ServiceBuilder(firefoxPath).build();
-  } else {
-    throw new Error(`Driver not found for: ${browser}`)
-  }
-  return driver.build();
-}
-
-const getDriver = function () {
-  return driver;
-};
-
-const getWebDriver = function () {
-  return webdriver;
-};
+const driver = Object.driver;
+const webdriver = Object.webdriver;
+const environment = Object.environment;
 
 const onPageLoadedWaitById = async function (elementIdOnNextPage) {
   let by = webdriver.By.id(elementIdOnNextPage);
@@ -108,11 +57,9 @@ const onWaitForElementToBeLocated = async function (element) {
   }
 }
 
-function sleep (ms) {
+function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-const driver = buildDriver();
 
 // Show Process config files
 process.argv.forEach(function (val, index, array) {
@@ -120,14 +67,49 @@ process.argv.forEach(function (val, index, array) {
 });
 
 module.exports = {
-  getDriver,
-  getWebDriver,
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,
   onWaitForWebElementToBeEnabled,
   onWaitForWebElementToBeDisabled,
   onWaitForElementToBeVisible,
   onWaitForElementToBeInvisible,
-  config,
   sleep
 };
+
+const chromePath = require('chromedriver').path;
+const firefoxPath = require('geckodriver').path;
+const { log } = require('./logger');
+let service;
+
+// const buildDriver = function () {
+  // const config = loadConfig('config');
+
+  // const browser = config && config.driver && config.driver.type ? config.driver.type : 'chrome';
+  // const headless = config && config.driver && config.driver.headless !== undefined ? config.driver.headless : true;
+  // const screen = {
+  //   width: 640,
+  //   height: 480
+  // };
+  // const driver = new webdriver.Builder();
+  // if (browser === 'chrome') {
+  //   driver.forBrowser(browser)
+  //     .withCapabilities(webdriver.Capabilities.chrome());
+  //   if (headless) {
+  //     driver.setChromeOptions(new chrome.Options().headless().windowSize(screen));
+  //   }
+  //   service = new chrome.ServiceBuilder(chromePath).build();
+  //   chrome.setDefaultService(service);
+  // } else if (browser === 'firefox') {
+  //   driver.forBrowser(browser)
+  //     .withCapabilities(webdriver.Capabilities.firefox());
+  //   if (headless) {
+  //     driver.setFirefoxOptions(new firefox.Options().headless().windowSize(screen));
+  //   }
+
+  //   service = new firefox.ServiceBuilder(firefoxPath).build();
+  // } else {
+  //   throw new Error(`Driver not found for: ${browser}`)
+  // }
+  
+  //return driver.build();
+// };

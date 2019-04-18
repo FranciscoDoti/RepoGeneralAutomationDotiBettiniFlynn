@@ -1,4 +1,4 @@
-const { getWebDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
+const { webdriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
 const {Key} = require('selenium-webdriver');
 const WebElement = require('./WebElement');
 const { log } = require('./logger');
@@ -55,14 +55,13 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
 };
 
 const populateSelect = async function (selector, item, tempElement) {
-  const webDriver = getWebDriver();
   const localSpecialInstr = tempElement.specialInstr || '';
 
   if (!selector) return;
   await selector.click();
   await sleep(500);
 
-  const options = await selector.findElements(webDriver.By.tagName('option'));
+  const options = await selector.findElements(webdriver.By.tagName('option'));
 
   if (localSpecialInstr.toLowerCase().includes('selectByVisibleText'.toLowerCase())) {
     await selector.selectByVisibleText(item);

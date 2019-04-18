@@ -9,7 +9,7 @@ const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
 const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
-const { getDriver, getWebDriver, sleep } = require('./driver');
+const { driver, sleep } = require('./driver');
 const { log } = require('./logger');
 
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
@@ -23,9 +23,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.pageName = pageNameInput;
   that.pageDefinitionFileName = pageNameDirectoryInput + pageNameInput;
   that.pageElements = new HashTable({}); // a hash of all of the web elements for this page.
-
-  that.driver = getDriver();
-  that.webdriver = getWebDriver();
 
   // log.debug(`New PageObject: ${pageNameInput}`);
 
@@ -65,10 +62,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     } else { // else , look up the frame element in the hash table. get the webElement for the frame switch to the frame.
       if (isNumber) {
         log.debug('Switching Frame to frame via number(' + elementName + ')');
-        that.driver.switchTo().frame(elementName);
+        driver.switchTo().frame(elementName);
       } else {
         var frameElementObj = await getElement(elementName);
-        that.driver.switchTo().frame(frameElementObj.definition);
+        driver.switchTo().frame(frameElementObj.definition);
         await sleep(500);
       }
     }
@@ -411,7 +408,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.elementDisabled = elementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;
-  that.getDriver = getDriver;
   that.populate = populateElement;
   that.getElementValue = getElementValue;
   that.populateDatatable = genericPopulateDatable;
