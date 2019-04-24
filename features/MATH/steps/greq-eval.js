@@ -1,8 +1,5 @@
 
 const { When, Then } = require('cucumber');
-const selenium = require('../../../app/selenium.js');
-const page = require('../../master-page.js');
-const assert_text = require('../../../features/master-text.js');
 const expect = require('chai').expect;
 
 /* Creating a new AMS raptor item for different Eval types: Relation, Expression, Point, Interval, Vector, Parametric */
@@ -13,7 +10,9 @@ When(/^I select Graded equation and save as "(.*)"$/, async function (name) {
   await qa.input(page.math.raptorAms.titleName, name, true);
   await qa.click(page.math.raptorAms.moduleTab);
   await qa.click(page.math.raptorAms.gradedEquationButtonlink);
+  
   await qa.exists(page.math.raptorAms.questionTab);
+  page.raptorAMS.verify(questionTab, 'text');
 });
 
 When(/^I click on the Question tab, and add an Answer field$/, async function () {

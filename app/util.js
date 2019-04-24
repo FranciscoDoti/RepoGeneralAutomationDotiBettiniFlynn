@@ -1,9 +1,7 @@
-// const parser = require('../lc-parser')
-
 const fs = require('fs');
 const world = require('./worldData');
+// const parser = require('../lc-parser')
 const { log } = require('./logger');
-
 
 process.argv.forEach(function (value, index, array) {
   if (value.startsWith('--world-parameters=')) {
@@ -37,10 +35,8 @@ const loadJSONFile = function (fullFileName) {
 
 const loadConfig = function (configName) {
   try {
-    //const configDirectory = getConfigDirectory() || 'e2e';
-    //const configPath = `./config/${configDirectory}/${configName}.json`;
-    const configPath = `./config/${configName}.json`;
-
+    const configDirectory = getConfigDirectory() || 'e2e';
+    const configPath = `./config/${configDirectory}/${configName}.json`;
     // Adding noise to debug output
     // log.debug(`Opening config directory ${configDirectory} and file ${configPath}`);
     var contents = fs.readFileSync(configPath);
@@ -114,13 +110,10 @@ const loadDataTable = function (dataTable) {
     throw err;
   }
 };
-
-
 module.exports = {
   loadJSONFile,
   loadConfig,
   loadLogin,
   loadData,
   loadDataTable,
-  getRandomInt 
-};
+  getRandomInt };

@@ -1,8 +1,5 @@
 const { When, Then } = require('cucumber');
-const selenium = require('../../../../app/selenium.js');
-const page = require('../../../master-page.js');
 const expect = require('chai').expect;
-
 
 When(/^I click on Graph button$/, async function () {
     let qa = new selenium(this.driver);

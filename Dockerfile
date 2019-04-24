@@ -17,6 +17,5 @@ EXPOSE 3000
 COPY ./app ./app
 COPY ./features ./features
 COPY ./report ./report
-COPY ./config.js ./config.js
 CMD ["npm", "run", "test"]
 #CMD ["./node_modules/cucumber/bin/cucumber-js"]

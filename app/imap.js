@@ -1,5 +1,6 @@
-const Imap = require('imap');
-const simpleParser = require("mailparser").simpleParser;
+var Imap = require('imap');
+var simpleParser = require("mailparser").simpleParser;
+var cheerio = require('cheerio');
 let Link;
 
 const connectClient = async function(user, password, regexChoice) {
@@ -11,6 +12,7 @@ const connectClient = async function(user, password, regexChoice) {
         port: 993,
         tls: true
         });
+    console.log('getting here')
     const clientEventListener = async function (event){
         return new Promise((resolve, reject) => {
             client.once(event, async function(){
@@ -20,6 +22,7 @@ const connectClient = async function(user, password, regexChoice) {
                 reject(err);
             });
             client.once('end', function() {
+                console.log('Connection ended');
                 client.end();
             });
         })
@@ -28,6 +31,7 @@ const connectClient = async function(user, password, regexChoice) {
     const openInbox = async function (){
         return new Promise((resolve, reject) => {
             client.openBox('INBOX', true, function(err, box){
+                console.log(box, 'box');
                 if(err){
                     reject(err, 'err');
                 } else {
@@ -49,6 +53,7 @@ const connectClient = async function(user, password, regexChoice) {
                             if(parsed.textAsHtml){
                                 Link = parsed.textAsHtml;
                                 var linkFound = Link.match(iamRegex);
+                                console.log(linkFound)
                                 if(linkFound){
                                     linkFound = linkFound[0];
                                     resolve(linkFound);
@@ -61,21 +66,14 @@ const connectClient = async function(user, password, regexChoice) {
                             if(parsed.textAsHtml){
                                 Link = parsed.text;
                                 var linkFound = Link.match(coursewareRegex);
+
+                                // const $ = cheerio.load(parsed.text);
+                                // const href = $('a[style=3D"color: #080808;"]').text();
+                                // console.log('mailObject~~~~~~~~~~~~~~~~~~',parsed.text, '~~~~~mailObject', info, '~~~~~~~~~~~href ', href, 'href~~~~~~~~~~~~~')
                                 if(linkFound){
                                     linkFound = "https://int-achieve-courseware-frontend.mldev.cloud/courses/" + linkFound[0];
+                                    console.log(linkFound, "~~~~~~~LinkFound!!!!!!!");
                                     resolve(linkFound);
-                                } else {
-                                    resolve('www.google.com');
-                                }
-                            }
-                        } else if (regex === "registration"){
-                            var coursewareRegex = /(?<=token=)(.*?)(?=">)/
-                            if(parsed.textAsHtml){
-                                Link = parsed.textAsHtml;
-                                var registrationLinkFound = Link.match(coursewareRegex);
-                                if(registrationLinkFound){
-                                    registrationLinkFound = "https://int-achieve-iam.mldev.cloud/iam/confirm?token=" + registrationLinkFound[0];
-                                    resolve(registrationLinkFound);
                                 } else {
                                     resolve('www.google.com');
                                 }
@@ -93,10 +91,12 @@ const connectClient = async function(user, password, regexChoice) {
                 client.end();
             });
             f.once('end', function() {
+                console.log('Done fetching all messages!');
                 client.end();
             });
         })
     }
+    // https://github.com/mscdex/node-imap/issues/359
     const sortMessages = async function (results){
         return new Promise((resolve, reject) => {
             client.search([ 'NEW' ], function(err, results) {
@@ -104,8 +104,10 @@ const connectClient = async function(user, password, regexChoice) {
                     client.end();
                     reject(err, 'error or results length is ', results.length, ' long');
                 } else {
+                    // get only the latest email
+                    // var f = client.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
                     resolve(results);
-                }
+                } 
             })
         })
     }
@@ -125,4 +127,4 @@ const connectClient = async function(user, password, regexChoice) {
 
 module.exports = {
     connectClient
-}
+  }

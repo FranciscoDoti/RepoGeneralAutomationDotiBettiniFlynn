@@ -1,7 +1,4 @@
 const {When, Then} = require('cucumber');
-const selenium = require('../../../app/selenium.js');
-const page = require('../../master-page.js');
-const assert_text = require('../../../features/master-text.js');
 const expect = require('chai').expect;
 const _ = require('lodash');
 

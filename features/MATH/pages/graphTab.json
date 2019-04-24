@@ -1,0 +1,87 @@
+{
+    "webElements": [{
+        "name": "tab",
+        "byType": "id",
+        "definition": "a[data-test-id='graphsBtn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "list",
+        "byType": "id",
+        "definition": "table.graphList > tbody > * td :nth-child(1)",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "table",
+        "byType": "id",
+        "definition": "#graph-panel > * tr",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "itemPreview",
+        "byType": "id",
+        "definition": "span[data-test-id='item-preview-3']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "actions",
+        "byType": "id",
+        "definition": "table.graphList > tbody >  tr:nth-child(1) >td",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "idColumnName",
+        "byType": "id",
+        "definition": "th[data-test-id='Id']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "sortAscendIcon",
+        "byType": "id",
+        "definition": "span.glyphicon.glyphicon-sort-by-attributes",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "sortDescendIcon",
+        "byType": "id",
+        "definition": "span.glyphicon.glyphicon-sort-by-attributes-alt",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "id",
+        "byType": "id",
+        "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(2)",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "titleColumnName",
+        "byType": "id",
+        "definition": "th[data-test-id='Title']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "title",
+        "byType": "id",
+        "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(3)",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "typeColumnName",
+        "byType": "id",
+        "definition": "th[data-test-id='Type']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "type",
+        "byType": "id",
+        "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(4)",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "newGraphButton",
+        "byType": "id",
+        "definition": "button[data-test-id='newGraphBtn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}

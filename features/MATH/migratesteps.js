@@ -1,5 +1,4 @@
 var fs = require('fs');
-var path = require('path');
 var pagesetup = require('./migratepages');
 
 module.exports = {
@@ -13,14 +12,14 @@ module.exports = {
             statements.forEach(function (s, i) {
                 let lineofcode = s;
                 //console.log(s);
-                if (s.includes(".click(")) {
+                if (s.includes(".click(") && !s.includes(".click('")) {
                     lineofcode = lineofcode.split(".click(")[1];
                     lineofcode = lineofcode.split(");")[0];
                     lineofcode = lineofcode.split(".");
                     let objectname = lineofcode[lineofcode.length - 1];
                     let pagename = lineofcode[lineofcode.length - 2];
 
-                    statements[i] = `await pages.${pagename}.click(${objectname});`;
+                    statements[i] = `await pages.${pagename}.click('${objectname}');`;
                 } else if (s.includes(".input(")) {
                     lineofcode = lineofcode.split(".input(")[1];
                     lineofcode = lineofcode.split(");")[0];
@@ -30,17 +29,16 @@ module.exports = {
                     let objectname = lineofcode[lineofcode.length - 1];
                     let pagename = lineofcode[lineofcode.length - 2];
 
-                    statements[i] = `await pages.${pagename}.populate(${objectname}, ${data});`;
+                    statements[i] = `await pages.${pagename}.populate('${objectname}', ${data});`;
                 };
-                //console.log(s);
             });
-            //console.log(statements.join("\n"));
-
 
             data = statements.join("\n");
+            console.log(data.toString());
             pagesetup.renameFile(`./steps/${f}`, `./steps/_${f}`);
             pagesetup.writeFile(`./steps/${f}`, data);
-
         });
     }
 }
+
+module.exports.runner();

@@ -1,0 +1,2069 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Authentication for Achieve via IAM",
+    "line": 1,
+    "id": "authentication-for-achieve-via-iam",
+    "tags": [],
+    "uri": "features/tests/IAM/IAM-user-registration.feature",
+    "elements": [
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-first-name-field-and-last-name-validations-are-working-as-expected-(without-entering)",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Verify that First Name field and last name validations are working as expected (without entering)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1440000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I verify the functionality of first name by entering \"\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 111000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I verify the functionality of last name by entering \"\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I verify validation message for first name",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I verify validation message for last name",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-first-name-field-and-last-name-validations-are-working-as-expected-(without-entering)",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Verify that First Name field and last name validations are working as expected (without entering)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 209000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I verify the functionality of first name by entering \"33\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 138000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I verify the functionality of last name by entering \"444\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I verify validation message for first name",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I verify validation message for last name",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-first-name-field-and-last-name-validations-are-working-as-expected-(without-entering)",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Verify that First Name field and last name validations are working as expected (without entering)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 131000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I verify the functionality of first name by entering \"e!!!\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 140000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I verify the functionality of last name by entering \"#rr\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I verify validation message for first name",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I verify validation message for last name",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-first-name-field-and-last-name-validations-are-working-as-expected-(with--entering-large-character)",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Verify that First Name field and last name validations are working as expected (with  entering large character)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 129000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I verify the functionality of first name and lastname by entering large characters",
+            "match": {
+              "location": "features/steps/IAM/user.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 733000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "I verify large char validation message in the first name field",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "I verify large char validation message in the last name field",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-password-field-validations-are-working-as-expected",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Verify that password field validations are working as expected",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 22,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 135000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "I hover on icon \"i\"",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 555000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I enter password having eight characters not fullfilling the criteria",
+            "match": {
+              "location": "features/steps/IAM/user.js:65"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 164000000,
+              "error_message": "ReferenceError: clickedButton is not defined\n    at World.<anonymous> (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/features/steps/IAM/user.js:67:45)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "I check the error message",
+            "match": {
+              "location": "features/steps/IAM/user.js:70"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "I hover on icon \"i\"",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:23"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "I enter password from \"student\" account having eight character fullfilling the criteria",
+            "match": {
+              "location": "features/steps/IAM/user.js:80"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-confirm-password-field-validations-are-working-as-expected",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Verify that confirm password field validations are working as expected",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 30,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 134000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 31,
+            "name": "I do not enter text in password field but I do enter text into confirm password field",
+            "match": {
+              "location": "features/steps/IAM/user.js:87"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 197000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "I check the error message of confirm password",
+            "match": {
+              "location": "features/steps/IAM/user.js:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "I enter Password and confirm password from \"student\" account fullfiling all password requirements",
+            "match": {
+              "location": "features/steps/IAM/user.js:101"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 271000000,
+              "error_message": "ReferenceError: clickedButton is not defined\n    at World.<anonymous> (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/features/steps/IAM/user.js:106:45)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-security-questions-&-answer-validations-are-working-as-expected-for-preprod-with-extra-characters",
+        "keyword": "Scenario",
+        "line": 44,
+        "name": "Verify that Security Questions & Answer validations are working as expected for preprod with extra characters",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 38,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 126000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 39,
+            "name": "I verify that if I Select Security Questions of the \"student\" account then I enter an empty string for the answers",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 40,
+            "name": "I enter the value of \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\" for each security question answer",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "I verify the content of the security question error messages displayed is \"Limit of 150 characters reached\" in preprod",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-security-questions-&-answer-validations-are-working-as-expected-for-preprod-with-blank-answers",
+        "keyword": "Scenario",
+        "line": 53,
+        "name": "Verify that Security Questions & Answer validations are working as expected for preprod with blank answers",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 47,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 118000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 48,
+            "name": "I verify that if I Select Security Questions of the \"student\" account then I enter an empty string for the answers",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 49,
+            "name": "I enter the value of \"\" for each security question answer",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "I verify the content of the security question error messages displayed is \"Must not be blank\" in preprod_blank",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-the-application-should-not-allow-to-enter-more-than-150-characters-in-the-primary-institution-text-box.-moreover-on-entering-150-characters,-the-application-displays-a-message-\"limit-of-150-characters-reached\"",
+        "keyword": "Scenario",
+        "line": 74,
+        "name": "Verify that the application should not allow to enter more than 150 characters in the Primary institution text box. Moreover on entering 150 characters, the application displays a message \"Limit of 150 characters reached\"",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 75,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 124000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 76,
+            "name": "I input too many characters into the Primary Institution field",
+            "match": {
+              "location": "features/steps/IAM/user.js:505"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 936000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 77,
+            "name": "I verify the primary institution error message of too many characters",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 78,
+            "name": "I verify the primary institution field does not allow more than 150 characters",
+            "match": {
+              "location": "features/steps/IAM/user.js:518"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-on-selecting-a-us-college-in-\"primary-institution-or-school\"-text-box,-the-application-automatically-checks-the-\"opt-in\"-check-box",
+        "keyword": "Scenario",
+        "line": 81,
+        "name": "Verify that on selecting a US college in \"Primary Institution or School\" text box, the application automatically checks the \"Opt IN\" check box",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 82,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 126000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I Select \"Cottey College\" in Primary Institution or School text box",
+            "match": {
+              "location": "features/steps/IAM/user.js:206"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2237000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "I verify the opt-in checkbox is checked",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-on-selecting-a-canada-college-in-\"primary-institution-or-school\"-text-box,-the-application-should-not-automatically-check-the-\"opt-in\"-check-box",
+        "keyword": "Scenario",
+        "line": 86,
+        "name": "Verify that on selecting a Canada College in \"Primary Institution or School\" text box, the application should not automatically check the \"OPT IN\" check box",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 87,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 122000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 88,
+            "name": "I Select \"University of Toronto\" in Primary Institution text box",
+            "match": {
+              "location": "features/steps/IAM/user.js:236"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 217000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 89,
+            "name": "I verify the opt-in checkbox is not checked",
+            "match": {
+              "location": "features/steps/IAM/user.js:217"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-checkbox-\"opt-in\"-is-selectable-and-e-mail-notification-should-generate",
+        "keyword": "Scenario",
+        "line": 91,
+        "name": "Verify that Checkbox \"Opt IN\" is selectable and E-mail notification should generate",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 92,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 138000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 93,
+            "name": "I click on checkbox",
+            "match": {
+              "location": "features/steps/IAM/user.js:249"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 554000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 94,
+            "name": "I verify the opt-in checkbox is checked",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-privacy-notice-link-redirects-to-appropriate-page",
+        "keyword": "Scenario",
+        "line": 96,
+        "name": "Verify that Privacy Notice Link redirects to appropriate page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 97,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 122000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 98,
+            "name": "I click on privacy notice link",
+            "match": {
+              "location": "features/steps/IAM/user.js:262"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 99,
+            "name": "I verify that I am redirected to privacy notice link page",
+            "match": {
+              "location": "features/steps/IAM/user.js:265"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-checkbox-'i-have-read-and-agree-to-the-terms-of-use'",
+        "keyword": "Scenario",
+        "line": 102,
+        "name": "Verify that Checkbox 'I have read and agree to the terms of use'",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 103,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 125000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 104,
+            "name": "I click on user agreement checkbox",
+            "match": {
+              "location": "features/steps/IAM/user.js:269"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 555000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 105,
+            "name": "I verify the Sign up button is disabled \"Verify that Checkbox 'I have read and agree to the terms of use'\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-terms-of-use-link-redirects-to-appropriate-page",
+        "keyword": "Scenario",
+        "line": 107,
+        "name": "Verify that Terms of use link redirects to appropriate page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 108,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 125000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 109,
+            "name": "I click on Terms of use link",
+            "match": {
+              "location": "features/steps/IAM/user.js:283"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3646000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 110,
+            "name": "I verify that I am redirected to terms of use page",
+            "match": {
+              "location": "features/steps/IAM/user.js:287"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(first-name)",
+        "keyword": "Scenario",
+        "line": 113,
+        "name": "Verify that without entering all Mandatory Fields (first name)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 114,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 327000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 115,
+            "name": "User \"student\" has filled all mandatory fields except first name",
+            "match": {
+              "location": "features/steps/IAM/user.js:296"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5780000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 116,
+            "name": "I verify the Sign up button is disabled \"Verify that without entering all Mandatory Fields (first name)\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(lastname)",
+        "keyword": "Scenario",
+        "line": 118,
+        "name": "Verify that without entering all Mandatory Fields (lastname)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 119,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 120,
+            "name": "User \"student\" has filled all mandatory fields except last name",
+            "match": {
+              "location": "features/steps/IAM/user.js:323"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5674000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 121,
+            "name": "I verify the Sign up button is disabled \"Verify that without entering all Mandatory Fields (lastname)\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(login,-password)",
+        "keyword": "Scenario",
+        "line": 130,
+        "name": "Verify that without entering all Mandatory Fields (login, password)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 124,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 135000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 125,
+            "name": "User \"student\" has filled all mandatory fields except password",
+            "match": {
+              "location": "features/steps/IAM/user.js:459"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5381000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 126,
+            "name": "User has filled out the form with password: \"ABab@12\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:454"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 292000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 127,
+            "name": "I verify the Sign up button is disabled \"if password is too short\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(login,-password)",
+        "keyword": "Scenario",
+        "line": 131,
+        "name": "Verify that without entering all Mandatory Fields (login, password)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 124,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 132000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 125,
+            "name": "User \"student\" has filled all mandatory fields except password",
+            "match": {
+              "location": "features/steps/IAM/user.js:459"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5366000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 126,
+            "name": "User has filled out the form with password: \"\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:454"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 175000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 127,
+            "name": "I verify the Sign up button is disabled \"if password is empty\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(login,-password)",
+        "keyword": "Scenario",
+        "line": 132,
+        "name": "Verify that without entering all Mandatory Fields (login, password)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 124,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 125,
+            "name": "User \"student\" has filled all mandatory fields except password",
+            "match": {
+              "location": "features/steps/IAM/user.js:459"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5181000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 126,
+            "name": "User has filled out the form with password: \"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz12345678900987654321\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:454"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 980000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 127,
+            "name": "I verify the Sign up button is disabled \"if password has no upper char\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(login,-password)",
+        "keyword": "Scenario",
+        "line": 133,
+        "name": "Verify that without entering all Mandatory Fields (login, password)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 124,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 125,
+            "name": "User \"student\" has filled all mandatory fields except password",
+            "match": {
+              "location": "features/steps/IAM/user.js:459"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5177000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 126,
+            "name": "User has filled out the form with password: \"ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ12345678900987654321\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:454"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1235000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 127,
+            "name": "I verify the Sign up button is disabled \"if password has no lower char\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-entering-a-password-that-is-too-long",
+        "keyword": "Scenario",
+        "line": 142,
+        "name": "Verify that entering a password that is too long",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 136,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 132000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 137,
+            "name": "User \"student\" has filled all mandatory fields except password",
+            "match": {
+              "location": "features/steps/IAM/user.js:459"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5143000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 138,
+            "name": "User has filled out the form with password: \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:454"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1168000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 139,
+            "name": "I verify the password inputed \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@\" is not the same as the one that was allowed",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-entering-a-password-that-is-too-long",
+        "keyword": "Scenario",
+        "line": 143,
+        "name": "Verify that entering a password that is too long",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 136,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 136000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 137,
+            "name": "User \"student\" has filled all mandatory fields except password",
+            "match": {
+              "location": "features/steps/IAM/user.js:459"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5199000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 138,
+            "name": "User has filled out the form with password: \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:454"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1169000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 139,
+            "name": "I verify the password inputed \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoPQRSTUVWXYZ12345678900987654321@$\" is not the same as the one that was allowed",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-the-terms-of-purchase-link-directs-to-the-page",
+        "keyword": "Scenario",
+        "line": 146,
+        "name": "Verify the Terms of Purchase link directs to the page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 147,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 131000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 148,
+            "name": "I click on Terms of Purchase",
+            "match": {
+              "location": "features/steps/IAM/user.js:439"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2957000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 149,
+            "name": "I verify that purchase link is directed to Terms of Purchase",
+            "match": {
+              "location": "features/steps/IAM/user.js:445"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(email)",
+        "keyword": "Scenario",
+        "line": 151,
+        "name": "Verify that without entering all Mandatory Fields (email)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 152,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 252000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 153,
+            "name": "User \"student\" has filled all mandatory fields except email",
+            "match": {
+              "location": "features/steps/IAM/user.js:341"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5327000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 154,
+            "name": "I verify the Sign up button is disabled \"Verify that without entering all Mandatory Fields (email)\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-piracy-link-redirects-to-appropriate-page",
+        "keyword": "Scenario",
+        "line": 156,
+        "name": "Verify that Piracy Link redirects to appropriate page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 157,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 158,
+            "name": "I click on piracy link",
+            "match": {
+              "location": "features/steps/IAM/user.js:409"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7235000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 159,
+            "name": "I verify that piracy link is directed to piracy page",
+            "match": {
+              "location": "features/steps/IAM/user.js:415"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(institution)",
+        "keyword": "Scenario",
+        "line": 161,
+        "name": "Verify that without entering all Mandatory Fields (institution)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 162,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 255000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 163,
+            "name": "User \"student\" has filled all mandatory fields except institution",
+            "match": {
+              "location": "features/steps/IAM/user.js:377"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5460000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 164,
+            "name": "I verify the Sign up button is disabled \"Verify that without entering all Mandatory Fields (institution)\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-privacy-link-redirects-to-appropriate-page",
+        "keyword": "Scenario",
+        "line": 166,
+        "name": "Verify that Privacy Link redirects to appropriate page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 167,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 131000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 168,
+            "name": "I click on privacy link",
+            "match": {
+              "location": "features/steps/IAM/user.js:395"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2393000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 169,
+            "name": "I verify that privacy link is directed to privacy page",
+            "match": {
+              "location": "features/steps/IAM/user.js:401"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-without-entering-all-mandatory-fields-(security-questions)",
+        "keyword": "Scenario",
+        "line": 171,
+        "name": "Verify that without entering all Mandatory Fields (security questions)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 172,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 262000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 173,
+            "name": "User \"student\"  has filled all mandatory fields except security questions and answers",
+            "match": {
+              "location": "features/steps/IAM/user.js:359"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5654000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 174,
+            "name": "I verify the Sign up button is disabled \"Verify that without entering all Mandatory Fields (security questions)\"",
+            "match": {
+              "location": "features/steps/IAM/user.js:313"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-macmillan-learning-redirects-to-appropriate-page",
+        "keyword": "Scenario",
+        "line": 176,
+        "name": "Verify that macmillan learning redirects to appropriate page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 177,
+            "name": "I have opened Achieve \"UserCreationUrl\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 178,
+            "name": "I click on macmillan learning link",
+            "match": {
+              "location": "features/steps/IAM/user.js:423"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2831000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 179,
+            "name": "I verify that macmillan link is directed to macmillan learning page",
+            "match": {
+              "location": "features/steps/IAM/user.js:430"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-e-mail-address,-first-name,-lastname,-security-question-answers-are-all-the-same-as-when-the-user-created-the-account",
+        "keyword": "Scenario",
+        "line": 188,
+        "name": "Verify that E-mail Address, first name, lastname, security question answers are all the same as when the user created the account",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 189,
+            "name": "I have opened Achieve \"loginURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 246000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 190,
+            "name": "I have logged in as \"admin_alt\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:35"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "SyntaxError: Unexpected token < in JSON at position 69\n    at JSON.parse (<anonymous>)\n    at loadLogin (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/app/util.js:55:30)\n    at World.<anonymous> (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/features/steps/general/navigation.js:37:18)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 191,
+            "name": "I click on user menu",
+            "match": {
+              "location": "features/steps/IAM/admin.js:20"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 192,
+            "name": "I click on Account",
+            "match": {
+              "location": "features/steps/IAM/user.js:475"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 193,
+            "name": "I verify that the account information for \"admin_alt\" displayed is correct",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 194,
+            "name": "I click on cancel button in User Acccount Menu",
+            "match": {
+              "location": "features/steps/IAM/user.js:527"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 195,
+            "name": "I sign out of Achieve",
+            "match": {
+              "location": "features/steps/general/navigation.js:50"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-aplication-return-to-home-page-on-clicking-cancel-button",
+        "keyword": "Scenario",
+        "line": 197,
+        "name": "Verify that aplication return to home page on clicking Cancel Button",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 198,
+            "name": "I have opened Achieve \"loginURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 112000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 199,
+            "name": "I have logged in as \"admin_alt\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:35"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "SyntaxError: Unexpected token < in JSON at position 69\n    at JSON.parse (<anonymous>)\n    at loadLogin (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/app/util.js:55:30)\n    at World.<anonymous> (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/features/steps/general/navigation.js:37:18)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 200,
+            "name": "I click on user menu",
+            "match": {
+              "location": "features/steps/IAM/admin.js:20"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 201,
+            "name": "I click on Account",
+            "match": {
+              "location": "features/steps/IAM/user.js:475"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 202,
+            "name": "I click on cancel button in User Acccount Menu",
+            "match": {
+              "location": "features/steps/IAM/user.js:527"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 203,
+            "name": "I verify home page is displayed",
+            "match": {
+              "location": "features/steps/IAM/user.js:531"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 204,
+            "name": "I sign out of Achieve",
+            "match": {
+              "location": "features/steps/general/navigation.js:50"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-set-password-functionality-is-working-as-expected",
+        "keyword": "Scenario",
+        "line": 206,
+        "name": "Verify that Set Password functionality is working as expected",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 207,
+            "name": "I have opened Achieve \"loginURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 208,
+            "name": "I have logged in as \"admin_alt\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:35"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "SyntaxError: Unexpected token < in JSON at position 69\n    at JSON.parse (<anonymous>)\n    at loadLogin (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/app/util.js:55:30)\n    at World.<anonymous> (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/features/steps/general/navigation.js:37:18)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 209,
+            "name": "I click on user menu",
+            "match": {
+              "location": "features/steps/IAM/admin.js:20"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 210,
+            "name": "I click on Account",
+            "match": {
+              "location": "features/steps/IAM/user.js:475"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 211,
+            "name": "I click setpassword button",
+            "match": {
+              "location": "features/steps/IAM/user.js:560"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 212,
+            "name": "I click on newpassword",
+            "match": {
+              "location": "features/steps/IAM/user.js:563"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 213,
+            "name": "I click on save changes button",
+            "match": {
+              "location": "features/steps/IAM/user.js:566"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 214,
+            "name": "I sign out of Achieve",
+            "match": {
+              "location": "features/steps/general/navigation.js:50"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication-for-achieve-via-iam;verify-that-privacy-notice-link-redirects-to-appropriate-page",
+        "keyword": "Scenario",
+        "line": 216,
+        "name": "Verify that Privacy Notice Link redirects to appropriate page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 217,
+            "name": "I have opened Achieve \"loginURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 115000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 218,
+            "name": "I have logged in as \"admin_alt\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:35"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "SyntaxError: Unexpected token < in JSON at position 69\n    at JSON.parse (<anonymous>)\n    at loadLogin (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/app/util.js:55:30)\n    at World.<anonymous> (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/features/steps/general/navigation.js:37:18)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 219,
+            "name": "I click on user menu",
+            "match": {
+              "location": "features/steps/IAM/admin.js:20"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 220,
+            "name": "I click on Account",
+            "match": {
+              "location": "features/steps/IAM/user.js:475"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 221,
+            "name": "I verify that the account information for \"admin_alt\" displayed is correct",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 222,
+            "name": "I click on privacy notice link",
+            "match": {
+              "location": "features/steps/IAM/user.js:262"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 223,
+            "name": "I verify that I am redirected to privacy notice link page",
+            "match": {
+              "location": "features/steps/IAM/user.js:265"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 224,
+            "name": "I click on cancel button in User Acccount Menu",
+            "match": {
+              "location": "features/steps/IAM/user.js:527"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 225,
+            "name": "I sign out of Achieve",
+            "match": {
+              "location": "features/steps/general/navigation.js:50"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,6 +1,4 @@
 const { When, Then } = require('cucumber');
-const selenium = require('../../../../app/selenium.js');
-const page = require('../../../master-page.js');
 const chai = require('chai');
 const expect = chai.expect;
 //chai.use(require("chai-sorted"));

@@ -1,9 +1,54 @@
-// https://stackoverflow.com/questions/49862078/protractor-and-cucumber-function-timed-out-using-async-await
-
+// ------------ Start up the chrome server ------------
+const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const firefox = require('selenium-webdriver/firefox');
+const chromePath = require('chromedriver').path;
+const firefoxPath = require('geckodriver').path;
 const { log } = require('./logger');
-const driver = Object.driver;
-const webdriver = Object.webdriver;
-const environment = Object.environment;
+const config = require('../config/config.json');
+
+const buildDriver = function(){
+  
+  var options = new chrome.Options().headless();
+  var prefs = new webdriver.logging.Preferences();
+  prefs.setLevel(webdriver.logging.Type.BROWSER, webdriver.logging.Level.ALL);
+  options.setLoggingPrefs(prefs);
+
+  const driver = new webdriver.Builder();
+  switch (config.mode) {
+    case 'local':
+      driver.forBrowser(config.browser)
+      //.withCapabilities(config.capabilities)
+      break;
+    case 'headless':
+      driver.forBrowser('chrome')
+        .setChromeOptions(options)
+        .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+      //.withCapabilities(config.capabilities)
+      break;
+    case 'browserstack':
+      driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
+        .forBrowser(config.browser)
+      //.withCapabilities(config.capabilities)
+      break;
+    default:
+      driver.usingServer('http://selenium:4444/wd/hub')
+        .forBrowser(config.browser)
+      //.withCapabilities(config.capabilities)
+  }
+
+  return driver.build();
+};
+
+const driver = buildDriver();
+
+const getDriver = function () {
+  return driver;
+};
+
+const getWebDriver = function () {
+  return webdriver;
+};
 
 const onPageLoadedWaitById = async function (elementIdOnNextPage) {
   let by = webdriver.By.id(elementIdOnNextPage);
@@ -58,7 +103,7 @@ const onWaitForElementToBeLocated = async function (element) {
   }
 }
 
-function sleep(ms) {
+function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
@@ -68,49 +113,60 @@ process.argv.forEach(function (val, index, array) {
 });
 
 module.exports = {
+  getDriver,
+  getWebDriver,
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,
   onWaitForWebElementToBeEnabled,
   onWaitForWebElementToBeDisabled,
   onWaitForElementToBeVisible,
   onWaitForElementToBeInvisible,
+  config,
   sleep
 };
 
-// const chromePath = require('chromedriver').path;
-// const firefoxPath = require('geckodriver').path;
+// https://stackoverflow.com/questions/49862078/protractor-and-cucumber-function-timed-out-using-async-await
+var {setDefaultTimeout} = require('cucumber');
+setDefaultTimeout(config.timeout);
 
-// let service;
 
+
+
+
+
+
+
+
+
+//let service;
 // const buildDriver = function () {
-  // const config = loadConfig('config');
+//   const config = loadConfig('config');
 
-  // const browser = config && config.driver && config.driver.type ? config.driver.type : 'chrome';
-  // const headless = config && config.driver && config.driver.headless !== undefined ? config.driver.headless : true;
-  // const screen = {
-  //   width: 640,
-  //   height: 480
-  // };
-  // const driver = new webdriver.Builder();
-  // if (browser === 'chrome') {
-  //   driver.forBrowser(browser)
-  //     .withCapabilities(webdriver.Capabilities.chrome());
-  //   if (headless) {
-  //     driver.setChromeOptions(new chrome.Options().headless().windowSize(screen));
-  //   }
-  //   service = new chrome.ServiceBuilder(chromePath).build();
-  //   chrome.setDefaultService(service);
-  // } else if (browser === 'firefox') {
-  //   driver.forBrowser(browser)
-  //     .withCapabilities(webdriver.Capabilities.firefox());
-  //   if (headless) {
-  //     driver.setFirefoxOptions(new firefox.Options().headless().windowSize(screen));
-  //   }
+//   const browser = config && config.driver && config.driver.type ? config.driver.type : 'chrome';
+//   const headless = config && config.driver && config.driver.headless !== undefined ? config.driver.headless : true;
+//   const screen = {
+//     width: 640,
+//     height: 480
+//   };
+//   const driver = new webdriver.Builder();
+//   if (browser === 'chrome') {
+//     driver.forBrowser(browser)
+//       .withCapabilities(webdriver.Capabilities.chrome());
+//     if (headless) {
+//       driver.setChromeOptions(new chrome.Options().headless().windowSize(screen));
+//     }
+//     service = new chrome.ServiceBuilder(chromePath).build();
+//     chrome.setDefaultService(service);
+//   } else if (browser === 'firefox') {
+//     driver.forBrowser(browser)
+//       .withCapabilities(webdriver.Capabilities.firefox());
+//     if (headless) {
+//       driver.setFirefoxOptions(new firefox.Options().headless().windowSize(screen));
+//     }
 
-  //   service = new firefox.ServiceBuilder(firefoxPath).build();
-  // } else {
-  //   throw new Error(`Driver not found for: ${browser}`)
-  // }
-  
-  //return driver.build();
-// };
+//     service = new firefox.ServiceBuilder(firefoxPath).build();
+//   } else {
+//     throw new Error(`Driver not found for: ${browser}`)
+//   }
+//   return driver.build();
+// }

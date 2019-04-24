@@ -9,7 +9,7 @@ const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
 const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
-const { driver, sleep } = require('./driver');
+const { getDriver, getWebDriver, sleep } = require('./driver');
 const { log } = require('./logger');
 
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
@@ -23,6 +23,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.pageName = pageNameInput;
   that.pageDefinitionFileName = pageNameDirectoryInput + pageNameInput;
   that.pageElements = new HashTable({}); // a hash of all of the web elements for this page.
+
+  that.driver = getDriver();
+  that.webdriver = getWebDriver();
 
   // log.debug(`New PageObject: ${pageNameInput}`);
 
@@ -62,25 +65,31 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     } else { // else , look up the frame element in the hash table. get the webElement for the frame switch to the frame.
       if (isNumber) {
         log.debug('Switching Frame to frame via number(' + elementName + ')');
-        driver.switchTo().frame(elementName);
+        that.driver.switchTo().frame(elementName);
       } else {
         var frameElementObj = await getElement(elementName);
-        driver.switchTo().frame(frameElementObj.definition);
+        that.driver.switchTo().frame(frameElementObj.definition);
         await sleep(500);
       }
     }
   }
-  
+
   const genericPopulateDatable = async function (table) {
-    // This function is used to populate the contents of a cucumber/gherkin data table
-    // as long as it follows the pattern of having the header row be a list of elements
-    // and the subsequent rows have the values that should be populated into those elements
+    log.debug(`I populated table`);
 
     var rows = table.raw();
     var numberOfColumns = rows[0].length;
-    var numberOfRows = rows.length;
+    var numberOfRows = rows.length - 1;
+
+    // each row will be an object with table header as a key
+    // console.log('Column count: ', rows[0].length);
+    // console.log('row : ', 0, rows[0]);
+    // console.log('row : ', 1, rows[1]);
+
     for (let rowIndex = 1; rowIndex < numberOfRows; rowIndex++) {
       for (let columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
+        console.log('TABLE: ', rows[0][columnIndex], rows[rowIndex][columnIndex]);
+        //  console.log('pageDef: ' + table.hashes()[rowIndex][1] + 'value ' + table.hashes()[rowIndex].value)
         await genericPopulateElement(rows[0][columnIndex], rows[rowIndex][columnIndex]);
       }
     }
@@ -118,9 +127,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       const webElement = await elementTarget.getWebElement();
       const tagName = await webElement.getTagName();
+      
       switch (tagName.toLowerCase()) {
-        case 'input':
-          await populateInput(webElement, value, actionElement);
+        case 'input':  
+        await populateInput(webElement, value, actionElement);
           break;
         case 'textarea':
           await populateTextField(webElement, value, actionElement);
@@ -196,33 +206,20 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const populateElement = async function (strName, strValue) {
-    try {
-      log.info(`Starting populate the web element: ${strName} with value ${strValue}`);
-
-      strValue = await sp.strEval(strValue);
-
-      await genericPopulateElement(strName, strValue);
-    } catch (err) {
-      log.error(err.stack);
-      throw err;
-    }
-  };
-
   const generateDataTable = async function (padLength) {
     var localPadLength = padLength || 0;
     const _NA = "| NA".padEnd(localPadLength + 1);
     console.log(`\nGenerating data table for ${that.pageName} \n`);
     try {
-      //Return a | delimited list of the field names in the pageDefs file for this pageObject
+      // Return a | delimited list of the field names in the pageDefs file for this pageObject
       console.log("|" + that.pageElements.keyList("|", localPadLength));
 
-      //Generate a list of NA for the page object.
+      // Generate a list of NA for the page object.
       var NAList = "";
       var i;
       var elementCount = that.pageElements.length; 
       for (i = 0; i < elementCount; i++) { 
-          NAList += _NA;
+        NAList += _NA;
       }
       console.log(`${NAList}|`);
 
@@ -231,8 +228,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         throw err;
     }
   }
-
-  
 
   const elementExists = async function (strName) {
     try {
@@ -342,8 +337,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       elementTarget = await WebElement(tempElement);
       actionElement.webElement = elementTarget;
 
-
-
       // log.debug(`****genericPopulateElement: ${elementName}`);
       log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
 
@@ -354,7 +347,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const assert = async function (elementName, condition) {
+  const assert2 = async function (elementName, condition) {
     let elementTarget = '';
     let tempElement = {};
     log.debug(`Checking to see if element: ${elementName} exists.`)
@@ -388,28 +381,75 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           log.error(`ERROR: We tried to assert that an unknown tag(${elementName}) is ${condition}\n\tWe failed.`);
       }
     } else {
-      log.error(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
+      log.error(`ERROR: WebElement ${elementName} not found in PageElements during assert() attempt.`);
     }
   };
 
   const assertText = async function (elementName, expectedValue) {
     try {
-      const evalString = await getElementValue(elementName);
-      log.debug(`Expected "${elementName}" -> "${evalString}" to equal "${expectedValue}"`);
-      assert(evalString === expectedValue, `Expected ${elementName} -> ${evalString} to equal ${expectedValue}`);
+      const actualValue = await getElementValue(elementName);
+      log.debug(`Expected "${elementName}" -> "${actualValue}" to equal "${expectedValue}"`);
+      await this.assert.equal(actualValue, expectedValue, `Expected ${elementName} -> ${actualValue} to equal ${expectedValue}`);
     } catch (err) {
       log.error(err.stack);
       throw err;
     }
   };
+  const assertTextIncludes = async function (elementName, expectedValue) {
+    try {
+      const actualValue = await getElementValue(elementName);
+      log.debug(`Expected "${elementName}" -> "${actualValue}" to include "${expectedValue}"`);
+      await this.assert(actualValue.includes(expectedValue), `Expected ${elementName} -> ${actualValue} to include ${expectedValue}`);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const getText = async function (elementName, attributeName) {
+    try {
+      return await that.driver.getElementValue(elementName, attributeName);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const populateElement = async function (strName, strValue) {
+    try {
+      log.info(`Starting populate the web element: ${strName} with value ${strValue}`);
+      strValue = await sp.strEval(strValue);
+
+      await genericPopulateElement(strName, strValue);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const clickElement = async function (strName) {
+    try {
+      log.info(`Starting click the web element: ${strName}`);
+      
+      await genericPopulateElement(strName, 'click');
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
   that.assert = assert;
   that.assertText = assertText;
+  that.assertTextIncludes = assertTextIncludes;
   that.assertDisabled = assertDisabled;
   that.elementDisabled = elementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;
+  that.getDriver = getDriver;
   that.populate = populateElement;
+  that.click = clickElement;
   that.getElementValue = getElementValue;
+  that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
   that.populateElement = populateElement;
   that.elementExists = elementExists;
@@ -418,6 +458,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.generateDataTable = generateDataTable;
   that.scrollElementIntoView = scrollElementIntoView;
   that.scrollIntoView = scrollIntoView;
+  that.getText = getText;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

@@ -1,0 +1,537 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Sign in",
+    "line": 1,
+    "id": "sign-in",
+    "tags": [],
+    "uri": "features/tests/IAM/IAM-signIN.feature",
+    "elements": [
+      {
+        "id": "sign-in;verify-that-password-info-icon-tooltip-information-is-consistent-to-application-behavior",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Verify that password info icon tooltip Information is consistent to application behavior",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have opened Achieve \"signURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1876000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I click on sign In button on top right corner",
+            "match": {
+              "location": "features/steps/general/navigation.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7177000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I click on create an account button",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1386000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I hover on icon \"i\"",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 573000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I verify that password info icon tooltip Information is consistent to application behavior",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sign-in;verify-forgot-link-is-redirecting-to-forgot-password-page",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Verify Forgot Link is redirecting to forgot password page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I have opened Achieve \"signURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 106000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I click on sign In button on top right corner",
+            "match": {
+              "location": "features/steps/general/navigation.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5729000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I click on forgot password link above password field text field",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 707000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I Verify Application should display forgot password page",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:55"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sign-in;verify-that-existing-registered-account-sign-in-appropriately",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Verify that Existing registered account Sign In appropriately",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "I have opened Achieve \"baseURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 192000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "I click on sign In button on top right corner",
+            "match": {
+              "location": "features/steps/general/navigation.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5717000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I have logged in as \"instructor_1\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2771000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I sign out of Achieve",
+            "match": {
+              "location": "features/steps/general/navigation.js:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1681000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "I Verify User Sign In with existing registered account appropriately",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sign-in;verify-help-link-is-present-on-the-sign-in-page-and-redirecting-to-appropriate-page",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Verify Help Link is present on the Sign In page and redirecting to appropriate page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 25,
+            "name": "I have opened Achieve \"signURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 145000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I click on sign In button on top right corner",
+            "match": {
+              "location": "features/steps/general/navigation.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5723000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "I click on help Link",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:133"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "I verify the help page is displayed",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:146"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sign-in;verify-that-invalid-username-and-password-attempt-for-more-than-3-times-will-now-allow-user-to-login-for-15-minutes-using-any-browser-or-system",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Verify that invalid username and password attempt for more than 3 times will now allow user to login for 15 minutes using any browser or system",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 31,
+            "name": "I have opened Achieve \"signURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5000000,
+              "error_message": "NoSuchWindowError: no such window: window was already closed\n  (Session info: chrome=68.0.3440.84)\n  (Driver info: chromedriver=2.41.578706 (5f725d1b4f0a4acbf5259df887244095596231db),platform=Mac OS X 10.13.6 x86_64)\n    at Object.checkLegacyResponse (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/node_modules/selenium-webdriver/lib/error.js:585:15)\n    at parseHttpResponse (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/node_modules/selenium-webdriver/lib/http.js:533:13)\n    at Executor.execute (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/node_modules/selenium-webdriver/lib/http.js:468:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 32,
+            "name": "I click on sign In button on top right corner",
+            "match": {
+              "location": "features/steps/general/navigation.js:25"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "UserName",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_username",
+                      "coursewareachieve@gmail.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_password",
+                      "password1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "sign_in",
+                      "click"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_username",
+                      "coursewareachieve@gmail.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_password",
+                      "password2"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "sign_in",
+                      "click"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_username",
+                      "coursewareachieve@gmail.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_password",
+                      "password3"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "sign_in",
+                      "click"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_username",
+                      "coursewareachieve@gmail.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_password",
+                      "password4"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "sign_in",
+                      "click"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_username",
+                      "coursewareachieve@gmail.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_password",
+                      "password5"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "sign_in",
+                      "click"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_username",
+                      "coursewareachieve@gmail.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "txt_password",
+                      "password6"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "sign_in",
+                      "click"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 33,
+            "name": "I login using invalid login credentials for 6 times",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:97"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 53,
+            "name": "I login with following credentials:",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:101"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 54,
+            "name": "I Verify that \"Too many login attempts. Wait 15 minutes and try again\" message is displayed",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:116"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sign-in;verify-whether-user-able-to-login-without-waiting-for-15minutes",
+        "keyword": "Scenario",
+        "line": 57,
+        "name": "Verify whether user able to login without waiting for 15minutes",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 58,
+            "name": "I have opened Achieve \"signURL\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:19"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 3000000,
+              "error_message": "NoSuchWindowError: no such window: window was already closed\n  (Session info: chrome=68.0.3440.84)\n  (Driver info: chromedriver=2.41.578706 (5f725d1b4f0a4acbf5259df887244095596231db),platform=Mac OS X 10.13.6 x86_64)\n    at Object.checkLegacyResponse (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/node_modules/selenium-webdriver/lib/error.js:585:15)\n    at parseHttpResponse (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/node_modules/selenium-webdriver/lib/http.js:533:13)\n    at Executor.execute (/Users/greeshma.reddy/Documents/bb-cucumber-js/bb-cucumber-js/node_modules/selenium-webdriver/lib/http.js:468:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 59,
+            "name": "I click on sign In button on top right corner",
+            "match": {
+              "location": "features/steps/general/navigation.js:25"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 60,
+            "name": "I have logged in as \"admin\"",
+            "match": {
+              "location": "features/steps/general/navigation.js:35"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 61,
+            "name": "I Verify that \"Too many login attempts. Wait 15 minutes and try again\" message is displayed",
+            "match": {
+              "location": "features/steps/IAM/SignIn.js:116"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

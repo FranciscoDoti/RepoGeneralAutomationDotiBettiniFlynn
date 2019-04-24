@@ -1,6 +1,4 @@
 const {Then} = require('cucumber');
-const selenium = require('../../../app/selenium.js');
-const page = require('../../master-page.js');
 const fs = require('fs');
 
 /* Scenario 1: User creates and saves a new AMS raptor item and sets the item status to live */

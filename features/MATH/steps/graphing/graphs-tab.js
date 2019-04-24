@@ -1,9 +1,5 @@
 const { Given, When, Then } = require('cucumber');
-const selenium = require('../../../../app/selenium.js');
-const assert_text = require('../../../../features/master-text.js');
-const page = require('../../../master-page.js');
 const expect = require('chai').expect;
-
 
 When(/^I click on the Graphs Tab$/, async function () {
     let qa = new selenium(this.driver);
