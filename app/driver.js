@@ -107,6 +107,16 @@ function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+const quit = async function(){
+  log.debug(`Closing the browser. Current URL is ${driver.getCurrentUrl()}.`);
+  return driver.quit();
+};
+
+const getURL = async function(url){
+  log.debug(`Loading the url ${url} in the browser.`);
+  return driver.get(url);
+};
+
 // Show Process config files
 process.argv.forEach(function (val, index, array) {
   log.debug(index + ': ' + val);
@@ -114,6 +124,8 @@ process.argv.forEach(function (val, index, array) {
 
 module.exports = {
   getDriver,
+  getURL,
+  quit,
   getWebDriver,
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,

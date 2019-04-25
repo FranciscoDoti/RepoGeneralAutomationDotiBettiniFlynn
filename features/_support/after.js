@@ -1,15 +1,13 @@
 var { After, AfterAll } = require('cucumber');
 var fs = require('fs');
-const { getDriver } = require('../../app/driver');
+const { getDriver, quit } = require('../../app/driver');
 
 AfterAll(function () {
-  //return driver.quit();
-  console.log("all done");
-  getDriver().quit();
+  await quit();
  });
 
 After(function(){
-  getDriver().getTitle().then(function(title){
+    getDriver().getTitle().then(function(title){
     console.log(title);
   });
 });

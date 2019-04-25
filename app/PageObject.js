@@ -11,7 +11,6 @@ const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
 const { getDriver, getWebDriver, sleep } = require('./driver');
 const { log } = require('./logger');
-
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
