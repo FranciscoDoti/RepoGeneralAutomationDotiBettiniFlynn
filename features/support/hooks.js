@@ -1,15 +1,13 @@
-var { After, AfterAll } = require('cucumber');
-var fs = require('fs');
-const { getDriver, quit } = require('../../app/driver');
+var { Before, After } = require('cucumber');
+//var fs = require('fs');
+const { initDriver, closeBrowser } = require('../../app/driver');
 
-AfterAll(function () {
-  await quit();
- });
+Before(async function(){
+  await initDriver();
+});
 
-After(function(){
-    getDriver().getTitle().then(function(title){
-    console.log(title);
-  });
+After(async function(){
+  await closeBrowser();
 });
 
 // After(async function(scenarioResult) {

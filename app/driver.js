@@ -7,7 +7,9 @@ const firefoxPath = require('geckodriver').path;
 const { log } = require('./logger');
 const config = require('../config/config.json');
 
-const buildDriver = function(){
+let driver;
+
+const buildDriver = async function(){
   
   var options = new chrome.Options().headless();
   var prefs = new webdriver.logging.Preferences();
@@ -37,10 +39,23 @@ const buildDriver = function(){
       //.withCapabilities(config.capabilities)
   }
 
+  log.info(`${config.browser} browser launched.`);
   return driver.build();
 };
 
-const driver = buildDriver();
+const initDriver = async function(){
+  driver = await buildDriver();
+};
+
+const visitURL = async function(url){
+  log.info(`Loading the url ${url} in the browser.`);
+  return driver.get(url);
+};
+
+const closeBrowser = async function(){
+  log.debug(`Closing the browser. Current URL is ${driver.getCurrentUrl()}.`);
+  return driver.quit();
+};
 
 const getDriver = function () {
   return driver;
@@ -107,25 +122,16 @@ function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const quit = async function(){
-  log.debug(`Closing the browser. Current URL is ${driver.getCurrentUrl()}.`);
-  return driver.quit();
-};
-
-const getURL = async function(url){
-  log.debug(`Loading the url ${url} in the browser.`);
-  return driver.get(url);
-};
-
 // Show Process config files
 process.argv.forEach(function (val, index, array) {
   log.debug(index + ': ' + val);
 });
 
 module.exports = {
+  initDriver,
+  closeBrowser,
+  visitURL,
   getDriver,
-  getURL,
-  quit,
   getWebDriver,
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,

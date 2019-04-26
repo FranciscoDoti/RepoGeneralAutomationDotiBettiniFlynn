@@ -1,0 +1,21 @@
+{
+    "webElements": [{
+        "name": "username",
+        "byType": "id",
+        "definition": "username",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "password",
+        "byType": "id",
+        "definition": "password",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "submit",
+        "byType": "id",
+        "definition": "submitButton",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}
