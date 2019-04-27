@@ -36,7 +36,7 @@ module.exports = {
         //     });
 
         //     //rename the source file after reading
-        //     this.renameFile(`./pages/${f}`, `./pages/_${f}`);
+        //     this.renameFile(`./pages/${f}`, `./pages/.${f}`);
 
             
         //     //create the module name .js file with all file paths
