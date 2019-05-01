@@ -49,12 +49,12 @@ const initDriver = async function(){
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
-  return driver.get(url);
+  return await driver.get(url);
 };
 
 const closeBrowser = async function(){
   log.debug(`Closing the browser. Current URL is ${driver.getCurrentUrl()}.`);
-  return driver.quit();
+  return await driver.quit();
 };
 
 const getDriver = function () {
