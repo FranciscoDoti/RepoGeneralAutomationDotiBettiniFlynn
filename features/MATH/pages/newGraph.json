@@ -1,13 +1,13 @@
 {
     "webElements": [{
         "name": "title",
-        "byType": "id",
+        "byType": "css",
         "definition": "span[data-test-id='graph-title']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "graphId",
-        "byType": "id",
+        "byType": "css",
         "definition": "span[data-test-id='graph-id']",
         "frame": "default",
         "specialInstr": "NA"

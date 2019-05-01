@@ -1,85 +1,85 @@
 {
     "webElements": [{
         "name": "titleName",
-        "byType": "id",
+        "byType": "css",
         "definition": "div >* input[value = 'Untitled']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "moduleTab",
-        "byType": "id",
+        "byType": "css",
         "definition": "a[href='#module-palette']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "gradedEquationButtonlink",
-        "byType": "id",
+        "byType": "css",
         "definition": "#module-palette-graded_equation > div.module-palette-button-text",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "questionTab",
-        "byType": "id",
+        "byType": "css",
         "definition": "a[data-test-id='question-context']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "questionContent",
-        "byType": "id",
+        "byType": "css",
         "definition": "#primary-content-area",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "answerLabel",
-        "byType": "id",
+        "byType": "css",
         "definition": "span[aria-label ='Answer =']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "defaultTab",
-        "byType": "id",
+        "byType": "css",
         "definition": "div > * li > a[data-test-id='default-context']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "correctTab",
-        "byType": "id",
+        "byType": "css",
         "definition": "a[data-test-id='correct-context']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "equationField",
-        "byType": "id",
+        "byType": "css",
         "definition": "div[data-test-id='equation-field-container'] > div > div:nth-child(2) > div > div > textarea",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "prefixField",
-        "byType": "id",
+        "byType": "css",
         "definition": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > textarea",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "authoranswerText",
-        "byType": "id",
+        "byType": "css",
         "definition": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > div > div.ace_scroller > div",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "authorquestionText",
-        "byType": "id",
+        "byType": "css",
         "definition": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div.ace_scroller > div",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "takeModeButton",
-        "byType": "id",
+        "byType": "css",
         "definition": "button#take-button",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "takeModeAnswerText1",
-        "byType": "id",
+        "byType": "css",
         "definition": "span.mq-math-mode",
         "frame": "default",
         "specialInstr": "NA"
@@ -91,43 +91,43 @@
         "specialInstr": "NA"
     }, {
         "name": "editPanelQuestion",
-        "byType": "id",
+        "byType": "css",
         "definition": "#module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > * div.ace_scroller > div > div.ace_layer.ace_text-layer > div >* span",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "gradeAs",
-        "byType": "id",
+        "byType": "css",
         "definition": "select.greq-input[data-test-id='eval-type-dropdown']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "saveButton",
-        "byType": "id",
+        "byType": "css",
         "definition": "button#save-button",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "editButton",
-        "byType": "id",
+        "byType": "css",
         "definition": "button#edit-button",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "simulateButton",
-        "byType": "id",
+        "byType": "css",
         "definition": "button#check-answer-button",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "gradedCorrect",
-        "byType": "id",
+        "byType": "css",
         "definition": "a.text-center[data-test-id ='correct-context']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "incorrectAnswerAlert",
-        "byType": "id",
+        "byType": "css",
         "definition": "div#primary-content-area > section.red-border",
         "frame": "default",
         "specialInstr": "NA"
@@ -139,13 +139,13 @@
         "specialInstr": "NA"
     }, {
         "name": "correctAnswer",
-        "byType": "id",
+        "byType": "css",
         "definition": "div[aria-label ='Correct Answer']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "ungradedAnswerText",
-        "byType": "id",
+        "byType": "css",
         "definition": "div.module-graded-incorrect",
         "frame": "default",
         "specialInstr": "NA"
@@ -163,13 +163,13 @@
         "specialInstr": "NA"
     }, {
         "name": "upperTolerancePlus",
-        "byType": "id",
+        "byType": "css",
         "definition": "div.math-tolerance > div:nth-child(2) > input.numeric-entry-input",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "lowerToleranceMinus",
-        "byType": "id",
+        "byType": "css",
         "definition": "div.math-tolerance > div:nth-child(4)> input.numeric-entry-input",
         "frame": "default",
         "specialInstr": "NA"

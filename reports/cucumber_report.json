@@ -1,0 +1,107 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "New graph editor",
+    "line": 1,
+    "id": "new-graph-editor",
+    "tags": [],
+    "uri": "features/MATH/tests/graphing/graphs-editor.feature",
+    "elements": [
+      {
+        "id": "new-graph-editor;verifies-new-graph-button-opens-unsaved-graph-in-a-new-tab",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Verifies new graph button opens unsaved graph in a new tab",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features/support/hooks.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 965000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login to AMS as \"all-permissions-author\"",
+            "match": {
+              "location": "features/shared/steps/login.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5197000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I click on the Graphs Tab",
+            "match": {
+              "location": "features/MATH/steps/graphs-tab.js:8"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1169000000,
+              "error_message": "ReferenceError: qa is not defined\n    at ThisWorld.<anonymous> (/Users/thomasdsilva/Documents/Macmillan/QA/Automation/cucumber-framework/features/MATH/steps/graphs-tab.js:11:5)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click on Graph button",
+            "match": {
+              "location": "features/MATH/steps/graphs-editor.js:7"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I verify new graph editor opens in a new tab with that tab in focus",
+            "match": {
+              "location": "features/MATH/steps/graphs-editor.js:12"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I verify the new unsaved graph url, graph ID does not contain graph Id number",
+            "match": {
+              "location": "features/MATH/steps/graphs-editor.js:18"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "features/support/hooks.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

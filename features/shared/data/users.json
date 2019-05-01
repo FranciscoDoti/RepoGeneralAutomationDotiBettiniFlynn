@@ -18,5 +18,22 @@
             "username": "non-graph-user",
             "password": "fasterthansixmill"
         }
+    },
+    "environment name": {
+        "user1": {
+            "username": "user1 name",
+            "password": "user1 password",
+            "email" : "user1 email",
+            "firstname": "user1 firstname",
+            "lastname":"user1 lastname",
+            "anyother property":"anyother user1 property"
+        },
+        "user2": {
+            "username": "user2 name",
+            "password": "user2 password",
+            "email" : "user2 email",
+            "firstname": "user2 firstname",
+            "lastname":"user2 lastname"
+        }
     }
 }

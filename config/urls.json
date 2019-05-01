@@ -13,10 +13,10 @@
         "prod":"https://achieve.macmillanlearning.com/start",
         "pre-prod":"https://int-achieve-preprod-courseware-frontend.mldev.cloud/"
     },
-    "sapling":{
-        "local":"http://local.saplinglearning.me:3080",
-        "int":"http://int.saplinglearning.me",
-        "dev":"http://dev.saplinglearning.me",
+    "AMS":{
+        "local":"http://local.saplinglearning.me:3080/ams",
+        "int":"http://int.saplinglearning.me/ams",
+        "dev":"http://dev.saplinglearning.me/ams",
         "prod":"",
         "pre-prod":""
     },

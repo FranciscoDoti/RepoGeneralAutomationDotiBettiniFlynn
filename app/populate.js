@@ -15,6 +15,7 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
         log.debug('By passing radio button click');
       }
       break;
+
     case 'email':
     case 'text':
       await populateTextField(eleTarget, strValue, actionElement);
@@ -31,14 +32,15 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
         log.debug('Bypassing the checkbox click');
       }
       break;
-    case 'submit':
+
+    case 'button':
       if (strValue.toLowerCase() === 'click') {
         await populateClick(eleTarget, strValue, actionElement);
       } else {
-        log.debug('Bypassing the submit click');
+        log.debug('Bypassing the button click');
       }
       break;
-    case 'button':
+
     case 'submit':
       if (strValue.toLowerCase() === 'click') {
         await populateClick(eleTarget, strValue, actionElement);
@@ -46,6 +48,7 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
         log.debug('Bypassing the button click');
       }
       break;
+
     default:
       log.debug(
         'ERROR: populateInput() failed because the input type ' +

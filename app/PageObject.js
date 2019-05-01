@@ -80,15 +80,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     var numberOfColumns = rows[0].length;
     var numberOfRows = rows.length - 1;
 
-    // each row will be an object with table header as a key
-    // console.log('Column count: ', rows[0].length);
-    // console.log('row : ', 0, rows[0]);
-    // console.log('row : ', 1, rows[1]);
-
     for (let rowIndex = 1; rowIndex < numberOfRows; rowIndex++) {
       for (let columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
         console.log('TABLE: ', rows[0][columnIndex], rows[rowIndex][columnIndex]);
-        //  console.log('pageDef: ' + table.hashes()[rowIndex][1] + 'value ' + table.hashes()[rowIndex].value)
         await genericPopulateElement(rows[0][columnIndex], rows[rowIndex][columnIndex]);
       }
     }
@@ -122,11 +116,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       elementTarget = await WebElement(tempElement);
       actionElement.webElement = elementTarget;
 
-      // log.debug(`****genericPopulateElement: ${elementName}`);
-
       const webElement = await elementTarget.getWebElement();
       const tagName = await webElement.getTagName();
-      
       switch (tagName.toLowerCase()) {
         case 'input':  
         await populateInput(webElement, value, actionElement);

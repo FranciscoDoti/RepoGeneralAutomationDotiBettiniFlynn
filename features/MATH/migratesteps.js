@@ -56,7 +56,19 @@ module.exports = {
                     statements[i] = `await pages.${pagename}.sendKeys('${objectname}', ${data});`;
                 } else if (s.includes("const _ = require('lodash');")) {
                     statements[i] = "";
-                } else if (s.includes("let qa = new selenium(this.driver);")) {
+                } else if (s.includes("app/selenium.js');")) {
+                    statements[i] = "";
+                } else if (s.includes("/master-page.js');")) {
+                    statements[i] = "";
+                } else if (s.includes("_support/url.js');")) {
+                    statements[i] = "";
+                } else if (s.includes("/config.js');")) {
+                    statements[i] = "";
+                } else if (s.includes("/master-text.js');")) {
+                    statements[i] = "";
+                } else if (s.includes("const { Key } = require('selenium-webdriver');")) {
+                    statements[i] = "";
+                } else if (s.includes("selenium(this.driver)")) {
                     statements[i] = "";
                 };
             });

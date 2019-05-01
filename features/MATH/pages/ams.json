@@ -1,43 +1,43 @@
 {
     "webElements": [{
         "name": "raptorNewItem",
-        "byType": "id",
+        "byType": "css",
         "definition": "a[data-test-id='newItemRaptorBtn']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "getItemid",
-        "byType": "id",
+        "byType": "css",
         "definition": "div.author-app-item-details > table > tbody > tr > td:nth-child(2)",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "itemStatus",
-        "byType": "id",
+        "byType": "css",
         "definition": "select[data-test-id ='details-status']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "modalSave",
-        "byType": "id",
+        "byType": "css",
         "definition": "button[data-test-id='reset-modal-reset-button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "columnStatus",
-        "byType": "id",
+        "byType": "css",
         "definition": "div#item-panel > * td:nth-child(9)",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "filterSearch",
-        "byType": "id",
+        "byType": "css",
         "definition": "#q",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "graphTab",
-        "byType": "id",
+        "byType": "css",
         "definition": "a[data-test-id='graphsBtn']",
         "frame": "default",
         "specialInstr": "NA"
