@@ -45,28 +45,67 @@ driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
+  await driver.manage().timeouts().implicitlyWait(config.timeout);
   return driver.get(url);
 };
 
 const closeBrowser = async function(){
-  log.debug(`Closing the browser. Current URL is ${await driver.getCurrentUrl()}.`);
+  log.info(`Closing the browser. Current URL is ${await driver.getCurrentUrl()}.`);
   return driver.quit();
 };
 
-const resetBrowser = async function(){
+const resetBrowser = async function () {
   //close all tabs but 1
   var tabs = await driver.getAllWindowHandles();
   if (tabs.length > 1) {
     for (let index = 1; index < tabs.length; index++) {
-      await driver.switchTo().window(tabs[index]);
+      await switchToTab(tabs[index]);
+      log.info(`Closing tab ${await getTitle()}.`);
       await driver.close();
     }
   }
-  driver.switchTo().window(tabs[0]);
+  await switchToTab(tabs[0]);
   //clear cache and cookies
-  log.debug(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
+  log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
   await driver.manage().deleteAllCookies();
   return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
+};
+
+const activateTab = async function (tabName) {
+  var masterTab = await driver.getWindowHandle();
+  var tabs = await driver.getAllWindowHandles();
+
+  for (let index = 0; index < tabs.length; index++) {
+    await switchToTab(tabs[index]);
+    currentTabName = await getTitle();
+    if (currentTabName.includes(tabName)) {
+      break;
+    }
+  }
+
+  currentTabName = await getTitle();
+  if (!currentTabName.includes(tabName)) {
+    log.info(`${tabName} tab was not found.`);
+    await switchToTab(masterTab);
+  } else {
+    log.debug(`${currentTabName} tab activated.`);
+  }
+};
+
+const switchToTab = async function (tab) {
+  try {
+    await driver.switchTo().window(tab);
+  } catch (err) {
+    log.error(err.stack);
+  }
+};
+
+const getTitle = async function () {
+  try {
+    return driver.getTitle();
+  } catch (err) {
+    log.error(err.stack);
+  }
 };
 
 const getDriver = function () {
@@ -143,6 +182,7 @@ module.exports = {
   closeBrowser,
   resetBrowser,
   visitURL,
+  activateTab,
   getDriver,
   getWebDriver,
   onPageLoadedWaitById,

@@ -9,7 +9,7 @@ const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
 const WebElement = require('./WebElement');
 const { loadJSONFile } = require('./util');
-const { getDriver, getWebDriver, sleep } = require('./driver');
+const { getDriver, getWebDriver, sleep, activateTab } = require('./driver');
 const { log } = require('./logger');
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
 
@@ -254,14 +254,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 */
       // If need to hit a iframe, do it
       await switchFrame(tempElement.frame);
-
       elementTarget = await WebElement(tempElement);
       actionElement.webElement = elementTarget;
-
-      // log.debug(`****genericPopulateElement: ${elementName}`);
-      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
-
-      // const webElement = await elementTarget.getWebElement();
       return elementTarget.elementExists();
     } else {
       log.error(`ERROR: WebElement ${elementName} not found in PageElements during checkWebElementExists() attempt.`);
@@ -428,6 +422,16 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  const switchToTab = async function (tabName) {
+    try {
+      log.debug(`Switching to tab : ${tabName}`);
+      await activateTab(tabName);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
   that.assert = assert;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
@@ -449,6 +453,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.scrollElementIntoView = scrollElementIntoView;
   that.scrollIntoView = scrollIntoView;
   that.getText = getText;
+  that.switchToTab = switchToTab;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

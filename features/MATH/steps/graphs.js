@@ -14,7 +14,7 @@ When(/^I click on Graph button$/, async function () {
 });
 
 Then(/^I verify new graph editor opens in a new tab with that tab in focus$/, async function () {
-    await qa.changeWindow(1);
+    await pages.newGraph.switchToTab('Graphing');
     await pages.newGraph.elementExists('title');
 });
     

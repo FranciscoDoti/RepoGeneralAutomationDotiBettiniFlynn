@@ -30,16 +30,14 @@ const WebElement = function (element) {
 
   that.elementExists = async function () {
     const elementDef = await this.getBy();
-    // const returnExists = await my.driver.findElements(elementDef).size != 0;
-    let returnExists = true;
     try {
       await my.driver.findElement(elementDef).isDisplayed();
+      log.info("Web Element found on page.");
+      return true;
     } catch(err) {
-      // console.log(err);
-      returnExists = false;
-      return returnExists;
+      log.info("Web Element was not found on page.");
+      return false;
     }
-    return returnExists;
   };
 
   that.scrollIntoView = async function () {
