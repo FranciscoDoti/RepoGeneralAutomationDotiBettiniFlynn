@@ -8,8 +8,7 @@ const { log } = require('./logger');
 const config = require('../config/config.json');
 
 let driver;
-
-const buildDriver = async function(){
+const buildDriver = function(){
   
   var options = new chrome.Options().headless();
   var prefs = new webdriver.logging.Preferences();
@@ -42,10 +41,7 @@ const buildDriver = async function(){
   log.info(`${config.browser} browser launched.`);
   return driver.build();
 };
-
-const initDriver = async function(){
-  driver = await buildDriver();
-};
+driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
@@ -55,6 +51,22 @@ const visitURL = async function(url){
 const closeBrowser = async function(){
   log.debug(`Closing the browser. Current URL is ${await driver.getCurrentUrl()}.`);
   return driver.quit();
+};
+
+const resetBrowser = async function(){
+  //close all tabs but 1
+  var tabs = await driver.getAllWindowHandles();
+  if (tabs.length > 1) {
+    for (let index = 1; index < tabs.length; index++) {
+      await driver.switchTo().window(tabs[index]);
+      await driver.close();
+    }
+  }
+  driver.switchTo().window(tabs[0]);
+  //clear cache and cookies
+  log.debug(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
+  await driver.manage().deleteAllCookies();
+  return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
 };
 
 const getDriver = function () {
@@ -128,8 +140,8 @@ process.argv.forEach(function (val, index, array) {
 });
 
 module.exports = {
-  initDriver,
   closeBrowser,
+  resetBrowser,
   visitURL,
   getDriver,
   getWebDriver,

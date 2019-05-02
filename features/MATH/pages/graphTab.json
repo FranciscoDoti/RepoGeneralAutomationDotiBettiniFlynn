@@ -6,6 +6,12 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "graphsFrame",
+        "byType": "id",
+        "definition": "graphsFrame",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "list",
         "byType": "css",
         "definition": "table.graphList > tbody > * td :nth-child(1)",
@@ -81,7 +87,7 @@
         "name": "newGraphButton",
         "byType": "css",
         "definition": "button[data-test-id='newGraphBtn']",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }]
 }

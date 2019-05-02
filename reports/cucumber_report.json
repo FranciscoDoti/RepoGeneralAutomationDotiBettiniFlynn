@@ -16,17 +16,6 @@
         "type": "scenario",
         "steps": [
           {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "features/support/hooks.js:5"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 965000000
-            }
-          },
-          {
             "arguments": [],
             "keyword": "Given ",
             "line": 5,
@@ -36,7 +25,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 5197000000
+              "duration": 5950000000
             }
           },
           {
@@ -45,12 +34,11 @@
             "line": 6,
             "name": "I click on the Graphs Tab",
             "match": {
-              "location": "features/MATH/steps/graphs-tab.js:8"
+              "location": "features/MATH/steps/graphs.js:8"
             },
             "result": {
-              "status": "failed",
-              "duration": 1169000000,
-              "error_message": "ReferenceError: qa is not defined\n    at ThisWorld.<anonymous> (/Users/thomasdsilva/Documents/Macmillan/QA/Automation/cucumber-framework/features/MATH/steps/graphs-tab.js:11:5)"
+              "status": "passed",
+              "duration": 879000000
             }
           },
           {
@@ -59,10 +47,11 @@
             "line": 7,
             "name": "I click on Graph button",
             "match": {
-              "location": "features/MATH/steps/graphs-editor.js:7"
+              "location": "features/MATH/steps/graphs.js:12"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 1140000000
             }
           },
           {
@@ -71,33 +60,97 @@
             "line": 8,
             "name": "I verify new graph editor opens in a new tab with that tab in focus",
             "match": {
-              "location": "features/MATH/steps/graphs-editor.js:12"
+              "location": "features/MATH/steps/graphs.js:16"
             },
             "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 9,
-            "name": "I verify the new unsaved graph url, graph ID does not contain graph Id number",
-            "match": {
-              "location": "features/MATH/steps/graphs-editor.js:18"
-            },
-            "result": {
-              "status": "skipped"
+              "status": "failed",
+              "duration": 2000000,
+              "error_message": "ReferenceError: qa is not defined\n    at ThisWorld.<anonymous> (/Users/thomasdsilva/Documents/Macmillan/QA/Automation/cucumber-framework/features/MATH/steps/graphs.js:17:5)"
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "match": {
-              "location": "features/support/hooks.js:9"
+              "location": "features/support/hooks.js:5"
             },
             "result": {
               "status": "passed",
-              "duration": 71000000
+              "duration": 143000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "new-graph-editor;verifies-new-graph-button-opens-unsaved-graph-in-a-new-tab",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Verifies new graph button opens unsaved graph in a new tab",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "I login to AMS as \"all-permissions-author\"",
+            "match": {
+              "location": "features/shared/steps/login.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2727000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I click on the Graphs Tab",
+            "match": {
+              "location": "features/MATH/steps/graphs.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1141000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I click on Graph button",
+            "match": {
+              "location": "features/MATH/steps/graphs.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1139000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "I verify new graph editor opens in a new tab with that tab in focus",
+            "match": {
+              "location": "features/MATH/steps/graphs.js:16"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "ReferenceError: qa is not defined\n    at ThisWorld.<anonymous> (/Users/thomasdsilva/Documents/Macmillan/QA/Automation/cucumber-framework/features/MATH/steps/graphs.js:17:5)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "features/support/hooks.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 91000000
             }
           }
         ]
