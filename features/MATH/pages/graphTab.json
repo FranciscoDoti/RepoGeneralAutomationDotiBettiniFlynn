@@ -12,81 +12,99 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "newGraphButton",
+        "byType": "css",
+        "definition":  "button[data-test-id='newGraphBtn']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
         "name": "list",
         "byType": "css",
         "definition": "table.graphList > tbody > * td :nth-child(1)",
-        "frame": "default",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "typecolumndata",
+        "byType": "css",
+        "definition": "td[data-test-id^='graph-type-']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "idcolumndata",
+        "byType": "css",
+        "definition": "td[data-test-id^='graph-id-']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "titlecolumndata",
+        "byType": "css",
+        "definition": "td[data-test-id^='graph-title-']",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "table",
         "byType": "css",
         "definition": "#graph-panel > * tr",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "itemPreview",
         "byType": "css",
         "definition": "span[data-test-id='item-preview-3']",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "actions",
         "byType": "css",
         "definition": "table.graphList > tbody >  tr:nth-child(1) >td",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "idColumnName",
         "byType": "css",
         "definition": "th[data-test-id='Id']",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "sortAscendIcon",
         "byType": "css",
         "definition": "span.glyphicon.glyphicon-sort-by-attributes",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "sortDescendIcon",
         "byType": "css",
         "definition": "span.glyphicon.glyphicon-sort-by-attributes-alt",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "id",
         "byType": "css",
         "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(2)",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "titleColumnName",
         "byType": "css",
         "definition": "th[data-test-id='Title']",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "title",
         "byType": "css",
         "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(3)",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "typeColumnName",
         "byType": "css",
         "definition": "th[data-test-id='Type']",
-        "frame": "default",
+        "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "type",
         "byType": "css",
         "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(4)",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "newGraphButton",
-        "byType": "css",
-        "definition": "button[data-test-id='newGraphBtn']",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }]

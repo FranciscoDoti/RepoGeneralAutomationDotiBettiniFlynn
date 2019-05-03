@@ -17,7 +17,7 @@ var options = {
     };
  
     reporter.generate(options);
-    process.exit();
+    //process.exit();
     
  
     //more info on `metadata` is available in `options` section below.

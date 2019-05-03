@@ -3,7 +3,7 @@
     "mode": "local",
     "browser": "chrome",
     "screenshots": "true",
-    "timeout": 10000,
+    "timeout": 60000,
 
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",

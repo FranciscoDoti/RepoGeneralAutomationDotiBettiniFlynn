@@ -54,22 +54,19 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const switchFrame = async function (elementName) {
-    // log.debug('Checking need to switch to iframe');
-    let isNumber = true;
-    if (typeof elementName !== 'number') {
-      isNumber = false;
-    }
-    // elementName is the name of the frame element in the json file. if it is default, switch to frame(0)
-    if ((!isNumber && !elementName) || elementName === 'default') {
-      // log.debug('Do nothing, no frame set: ' + elementName);
-    } else { // else , look up the frame element in the hash table. get the webElement for the frame switch to the frame.
-      if (isNumber) {
-        log.debug('Switching Frame to frame via number(' + elementName + ')');
-        that.driver.switchTo().frame(elementName);
+    await that.driver.switchTo().defaultContent();
+    if (elementName == 'default') {
+      // if frame name is default then see above
+    } else {
+      if (typeof elementName === 'number') {
+        log.debug(`Switching to frame number ${elementName}`);
+        await that.driver.switchTo().frame(elementName);
       } else {
-        var frameElementObj = await getElement(elementName);
-        that.driver.switchTo().frame(frameElementObj.definition);
-        await sleep(500);
+        log.debug(`Switching to frame ${elementName}`);
+        if (await checkWebElementExists(elementName)) {
+          var WebElementData = await getElement(elementName);
+          await that.driver.switchTo().frame(WebElementData.definition);
+        }
       }
     }
   }
@@ -139,6 +136,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           await populateClick(webElement, value, actionElement);
           break;
         case 'ul':
+          await populateClick(webElement, value, actionElement);
+          break;
+        case 'th':
           await populateClick(webElement, value, actionElement);
           break;
         case 'select':
@@ -418,7 +418,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   const getText = async function (elementName, attributeName) {
     try {
-      return await that.driver.getAttributeValue(elementName, attributeName);
+      return await getAttributeValue(elementName);
     } catch (err) {
       log.error(err.stack);
       throw err;
