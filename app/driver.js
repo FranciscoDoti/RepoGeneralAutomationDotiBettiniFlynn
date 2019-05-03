@@ -108,6 +108,14 @@ const getTitle = async function () {
   }
 };
 
+const getURL = async function () {
+  try {
+    return driver.getCurrentUrl();
+  } catch (err) {
+    log.error(err.stack);
+  }
+};
+
 const getDriver = function () {
   return driver;
 };
@@ -182,6 +190,7 @@ module.exports = {
   closeBrowser,
   resetBrowser,
   visitURL,
+  getURL,
   activateTab,
   getDriver,
   getWebDriver,

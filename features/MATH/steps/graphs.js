@@ -15,18 +15,41 @@ When(/^I click on Graph button$/, async function () {
 
 Then(/^I verify new graph editor opens in a new tab with that tab in focus$/, async function () {
     await pages.newGraph.switchToTab('Graphing');
-    await pages.newGraph.elementExists('title');
+    await pages.newGraph.assertElementExists('title');
 });
     
-    Then(/^I verify the new unsaved graph url, graph ID does not contain graph Id number$/, async function () {
-    
-        let currentUrl = await qa.getUrl();
-        let urlgraphId = currentUrl.split("/")[5];
-        let graphIdText= await qa.getText(page.math.newGraph.graphId);
-        dash = graphIdText.split(" ")[1];
-        expect(dash).to.be.eql('—');
-        expect(urlgraphId).to.be.undefined;
-    });
+Then(/^I verify the new unsaved graph url, graph ID does not contain graph Id number$/, async function () {
+    let currentUrl = await pages.newGraph.getCurrentURL();
+    let urlgraphId = currentUrl.split("/")[5];
+    expect(urlgraphId).to.be.undefined;
+
+    await pages.newGraph.assertText('graphId','ID: —');
+});
+
+Then(/^I verify the new Graphs tab exists$/, async function () {
+    await pages.ams.assertElementExists('graphTab');
+});
+
+Then(/^I verify that Graphs tab does not exist$/, async function () {
+    await pages.ams.assertElementDoesNotExist('graphTab');
+});
+
+Then(/^I verify Graph button and static column names are displayed$/, async function () {
+    await pages.newGraph.switchToTab('Graphing');
+    pages.graphTab.assertElementExists('newGraphButton');
+    pages.graphTab.assertElementExists('idColumnName');
+    pages.graphTab.assertElementExists('titleColumnName');
+    pages.graphTab.assertElementExists('typeColumnName');
+});
+
+When(/^I click on the New Raptor item in the AMS page$/, async function () {
+    await pages.ams.click('raptorNewItem');
+});
+
+When(/^I navigate to AuthorApp$/, async function () {
+    await qa.changeWindow(1);
+    await pages.raptorAms.assertElementExists('addMenuBar');
+});
     
     
 
@@ -66,11 +89,11 @@ Then(/^I verify new graph editor opens in a new tab with that tab in focus$/, as
         switch (sort) {
             case 'ascending':
                 expect(colArray).to.be.sorted();
-    await pages.graphTab.elementExists('sortAscendIcon');
+    await pages.graphTab.assertElementExists('sortAscendIcon');
                 break;
             case 'descending':
                 expect(colArray).to.be.sorted({ descending: true });
-    await pages.graphTab.elementExists('sortDescendIcon');
+    await pages.graphTab.assertElementExists('sortDescendIcon');
                 break;
             case 'unsorted':
                 expect(colArray).to.be.sorted({ ascending: false });
@@ -89,28 +112,7 @@ Then(/^I verify new graph editor opens in a new tab with that tab in focus$/, as
 
 
     
-    Then(/^I verify the new Graphs tab exists$/, async function () {
-    
-    await pages.ams.elementExists('graphTab');
-    });
-    
-    Then(/^I verify that Graphs tab does not exist$/, async function () {
-    
-        await qa.doesNotExist(page.math.ams.graphTab);
-    
-    });
-    
-    Then(/^I verify Graph button and static column names are displayed$/, async function () {
-    
-        // await qa.switchFrame("graphsFrame");
-    
-        //  Verify column names
-    
-    await pages.graphTab.elementExists('newGraphButton');
-    await pages.graphTab.elementExists('idColumnName');
-    await pages.graphTab.elementExists('titleColumnName');
-    await pages.graphTab.elementExists('typeColumnName');
-    });
+
     
     Then(/^I verify Graph type is Graded or Ungraded$/, async function () {
     
@@ -122,16 +124,5 @@ Then(/^I verify new graph editor opens in a new tab with that tab in focus$/, as
             expect(assert_text.math.graphType).to.include(txt);
         }
     });
-    
-    When(/^I click on the New Raptor item in the AMS page$/, async function () {
-    
-        await pages.ams.click('raptorNewItem');
-        });
-        
-        When(/^I navigate to AuthorApp$/, async function () {
-        
-          await qa.changeWindow(1);
-        await pages.raptorAms.elementExists('addMenuBar');
-        });
     
     

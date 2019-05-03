@@ -29,13 +29,11 @@ const WebElement = function (element) {
   };
 
   that.elementExists = async function () {
-    const elementDef = await this.getBy();
     try {
-      await my.driver.findElement(elementDef).isDisplayed();
-      log.info("Web Element found on page.");
-      return true;
+      const elementDef = await this.getBy();
+      return await my.driver.findElement(elementDef).isDisplayed();
     } catch(err) {
-      log.info("Web Element was not found on page.");
+      log.error(`Error while finding Web Element. ${err}`);
       return false;
     }
   };
