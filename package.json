@@ -20,7 +20,7 @@
     "ins": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/system/validate_version.feature --world-parameters='{\"config\":\"int/achieve\"}'",
     "ins2": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/automobile/validate_auto_premium.feature --world-parameters='{\"config\":\"int/achieve\"}'",
     "lc-preprod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/lc/ --world-parameters='{\"config\":\"int/pre-prod\"}'",
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json"
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-permit.feature -f json:reports/cucumber_report.json"
   },
   "dependencies": {
     "any-promise": "1.3.0",

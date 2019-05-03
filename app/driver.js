@@ -204,9 +204,6 @@ module.exports = {
   sleep
 };
 
-// https://stackoverflow.com/questions/49862078/protractor-and-cucumber-function-timed-out-using-async-await
-var {setDefaultTimeout} = require('cucumber');
-setDefaultTimeout(config.timeout);
 
 
 
