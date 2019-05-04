@@ -1,6 +1,5 @@
 var Imap = require('imap');
 var simpleParser = require("mailparser").simpleParser;
-var cheerio = require('cheerio');
 let Link;
 
 const connectClient = async function(user, password, regexChoice) {

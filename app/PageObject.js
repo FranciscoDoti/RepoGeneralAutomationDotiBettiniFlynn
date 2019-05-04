@@ -2,8 +2,7 @@
  * http://usejsdoc.org/
  */
 'use strict';
-const { assert } = require('chai');
-
+const { expect } = require('chai');
 const HashTable = require('./hashtable');
 const StringProcessing = require('./stringProcessing');
 const ScenarioData = require('./scenarioData');
@@ -12,7 +11,6 @@ const { loadJSONFile } = require('./util');
 const { getDriver, getWebDriver, sleep, activateTab, getURL } = require('./driver');
 const { log } = require('./logger');
 const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
-const { expect } = require('chai');
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
@@ -394,7 +392,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     try {
       const actualValue = await getAttributeValue(elementName);
       log.info(`Asserting text for "${elementName}"`);
-      //await this.assert.equal(actualValue, expectedValue, `Expected ${elementName} -> ${actualValue} to equal ${expectedValue}`);
       if(await expect(actualValue).to.equal(expectedValue)){
         log.info(`Actual value "${actualValue}" to equal Expected value "${expectedValue}"`);
       };
@@ -408,7 +405,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     try {
       const actualValue = await getAttributeValue(elementName);
       log.debug(`Expecting "${elementName}" -> "${actualValue}" to include "${expectedValue}"`);
-      //await this.assert(actualValue.includes(expectedValue), `Expected ${elementName} -> ${actualValue} to include ${expectedValue}`);
       await expect(actualValue).to.include(expectedValue);
     } catch (err) {
       log.error(err.stack);
@@ -466,7 +462,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  that.assert = assert;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
   that.assertDisabled = assertDisabled;

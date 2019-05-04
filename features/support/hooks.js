@@ -2,18 +2,18 @@ var { After, AfterAll } = require('cucumber');
 //var fs = require('fs');
 const { getDriver, closeBrowser, resetBrowser } = require('../../app/driver');
 
-// After(async function(scenario){
-//   //if (scenario.result.status === Status.FAILED) {
-//     console.log(scenario.result.status);
-//     var screenshot = await getDriver().takeScreenshot();
-//     await this.attach(screenshot, 'image/png');
-//   //}
-//   await resetBrowser();
-// });
+After(async function(scenario){
+  //if (scenario.result.status === Status.FAILED) {
+    console.log(scenario.result.status);
+    var screenshot = await getDriver().takeScreenshot();
+    await this.attach(screenshot, 'image/png');
+  //}
+  await resetBrowser();
+});
 
-// AfterAll(async function(){
-//   await closeBrowser();
-// });
+AfterAll(async function(){
+  await closeBrowser();
+});
 
 // After(async function(scenarioResult) {
 //   if (scenarioResult.result.status === 'failed') {
