@@ -7,7 +7,7 @@ function ThisWorld({attach}) {
   this.browser = config.browser;
   this.screenshots = config.screenshots;
   this.attach = attach;
-  this.downloadLocation = process.cwd() + '/reports/download/';
+  this.downloadLocation = process.cwd() + '/reports/downloads';
   // this.webdriver = seleniumWebDriver; look in driver.js
   setDefaultTimeout(config.timeout);
 };

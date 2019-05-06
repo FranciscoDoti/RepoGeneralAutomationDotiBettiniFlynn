@@ -13,14 +13,19 @@ const buildDriver = function(){
   const driver = new webdriver.Builder();
   if(config.browser.toLowerCase() == 'chrome')
   {
-    var options = new chrome.Options();
-    options.addArguments(`download.default_directory=${process.cwd()}+/reports/download/`);
-    
+    var chromeOptions = {
+      'args':['--start-maximized','--disable-infobars'],
+      'prefs':{
+        'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
+        'download.prompt_for_download':false,
+        'download.default_directory':`${process.cwd()}/reports/downloads`
+      }
+    };
+    var chromeCapabilities = webdriver.Capabilities.chrome();
+    chromeCapabilities.set('chromeOptions', chromeOptions);
     switch (config.mode) {
       case 'local':
-        driver.forBrowser('chrome')
-        .setChromeOptions(options)
-        //.withCapabilities(config.capabilities)
+        driver.withCapabilities(chromeCapabilities)
         break;
       case 'headless':
         var headlessOptions = options.headless();
@@ -28,22 +33,16 @@ const buildDriver = function(){
         loggingPrefs.setLevel(webdriver.logging.Type.BROWSER, webdriver.logging.Level.ALL);
         headlessOptions.setLoggingPrefs(loggingPrefs);
 
-        driver.forBrowser('chrome')
-          .setChromeOptions(options)
+        driver.withCapabilities(chromeCapabilities)
           .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
-        //.withCapabilities(config.capabilities)
         break;
       case 'browserstack':
         driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
-          .forBrowser('chrome')
-          .setChromeOptions(options)
-        //.withCapabilities(config.capabilities)
+          .withCapabilities(chromeCapabilities)
         break;
       default:
         driver.usingServer('http://selenium:4444/wd/hub')
-          .forBrowser('chrome')
-          .setChromeOptions(options)
-        //.withCapabilities(config.capabilities)
+          .withCapabilities(chromeCapabilities)
     }
   }
 

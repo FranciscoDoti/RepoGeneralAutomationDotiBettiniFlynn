@@ -20,7 +20,7 @@
     "ins": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/system/validate_version.feature --world-parameters='{\"config\":\"int/achieve\"}'",
     "ins2": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/automobile/validate_auto_premium.feature --world-parameters='{\"config\":\"int/achieve\"}'",
     "lc-preprod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/lc/ --world-parameters='{\"config\":\"int/pre-prod\"}'",
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/test/PSV-3069/admintools.feature -f json:reports/cucumber_report.json"
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3069/admintools.feature -f json:reports/cucumber_report.json"
   },
   "dependencies": {
     "selenium-webdriver": "3.6.0",
