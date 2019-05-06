@@ -21,3 +21,14 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
     await pages.login.click('submit')
   };
 });
+
+Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
+  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let user = await _.get(users, [this.environment, userType]);
+
+  await visitURL(url);
+  await pages.login.click('signinlink');
+  await pages.login.populate('username', user.username);
+  await pages.login.populate('password', user.password);
+  await pages.login.click('signin');
+});

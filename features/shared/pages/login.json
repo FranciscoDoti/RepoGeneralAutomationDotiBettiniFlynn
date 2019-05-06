@@ -1,5 +1,11 @@
 {
     "webElements": [{
+        "name": "signinlink",
+        "byType": "css",
+        "definition": "button[data-test-id='sign_in_link_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
         "name": "username",
         "byType": "id",
         "definition": "username",
@@ -18,6 +24,12 @@
         "frame": "default",
         "specialInstr": "NA"
     },{
+        "name": "signin",
+        "byType": "id",
+        "definition": "signin",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "username-local",
         "byType": "id",
         "definition": "div#username > input",

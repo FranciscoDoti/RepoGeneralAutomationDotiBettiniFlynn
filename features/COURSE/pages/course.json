@@ -1,0 +1,33 @@
+{
+    "webElements": [{
+        "name": "togglerusermenu",
+        "byType": "css",
+        "definition": "button[data-test-id='user_dropdown_menu_open']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "adminpanel",
+        "byType": "css",
+        "definition": "span[data-test-id='menu_user_admin']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "coursereport",
+        "byType": "css",
+        "definition": "span[data-test-id='menu_user_admin_course_report']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "generatereport",
+        "byType": "css",
+        "definition": "button[data-test-id='course_report_modal_generate_report_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "exportbutton",
+        "byType": "css",
+        "definition": "button[data-test-id='course_report_modal_export_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}
