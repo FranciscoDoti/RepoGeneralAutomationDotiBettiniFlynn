@@ -10,32 +10,41 @@ const config = require('../config/config.json');
 let driver;
 const buildDriver = function(){
   
-  var options = new chrome.Options().headless();
-  var prefs = new webdriver.logging.Preferences();
-  prefs.setLevel(webdriver.logging.Type.BROWSER, webdriver.logging.Level.ALL);
-  options.setLoggingPrefs(prefs);
-
   const driver = new webdriver.Builder();
-  switch (config.mode) {
-    case 'local':
-      driver.forBrowser(config.browser)
-      //.withCapabilities(config.capabilities)
-      break;
-    case 'headless':
-      driver.forBrowser('chrome')
+  if(config.browser.toLowerCase() == 'chrome')
+  {
+    var options = new chrome.Options();
+    options.addArguments(`download.default_directory=${process.cwd()}+/reports/download/`);
+    
+    switch (config.mode) {
+      case 'local':
+        driver.forBrowser('chrome')
         .setChromeOptions(options)
-        .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
-      //.withCapabilities(config.capabilities)
-      break;
-    case 'browserstack':
-      driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
-        .forBrowser(config.browser)
-      //.withCapabilities(config.capabilities)
-      break;
-    default:
-      driver.usingServer('http://selenium:4444/wd/hub')
-        .forBrowser(config.browser)
-      //.withCapabilities(config.capabilities)
+        //.withCapabilities(config.capabilities)
+        break;
+      case 'headless':
+        var headlessOptions = options.headless();
+        var loggingPrefs = new webdriver.logging.Preferences();
+        loggingPrefs.setLevel(webdriver.logging.Type.BROWSER, webdriver.logging.Level.ALL);
+        headlessOptions.setLoggingPrefs(loggingPrefs);
+
+        driver.forBrowser('chrome')
+          .setChromeOptions(options)
+          .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+        //.withCapabilities(config.capabilities)
+        break;
+      case 'browserstack':
+        driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
+          .forBrowser('chrome')
+          .setChromeOptions(options)
+        //.withCapabilities(config.capabilities)
+        break;
+      default:
+        driver.usingServer('http://selenium:4444/wd/hub')
+          .forBrowser('chrome')
+          .setChromeOptions(options)
+        //.withCapabilities(config.capabilities)
+    }
   }
 
   log.info(`${config.browser} browser launched.`);
