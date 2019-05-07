@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-
 module.exports = {
     runner : function(){
         //creating page object for the feature
@@ -85,4 +84,4 @@ module.exports = {
     },
 };
 
-module.exports.runner();
+//module.exports.runner();

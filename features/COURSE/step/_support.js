@@ -346,35 +346,3 @@
 //   await qa.click(page.course.home.add_user_button);
 //   await qa.click(page.course.home.close_manage_roles);
 // });
-
-// When('I click on Generate Report', async function () {
-//   let qa = new selenium(this.driver);
-//   await qa.sleep();
-//   await qa.click(page.course.home.toggler_menu);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.user.admin);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.admin_menu.generate_course_report);
-//   await qa.sleep();
-//   await qa.click(page.course.admin_menu.generate_report);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.admin_menu.export_report);
-//   await qa.sleep(config.sleep);
-// });
-
-// Then('I verify the report is dowloaded with following data', async function (data_table) {
-//   let qa = new selenium(this.driver);
-//   await qa.sleep(config.sleep)
-//   let loadfile = require('../../csvtojson.js');
-//   loadfile(function (jsonObj) {
-//     for (let i = 0; i < data_table.rows().length; i++) {
-//       qa.sleep();
-//       for (let e = 0; e < jsonObj.length; e++) {
-//         let row = jsonObj[e]
-//         let validate = row.hasOwnProperty(data_table.hashes()[i].Verify);
-//         expect(validate).to.deep.equal(true)
-//         qa.sleep();
-//       }
-//     }
-//   });
-// });
