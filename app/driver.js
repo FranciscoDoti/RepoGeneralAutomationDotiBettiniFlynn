@@ -1,9 +1,5 @@
 // ------------ Start up the chrome server ------------
 const webdriver = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
-const firefox = require('selenium-webdriver/firefox');
-const chromePath = require('chromedriver').path;
-const firefoxPath = require('geckodriver').path;
 const { log } = require('./logger');
 const config = require('../config/config.json');
 

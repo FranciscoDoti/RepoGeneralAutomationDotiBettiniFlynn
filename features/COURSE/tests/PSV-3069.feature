@@ -5,13 +5,12 @@ Feature: Administrator Tools
         Given I login to Achieve-CW as "admin_1"
         When I generate and export course report
         Then I verify the report has the following columns
-            | ColumnNames                   |
-            | NGA                           |
-            | active learning               |
+            | ColumnName                    |
             | lcrp                          |
             | Product Model                 |
             | pathfinder                    |
             | writing                       |
             | staticfile                    |
-            | active learning               |
             | url                           |
+            | NGA                           |
+            | active learning               |
