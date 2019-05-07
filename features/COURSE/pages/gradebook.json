@@ -1,0 +1,9 @@
+{
+    "webElements": [{
+        "name": "gradebook",
+        "byType": "css",
+        "definition": "[data-test-id='gradebook_tab']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}
