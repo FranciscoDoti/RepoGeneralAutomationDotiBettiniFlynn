@@ -19,8 +19,8 @@
         "specialInstr": "NA"
     }, {
         "name": "course_report",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Course Report')]",
+        "byType": "css",
+        "definition": "[data-test-id='menu_user_admin_course_report']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -95,7 +95,21 @@
         "definition": "[data-test-id='manage_roles_modal_grant_role_btn']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
+    },
+    {
+        "name": "generate_report",
+        "byType": "css",
+        "definition": "[data-test-id='course_report_modal_generate_report_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "export_report",
+        "byType": "css",
+        "definition": "[data-test-id='course_report_modal_export_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
         "name": "revokerole",
         "byType": "css",
         "definition": "[data-test-id='manage_roles_modal_revoke_role_btn']",

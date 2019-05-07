@@ -20,21 +20,22 @@
     "ins": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/system/validate_version.feature --world-parameters='{\"config\":\"int/achieve\"}'",
     "ins2": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/automobile/validate_auto_premium.feature --world-parameters='{\"config\":\"int/achieve\"}'",
     "lc-preprod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/lc/ --world-parameters='{\"config\":\"int/pre-prod\"}'",
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3069/admintools.feature -f json:reports/cucumber_report.json"
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3069.feature -f json:reports/cucumber_report.json"
   },
   "dependencies": {
-    "selenium-webdriver": "3.6.0",
-    "geckodriver": "^1.14.1",
     "chai": "^4.1.2",
     "chai-sorted": "^0.2.0",
     "chromedriver": "^2.41.0",
+    "csvtojson": "^2.0.8",
     "cucumber": "^4.2.1",
     "eslint": "^4.19.1",
+    "faker": "^4.1.0",
+    "geckodriver": "^1.14.1",
     "imap": "^0.8.19",
     "jsonwebtoken": "^8.3.0",
     "mailparser": "^2.4.2",
-    "faker": "^4.1.0",
-    "parse-duration": "^0.1.1"
+    "parse-duration": "^0.1.1",
+    "selenium-webdriver": "3.6.0"
   },
   "devDependencies": {
     "cucumber-html-reporter": "^4.0.4",
