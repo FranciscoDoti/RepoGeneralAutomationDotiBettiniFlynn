@@ -8,7 +8,7 @@
     }, {
         "name": "getItemid",
         "byType": "css",
-        "definition": "div.author-app-item-details > table > tbody > tr > td:nth-child(2)",
+        "definition": "div.message-block",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -31,8 +31,8 @@
         "specialInstr": "NA"
     }, {
         "name": "filterSearch",
-        "byType": "css",
-        "definition": "#q",
+        "byType": "id",
+        "definition": "q",
         "frame": "default",
         "specialInstr": "NA"
     }, {

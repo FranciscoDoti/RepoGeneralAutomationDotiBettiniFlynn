@@ -5,10 +5,11 @@ const pages = {
     ams: new PageObject('ams.json', stepsPath),
     raptorAms: new PageObject('raptorAms.json', stepsPath),
     graphTab: new PageObject('graphTab.json', stepsPath),
-    newGraph: new PageObject('newGraph.json', stepsPath),
-    paletteBasic: new PageObject('paletteBasic.json', stepsPath),
+    graphEditor: new PageObject('graphEditor.json', stepsPath),
+    palette: new PageObject('palette.json', stepsPath),
+    nonPalette: new PageObject('nonPalette.json', stepsPath),
 };
 
-module.exports ={
+module.exports = {
     pages
 };

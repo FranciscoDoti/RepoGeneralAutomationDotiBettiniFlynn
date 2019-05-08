@@ -16,32 +16,32 @@ module.exports = {
         var includefiles = "";
         var files = fs.readdirSync(`pages`);
 
-        // files.forEach(f=> {
-        //     const pages = require(`../${ffn}/pages/${path.basename(f)}`);
-        //     console.log(`reading file ../${ffn}/pages/${path.basename(f)}.`);
+        files.forEach(f=> {
+            const pages = require(`../${ffn}/pages/${path.basename(f)}`);
+            console.log(`reading file ../${ffn}/pages/${path.basename(f)}.`);
 
-        //     Object.keys(pages).forEach(p => {
-        //         //add file name to be included in the file paths
-        //         includefiles = includefiles + `${p} : new PageObject('${p}.json', stepsPath),\n`
+            Object.keys(pages).forEach(p => {
+                //add file name to be included in the file paths
+                includefiles = includefiles + `${p} : new PageObject('${p}.json', stepsPath),\n`
                 
-        //         var webElements = pages[p];
-        //         var obj = {
-        //             webElements : []
-        //         };
+                var webElements = pages[p];
+                var obj = {
+                    webElements : []
+                };
 
-        //         //create json with formatted webelements //then //create file and add the formatted webelements json
-        //         this.formatWebElements(webElements, obj).then(
-        //         this.writeFile(`pages/${p}.json`, JSON.stringify(obj))
-        //         );
-        //     });
+                //create json with formatted webelements //then //create file and add the formatted webelements json
+                this.formatWebElements(webElements, obj).then(
+                this.writeFile(`pages/${p}.json`, JSON.stringify(obj))
+                );
+            });
 
-        //     //rename the source file after reading
-        //     this.renameFile(`./pages/${f}`, `./pages/.${f}`);
+            //rename the source file after reading
+            this.renameFile(`./pages/${f}`, `./pages/.${f}`);
 
             
-        //     //create the module name .js file with all file paths
-        //     this.writeFile(`pages/${ffn}.js`, `const stepsPath = process.cwd() + '${stepsPath}';\nconst { PageObject } = require('../../../app/pageObject');\n\nlet pages = {${includefiles}};`);
-        // });
+            //create the module name .js file with all file paths
+            this.writeFile(`pages/${ffn}.js`, `const stepsPath = process.cwd() + '${stepsPath}';\nconst { PageObject } = require('../../../app/pageObject');\n\nlet pages = {${includefiles}};`);
+        });
     },
 
     formatWebElements : async function(webElements, obj){
@@ -49,7 +49,8 @@ module.exports = {
             var value = webElements[w], id;
             
             if(value.substring(0,2) == "//"){id = "xpath";}
-            else if(value.substring(0,1) == "." || value.substring(0,1) == "["){id = "css";}
+            else if(value.startsWith(".") || value.startsWith("[") || value.startsWith("a[") || value.startsWith("div.") || value.startsWith("select[") || value.startsWith("button[") || value.startsWith("div#") || value.startsWith("a[") || value.startsWith("h2[") || value.startsWith("input[") || value.startsWith("span[") || value.startsWith("button#") || value.startsWith("span.") || value.startsWith("select.") || value.startsWith("a.") || value.startsWith("table.") || value.startsWith("th[") || value.startsWith("td[")){id = "css";}
+            else if(value.startsWith("#")){id = "id"; webElements[w] = webElements[w].slice(1);}
             else {id = "id";};
             
             obj.webElements.push({
@@ -84,4 +85,4 @@ module.exports = {
     },
 };
 
-//module.exports.runner();
+module.exports.runner();

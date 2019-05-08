@@ -12,45 +12,27 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "newGraphButton",
-        "byType": "css",
-        "definition":  "button[data-test-id='newGraphBtn']",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
         "name": "list",
         "byType": "css",
         "definition": "table.graphList > tbody > * td :nth-child(1)",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
-        "name": "typecolumndata",
-        "byType": "css",
-        "definition": "td[data-test-id^='graph-type-']",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "idcolumndata",
-        "byType": "css",
-        "definition": "td[data-test-id^='graph-id-']",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "titlecolumndata",
-        "byType": "css",
-        "definition": "td[data-test-id^='graph-title-']",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
         "name": "table",
-        "byType": "css",
-        "definition": "#graph-panel > * tr",
+        "byType": "id",
+        "definition": "graph-panel > * tr",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "itemPreview",
         "byType": "css",
-        "definition": "span[data-test-id='item-preview-3']",
+        "definition": "span[data-test-id='item-preview-",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "itemWindow",
+        "byType": "css",
+        "definition": "span[data-test-id='item-new-window-",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
@@ -80,7 +62,7 @@
     }, {
         "name": "id",
         "byType": "css",
-        "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(2)",
+        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(2)",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
@@ -92,7 +74,7 @@
     }, {
         "name": "title",
         "byType": "css",
-        "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(3)",
+        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(3)",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
@@ -104,7 +86,43 @@
     }, {
         "name": "type",
         "byType": "css",
-        "definition": "table.graphList > tbody >  tr:nth-child(1) > td:nth-child(4)",
+        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(4)",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "newGraphButton",
+        "byType": "css",
+        "definition": "button[data-test-id='newGraphBtn']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "filterInput",
+        "byType": "css",
+        "definition": "input[data-test-id='filterTbl']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "firstRow",
+        "byType": "css",
+        "definition": "td[data-test-id='graph-id-1']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "typecolumndata",
+        "byType": "css",
+        "definition": "td[data-test-id^='graph-type-']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "idcolumndata",
+        "byType": "css",
+        "definition": "td[data-test-id^='graph-id-']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "titlecolumndata",
+        "byType": "css",
+        "definition": "td[data-test-id^='graph-title-']",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }]

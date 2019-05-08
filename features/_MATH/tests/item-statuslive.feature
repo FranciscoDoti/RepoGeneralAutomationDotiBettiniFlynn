@@ -2,7 +2,7 @@ Feature: To save the AMS raptor item
 
   Scenario Outline: User creates and saves a new AMS raptor item question and save the item id in a file
 
-    Given I login to AMS
+    Given I login to AMS as "all-permissions-author"
     When I click on the New Raptor item in the AMS page
     And I navigate to AuthorApp
 
