@@ -120,6 +120,14 @@ const getURL = async function () {
   }
 };
 
+const takeScreenshot = async function () {
+  try {
+    return driver.takeScreenshot();
+  } catch (err) {
+    log.error(err.stack);
+  }
+};
+
 const getDriver = function () {
   return driver;
 };
@@ -196,6 +204,7 @@ module.exports = {
   visitURL,
   getURL,
   activateTab,
+  takeScreenshot,
   getDriver,
   getWebDriver,
   onPageLoadedWaitById,
