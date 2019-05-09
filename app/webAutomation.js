@@ -4,7 +4,7 @@
 'use strict';
 const webdriver = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
-const { log } = require('./logger');
+const { log } = require(`${process.cwd()}/app/logger`);
 
 var coreAutomation = function (worldData) {
   let that = {};

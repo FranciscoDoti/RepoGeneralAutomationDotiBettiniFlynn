@@ -1,7 +1,7 @@
 const fs = require('fs');
-const world = require('./worldData');
+const world = require(`${process.cwd()}/app/worldData`);
 // const parser = require('../lc-parser')
-const { log } = require('./logger');
+const { log } = require(`${process.cwd()}/app/logger`);
 
 process.argv.forEach(function (value, index, array) {
   if (value.startsWith('--world-parameters=')) {

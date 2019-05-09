@@ -3,10 +3,10 @@
  */
 
 const faker = require('faker');
-const parseDate = require('./DateProcessing');
-const ScenarioData = require('./scenarioData');
-const { log } = require('./logger');
-const { loadData, loadLogin } = require('./util');
+const parseDate = require(`${process.cwd()}/app/DateProcessing`);
+const ScenarioData = require(`${process.cwd()}/app/scenarioData`);
+const { log } = require(`${process.cwd()}/app/logger`);
+const { loadData, loadLogin } = require(`${process.cwd()}/app/util`);
 
 const EVAL_BEGIN = '<';
 const EVAL_END = '>';

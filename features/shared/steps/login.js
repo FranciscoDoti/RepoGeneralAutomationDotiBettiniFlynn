@@ -1,9 +1,9 @@
 const { Given, When } = require('cucumber');
 const _ = require('lodash');
-const urls = require('../../../config/urls.json');
-const users = require('../data/users.json');
-const { visitURL } = require('../../../app/driver');
-const pages = require('../pages/.page').pages;
+const urls = require(`${process.cwd()}/config/urls.json`);
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const { visitURL } = require(`${process.cwd()}/app/driver`);
+const pages = require(`${process.cwd()}/features/shared/pages/.page`).pages;
 
 /* Verifies Sapling login, AMS page and navigation to AuthorApp page by clicking new Raptor item link */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {

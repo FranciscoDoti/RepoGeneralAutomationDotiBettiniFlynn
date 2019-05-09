@@ -1,7 +1,7 @@
 // ------------ Start up the chrome server ------------
 const webdriver = require('selenium-webdriver');
-const { log } = require('./logger');
-const config = require('../config/config.json');
+const { log } =  require(`${process.cwd()}/app/logger`);
+const config = require(`${process.cwd()}/config/config.json`);
 
 let driver;
 const buildDriver = function(){

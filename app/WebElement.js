@@ -1,8 +1,8 @@
 /**
  * http://usejsdoc.org/
  */
-const { getDriver, getWebDriver, onWaitForWebElementToBeDisabled } = require('./driver');
-const { log } = require('./logger');
+const { getDriver, getWebDriver, onWaitForWebElementToBeDisabled } = require(`${process.cwd()}/app/driver`);
+const { log } = require(`${process.cwd()}/app/logger`);
 const that = {};
 
 const WebElement = function (element) {

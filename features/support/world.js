@@ -1,5 +1,6 @@
-const { setWorldConstructor, setDefaultTimeout } = require('cucumber');
-const config = require('../../config/config.json');
+const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } = require('cucumber');
+const { takeScreenshot } = require(`${process.cwd()}/app/driver`);
+const config = require(`${process.cwd()}/config/config.json`);
 
 function ThisWorld({attach}) {
   this.environment = config.environment;
@@ -12,3 +13,13 @@ function ThisWorld({attach}) {
 };
 
 setWorldConstructor(ThisWorld);
+
+setDefinitionFunctionWrapper(function (fn) {
+  return async function() {
+    await fn.apply(this, arguments);
+    try{
+      var screenshot = await takeScreenshot();
+      await this.attach(screenshot, 'image/png'); 
+      }catch{};
+  }
+});

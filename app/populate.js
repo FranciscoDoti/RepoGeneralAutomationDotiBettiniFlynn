@@ -1,8 +1,8 @@
 
 const { getWebDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
 const {Key} = require('selenium-webdriver');
-const WebElement = require('./WebElement');
-const { log } = require('./logger');
+const WebElement = require(`${process.cwd()}/app/WebElement`);
+const { log } = require(`${process.cwd()}/app/logger`);
 
 const populateInput = async function (eleTarget, strValue, actionElement) {
   const type = await eleTarget.getAttribute('type');

@@ -3,14 +3,15 @@
  */
 'use strict';
 const { expect } = require('chai');
-const HashTable = require('./hashtable');
-const StringProcessing = require('./stringProcessing');
-const ScenarioData = require('./scenarioData');
-const WebElement = require('./WebElement');
-const { loadJSONFile } = require('./util');
-const { getDriver, getWebDriver, sleep, activateTab, getURL } = require('./driver');
-const { log } = require('./logger');
-const { populateInput, populateClick, populateSelect, populateTextField } = require('./populate');
+
+const HashTable = require(`${process.cwd()}/app/hashtable`);
+const StringProcessing = require(`${process.cwd()}/app/stringProcessing`);
+const ScenarioData = require(`${process.cwd()}/app/scenarioData`);
+const WebElement = require(`${process.cwd()}/app/WebElement`);
+const { loadJSONFile } = require(`${process.cwd()}/app/util`);
+const { getDriver, getWebDriver, sleep, activateTab, getURL } = require(`${process.cwd()}/app/driver`);
+const { log } = require(`${process.cwd()}/app/logger`);
+const { populateInput, populateClick, populateSelect, populateTextField } = require(`${process.cwd()}/app/populate`);
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
