@@ -3,11 +3,11 @@ var pagesetup = require('./migratepages');
 
 module.exports = {
     runner: function () {
-        fs.existsSync('steps') || fs.mkdirSync('steps');
+        fs.existsSync('step') || fs.mkdirSync('step');
 
-        var files = fs.readdirSync('steps');
+        var files = fs.readdirSync('step');
         files.forEach(f => {
-            var data = fs.readFileSync(`./steps/${f}`);
+            var data = fs.readFileSync(`./step/${f}`);
             var statements = data.toString().split("\n");
             statements.forEach(function (s, i) {
                 let lineofcode = s,
@@ -75,10 +75,10 @@ module.exports = {
 
             data = statements.join("\n");
             console.log(data.toString());
-            pagesetup.renameFile(`./steps/${f}`, `./steps/_${f}`);
-            pagesetup.writeFile(`./steps/${f}`, data);
+            pagesetup.renameFile(`./step/${f}`, `./step/_${f}`);
+            pagesetup.writeFile(`./step/${f}`, data);
         });
     }
 }
 
-//module.exports.runner();
+module.exports.runner();
