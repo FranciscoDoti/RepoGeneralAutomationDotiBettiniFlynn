@@ -1,255 +1,249 @@
 {
-    "webElements": [{
-        "name": "addMenuBar",
-        "byType": "css",
-        "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "columnMenuBar",
-        "byType": "id",
-        "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "moreMenuBar",
-        "byType": "css",
-        "definition": "h2[data-test-id='PRIMARY MORE']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "moreSaveAsDraft",
-        "byType": "id",
-        "definition": "authoring-menu-bar > * li:nth-child(1) > div.menu-description",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "moreCheckYourWork",
-        "byType": "id",
-        "definition": "authoring-menu-bar > * li:nth-child(2) > div.menu-description",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "moreCheckYourWorkSlider",
-        "byType": "id",
-        "definition": "authoring-menu-bar > * div.slider.round",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "moreItemDetails",
-        "byType": "id",
-        "definition": "authoring-menu-bar > * li:nth-child(3) > div.menu-description",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "itemDetailsName",
-        "byType": "css",
-        "definition": "input[type='text']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "itemDetailsSubmit",
-        "byType": "css",
-        "definition": "input[type = 'submit']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "itemDetailsTopicEdit",
-        "byType": "css",
-        "definition": ".author-app-item-details >div :nth-child(9) > * [data-test-id='Edit']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "confirmTopicQs",
-        "byType": "css",
-        "definition": ".author-app-item-details >div :nth-child(9) > div >i",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "topic",
-        "byType": "id",
-        "definition": "div > *",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "topicRogawski",
-        "byType": "css",
-        "definition": "div.info[title ='Rogawski 4e Calculus Early Transcendentals']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "topicIntegration",
-        "byType": "css",
-        "definition": ".node[title = ",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "topicSection5",
-        "byType": "css",
-        "definition": ".info[title='Section 5.3 Questions_ID 47511 (Rog4e)']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "topicConfirmButton",
-        "byType": "css",
-        "definition": ".button-bottom-lock > button.cdl-button.primary",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "moduleTab",
-        "byType": "css",
-        "definition": "a[href='#module-palette']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "mathEquation",
-        "byType": "id",
-        "definition": "module-palette-graded_equation > div.module-palette-button-text",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "questionTab",
-        "byType": "css",
-        "definition": "a[data-test-id='question-context']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "questionContent",
-        "byType": "id",
-        "definition": "primary-content-area",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "answerLabel",
-        "byType": "css",
-        "definition": "span[aria-label ='Answer =']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "defaultTab",
-        "byType": "id",
-        "definition": "div > * li > a[data-test-id='default-context']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "correctTab",
-        "byType": "css",
-        "definition": "a[data-test-id='correct-context']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "equationField",
-        "byType": "id",
-        "definition": "div[data-test-id='equation-field-container'] > div > div:nth-child(2) > div > div > textarea",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "prefixField",
-        "byType": "id",
-        "definition": "module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > textarea",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "authoranswerText",
-        "byType": "id",
-        "definition": "module-edit-area > div > div > div.greq-edit-panel > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > div > div.ace_scroller > div",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "authorquestionText",
-        "byType": "id",
-        "definition": "module-edit-area > div > div > div.greq-edit-panel > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div.ace_scroller > div",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "takeModeButton",
-        "byType": "css",
-        "definition": "button#take-button",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "takeModeAnswerText1",
-        "byType": "css",
-        "definition": "span.mq-math-mode",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "takeModeAnswerText2",
-        "byType": "id",
-        "definition": "primary-content-area > * div > span > * textarea",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "gradeAs",
-        "byType": "css",
-        "definition": "select.greq-input[data-test-id='eval-type-dropdown']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "saveButton",
-        "byType": "css",
-        "definition": "button#save-button",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "editButton",
-        "byType": "css",
-        "definition": "button#edit-button",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "submitAnswer",
-        "byType": "css",
-        "definition": "button#check-answer-button",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "gradedCorrect",
-        "byType": "css",
-        "definition": "a.text-center[data-test-id ='correct-context']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "incorrectAnswerAlert",
-        "byType": "css",
-        "definition": "div#primary-content-area > section.red-border",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "saveMessage",
-        "byType": "css",
-        "definition": ".modal-title",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "correctAnswer",
-        "byType": "id",
-        "definition": "div[aria-label ='Correct Answer']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "enforceEndpoints",
-        "byType": "css",
-        "definition": ".greq-input[data-test-id='edit-panel-checkbox']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "numericTolerance",
-        "byType": "css",
-        "definition": ".greq-input[data-test-id='numeric-tolerance-radio']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "upperTolerancePlus",
-        "byType": "css",
-        "definition": "div.math-tolerance > div:nth-child(2) > input.numeric-entry-input",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "lowerToleranceMinus",
-        "byType": "css",
-        "definition": "div.math-tolerance > div:nth-child(4)> input.numeric-entry-input",
-        "frame": "default",
-        "specialInstr": "NA"
-    }]
+    "webElements": [
+        {
+            "name": "menuBarAdd",
+            "byType": "css",
+            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addMathEquation",
+            "byType": "id",
+            "definition": "module-palette-graded_equation > div.module-palette-button-text",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "menuBarColumn",
+            "byType": "id",
+            "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "menuBarMore",
+            "byType": "css",
+            "definition": "h2[data-test-id='PRIMARY MORE']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "moreSaveAsDraft",
+            "byType": "id",
+            "definition": "authoring-menu-bar > * li:nth-child(1) > div.menu-description",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "moreCheckYourWork",
+            "byType": "id",
+            "definition": "authoring-menu-bar > * li:nth-child(2) > div.menu-description",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "moreCheckYourWorkSlider",
+            "byType": "id",
+            "definition": "authoring-menu-bar > * div.slider.round",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "moreItemDetails",
+            "byType": "id",
+            "definition": "authoring-menu-bar > * li:nth-child(3) > div.menu-description",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "itemDetailsName",
+            "byType": "css",
+            "definition": "input[type='text']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "itemDetailsSubmit",
+            "byType": "css",
+            "definition": "input[type = 'submit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "itemDetailsTopicEdit",
+            "byType": "css",
+            "definition": ".author-app-item-details >div :nth-child(9) > * [data-test-id='Edit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "topic",
+            "byType": "id",
+            "definition": "div > *",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "topicRogawski",
+            "byType": "css",
+            "definition": "div.info[title ='Rogawski 4e Calculus Early Transcendentals']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "topicIntegration",
+            "byType": "css",
+            "definition": ".node[title = ",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "topicSection5",
+            "byType": "css",
+            "definition": ".info[title='Section 5.3 Questions_ID 47511 (Rog4e)']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "topicConfirmButton",
+            "byType": "css",
+            "definition": ".button-bottom-lock > button.cdl-button.primary",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "topicConfirm",
+            "byType": "css",
+            "definition": ".author-app-item-details >div :nth-child(9) > div >i",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "saveMessage",
+            "byType": "css",
+            "definition": ".modal-title",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "moduleTab",
+            "byType": "css",
+            "definition": "a[href='#module-palette']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionTab",
+            "byType": "css",
+            "definition": "a[data-test-id='question-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionContent",
+            "byType": "id",
+            "definition": "primary-content-area",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "defaultTab",
+            "byType": "id",
+            "definition": "div > * li > a[data-test-id='default-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "correctTab",
+            "byType": "css",
+            "definition": "a[data-test-id='correct-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "answerLabel",
+            "byType": "css",
+            "definition": "span[aria-label ='Answer =']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+      
+        {
+            "name": "mathEquationField",
+            "byType": "id",
+            "definition": "div[data-test-id='equation-field-container'] > div > div:nth-child(2) > div > div > textarea",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathGradeAs",
+            "byType": "css",
+            "definition": "select.greq-input[data-test-id='eval-type-dropdown']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathEnforceEndpoints",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathNumericTolerance",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='numeric-tolerance-radio']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "numericUpperTolerance",
+            "byType": "css",
+            "definition": "div.math-tolerance > div:nth-child(2) > input.numeric-entry-input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "numericLowerTolerance",
+            "byType": "css",
+            "definition": "div.math-tolerance > div:nth-child(4)> input.numeric-entry-input",
+            "frame": "default",
+            "specialInstr": "NA"
+        }{
+            "name": "checkYourWorkAnswerText1",
+            "byType": "css",
+            "definition": "span.mq-math-mode",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "checkYourWorkAnswerText2",
+            "byType": "id",
+            "definition": "primary-content-area > * div > span > * textarea",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "checkYourWorkSubmit",
+            "byType": "css",
+            "definition": "button#check-answer-button",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "incorrectAnswerAlert",
+            "byType": "css",
+            "definition": "div#primary-content-area > section.red-border",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "correctAnswer",
+            "byType": "css",
+            "definition": "div[aria-label ='Correct Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }
