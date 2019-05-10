@@ -20,6 +20,6 @@ setDefinitionFunctionWrapper(function (fn) {
     try {
       var screenshot = await takeScreenshot();
       await this.attach(screenshot, 'image/png');
-    } catch{ };
-  }
+    } catch(err){ };
+  };
 });
