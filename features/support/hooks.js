@@ -2,11 +2,11 @@ var { After, AfterAll } = require('cucumber');
 const { takeScreenshot, closeBrowser, resetBrowser } = require(`${process.cwd()}/app/driver`);
 
 After(async function(scenario){
-  if (scenario.result.status == 'failed') {
-    //console.log(scenario.result.status);
-    var screenshot = await takeScreenshot();
-    await this.attach(screenshot, 'image/png');
-  }
+  // if (scenario.result.status == 'failed') {
+    console.log(scenario.result.status);
+  //   var screenshot = await takeScreenshot();
+  //   await this.attach(screenshot, 'image/png');
+  // }
   await resetBrowser();
 });
 
