@@ -1,5 +1,5 @@
 const { When, Then } = require('cucumber');
-const pages = require('../pages/.page.js').pages;
+const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const { Key } = require('selenium-webdriver');
 

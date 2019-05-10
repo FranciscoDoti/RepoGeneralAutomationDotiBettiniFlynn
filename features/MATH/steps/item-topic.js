@@ -1,6 +1,6 @@
 
 const { When, Then } = require('cucumber');
-const pages = require('../pages/.page.js').pages;
+const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 When(/^I click Edit under Topic section in Item Details window$/, async function () {
     await page.raptorAms.click('moreMenuBar');
