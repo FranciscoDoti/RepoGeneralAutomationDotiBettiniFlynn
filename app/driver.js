@@ -1,5 +1,7 @@
 // ------------ Start up the chrome server ------------
 const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const chromedriver = require('chromedriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const config = require(`${process.cwd()}/config/config.json`);
 
@@ -9,6 +11,8 @@ const buildDriver = function(){
   const driver = new webdriver.Builder();
   if(config.browser.toLowerCase() == 'chrome')
   {
+    chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
+    
     var chromeOptions = {
       'args':['--start-maximized','--disable-infobars'],
       'prefs':{
