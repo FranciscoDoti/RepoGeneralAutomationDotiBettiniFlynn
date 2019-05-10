@@ -9,7 +9,7 @@ function ThisWorld({ attach }) {
   this.screenshots = config.screenshots;
   this.attach = attach;
   this.downloadLocation = process.cwd() + '/reports/downloads';
-  setDefaultTimeout(config.timeout);
+  setDefaultTimeout(2*config.timeout);
 };
 
 setWorldConstructor(ThisWorld);

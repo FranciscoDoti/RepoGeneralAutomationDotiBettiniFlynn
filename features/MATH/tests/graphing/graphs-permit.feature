@@ -1,9 +1,9 @@
 Feature: User with/without graphing permission
 
-    Scenario: User with graphing permission have access to Graphs
+    # Scenario: User with graphing permission have access to Graphs
 
-        Given I login to AMS as "all-permissions-author"
-        And I verify the new Graphs tab exists
+    #     Given I login to AMS as "all-permissions-author"
+    #     And I verify the new Graphs tab exists
 
     Scenario: User without graphing permission do not have access to Graphs
 

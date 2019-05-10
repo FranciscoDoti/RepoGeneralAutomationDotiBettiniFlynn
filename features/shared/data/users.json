@@ -15,7 +15,7 @@
             "password": "fasterthansixmill"
         },
         "non-graph-user": {
-            "username": "non-graph-user",
+            "username": "remote.author",
             "password": "fasterthansixmill"
         },
         "admin_1": {
