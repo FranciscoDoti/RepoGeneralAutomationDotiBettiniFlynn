@@ -123,21 +123,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           await populateTextField(webElement, value, actionElement);
           break;
         case 'a':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'button':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'div':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'span':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'ul':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'th':
+        case 'h2':
           await populateClick(webElement, value, actionElement);
           break;
         case 'select':
