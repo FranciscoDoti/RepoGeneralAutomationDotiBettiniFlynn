@@ -20,11 +20,11 @@
         "prod":"",
         "pre-prod":""
     },
-    "sample":{
-        "local":"",
-        "int":"",
-        "dev":"",
-        "prod":"",
-        "pre-prod":""
+    "ApplicationName":{
+        "local":"http://local.application.me:3080",
+        "int":"http://int.application.me:3080",
+        "dev":"http://dev.application.me:3080",
+        "prod":"http://prod.application.me:3080",
+        "pre-prod":"http://pre-prod.application.me:3080"
     }
 }
