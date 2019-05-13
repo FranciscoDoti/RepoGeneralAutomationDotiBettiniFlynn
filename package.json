@@ -2,25 +2,7 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "IAM-admin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-admin.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "IAM-forgot": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-forgot.feature --world-parameters='{\"config\": \"int/pre-prod\"}'",
-    "IAM-Signin": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-Signin.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "IAM-user-registration-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "IAM-user-registration-pre-prod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/IAM/IAM-user-registration.feature --world-parameters='{\"config\": \"int/pre-prod\"}'",
-    "Qual-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/happy-path-Qual.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "Student-qual": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Qual_PM/student-qual.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "Student-randp": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/student-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "Wrt-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/Writing_PM/happy-path-wrt.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/happy-path-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "student-randp-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/E2E/RandP_PM/student-randp.feature --world-parameters='{\"config\": \"int/achieve\"}'",
-    "test-savi-brightcove": "node ./node_modules/cucumber/bin/cucumber-js features/tests/SAVI/brightcoveplayer.feature --world-parameters='{\"config\": \"savi\"}'",
-    "lclc-dev": "node ./node_modules/cucumber/bin/cucumber-js features/tests/lc/ --world-parameters='{\"config\":\"dev/lc\"}'",
-    "lc-achieve": "node ./node_modules/cucumber/bin/cucumber-js features/tests/lc/ --world-parameters='{\"config\":\"dev/achieve\"}'",
-    "lc-int": "node ./node_modules/cucumber/bin/cucumber-js features/tests/lc/ --world-parameters='{\"config\":\"int/achieve\"}'",
-    "ins": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/system/validate_version.feature --world-parameters='{\"config\":\"int/achieve\"}'",
-    "ins2": "node ./node_modules/cucumber/bin/cucumber-js features/INSURANCE/tests/automobile/validate_auto_premium.feature --world-parameters='{\"config\":\"int/achieve\"}'",
-    "lc-preprod": "node ./node_modules/cucumber/bin/cucumber-js features/tests/lc/ --world-parameters='{\"config\":\"int/pre-prod\"}'",
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-permit.feature -f json:reports/cucumber_report.json"
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/item-topic.feature -f json:reports/cucumber_report.json"
   },
   "dependencies": {
     "chai": "^4.1.2",
