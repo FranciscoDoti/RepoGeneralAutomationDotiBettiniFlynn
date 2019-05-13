@@ -475,7 +475,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
-  that.populateElement = populateElement;
   that.assertElementExists = assertElementExists;
   that.assertElementDoesNotExist = assertElementDoesNotExist;
   that.checkWebElementExists = checkWebElementExists;
