@@ -1,8 +1,8 @@
-Feature: Student attempts premade assessmennt activity
-
+Feature: Student attempts all the activities
     @delete-all-courses
-    Scenario: Verify that student is able to attempt premade assessmnet activity
+    Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
+        
     Given I click login to the Achieve product
     And I have logged in as "media_producer_2"
     And I click on "course" system "create_course" feature "button" element
@@ -22,7 +22,6 @@ Feature: Student attempts premade assessmennt activity
       | page_object      | value                                                       |clear|
       | edit_course_name | Qualitative Testcourse                                      |true |        
       | edit_course_code | E2E 301                                                     |true |
-
       | template_status  | Active On Date                                              |     |
     
     And I close the popup message
@@ -31,7 +30,7 @@ Feature: Student attempts premade assessmennt activity
     And I click on "course" system "course_page" feature "resources" element
     And I add the activity to the course under the resources tab
         | activity                                                          | type                      |
-        | Exercise: Misused words 1 (autoscored)                               | add_button_assessment     |
+        | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
         | LC1551301608988                                                   | add_button_learningcurve  |
 
     And I click on "course" system "main" feature "achieve_home" element 
@@ -70,7 +69,7 @@ Feature: Student attempts premade assessmennt activity
      
     And I add the activities in courseplanner
         | activity                                                          | 
-        | Exercise: Misused words 1 (autoscored)                              |                                                        
+        | Exercise: Misused words 1 (autoscored)                            |                                                        
         | LC1551301608988                                                   |
         
     And I add custom made activities in courseplanner
@@ -99,16 +98,31 @@ Feature: Student attempts premade assessmennt activity
     And I have logged in as "student_6"
 
 
-    And I open the activity in the current course
+    And I attemt premade assesment and custom made activity
         |  Activity                                |  PremadeAssesmentKey                                                                                                       |   customMadeActivity    |
         |  Exercise: Misused words 1 (autoscored)  |   Because Anne Tyler often writes about family loyalties, her allusions to to King Lear are not surprising.                |      1000               |
         |  Qual Test                               |   Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.        |                         |
         |                                          |   The Keweenaw Peninsula is surrounded on three sides by Lake Superior.                                                    |                         |           
         |                                          |   At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                               |                         |
         |                                          |  The person who complained to the human resources manager wishes to remain anonymous.                                      |                         |
+    Then I verify that "premadeAssesment" activity status as completed 
+    And I verify that "customMadeAssesment" activity status as completed 
+    And I verify the gradebook status
 
+    When I attempt learning curve activity
+        | activity          |
+        | LC1551301608988   |
 
+    Then I verify that "learningCurve" activity status as completed 
+    And I verify the gradebook status
 
+    When I click on reading activity
+        | activity                                      |
+        | Communicating courteously and professionally  |
+        
+    Then I verify reading activity has content to read
+        | activity                                      |
+        | Communicating courteously and professionally  |
 
-
-
+    Then I verify that "Reading" activity status as completed 
+    And I verify the gradebook status
