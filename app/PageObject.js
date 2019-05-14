@@ -26,17 +26,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.driver = getDriver();
   that.webdriver = getWebDriver();
 
-  // log.debug(`New PageObject: ${pageNameInput}`);
-
   const loadPageDefinitionFile = function (fullFileName) {
-    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
     var jsonContent = loadJSONFile(fullFileName);
 
     for (var i in jsonContent.webElements) {
       var element = jsonContent.webElements[i];
       addElement(element.name, element)
-      // This was adding so much noise to the console output
-      // log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
     }
   }
 
@@ -210,13 +205,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const assertElementExists = async function (elementName) {
+  const assertElementExists = async function (elementName, replaceText) {
     try {
-      if (await checkWebElementExists(elementName)) {
-        log.info(`Web Element ${elementName} found on page.`);
+      if (await checkWebElementExists(elementName, replaceText)) {
+        log.info(`Web Element ${elementName+(replaceText||'')} found on page.`);
         return true;
       } else {
-        log.info(`Web Element ${elementName} was not found on page.`);
+        log.info(`Web Element ${elementName+(replaceText||'')} was not found on page.`);
         return false;
       };
     } catch (err) {
@@ -240,12 +235,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const checkWebElementExists = async function (elementName) {
+  const checkWebElementExists = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
     log.debug(`Checking to see if element: ${elementName} exists.`)
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);
+      WebElementData.definition = WebElementData.definition.replace('<ReplaceText>', replaceText);
       const actionElement = Object.assign({});
 
       // Setup all underlying required objects to take action on for this action
