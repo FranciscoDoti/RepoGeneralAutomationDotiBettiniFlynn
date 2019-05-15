@@ -432,7 +432,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const clickElement = async function (elementName) {
+  const clickElement = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + replaceText;
     try {
