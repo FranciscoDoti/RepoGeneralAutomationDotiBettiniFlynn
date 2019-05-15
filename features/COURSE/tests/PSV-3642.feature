@@ -3,11 +3,9 @@ Feature: Student attempts all the activities
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
         
-    Given I click login to the Achieve product
-    And I have logged in as "media_producer_2"
-    And I click on "course" system "create_course" feature "button" element
+    Given I login to Achieve-CW as "admin_1"
 
-    When I fill out the form to edit a new course
+    When I fill out the form to create course
       | page_object        | value                   |clear|
       | course_type        | Template                |     |
       | product_model      | Qualitative             |     |
