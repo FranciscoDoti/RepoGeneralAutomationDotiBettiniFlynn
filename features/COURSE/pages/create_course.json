@@ -71,13 +71,7 @@
         "definition": "[data-test-id='create_course_status']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "course_type",
-        "byType": "css",
-        "definition": "[name='courseType']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },{
         "name": "course_title",
         "byType": "css",
         "definition": "[data-test-id='course_title']",
@@ -114,6 +108,14 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "course_type",
+        "byType": "css",
+        "definition": "[name='courseType']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    
+    {
         "name": "product_model",
         "byType": "css",
         "definition": "[name='productModel']",
