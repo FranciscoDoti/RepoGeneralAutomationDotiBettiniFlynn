@@ -216,7 +216,7 @@ When('I search for a course and click on the first course card that appears', as
 
   let course_card_element = page.course.create_course.course_card;
   let course_search_element = page.course.course_list.search;
-await pages.undefined.populate('course_search_element',  data_table.hashes()[0].Course));
+await pages.undefined.populate('course_search_element',  data_table.hashes()[0].Course);
   await qa.sleep(2);
 await pages.undefined.click('course_card_element');
 });
