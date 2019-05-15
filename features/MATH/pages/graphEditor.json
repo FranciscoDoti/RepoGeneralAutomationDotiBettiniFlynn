@@ -60,7 +60,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "settings",
+        "name": "settingsIcon",
         "byType": "id",
         "definition": "i.dcg-icon-wrench",
         "frame": "default",

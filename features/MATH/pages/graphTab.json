@@ -41,6 +41,12 @@
         "definition": "table.graphList > tbody >  tr:nth-child(1) >td",
         "frame": "graphsFrame",
         "specialInstr": "NA"
+    },{
+        "name": "id",
+        "byType": "css",
+        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(2)",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
     }, {
         "name": "idColumnName",
         "byType": "css",
@@ -48,6 +54,30 @@
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
+        "name": "title",
+        "byType": "css",
+        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(3)",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "titleColumnName",
+        "byType": "css",
+        "definition": "th[data-test-id='Title']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    },  {
+        "name": "type",
+        "byType": "css",
+        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(4)",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    }, {
+        "name": "typeColumnName",
+        "byType": "css",
+        "definition": "th[data-test-id='Type']",
+        "frame": "graphsFrame",
+        "specialInstr": "NA"
+    },  {
         "name": "sortAscendIcon",
         "byType": "css",
         "definition": "span.glyphicon.glyphicon-sort-by-attributes",
@@ -59,37 +89,7 @@
         "definition": "span.glyphicon.glyphicon-sort-by-attributes-alt",
         "frame": "graphsFrame",
         "specialInstr": "NA"
-    }, {
-        "name": "id",
-        "byType": "css",
-        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(2)",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "titleColumnName",
-        "byType": "css",
-        "definition": "th[data-test-id='Title']",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "title",
-        "byType": "css",
-        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(3)",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "typeColumnName",
-        "byType": "css",
-        "definition": "th[data-test-id='Type']",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "type",
-        "byType": "css",
-        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(4)",
-        "frame": "graphsFrame",
-        "specialInstr": "NA"
-    }, {
+    },{
         "name": "newGraphButton",
         "byType": "css",
         "definition": "button[data-test-id='newGraphBtn']",

@@ -4,7 +4,7 @@ Feature:  Edit/set the item Topic
 
         Given I login to AMS as "all-permissions-author"
         When I click on the New Raptor item in the AMS page
-        And I navigate to AuthorApp tab
+        And I navigate to AuthorApp
 
         When I click Edit under Topic section in Item Details window
         Then the subjects are displayed

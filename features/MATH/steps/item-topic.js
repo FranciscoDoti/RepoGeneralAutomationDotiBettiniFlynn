@@ -1,22 +1,22 @@
 
 const { When, Then } = require('cucumber');
-const pages = require('../pages/.page.js').pages;
+const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 When(/^I click Edit under Topic section in Item Details window$/, async function () {
-    await page.raptorAms.click('moreMenuBar');
-    await page.raptorAms.click('moreItemDetails');
-    await page.raptorAms.click('itemDetailsTopicEdit');
+    await pages.raptorAms.click('moreMenuBar');
+    await pages.raptorAms.click('moreItemDetails');
+    await pages.raptorAms.click('itemDetailsTopicEdit');
 });
 
-// Then(/^the subjects are displayed$/, async function () {
-//     await qa.exists(`${page.raptorAms.topic} [title='Algebra']`);
-//     await qa.exists(`${page.raptorAms.topic} [title='Astronomy']`);
-//     await qa.exists(`${page.raptorAms.topic} [title='Biochemistry']`);
-//     await qa.exists(`${page.raptorAms.topic} [title='Biology']`);
-//     await qa.exists(`${page.raptorAms.topic} [title='Calculus']`);
-//     await qa.exists(`${page.raptorAms.topic} [title='English']`);
-//     await qa.exists(`${page.raptorAms.topic} [title='Geography']`);
-// });
+Then(/^the subjects are displayed$/, async function () {
+    await qa.exists(`${page.raptorAms.topic} [title='Algebra']`);
+    await qa.exists(`${page.raptorAms.topic} [title='Astronomy']`);
+    await qa.exists(`${page.raptorAms.topic} [title='Biochemistry']`);
+    await qa.exists(`${page.raptorAms.topic} [title='Biology']`);
+    await qa.exists(`${page.raptorAms.topic} [title='Calculus']`);
+    await qa.exists(`${page.raptorAms.topic} [title='English']`);
+    await qa.exists(`${page.raptorAms.topic} [title='Geography']`);
+});
 
 // When(/^I select Rogawski 5.3 section under Calculus and confirm$/, async function () {
 //     let qa = new selenium(this.driver);

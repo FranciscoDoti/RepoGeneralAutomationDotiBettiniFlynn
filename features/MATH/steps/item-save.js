@@ -1,5 +1,5 @@
 const {Then} = require('cucumber');
-const pages = require('../pages/.page.js').pages;
+const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const fs = require('fs');
 
 /* Scenario 1: User creates and saves a new AMS raptor item and sets the item status to live */

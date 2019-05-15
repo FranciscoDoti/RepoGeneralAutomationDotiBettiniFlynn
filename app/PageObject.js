@@ -26,17 +26,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.driver = getDriver();
   that.webdriver = getWebDriver();
 
-  // log.debug(`New PageObject: ${pageNameInput}`);
-
   const loadPageDefinitionFile = function (fullFileName) {
-    // log.debug(`Opening file ${fullFileName} from ${__filename} `);
     var jsonContent = loadJSONFile(fullFileName);
 
     for (var i in jsonContent.webElements) {
       var element = jsonContent.webElements[i];
       addElement(element.name, element)
-      // This was adding so much noise to the console output
-      // log.debug(`Adding Element - name: "${element.name}", type: "${element.byType}", value: "${element.definition}"`);
     }
   }
 
@@ -50,6 +45,15 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   const hasElement = async function (elementName) {
     return that.pageElements.hasItem(elementName);
+  }
+
+  const addDynamicElement = async function (elementName, additionalDescription) {
+    if (typeof additionalDescription !== 'undefined' && await hasElement(elementName)) {
+      var dynamicElement = JSON.parse(JSON.stringify(await that.pageElements.getItem(elementName)));
+      dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
+      await addElement(elementName + additionalDescription, dynamicElement);
+      return elementName + additionalDescription;
+    }
   }
 
   const switchFrame = async function (elementName) {
@@ -123,21 +127,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           await populateTextField(webElement, value, actionElement);
           break;
         case 'a':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'button':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'div':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'span':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'ul':
-          await populateClick(webElement, value, actionElement);
-          break;
         case 'th':
+        case 'h2':
           await populateClick(webElement, value, actionElement);
           break;
         case 'select':
@@ -219,7 +214,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const assertElementExists = async function (elementName) {
+  const assertElementExists = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + replaceText;
     try {
       if (await checkWebElementExists(elementName)) {
         log.info(`Web Element ${elementName} found on page.`);
@@ -234,7 +231,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const assertElementDoesNotExist = async function (elementName) {
+  const assertElementDoesNotExist = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + replaceText;
     try {
       if (await checkWebElementExists(elementName)) {
         log.info(`Web Element ${elementName} found on page.`);
@@ -422,21 +421,23 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const populateElement = async function (strName, strValue) {
+  const populateElement = async function (elementName, strValue) {
     try {
-      log.info(`Starting populate the web element: ${strName} with value ${strValue}`);
+      log.info(`Starting populate the web element: ${elementName} with value ${strValue}`);
       strValue = await sp.strEval(strValue);
-      await genericPopulateElement(strName, strValue);
+      await genericPopulateElement(elementName, strValue);
     } catch (err) {
       log.error(err.stack);
       throw err;
     }
   };
 
-  const clickElement = async function (strName) {
+  const clickElement = async function (elementName) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + replaceText;
     try {
-      log.debug(`Starting click the web element: ${strName}`);
-      await genericPopulateElement(strName, 'click');
+      log.debug(`Starting click the web element: ${elementName}`);
+      await genericPopulateElement(elementName, 'click');
     } catch (err) {
       log.error(err.stack);
       throw err;
@@ -475,7 +476,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
-  that.populateElement = populateElement;
   that.assertElementExists = assertElementExists;
   that.assertElementDoesNotExist = assertElementDoesNotExist;
   that.checkWebElementExists = checkWebElementExists;

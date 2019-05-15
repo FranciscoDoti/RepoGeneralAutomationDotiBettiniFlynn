@@ -28,7 +28,11 @@ const WebElement = function (element) {
 
   that.elementExists = async function () {
     const elementDef = await this.getBy();
+    try{
     return await my.driver.findElement(elementDef).isDisplayed();
+    } catch(err){
+      return false;
+    };
   };
 
   that.scrollIntoView = async function () {
