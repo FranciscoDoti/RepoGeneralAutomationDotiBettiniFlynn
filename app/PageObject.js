@@ -47,6 +47,15 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     return that.pageElements.hasItem(elementName);
   }
 
+  const addDynamicElement = async function (elementName, additionalDescription) {
+    if (typeof additionalDescription !== 'undefined' && await hasElement(elementName)) {
+      var dynamicElement = JSON.parse(JSON.stringify(await that.pageElements.getItem(elementName)));
+      dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
+      await addElement(elementName + additionalDescription, dynamicElement);
+      return elementName + additionalDescription;
+    }
+  }
+
   const switchFrame = async function (elementName) {
     await that.driver.switchTo().defaultContent();
     if (elementName == 'default') {
@@ -206,12 +215,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const assertElementExists = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + replaceText;
     try {
-      if (await checkWebElementExists(elementName, replaceText)) {
-        log.info(`Web Element ${elementName+(replaceText||'')} found on page.`);
+      if (await checkWebElementExists(elementName)) {
+        log.info(`Web Element ${elementName} found on page.`);
         return true;
       } else {
-        log.info(`Web Element ${elementName+(replaceText||'')} was not found on page.`);
+        log.info(`Web Element ${elementName} was not found on page.`);
         return false;
       };
     } catch (err) {
@@ -235,13 +246,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const checkWebElementExists = async function (elementName, replaceText) {
+  const checkWebElementExists = async function (elementName) {
     let WebElementObject = '';
     let WebElementData = {};
     log.debug(`Checking to see if element: ${elementName} exists.`)
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);
-      WebElementData.definition = WebElementData.definition.replace('<ReplaceText>', replaceText);
       const actionElement = Object.assign({});
 
       // Setup all underlying required objects to take action on for this action
