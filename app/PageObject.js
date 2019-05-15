@@ -231,7 +231,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const assertElementDoesNotExist = async function (elementName) {
+  const assertElementDoesNotExist = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + replaceText;
     try {
       if (await checkWebElementExists(elementName)) {
         log.info(`Web Element ${elementName} found on page.`);
@@ -419,21 +421,23 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const populateElement = async function (strName, strValue) {
+  const populateElement = async function (elementName, strValue) {
     try {
-      log.info(`Starting populate the web element: ${strName} with value ${strValue}`);
+      log.info(`Starting populate the web element: ${elementName} with value ${strValue}`);
       strValue = await sp.strEval(strValue);
-      await genericPopulateElement(strName, strValue);
+      await genericPopulateElement(elementName, strValue);
     } catch (err) {
       log.error(err.stack);
       throw err;
     }
   };
 
-  const clickElement = async function (strName) {
+  const clickElement = async function (elementName) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + replaceText;
     try {
-      log.debug(`Starting click the web element: ${strName}`);
-      await genericPopulateElement(strName, 'click');
+      log.debug(`Starting click the web element: ${elementName}`);
+      await genericPopulateElement(elementName, 'click');
     } catch (err) {
       log.error(err.stack);
       throw err;
