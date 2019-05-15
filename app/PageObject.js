@@ -216,7 +216,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   const assertElementExists = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
-    elementName = elementName + replaceText;
+    elementName = elementName + (replaceText || '');
     try {
       if (await checkWebElementExists(elementName)) {
         log.info(`Web Element ${elementName} found on page.`);
@@ -233,7 +233,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   const assertElementDoesNotExist = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
-    elementName = elementName + replaceText;
+    elementName = elementName + (replaceText || '');
     try {
       if (await checkWebElementExists(elementName)) {
         log.info(`Web Element ${elementName} found on page.`);
@@ -434,7 +434,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   const clickElement = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
-    elementName = elementName + replaceText;
+    elementName = elementName + (replaceText || '');
     try {
       log.debug(`Starting click the web element: ${elementName}`);
       await genericPopulateElement(elementName, 'click');
