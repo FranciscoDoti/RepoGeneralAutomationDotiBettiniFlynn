@@ -251,11 +251,21 @@
         "definition": "[data-test-id='assessment_button']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
+    },
+    {
+        "name": "custom_assesment_frame",
+        "byType": "css",
+        "definition": "//*[@id='container']/div/div/div/iframe",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    
+    {
         "name": "Assignment_tittle",
         "byType": "css",
         "definition": "[placeholder='Provide a title']",
-        "frame": "default",
+        "frame": "custom_assesment_frame",
         "specialInstr": "NA"
     }, {
         "name": "Assignment_type",

@@ -93,24 +93,31 @@
         "name": "frame_2_reading",
         "byType": "xpath",
         "definition": "//*[@id='easyXDM_default1013_provider']",
-        "frame": "default",
+        "frame": "frame_1_reading",
         "specialInstr": "NA"
     }, {
         "name": "frame_3_reading",
         "byType": "xpath",
         "definition": "//*[@id='epub-content']",
-        "frame": "default",
+        "frame": "frame_2_reading",
         "specialInstr": "NA"
     }, {
         "name": "reading_verification",
         "byType": "css",
         "definition": "[class='h1']",
-        "frame": "default",
+        "frame": "frame_3_reading",
         "specialInstr": "NA"
     }, {
         "name": "learning_curve_activity",
         "byType": "xpath",
         "definition": "//*[@id='container']/div/div/div/div[4]/div/article/main/div/div[2]/div[2]/div[2]/div/div/div[1]/a",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "complete_status",
+        "byType": "css",
+        "definition": "[data-test-id='statusComplete']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
