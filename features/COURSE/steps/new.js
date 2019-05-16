@@ -43,7 +43,7 @@ When('I fill out the form to update the template from draft to Template', async 
   await pages.course_list.click('edit_course');
 
   for (let i = 0; i < data_table.rows().length; i++) {
-    if (data_table.hashes()[i].page_object != 'day') {
+    if (data_table.hashes()[i].page_object !== 'day') {
       await pages.course_list.populate(data_table.hashes()[i].page_object, data_table.hashes()[i].value);
     } else {
       await pages.create_course.click('select_day', data_table.hashes()[i].value);
@@ -64,7 +64,6 @@ When('I add the activity to the course under the resources tab', async function 
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('add_content');
     await pages.resources.populate('search_bar', data_table.hashes()[i].activity);
-    await pages.resources.click('search_bar');
     await pages.resources.click(data_table.hashes()[i].type);
     await pages.resources.click('close_resource_search_nav');
   }
@@ -88,7 +87,7 @@ When('I sign out of Achieve', async function () {
   await pages.home.click('sign_out');
 });
 
-When(/^ I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
+When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
   await pages.course_list.popualte('search', CourseName)
 });
 
@@ -202,9 +201,74 @@ Then('I verify reading activity has content to read', async function (data_table
   }
 });
 
-Then(/^I verify that "(.*)" activity status as completed$/, async function (activityName) {
-  let elements = await pages.course_planner.getText('custom_activity_validation');
-  if (elements = activityName) {
-    await pages.overview.assertElementExists('complete_status');
+Then('I verify the activity status as completed once the student attempt the activities', async function (data_table) {
+  let elements = await pages.overview.getWebelements('overviewtab_activity_verification');
+  for (let x = 0; x <= elements.length; x++) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+      let verify = await pages.overview.assertTextinclude('overviewtab_activity_verification', data_table.hashes()[i].activity)
+      if (verify == true) {
+        await pages.overview.assertTextinclude('complete_status', data_table.hashes()[i].status)
+      }
+    }
+  }
+});
+
+When('I delete the courses', async function () {
+  let elements = await pages.create_course.getWebelements('course_card');
+  for (let x = 0; x <= elements.length; x++) {
+    await pages.course_list.click('course_menu');
+    await pages.main.click('delete_course');
+  }
+});
+
+When('I attempt learning curve activity', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let activityName = await page.overview.getText('learning_curve_activity');
+    if (activityName === data_table.hashes()[i].activity) {
+      await pages.overview.click('learning_curve_activity');
+      await pages.overview.click('Begin_activity');
+      let answerText = await pages.student_activity.getText('sentence_click_lc');
+      console.log('answerText' + answerText)
+
+      while (true) {
+        if (await pages.student_activity.checkWebElementExists('quiz_complete') === true) {
+          await pages.student_activity.click('back_to_study_plan');
+        } else {
+          let jsonObject = await pages.student_activity.getText('activity_Question');
+          let split = jsonObject.split('}')[0] + '}';
+          let finalResult = JSON.parse(split);
+          console.log(finalResult);
+          console.log(finalResult.Id);
+          let answerKey = pages.result.questions[finalResult.Id]
+          console.log('key:' + answerKey);
+          console.log(answerKey.Type);
+          console.log(answerKey.Answer);
+          let answerText = await pages.student_activity.getText('sentence_click_lc');
+          console.log('answerText' + answerText)
+          switch (answerKey.Type) {
+            case 'SC':
+              console.log('entered sc')
+              let answerText = await pages.student_activity.getText('sentence_click_lc');
+              console.log('answerText' + answerText)
+              await pages.student_activity.populate('sentence_click_lc', answerKey.Answer);
+              //
+              await pages.student_activity.click('next_question');
+              break;
+            case 'MC':
+              console.log('enteres Mc')
+              await pages.student_activity.populate('multiple_choice', answerKey.Answer);
+              await pages.student_activity.click('submit_button');
+              await pages.student_activity.click('next_question');
+              break;
+            case 'FB':
+              console.log('entered fb')
+              await pages.student_activity.populate('fill_blank_lc', answerKey.Answer);
+
+              await pages.student_activity.click('next_question');
+              break;
+          }
+        }
+      }
+    }
   }
 });

@@ -120,6 +120,13 @@
         "definition": "[data-test-id='statusComplete']",
         "frame": "default",
         "specialInstr": "NA"
+    },
+    {
+        "name": "overviewtab_activity_verification",
+        "byType": "css",
+        "definition": "[data-test-id='activity_name_link']",
+        "frame": "default",
+        "specialInstr": "NA"
     }, {
         "name": "overview_verification",
         "byType": "css",

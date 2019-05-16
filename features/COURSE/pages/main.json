@@ -29,6 +29,13 @@
         "definition": "[data-test-id='achieve_logo_link']",
         "frame": "default",
         "specialInstr": "NA"
+    },
+    {
+        "name": "delete_course",
+        "byType": "css",
+        "definition": "[data-test-id='course_menu_delete_course']",
+        "frame": "default",
+        "specialInstr": "NA"
     }, {
         "name": "create_account",
         "byType": "css",

@@ -22,7 +22,7 @@
         "byType": "css",
         "definition": "[data-test-id='search_bar']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "enterAfter"
     }, {
         "name": "close",
         "byType": "css",

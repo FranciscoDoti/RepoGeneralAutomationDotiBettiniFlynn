@@ -75,12 +75,12 @@ const populateSelect = async function (selector, item, WebElementData) {
       }
     };
   }
-  // if (WebElementData.specialInstr === 'tabAfter') {
-  //   await selector.sendKeys(Keys.TAB);
-  // }
-  // if (WebElementData.specialInstr === 'enterAfter') {
-  //   await selector.sendKeys(Keys.RETURN);
-  // }
+  if (WebElementData.specialInstr === 'tabAfter') {
+    await selector.sendKeys(Keys.TAB);
+  }
+  if (WebElementData.specialInstr === 'enterAfter') {
+    await selector.sendKeys(Keys.RETURN);
+  }
 };
 
 /* specialInstr values:

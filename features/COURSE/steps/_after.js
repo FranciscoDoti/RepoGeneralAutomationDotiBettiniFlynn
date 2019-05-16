@@ -16,9 +16,7 @@ const { Given, When, Then } = require('cucumber');
 
 // @When('I sign out of Achieve');
 // @Given('I login to Achieve-CW as "media_producer_1"');
-//   let elements = await pages.create_course.getWebelements('course_card');
-//   for (let i = 0; i < elements.length; i++) {
-//     await deleteCourse(this.driver);
+//  @When('I delete the courses');
 //   }
 // });
 

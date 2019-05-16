@@ -93,14 +93,10 @@ Feature: Student attempts all the activities in Quantitative
             |                                          |   The Keweenaw Peninsula is surrounded on three sides by Lake Superior.                                                    |                         |           
             |                                          |   At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                               |                         |
             |                                          |  The person who complained to the human resources manager wishes to remain anonymous.                                      |                         |
-        Then I verify that "premadeAssesment" activity status as completed 
-        And I verify that "customMadeAssesment" activity status as completed  
-
+        
         When I attempt learning curve activity
             | activity          |
             | LC1551301608988   |
-
-        Then I verify that "learningCurve" activity status as completed 
 
 
         When I click on reading activity
@@ -111,7 +107,14 @@ Feature: Student attempts all the activities in Quantitative
             | activity                                      |
             | Communicating courteously and professionally  |
 
-        And I verify that "Reading" activity status as completed 
+        And I verify the activity status as completed once the student attempt the activities
+            | activity                                      | status    |
+            | Exercise: Misused words 1 (autoscored)        | Complete  |
+            | Qual Test                                     | Complete  | 
+            | LC1551301608988                               | Complete  | 
+            | Communicating courteously and professionally  | Complete  |
+
+
         And I verify the assignmenent grades in gradebook for below assigned activities
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
