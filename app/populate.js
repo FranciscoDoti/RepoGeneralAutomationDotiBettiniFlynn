@@ -116,15 +116,15 @@ const populateTextField = async function (selector, value, WebElementObject) {
   log.debug(`Post populate text field value: ${eleValue}`);
 
   if (localSpecialInstr.indexOf('tabAfter') > -1) {
-    await selector.sendKeys(Key.chord(Key.TAB));
+    await selector.sendKeys(Key.chord(Keys.TAB));
   }
   if (localSpecialInstr.indexOf('arrowDownAfter') > -1) {
     console.log('getting into arrow down')
-    await selector.sendKeys(Key.DOWN);
+    await selector.sendKeys(Keys.DOWN);
   }
   if (localSpecialInstr.indexOf('enterAfter') > -1) {
     console.log('getting into return')
-    await selector.sendKeys(Key.RETURN);
+    await selector.sendKeys(Keys.RETURN);
   }
 
   if (
