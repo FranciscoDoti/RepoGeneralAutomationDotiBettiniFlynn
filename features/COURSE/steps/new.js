@@ -153,7 +153,6 @@ When('I add custom made activities in courseplanner', async function (data_table
     await pages.course_planner.click('custom_content_button');
     await pages.course_planner.click('your_activity');
     await pages.course_planner.populate('library_search_input', data_table.hashes()[i].activity);
-    await pages.course_planner.click('library_search_input');
     await pages.course_planner.click('add_custom_activity');
     await pages.course_planner.click('close_courseplanner');
   }

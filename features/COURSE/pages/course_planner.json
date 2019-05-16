@@ -112,7 +112,7 @@
         "byType": "css",
         "definition": "[id='__librarySearchInput']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "enterAfter"
     }, {
         "name": "close_courseplanner",
         "byType": "css",
