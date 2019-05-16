@@ -1,16 +1,16 @@
 
-const { getWebDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
-const {Key} = require('selenium-webdriver');
+const { onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
+const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
 
-const populateInput = async function (eleTarget, strValue, actionElement) {
-  const type = await eleTarget.getAttribute('type');
+const populateInput = async function (selector, value, WebElementObject) {
+  const type = await selector.getAttribute('type');
   switch (type) {
     case 'radio':
-      if (strValue.toLowerCase() === 'click') {
+      if (value.toLowerCase() === 'click') {
         log.debug('Clicking radio button');
-        await eleTarget.click();
+        await selector.click();
       } else {
         log.debug('By passing radio button click');
       }
@@ -18,32 +18,32 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
 
     case 'email':
     case 'text':
-      await populateTextField(eleTarget, strValue, actionElement);
+      await populateTextField(selector, value, WebElementObject);
       break;
 
     case 'password':
-      await populateTextField(eleTarget, strValue, actionElement);
+      await populateTextField(selector, value, WebElementObject);
       break;
 
     case 'checkbox':
-      if (strValue.toLowerCase() === 'click') {
-        await populateClick(eleTarget, strValue, actionElement);
+      if (value.toLowerCase() === 'click') {
+        await populateClick(selector, value, WebElementObject);
       } else {
         log.debug('Bypassing the checkbox click');
       }
       break;
 
     case 'button':
-      if (strValue.toLowerCase() === 'click') {
-        await populateClick(eleTarget, strValue, actionElement);
+      if (value.toLowerCase() === 'click') {
+        await populateClick(selector, value, WebElementObject);
       } else {
         log.debug('Bypassing the button click');
       }
       break;
 
     case 'submit':
-      if (strValue.toLowerCase() === 'click') {
-        await populateClick(eleTarget, strValue, actionElement);
+      if (value.toLowerCase() === 'click') {
+        await populateClick(selector, value, WebElementObject);
       } else {
         log.debug('Bypassing the button click');
       }
@@ -52,21 +52,15 @@ const populateInput = async function (eleTarget, strValue, actionElement) {
     default:
       log.debug(
         'ERROR: populateInput() failed because the input type ' +
-          eleTarget.getAttribute('type') +
+          selector.getAttribute('type') +
           ' has not been coded for.'
       );
   }
 };
 
-const populateSelect = async function (selector, item, tempElement) {
-  const webDriver = getWebDriver();
-  const localSpecialInstr = tempElement.specialInstr || '';
-
-  if (!selector) return;
-  await selector.click();
-  await sleep(500);
-
-  const options = await selector.findElements(webDriver.By.tagName('option'));
+const populateSelect = async function (selector, item, WebElementData) {
+  const localSpecialInstr = WebElementData.specialInstr || '';
+  const options = await selector.findElements(By.tagName('option'));
 
   if (localSpecialInstr.toLowerCase().includes('selectByVisibleText'.toLowerCase())) {
     await selector.selectByVisibleText(item);
@@ -74,17 +68,15 @@ const populateSelect = async function (selector, item, tempElement) {
     await selector.selectByValue(item);
   } else {
     await options.forEach(async function (option) {
-      const optionText = await option.getText();
-      log.debug(`Item: ${item} - ${optionText}`);
       if (item === optionText) {
         await option.click();
       }
     });
   }
-  if (tempElement.specialInstr === 'tabAfter') {
+  if (WebElementData.specialInstr === 'tabAfter') {
     await selector.sendKeys(Keys.TAB);
   }
-  if (tempElement.specialInstr === 'enterAfter') {
+  if (WebElementData.specialInstr === 'enterAfter') {
     await selector.sendKeys(Keys.RETURN);
   }
 };
@@ -95,12 +87,12 @@ const populateSelect = async function (selector, item, tempElement) {
 	* 		overWrite - Selects the values in the field before over writing with the new value.  Does not clear the field.
 	*
 	*/
-const populateTextField = async function (eleTarget, strValue, actionElement) {
+const populateTextField = async function (selector, value, WebElementObject) {
   let localSpecialInstr = '';
-  const tempElement = actionElement.element;
-  const eleValue = await eleTarget.getAttribute('value');
-  if (tempElement && tempElement.specialInstr != null) {
-    localSpecialInstr = tempElement.specialInstr;
+  const WebElementData = WebElementObject.element;
+  const eleValue = await selector.getAttribute('value');
+  if (WebElementData && WebElementData.specialInstr != null) {
+    localSpecialInstr = WebElementData.specialInstr;
   }
 
   if (
@@ -108,29 +100,29 @@ const populateTextField = async function (eleTarget, strValue, actionElement) {
     !localSpecialInstr.toLowerCase().indexOf('noclick') > -1
   ) {
     log.debug(`Clicking text field: ${localSpecialInstr}`);
-    await eleTarget.click();
+    await selector.click();
   }
 
   if (localSpecialInstr.toLowerCase().indexOf('overwrite') > -1) {
     log.debug(`Pre overwrite text field value: ${eleValue}`);
   } else if (!localSpecialInstr.toLowerCase().indexOf('noclear') > -1) {
     log.debug(`Pre clear text field value: ${eleValue}`);
-    await eleTarget.clear();
+    await selector.clear();
   }
 
-  await eleTarget.sendKeys(strValue);
+  await selector.sendKeys(value);
   log.debug(`Post populate text field value: ${eleValue}`);
 
   if (localSpecialInstr.indexOf('tabAfter') > -1) {
-    await eleTarget.sendKeys(Key.chord(Key.TAB));
+    await selector.sendKeys(Key.chord(Key.TAB));
   }
   if (localSpecialInstr.indexOf('arrowDownAfter') > -1) {
     console.log('getting into arrow down')
-    await eleTarget.sendKeys(Key.DOWN);
+    await selector.sendKeys(Key.DOWN);
   }
   if (localSpecialInstr.indexOf('enterAfter') > -1) {
     console.log('getting into return')
-    await eleTarget.sendKeys(Key.RETURN);
+    await selector.sendKeys(Key.RETURN);
   }
 
   if (
@@ -146,36 +138,36 @@ const populateTextField = async function (eleTarget, strValue, actionElement) {
   }
 };
 
-const populateClick = async function (eleTarget, strValue, actionElement) {
-  //console.log(`${eleTarget}, ${strValue}, ${actionElement}`);
+const populateClick = async function (selector, value, WebElementObject) {
+  //console.log(`${selector}, ${value}, ${WebElementObject}`);
   
-  const tempElement = actionElement.element;
+  const WebElementData = WebElementObject.element;
   let localSpecialInstr = '';
-  if (tempElement && tempElement.specialInstr != null) {
-    localSpecialInstr = tempElement.specialInstr;
+  if (WebElementData && WebElementData.specialInstr != null) {
+    localSpecialInstr = WebElementData.specialInstr;
   }
 
-  if (strValue.toLowerCase() === 'click') {
-    if (tempElement && tempElement.waitForElementToBeEnabled) {
+  if (value.toLowerCase() === 'click') {
+    if (WebElementData && WebElementData.waitForElementToBeEnabled) {
       log.debug('Waiting until element to be enabled');
-      const webElementTarget = await WebElement(tempElement);
+      const webElementTarget = await WebElement(WebElementData);
       const webElement = await webElementTarget.getWebElement();
       await onWaitForWebElementToBeEnabled(webElement);
       await sleep(500);
     }
 
-    await eleTarget.click();
+    await selector.click();
     await sleep(500);
 
-    if (tempElement && tempElement.waitIdToBeVisibleonNextPage) {
+    if (WebElementData && WebElementData.waitIdToBeVisibleonNextPage) {
       log.debug('Waiting until page loads after click');
-      await onPageLoadedWaitById(tempElement.waitIdToBeVisibleonNextPage);
+      await onPageLoadedWaitById(WebElementData.waitIdToBeVisibleonNextPage);
       await sleep(500);
     }
 
-    if (tempElement && tempElement.waitToBeVisible) {
-      log.debug(`Waiting until tempElement (${tempElement}) to be visible`);
-      const webElementTarget = await WebElement(actionElement.waitToBeVisible);
+    if (WebElementData && WebElementData.waitToBeVisible) {
+      log.debug(`Waiting until WebElementData (${WebElementData}) to be visible`);
+      const webElementTarget = await WebElement(WebElementObject.waitToBeVisible);
       const webElement = await webElementTarget.getBy();
       await onWaitForElementToBeVisible(webElement);
       await sleep(500);
@@ -184,9 +176,9 @@ const populateClick = async function (eleTarget, strValue, actionElement) {
     log.debug('Clicked web element');
   }
 
-  if (actionElement && actionElement.elementToWaitToBeInvisible) {
-    log.debug(`Waiting until actionElement (${actionElement}) to be invisible`);
-    const webElementTarget = await WebElement(actionElement.elementToWaitToBeInvisible);
+  if (WebElementObject && WebElementObject.elementToWaitToBeInvisible) {
+    log.debug(`Waiting until WebElementObject (${WebElementObject}) to be invisible`);
+    const webElementTarget = await WebElement(WebElementObject.elementToWaitToBeInvisible);
     const webElement = await webElementTarget.getBy();
     await onWaitForElementToBeInvisible(webElement);
     log.debug('Sleeping 1000ms');
