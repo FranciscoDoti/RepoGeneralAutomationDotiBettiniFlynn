@@ -122,24 +122,23 @@
             "sq3": "What is your favorite color?",
             "sq3_answer": "answer",
             "primarySchool": "Miami University"
-        }
-    },
+        },
         "instructor_1": {
-        "username": "hecepaj@postemail.net",
-        "password": "ABCabc@123",
-        "firstName": "instructor",
-        "lastName": "macmillan",
-        "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
-        "sq1_answer": "answer",
-        "sq2": "What is the name of your first school?",
-        "sq2_answer": "answer",
-        "sq3": "What is the name of your pet?",
-        "sq3_answer": "answer",
-        "primarySchool": "macmillan learning"
+            "username": "hecepaj@postemail.net",
+            "password": "ABCabc@123",
+            "firstName": "instructor",
+            "lastName": "macmillan",
+            "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
+            "sq1_answer": "answer",
+            "sq2": "What is the name of your first school?",
+            "sq2_answer": "answer",
+            "sq3": "What is the name of your pet?",
+            "sq3_answer": "answer",
+            "primarySchool": "macmillan learning"
         }
     },
 
-        "environment name": {
+    "environment name": {
         "user1": {
             "username": "user1 name",
             "password": "user1 password",

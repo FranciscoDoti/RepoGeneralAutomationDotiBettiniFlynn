@@ -68,17 +68,18 @@ const populateSelect = async function (selector, item, WebElementData) {
     await selector.selectByValue(item);
   } else {
     await options.forEach(async function (option) {
+      const optionText = await option.getText();
       if (item === optionText) {
         await option.click();
       }
     });
   }
-  if (WebElementData.specialInstr === 'tabAfter') {
-    await selector.sendKeys(Keys.TAB);
-  }
-  if (WebElementData.specialInstr === 'enterAfter') {
-    await selector.sendKeys(Keys.RETURN);
-  }
+  // if (WebElementData.specialInstr === 'tabAfter') {
+  //   await selector.sendKeys(Keys.TAB);
+  // }
+  // if (WebElementData.specialInstr === 'enterAfter') {
+  //   await selector.sendKeys(Keys.RETURN);
+  // }
 };
 
 /* specialInstr values:
