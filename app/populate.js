@@ -60,19 +60,20 @@ const populateInput = async function (selector, value, WebElementObject) {
 
 const populateSelect = async function (selector, item, WebElementData) {
   const localSpecialInstr = WebElementData.specialInstr || '';
-  const options = await selector.findElements(By.tagName('option'));
-
+  
   if (localSpecialInstr.toLowerCase().includes('selectByVisibleText'.toLowerCase())) {
     await selector.selectByVisibleText(item);
   } else if (localSpecialInstr.toLowerCase().includes('selectByValue'.toLowerCase())) {
     await selector.selectByValue(item);
   } else {
-    await options.forEach(async function (option) {
+    const options = await selector.findElements(By.tagName('option'));
+    for await (var option of options)
+    {
       const optionText = await option.getText();
       if (item === optionText) {
         await option.click();
       }
-    });
+    };
   }
   if (WebElementData.specialInstr === 'tabAfter') {
     await selector.sendKeys(Keys.TAB);
