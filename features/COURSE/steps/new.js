@@ -49,6 +49,7 @@ When('I fill out the form to update the template from draft to Template', async 
       await pages.create_course.click('select_day', data_table.hashes()[i].value);
     }
   }
+  await pages.create_course.click('save_editcourse');
 });
 
 When('I click on course card', async function () {

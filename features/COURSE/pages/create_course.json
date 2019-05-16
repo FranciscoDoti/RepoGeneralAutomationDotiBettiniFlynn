@@ -104,7 +104,7 @@
     }, {
         "name": "learning_objective",
         "byType": "css",
-        "definition": "._2oIm._2lfL._2Kdo._3vV4",
+        "definition": "[data-test-id='select_lo_framework']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

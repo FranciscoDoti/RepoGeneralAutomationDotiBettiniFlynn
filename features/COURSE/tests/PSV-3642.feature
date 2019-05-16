@@ -4,14 +4,14 @@ Feature: Student attempts all the activities in Quantitative
 
         Given I login to Achieve-CW as "media_producer_1"
         When I fill out the form to create course
-            | page_object        | value                   |clear|
-            | course_type        | Template                |     |
-            | product_model      | Quantitative            |     |
-            | learning_objective | Principles of Economics |     |
-            | course_name        | Qualitative Testcourse  |true |
-            | course_code        | E2E 301                 |true |
-            | isbn_number        | 9781464199497           |true |
-            | course_status      | draft                   |     |
+            | page_object        | value                         |clear|
+            | course_type        | Template                     |     |
+            | product_model      | Quantitative                 |     |
+            | learning_objective | Principles of Microeconomics |     |
+            | course_name        | Qualitative Testcourse       |true |
+            | course_code        | E2E 301                      |true |
+            | isbn_number        | 9781464199497                |true |
+            | course_status      | draft                        |     |
         And I close the popup message
 
         And I fill out the form to update the template from draft to Template
