@@ -68,6 +68,7 @@ const populateSelect = async function (selector, item, WebElementData) {
     await selector.selectByValue(item);
   } else {
     await options.forEach(async function (option) {
+      const optionText = await option.getText();
       if (item === optionText) {
         await option.click();
       }
