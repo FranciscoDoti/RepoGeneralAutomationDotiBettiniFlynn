@@ -136,11 +136,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           await populateClick(webElement, value, actionElement);
           break;
         case 'select':
-          await populateSelect(webElement, value, actionElement);
-          break;
         case 'svg':
-          await populateSelect(webElement, value, actionElement);
-          break;
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;

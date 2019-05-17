@@ -18,9 +18,6 @@ const populateInput = async function (selector, value, WebElementObject) {
 
     case 'email':
     case 'text':
-      await populateTextField(selector, value, WebElementObject);
-      break;
-
     case 'password':
       await populateTextField(selector, value, WebElementObject);
       break;
@@ -34,13 +31,6 @@ const populateInput = async function (selector, value, WebElementObject) {
       break;
 
     case 'button':
-      if (value.toLowerCase() === 'click') {
-        await populateClick(selector, value, WebElementObject);
-      } else {
-        log.debug('Bypassing the button click');
-      }
-      break;
-
     case 'submit':
       if (value.toLowerCase() === 'click') {
         await populateClick(selector, value, WebElementObject);
@@ -97,18 +87,18 @@ const populateTextField = async function (selector, value, WebElementObject) {
     localSpecialInstr = WebElementData.specialInstr;
   }
 
-  if (
-    localSpecialInstr &&
-    !localSpecialInstr.toLowerCase().indexOf('noclick') > -1
-  ) {
-    log.debug(`Clicking text field: ${localSpecialInstr}`);
+  if(!localSpecialInstr.toLowerCase().includes('noclick'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.click();
   }
 
-  if (localSpecialInstr.toLowerCase().indexOf('overwrite') > -1) {
-    log.debug(`Pre overwrite text field value: ${eleValue}`);
-  } else if (!localSpecialInstr.toLowerCase().indexOf('noclear') > -1) {
-    log.debug(`Pre clear text field value: ${eleValue}`);
+  if(!localSpecialInstr.toLowerCase().includes('overwrite'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
+  } else if(!localSpecialInstr.toLowerCase().includes('noclear'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Clearing text.`);
     await selector.clear();
   }
 
