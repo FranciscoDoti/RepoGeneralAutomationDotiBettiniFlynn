@@ -7,8 +7,8 @@ Feature: Student attempts all the activities in Quantitative
             | page_object        | value                         |clear|
             | course_type        | Template                     |     |
             | product_model      | Quantitative                 |     |
-            | learning_objective | Principles of Microeconomics |     |
             | course_name        | Qualitative Testcourse       |true |
+            | learning_objective | Principles of Microeconomics |     |
             | course_code        | E2E 301                      |true |
             | isbn_number        | 9781464199497                |true |
             | course_status      | draft                        |     |
