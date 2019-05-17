@@ -1,6 +1,6 @@
 
 const { onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
-const { By, Keys } = require('selenium-webdriver');
+const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
 
@@ -76,10 +76,10 @@ const populateSelect = async function (selector, item, WebElementData) {
     };
   }
   if (WebElementData.specialInstr === 'tabAfter') {
-    await selector.sendKeys(Keys.TAB);
+    await selector.sendKeys(Key.TAB);
   }
   if (WebElementData.specialInstr === 'enterAfter') {
-    await selector.sendKeys(Keys.RETURN);
+    await selector.sendKeys(Key.RETURN);
   }
 };
 
@@ -116,15 +116,15 @@ const populateTextField = async function (selector, value, WebElementObject) {
   log.debug(`Post populate text field value: ${eleValue}`);
 
   if (localSpecialInstr.indexOf('tabAfter') > -1) {
-    await selector.sendKeys(Key.chord(Keys.TAB));
+    await selector.sendKeys(Key.chord(Key.TAB));
   }
   if (localSpecialInstr.indexOf('arrowDownAfter') > -1) {
     console.log('getting into arrow down')
-    await selector.sendKeys(Keys.DOWN);
+    await selector.sendKeys(Key.DOWN);
   }
   if (localSpecialInstr.indexOf('enterAfter') > -1) {
     console.log('getting into return')
-    await selector.sendKeys(Keys.RETURN);
+    await selector.sendKeys(Key.RETURN);
   }
 
   if (
