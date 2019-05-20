@@ -93,7 +93,7 @@ const populateTextField = async function (selector, value, WebElementObject) {
     await selector.click();
   }
 
-  if(!localSpecialInstr.toLowerCase().includes('overwrite'))
+  if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
   } else if(!localSpecialInstr.toLowerCase().includes('noclear'))
