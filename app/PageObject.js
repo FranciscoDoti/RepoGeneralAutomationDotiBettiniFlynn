@@ -131,21 +131,18 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'div':
         case 'span':
         case 'ul':
+        case 'li':
         case 'th':
         case 'h2':
           await populateClick(webElement, value, actionElement);
           break;
         case 'select':
-          await populateSelect(webElement, value, actionElement);
-          break;
         case 'svg':
-          await populateSelect(webElement, value, actionElement);
-          break;
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;
         default:
-          log.error(`ERROR: We tried to populate an unknown tag(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
+          log.error(`ERROR: We tried to populate an unknown tag(${tagName}) of element(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
       }
     } else {
       log.error(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);

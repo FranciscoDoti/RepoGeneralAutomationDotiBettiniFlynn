@@ -4,7 +4,7 @@ Feature: Student attempts all the activities in Quantitative
 
         Given I login to Achieve-CW as "media_producer_1"
         When I fill out the form to create course
-            | page_object        | value                         |clear|
+            | page_object        | value                        |clear|
             | course_type        | Template                     |     |
             | product_model      | Quantitative                 |     |
             | course_name        | Qualitative Testcourse       |true |
@@ -38,11 +38,11 @@ Feature: Student attempts all the activities in Quantitative
         And I close the popup message
 
         And I sign out of Achieve
-        And I click login to the Achieve product
         And I login to Achieve-CW as "customer_support_1"
         
         And I click on search button and input "Qualitative Testcourse test" to search the course
-        And I assign "instructor_1" to the course
+
+        And I assign "instructor_1" to the "Qualitative Testcourse test" course
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"

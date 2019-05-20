@@ -1,6 +1,6 @@
 
 const { onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
-const { By, Keys } = require('selenium-webdriver');
+const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
 
@@ -18,9 +18,6 @@ const populateInput = async function (selector, value, WebElementObject) {
 
     case 'email':
     case 'text':
-      await populateTextField(selector, value, WebElementObject);
-      break;
-
     case 'password':
       await populateTextField(selector, value, WebElementObject);
       break;
@@ -34,13 +31,6 @@ const populateInput = async function (selector, value, WebElementObject) {
       break;
 
     case 'button':
-      if (value.toLowerCase() === 'click') {
-        await populateClick(selector, value, WebElementObject);
-      } else {
-        log.debug('Bypassing the button click');
-      }
-      break;
-
     case 'submit':
       if (value.toLowerCase() === 'click') {
         await populateClick(selector, value, WebElementObject);
@@ -76,10 +66,10 @@ const populateSelect = async function (selector, item, WebElementData) {
     };
   }
   if (WebElementData.specialInstr === 'tabAfter') {
-    await selector.sendKeys(Keys.TAB);
+    await selector.sendKeys(Key.TAB);
   }
   if (WebElementData.specialInstr === 'enterAfter') {
-    await selector.sendKeys(Keys.RETURN);
+    await selector.sendKeys(Key.RETURN);
   }
 };
 
@@ -97,18 +87,18 @@ const populateTextField = async function (selector, value, WebElementObject) {
     localSpecialInstr = WebElementData.specialInstr;
   }
 
-  if (
-    localSpecialInstr &&
-    !localSpecialInstr.toLowerCase().indexOf('noclick') > -1
-  ) {
-    log.debug(`Clicking text field: ${localSpecialInstr}`);
+  if(!localSpecialInstr.toLowerCase().includes('noclick'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.click();
   }
 
-  if (localSpecialInstr.toLowerCase().indexOf('overwrite') > -1) {
-    log.debug(`Pre overwrite text field value: ${eleValue}`);
-  } else if (!localSpecialInstr.toLowerCase().indexOf('noclear') > -1) {
-    log.debug(`Pre clear text field value: ${eleValue}`);
+  if(!localSpecialInstr.toLowerCase().includes('overwrite'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
+  } else if(!localSpecialInstr.toLowerCase().includes('noclear'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Clearing text.`);
     await selector.clear();
   }
 
@@ -116,15 +106,15 @@ const populateTextField = async function (selector, value, WebElementObject) {
   log.debug(`Post populate text field value: ${eleValue}`);
 
   if (localSpecialInstr.indexOf('tabAfter') > -1) {
-    await selector.sendKeys(Key.chord(Keys.TAB));
+    await selector.sendKeys(Key.chord(Key.TAB));
   }
   if (localSpecialInstr.indexOf('arrowDownAfter') > -1) {
     console.log('getting into arrow down')
-    await selector.sendKeys(Keys.DOWN);
+    await selector.sendKeys(Key.DOWN);
   }
   if (localSpecialInstr.indexOf('enterAfter') > -1) {
     console.log('getting into return')
-    await selector.sendKeys(Keys.RETURN);
+    await selector.sendKeys(Key.RETURN);
   }
 
   if (

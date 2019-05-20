@@ -1,6 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require('../pages/.page.js').pages;
 const expect = require('chai').expect;
+const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
 When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
@@ -88,11 +89,12 @@ When('I sign out of Achieve', async function () {
 });
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
-  await pages.course_list.popualte('search', CourseName)
+  await pages.course_list.populate('search', CourseName)
 });
 
-When(/^I assign "(.*)" to the course$/, async function (userName) {
+When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseName) {
   let user = await _.get(users, [this.environment, userName]);
+  await pages.course_list.assertTextIncludes('course_name', courseName);
   await pages.course_list.click('course_menu');
   await pages.course_list.click('Manage_instructor');
   await pages.create_course.populate('add_instructor', user.username);

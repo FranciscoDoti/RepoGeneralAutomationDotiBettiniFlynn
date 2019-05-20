@@ -255,7 +255,7 @@
     {
         "name": "custom_assesment_frame",
         "byType": "css",
-        "definition": "//*[@id='container']/div/div/div/iframe",
+        "definition": "1",
         "frame": "default",
         "specialInstr": "NA"
 
@@ -263,9 +263,9 @@
     
     {
         "name": "Assignment_tittle",
-        "byType": "css",
-        "definition": "[placeholder='Provide a title']",
-        "frame": "custom_assesment_frame",
+        "byType": "xpath",
+        "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Assignment_type",
