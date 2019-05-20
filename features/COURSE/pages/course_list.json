@@ -172,13 +172,13 @@
         "byType": "id",
         "definition": "courseName",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "noclick"
     }, {
         "name": "edit_course_code",
         "byType": "id",
         "definition": "courseCode",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "noclick"
     }, {
         "name": "ebook_link",
         "byType": "css",
