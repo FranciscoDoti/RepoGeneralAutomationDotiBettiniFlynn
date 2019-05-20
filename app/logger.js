@@ -13,7 +13,7 @@ const log = createLogger({
     // - Write all logs error (and below) to `error.log`.
     //
     new transports.File({
-      filename: '/tmp/log/error.log',
+      filename: `${process.cwd()}/reports/logs/error.log`,
       level: 'error',
       format: format.combine(
         format.timestamp({
@@ -23,7 +23,7 @@ const log = createLogger({
       )
     }),
     new transports.File({
-      filename: '/tmp/log/combined.log',
+      filename: `${process.cwd()}/reports/logs/combined.log`,
       level: 'debug',
       format: format.combine(
         format.timestamp({
