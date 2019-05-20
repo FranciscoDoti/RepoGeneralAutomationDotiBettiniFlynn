@@ -22,7 +22,7 @@ Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.course_list.populate('search', input);
 });
 
-When('I fill out the form to create course', async function (data_table) {
+When('I create coourse with the data', async function (data_table) {
   await pages.create_course.click('button');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
@@ -33,13 +33,15 @@ When('I fill out the form to create course', async function (data_table) {
   }
 
   await pages.create_course.click('save');
+  await pages.home.click('close_alert');
+
 });
 
 When('I close the popup message', async function () {
   await pages.home.click('close_alert');
 });
 
-When('I fill out the form to update the template from draft to Template', async function (data_table) {
+When('I update the template from draft to active with the following data', async function (data_table) {
   await pages.course_list.click('course_menu');
   await pages.course_list.click('edit_course');
 
@@ -51,6 +53,7 @@ When('I fill out the form to update the template from draft to Template', async 
     }
   }
   await pages.create_course.click('save_editcourse');
+  await pages.home.click('close_alert');
 });
 
 When('I click on course card', async function () {
@@ -62,6 +65,8 @@ When('I click on resource tab', async function () {
 });
 
 When('I add the activity to the course under the resources tab', async function (data_table) {
+  await pages.create_course.click('course_card');
+  await pages.course_page.click('resources');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('add_content');
     await pages.resources.populate('search_bar', data_table.hashes()[i].activity);
@@ -74,13 +79,14 @@ When('I click on home button to return to coursepage', async function () {
   await pages.main.click('achieve_home');
 });
 
-When('I fill out the form to copy a course', async function (data_table) {
+When('I copy course from the template with the following data', async function (data_table) {
   await pages.course_list.click('course_menu');
   await pages.course_list.click('copy_course');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.create_course.populate(data_table.hashes()[i].page_object, data_table.hashes()[i].value, data_table.hashes()[i].clear);
   };
   await pages.create_course.click('save_copycourse');
+  await pages.home.click('close_alert');
 });
 
 When('I sign out of Achieve', async function () {
@@ -102,7 +108,7 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseN
   await pages.create_course.click('add_instructor_close');
 });
 
-When('I fill out the form to update the status of course to active', async function (data_table) {
+When('I update the course from draft to Active with following data', async function (data_table) {
   await pages.course_list.click('course_menu');
   await pages.course_list.click('edit_course');
 
@@ -118,9 +124,11 @@ When('I fill out the form to update the status of course to active', async funct
   await pages.course_list.click('next_month_button');
   await pages.course_list.click('select_date');
   await pages.create_course.click('save_editcourse');
+  await pages.home.click('close_alert');
 });
 
-When('I create custom made activity', async function (data_table) {
+When('I create custom made activity with the following data', async function (data_table) {
+  await pages.create_course.click('course_card');
   await pages.course_page.click('course_planner');
   await pages.course_planner.click('custom_content_button');
   await pages.course_planner.click('New_custom');

@@ -3,7 +3,7 @@ Feature: Student attempts all the activities in Quantitative
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_1"
-        When I fill out the form to create course
+        When I create coourse with the data 
             | page_object        | value                        |clear|
             | course_type        | Template                     |     |
             | product_model      | Quantitative                 |     |
@@ -12,30 +12,23 @@ Feature: Student attempts all the activities in Quantitative
             | course_code        | E2E 301                      |true |
             | isbn_number        | 9781464199497                |true |
             | course_status      | draft                        |     |
-        And I close the popup message
 
-        And I fill out the form to update the template from draft to Template
+        And I update the template from draft to active with the following data
             | page_object      | value                                                       |clear|
             | edit_course_name | Qualitative Testcourse                                      |true |        
             | edit_course_code | E2E 301                                                     |true |
             | template_status  | Active On Date                                              |     |
-    
-        And I close the popup message
 
-        And I click on course card   
-        And I click on resource tab
         And I add the activity to the course under the resources tab
             | activity                                                          | type                      |
             | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
             | LC1551301608988                                                   | add_button_learningcurve  |
 
         And I click on home button to return to coursepage
-        And I fill out the form to copy a course
+        And I copy course from the template with the following data
             | page_object       | value                        |clear|
             | copy_course       | Qualitative Testcourse test  |true |
             | copy_course_code  | E2E301                       |true |
-
-        And I close the popup message
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -47,15 +40,13 @@ Feature: Student attempts all the activities in Quantitative
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I fill out the form to update the status of course to active 
+        When I update the course from draft to Active with following data 
             | page_object      | value                        | clear |
             | edit_course_name | Qualitative Testcourse test  | true  |
             | edit_course_code |  E2E301                      | true  |
             | template_status  |  Active On Date              |       |
     
-        And I close the popup message
-        And I click on course card
-        And I create custom made activity
+        And I create custom made activity with the following data
             | activity           | value                                    |
             | Assignment_tittle  | Qual Test                                |
             | Assignment_type    | Test                                     |
