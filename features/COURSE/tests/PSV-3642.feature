@@ -13,40 +13,38 @@ Feature: Student attempts all the activities in Quantitative
             | isbn_number        | 9781464199497                |true |
             | course_status      | draft                        |     |
 
-        And I update the template from draft to active with the following data
+        And I update the "Qualitative Testcourse" template from draft to active with the following data
             | page_object      | value                                                       |clear|
             | edit_course_name | Qualitative Testcourse                                      |true |        
             | edit_course_code | E2E 301                                                     |true |
             | template_status  | Active On Date                                              |     |
 
-        And I add the activity to the course under the resources tab
+        And I add the activity to "Qualitative Testcourse" course under the resources tab
             | activity                                                          | type                      |
             | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
             | LC1551301608988                                                   | add_button_learningcurve  |
 
         And I click on home button to return to coursepage
-        And I copy course from the template with the following data
+        And I copy course from the "Qualitative Testcourse" template with the following data
             | page_object       | value                        |clear|
             | copy_course       | Qualitative Testcourse test  |true |
             | copy_course_code  | E2E301                       |true |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
-        
-        And I click on search button and input "Qualitative Testcourse test" to search the course
 
         And I assign "instructor_1" to the "Qualitative Testcourse test" course
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I update the course from draft to Active with following data 
+        When I update the "Qualitative Testcourse test" course from draft to Active with following data 
             | page_object      | value                        | clear |
             | edit_course_name | Qualitative Testcourse test  | true  |
             | edit_course_code |  E2E301                      | true  |
             | template_status  |  Active On Date              |       |
     
-        And I create custom made activity with the following data
+        And I create custom made activity in "Qualitative Testcourse test" with the following data
             | activity           | value                                    |
             | Assignment_tittle  | Qual Test                                |
             | Assignment_type    | Test                                     |
@@ -69,9 +67,8 @@ Feature: Student attempts all the activities in Quantitative
  
 
         And I sign out of Achieve
-        And I login to Achieve-CW as "admin_1"
-        And I click on search button and input "Qualitative Testcourse test" to search the course 
-        And I enroll the "student_1" in the course 
+        And I login to Achieve-CW as "admin_1" 
+        And I enroll the "student_1" in "Qualitative Testcourse test" course 
         And I close the popup message 
         And I sign out of Achieve
 

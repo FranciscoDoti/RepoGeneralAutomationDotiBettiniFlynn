@@ -43,8 +43,8 @@
         "specialInstr": "NA"
     }, {
         "name": "course_card",
-        "byType": "css",
-        "definition": "[data-test-id='course_card']",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../../../../div[@data-test-id='course_card']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

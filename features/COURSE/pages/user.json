@@ -8,7 +8,7 @@
     }, {
         "name": "admin",
         "byType": "css",
-        "definition": "[data-test-id='menu_user_admin']",
+        "definition": "span[data-test-id='menu_user_admin']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

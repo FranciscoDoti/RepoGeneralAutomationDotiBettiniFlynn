@@ -77,13 +77,28 @@
         "definition": "[data-test-id='custom_content_tab']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "add_assignment_button",
+    },{
+        "name": "library_tab",
         "byType": "css",
-        "definition": "[data-test-id='add_assignment']",
+        "definition": "[data-test-id='library_tab']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    
+    {
+        "name": "add_assignment_button",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../../../div/div/div/button[@data-test-id='add_assignment']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "your_content",
+        "byType": "css",
+        "definition": "[data-test-id='custom_content_tab']",
+        "frame": "default",
+        "specialInstr": "NA"
+    
+    },{
         "name": "assign_assignment_button",
         "byType": "css",
         "definition": "[aria-label='Assign Item']",
@@ -115,8 +130,8 @@
         "specialInstr": "enterAfter"
     }, {
         "name": "close_courseplanner",
-        "byType": "css",
-        "definition": "[title='Close']",
+        "byType": "xpath",
+        "definition": "//button[@class='_1gU6']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -161,13 +176,7 @@
         "definition": "[role='grid']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "your_activity",
-        "byType": "css",
-        "definition": "[data-test-id='custom_content_tab']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },  {
         "name": "assignment_due_date",
         "byType": "css",
         "definition": "[data-test-id='assignment_detail_due_date']",
@@ -271,36 +280,36 @@
         "name": "Assignment_type",
         "byType": "xpath",
         "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[1]/select",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "taxonomy",
         "byType": "xpath",
         "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[2]/div/select",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "reset_model",
         "byType": "css",
         "definition": "[data-test-id='reset-modal-confirm-button']",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Check_box_assignment",
         "byType": "css",
         "definition": "[data-test-id='item-checkbox-input-label']",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Add_assignment_button",
         "byType": "css",
         "definition": "[data-test-id='add-question-button']",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "close_assesment",
-        "byType": "xpath",
-        "definition": "//*[@title='Close']",
+        "byType": "css",
+        "definition": "[data-test-id='back_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -319,7 +328,7 @@
         "name": "Question_bank",
         "byType": "css",
         "definition": "[data-test-id='link-to-questionbank']",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "writing_prompt_button",
@@ -348,7 +357,7 @@
     }, {
         "name": "add_custom_activity",
         "byType": "xpath",
-        "definition": "//*[@title='Add Activity']",
+        "definition": "//a[.='<ReplaceText>']/../../../button[@class='_1Uxg']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

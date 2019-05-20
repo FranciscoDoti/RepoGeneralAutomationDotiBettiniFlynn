@@ -41,8 +41,8 @@ When('I close the popup message', async function () {
   await pages.home.click('close_alert');
 });
 
-When('I update the template from draft to active with the following data', async function (data_table) {
-  await pages.course_list.click('course_menu');
+When(/^I update the "(.*)" template from draft to active with the following data$/, async function (courseName, data_table) {
+  await pages.course_list.click('course_menu', courseName);
   await pages.course_list.click('edit_course');
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -64,13 +64,13 @@ When('I click on resource tab', async function () {
   await pages.course_page.click('resources');
 });
 
-When('I add the activity to the course under the resources tab', async function (data_table) {
-  await pages.create_course.click('course_card');
+When(/^I add the activity to "(.*)" course under the resources tab$/, async function (courseName, data_table) {
+  await pages.create_course.click('course_card', courseName);
   await pages.course_page.click('resources');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('add_content');
     await pages.resources.populate('search_bar', data_table.hashes()[i].activity);
-    await pages.resources.click(data_table.hashes()[i].type);
+    await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activity);
     await pages.resources.click('close_resource_search_nav');
   }
 });
@@ -79,8 +79,8 @@ When('I click on home button to return to coursepage', async function () {
   await pages.main.click('achieve_home');
 });
 
-When('I copy course from the template with the following data', async function (data_table) {
-  await pages.course_list.click('course_menu');
+When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
+  await pages.course_list.click('course_menu', courseName);
   await pages.course_list.click('copy_course');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.create_course.populate(data_table.hashes()[i].page_object, data_table.hashes()[i].value, data_table.hashes()[i].clear);
@@ -100,16 +100,17 @@ When(/^I click on search button and input "(.*)" to search the course$/, async f
 
 When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseName) {
   let user = await _.get(users, [this.environment, userName]);
-  await pages.course_list.assertTextIncludes('course_name', courseName);
-  await pages.course_list.click('course_menu');
+  await pages.course_list.populate('search', courseName);
+ await pages.course_list.assertElementExists('course_name', courseName);
+  await pages.course_list.click('course_menu', courseName);
   await pages.course_list.click('Manage_instructor');
   await pages.create_course.populate('add_instructor', user.username);
   await pages.create_course.click('add_instructor_button');
   await pages.create_course.click('add_instructor_close');
 });
 
-When('I update the course from draft to Active with following data', async function (data_table) {
-  await pages.course_list.click('course_menu');
+When(/^I update the "(.*)" course from draft to Active with following data$/, async function (courseName, data_table) {
+  await pages.course_list.click('course_menu', courseName);
   await pages.course_list.click('edit_course');
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -127,8 +128,8 @@ When('I update the course from draft to Active with following data', async funct
   await pages.home.click('close_alert');
 });
 
-When('I create custom made activity with the following data', async function (data_table) {
-  await pages.create_course.click('course_card');
+When(/^I create custom made activity in "(.*)" with the following data$/, async function (courseName, data_table) {
+  await pages.create_course.click('course_card', courseName);
   await pages.course_page.click('course_planner');
   await pages.course_planner.click('custom_content_button');
   await pages.course_planner.click('New_custom');
@@ -140,19 +141,19 @@ When('I create custom made activity with the following data', async function (da
   await pages.course_planner.click('Question_bank');
   await pages.course_planner.click('Check_box_assignment');
   await pages.course_planner.click('Add_assignment_button');
-  await pages.course_planner.browserBack();
-  await pages.course_planner.browserBack();
-  await pages.course_planner.browserBack();
+  await pages.course_planner.click('close_assesment')
+  // await pages.course_planner.browserBack();
+  // await pages.course_planner.browserBack();
+  // await pages.course_planner.browserBack();
 });
 
 When('I add the activities in courseplanner', async function (data_table) {
-  await pages.create_course.click('course_card');
   await pages.course_page.click('course_planner');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.course_planner.click('custom_content_button');
+    await pages.course_planner.click('library_tab');
     await pages.course_planner.populate('library_search_input', data_table.hashes()[i].activity);
-    await pages.course_planner.click('library_search_input');
-    await pages.course_planner.click('add_assignment_button');
+    await pages.course_planner.click('add_assignment_button', data_table.hashes()[i].activity);
     await pages.course_planner.click('close_courseplanner');
   }
 });
@@ -160,16 +161,16 @@ When('I add the activities in courseplanner', async function (data_table) {
 When('I add custom made activities in courseplanner', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.course_planner.click('custom_content_button');
-    await pages.course_planner.click('your_activity');
+    await pages.course_planner.click('your_content');
     await pages.course_planner.populate('library_search_input', data_table.hashes()[i].activity);
-    await pages.course_planner.click('add_custom_activity');
+    await pages.course_planner.click('add_custom_activity', data_table.hashes()[i].activity);
     await pages.course_planner.click('close_courseplanner');
   }
 });
 
 When('I assign the activities in courseplanner', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
-    let Elements = await pages.course_planner.getWebelements('assign_assignment_button');
+    let Elements = await pages.course_planner.getWebElements('assign_assignment_button');
     let countlinks = Elements.length;
     let x = countlinks - 1;
     while (x >= 0) {
@@ -184,10 +185,13 @@ When('I assign the activities in courseplanner', async function (data_table) {
   }
 });
 
-When(/^I enroll the "(.*)" in the course$/, async function (user) {
+When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName) {
   let payload = await _.get(users, [this.environment, user]);
-  await pages.create_course.click('course_card');
+  await pages.course_list.populate('search', courseName);
+  await pages.course_list.assertElementExists('course_name', courseName);
+  await pages.create_course.click('course_card', courseName);
   await pages.home.click('toggler_menu');
+  await pages.course_list.assertElementExists('admin');
   await pages.user.click('admin');
   await pages.home.click('manage_enrollments');
   await pages.home.populate('manage_enrollements_input', payload.username);
