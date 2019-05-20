@@ -51,9 +51,9 @@ const populateInput = async function (selector, value, WebElementObject) {
 const populateSelect = async function (selector, item, WebElementData) {
   const localSpecialInstr = WebElementData.specialInstr || '';
   
-  if (localSpecialInstr.toLowerCase().includes('selectByVisibleText'.toLowerCase())) {
+  if (localSpecialInstr.toLowerCase().includes('selectbyvisibletext')) {
     await selector.selectByVisibleText(item);
-  } else if (localSpecialInstr.toLowerCase().includes('selectByValue'.toLowerCase())) {
+  } else if (localSpecialInstr.toLowerCase().includes('selectbyvalue')) {
     await selector.selectByValue(item);
   } else {
     const options = await selector.findElements(By.tagName('option'));
@@ -65,20 +65,16 @@ const populateSelect = async function (selector, item, WebElementData) {
       }
     };
   }
-  if (WebElementData.specialInstr === 'tabAfter') {
+  if (localSpecialInstr.toLowerCase().includes('tabafter')) {
+    log.debug('Hitting arrow down key');
     await selector.sendKeys(Key.TAB);
   }
-  if (WebElementData.specialInstr === 'enterAfter') {
+  if (localSpecialInstr.toLowerCase().includes('enterafter')) {
+    log.debug('Hitting return key');
     await selector.sendKeys(Key.RETURN);
   }
 };
 
-/* specialInstr values:
-	* 		noClick - does not click on the field first
-	* 		noClear - Does not clear the field of before sending  values to it.
-	* 		overWrite - Selects the values in the field before over writing with the new value.  Does not clear the field.
-	*
-	*/
 const populateTextField = async function (selector, value, WebElementObject) {
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
@@ -105,25 +101,23 @@ const populateTextField = async function (selector, value, WebElementObject) {
   await selector.sendKeys(value);
   log.debug(`Post populate text field value: ${eleValue}`);
 
-  if (localSpecialInstr.indexOf('tabAfter') > -1) {
+  if (localSpecialInstr.toLowerCase().includes('tabafter')) {
+    log.debug('Hitting tab key');
     await selector.sendKeys(Key.chord(Key.TAB));
   }
-  if (localSpecialInstr.indexOf('arrowDownAfter') > -1) {
-    console.log('getting into arrow down')
+  if (localSpecialInstr.toLowerCase().includes('arrowdownafter')) {
+    log.debug('Hitting arrow down key');
     await selector.sendKeys(Key.DOWN);
   }
-  if (localSpecialInstr.indexOf('enterAfter') > -1) {
-    console.log('getting into return')
+  if (localSpecialInstr.toLowerCase().includes('enterafter')) {
+    log.debug('Hitting return key');
     await selector.sendKeys(Key.RETURN);
   }
 
-  if (
-    localSpecialInstr.toLowerCase().indexOf('waitAfter2secs'.toLowerCase()) > -1
-  ) {
+  if (localSpecialInstr.toLowerCase().includes('waitafter2secs')) {
     try {
-      log.debug('Sleeping 2 seconds: Text Field - waitAfter2secs');
+      log.debug(`Sleeping 2 seconds. Special Instruction is : ${localSpecialInstr}`);
       sleep(3000);
-      log.debug('Waking up.');
     } catch (e) {
       log.error(e);
     }
@@ -131,8 +125,6 @@ const populateTextField = async function (selector, value, WebElementObject) {
 };
 
 const populateClick = async function (selector, value, WebElementObject) {
-  //console.log(`${selector}, ${value}, ${WebElementObject}`);
-  
   const WebElementData = WebElementObject.element;
   let localSpecialInstr = '';
   if (WebElementData && WebElementData.specialInstr != null) {
