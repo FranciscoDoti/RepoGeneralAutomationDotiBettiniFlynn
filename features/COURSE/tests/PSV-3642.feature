@@ -2,86 +2,91 @@ Feature: Student attempts all the activities in Quantitative
     @delete-all-courses
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
-        Given I login to Achieve-CW as "media_producer_1"
-        When I create coourse with the data 
-            | page_object        | value                        |clear|
-            | course_type        | Template                     |     |
-            | product_model      | Quantitative                 |     |
-            | course_name        | Qualitative Testcourse       |true |
-            | learning_objective | Principles of Microeconomics |     |
-            | course_code        | E2E 301                      |true |
-            | isbn_number        | 9781464199497                |true |
-            | course_status      | draft                        |     |
+        # Given I login to Achieve-CW as "media_producer_1"
+        # When I create coourse with the data 
+        #     | page_object        | value                        |
+        #     | course_type        | Template                     |
+        #     | product_model      | Quantitative                 |
+        #     | course_name        | Qualitative Testcourse       |
+        #     | learning_objective | Principles of Microeconomics |
+        #     | course_code        | E2E 301                      |
+        #     | isbn_number        | 9781464199497                |
+        #     | course_status      | draft                        |
 
-        And I update the "Qualitative Testcourse" template from draft to active with the following data
-            | page_object      | value                                                       |clear|
-            | edit_course_name | Qualitative Testcourse                                      |true |        
-            | edit_course_code | E2E 301                                                     |true |
-            | template_status  | Active On Date                                              |     |
+        # And I update the "Qualitative Testcourse" template from draft to active with the following data
+        #     | page_object      | value                                                       |
+        #     | edit_course_name | Qualitative Testcourse                                      |       
+        #     | edit_course_code | E2E 301                                                     |
+        #     | template_status  | Active On Date                                              |
 
-        And I add the activity to "Qualitative Testcourse" course under the resources tab
-            | activity                                                          | type                      |
-            | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
-            | LC1551301608988                                                   | add_button_learningcurve  |
+        # And I add the activity to "Qualitative Testcourse" course under the resources tab
+        #     | activity                                                          | type                      |
+        #     | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
+        #     | LC1551301608988                                                   | add_button_learningcurve  |
 
-        And I click on home button to return to coursepage
-        And I copy course from the "Qualitative Testcourse" template with the following data
-            | page_object       | value                        |clear|
-            | copy_course       | Qualitative Testcourse test  |true |
-            | copy_course_code  | E2E301                       |true |
+        # And I click on home button to return to coursepage
+        # And I copy course from the "Qualitative Testcourse" template with the following data
+        #     | page_object       | value                        |
+        #     | copy_course       | Qualitative Testcourse test  |
+        #     | copy_course_code  | E2E301                       |
 
-        And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
+        # And I sign out of Achieve
+        # And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Qualitative Testcourse test" course
+        # And I assign "instructor_1" to the "Qualitative Testcourse test" course
         
-        And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_1"
+        # And I sign out of Achieve
+        # And I login to Achieve-CW as "instructor_1"
 
-        When I update the "Qualitative Testcourse test" course from draft to Active with following data 
-            | page_object      | value                        | clear |
-            | edit_course_name | Qualitative Testcourse test  | true  |
-            | edit_course_code |  E2E301                      | true  |
-            | template_status  |  Active On Date              |       |
+        # When I update the "Qualitative Testcourse test" course from draft to Active with following data 
+        #     | page_object      | value                        |
+        #     | edit_course_name | Qualitative Testcourse test  |
+        #     | edit_course_code |  E2E301                      |
+        #     | template_status  |  Active On Date              |
     
-        And I create custom made activity in "Qualitative Testcourse test" with the following data
-            | activity           | value                                    |
-            | Assignment_tittle  | Qual Test                                |
-            | Assignment_type    | Test                                     |
-            | taxonomy           | Interactive General Chemistry V1         |
+        # And I create custom made activity in "Qualitative Testcourse test" with the following data
+        #     | activity           | value                                    |
+        #     | Assignment_tittle  | Qual Test                                |
+        #     | Assignment_type    | Test                                     |
+        #     | taxonomy           | Interactive General Chemistry V1         |
      
-        And I add the activities in courseplanner
-            | activity                                                          | 
-            | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
+        # And I add the activities in courseplanner
+        #     | activity                                                          | 
+        #     | Exercise: Misused words 1 (autoscored)                            |                                                        
+        #     | LC1551301608988                                                   |
         
-        And I add custom made activities in courseplanner
-            | activity                           |
-            | Qual Test                          |
+        # And I add custom made activities in courseplanner
+        #     | activity                           |
+        #     | Qual Test                          |
 
-        And I assign the activities in courseplanner
-            | activity                                                          | verify | Points | 
-            | Qual Test                                                         | true   | 5      |
-            | Exercise: Misused words 1 (autoscored)                            | true   | 5      | 
-            | LC1551301608988                                                   | true   | 5      | 
+        # And I assign the activities in courseplanner
+        #     | activity                                                          | verify | Points | 
+        #     | Qual Test                                                         | true   | 5      |
+        #     | Exercise: Misused words 1 (autoscored)                            | true   | 5      | 
+        #     | LC1551301608988                                                   | true   | 5      | 
  
 
-        And I sign out of Achieve
-        And I login to Achieve-CW as "admin_1" 
-        And I enroll the "student_1" in "Qualitative Testcourse test" course 
-        And I close the popup message 
-        And I sign out of Achieve
+        # And I sign out of Achieve
+        # And I login to Achieve-CW as "admin_1" 
+        # And I enroll the "student_1" in "Qualitative Testcourse test" course 
+        # And I close the popup message 
+        # And I sign out of Achieve
 
         And I login to Achieve-CW as "student_1" 
 
-        And I attempt premade assesment and custom made activity
-            |  Activity                                |  PremadeAssesmentKey                                                                                                       |   customMadeActivity    |
-            |  Exercise: Misused words 1 (autoscored)  |   Because Anne Tyler often writes about family loyalties, her allusions to to King Lear are not surprising.                |      1000               |
-            |  Qual Test                               |   Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.        |                         |
-            |                                          |   The Keweenaw Peninsula is surrounded on three sides by Lake Superior.                                                    |                         |           
-            |                                          |   At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                               |                         |
-            |                                          |  The person who complained to the human resources manager wishes to remain anonymous.                                      |                         |
-        
+        And I attempt premade assesment in "Qualitative Testcourse test"
+            |  Activity                                | Questions         |  PremadeAssesmentKey                                                                                                       |   
+            |  Exercise: Misused words 1 (autoscored)  |  1 Question       |  Because Anne Tyler often writes about family loyalties, her allusions to to King Lear are not surprising.                 |  
+            |                                          |  2 Question       |   Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.        | 
+            |                                          |  3 Question       |   The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                    |         
+            |                                          |  4 Question       |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
+            |                                          |  5 Question       |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
+
+        And I attempt custom made assesment in "Qualitative Testcourse test"
+            |activity       | Questions  | key |
+            | Qual Test     |            |     |
+
+
         When I attempt learning curve activity
             | activity          |
             | LC1551301608988   |

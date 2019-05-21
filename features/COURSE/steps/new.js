@@ -4,19 +4,6 @@ const expect = require('chai').expect;
 const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
-When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
-  let PAGE = await _.get(page, ['course', 'course_list', type]);
-  let page_format = format(PAGE, identifier);
-
-  await pages.undefined.click('page_format');
-});
-
-Given('I click login to the Achieve product', async function () {
-  let url = await _.get(URL, ['achieve', 'login']);
-
-  await qa.goTo(url);
-  await pages.home.click('sign_in');
-});
 
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.course_list.populate('search', input);
@@ -191,7 +178,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.course_list.assertElementExists('course_name', courseName);
   await pages.create_course.click('course_card', courseName);
   await pages.home.click('toggler_menu');
-  await pages.course_list.assertElementExists('admin');
+  await pages.user.assertElementExists('admin');
   await pages.user.click('admin');
   await pages.home.click('manage_enrollments');
   await pages.home.populate('manage_enrollements_input', payload.username);
@@ -285,4 +272,17 @@ When('I attempt learning curve activity', async function (data_table) {
       }
     }
   }
+});
+
+When(/^I attempt premade assesment in "(.*)"$/, async function (courseName, data_table) {
+  await pages.create_course.click('course_card', courseName);
+  await pages.course_page.click('overview')
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.overview.click('overviewtab_activity', data_table.hashes()[i].Activity);
+    // await pages.student_activity.click('questions_assesment', data_table.hashes()[i].Questions);
+    await pages.student_activity.populate('multiple_choice_assesment', data_table.hashes()[i].PremadeAssesmentKey);
+    await pages.student_activity.click('save_answer');
+    await pages.student_activity.click('Next_assesment_question');
+  }
+  await pages.course_planner.click('close_assesment')
 });

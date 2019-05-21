@@ -83,22 +83,16 @@
         "definition": "[data-test-id='activityShowAnswerBtn']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "frame_1_reading",
-        "byType": "xpath",
-        "definition": "//*[@id='container']/div/div/iframe",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },  {
         "name": "frame_2_reading",
-        "byType": "xpath",
-        "definition": "//*[@id='easyXDM_default1013_provider']",
-        "frame": "frame_1_reading",
+        "byType": "id",
+        "definition": "easyXDM_default742_provider",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "frame_3_reading",
-        "byType": "xpath",
-        "definition": "//*[@id='epub-content']",
+        "byType": "id",
+        "definition": "epub-content",
         "frame": "frame_2_reading",
         "specialInstr": "NA"
     }, {
@@ -122,9 +116,9 @@
         "specialInstr": "NA"
     },
     {
-        "name": "overviewtab_activity_verification",
-        "byType": "css",
-        "definition": "[data-test-id='activity_name_link']",
+        "name": "overviewtab_activity",
+        "byType": "xpath",
+        "definition": "//*[@data-test-id='activity_name_link' and .='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
