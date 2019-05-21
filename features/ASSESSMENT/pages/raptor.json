@@ -1,0 +1,16 @@
+{
+"webElements": [{
+    "name": "addLink",
+    "byType": "css",
+    "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+    "frame": "default",
+    "specialInstr": "NA"
+},{
+    "name": "modulePallete",
+    "byType": "id",
+    "definition": "<ReplaceText>",
+    "frame": "default",
+    "specialInstr": "NA" 
+}
+]
+}
