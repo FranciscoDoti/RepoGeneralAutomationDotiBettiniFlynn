@@ -1,6 +1,6 @@
 {
     "webElements": [{
-        "name": "gradebook",
+        "name": "",
         "byType": "css",
         "definition": "[data-test-id='gradebook_tab']",
         "frame": "default",

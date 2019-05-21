@@ -33,7 +33,7 @@
     }, {
         "name": "multiple_choice_assesment",
         "byType": "xpath",
-        "definition": "//label[@class='sl-list-label']",
+        "definition": "//span[.='<ReplaceText>']/../span/input[@class='sl-list-input']",
         "frame": 0,
         "specialInstr": "NA"
     }, {
