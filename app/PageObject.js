@@ -134,6 +134,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'li':
         case 'th':
         case 'h2':
+        case 'section':
           await populateClick(webElement, value, actionElement);
           break;
         case 'select':
