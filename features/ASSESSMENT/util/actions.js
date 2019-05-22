@@ -1,7 +1,7 @@
-let modulePallete="";
+var modulePallete="";
 const Actions= function(){
     var that = {};
-    const selectModulePallete= async function(moduleName){
+    const selectModulePallete = function(moduleName){
         console.log("I am inside method 1");
         switch(moduleName.toLowerCase()){
             case 'chemical equation':

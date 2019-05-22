@@ -15,7 +15,9 @@ Feature: CEE module type creation
     Given I login to AMS as "all-permissions-author"
         When I click on the New Raptor item in the AMS page
         And I navigate to AuthorApp tab
-        When I added "Chemical Equation" module from the Add module pallete
+        And I added "Chemical Equation" module from the Add module pallete
+        And I select the canvas to add the selected module
+        And I save the item as draft
         
       # When I added "Chemical Equation" module from the Add module pallete
     #    And I select the canvas to add the selected module 
