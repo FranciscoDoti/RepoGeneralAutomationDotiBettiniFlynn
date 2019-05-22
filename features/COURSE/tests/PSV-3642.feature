@@ -23,6 +23,7 @@ Feature: Student attempts all the activities in Quantitative
             | activity                                                          | type                      |
             | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
             | LC1551301608988                                                   | add_button_learningcurve  |
+            |Communicating courteously and professionally                       | add_reading_button        |
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Testcourse" template with the following data
@@ -74,22 +75,22 @@ Feature: Student attempts all the activities in Quantitative
 
         And I login to Achieve-CW as "student_1" 
 
-        And I attempt premade assesment in "Qualitative Testcourse test"
-            |  Activity                                | Questions         |  PremadeAssesmentKey                                                                                                       |   
-            |  Exercise: Misused words 1 (autoscored)  |  1 Question       |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
-            |                                          |  2 Question       |   Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.        | 
-            |                                          |  3 Question       |   The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                      |         
-            |                                          |  4 Question       |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
-            |                                          |  5 Question       |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
+        And I attempt "Exercise: Misused words 1 (autoscored)" premade assesment in "Qualitative Testcourse test"
+            |  PremadeAssesmentKey                                                                                                       |   
+            |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
+            |   Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.        | 
+            |   The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                      |         
+            |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
+            |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
 
-        And I attempt custom made assesment in "Qualitative Testcourse test"
-            | activity      | key            |
-            | Qual Test     |  3.log(17.2)   |
+        And I attempt "Qual Test" custom made assesment in "Qualitative Testcourse test"
+            |  key           |
+            |  1             |
 
 
-        When I attempt learning curve activity
-            | activity          |
-            | LC1551301608988   |
+        # When I attempt learning curve activity
+        #     | activity          |
+        #     | LC1551301608988   |
 
 
         When I click on reading activity
@@ -132,8 +133,8 @@ Feature: Student attempts all the activities in Quantitative
         And I click on course card 
 
         Then I verify the assignmenent grades in gradebook for below assigned activities in "Qualitative Testcourse test"
-            | activity                                      | percentage  | points  | PercentOfTotalgrades |
-            | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
-            | Qual Test                                     |  100%       | 5       | 1%                   |
-            | LC1551301608988                               |  100%       | 5       | 1%                   |
-            | Communicating courteously and professionally  |   100%      | 5       | 1%                   |   
+            | activity                                      | percentage  | points  | PercentOfTotalgrades  |
+            | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 33%                   |
+            | Qual Test                                     |  100%       | 5       | 33%                   |
+            | LC1551301608988                               |  100%       | 5       | 33%                   |
+            | Communicating courteously and professionally  |   100%      | 5       | 33%                   |   

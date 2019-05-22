@@ -126,12 +126,18 @@ When(/^I create custom made activity in "(.*)" with the following data$/, async 
   }
   await pages.course_planner.click('reset_model');
   await pages.course_planner.click('Question_bank');
-  await pages.course_planner.click('Check_box_assignment');
-  await pages.course_planner.click('Add_assignment_button');
-  await pages.course_planner.click('close_assesment')
-  // await pages.course_planner.browserBack();
-  // await pages.course_planner.browserBack();
-  // await pages.course_planner.browserBack();
+  await pages.course_planner.click('customQuestions');
+  await pages.course_planner.click('AddAnothercustomQuestions');
+  await pages.course_planner.click('NEcustomQuestions');
+  await pages.course_planner.click('editQuestionTittleCQ')
+  await pages.course_planner.assertElementExists('QuestionTittleCQ')
+  await pages.course_planner.populate('QuestionTittleCQ', 'MC');
+  await pages.course_planner.click('AnswerPromptCQ');
+  await pages.course_planner.populate('enterAnswerCQ', '1')
+  // await pages.course_planner.click('CreatecustomQuestionsbutton')
+  // await pages.course_planner.click('Check_box_assignment');
+  // await pages.course_planner.click('Add_assignment_button');
+  // await pages.course_planner.click('close_assesment')
 });
 
 When('I add the activities in courseplanner', async function (data_table) {
@@ -274,12 +280,11 @@ When('I attempt learning curve activity', async function (data_table) {
   }
 });
 
-When(/^I attempt premade assesment in "(.*)"$/, async function (courseName, data_table) {
+When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
   await pages.create_course.click('course_card', courseName);
   await pages.course_page.click('overview')
+  await pages.overview.click('overviewtab_activity', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.overview.click('overviewtab_activity', data_table.hashes()[i].Activity);
-    // await pages.student_activity.click('questions_assesment', data_table.hashes()[i].Questions);
     await pages.student_activity.click('multiple_choice_assesment', data_table.hashes()[i].PremadeAssesmentKey);
     await pages.student_activity.click('save_answer');
     await pages.student_activity.click('Next_assesment_question');
@@ -287,11 +292,10 @@ When(/^I attempt premade assesment in "(.*)"$/, async function (courseName, data
   await pages.course_planner.click('close_assesment')
 });
 
-When(/^I attempt custom made assesment in "(.*)"$/, async function (courseName, data_table) {
+When(/^I attempt "(.*)" custom made assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
   await pages.course_page.click('overview')
+  await pages.overview.click('overviewtab_activity', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.overview.click('overviewtab_activity', data_table.hashes()[i].Activity);
-    // await pages.student_activity.click('questions_assesment', data_table.hashes()[i].Questions);
     await pages.student_activity.click('multiple_choice_assesment', data_table.hashes()[i].key);
     await pages.student_activity.click('save_answer');
     await pages.student_activity.click('Next_assesment_question');
@@ -302,6 +306,9 @@ When(/^I attempt custom made assesment in "(.*)"$/, async function (courseName, 
 Then(/^I verify the assignmenent grades in gradebook for below assigned activities in "(.*)"$/, async function (courseName, data_table) {
   await pages.course_page.click('gradebook');
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.gradebook.assertTextinclude('studentPercent', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
+    await pages.gradebook.assertTextinclue('studentAssignmentpoints', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
+    await pages.gradebook.assertTextinclude('studentPercenOfTotalGrades', data_table.hashes()[i].activit, data_table.hashes()[i].PercentOfTotalgrades)
 
   }
 });

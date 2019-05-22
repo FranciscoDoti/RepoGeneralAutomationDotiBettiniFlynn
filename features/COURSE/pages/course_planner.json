@@ -11,6 +11,64 @@
         "definition": "//*[@data-test-id='add_unit']",
         "frame": "default",
         "specialInstr": "NA"
+    },
+    {
+        "name": "customQuestions",
+        "byType": "css",
+        "definition": "[title='Custom Questions']",
+        "frame": 0,
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "AddAnothercustomQuestions",
+        "byType": "css",
+        "definition": "button[data-test-id='add-another-button']",
+        "frame": 0,
+        "specialInstr": "NA"
+
+    }, 
+    {
+        "name": "NEcustomQuestions",
+        "byType": "css",
+        "definition": "a[data-test-id='numeric-entry-hatchling']",
+        "frame": 0,
+        "specialInstr": "NA"
+    },{
+        "name": "CreatecustomQuestionsbutton",
+        "byType": "css",
+        "definition": "button[data-test-id='hatchling-create-update-button']",
+        "frame": 0,
+        "specialInstr": "NA"
+
+    },{
+        "name": "editQuestionTittleCQ",
+        "byType": "css",
+        "definition": "div[data-test-id='hatchling-item-title-edit']",
+        "frame": 0,
+        "specialInstr": "NA"
+    },
+    {
+        "name": "QuestionTittleCQ",
+        "byType": "css",
+        "definition": "input[data-test-id ='hatchling-item-tittle']",
+        "frame": 0,
+        "specialInstr": "NA"
+    },{
+        "name": "AnswerPromptCQ",
+        "byType": "css",
+        "definition": "[class='rte-content']",
+        "frame": 0,
+        "specialInstr": "NA"
+        
+    },
+    {
+        "name": "enterAnswerCQ",
+        "byType": "css",
+        "definition": "[class='notranslate public-DraftEditor-content']",
+        "frame": 0,
+        "specialInstr": "NA"
+        
     }, {
         "name": "add_unit_modal",
         "byType": "css",
