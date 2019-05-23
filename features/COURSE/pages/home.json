@@ -38,7 +38,7 @@
     }, {
         "name": "manage_enrollments",
         "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_manage_enrollments']",
+        "definition": "span[data-test-id='menu_user_admin_manage_enrollments']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -50,7 +50,7 @@
     }, {
         "name": "add_user_button",
         "byType": "css",
-        "definition": "[title='Add User']",
+        "definition": "[data-test-id='manage_enrollment_modal_add_btn']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

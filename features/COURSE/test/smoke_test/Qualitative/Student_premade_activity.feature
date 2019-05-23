@@ -100,7 +100,7 @@ Feature: Student attempts premade assessmennt activity
 
 
     And I open the activity in the current course
-        |  Activity                                |  PremadeAssesmentKey                                                                                                        |   customMadeActivity    |
+        |  Activity                                |  PremadeAssesmentKey                                                                                                       |   customMadeActivity    |
         |  Exercise: Misused words 1 (autoscored)  |   Because Anne Tyler often writes about family loyalties, her allusions to to King Lear are not surprising.                |      1000               |
         |  Qual Test                               |   Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.        |                         |
         |                                          |   The Keweenaw Peninsula is surrounded on three sides by Lake Superior.                                                    |                         |           

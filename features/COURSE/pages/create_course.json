@@ -43,8 +43,8 @@
         "specialInstr": "NA"
     }, {
         "name": "course_card",
-        "byType": "css",
-        "definition": "[data-test-id='course_card']",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../../../../div[@data-test-id='course_card']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -71,13 +71,7 @@
         "definition": "[data-test-id='create_course_status']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "course_type",
-        "byType": "css",
-        "definition": "[name='courseType']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },{
         "name": "course_title",
         "byType": "css",
         "definition": "[data-test-id='course_title']",
@@ -110,10 +104,18 @@
     }, {
         "name": "learning_objective",
         "byType": "css",
-        "definition": "._2oIm._2lfL._2Kdo._3vV4",
+        "definition": "[data-test-id='select_lo_framework']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "course_type",
+        "byType": "css",
+        "definition": "[name='courseType']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    
+    {
         "name": "product_model",
         "byType": "css",
         "definition": "[name='productModel']",

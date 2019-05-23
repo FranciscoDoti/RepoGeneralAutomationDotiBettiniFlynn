@@ -66,12 +66,6 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "overview",
-        "byType": "css",
-        "definition": "[data-test-id='overview_tab']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
         "name": "course_planner",
         "byType": "css",
         "definition": "[data-test-id='course_planner_tab']",

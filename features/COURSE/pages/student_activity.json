@@ -5,11 +5,12 @@
         "definition": "//span[contains (text(), '{}')]",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "button_check",
-        "byType": "css",
-        "definition": "[data-test-id='check-answer-button']",
-        "frame": "default",
+    }, 
+    {
+        "name": "questions_assesment",
+        "byType": "xpath",
+        "definition": "//*[@data-test-id='testIdLabel' and .='<ReplaceText>']",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "current_question",
@@ -30,10 +31,10 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "multiple_choice_assesmnet",
-        "byType": "css",
-        "definition": "[class='sl-list-input']",
-        "frame": "default",
+        "name": "multiple_choice_assesment",
+        "byType": "xpath",
+        "definition": "//span[.='<ReplaceText>']",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "explain_yourself",
@@ -45,12 +46,12 @@
         "name": "save_answer",
         "byType": "css",
         "definition": "[data-test-id='check-answer-button']",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "submit_all_questions",
         "byType": "css",
-        "definition": "[data-test-id='submit-assignment-button']",
+        "definition": 0,
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -73,8 +74,8 @@
         "specialInstr": "NA"
     }, {
         "name": "activity_Question",
-        "byType": "id",
-        "definition": "div.AutoFocus__container__3BAzZ",
+        "byType": "css",
+        "definition": "[class='ImagePopup__container__MAND4']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -86,10 +87,17 @@
     }, {
         "name": "sentence_click_lc",
         "byType": "css",
-        "definition": "[data-test-id='sentenceClickSentences']",
+        "definition": "[data-test-id='sentenceClick']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
+    },{
+        "name": "mc_answers",
+        "byType": "css",
+        "definition": "[data-test-id='multipleChoiceAnswer']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+     {
         "name": "student_rp_activity",
         "byType": "xpath",
         "definition": "//*[@id='container']/div/div/div/div[4]/div/article/main/div/div[2]/div[3]/div[2]/div/div/div[1]/a",
@@ -104,7 +112,7 @@
     }, {
         "name": "multiple_choice",
         "byType": "css",
-        "definition": "[data-test-id='multipleChoiceAnswer']",
+        "definition": "[class='sl-list-input']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -153,7 +161,7 @@
         "name": "Next_assesment_question",
         "byType": "css",
         "definition": "[data-test-id='solution-modal-next-item']",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "result_bar",
