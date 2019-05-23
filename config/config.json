@@ -1,6 +1,6 @@
 {
     "environment": "int",
-    "mode": "localgrid",
+    "mode": "docker",
     "browser": "chrome",
     "screenshots": "true",
     "timeout": 60000,
