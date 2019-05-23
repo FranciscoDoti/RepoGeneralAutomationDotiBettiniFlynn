@@ -194,7 +194,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     const _NA = "| NA".padEnd(localPadLength + 1);
     console.log(`\nGenerating data table for ${that.pageName} \n`);
     try {
-      // Return a | delimited list of the field names in the pageDefs file for this pageObject
+      // Return a | delimited list of the field names in the pageDefs file for this PageObject
       console.log("|" + that.pageElements.keyList("|", localPadLength));
 
       // Generate a list of NA for the page object.
