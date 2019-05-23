@@ -1,13 +1,13 @@
 {
     "environment": "int",
-    "mode": "local",
+    "mode": "localgrid",
     "browser": "chrome",
     "screenshots": "true",
     "timeout": 60000,
 
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
-        "mode": "local | headless | browserstack",
+        "mode": "local | headless | browserstack | localgrid",
         "browser": "chrome | firefox",
         "screenshots": "true | onFail | false",
         "timeout": "Number-In-Milliseconds"

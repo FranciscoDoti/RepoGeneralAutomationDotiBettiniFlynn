@@ -40,6 +40,10 @@ const buildDriver = function(){
         driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
           .withCapabilities(chromeCapabilities)
         break;
+      case 'localgrid':
+        driver.usingServer('http://localhost:4444/wd/hub/')
+          .withCapabilities(chromeCapabilities)
+        break;
       default:
         driver.usingServer('http://selenium:4444/wd/hub')
           .withCapabilities(chromeCapabilities)
