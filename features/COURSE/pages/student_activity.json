@@ -74,8 +74,8 @@
         "specialInstr": "NA"
     }, {
         "name": "activity_Question",
-        "byType": "id",
-        "definition": "div.AutoFocus__container__3BAzZ",
+        "byType": "css",
+        "definition": "[class='ImagePopup__container__MAND4']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -87,10 +87,17 @@
     }, {
         "name": "sentence_click_lc",
         "byType": "css",
-        "definition": "[data-test-id='sentenceClickSentences']",
+        "definition": "[data-test-id='sentenceClick']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
+    },{
+        "name": "mc_answers",
+        "byType": "css",
+        "definition": "[data-test-id='multipleChoiceAnswer']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+     {
         "name": "student_rp_activity",
         "byType": "xpath",
         "definition": "//*[@id='container']/div/div/div/div[4]/div/article/main/div/div[2]/div[3]/div[2]/div/div/div[1]/a",

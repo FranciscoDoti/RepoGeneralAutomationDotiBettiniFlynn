@@ -4,7 +4,6 @@ const expect = require('chai').expect;
 const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
-
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.course_list.populate('search', input);
 });
@@ -21,7 +20,6 @@ When('I create coourse with the data', async function (data_table) {
 
   await pages.create_course.click('save');
   await pages.home.click('close_alert');
-
 });
 
 When('I close the popup message', async function () {
@@ -88,7 +86,7 @@ When(/^I click on search button and input "(.*)" to search the course$/, async f
 When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseName) {
   let user = await _.get(users, [this.environment, userName]);
   await pages.course_list.populate('search', courseName);
- await pages.course_list.assertElementExists('course_name', courseName);
+  await pages.course_list.assertElementExists('course_name', courseName);
   await pages.course_list.click('course_menu', courseName);
   await pages.course_list.click('Manage_instructor');
   await pages.create_course.populate('add_instructor', user.username);
@@ -133,12 +131,11 @@ When(/^I create custom made activity in "(.*)" with the following data$/, async 
   await pages.course_planner.assertElementExists('QuestionTitleCQ')
   await pages.course_planner.populate('QuestionTitleCQ', 'MC');
   await pages.course_planner.click('AnswerPromptCQ');
-  await pages.course_planner.populate('enterAnswerCQ', '1');
-
-  // await pages.course_planner.click('CreatecustomQuestionsbutton')
-  // await pages.course_planner.click('Check_box_assignment');
-  // await pages.course_planner.click('Add_assignment_button');
-  // await pages.course_planner.click('close_assesment')
+  await pages.course_planner.populate('enterAnswerCQ', '1')
+  await pages.course_planner.click('CreatecustomQuestionsbutton')
+  await pages.course_planner.click('Check_box_assignment');
+  await pages.course_planner.click('Add_assignment_button');
+  await pages.course_planner.click('close_assesment')
 });
 
 When('I add the activities in courseplanner', async function (data_table) {
@@ -229,52 +226,58 @@ When('I delete the courses', async function () {
   }
 });
 
-When('I attempt learning curve activity', async function (data_table) {
+When(/^I attempt "(.*)" learning curve activity$/, async function (activityName, data_table) {
+  await pages.overview.click('overviewtab_activity', activityName);
+  await pages.overview.click('Begin_activity');
   for (let i = 0; i < data_table.rows().length; i++) {
-    let activityName = await page.overview.getText('learning_curve_activity');
-    if (activityName === data_table.hashes()[i].activity) {
-      await pages.overview.click('learning_curve_activity');
-      await pages.overview.click('Begin_activity');
-      let answerText = await pages.student_activity.getText('sentence_click_lc');
-      console.log('answerText' + answerText)
+    while (true) {
+      let assert = await pages.student_activity.checkWebElementExists('quiz_complete')
+      if (assert === true) {
+        await pages.student_activity.click('back_to_study_plan');
+      } else {
+        let jsonObject = await pages.student_activity.getText('activity_Question');
+        let split = jsonObject.split('}')[0] + '}';
+        let finalResult = JSON.parse(split);
+        let result = require(`${process.cwd()}/features/COURSE/auto_manuscript_1551301608988.json`)
+        let answerKey = result.questions[finalResult.Id]
+        switch (answerKey.Type) {
+          case 'SC':
+            let answerChoices = await pages.student_activity.getWebElements('sentence_click_lc')
+            for (let i = 0; i < answerChoices.length; i++) {
+              let answerText = await pages.student_activity.getText('');
+              console.log(answerText);
 
-      while (true) {
-        if (await pages.student_activity.checkWebElementExists('quiz_complete') === true) {
-          await pages.student_activity.click('back_to_study_plan');
-        } else {
-          let jsonObject = await pages.student_activity.getText('activity_Question');
-          let split = jsonObject.split('}')[0] + '}';
-          let finalResult = JSON.parse(split);
-          console.log(finalResult);
-          console.log(finalResult.Id);
-          let answerKey = pages.result.questions[finalResult.Id]
-          console.log('key:' + answerKey);
-          console.log(answerKey.Type);
-          console.log(answerKey.Answer);
-          let answerText = await pages.student_activity.getText('sentence_click_lc');
-          console.log('answerText' + answerText)
-          switch (answerKey.Type) {
-            case 'SC':
-              console.log('entered sc')
-              let answerText = await pages.student_activity.getText('sentence_click_lc');
-              console.log('answerText' + answerText)
-              await pages.student_activity.populate('sentence_click_lc', answerKey.Answer);
-              //
-              await pages.student_activity.click('next_question');
-              break;
-            case 'MC':
-              console.log('enteres Mc')
-              await pages.student_activity.populate('multiple_choice', answerKey.Answer);
-              await pages.student_activity.click('submit_button');
-              await pages.student_activity.click('next_question');
-              break;
-            case 'FB':
-              console.log('entered fb')
-              await pages.student_activity.populate('fill_blank_lc', answerKey.Answer);
+            //   let split
+            //   if (answerText === true)  {
+            //     await pages
+            //     break
+            //   }
+            }
+            await pages.student_activity.click('next_question');
+            break;
 
-              await pages.student_activity.click('next_question');
-              break;
-          }
+          case 'MC':
+            console.log('enteres Mc')
+            let ordered = answerKey.Ordered
+            let answerList = await pages.student_activity.getWebElements('mc_answers')
+            for (let i = 0; i < answerList.length; i++) {
+              let text = await answerList[i].getText()
+              if (ordered) {
+                assertTextIncludes(i.toString()) > -1, 'The index was not correct. \n Expected: ' + i + '\nActually: ' + text.charAt(text.length - 1)
+              }
+              if (assertTextIncludes(answer)) {
+                await answerList[i].click()
+                break
+              }
+            }
+            await pages.student_activity.click('submit_button');
+            await pages.student_activity.click('next_question');
+            break;
+          case 'FB':
+            console.log('entered fb')
+            await pages.student_activity.populate('fill_blank_lc', answerKey.Answer);
+            await pages.student_activity.click('next_question');
+            break;
         }
       }
     }
@@ -310,6 +313,5 @@ Then(/^I verify the assignmenent grades in gradebook for below assigned activiti
     await pages.gradebook.assertTextinclude('studentPercent', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
     await pages.gradebook.assertTextinclue('studentAssignmentpoints', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
     await pages.gradebook.assertTextinclude('studentPercenOfTotalGrades', data_table.hashes()[i].activit, data_table.hashes()[i].PercentOfTotalgrades)
-
   }
 });

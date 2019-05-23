@@ -85,10 +85,10 @@
             "primarySchool": "macmillan.com"
         },
         "media_producer_2": {
-            "username": "macmillaninstructor@gmail.com",
+            "username": "cibico@mailhub.top",
             "password": "ABCabc@123",
-            "firstName": "instructor",
-            "lastName": "macmillan",
+            "firstName": "media",
+            "lastName": "Producer",
             "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
             "sq1_answer": "answer",
             "sq2": "What is the name of your first school?",
@@ -125,6 +125,19 @@
         },
         "instructor_1": {
             "username": "fujidaxocu@key-mail.net",
+            "password": "ABCabc@123",
+            "firstName": "instructor",
+            "lastName": "macmillan",
+            "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
+            "sq1_answer": "answer",
+            "sq2": "What is the name of your first school?",
+            "sq2_answer": "answer",
+            "sq3": "What is the name of your pet?",
+            "sq3_answer": "answer",
+            "primarySchool": "macmillan learning"
+        },
+        "instructor_2": {
+            "username": "instructor@atech5.com",
             "password": "ABCabc@123",
             "firstName": "instructor",
             "lastName": "macmillan",

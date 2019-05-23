@@ -15,19 +15,19 @@
             "name": "customQuestions",
             "byType": "css",
             "definition": "[title='Custom Questions']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "AddAnothercustomQuestions",
             "byType": "css",
             "definition": "button[data-test-id='add-another-button']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "NEcustomQuestions",
             "byType": "css",
             "definition": "a[data-test-id='numeric-entry-hatchling']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "CreatecustomQuestionsbutton",
@@ -311,8 +311,8 @@
         },
         {
             "name": "custom_assesment_frame",
-            "byType": "css",
-            "definition": "1",
+            "byType": "xpath",
+            "definition": "//iframe",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -320,37 +320,37 @@
             "name": "Assignment_tittle",
             "byType": "xpath",
             "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
-            "frame": 0,
+            "frame":"custom_assesment_frame" ,
             "specialInstr": "NA"
         }, {
             "name": "Assignment_type",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[1]/select",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "taxonomy",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[2]/div/select",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "reset_model",
             "byType": "css",
             "definition": "[data-test-id='reset-modal-confirm-button']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "Check_box_assignment",
             "byType": "css",
             "definition": "[data-test-id='item-checkbox-input-label']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "Add_assignment_button",
             "byType": "css",
             "definition": "[data-test-id='add-question-button']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "close_assesment",
