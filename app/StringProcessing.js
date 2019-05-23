@@ -4,7 +4,7 @@
 
 const faker = require('faker');
 const parseDate = require(`${process.cwd()}/app/DateProcessing`);
-const ScenarioData = require(`${process.cwd()}/app/scenarioData`);
+const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { loadData, loadLogin } = require(`${process.cwd()}/app/util`);
 

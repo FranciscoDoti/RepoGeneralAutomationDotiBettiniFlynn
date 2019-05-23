@@ -4,9 +4,9 @@
 'use strict';
 const { expect } = require('chai');
 
-const HashTable = require(`${process.cwd()}/app/hashtable`);
-const StringProcessing = require(`${process.cwd()}/app/stringProcessing`);
-const ScenarioData = require(`${process.cwd()}/app/scenarioData`);
+const HashTable = require(`${process.cwd()}/app/HashTable`);
+const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
+const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
 const { getDriver, getWebDriver, sleep, activateTab, getURL } = require(`${process.cwd()}/app/driver`);
