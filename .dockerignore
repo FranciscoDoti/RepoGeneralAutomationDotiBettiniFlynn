@@ -1,0 +1,8 @@
+node_modules
+.vscode/
+**/.DS_Store
+package-lock.json
+test.txt
+*.csv
+reports/downloads/
+reports/logs/
