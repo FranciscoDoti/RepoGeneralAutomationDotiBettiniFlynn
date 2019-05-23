@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const HashTable = require(`${process.cwd()}/app/hashtable`);
+const HashTable = require(`${process.cwd()}/app/HashTable`);
 
 const ScenarioData = function (ScenarioName) {
   let that = Object.assign({});
