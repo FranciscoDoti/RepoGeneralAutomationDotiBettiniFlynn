@@ -2,54 +2,54 @@ Feature: Student attempts all the activities in Quantitative
     @delete-all-courses
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
-        Given I login to Achieve-CW as "media_producer_1"
-        When I create coourse with the data 
-            | page_object        | value                        |
-            | course_type        | Template                     |
-            | product_model      | Quantitative                 |
-            | course_name        | Qualitative Testcourse       |
-            | learning_objective | Principles of Microeconomics |
-            | course_code        | E2E 301                      |
-            | isbn_number        | 9781464199497                |
-            | course_status      | draft                        |
+        # Given I login to Achieve-CW as "media_producer_1"
+        # When I create coourse with the data 
+        #     | page_object        | value                        |
+        #     | course_type        | Template                     |
+        #     | product_model      | Quantitative                 |
+        #     | course_name        | Qualitative Testcourse       |
+        #     | learning_objective | Principles of Microeconomics |
+        #     | course_code        | E2E 301                      |
+        #     | isbn_number        | 9781464199497                |
+        #     | course_status      | draft                        |
 
-        And I update the "Qualitative Testcourse" template from draft to active with the following data
-            | page_object      | value                                                       |
-            | edit_course_name | Qualitative Testcourse                                      |       
-            | edit_course_code | E2E 301                                                     |
-            | template_status  | Active On Date                                              |
+        # And I update the "Qualitative Testcourse" template from draft to active with the following data
+        #     | page_object      | value                                                       |
+        #     | edit_course_name | Qualitative Testcourse                                      |       
+        #     | edit_course_code | E2E 301                                                     |
+        #     | template_status  | Active On Date                                              |
 
-        And I add the activity to "Qualitative Testcourse" course under the resources tab
-            | activity                                                          | type                      |
-            | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
-            | LC1551301608988                                                   | add_button_learningcurve  |
-            |Communicating courteously and professionally                       | add_reading_button        |
+        # And I add the activity to "Qualitative Testcourse" course under the resources tab
+        #     | activity                                                          | type                      |
+        #     | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
+        #     | LC1551301608988                                                   | add_button_learningcurve  |
+        #     |Communicating courteously and professionally                       | add_reading_button        |
 
-        And I click on home button to return to coursepage
-        And I copy course from the "Qualitative Testcourse" template with the following data
-            | page_object       | value                        |
-            | copy_course       | Qualitative Testcourse test  |
-            | copy_course_code  | E2E301                       |
+        # And I click on home button to return to coursepage
+        # And I copy course from the "Qualitative Testcourse" template with the following data
+        #     | page_object       | value                        |
+        #     | copy_course       | Qualitative Testcourse test  |
+        #     | copy_course_code  | E2E301                       |
 
-        And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
+        # And I sign out of Achieve
+        # And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Qualitative Testcourse test" course
+        # And I assign "instructor_1" to the "Qualitative Testcourse test" course
         
-        And I sign out of Achieve
+        # And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I update the "Qualitative Testcourse test" course from draft to Active with following data 
-            | page_object      | value                        |
-            | edit_course_name | Qualitative Testcourse test  |
-            | edit_course_code |  E2E301                      |
-            | template_status  |  Active On Date              |
+        # When I update the "Qualitative Testcourse test" course from draft to Active with following data 
+        #     | page_object      | value                        |
+        #     | edit_course_name | Qualitative Testcourse test  |
+        #     | edit_course_code |  E2E301                      |
+        #     | template_status  |  Active On Date              |
     
         And I create custom made activity in "Qualitative Testcourse test" with the following data
             | activity           | value                                    |
             | Assignment_tittle  | Qual Test                                |
             | Assignment_type    | Test                                     |
-            | taxonomy           | Interactive General Chemistry V1         |
+            # | taxonomy           | Interactive General Chemistry V1         |
      
         And I add the activities in courseplanner
             | activity                                                          | 

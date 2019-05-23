@@ -129,11 +129,12 @@ When(/^I create custom made activity in "(.*)" with the following data$/, async 
   await pages.course_planner.click('customQuestions');
   await pages.course_planner.click('AddAnothercustomQuestions');
   await pages.course_planner.click('NEcustomQuestions');
-  await pages.course_planner.click('editQuestionTittleCQ')
-  await pages.course_planner.assertElementExists('QuestionTittleCQ')
-  await pages.course_planner.populate('QuestionTittleCQ', 'MC');
+  await pages.course_planner.click('editQuestionTitleCQ')
+  await pages.course_planner.assertElementExists('QuestionTitleCQ')
+  await pages.course_planner.populate('QuestionTitleCQ', 'MC');
   await pages.course_planner.click('AnswerPromptCQ');
-  await pages.course_planner.populate('enterAnswerCQ', '1')
+  await pages.course_planner.populate('enterAnswerCQ', '1');
+
   // await pages.course_planner.click('CreatecustomQuestionsbutton')
   // await pages.course_planner.click('Check_box_assignment');
   // await pages.course_planner.click('Add_assignment_button');
