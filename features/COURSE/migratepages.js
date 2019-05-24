@@ -39,7 +39,7 @@ module.exports = {
 
             
             //create the module name .js file with all file paths
-            this.writeFile(`pages/${ffn}.js`, `const stepsPath = process.cwd() + '${stepsPath}';\nconst { PageObject } = require('../../../app/pageObject');\n\nlet pages = {${includefiles}};`);
+            this.writeFile(`pages/${ffn}.js`, `const stepsPath = process.cwd() + '${stepsPath}';\nconst { PageObject } = require('../../../app/PageObject');\n\nlet pages = {${includefiles}};`);
         });
     },
 

@@ -42,31 +42,31 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "add_button_assessment",
+        "name": "addButtonAssessment",
         "byType": "xpath",
         "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_assessment']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "add_button_learningcurve",
+        "name": "addButtonLearningcurve",
         "byType": "xpath",
         "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_learningcurve']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "add_button_readandpractice",
+        "name": "addButtonReadandpractice",
         "byType": "xpath",
         "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_lcrp']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "add_reading_button",
+        "name": "addReadingButton",
         "byType": "xpath",
         "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_reading']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "add_file_button",
+        "name": "addFileButton",
         "byType": "xpath",
         "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_staticfile']",
         "frame": "default",

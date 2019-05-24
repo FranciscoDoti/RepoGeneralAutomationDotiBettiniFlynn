@@ -4,12 +4,12 @@
 'use strict';
 const { expect } = require('chai');
 
-const HashTable = require(`${process.cwd()}/app/hashtable`);
-const StringProcessing = require(`${process.cwd()}/app/stringProcessing`);
-const ScenarioData = require(`${process.cwd()}/app/scenarioData`);
+const HashTable = require(`${process.cwd()}/app/HashTable`);
+const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
+const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
-const { getDriver, getWebDriver, sleep, activateTab, getURL } = require(`${process.cwd()}/app/driver`);
+const { getDriver, getWebDriver, sleep, activateTab, getURL, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect, populateTextField } = require(`${process.cwd()}/app/populate`);
 
@@ -58,17 +58,19 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   const switchFrame = async function (elementName) {
     await that.driver.switchTo().defaultContent();
-    if (elementName == 'default') {
+    if (elementName === 'default') {
       // if frame name is default then see above
     } else {
       if (typeof elementName === 'number') {
         log.debug(`Switching to frame number ${elementName}`);
-        await that.driver.switchTo().frame(elementName);
+        await that.driver.wait(that.webdriver.until.ableToSwitchToFrame(elementName, config.timeout));
       } else {
         log.debug(`Switching to frame ${elementName}`);
         if (await checkWebElementExists(elementName)) {
-          var WebElementData = await getElement(elementName);
-          await that.driver.switchTo().frame(WebElementData.definition);
+          const WebElementData = await getElement(elementName);
+          const WebElementObject = await WebElement(WebElementData);
+          const webElement = await WebElementObject.getWebElement();
+          await that.driver.wait(that.webdriver.until.ableToSwitchToFrame(webElement, config.timeout));
         }
       }
     }
@@ -134,6 +136,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'li':
         case 'th':
         case 'h2':
+        case 'section':
           await populateClick(webElement, value, actionElement);
           break;
         case 'select':
@@ -193,7 +196,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     const _NA = "| NA".padEnd(localPadLength + 1);
     console.log(`\nGenerating data table for ${that.pageName} \n`);
     try {
-      // Return a | delimited list of the field names in the pageDefs file for this pageObject
+      // Return a | delimited list of the field names in the pageDefs file for this PageObject
       console.log("|" + that.pageElements.keyList("|", localPadLength));
 
       // Generate a list of NA for the page object.
