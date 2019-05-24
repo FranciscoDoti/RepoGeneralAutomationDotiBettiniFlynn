@@ -1,4 +1,3 @@
-
 const { onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
 const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
@@ -57,7 +56,7 @@ const populateSelect = async function (selector, item, WebElementData) {
     await selector.selectByValue(item);
   } else {
     const options = await selector.findElements(By.tagName('option'));
-    for await (var option of options)
+    for await (let option of options)
     {
       const optionText = await option.getText();
       if (item === optionText) {
