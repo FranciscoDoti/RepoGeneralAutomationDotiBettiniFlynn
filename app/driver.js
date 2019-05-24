@@ -33,11 +33,11 @@ const buildDriver = function(){
         break;
       case 'docker':
         driver.withCapabilities(chromeCapabilities)
-          .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+          .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
         break;
       case 'docker-headless':
         driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
-          .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+          .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
         break;
       case 'browserstack':
         driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')

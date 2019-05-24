@@ -1,6 +1,6 @@
 {
     "environment": "int",
-    "mode": "docker",
+    "mode": "docker-headless",
     "browser": "chrome",
     "screenshots": "true",
     "timeout": 60000,
