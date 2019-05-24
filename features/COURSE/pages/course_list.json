@@ -23,13 +23,7 @@
         "definition": "[data-test-id='manage_instructor_added']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "copy_course",
-        "byType": "css",
-        "definition": "[data-test-id='copy_course_modal']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },{
         "name": "delete_course",
         "byType": "css",
         "definition": "[data-test-id='course_menu_delete_course']",
@@ -167,19 +161,7 @@
         "definition": "[data-test-id='edit_course_status']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "edit_course_name",
-        "byType": "id",
-        "definition": "courseName",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "edit_course_code",
-        "byType": "id",
-        "definition": "courseCode",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },  {
         "name": "ebook_link",
         "byType": "css",
         "definition": "[id='courseEbookLink']",

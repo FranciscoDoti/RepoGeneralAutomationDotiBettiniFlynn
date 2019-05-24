@@ -2,54 +2,54 @@ Feature: Student attempts all the activities in Quantitative
     @delete-all-courses
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
-        # Given I login to Achieve-CW as "media_producer_2"
-        # When I create coourse with the data 
-        #     | page_object        | value                        |
-        #     | course_type        | Template                     |
-        #     | product_model      | Quantitative                 |
-        #     | course_name        | Qualitative TC               |
-        #     | learning_objective | Principles of Microeconomics |
-        #     | course_code        | E2E 301                      |
-        #     | isbn_number        | 9781464199498                |
-        #     | course_status      | draft                        |
+        Given I login to Achieve-CW as "media_producer_2"
+        When I create Course Template with the data 
+            | field             | value                        |
+            | courseType        | Template                     |
+            | productModel      | Quantitative                 |
+            | courseName        | Qualitative course Template  |
+            | learningObjective | Principles of Microeconomics |
+            | courseCode        | E2E 301                      |
+            | isbnNumber        | 9781464199498                |
+            | courseStatus      | draft                        |
 
-        # And I update the "Qualitative TC" template from draft to active with the following data
-        #     | page_object      | value                                                       |
-        #     | edit_course_name | Qualitative TC                                              |       
-        #     | edit_course_code | E2E 301                                                     |
-        #     | template_status  | Active On Date                                              |
+        And I activate the "Qualtitative course Template" template and add the following data
+            | field            | value                                                       |
+            | courseName       | Qualtitative course Template                                |       
+            | courseCode       | E2E 301                                                     |
+            | templateStatus   | Active On Date                                              |
 
-        # And I add the activity to "Qualitative TC" course under the resources tab
-        #     | activity                                                          | type                      |
-        #     | Exercise: Misused words 1 (autoscored)                            | add_button_assessment     |
-        #     | LC1551301608988                                                   | add_button_learningcurve  |
-        #     |Communicating courteously and professionally                       | add_reading_button        |
+        And I add the activities in resources to "Qualtitative course Template" template
+            | type                    | activity                                      |
+            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | addButtonLearningcurve  | LC1551301608988                               |
+            | addReadingButton        |  Communicating courteously and professionally |
 
-        # And I click on home button to return to coursepage
-        # And I copy course from the "Qualitative TC" template with the following data
-        #     | page_object       | value                        |
-        #     | copy_course       | Qualitative TC test          |
-        #     | copy_course_code  | E2E301                       |
+        And I click on home button to return to coursepage
+        And I copy course from the "Qualtitative course Template" template with the following data
+            | field             | value                        |
+            | course            | Qualitative Course           |
+            | courseCode        | E2E301                       |
 
-        # And I sign out of Achieve
-        # And I login to Achieve-CW as "customer_support_1"
+        And I sign out of Achieve
+        And I login to Achieve-CW as "customer_support_1"
 
-        # And I assign "instructor_2" to the "Qualitative TC test" course
+        And I assign "instructor_2" to the "Qualitative Course" course
         
-        # And I sign out of Achieve
+        And I sign out of Achieve
         And I login to Achieve-CW as "instructor_2"
 
-        # When I update the "Qualitative TC test" course from draft to Active with following data 
-        #     | page_object      | value                        |
-        #     | edit_course_name | Qualitative TC test          |
-        #     | edit_course_code |  E2E301                      |
-        #     | template_status  |  Active On Date              |
+        When I activate  "Qualitative Course" course with following data 
+            | field             | value                        |
+            | courseName        | Qualitative Course           |
+            | courseCode        |  E2E301                      |
+            | templateStatus    |  Active On Date              |
     
-        And I create custom made activity in "Qualitative TC test" with the following data
+        And I create custom made activity in "Qualitative Course" with the following data
             | activity           | value                                    |
-            | Assignment_tittle  | Qual Test                                |
-            | Assignment_type    | Test                                     |
-            # | taxonomy           | Interactive General Chemistry V1         |
+            | assignmentTittle   | Qual Test                                |
+            | assignmentType     | Test                                     |
+            | taxonomy           | Interactive General Chemistry V1         |
      
         And I add the activities in courseplanner
             | activity                                                          | 
@@ -61,47 +61,42 @@ Feature: Student attempts all the activities in Quantitative
             | Qual Test                          |
 
         And I assign the activities in courseplanner
-            | activity                                                          | verify | Points | 
-            | Qual Test                                                         | true   | 5      |
-            | Exercise: Misused words 1 (autoscored)                            | true   | 5      | 
-            | LC1551301608988                                                   | true   | 5      | 
+            | activity                                                         | Points | 
+            | Qual Test                                                        | 5      |
+            | Exercise: Misused words 1 (autoscored)                           | 5      | 
+            | LC1551301608988                                                  | 5      | 
  
 
         And I sign out of Achieve
         And I login to Achieve-CW as "admin_1" 
-        And I enroll the "student_1" in "Qualitative TC test" course 
+        And I enroll the "student_1" in "Qualitative Course" course 
         And I close the popup message 
         And I sign out of Achieve
 
         And I login to Achieve-CW as "student_1" 
 
-        And I attempt "Exercise: Misused words 1 (autoscored)" premade assesment in "Qualitative TC test"
-            |  PremadeAssesmentKey                                                                                                       |   
-            |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
-            |   Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.        | 
-            |   The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                      |         
-            |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
-            |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
+        And I attempt "Exercise: Misused words 1 (autoscored)" premade assesment in "Qualitative Course"
+           | Questions   |  PremadeAssesmentKey                                                                                                       |   
+           | 1 Question  |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
+           | 2 Question  |  Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.         | 
+           | 3 Question  |  The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                       |         
+           | 4 Question  |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
+           | 5 Question  |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
 
-        And I attempt "Qual Test" custom made assesment in "Qualitative TC test"
-            |  key           |
-            |  1             |
-
+       And I attempt "Qual Test" custom made assesment in "Qualitative Course"
+           | Questions    |  key           |
+           | 1 Question   |  1             |
+ 
 
         When I attempt "LC1551301608988" learning curve activity
-              | Key            |
-              | Correct Answer |
+            
 
-
-        When I click on reading activity
+        When I complete the reading activity 
             | activity                                      |
             | Communicating courteously and professionally  |
         
-        Then I verify reading activity has content to read
-            | activity                                      |
-            | Communicating courteously and professionally  |
 
-        And I verify the activity status as completed once the student attempt the activities
+        And I verify the activity status for the following activities
             | activity                                      | status    |
             | Exercise: Misused words 1 (autoscored)        | Complete  |
             | Qual Test                                     | Complete  | 
@@ -109,7 +104,7 @@ Feature: Student attempts all the activities in Quantitative
             | Communicating courteously and professionally  | Complete  |
 
 
-        And I verify the assignmenent grades in gradebook for below assigned activities in "Qualitative TC test"
+        And I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
             | Qual Test                                     |  100%       | 5       | 1%                   |
@@ -118,9 +113,9 @@ Feature: Student attempts all the activities in Quantitative
 
         When I sign out of Achieve
         And I login to Achieve-CW as "instructor_2"
-        And I click on course card 
+        And I click on "Qualtitative Course"
 
-        Then I verify the assignmenent grades in gradebook for below assigned activities in "Qualitative TC test"
+        Then I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
             | Qual Test                                     |  100%       | 5       | 1%                   |
@@ -129,10 +124,9 @@ Feature: Student attempts all the activities in Quantitative
 
         When I sign out of Achieve
         And I login to Achieve-CW as "admin_1"
-        And I click on search button and input "Qualitative TC test" to search the course 
-        And I click on course card 
+        And I search for "Qualitative Course" and click on course card
 
-        Then I verify the assignmenent grades in gradebook for below assigned activities in "Qualitative TC test"
+        Then I verify the assignmenent grades in gradebook for below assigned activities
             | activity                                      | percentage  | points  | PercentOfTotalgrades  |
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 33%                   |
             | Qual Test                                     |  100%       | 5       | 33%                   |

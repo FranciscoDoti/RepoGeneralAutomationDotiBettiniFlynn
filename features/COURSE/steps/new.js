@@ -8,11 +8,11 @@ Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.course_list.populate('search', input);
 });
 
-When('I create coourse with the data', async function (data_table) {
+When('I create Course Template with the data', async function (data_table) {
   await pages.create_course.click('button');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
-      await pages.create_course.populate(data_table.hashes()[i].page_object, data_table.hashes()[i].value)
+      await pages.create_course.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
     } else {
       await pages.create_course.click('select_day', data_table.hashes()[i].value);
     }
@@ -26,18 +26,18 @@ When('I close the popup message', async function () {
   await pages.home.click('close_alert');
 });
 
-When(/^I update the "(.*)" template from draft to active with the following data$/, async function (courseName, data_table) {
+When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
   await pages.course_list.click('course_menu', courseName);
-  await pages.course_list.click('edit_course');
+  await pages.editCourse.click('edit_course');
 
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
-      await pages.course_list.populate(data_table.hashes()[i].page_object, data_table.hashes()[i].value);
+      await pages.editCourse.populate(data_table.hashes()[i].filed, data_table.hashes()[i].value);
     } else {
       await pages.create_course.click('select_day', data_table.hashes()[i].value);
     }
   }
-  await pages.create_course.click('save_editcourse');
+  await pages.editCourse.click('save_editcourse');
   await pages.home.click('close_alert');
 });
 
@@ -49,7 +49,7 @@ When('I click on resource tab', async function () {
   await pages.course_page.click('resources');
 });
 
-When(/^I add the activity to "(.*)" course under the resources tab$/, async function (courseName, data_table) {
+When(/^I add the activities in resources to "(.*)" template$/, async function (courseName, data_table) {
   await pages.create_course.click('course_card', courseName);
   await pages.course_page.click('resources');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -66,11 +66,11 @@ When('I click on home button to return to coursepage', async function () {
 
 When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
   await pages.course_list.click('course_menu', courseName);
-  await pages.course_list.click('copy_course');
+  await pages.copyCourse.click('copy_course');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.create_course.populate(data_table.hashes()[i].page_object, data_table.hashes()[i].value, data_table.hashes()[i].clear);
+    await pages.copyCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value, data_table.hashes()[i].clear);
   };
-  await pages.create_course.click('save_copycourse');
+  await pages.copyCourse.click('save_copycourse');
   await pages.home.click('close_alert');
 });
 
@@ -94,13 +94,13 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseN
   await pages.create_course.click('add_instructor_close');
 });
 
-When(/^I update the "(.*)" course from draft to Active with following data$/, async function (courseName, data_table) {
+When(/^I activate "(.*)" course with following data $/, async function (courseName, data_table) {
   await pages.course_list.click('course_menu', courseName);
-  await pages.course_list.click('edit_course');
+  await pages.editCourse.click('edit_course');
 
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object != 'day') {
-      await pages.course_list.populate(data_table.hashes()[i].page_object, data_table.hashes()[i].value);
+      await pages.editCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value);
     } else {
       await pages.create_course.populate('select_day', data_table.hashes()[i].value);
     }
@@ -119,6 +119,7 @@ When(/^I create custom made activity in "(.*)" with the following data$/, async 
   await pages.course_planner.click('custom_content_button');
   await pages.course_planner.click('New_custom');
   await pages.course_planner.click('assessment_button');
+  await pages.course_planner.assertElementExists('close_assesment');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.course_planner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
   }

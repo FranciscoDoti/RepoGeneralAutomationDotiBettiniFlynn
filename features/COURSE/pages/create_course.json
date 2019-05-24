@@ -48,19 +48,13 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_code",
+        "name": "courseCode",
         "byType": "id",
         "definition": "__createCourse_codeInput",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "edit_course_code",
-        "byType": "id",
-        "definition": "courseCode",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "course_name",
+    },  {
+        "name": "courseName",
         "byType": "id",
         "definition": "__createCourse_nameInput",
         "frame": "default",
@@ -90,19 +84,13 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "isbn_number",
+        "name": "isbnNumber",
         "byType": "id",
         "definition": "__createCourse_isbnInput",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "edit_isbn_number",
-        "byType": "id",
-        "definition": "courseIsbn",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "learning_objective",
+    },  {
+        "name": "learningObjective",
         "byType": "css",
         "definition": "[data-test-id='select_lo_framework']",
         "frame": "default",
@@ -116,7 +104,7 @@
     },
     
     {
-        "name": "product_model",
+        "name": "productModel",
         "byType": "css",
         "definition": "[name='productModel']",
         "frame": "default",
@@ -151,25 +139,7 @@
         "definition": "[data-test-id='create_course_modal_save_btn']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "save_editcourse",
-        "byType": "css",
-        "definition": "[data-test-id='edit_course_save']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "save_copycourse",
-        "byType": "css",
-        "definition": "[data-test-id='copy_course_save_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "template_status",
-        "byType": "css",
-        "definition": "[data-test-id='course_status']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },   {
         "name": "message",
         "byType": "css",
         "definition": "._10W9",
@@ -211,19 +181,7 @@
         "definition": "__timePickerPeriod",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "copy_course",
-        "byType": "id",
-        "definition": "copyCourseName",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "copy_course_code",
-        "byType": "id",
-        "definition": "copyCourseShortName",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },  {
         "name": "instructor_button",
         "byType": "id",
         "definition": "react-tabs-2",

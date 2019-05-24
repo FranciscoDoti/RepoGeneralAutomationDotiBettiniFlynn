@@ -312,7 +312,7 @@
         {
             "name": "custom_assesment_frame",
             "byType": "xpath",
-            "definition": "//iframe",
+            "definition": "//iframe[@allowfullscreen]",
             "frame": "default",
             "specialInstr": "NA"
         },
