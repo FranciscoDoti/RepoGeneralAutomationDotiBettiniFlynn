@@ -78,8 +78,8 @@ const resetBrowser = async function () {
   await switchToTab(tabs[0]);
   //clear cache and cookies
   log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
-  await driver.manage().deleteAllCookies();
-  return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
+  // await driver.manage().deleteAllCookies();
+  // return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
 };
 
 const activateTab = async function (tabName) {
