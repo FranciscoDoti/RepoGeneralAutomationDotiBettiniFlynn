@@ -23,17 +23,16 @@ const buildDriver = function(){
     };
     var chromeCapabilities = webdriver.Capabilities.chrome();
     chromeCapabilities.set('chromeOptions', chromeOptions);
+
     switch (config.mode) {
       case 'local':
         driver.withCapabilities(chromeCapabilities)
         break;
+      case 'local-headless':
+        driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
+        break;
       case 'headless':
-        var headlessOptions = options.headless();
-        var loggingPrefs = new webdriver.logging.Preferences();
-        loggingPrefs.setLevel(webdriver.logging.Type.BROWSER, webdriver.logging.Level.ALL);
-        headlessOptions.setLoggingPrefs(loggingPrefs);
-
-        driver.withCapabilities(chromeCapabilities)
+        driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
           .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
         break;
       case 'browserstack':
