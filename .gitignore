@@ -4,6 +4,3 @@ node_modules
 package-lock.json
 test.txt
 *.csv
-reports/all/
-reports/downloads/
-reports/logs/
