@@ -57,7 +57,7 @@ driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
-  await driver.manage().timeouts().implicitlyWait(config.timeout);
+  await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   return driver.get(url);
 };
 
