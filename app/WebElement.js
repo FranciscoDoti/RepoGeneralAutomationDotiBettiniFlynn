@@ -17,33 +17,33 @@ const WebElement = function (element) {
   my.by = my.webdriver.By;
 
   that.getWebElement = async function () {
-    const elementDef = await this.getBy();
-    return await my.driver.findElement(elementDef);
+    const definition = await this.getBy();
+    return await my.driver.findElement(definition);
   };
 
   that.getWebElements = async function () {
-    const elementDef = await this.getBy();
-    return await my.driver.findElements(elementDef);
+    const definition = await this.getBy();
+    return await my.driver.findElements(definition);
   };
 
   that.elementExists = async function () {
-    const elementDef = await this.getBy();
+    const definition = await this.getBy();
     try{
-    return await my.driver.findElement(elementDef).isDisplayed();
+    return await my.driver.findElement(definition).isDisplayed();
     } catch(err){
       return false;
     };
   };
 
   that.scrollIntoView = async function () {
-    const elementDef = await this.getBy();
-    const returnElement = await my.driver.findElement(elementDef);
+    const definition = await this.getBy();
+    const returnElement = await my.driver.findElement(definition);
     return await getDriver().executeScript('arguments[0].scrollIntoView()', returnElement);
   };
 
   that.elementDisabled = async function () {
-    const elementDef = await this.getBy();
-    const returnElement = await my.driver.findElement(elementDef);
+    const definition = await this.getBy();
+    const returnElement = await my.driver.findElement(definition);
     return await my.driver.wait(my.webdriver.until.elementIsDisabled(returnElement), 3000);
   };
 
