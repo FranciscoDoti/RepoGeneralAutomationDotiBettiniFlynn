@@ -2,7 +2,7 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests --parallel 2 -f json:reports/cucumber_report.json",
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json"
   },
   "dependencies": {
