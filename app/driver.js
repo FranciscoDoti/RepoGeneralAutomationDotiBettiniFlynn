@@ -31,7 +31,11 @@ const buildDriver = function(){
       case 'local-headless':
         driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
         break;
-      case 'headless':
+      case 'docker':
+        driver.withCapabilities(chromeCapabilities)
+          .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+        break;
+      case 'docker-headless':
         driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
           .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
         break;
@@ -78,8 +82,8 @@ const resetBrowser = async function () {
   await switchToTab(tabs[0]);
   //clear cache and cookies
   log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
-  // await driver.manage().deleteAllCookies();
-  // return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
+  await driver.manage().deleteAllCookies();
+  return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
 };
 
 const activateTab = async function (tabName) {
