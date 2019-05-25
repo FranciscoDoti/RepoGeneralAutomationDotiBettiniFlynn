@@ -122,11 +122,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const webElement = await WebElementObject.getWebElement();
       const tagName = await webElement.getTagName();
       switch (tagName.toLowerCase()) {
-        case 'input':  
-        await populateInput(webElement, value, actionElement);
-          break;
+        case 'input': 
         case 'textarea':
-          await populateTextField(webElement, value, actionElement);
+        await populateInput(webElement, value, actionElement);
           break;
         case 'a':
         case 'button':

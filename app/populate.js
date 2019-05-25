@@ -17,6 +17,7 @@ const populateInput = async function (selector, value, WebElementObject) {
 
     case 'email':
     case 'text':
+    case 'textarea':
     case 'password':
       await populateTextField(selector, value, WebElementObject);
       break;
