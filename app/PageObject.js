@@ -176,7 +176,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const webElement = await WebElementObject.getWebElement();
       var returnValue;
       if (attributeName === undefined) {
-        returnValue = await webElement.getAttribute('innerText');
+        returnValue = await webElement.getAttribute('textContent');
       } else if (attributeName.toLowerCase() === 'text') {
         returnValue = await webElement.getText();
       } else if (attributeName === 'selected') {
