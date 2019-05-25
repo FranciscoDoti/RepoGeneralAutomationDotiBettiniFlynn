@@ -4,10 +4,9 @@ const chrome = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const config = require(`${process.cwd()}/config/config.json`);
-
 let driver;
-const buildDriver = function(){
-  
+
+const buildDriver = function(){  
   const driver = new webdriver.Builder();
   if(config.browser.toLowerCase() == 'chrome')
   {
@@ -28,31 +27,27 @@ const buildDriver = function(){
       case 'local':
         driver.withCapabilities(chromeCapabilities)
         break;
-      case 'local-headless':
-        driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
-        break;
       case 'docker':
         driver.withCapabilities(chromeCapabilities)
-          .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
+        .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
         break;
       case 'docker-headless':
         driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
-          .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
+        .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
         break;
       case 'browserstack':
         driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
-          .withCapabilities(chromeCapabilities)
+        .withCapabilities(chromeCapabilities)
         break;
       case 'localgrid':
         driver.usingServer('http://localhost:4444/wd/hub/')
-          .withCapabilities(chromeCapabilities)
+        .withCapabilities(chromeCapabilities)
         break;
       default:
         driver.usingServer('http://selenium:4444/wd/hub')
-          .withCapabilities(chromeCapabilities)
+        .withCapabilities(chromeCapabilities)
     }
   }
-
   log.info(`${config.browser} browser launched.`);
   return driver.build();
 };
