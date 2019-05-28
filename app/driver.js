@@ -64,6 +64,7 @@ const closeBrowser = async function(){
 
 const resetBrowser = async function () {
   //close all tabs but 1
+  console.log("I am inside reset browser");
   var tabs = await driver.getAllWindowHandles();
   if (tabs.length > 1) {
     for (let index = 1; index < tabs.length; index++) {

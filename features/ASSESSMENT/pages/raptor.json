@@ -29,5 +29,12 @@
     "definition": "li[id='save-button']",
     "frame": "default",
     "specialInstr": "NA" 
-}]
+},{
+    "name": "amsItemCreate",
+    "byType": "css",
+    "definition": "tr[data-id='<ReplaceText>']",
+    "frame": "default",
+    "specialInstr": "NA" 
+}
+]
 }

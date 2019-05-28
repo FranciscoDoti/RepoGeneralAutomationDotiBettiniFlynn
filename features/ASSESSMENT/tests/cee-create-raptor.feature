@@ -1,15 +1,4 @@
 Feature: CEE module type creation
-
-    # Background: User login to ams site
-
-    #     Given I login to AMS as "all-permissions-author"
-    #     When I click on the New Raptor item in the AMS page
-    #     And I navigate to AuthorApp
-        #Given I am logged in to "test-site" as "admin-user"
-        #And I go to ams section of "test-site"
-        #And I want to create a "Raptor item" 
-        
-
     Scenario: Verify that user can create CEE type of raptor item
 
     Given I login to AMS as "all-permissions-author"
@@ -18,7 +7,8 @@ Feature: CEE module type creation
         And I added "Chemical Equation" module from the Add module pallete
         And I select the canvas to add the selected module
         And I save the item as draft
-        
+        And I navigate back to AMS landing page
+        Then I verify item has been created
       # When I added "Chemical Equation" module from the Add module pallete
     #    And I select the canvas to add the selected module 
     #    And I try to save the item
