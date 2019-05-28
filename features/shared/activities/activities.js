@@ -1,4 +1,4 @@
-const config = require('../../../config.js');
+const config = require(`${process.cwd()}/config/config.json`);
 
 let getActivities = function () {
   let activityList

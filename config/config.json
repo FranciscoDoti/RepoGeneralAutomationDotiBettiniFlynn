@@ -1,5 +1,5 @@
 {
-    "environment": "int",
+    "environment": "local",
     "mode": "docker-headless",
     "browser": "chrome",
     "screenshots": "true",
