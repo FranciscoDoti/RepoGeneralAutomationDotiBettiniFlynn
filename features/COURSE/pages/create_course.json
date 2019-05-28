@@ -60,7 +60,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_status",
+        "name": "courseStatus",
         "byType": "css",
         "definition": "[data-test-id='create_course_status']",
         "frame": "default",
@@ -96,7 +96,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_type",
+        "name": "courseType",
         "byType": "css",
         "definition": "[name='courseType']",
         "frame": "default",
@@ -257,6 +257,12 @@
         "name": "Taxonomy_skills",
         "byType": "css",
         "definition": "[data-test-id='create_course_taxonomy_input']",
+        "frame": "default",
+        "specialInstr": "NA"
+     }, {
+        "name": "ISBNVerification",
+        "byType": "css",
+        "definition": "//a[.='<ReplaceText>']/../../../a/div[@data-test-id='course_activation_date']",
         "frame": "default",
         "specialInstr": "NA"
     }]

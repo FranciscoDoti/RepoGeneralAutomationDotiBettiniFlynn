@@ -316,3 +316,23 @@ Then(/^I verify the assignmenent grades in gradebook for below assigned activiti
     await pages.gradebook.assertTextinclude('studentPercenOfTotalGrades', data_table.hashes()[i].activit, data_table.hashes()[i].PercentOfTotalgrades)
   }
 });
+
+Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
+  await pages.home.assertTextinclude('close_alert', message);
+});
+
+Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
+  await pages.home.assertTextinclude('ISBNVerification', courseName, verifyNumber);
+});
+
+When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
+  await pages.create_course.click('button');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    if (data_table.hashes()[i].page_object !== 'day') {
+      await pages.create_course.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
+    } else {
+      await pages.create_course.click('select_day', data_table.hashes()[i].value);
+    }
+  }
+  await pages.create_course.click('save');
+});

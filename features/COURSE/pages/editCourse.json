@@ -34,9 +34,9 @@
             "frame": "default",
             "specialInstr": "NA"
         },{
-             "name": "edit_course",
-            "byType": "xpath",
-            "definition": "//*[text()='Edit Course']",
+            "name": "edit_course",
+            "byType": "css",
+            "definition": "[data-test-id='course_menu_edit_course']",
             "frame": "default",
             "specialInstr": "NA"
        

@@ -5,13 +5,7 @@
         "definition": "//a[.='<ReplaceText>']/../../../../div/div/button[@data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "edit_course",
-        "byType": "xpath",
-        "definition": "//*[text()='Edit Course']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },  {
         "name": "share_template",
         "byType": "xpath",
         "definition": "//*[text()='Share Template']",
