@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/COURSE/pages/`;
-const { PageObject } = require(`${process.cwd()}/app/pageObject`);
+const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 
 const pages = {
     main: new PageObject('main.json', stepsPath),

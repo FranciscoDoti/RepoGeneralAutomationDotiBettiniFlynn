@@ -1,349 +1,349 @@
-// const { Given, When, Then } = require('cucumber');
-// const pages = require('../pages/.page.js').pages;
-// const expect = require('chai').expect;
-// const _ = require('lodash');
+// // const { Given, When, Then } = require('cucumber');
+// // const pages = require('../pages/.page.js').pages;
+// // const expect = require('chai').expect;
 
-// // Navigation
-// When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
-//   let qa = new selenium(this.driver);
-//   let PAGE = await _.get(page, ['course', 'course_list', type]);
-//   let page_format = format(PAGE, identifier);
 
-//   await qa.click(page_format);
-// });
+// // // Navigation
+// // When(/^I navigate to course "(.*)" "(.*)"$/, async function (type, identifier) {
 
-// Given('I click login to the Achieve product', async function () {
-//   let qa = new selenium(this.driver);
-//   let url = await _.get(URL, ['achieve', 'login']);
+// //   let PAGE = await _.get(page, ['course', 'course_list', type]);
+// //   let page_format = format(PAGE, identifier);
 
-//   await qa.goTo(url);
-//   await qa.click(page.course.home.sign_in);
-// });
+// await pages.undefined.click('page_format');
+// // });
 
-// Given(/^I search for "(.*)" course$/, async function (input) {
-//   let qa = new selenium(this.driver);
+// // Given('I click login to the Achieve product', async function () {
 
-//   await qa.input(page.course.course_list.search, input);
-// });
+// //   let url = await _.get(URL, ['achieve', 'login']);
 
-// When('I fill out the form to edit a new course', async function (data_table) {
-//   let qa = new selenium(this.driver);
+// //   await qa.goTo(url);
+// await pages.home.click('sign_in');
+// // });
 
-//   await qa.sleep();
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     if (data_table.hashes()[i].page_object != 'day') {
-//       let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
-//       await qa.input(PAGE, data_table.hashes()[i].value, data_table.hashes()[i].clear);
-//     } else {
-//       let page_format = format(page.course.create_course.select_day, data_table.hashes()[i].value);
-//       await qa.click(page_format);
-//     }
-//   }
+// // Given(/^I search for "(.*)" course$/, async function (input) {
 
-//   await qa.click(page.course.create_course.save);
-// });
 
-// // FIXME Needs Implementation
-// When(/^I add Activities to course "(.*)" "(.*)"$/, async function (type, identifier, data_table) {
-//   let qa = new selenium(this.driver);
-//   let PAGE = await _.get(page, ['course', 'course_list', type]);
-//   let page_format = format(PAGE, identifier);
+// await pages.course_list.populate('search',  input);
+// // });
 
-//   await qa.click(page_format);
-//   await qa.click(page.course.create_page.resources);
-//   await qa.click(page.course.create_page.add_activity);
+// // When('I fill out the form to edit a new course', async function (data_table) {
 
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     let PAGE = await _.get(page, ['course', 'resources', 'search']);
 
-//     // INPUT SEARCH TERM
-//     // SELECT ADD BUTTON FROM LIST
-//     await qa.input(PAGE, data_table.hashes()[i].activity);
-//   }
+// //   await qa.sleep();
+// //   for (let i = 0; i < data_table.rows().length; i++) {
+// //     if (data_table.hashes()[i].page_object != 'day') {
+// //       let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
+// await pages.undefined.populate('PAGE',  data_table.hashes()[i].value);
+// //     } else {
+// //       let page_format = format(page.course.create_course.select_day, data_table.hashes()[i].value);
+// await pages.undefined.click('page_format');
+// //     }
+// //   }
 
-//   await qa.click(page.course.resources.add_activity, activity);
-// });
+// await pages.create_course.click('save');
+// // });
 
-// When('I click the Add course button', async function () {
-//   let qa = new selenium(this.driver);
-//   await qa.click(page.course.create_course.button);
-// });
+// // // FIXME Needs Implementation
+// // When(/^I add Activities to course "(.*)" "(.*)"$/, async function (type, identifier, data_table) {
 
-// When(/^I click on "(.*)" on "(.*)" course menu$/, async function (page_object, course_name) {
-//   let qa = new selenium(this.driver);
-//   let PAGE = await _.get(page, ['course', 'course_list', page_object]);
-//   let page_format = format(page.course.course_list.course_name_menu, course_name);
-//   await qa.click(page.course.course_list.course_menu);
-//   await qa.sleep(config.sleep);
-//   await qa.click(PAGE);
-// });
+// //   let PAGE = await _.get(page, ['course', 'course_list', type]);
+// //   let page_format = format(PAGE, identifier);
 
-// When('I logout of the achieve system', async function () {
-//   let qa = new selenium(this.driver);
-//   await qa.click(page.course.user.menu);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.user.sign_out);
-// });
+// await pages.undefined.click('page_format');
+// await pages.create_page.click('resources');
+// await pages.create_page.click('add_activity');
 
-// // Assertions //
-// Then(/^I verify that the course "(.*)" "(.*)" is listed on the courses page$/, async function (type, identifier) {
-//   let qa = new selenium(this.driver);
-//   let PAGE = await _.get(page, ['course', 'course_list', type]);
-//   let page_format = format(PAGE, identifier);
+// //   for (let i = 0; i < data_table.rows().length; i++) {
+// //     let PAGE = await _.get(page, ['course', 'resources', 'search']);
 
-//   await qa.exists(page_format);
-// });
+// //     // INPUT SEARCH TERM
+// //     // SELECT ADD BUTTON FROM LIST
+// await pages.undefined.populate('PAGE',  data_table.hashes()[i].activity);
+// //   }
 
-// Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, async function (identifier) {
-//   let qa = new selenium(this.driver);
-//   let page_format = format(page.course.course_list.course_name, identifier);
+// await pages.resources.click('add_activity, activity');
+// // });
 
-//   await qa.exists(page_format);
-// });
+// // When('I click the Add course button', async function () {
 
-// Then('I verify the create_course data', async function (data_table) {
-//   let qa = new selenium(this.driver);
+// await pages.create_course.click('button');
+// // });
 
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
-//     let page_format = await format(PAGE, data_table.hashes()[0].value);
+// // When(/^I click on "(.*)" on "(.*)" course menu$/, async function (page_object, course_name) {
 
-//     let text = await qa.getAttribute(page_format, 'value');
-//     expect(text).to.contain(data_table.hashes()[i].value);
-//   }
-//   // race condition, I have to wait for button to be visible
-//   await qa.sleep(3);
-//   await qa.click(page.course.create_course.cancel);
-// });
+// //   let PAGE = await _.get(page, ['course', 'course_list', page_object]);
+// //   let page_format = format(page.course.course_list.course_name_menu, course_name);
+// await pages.course_list.click('course_menu');
+// //   await qa.sleep(config.sleep);
+// await pages.undefined.click('PAGE');
+// // });
 
-// Then(/^I verify that it is redirected to "(.*)" course page$/, async function (course_page) {
-//   let qa = new selenium(this.driver);
-//   let course_page_element = await _.get(page, ['course', 'create_course', 'course_title']);
+// // When('I logout of the achieve system', async function () {
 
-//   let text = await qa.getText(course_page_element);
-//   expect(text).to.contain(course_page);
-// });
+// await pages.user.click('menu');
+// //   await qa.sleep(config.sleep);
+// await pages.user.click('sign_out');
+// // });
 
-// When(/^I copy the invite link to open course with "(.*)"$/, async function (student_user_object) {
-//   let qa = new selenium(this.driver);
-//   let invite_link_element = page.course.create_course.students_invite_link;
-//   let invite_students_modal_close_element = page.course.create_course.invite_students_modal_close;
-//   let signout_button_element = page.course.home.sign_out;
-//   let toggler_menu_element = page.course.home.toggler_menu;
-//   let payload = require(`../../_data/user/${config.environment}/${student_user_object}.json`);
+// // // Assertions //
+// // Then(/^I verify that the course "(.*)" "(.*)" is listed on the courses page$/, async function (type, identifier) {
 
-//   await qa.sleep(1);
-//   let invite_link = await qa.getAttribute(invite_link_element, 'placeholder');
-//   await qa.click(invite_students_modal_close_element);
-//   await qa.click(toggler_menu_element);
-//   await qa.sleep(1);
-//   await qa.click(signout_button_element);
-//   await qa.click(page.course.home.sign_in);
-//   await qa.input(page.iam.login.username, payload.username, true);
-//   await qa.input(page.iam.login.password, payload.password, true);
-//   await qa.click(page.iam.login.sign_in);
-//   await qa.sleep(2);
-//   await qa.goTo(invite_link);
-// });
+// //   let PAGE = await _.get(page, ['course', 'course_list', type]);
+// //   let page_format = format(PAGE, identifier);
 
-// Then('I generate a course code to the current course', async function () {
-//   let qa = new selenium(this.driver);
+// await pages.undefined.elementExists('page_format');
+// // });
 
-//   let toggler_menu_element = page.course.home.toggler_menu;
-//   let menu_user_admin_element = page.course.home.menu_user_admin;
-//   let create_access_code_element = page.course.home.create_access_code;
-//   let generate_access_code_element = page.course.home.generate_access_code;
-//   let access_code_element = page.course.home.access_code;
-//   let close_access_code_element = page.course.home.close_access_code;
+// // Then(/^I verify that the course's name "(.*)" is listed on the courses page$/, async function (identifier) {
 
-//   await qa.sleep(2);
-//   await qa.click(toggler_menu_element);
-//   await qa.sleep(1);
-//   await qa.click(menu_user_admin_element);
-//   await qa.sleep(1);
-//   await qa.click(create_access_code_element);
-//   await qa.sleep(1);
-//   await qa.click(generate_access_code_element);
-//   let access_code = await qa.getText(access_code_element);
-//   await qa.sleep(1);
-//   await qa.click(close_access_code_element);
-// })
+// //   let page_format = format(page.course.course_list.course_name, identifier);
 
-// Then(/^I validate the "(.*)" course is accessible to user$/, async function (course) {
-//   let qa = new selenium(this.driver);
+// await pages.undefined.elementExists('page_format');
+// // });
 
-//   await qa.click(page.course.course_list.course_name);
-// })
+// // Then('I verify the create_course data', async function (data_table) {
 
-// When('I enroll students to the current course', async function (data_table) {
-//   let qa = new selenium(this.driver);
 
-//   let toggler_menu_element = page.course.home.toggler_menu;
-//   let menu_user_admin_element = page.course.home.menu_user_admin;
-//   let manage_enrollments_element = page.course.home.manage_enrollments;
-//   let manage_enrollments_input_element = page.course.home.manage_enrollements_input;
-//   let add_user_button_element = page.course.home.add_user_button;
-//   let close_manage_roles_element = page.course.home.close_manage_roles;
+// //   for (let i = 0; i < data_table.rows().length; i++) {
+// //     let PAGE = await _.get(page, ['course', 'create_course', data_table.hashes()[i].page_object]);
+// //     let page_format = await format(PAGE, data_table.hashes()[0].value);
 
-//   await qa.click(toggler_menu_element);
-//   await qa.sleep(1);
-//   await qa.click(menu_user_admin_element);
-//   await qa.sleep(1);
-//   await qa.click(manage_enrollments_element);
-//   await qa.sleep(1);
+// //     let text = await qa.getAttribute(page_format, 'value');
+// //     expect(text).to.contain(data_table.hashes()[i].value);
+// //   }
+// //   // race condition, I have to wait for button to be visible
+// //   await qa.sleep(3);
+// await pages.create_course.click('cancel');
+// // });
 
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     let payload = require(`../../_data/user/${config.environment}/${data_table.hashes()[i].Student}.json`);
-//     await qa.input(manage_enrollments_input_element, payload.username);
-//     await qa.click(add_user_button_element);
-//   }
-//   await qa.click(close_manage_roles_element);
-//   await qa.sleep(1);
-// });
+// // Then(/^I verify that it is redirected to "(.*)" course page$/, async function (course_page) {
 
-// When('I click on the course planner to assign the activity and add points', async function (data_table) {
-//   let qa = new selenium(this.driver);
+// //   let course_page_element = await _.get(page, ['course', 'create_course', 'course_title']);
 
-//   await qa.click(page.course.course_page.course_planner);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.course_planner.assign_assignment_button);
-//   await qa.sleep(config.sleep);
-//   await qa.input(page.course.course_planner.points_input, data_table.hashes()[0].Points, 'clear');
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.course_planner.assign_button);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.home.close_alert);
-// })
+// //   let text = await qa.getText(course_page_element);
+// //   expect(text).to.contain(course_page);
+// // });
 
-// When('I search for a course and click on the first course card that appears', async function (data_table) {
-//   let qa = new selenium(this.driver);
-//   let course_card_element = page.course.create_course.course_card;
-//   let course_search_element = page.course.course_list.search;
-//   await qa.input(course_search_element, data_table.hashes()[0].Course)
-//   await qa.sleep(2);
-//   await qa.click(course_card_element);
-// });
+// // When(/^I copy the invite link to open course with "(.*)"$/, async function (student_user_object) {
 
-// When('I click on the first course card', async function () {
-//   let qa = new selenium(this.driver);
-//   let course_card_element = page.course.create_course.course_card;
-//   await qa.sleep(2);
-//   await qa.click(course_card_element);
-// });
+// //   let invite_link_element = page.course.create_course.students_invite_link;
+// //   let invite_students_modal_close_element = page.course.create_course.invite_students_modal_close;
+// //   let signout_button_element = page.course.home.sign_out;
+// //   let toggler_menu_element = page.course.home.toggler_menu;
+// //   let payload = require(`../../_data/user/${config.environment}/${student_user_object}.json`);
 
-// When('I add the activities to the course under the course planner tab', async function () {
-//   let qa = new selenium(this.driver);
-//   let course_planner_tab_element = course.course_page.course_planner;
-//   let custom_content_tab_element = course.course_planner.custom_content_tab;
-//   let add_assignment_element = course.course_planner.add_assignment;
+// //   await qa.sleep(1);
+// //   let invite_link = await qa.getAttribute(invite_link_element, 'placeholder');
+// await pages.undefined.click('invite_students_modal_close_element');
+// await pages.undefined.click('toggler_menu_element');
+// //   await qa.sleep(1);
+// await pages.undefined.click('signout_button_element');
+// await pages.home.click('sign_in');
+// await pages.login.populate('username',  payload.username);
+// await pages.login.populate('password',  payload.password);
+// await pages.login.click('sign_in');
+// //   await qa.sleep(2);
+// //   await qa.goTo(invite_link);
+// // });
 
-//   await qa.click(course_planner_tab_element);
-//   await qa.click(custom_content_tab_element);
-//   await qa.sleep(2);
-//   await qa.click(add_assignment_element);
-// })
+// // Then('I generate a course code to the current course', async function () {
 
-// When('I open the activity in the current course', async function (data_table) {
-//   let qa = new selenium(this.driver);
-//   let course_planner_tab_element = page.course.course_page.course_planner;
-//   let course_assignment_element = page.course.course_planner.course_assignment;
-//   await qa.click(page.course.create_course.course_card);
-//   await qa.click(course_planner_tab_element);
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     let specific_course_assignment_element = format(course_assignment_element, data_table.hashes()[i].Activity);
-//     await qa.click(specific_course_assignment_element);
-//     await qa.sleep(config.sleep);
-//     let displayed = await qa.isDisplayed(page.course.student_activity.result_bar)
-//     if (data_table.hashes()[0].Activity === 'Qual Test') {
-//       await qa.switchFrame(0);
-//       await qa.input(page.course.student_activity.assement_quiz_answer, data_table.hashes()[i].customMadeActivity);
-//       await qa.click(page.course.student_activity.submit_all_questions);
-//     } else {
-//       console.log('enteredif');
-//       await qa.switchFrame(0);
-//       await qa.input(page.course.student_activity.assement_quiz_answer, data_table.hashes()[i].PremadeAssesmentKey);
-//       await qa.click(page.course.student_activity.save_answer);
-//       await qa.click(page.course.student_activity.Next_assesment_question);
-//     }
-//   }
-// });
 
-// When('I attempt to answer the questions in the current activity assignment', async function (data_table) {
-//   let qa = new selenium(this.driver);
-//   await qa.sleep(2);
-//   await qa.switchFrame(0);
+// //   let toggler_menu_element = page.course.home.toggler_menu;
+// //   let menu_user_admin_element = page.course.home.menu_user_admin;
+// //   let create_access_code_element = page.course.home.create_access_code;
+// //   let generate_access_code_element = page.course.home.generate_access_code;
+// //   let access_code_element = page.course.home.access_code;
+// //   let close_access_code_element = page.course.home.close_access_code;
 
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     let multiple_select_answer_element = page.course.student_activity.multiple_select_answer;
-//     let current_question_element = page.course.student_activity.current_question;
-//     let multiple_select_answer_element_format = format(multiple_select_answer_element, data_table.hashes()[i].Answer);
-//     let current_question_element_format = format(current_question_element, data_table.hashes()[i].Question);
+// //   await qa.sleep(2);
+// await pages.undefined.click('toggler_menu_element');
+// //   await qa.sleep(1);
+// await pages.undefined.click('menu_user_admin_element');
+// //   await qa.sleep(1);
+// await pages.undefined.click('create_access_code_element');
+// //   await qa.sleep(1);
+// await pages.undefined.click('generate_access_code_element');
+// //   let access_code = await qa.getText(access_code_element);
+// //   await qa.sleep(1);
+// await pages.undefined.click('close_access_code_element');
+// // })
 
-//     await qa.click(current_question_element_format)
-//     await qa.click(multiple_select_answer_element_format);
-//     await qa.click(page.course.student_activity.button_check);
-//   }
-//   await qa.click(page.course.student_activity.close_activity);
-//   let activity_score = await qa.getText(page.course.student_activity.activity_score);
-//   console.log(activity_score, 'activity_score');
-// })
+// // Then(/^I validate the "(.*)" course is accessible to user$/, async function (course) {
 
-// Then(/^Check email for "(.*)" user using "(.*)" password$/, async function (user, password) {
-//   // let qa = new selenium(this.driver);
-//   await imap.connectClient(user, password, 'registration')
-// });
 
-// Then(/^I verify the data in "(.*)"/, async function (feature, data_table) {
-//   let qa = new selenium(this.driver);
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     let PAGE = await _.get(page, ['course', feature, data_table.hashes()[i].course_page]);
-//     await qa.exists(PAGE)
-//   }
-// });
+// await pages.course_list.click('course_name');
+// // })
 
-// Given(/^I click the "(.*)" button on the user account menu$/, async function (element) {
-//   let qa = new selenium(this.driver);
-//   let PAGE = await _.get(page, ['course', 'home', element])
-//   let page_format = format(PAGE);
-//   await qa.click(page.course.home.toggler_menu);
-//   await qa.sleep();
-//   await qa.click(page_format);
-// });
+// // When('I enroll students to the current course', async function (data_table) {
 
-// // FIXME look into which permission level this applies to
-// Then(/^I verify activity staus as "(.*)"$/, async function (element) {
-//   let qa = new selenium(this.driver);
-//   let PAGE = await _.get(page, ['course', 'course_planner', element]);
-//   let page_format = format(PAGE);
-//   await qa.getText(page.course.course_planner.activity_status, element);
-// });
 
-// When(/^I assign "(.*)" to the course$/, async function (user) {
-//   let payload = require(`../../_data/user/${config.environment}/${user}.json`);
-//   let qa = new selenium(this.driver);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.course_list.course_menu);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.course_list.Manage_instructor);
-//   await qa.input(page.course.create_course.add_instructor, payload.username);
-//   await qa.click(page.course.create_course.add_instructor_button);
-//   await qa.click(page.course.create_course.add_instructor_close);
-//   await qa.sleep(config.sleep);
-// });
+// //   let toggler_menu_element = page.course.home.toggler_menu;
+// //   let menu_user_admin_element = page.course.home.menu_user_admin;
+// //   let manage_enrollments_element = page.course.home.manage_enrollments;
+// //   let manage_enrollments_input_element = page.course.home.manage_enrollements_input;
+// //   let add_user_button_element = page.course.home.add_user_button;
+// //   let close_manage_roles_element = page.course.home.close_manage_roles;
 
-// When(/^I enroll the "(.*)" in the course$/, async function (user) {
-//   let payload = require(`../../_data/user/${config.environment}/${user}.json`);
-//   let qa = new selenium(this.driver);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.create_course.course_card);
-//   await qa.sleep();
-//   await qa.click(page.course.home.toggler_menu);
-//   await qa.sleep(config.sleep);
-//   await qa.click(page.course.user.admin);
-//   await qa.sleep(config.sleep)
-//   await qa.click(page.course.home.manage_enrollments);
-//   await qa.sleep(config.sleep);
-//   await qa.input(page.course.home.manage_enrollements_input, payload.username);
-//   await qa.click(page.course.home.add_user_button);
-//   await qa.click(page.course.home.close_manage_roles);
-// });
+// await pages.undefined.click('toggler_menu_element');
+// //   await qa.sleep(1);
+// await pages.undefined.click('menu_user_admin_element');
+// //   await qa.sleep(1);
+// await pages.undefined.click('manage_enrollments_element');
+// //   await qa.sleep(1);
+
+// //   for (let i = 0; i < data_table.rows().length; i++) {
+// //     let payload = require(`../../_data/user/${config.environment}/${data_table.hashes()[i].Student}.json`);
+// await pages.undefined.populate('manage_enrollments_input_element',  payload.username);
+// await pages.undefined.click('add_user_button_element');
+// //   }
+// await pages.undefined.click('close_manage_roles_element');
+// //   await qa.sleep(1);
+// // });
+
+// // When('I click on the course planner to assign the activity and add points', async function (data_table) {
+
+
+// await pages.course_page.click('course_planner');
+// //   await qa.sleep(config.sleep);
+// await pages.course_planner.click('assign_assignment_button');
+// //   await qa.sleep(config.sleep);
+// await pages.course_planner.populate('points_input',  data_table.hashes()[0].Points);
+// //   await qa.sleep(config.sleep);
+// await pages.course_planner.click('assign_button');
+// //   await qa.sleep(config.sleep);
+// await pages.home.click('close_alert');
+// // })
+
+// // When('I search for a course and click on the first course card that appears', async function (data_table) {
+
+// //   let course_card_element = page.course.create_course.course_card;
+// //   let course_search_element = page.course.course_list.search;
+// await pages.undefined.populate('course_search_element',  data_table.hashes()[0].Course));
+// //   await qa.sleep(2);
+// await pages.undefined.click('course_card_element');
+// // });
+
+// // When('I click on the first course card', async function () {
+
+// //   let course_card_element = page.course.create_course.course_card;
+// //   await qa.sleep(2);
+// await pages.undefined.click('course_card_element');
+// // });
+
+// // When('I add the activities to the course under the course planner tab', async function () {
+
+// //   let course_planner_tab_element = course.course_page.course_planner;
+// //   let custom_content_tab_element = course.course_planner.custom_content_tab;
+// //   let add_assignment_element = course.course_planner.add_assignment;
+
+// await pages.undefined.click('course_planner_tab_element');
+// await pages.undefined.click('custom_content_tab_element');
+// //   await qa.sleep(2);
+// await pages.undefined.click('add_assignment_element');
+// // })
+
+// // When('I open the activity in the current course', async function (data_table) {
+
+// //   let course_planner_tab_element = page.course.course_page.course_planner;
+// //   let course_assignment_element = page.course.course_planner.course_assignment;
+// await pages.create_course.click('course_card');
+// await pages.undefined.click('course_planner_tab_element');
+// //   for (let i = 0; i < data_table.rows().length; i++) {
+// //     let specific_course_assignment_element = format(course_assignment_element, data_table.hashes()[i].Activity);
+// await pages.undefined.click('specific_course_assignment_element');
+// //     await qa.sleep(config.sleep);
+// //     let displayed = await qa.isDisplayed(page.course.student_activity.result_bar)
+// //     if (data_table.hashes()[0].Activity === 'Qual Test') {
+// //       await qa.switchFrame(0);
+// await pages.student_activity.populate('assement_quiz_answer',  data_table.hashes()[i].customMadeActivity);
+// await pages.student_activity.click('submit_all_questions');
+// //     } else {
+// //       console.log('enteredif');
+// //       await qa.switchFrame(0);
+// await pages.student_activity.populate('assement_quiz_answer',  data_table.hashes()[i].PremadeAssesmentKey);
+// await pages.student_activity.click('save_answer');
+// await pages.student_activity.click('Next_assesment_question');
+// //     }
+// //   }
+// // });
+
+// // When('I attempt to answer the questions in the current activity assignment', async function (data_table) {
+
+// //   await qa.sleep(2);
+// //   await qa.switchFrame(0);
+
+// //   for (let i = 0; i < data_table.rows().length; i++) {
+// //     let multiple_select_answer_element = page.course.student_activity.multiple_select_answer;
+// //     let current_question_element = page.course.student_activity.current_question;
+// //     let multiple_select_answer_element_format = format(multiple_select_answer_element, data_table.hashes()[i].Answer);
+// //     let current_question_element_format = format(current_question_element, data_table.hashes()[i].Question);
+
+// await pages.undefined.click('current_question_element_format)');
+// await pages.undefined.click('multiple_select_answer_element_format');
+// await pages.student_activity.click('button_check');
+// //   }
+// await pages.student_activity.click('close_activity');
+// //   let activity_score = await qa.getText(page.course.student_activity.activity_score);
+// //   console.log(activity_score, 'activity_score');
+// // })
+
+// // Then(/^Check email for "(.*)" user using "(.*)" password$/, async function (user, password) {
+
+// //   await imap.connectClient(user, password, 'registration')
+// // });
+
+// // Then(/^I verify the data in "(.*)"/, async function (feature, data_table) {
+
+// //   for (let i = 0; i < data_table.rows().length; i++) {
+// //     let PAGE = await _.get(page, ['course', feature, data_table.hashes()[i].course_page]);
+// await pages.undefined.elementExists('PAGE)');
+// //   }
+// // });
+
+// // Given(/^I click the "(.*)" button on the user account menu$/, async function (element) {
+
+// //   let PAGE = await _.get(page, ['course', 'home', element])
+// //   let page_format = format(PAGE);
+// await pages.home.click('toggler_menu');
+// //   await qa.sleep();
+// await pages.undefined.click('page_format');
+// // });
+
+// // // FIXME look into which permission level this applies to
+// // Then(/^I verify activity staus as "(.*)"$/, async function (element) {
+
+// //   let PAGE = await _.get(page, ['course', 'course_planner', element]);
+// //   let page_format = format(PAGE);
+// //   await qa.getText(page.course.course_planner.activity_status, element);
+// // });
+
+// // When(/^I assign "(.*)" to the course$/, async function (user) {
+// //   let payload = require(`../../_data/user/${config.environment}/${user}.json`);
+
+// //   await qa.sleep(config.sleep);
+// await pages.course_list.click('course_menu');
+// //   await qa.sleep(config.sleep);
+// await pages.course_list.click('Manage_instructor');
+// await pages.create_course.populate('add_instructor',  payload.username);
+// await pages.create_course.click('add_instructor_button');
+// await pages.create_course.click('add_instructor_close');
+// //   await qa.sleep(config.sleep);
+// // });
+
+// // // When(/^I enroll the "(.*)" in the course$/, async function (user) {
+// // //   let payload = require(`../../_data/user/${config.environment}/${user}.json`);
+
+// // //   await qa.sleep(config.sleep);
+// // await pages.create_course.click('course_card');
+// // //   await qa.sleep();
+// // await pages.home.click('toggler_menu');
+// // //   await qa.sleep(config.sleep);
+// // await pages.user.click('admin');
+// // //   await qa.sleep(config.sleep)
+// // await pages.home.click('manage_enrollments');
+// // //   await qa.sleep(config.sleep);
+// // await pages.home.populate('manage_enrollements_input',  payload.username);
+// // await pages.home.click('add_user_button');
+// // await pages.home.click('close_manage_roles');
+// // // });

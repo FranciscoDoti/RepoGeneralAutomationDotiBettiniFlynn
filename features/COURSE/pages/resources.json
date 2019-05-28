@@ -22,7 +22,7 @@
         "byType": "css",
         "definition": "[data-test-id='search_bar']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "enterAfter"
     }, {
         "name": "close",
         "byType": "css",
@@ -43,32 +43,32 @@
         "specialInstr": "NA"
     }, {
         "name": "add_button_assessment",
-        "byType": "css",
-        "definition": "[data-test-id='add_button_assessment']",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_assessment']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "add_button_learningcurve",
         "byType": "xpath",
-        "definition": "//*[@data-test-id='add_button_learningcurve']",
+        "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_learningcurve']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "add_button_readandpractice",
         "byType": "xpath",
-        "definition": "//*[@data-test-id='add_button_lcrp']",
+        "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_lcrp']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "add_reading_button",
         "byType": "xpath",
-        "definition": "//*[@data-test-id='add_button_reading']",
+        "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_reading']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "add_file_button",
         "byType": "xpath",
-        "definition": "//*[data-test-id='add_button_staticfile']",
+        "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_staticfile']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
