@@ -1,6 +1,6 @@
 {
     "environment": "int",
-    "mode": "local",
+    "mode": "docker",
     "browser": "chrome",
     "headless": "false",
     "screenshots": "true",

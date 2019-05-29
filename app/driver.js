@@ -49,7 +49,7 @@ const buildDriver = function(){
       };
   }
 
-  switch (config.mode) {
+  switch (config.mode.toLowerCase()) {
     case 'docker':
       driver.usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
       break;
