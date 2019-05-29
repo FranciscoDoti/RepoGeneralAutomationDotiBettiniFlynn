@@ -10,7 +10,7 @@ const argv = require('minimist')(process.argv.slice(2));
 let driver;
 
 const config = {
-  environment : argv.env || defaults.environment,
+  environment : argv.env || argv.environment || defaults.environment,
   mode : argv.mode || defaults.mode,
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
