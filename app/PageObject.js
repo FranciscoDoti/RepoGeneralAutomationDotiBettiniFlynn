@@ -389,9 +389,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const assertText = async function (elementName, expectedValue) {
     try {
       const actualValue = await getAttributeValue(elementName);
-      log.info(`Asserting text for "${elementName}"`);
+      log.info(`Asserting text for "${elementName}".`);
       if(await expect(actualValue).to.equal(expectedValue)){
-        log.info(`Actual value "${actualValue}" to equal Expected value "${expectedValue}"`);
+        log.info(`Actual value "${actualValue}" equals Expected value "${expectedValue}".`);
       };
     } catch (err) {
       log.error(err.stack);
@@ -402,8 +402,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const assertTextIncludes = async function (elementName, expectedValue) {
     try {
       const actualValue = await getAttributeValue(elementName);
-      log.debug(`Expecting "${elementName}" -> "${actualValue}" to include "${expectedValue}"`);
-      await expect(actualValue).to.include(expectedValue);
+      log.info(`Asserting text for "${elementName}".`);
+      if(await expect(actualValue).to.include(expectedValue)){
+        log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}".`);
+      };
     } catch (err) {
       log.error(err.stack);
       throw err;
