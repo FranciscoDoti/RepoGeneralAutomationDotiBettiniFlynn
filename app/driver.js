@@ -5,17 +5,17 @@ const firefox = require('selenium-webdriver/firefox');
 const chromedriver = require('chromedriver');
 const firefoxdriver = require('geckodriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
-const configdefaults = require(`${process.cwd()}/config/config.json`);
+const defaults = require(`${process.cwd()}/config/config.json`);
 const argv = require('minimist')(process.argv.slice(2));
 let driver;
 
 const config = {
-  environment : argv.env || configdefaults.environment,
-  mode : argv.mode || configdefaults.mode,
-  browser : argv.browser || configdefaults.browser,
-  screenshots : argv.screenshots || configdefaults.screenshots,
-  headless : argv.headless || configdefaults.headless,
-  timeout : configdefaults.timeout
+  environment : argv.env || defaults.environment,
+  mode : argv.mode || defaults.mode,
+  browser : argv.browser || defaults.browser,
+  screenshots : argv.screenshots || defaults.screenshots,
+  headless : argv.headless || defaults.headless,
+  timeout : defaults.timeout
 };
 
 const buildDriver = function(){  
@@ -36,7 +36,7 @@ const buildDriver = function(){
       firefoxCapabilities.set('firefoxOptions', firefoxOptions); 
       driver.withCapabilities(firefoxCapabilities);
       if(config.headless.toLowerCase().includes("true")){
-        //driver.setfirefoxOptions(new firefox.Options().headless());
+        driver.setFirefoxOptions(new firefox.Options().headless());
       };
       break;
     case 'safari':
