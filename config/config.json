@@ -8,7 +8,7 @@
 
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
-        "mode": "docker | browserstack | localgrid | hub",
+        "mode": "local | docker | browserstack | localgrid | hub",
         "browser": "chrome | firefox",
         "headless": "true | false",
         "screenshots": "true | onFail | false",
