@@ -8,8 +8,9 @@
 
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
-        "mode": "local | docker | docker-headless | browserstack | localgrid",
+        "mode": "docker | browserstack | localgrid | hub",
         "browser": "chrome | firefox",
+        "headless": "true | false",
         "screenshots": "true | onFail | false",
         "timeout": "Number-In-Milliseconds"
     }
