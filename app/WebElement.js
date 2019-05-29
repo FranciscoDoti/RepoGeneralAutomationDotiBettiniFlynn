@@ -29,7 +29,7 @@ const WebElement = function (element) {
   that.elementExists = async function () {
     const definition = await this.getBy();
     try{
-    return await my.driver.findElement(definition).isDisplayed();
+      return await my.driver.findElement(definition).isDisplayed();
     } catch(err){
       return false;
     };
