@@ -1,7 +1,9 @@
 // ------------ Start up the chrome server ------------
 const webdriver = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+const firefox = require('selenium-webdriver/firefox');
 const chromedriver = require('chromedriver');
+const firefoxdriver = require('geckodriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const configdefaults = require(`${process.cwd()}/config/config.json`);
 const argv = require('minimist')(process.argv.slice(2));
@@ -21,8 +23,21 @@ const buildDriver = function(){
   log.info(`Launching ${config.browser}`);
   
   switch (config.browser.toLowerCase()) {
-    case 'firefox':
-      log.info("firefox not implement yet.");
+    case 'firefox': 
+      var firefoxOptions = {
+        'args':['--start-maximized','--disable-infobars'],
+        'prefs':{
+          'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
+          'download.prompt_for_download':false,
+          'download.default_directory':`${process.cwd()}/reports/downloads`
+        }
+      };
+      var firefoxCapabilities = webdriver.Capabilities.firefox();
+      firefoxCapabilities.set('firefoxOptions', firefoxOptions); 
+      driver.withCapabilities(firefoxCapabilities);
+      if(config.headless.toLowerCase().includes("true")){
+        //driver.setfirefoxOptions(new firefox.Options().headless());
+      };
       break;
     case 'safari':
       log.info("firefox not implement yet.");

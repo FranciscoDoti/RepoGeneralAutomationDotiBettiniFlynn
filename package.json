@@ -2,7 +2,7 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json --mode hub --headless true",
+    "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json --browser firefox --mode localgrid --headless true",
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json"
   },
