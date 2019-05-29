@@ -30,7 +30,7 @@
         },
         {   "name": "templateStatus",
             "byType": "css",
-            "definition": "[data-test-id='course_status']",
+            "definition": "[data-test-id='edit_course_status']",
             "frame": "default",
             "specialInstr": "NA"
         },{

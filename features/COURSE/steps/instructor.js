@@ -1,72 +1,93 @@
-// const { Given, When, Then } = require('cucumber');
-// const pages = require('../pages/.page.js').pages;
-// const expect = require('chai').expect;
+const { Given, When, Then } = require('cucumber');
+const pages = require('../pages/.page.js').pages;
+const expect = require('chai').expect;
+const _ = require('lodash');
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
+When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
+  await pages.course_list.click('course_menu', courseName);
+  await pages.editCourse.click('edit_course');
 
-// When('I invite the students', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    if (data_table.hashes()[i].page_object != 'day') {
+      await pages.editCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value);
+    } else {
+      await pages.create_course.populate('select_day', data_table.hashes()[i].value);
+    }
+  }
+  await pages.course_list.click('end_date');
+  await pages.course_list.click('next_month_button');
+  await pages.course_list.click('next_month_button');
+  await pages.course_list.click('select_date');
+  await pages.editCourse.click('save_editcourse');
+  await pages.home.click('close_alert');
+});
 
+When(/^I create custom made activity in "(.*)" with the following data$/, async function (courseName, data_table) {
+  await pages.course_page.click('course_planner');
+  await pages.course_planner.click('custom_content_button');
+  await pages.course_planner.click('New_custom');
+  await pages.course_planner.click('assessment_button');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.course_planner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
+  }
+  await pages.course_planner.click('reset_model');
+  await pages.course_planner.click('Question_bank');
+  await pages.course_planner.click('customQuestions');
+  await pages.course_planner.click('AddAnothercustomQuestions');
+  await pages.course_planner.click('NEcustomQuestions');
+  await pages.course_planner.click('editQuestionTitleCQ')
+  await pages.course_planner.assertElementExists('QuestionTitleCQ')
+  await pages.course_planner.populate('QuestionTitleCQ', 'MC');
+  await pages.course_planner.click('AnswerPromptCQ');
+  await pages.course_planner.populate('enterAnswerCQ', '1')
+  await pages.course_planner.assertElementExists('CreatecustomQuestionsbutton')
+  await pages.course_planner.click('CreatecustomQuestionsbutton')
+  await pages.course_planner.assertElementExists('Check_box_assignment')
+  await pages.course_planner.click('Check_box_assignment');
+  await pages.course_planner.click('Add_assignment_button');
+  await pages.course_planner.click('close_assesment')
+});
 
-// await pages.course_list.click('course_menu');
+When(/^I add the activities in courseplanner to "(.*)" course$/, async function (courseName, data_table) {
+  await pages.create_course.click('course_card', courseName);
+  await pages.course_page.click('course_planner');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.course_planner.click('custom_content_button');
+    await pages.course_planner.click('library_tab');
+    await pages.course_planner.populate('library_search_input', data_table.hashes()[i].activity);
+    await pages.course_planner.click('add_assignment_button', data_table.hashes()[i].activity);
+    await pages.course_planner.click('close_courseplanner');
+  }
+});
 
-// await pages.course_list.click('invite_students_button');
+When('I add custom made activities in courseplanner', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.course_planner.click('custom_content_button');
+    await pages.course_planner.click('your_content');
+    await pages.course_planner.populate('library_search_input', data_table.hashes()[i].activity);
+    await pages.course_planner.click('add_custom_activity', data_table.hashes()[i].activity);
+    await pages.course_planner.click('close_courseplanner');
+  }
+});
 
-// await pages.create_course.click('send_email_invite');
-//   for (let i = 0; i < data_table.rows().length; i++) {
-// await pages.create_course.click('textbox_input');
-// await pages.create_course.populate('input_student_email',  data_table.hashes()[i].username);
-//     await qa.seleniumKeys(page.course.create_course.input_student_email, 'enter');
-//   }
+When('I assign the activities in courseplanner', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let Elements = await pages.course_planner.getWebElements('assign_assignment_button');
+    let countlinks = Elements.length;
+    let x = countlinks - 1;
+    while (x >= 0) {
+      x--;
+      await pages.course_planner.click('assign_assignment_button');
+      await pages.course_planner.click('vissibility_button');
+      await pages.course_planner.populate('points_input', data_table.hashes()[i].Points);
+      await pages.course_planner.click('assign_button');
+      await pages.home.click('close_alert');
+      break;
+    }
+  }
+});
 
-// await pages.create_course.click('send_invite_button');
-// await pages.create_course.click('send_invite_button');
-// await pages.create_course.click('send_invite_button');
-// });
-
-// Given('I add the activities in course planner', async function (data_table) {
-
-
-
-// await pages.create_course.click('course_card');
-// await pages.course_page.click('course_planner');
-//   for (let i = 0; i < data_table.rows().length; i++) {
-// await pages.course_planner.click('custom_content_button');
-// await pages.course_planner.populate('library_search_input',  data_table.hashes()[i].activity);
-//     await qa.seleniumKeys(page.course.course_planner.library_search_input, 'enter')
-// await pages.course_planner.click('library_search_input');
-// await pages.course_planner.click('add_assignment_button');
-// await pages.course_planner.click('close_courseplanner)');
-//   }
-// });
-
-// Then('I verify activity list', async function (data_table) {
-
-
-// await pages.course_list.click('course_menu');
-// await pages.course_list.click('ed)');
-// await pages.course_page.click('resources');
-//   for (let i = 0; i < data_table.rows().length; i++) {
-//     let elementTextArray = await qa.getTextOfElementInArray(page.course.resources.activity);
-//     let elementTextIncludes = elementTextArray.includes(data_table.hashes()[i].activity)
-//     expect(elementTextIncludes).to.contain(data_table.hashes()[i].page);
-//   }
-// })
-
-// When(/^I click on "(.*)" system "(.*)" feature "(.*)" element and reduce the activity points$/, async function (system, feature, element) {
-
-//   let PAGE = await _.get(page, [system, feature, element]);
-//   let page_format = format(PAGE);
-// await pages.undefined.click('page_format');
-// await pages.course_planner.assertElementExists('edit_target');
-//   if (booleanVal === true) {
-//     console.log('it exists');
-// await pages.course_planner.click('edit_target');
-// await pages.course_planner.populate('input_target_score',  'clear');
-// await pages.course_planner.populate('input_target_score',  '5');
-// await pages.course_planner.click('change_target_score');
-// await pages.course_planner.click('very_short_time_button');
-// await pages.course_planner.click('close_learning_curve');
-//   } else {
-// await pages.course_planner.click('close_reading');
-//   }
-// });
-
+When(/^I click on "(.*)"$/, async function (courseName) {
+  await pages.create_course.click('course_card', courseName);
+});

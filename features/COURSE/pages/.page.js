@@ -17,6 +17,8 @@ const pages = {
     admin_menu: new PageObject('admin_menu.json', stepsPath),
     third_party: new PageObject('third_party.json', stepsPath),
     gradebook: new PageObject('gradebook.json', stepsPath),
+    editCourse: new PageObject('editCourse.json', stepsPath),
+    copyCourse: new PageObject('copyCourse.json', stepsPath)
 };
 
 module.exports ={

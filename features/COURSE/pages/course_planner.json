@@ -33,33 +33,33 @@
             "name": "CreatecustomQuestionsbutton",
             "byType": "css",
             "definition": "button[data-test-id='hatchling-create-update-button']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "editQuestionTitleCQ",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-item-title-edit']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         },
         {
             "name": "QuestionTitleCQ",
             "byType": "css",
-            "definition": "input[data-test-id ='hatchling-item-tittle']",
-            "frame": 0,
+            "definition": "input[data-test-id ='hatchling-item-title']",
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "AnswerPromptCQ",
             "byType": "css",
             "definition": "[class='rte-content']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         },
         {
             "name": "enterAnswerCQ",
             "byType": "css",
             "definition": "[class='notranslate public-DraftEditor-content']",
-            "frame": 0,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "add_unit_modal",
@@ -317,13 +317,13 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Assignment_tittle",
+            "name": "assignmenttitle",
             "byType": "xpath",
             "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
             "frame":"custom_assesment_frame" ,
             "specialInstr": "NA"
         }, {
-            "name": "Assignment_type",
+            "name": "assignmentType",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[1]/select",
             "frame": "custom_assesment_frame",

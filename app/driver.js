@@ -4,10 +4,9 @@ const chrome = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const config = require(`${process.cwd()}/config/config.json`);
-
 let driver;
-const buildDriver = function(){
-  
+
+const buildDriver = function(){  
   const driver = new webdriver.Builder();
   if(config.browser.toLowerCase() == 'chrome')
   {
@@ -23,33 +22,32 @@ const buildDriver = function(){
     };
     var chromeCapabilities = webdriver.Capabilities.chrome();
     chromeCapabilities.set('chromeOptions', chromeOptions);
+
     switch (config.mode) {
       case 'local':
         driver.withCapabilities(chromeCapabilities)
         break;
-      case 'headless':
-        var headlessOptions = options.headless();
-        var loggingPrefs = new webdriver.logging.Preferences();
-        loggingPrefs.setLevel(webdriver.logging.Type.BROWSER, webdriver.logging.Level.ALL);
-        headlessOptions.setLoggingPrefs(loggingPrefs);
-
+      case 'docker':
         driver.withCapabilities(chromeCapabilities)
-          .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+        .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
+        break;
+      case 'docker-headless':
+        driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
+        .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
         break;
       case 'browserstack':
         driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
-          .withCapabilities(chromeCapabilities)
+        .withCapabilities(chromeCapabilities)
         break;
       case 'localgrid':
         driver.usingServer('http://localhost:4444/wd/hub/')
-          .withCapabilities(chromeCapabilities)
+        .withCapabilities(chromeCapabilities)
         break;
       default:
         driver.usingServer('http://selenium:4444/wd/hub')
-          .withCapabilities(chromeCapabilities)
+        .withCapabilities(chromeCapabilities)
     }
   }
-
   log.info(`${config.browser} browser launched.`);
   return driver.build();
 };
@@ -57,7 +55,7 @@ driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
-  await driver.manage().timeouts().implicitlyWait(config.timeout);
+  await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   return driver.get(url);
 };
 

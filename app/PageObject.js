@@ -122,11 +122,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const webElement = await WebElementObject.getWebElement();
       const tagName = await webElement.getTagName();
       switch (tagName.toLowerCase()) {
-        case 'input':  
-        await populateInput(webElement, value, actionElement);
-          break;
+        case 'input': 
         case 'textarea':
-          await populateTextField(webElement, value, actionElement);
+        await populateInput(webElement, value, actionElement);
           break;
         case 'a':
         case 'button':
@@ -176,7 +174,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const webElement = await WebElementObject.getWebElement();
       var returnValue;
       if (attributeName === undefined) {
-        returnValue = await webElement.getAttribute('innerText');
+        returnValue = await webElement.getAttribute('textContent');
       } else if (attributeName.toLowerCase() === 'text') {
         returnValue = await webElement.getText();
       } else if (attributeName === 'selected') {

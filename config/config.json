@@ -7,7 +7,7 @@
 
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
-        "mode": "local | headless | browserstack | localgrid",
+        "mode": "local | docker | docker-headless | browserstack | localgrid",
         "browser": "chrome | firefox",
         "screenshots": "true | onFail | false",
         "timeout": "Number-In-Milliseconds"
