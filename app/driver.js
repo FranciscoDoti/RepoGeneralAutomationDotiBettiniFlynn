@@ -3,52 +3,66 @@ const webdriver = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
-const config = require(`${process.cwd()}/config/config.json`);
+const configdefaults = require(`${process.cwd()}/config/config.json`);
+const argv = require('minimist')(process.argv.slice(2));
 let driver;
+
+const config = {
+  environment : argv.env || configdefaults.environment,
+  mode : argv.mode || configdefaults.mode,
+  browser : argv.browser || configdefaults.browser,
+  screenshots : argv.screenshots || configdefaults.screenshots,
+  headless : argv.headless || configdefaults.headless,
+  timeout : configdefaults.timeout
+};
 
 const buildDriver = function(){  
   const driver = new webdriver.Builder();
-  if(config.browser.toLowerCase() == 'chrome')
-  {
-    chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
-    
-    var chromeOptions = {
-      'args':['--start-maximized','--disable-infobars'],
-      'prefs':{
-        'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
-        'download.prompt_for_download':false,
-        'download.default_directory':`${process.cwd()}/reports/downloads`
-      }
-    };
-    var chromeCapabilities = webdriver.Capabilities.chrome();
-    chromeCapabilities.set('chromeOptions', chromeOptions);
-
-    switch (config.mode) {
-      case 'local':
-        driver.withCapabilities(chromeCapabilities)
-        break;
-      case 'docker':
-        driver.withCapabilities(chromeCapabilities)
-        .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
-        break;
-      case 'docker-headless':
-        driver.withCapabilities(chromeCapabilities).setChromeOptions(new chrome.Options().headless())
-        .usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
-        break;
-      case 'browserstack':
-        driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
-        .withCapabilities(chromeCapabilities)
-        break;
-      case 'localgrid':
-        driver.usingServer('http://localhost:4444/wd/hub/')
-        .withCapabilities(chromeCapabilities)
-        break;
-      default:
-        driver.usingServer('http://selenium:4444/wd/hub')
-        .withCapabilities(chromeCapabilities)
-    }
+  log.info(`Launching ${config.browser}`);
+  
+  switch (config.browser.toLowerCase()) {
+    case 'firefox':
+      log.info("firefox not implement yet.");
+      break;
+    case 'safari':
+      log.info("firefox not implement yet.");
+      break;
+    case 'ie':
+      log.info("firefox not implement yet.");
+      break;
+    case 'chrome':
+    default:
+      chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
+      var chromeOptions = {
+        'args':['--start-maximized','--disable-infobars'],
+        'prefs':{
+          'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
+          'download.prompt_for_download':false,
+          'download.default_directory':`${process.cwd()}/reports/downloads`
+        }
+      };
+      var chromeCapabilities = webdriver.Capabilities.chrome();
+      chromeCapabilities.set('chromeOptions', chromeOptions); 
+      driver.withCapabilities(chromeCapabilities);
+      if(config.headless.toLowerCase().includes("true")){
+        driver.setChromeOptions(new chrome.Options().headless());
+      };
   }
-  log.info(`${config.browser} browser launched.`);
+
+  switch (config.mode) {
+    case 'docker':
+      driver.usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
+      break;
+    case 'browserstack':
+      driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
+      break;
+    case 'localgrid':
+      driver.usingServer('http://localhost:4444/wd/hub/')
+      break;
+    case "hub":
+      driver.usingServer('http://selenium:4444/wd/hub')
+  }
+
   return driver.build();
 };
 driver = buildDriver();
