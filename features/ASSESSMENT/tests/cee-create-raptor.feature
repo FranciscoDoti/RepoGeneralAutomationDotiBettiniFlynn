@@ -19,3 +19,4 @@ Feature: CEE module type creation
     #    | Status      | In Progress  |
     #    | Module Type | CEE          |
 
+#//div[@data-test-id="<ReplaceText>"]

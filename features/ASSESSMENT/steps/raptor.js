@@ -10,7 +10,7 @@ const expect = require('chai').expect;
 When(/^I added "(.*)" module from the Add module pallete$/, async function (moduleType) {
     await pages.raptor.click('addLink');
     var pallete=await action().selectModulePallete(moduleType);
-    await pages.raptor.click('modulePallete',pallete);
+    await pages.raptor.click('modulePallete',"Chemical Equation");
 });
 
 When(/^I select the canvas to add the selected module$/, async function () {
