@@ -117,9 +117,9 @@
         "specialInstr": "NA"
     },
     {
-        "name": "complete_status",
-        "byType": "css",
-        "definition": "//a[.='<ReplaceText>']/../../../../..//span[@data-test-id='statusComplete']",
+        "name": "activityStatus",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../../../..//span[starts-with(@data-test-id, 'status')]",
         "frame": "default",
         "specialInstr": "NA"
     },

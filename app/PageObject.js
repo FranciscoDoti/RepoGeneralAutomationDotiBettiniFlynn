@@ -2,7 +2,7 @@
  * http://usejsdoc.org/
  */
 'use strict';
-const { expect } = require('chai');
+const { assert, expect } = require('chai');
 const HashTable = require(`${process.cwd()}/app/HashTable`);
 const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
 const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
@@ -142,10 +142,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           await populateSelect(webElement, value, actionElement);
           break;
         default:
-          log.error(`ERROR: We tried to populate an unknown tag(${tagName}) of element(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
+          assert.fail(`ERROR: We tried to populate an unknown tag(${tagName}) of element(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
       }
     } else {
-      log.error(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
     }
   };
 
@@ -153,12 +153,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
-      // If need to hit a iframe, do it
       await switchFrame(WebElementData.frame);
       const WebElementObject = await WebElement(WebElementData);
       const elementList = await WebElementObject.getWebElements();
       return elementList
     } else {
+      assert.fail(`Element ${elementName} not found.`);
       throw new Error(`Element ${elementName} not found.`);
     }
   }
@@ -168,7 +168,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
       await switchFrame(WebElementData.frame);
-
       const WebElementObject = await WebElement(WebElementData);
       const webElement = await WebElementObject.getWebElement();
       var returnValue;
@@ -184,6 +183,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       return returnValue;
     } else {
+      assert.fail(`Element ${elementName} not found.`);
       throw new Error(`Element ${elementName} not found.`);
     }
   }
@@ -211,74 +211,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const assertElementExists = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
-    try {
-      if (await checkWebElementExists(elementName)) {
-        log.info(`Web Element ${elementName} found on page.`);
-        return true;
-      } else {
-        log.info(`Web Element ${elementName} was not found on page.`);
-        return false;
-      };
-    } catch (err) {
-      log.error(err.stack);
-      throw err;
-    }
-  };
-
-  const assertElementDoesNotExist = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
-    try {
-      if (await checkWebElementExists(elementName)) {
-        log.info(`Web Element ${elementName} found on page.`);
-        return false;
-      } else {
-        log.info(`Web Element ${elementName} was not found on page.`);
-        return true;
-      };
-    } catch (err) {
-      log.error(err.stack);
-      throw err;
-    }
-  };
-
-  const checkWebElementExists = async function (elementName) {
-    let WebElementObject = '';
-    let WebElementData = {};
-    log.debug(`Checking to see if element: ${elementName} exists.`)
-    if (await hasElement(elementName)) {
-      WebElementData = await getElement(elementName);
-      const actionElement = Object.assign({});
-
-      // Setup all underlying required objects to take action on for this action
-      actionElement.element = WebElementData;
-      /* if (WebElementData && WebElementData.waitForElementToBeInvisible) {
-        if (await hasElement(WebElementData.waitForElementToBeInvisible)) {
-          const elementToWaitToBeInvisible = await getElement(WebElementData.waitForElementToBeInvisible);
-          actionElement.elementToWaitToBeInvisible = elementToWaitToBeInvisible;
-        }
-      }
-      if (WebElementData && WebElementData.waitToBeVisible) {
-        if (await hasElement(WebElementData.waitToBeVisible)) {
-          const waitToBeVisible = await getElement(WebElementData.waitToBeVisible);
-          actionElement.waitToBeVisible = waitToBeVisible;
-        }
-      }
-*/
-      // If need to hit a iframe, do it
-      await switchFrame(WebElementData.frame);
-      WebElementObject = await WebElement(WebElementData);
-      actionElement.webElement = WebElementObject;
-      return WebElementObject.elementExists();
-    } else {
-      log.error(`ERROR: WebElement ${elementName} not found in PageElements during checkWebElementExists() attempt.`);
-      return false;
-    }
-  };
-
   const scrollIntoView = async function (strName) {
     try {
       log.info(`Scrolling into view: ${strName}`);
@@ -296,101 +228,89 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);
       const actionElement = Object.assign({});
-      // If need to hit a iframe, do it
       await switchFrame(WebElementData.frame);
-
       WebElementObject = await WebElement(WebElementData);
       actionElement.webElement = WebElementObject;
-
-
-
-      // log.debug(`****genericPopulateElement: ${elementName}`);
       log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
-
-      // const webElement = await WebElementObject.getWebElement();
       return await WebElementObject.scrollIntoView();
     } else {
-      log.error(`ERROR: WebElement ${elementName} not found in PageElements during scrollElementIntoView() attempt.`);
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during scrollElementIntoView() attempt.`);
     }
   };
 
-  const elementDisabled = async function (strName) {
-    try {
-      log.info(`Starting to check if web element disabled on the page: ${strName}`);
-
-      return await assertDisabled(strName);
-    } catch (err) {
-      log.error(err.stack);
-      throw err;
-    }
-  };
-
-  const assertDisabled = async function (elementName) {
+  const genericAssertElement = async function (elementName, value) {
     let WebElementObject = '';
     let WebElementData = {};
-    log.debug(`Checking to see if element: ${elementName} exists.`)
-    if (await hasElement(elementName)) {
-      WebElementData = await getElement(elementName);
-      // If need to hit a iframe, do it
-      await switchFrame(WebElementData.frame);
 
-      WebElementObject = await WebElement(WebElementData);
-      actionElement.webElement = WebElementObject;
-
-      // log.debug(`****genericPopulateElement: ${elementName}`);
-      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection for exists check.`);
-
-      // const webElement = await WebElementObject.getWebElement();
-      return await WebElementObject.elementDisabled();
-    } else {
-      log.error(`ERROR: WebElement ${elementName} not found in PageElements during checkWebElementExists() attempt.`);
-    }
-  };
-
-  const assert2 = async function (elementName, condition) {
-    let WebElementObject = '';
-    let WebElementData = {};
-    log.debug(`Checking to see if element: ${elementName} exists.`)
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);
       const actionElement = Object.assign({});
-
-      // Setup all underlying required objects to take action on for this action
       actionElement.element = WebElementData;
-
-      // If need to hit a iframe, do it
       await switchFrame(WebElementData.frame);
-
       WebElementObject = await WebElement(WebElementData);
       actionElement.webElement = WebElementObject;
-
-      // log.debug(`****genericPopulateElement: ${elementName}`);
-      log.info(`Info: Page Element ${elementName} retrieved from Page Elements collection.`);
-
-      const webElement = await WebElementObject.getWebElement();
-      const tagName = await webElement.getTagName();
-
-      switch (condition.toLowerCase()) {
-        case 'disabled':
-          return WebElementObject.elementDisabled();
-          break;
+      
+      switch (value.toLowerCase()) {
+        case 'visible':
         case 'exists':
           return WebElementObject.elementExists();
           break;
-        default:
-          log.error(`ERROR: We tried to assert that an unknown tag(${elementName}) is ${condition}\n\tWe failed.`);
+        case 'notvisible':
+        case 'doesnotexist':
+          return WebElementObject.elementExists();
+          break;
+        case 'disabled':
+          return WebElementObject.elementDisabled();
+          break;
       }
     } else {
-      log.error(`ERROR: WebElement ${elementName} not found in PageElements during assert() attempt.`);
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
     }
   };
 
-  const assertText = async function (elementName, expectedValue) {
+  const assertExists = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
+    if (await genericAssertElement(elementName, 'exists')) {
+      log.info(`Web Element ${elementName} found on page.`);
+    } else {
+      assert.fail(`Web Element ${elementName} was not found on page.`);
+    };
+  };
+
+  const assertDoesNotExist = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
+    if (await genericAssertElement(elementName, 'doesnotexist')) {
+      assert.fail(`Web Element ${elementName} found on page.`);
+    } else {
+      log.info(`Web Element ${elementName} was not found on page.`);
+    };
+  };
+
+  const assertDisabled = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
+    if (await genericAssertElement(elementName, 'disabled')) {
+      log.info(`Web Element ${elementName} is disabled.`);
+    } else {
+      assert.fail(`Web Element ${elementName} is not disabled.`);
+    };
+  };
+
+  const assertText = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined) {
+      expectedValue = replaceText;
+    } else {
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+    }
+
     try {
       const actualValue = await getAttributeValue(elementName);
-      log.info(`Asserting text for "${elementName}"`);
-      if(await expect(actualValue).to.equal(expectedValue)){
-        log.info(`Actual value "${actualValue}" to equal Expected value "${expectedValue}"`);
+      log.info(`Asserting text for "${elementName}".`);
+      if (await expect(actualValue).to.equal(expectedValue)) {
+        log.info(`Actual value "${actualValue}" equals Expected value "${expectedValue}".`);
       };
     } catch (err) {
       log.error(err.stack);
@@ -398,18 +318,27 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const assertTextIncludes = async function (elementName, expectedValue) {
+  const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined) {
+      expectedValue = replaceText;
+    } else {
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+    }
+    
     try {
       const actualValue = await getAttributeValue(elementName);
-      log.debug(`Expecting "${elementName}" -> "${actualValue}" to include "${expectedValue}"`);
-      await expect(actualValue).to.include(expectedValue);
+      log.info(`Asserting text for "${elementName}".`);
+      if(await expect(actualValue).to.include(expectedValue)){
+        log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}".`);
+      };
     } catch (err) {
       log.error(err.stack);
       throw err;
     }
   };
 
-  const getText = async function (elementName, attributeName) {
+  const getText = async function (elementName) {
     try {
       return await getAttributeValue(elementName);
     } catch (err) {
@@ -464,7 +393,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
   that.assertDisabled = assertDisabled;
-  that.elementDisabled = elementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;
   that.getDriver = getDriver;
@@ -473,9 +401,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
-  that.assertElementExists = assertElementExists;
-  that.assertElementDoesNotExist = assertElementDoesNotExist;
-  that.checkWebElementExists = checkWebElementExists;
+  that.assertElementExists = assertExists;
+  that.assertElementDoesNotExist = assertDoesNotExist;
   that.getWebElements = getWebElements;
   that.generateDataTable = generateDataTable;
   that.scrollElementIntoView = scrollElementIntoView;
