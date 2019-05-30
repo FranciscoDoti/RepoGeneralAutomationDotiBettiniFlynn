@@ -2,7 +2,7 @@
     "webElements": [{
         "name": "studentPercent",
         "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>)']/../../../../../../../td[@data-test-id='student_gradebook_percent_cell']",
+        "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_percent_cell']",
         "frame": "default",
         "specialInstr": "NA"
     },

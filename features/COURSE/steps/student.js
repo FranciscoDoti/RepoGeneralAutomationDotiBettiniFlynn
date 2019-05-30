@@ -11,7 +11,7 @@ When('I complete the reading activity', async function (data_table) {
 
 Then('I verify the activity status for the following activities', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.overview.assertTextIncludes('complete_status', data_table.hashes()[i].activity, data_table.hashes()[i].status);
+    await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
   }
 });
 
