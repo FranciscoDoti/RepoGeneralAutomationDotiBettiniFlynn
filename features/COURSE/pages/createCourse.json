@@ -62,7 +62,7 @@
     }, {
         "name": "courseStatus",
         "byType": "css",
-        "definition": "[data-test-id='createCourse_status']",
+        "definition": "[data-test-id='create_course_status']",
         "frame": "default",
         "specialInstr": "NA"
     },{
@@ -136,7 +136,7 @@
     }, {
         "name": "save",
         "byType": "css",
-        "definition": "[data-test-id='createCourse_modal_save_btn']",
+        "definition": "[data-test-id='create_course_modal_save_btn']",
         "frame": "default",
         "specialInstr": "NA"
     },   {

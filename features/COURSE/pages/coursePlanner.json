@@ -353,7 +353,7 @@
             "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
-            "name": "close_assesment",
+            "name": "close",
             "byType": "css",
             "definition": "[data-test-id='back_button']",
             "frame": "default",

@@ -32,7 +32,7 @@
     }, {
         "name": "coursePlanner",
         "byType": "css",
-        "definition": "[data-test-id='coursePlanner_tab']",
+        "definition": "[data-test-id='course_planner_tab']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

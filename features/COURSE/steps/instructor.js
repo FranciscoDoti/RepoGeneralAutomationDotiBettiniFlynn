@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('cucumber');
-const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`);
+const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('course_menu', courseName);
@@ -43,7 +43,7 @@ When(/^I create custom made activity in "(.*)" with the following data$/, async 
   await pages.coursePlanner.assertElementExists('Check_box_assignment')
   await pages.coursePlanner.click('Check_box_assignment');
   await pages.coursePlanner.click('Add_assignment_button');
-  await pages.coursePlanner.click('close_assesment')
+  await pages.coursePlanner.click('close')
 });
 
 When(/^I add the activities in courseplanner to "(.*)" course$/, async function (courseName, data_table) {

@@ -23,7 +23,7 @@ Feature: Student attempts all the activities in Quantitative
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  ABOUT THE AUTHOR                             |
+            | addReadingButton        |  About The Authors                            |
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
@@ -49,24 +49,24 @@ Feature: Student attempts all the activities in Quantitative
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | ABOUT THE AUTHOR                                                  |
+            | About The Authors                                                 |
 
-        And I create custom made activity in "Quantitative Course" with the following data
-            | activity           | value                                    |
-            | assignmenttitle    | Qual Test                                |
-            | assignmentType     | Test                                     |
-            | taxonomy           | Interactive General Chemistry V1         |
+        # And I create custom made activity in "Quantitative Course" with the following data
+        #     | activity           | value                                    |
+        #     | assignmenttitle    | Qual Test                                |
+        #     | assignmentType     | Test                                     |
+        #     | taxonomy           | Interactive General Chemistry V1         |
         
-        And I add custom made activities in courseplanner
-            | activity                           |
-            | Qual Test                          |
+        # And I add custom made activities in courseplanner
+        #     | activity                           |
+        #     | Qual Test                          |
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
-            | Qual Test                                                        | 5      |
+            # | Qual Test                                                        | 5      |
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      | 
-            | ABOUT THE AUTHOR                                                 | 5      |
+            | About The Authors                                                 | 5      |
  
 
         And I sign out of Achieve
@@ -85,33 +85,33 @@ Feature: Student attempts all the activities in Quantitative
            | 4 Question  |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
            | 5 Question  |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
 
-       And I attempt "Qual Test" custom made assesment in "Quantitative Course"
-           | Questions    |  key           |
-           | 1 Question   |  1             |
+    #    And I attempt "Qual Test" custom made assesment in "Quantitative Course"
+    #        | Questions    |  key           |
+    #        | 1 Question   |  1             |
  
 
-        When I attempt "LC1551301608988" learning curve activity
+        # When I attempt "LC1551301608988" learning curve activity
             
 
         When I complete the reading activity 
-            | activity                                      |
-            | ABOUT THE AUTHOR  |
+            | activity           |
+            | About The Authors  |
         
 
         Then I verify the activity status for the following activities
             | activity                                      | status    |
             | Exercise: Misused words 1 (autoscored)        | Complete  |
-            | Qual Test                                     | Complete  | 
-            | LC1551301608988                               | Complete  | 
-            | ABOUT THE AUTHOR                              | Complete  |
+            # | Qual Test                                     | Complete  | 
+            # | LC1551301608988                               | Complete  | 
+            | About The Authors                              | Complete  |
 
 
         And I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
-            | Qual Test                                     |  100%       | 5       | 1%                   |
-            | LC1551301608988                               |  100%       | 5       | 1%                   |
-            | ABOUT THE AUTHOR                              |   100%      | 5       | 1%                   | 
+            # | Qual Test                                     |  100%       | 5       | 1%                   |
+            # | LC1551301608988                               |  100%       | 5       | 1%                   |
+            | About The Authors                              |   100%      | 5       | 1%                   | 
 
         When I sign out of Achieve
         And I login to Achieve-CW as "instructor_2"
@@ -120,9 +120,9 @@ Feature: Student attempts all the activities in Quantitative
         Then I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
-            | Qual Test                                     |  100%       | 5       | 1%                   |
-            | LC1551301608988                               |  100%       | 5       | 1%                   |
-            | ABOUT THE AUTHOR                              |   100%      | 5       | 1%                   | 
+            # | Qual Test                                     |  100%       | 5       | 1%                   |
+            # | LC1551301608988                               |  100%       | 5       | 1%                   |
+            | About The Authors                              |   100%      | 5       | 1%                   | 
 
         When I sign out of Achieve
         And I login to Achieve-CW as "admin_1"
@@ -131,6 +131,6 @@ Feature: Student attempts all the activities in Quantitative
         Then I verify the assignmenent grades in gradebook for below assigned activities
             | activity                                      | percentage  | points  | PercentOfTotalgrades  |
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 33%                   |
-            | Qual Test                                     |  100%       | 5       | 33%                   |
-            | LC1551301608988                               |  100%       | 5       | 33%                   |
-            | ABOUT THE AUTHOR  |   100%      | 5       | 33%                   |   
+            # | Qual Test                                     |  100%       | 5       | 33%                   |
+            # | LC1551301608988                               |  100%       | 5       | 33%                   |
+            | About The Authors                             |   100%      | 5       | 33%                   |   

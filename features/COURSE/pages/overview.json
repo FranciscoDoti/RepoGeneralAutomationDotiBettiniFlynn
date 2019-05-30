@@ -83,11 +83,19 @@
         "definition": "[data-test-id='activityShowAnswerBtn']",
         "frame": "default",
         "specialInstr": "NA"
-    },  {
+    }, 
+    {
+        "name": "frame_1_reading",
+        "byType": "xpath",
+        "definition": "//*[@id='container']/div/div/div/iframe",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, {
         "name": "frame_2_reading",
-        "byType": "id",
-        "definition": "easyXDM_default742_provider",
-        "frame": 0,
+        "byType": "css",
+        "definition": "[title='Psychology 12e In Modules Read and Practice | About the Authors']",
+        "frame": "frame_1_reading" ,
         "specialInstr": "NA"
     }, {
         "name": "frame_3_reading",
@@ -98,7 +106,7 @@
     }, {
         "name": "reading_verification",
         "byType": "css",
-        "definition": "[class='h1']",
+        "definition": "[class='h2fm']",
         "frame": "frame_3_reading",
         "specialInstr": "NA"
     }, {
@@ -111,7 +119,7 @@
     {
         "name": "complete_status",
         "byType": "css",
-        "definition": "[data-test-id='statusComplete']",
+        "definition": "//a[.='<ReplaceText>']/../../../../..//span[@data-test-id='statusComplete']",
         "frame": "default",
         "specialInstr": "NA"
     },

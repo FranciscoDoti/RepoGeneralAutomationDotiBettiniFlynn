@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('cucumber');
-const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`);
+const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.courseList.populate('search', input);
 });
@@ -26,27 +26,8 @@ When(/^I click on search button and input "(.*)" to search the course$/, async f
   await pages.courseList.populate('search', CourseName)
 });
 
-When('I complete the reading activity', async function (data_table) {
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.overview.click('overviewtab_activity', data_table.hashes()[i].activity);
-    await pages.overview.getAttributeValue('reading_verification', data_table.hashes()[i].activity);
-  }
-});
-
-Then('I verify the activity status for the following activities', async function (data_table) {
-  let elements = await pages.overview.getWebelements('overviewtab_activity_verification');
-  for (let x = 0; x <= elements.length; x++) {
-    for (let i = 0; i < data_table.rows().length; i++) {
-      let verify = await pages.overview.assertTextinclude('overviewtab_activity_verification', data_table.hashes()[i].activity)
-      if (verify == true) {
-        await pages.overview.assertTextinclude('complete_status', data_table.hashes()[i].status)
-      }
-    }
-  }
-});
-
 When('I delete the courses', async function () {
-  let elements = await pages.createCourse.getWebelements('course_card');
+  let elements = await pages.createCourse.getWebElements('course_card');
   for (let x = 0; x <= elements.length; x++) {
     await pages.courseList.click('course_menu');
     await pages.main.click('delete_course');
@@ -109,66 +90,4 @@ When(/^I attempt "(.*)" learning curve activity$/, async function (activityName,
       }
     }
   }
-});
-
-When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.createCourse.click('course_card', courseName);
-  await pages.coursePage.click('overview')
-  await pages.overview.click('overviewtab_activity', activityName);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.studentActivity.click('multiple_choice_assesment', data_table.hashes()[i].PremadeAssesmentKey);
-    await pages.studentActivity.click('save_answer');
-    await pages.studentActivity.click('Next_assesment_question');
-  }
-  await pages.coursePlanner.click('close_assesment')
-});
-
-When(/^I attempt "(.*)" custom made assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.coursePage.click('overview')
-  await pages.overview.click('overviewtab_activity', activityName);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.studentActivity.click('multiple_choice_assesment', data_table.hashes()[i].key);
-    await pages.studentActivity.click('save_answer');
-    await pages.studentActivity.click('Next_assesment_question');
-  }
-  await pages.coursePlanner.click('close_assesment')
-});
-
-Then('I verify the assignmenent grades in gradebook for below assigned activities', async function (data_table) {
-  await pages.coursePage.click('gradebook');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.gradebook.assertTextinclude('studentPercent', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
-    await pages.gradebook.assertTextinclue('studentAssignmentpoints', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
-    await pages.gradebook.assertTextinclude('studentPercenOfTotalGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades)
-  }
-});
-
-Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
-  await pages.home.assertTextinclude('close_alert', message);
-});
-
-Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
-  await pages.home.assertTextinclude('ISBNVerification', courseName, verifyNumber);
-});
-
-When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
-  await pages.createCourse.click('button');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    if (data_table.hashes()[i].page_object !== 'day') {
-      await pages.createCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
-    } else {
-      await pages.createCourse.click('select_day', data_table.hashes()[i].value);
-    }
-  }
-  await pages.createCourse.click('save');
-});
-
-When(/^I click on "(.*)"$/, async function (courseName) {
-  await pages.createCourse.click('course_card', courseName);
-});
-
-When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
-  await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('course_name', courseName);
-  await pages.createCourse.click('course_card', courseName);
 });

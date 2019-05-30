@@ -23,4 +23,4 @@ Feature: Adding activities to the template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  ABOUT THE AUTHOR |
+            | addReadingButton        |  About The Authors |

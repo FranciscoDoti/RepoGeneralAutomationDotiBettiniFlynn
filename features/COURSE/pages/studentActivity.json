@@ -170,7 +170,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "close_assesment",
+        "name": "close",
         "byType": "xpath",
         "definition": "//*[@id='container']/div/div/div/button",
         "frame": "default",

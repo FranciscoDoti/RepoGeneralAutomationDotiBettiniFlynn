@@ -23,7 +23,7 @@ Feature: Admin enrolls the student in the course
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  ABOUT THE AUTHOR |
+            | addReadingButton        |  About The Authors |
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data

@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('cucumber');
-const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`);
+const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 When('I create Course Template with the data', async function (data_table) {
   await pages.createCourse.click('button');
@@ -52,11 +52,11 @@ When(/^I copy course from the "(.*)" template with the following data$/, async f
 });
 
 Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
-  await pages.home.assertTextinclude('close_alert', message);
+  await pages.home.assertTextIncludes('close_alert', message);
 });
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
-  await pages.home.assertTextinclude('ISBNVerification', courseName, verifyNumber);
+  await pages.home.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
 });
 
 When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
