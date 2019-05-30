@@ -63,6 +63,5 @@ Feature: Admin enrolls the student in the course
 
         And I sign out of Achieve
         And I login to Achieve-CW as "admin_1" 
-        And I enroll the "student_1" in "Quantitative Course" course 
-        And I close the popup message 
+        And I enroll the "student_1" in "Quantitative Course" course  
         And I sign out of Achieve
