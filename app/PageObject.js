@@ -324,7 +324,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const getText = async function (elementName, attributeName) {
+  const getText = async function (elementName) {
     try {
       return await getAttributeValue(elementName);
     } catch (err) {
