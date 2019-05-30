@@ -3,7 +3,6 @@
  */
 'use strict';
 const { expect } = require('chai');
-
 const HashTable = require(`${process.cwd()}/app/HashTable`);
 const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
 const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
