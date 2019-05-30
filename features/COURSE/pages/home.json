@@ -161,6 +161,12 @@
         "definition": "[data-test-id='alert_close_btn']",
         "frame": "default",
         "specialInstr": "NA"
+    },{
+        "name": "alert",
+        "byType": "css",
+        "definition": "[data-test-id='alert']",
+        "frame": "default",
+        "specialInstr": "NA"
     }, {
         "name": "access_code_modal_input",
         "byType": "css",

@@ -52,7 +52,7 @@ When(/^I copy course from the "(.*)" template with the following data$/, async f
 });
 
 Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
-  await pages.home.assertTextIncludes('close_alert', message);
+  await pages.home.assertTextIncludes('alert', message);
 });
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
