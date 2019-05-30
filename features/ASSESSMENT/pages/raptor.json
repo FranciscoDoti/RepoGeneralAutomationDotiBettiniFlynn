@@ -7,8 +7,8 @@
     "specialInstr": "NA"
 },{
     "name": "modulePallete",
-    "byType": "css",
-    "definition": "li[id='<ReplaceText>']",
+    "byType": "xpath",
+    "definition": "//div[@data-test-id='<ReplaceText>']",
     "frame": "default",
     "specialInstr": "NA" 
 },{
