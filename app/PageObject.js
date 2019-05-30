@@ -298,11 +298,18 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const assertText = async function (elementName, expectedValue) {
+  const assertText = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined) {
+      expectedValue = replaceText;
+    } else {
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+    }
+
     try {
       const actualValue = await getAttributeValue(elementName);
       log.info(`Asserting text for "${elementName}".`);
-      if(await expect(actualValue).to.equal(expectedValue)){
+      if (await expect(actualValue).to.equal(expectedValue)) {
         log.info(`Actual value "${actualValue}" equals Expected value "${expectedValue}".`);
       };
     } catch (err) {
@@ -312,6 +319,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, expectedValue) {
+    if (expectedValue === undefined) {
+      expectedValue = replaceText;
+    } else {
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+    }
+    
     try {
       const actualValue = await getAttributeValue(elementName);
       log.info(`Asserting text for "${elementName}".`);
