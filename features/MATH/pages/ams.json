@@ -35,7 +35,15 @@
         "definition": "q",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
+    }, 
+    {
+        "name": "itemId",
+        "byType": "css",
+        "definition": "a[data-test-id='edit-item-link-<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
         "name": "graphTab",
         "byType": "css",
         "definition": "a[data-test-id='graphsBtn']",

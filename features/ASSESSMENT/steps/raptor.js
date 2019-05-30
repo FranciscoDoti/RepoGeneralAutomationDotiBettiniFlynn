@@ -8,7 +8,7 @@ const fs = require('fs');
 When(/^I added "(.*)" module$/, async function (moduleType) {
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
-    await mathpages.raptorAms.assertElementExists('addMenuBar');
+    await mathpages.raptorAms.assertElementExists('menuBarAdd');
     await pages.raptor.click('addLink');
     await pages.raptor.click('modulePallete',moduleType);
 });

@@ -1,7 +1,7 @@
 const { Given, When } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const pages = require('../pages/.page.js').pages;
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const { visitURL } = require(`${process.cwd()}/app/driver`);
 const pages = require(`${process.cwd()}/features/shared/pages/.page`).pages;
 
