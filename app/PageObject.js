@@ -65,7 +65,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         await that.driver.wait(that.webdriver.until.ableToSwitchToFrame(elementName, config.timeout));
       } else {
         log.debug(`Switching to frame ${elementName}`);
-        if (await checkWebElementExists(elementName)) {
+        if (await genericAssertElement(elementName, 'exists')) {
           const WebElementData = await getElement(elementName);
           const WebElementObject = await WebElement(WebElementData);
           const webElement = await WebElementObject.getWebElement();
@@ -256,9 +256,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           return WebElementObject.elementExists();
           break;
         case 'notvisible':
-        case 'doesnotexist':
-          return WebElementObject.elementExists();
-          break;
         case 'disabled':
           return WebElementObject.elementDisabled();
           break;
@@ -281,7 +278,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const assertDoesNotExist = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    if (await genericAssertElement(elementName, 'doesnotexist')) {
+    if (await genericAssertElement(elementName, 'exists')) {
       assert.fail(`Web Element ${elementName} found on page.`);
     } else {
       log.info(`Web Element ${elementName} was not found on page.`);

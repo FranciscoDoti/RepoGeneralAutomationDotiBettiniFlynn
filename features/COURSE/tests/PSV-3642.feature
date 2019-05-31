@@ -2,77 +2,77 @@ Feature: Student attempts all the activities in Quantitative
     @delete-all-courses
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
-        # Given I login to Achieve-CW as "media_producer_2"
-        # When I create Course Template with the data 
-        #     | field             | value                        |
-        #     | courseType        | Template                     |
-        #     | productModel      | Quantitative                 |
-        #     | courseName        | Quantitative Template        |
-        #     | learningObjective | Principles of Microeconomics |
-        #     | courseCode        | E2E 301                      |
-        #     | isbnNumber        | 9781464199498                |
-        #     | courseStatus      | draft                        |
+        Given I login to Achieve-CW as "media_producer_2"
+        When I create Course Template with the data 
+            | field             | value                        |
+            | courseType        | Template                     |
+            | productModel      | Quantitative                 |
+            | courseName        | Quantitative Template        |
+            | learningObjective | Principles of Microeconomics |
+            | courseCode        | E2E 301                      |
+            | isbnNumber        | 9781464199498                |
+            | courseStatus      | draft                        |
 
-        # And I activate the "Quantitative Template" template and add the following data
-        #     | field            | value                                                       |
-        #     | courseName       | Quantitative Template                                       |       
-        #     | courseCode       | E2E 301                                                     |
-        #     | templateStatus   | Active On Date                                              |
+        And I activate the "Quantitative Template" template and add the following data
+            | field            | value                                                       |
+            | courseName       | Quantitative Template                                       |       
+            | courseCode       | E2E 301                                                     |
+            | templateStatus   | Active On Date                                              |
 
-        # And I add the activities in resources to "Quantitative Template" template
-        #     | type                    | activity                                      |
-        #     | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-        #     | addButtonLearningcurve  | LC1551301608988                               |
-        #     | addReadingButton        |  About The Authors                            |
+        And I add the activities in resources to "Quantitative Template" template
+            | type                    | activity                                      |
+            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | addButtonLearningcurve  | LC1551301608988                               |
+            | addReadingButton        |  About The Authors                            |
 
-        # And I click on home button to return to coursepage
-        # And I copy course from the "Quantitative Template" template with the following data
-        #     | field             | value                        |
-        #     | courseName        | Quantitative Course          |
-        #     | courseCode        | E2E301                       |
+        And I click on home button to return to coursepage
+        And I copy course from the "Quantitative Template" template with the following data
+            | field             | value                        |
+            | courseName        | Quantitative Course          |
+            | courseCode        | E2E301                       |
 
-        # And I sign out of Achieve
-        # And I login to Achieve-CW as "customer_support_1"
+        And I sign out of Achieve
+        And I login to Achieve-CW as "customer_support_1"
 
-        # And I assign "instructor_2" to the "Quantitative Course" course
+        And I assign "instructor_1" to the "Quantitative Course" course
         
-        # And I sign out of Achieve
-        # And I login to Achieve-CW as "instructor_2"
+        And I sign out of Achieve
+        And I login to Achieve-CW as "instructor_1"
 
-        # When I activate "Quantitative Course" course with following data 
-        #     | field             | value                        |
-        #     | courseName        | Quantitative Course          |
-        #     | courseCode        |  E2E301                      |
-        #     | templateStatus    |  Active On Date              |
+        When I activate "Quantitative Course" course with following data 
+            | field             | value                        |
+            | courseName        | Quantitative Course          |
+            | courseCode        |  E2E301                      |
+            | templateStatus    |  Active On Date              |
      
-        # And I add the activities in courseplanner to "Quantitative Course" course
-        #     | activity                                                          | 
-        #     | Exercise: Misused words 1 (autoscored)                            |                                                        
-        #     | LC1551301608988                                                   |
-        #     | About The Authors                                                 |
+        And I add the activities in courseplanner to "Quantitative Course" course
+            | activity                                                          | 
+            | Exercise: Misused words 1 (autoscored)                            |                                                        
+            | LC1551301608988                                                   |
+            | About The Authors                                                 |
 
-        # # And I create custom made activity in "Quantitative Course" with the following data
-        # #     | activity           | value                                    |
-        # #     | assignmenttitle    | Qual Test                                |
-        # #     | assignmentType     | Test                                     |
-        # #     | taxonomy           | Interactive General Chemistry V1         |
+        # And I create custom made activity in "Quantitative Course" with the following data
+        #     | activity           | value                                    |
+        #     | assignmenttitle    | Qual Test                                |
+        #     | assignmentType     | Test                                     |
+        #     | taxonomy           | Interactive General Chemistry V1         |
         
-        # # And I add custom made activities in courseplanner
-        # #     | activity                           |
-        # #     | Qual Test                          |
+        # And I add custom made activities in courseplanner
+        #     | activity                           |
+        #     | Qual Test                          |
 
-        # And I assign the activities in courseplanner
-        #     | activity                                                         | Points | 
-        #     # | Qual Test                                                        | 5      |
-        #     | Exercise: Misused words 1 (autoscored)                           | 5      | 
-        #     | LC1551301608988                                                  | 5      | 
-        #     | About The Authors                                                 | 5      |
+        And I assign the activities in courseplanner
+            | activity                                                         | Points | 
+            # | Qual Test                                                        | 5      |
+            | Exercise: Misused words 1 (autoscored)                           | 5      | 
+            | LC1551301608988                                                  | 5      | 
+            | About The Authors                                                 | 5      |
  
 
-        # And I sign out of Achieve
-        # And I login to Achieve-CW as "admin_1" 
-        # And I enroll the "student_1" in "Quantitative Course" course  
-        # And I sign out of Achieve
+        And I sign out of Achieve
+        And I login to Achieve-CW as "admin_1" 
+        And I enroll the "student_1" in "Quantitative Course" course  
+        And I sign out of Achieve
 
         And I login to Achieve-CW as "student_1" 
 
@@ -113,7 +113,7 @@ Feature: Student attempts all the activities in Quantitative
             | About The Authors                              |   100%      | 5       | 1%                   | 
 
         When I sign out of Achieve
-        And I login to Achieve-CW as "instructor_2"
+        And I login to Achieve-CW as "instructor_1"
         And I click on "Qualtitative Course"
 
         Then I verify the assignmenent grades in gradebook for below assigned activities 
