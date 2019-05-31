@@ -1,32 +1,32 @@
 {
     "webElements": [{
-        "name": "course_menu",
+        "name": "courseMenu",
         "byType": "xpath",
         "definition": "//a[.='<ReplaceText>']/../../../../div/div/button[@data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "share_template",
+        "name": "shareTemplate",
         "byType": "xpath",
         "definition": "//*[text()='Share Template']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "manage_instructor",
+        "name": "addManageInstructor",
         "byType": "css",
         "definition": "[data-test-id='manage_instructor_added']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "delete_course",
+        "name": "deleteCourse",
         "byType": "css",
-        "definition": "[data-test-id='course_menu_delete_course']",
+        "definition": "[data-test-id='course_menu_deleteCourse']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "confirm_delete",
+        "name": "confirmDelete",
         "byType": "css",
-        "definition": "[data-test-id='delete_course_modal_yes_btn']",
+        "definition": "[data-test-id='deleteCourse_modal_yes_btn']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -48,7 +48,13 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_name",
+        "name": "instructorClose",
+        "byType": "css",
+        "definition": "[data-test-id='manage_instructors_modal_close']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "courseName",
         "byType": "xpath",
         "definition": "//a[@data-test-id='course_name' and .='<ReplaceText>']",
         "frame": "default",
@@ -60,43 +66,43 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_code",
+        "name": "courseCode",
         "byType": "css",
         "definition": "[id='courseCode']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_name_course_code",
+        "name": "courseNameCourseCode",
         "byType": "css",
         "definition": "[data-test-id='course_number_date_time']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_name_isbn",
+        "name": "courseNameIsbn",
         "byType": "css",
         "definition": "[data-test-id='course_activation_date']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_name_time",
+        "name": "courseNameTime",
         "byType": "xpath",
         "definition": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_name_menu",
+        "name": "courseNameMenu",
         "byType": "xpath",
         "definition": "//*[@class='gHH9']/../../..//a[(text()='{}')]/../..//button[@class='Q56n']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "add_instructor",
-        "byType": "id",
-        "definition": "addInstructor",
+        "name": "addInstructor",
+        "byType": "css",
+        "definition": "[data-test-id='manage_instructors_modal_add_input']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "add_button",
+        "name": "addButton",
         "byType": "css",
         "definition": "[data-test-id='manage_instructors_modal_add_btn']",
         "frame": "default",
@@ -108,55 +114,49 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "Manage_instructor",
+        "name": "manageInstructor",
         "byType": "css",
         "definition": "[data-test-id='course_menu_manage_instructors']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "end_date",
+        "name": "endDate",
         "byType": "css",
         "definition": "[data-test-id='edit_course_end_date']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "create_end_date",
+        "name": "createEndDate",
         "byType": "css",
         "definition": "[data-test-id='createCourse_end_date']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "next_month_button",
+        "name": "nextMonthButton",
         "byType": "css",
         "definition": "[aria-label='next_month_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "select_date",
+        "name": "selectDate",
         "byType": "css",
         "definition": "[class='_2XMC ' ]",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "course_activation",
+        "name": "courseActivation",
         "byType": "css",
         "definition": "[data-test-id='course_activation_date']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "invite_students_button",
+        "name": "inviteStudentsButton",
         "byType": "css",
-        "definition": "[data-test-id='course_menu_invite_students']",
+        "definition": "[data-test-id='courseMenu_invite_students']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "template_status",
-        "byType": "css",
-        "definition": "[data-test-id='edit_course_status']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "ebook_link",
+        "name": "ebookLink",
         "byType": "css",
         "definition": "[id='courseEbookLink']",
         "frame": "default",

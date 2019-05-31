@@ -5,52 +5,49 @@ Given(/^I search for "(.*)" course$/, async function (input) {
 });
 
 When('I close the popup message', async function () {
-  await pages.home.click('close_alert');
+  await pages.home.click('closeAlert');
 });
 When('I click on course card', async function () {
-  await pages.createCourse.click('course_card');
+  await pages.createCourse.click('courseCard');
 });
 
 When('I click on resource tab', async function () {
   await pages.coursePage.click('resources');
 });
 When('I click on home button to return to coursepage', async function () {
-  await pages.main.click('achieve_home');
+  await pages.home.click('achieveHome');
 });
-When('I sign out of Achieve', async function () {
-  await pages.home.click('toggler_menu');
-  await pages.home.click('sign_out');
-});
+
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
   await pages.courseList.populate('search', CourseName)
 });
 
 When('I delete the courses', async function () {
-  let elements = await pages.createCourse.getWebElements('course_card');
+  let elements = await pages.createCourse.getWebElements('courseCard');
   for (let x = 0; x <= elements.length; x++) {
-    await pages.courseList.click('course_menu');
-    await pages.main.click('delete_course');
+    await pages.courseList.click('courseMenu');
+    await pages.main.click('deleteCourse');
   }
 });
 
 When(/^I attempt "(.*)" learning curve activity$/, async function (activityName, data_table) {
-  await pages.overview.click('overviewtab_activity', activityName);
-  await pages.overview.click('Begin_activity');
+  await pages.overview.click('activityName', activityName);
+  await pages.overview.click('beginActivity');
   for (let i = 0; i < data_table.rows().length; i++) {
     while (true) {
-      let assert = await pages.studentActivity.checkWebElementExists('quiz_complete')
+      let assert = await pages.studentActivity.checkWebElementExists('quizComplete')
       if (assert === true) {
-        await pages.studentActivity.click('back_to_study_plan');
+        await pages.studentActivity.click('backToStudyPlan');
       } else {
-        let jsonObject = await pages.studentActivity.getText('activity_Question');
+        let jsonObject = await pages.studentActivity.getText('activityQuestion');
         let split = jsonObject.split('}')[0] + '}';
         let finalResult = JSON.parse(split);
         let result = require(`${process.cwd()}/features/COURSE/auto_manuscript_1551301608988.json`)
         let answerKey = result.questions[finalResult.Id]
         switch (answerKey.Type) {
           case 'SC':
-            let answerChoices = await pages.studentActivity.getWebElements('sentence_click_lc')
+            let answerChoices = await pages.studentActivity.getWebElements('sentenceClickLc')
             for (let i = 0; i < answerChoices.length; i++) {
               let answerText = await pages.studentActivity.getText('');
               console.log(answerText);
@@ -61,13 +58,13 @@ When(/^I attempt "(.*)" learning curve activity$/, async function (activityName,
             //     break
             //   }
             }
-            await pages.studentActivity.click('next_question');
+            await pages.studentActivity.click('nextQuestion');
             break;
 
           case 'MC':
             console.log('enteres Mc')
             let ordered = answerKey.Ordered
-            let answerList = await pages.studentActivity.getWebElements('mc_answers')
+            let answerList = await pages.studentActivity.getWebElements('mcAnswers')
             for (let i = 0; i < answerList.length; i++) {
               let text = await answerList[i].getText()
               if (ordered) {
