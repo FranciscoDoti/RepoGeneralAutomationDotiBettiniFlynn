@@ -20,9 +20,9 @@ Then(/^I verify item has been created$/, async function () {
     await pages.raptor.click('saveAsDraft');
 
     // writing item id number into a file
-    let num = itemid.split(" / ")[0];
+    let num = itemid.split(":")[1];
     fs.writeFileSync('raptor-itemId.txt', num);
     await mathpages.raptorAms.switchToTab('Sapling Learning');
-    let savedItemId = fs.readFileSync("raptor-itemId.txt").toString();
+    let savedItemId = fs.readFileSync("raptor-itemId.txt").toString().trim();
     await pages.raptor.assertElementExists('amsItemCreate',savedItemId);
 });
