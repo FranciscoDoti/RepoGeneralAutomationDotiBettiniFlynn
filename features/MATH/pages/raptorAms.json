@@ -1,6 +1,5 @@
 {
-    "webElements": [
-        {
+    "webElements": [{
             "name": "menuBarAdd",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
@@ -9,14 +8,14 @@
         },
         {
             "name": "addMathEquation",
-            "byType": "id",
-            "definition": "module-palette-graded_equation > div.module-palette-button-text",
+            "byType": "css",
+            "definition": "#module-palette-graded_equation",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "menuBarColumn",
-            "byType": "id",
+            "byType": "css",
             "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
             "frame": "default",
             "specialInstr": "NA"
@@ -31,14 +30,14 @@
         {
             "name": "moreSaveAsDraft",
             "byType": "id",
-            "definition": "authoring-menu-bar > * li:nth-child(1) > div.menu-description",
+            "definition": "save-button",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "moreCheckYourWork",
-            "byType": "id",
-            "definition": "authoring-menu-bar > * li:nth-child(2) > div.menu-description",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='check-work-edit']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -51,8 +50,8 @@
         },
         {
             "name": "moreItemDetails",
-            "byType": "id",
-            "definition": "authoring-menu-bar > * li:nth-child(3) > div.menu-description",
+            "byType": "xpath",
+            "definition": "//div[.='Item Details']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -73,14 +72,14 @@
         {
             "name": "itemDetailsTopicEdit",
             "byType": "css",
-            "definition": ".author-app-item-details >div :nth-child(9) > * [data-test-id='Edit']",
+            "definition": "button[data-test-id='Topic']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "topic",
-            "byType": "id",
-            "definition": "div > *",
+            "byType": "xpath",
+            "definition": "//div[@title='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -94,7 +93,7 @@
         {
             "name": "topicIntegration",
             "byType": "css",
-            "definition": ".node[title = ",
+            "definition": ".node[title = '<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -120,11 +119,19 @@
             "specialInstr": "NA"
         },
         {
-            "name": "saveMessage",
-            "byType": "css",
-            "definition": ".modal-title",
+            "name": "saveMessage",       
+            "byType": "xpath",
+            "definition": "//h4[@class='modal-title' and contains(.,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "getItemid",     
+            "byType": "css",
+            "definition": "div[data-test-id='edit-id']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         },
         {
             "name": "moduleTab",
@@ -149,7 +156,7 @@
         },
         {
             "name": "defaultTab",
-            "byType": "id",
+            "byType": "css",
             "definition": "div > * li > a[data-test-id='default-context']",
             "frame": "default",
             "specialInstr": "NA"
@@ -168,49 +175,48 @@
             "frame": "default",
             "specialInstr": "NA"
         },
-      
         {
             "name": "mathEquationField",
-            "byType": "id",
-            "definition": "div[data-test-id='equation-field-container'] > div > div:nth-child(2) > div > div > textarea",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='equation-field-container']//textarea",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "noclick"
         },
         {
             "name": "mathGradeAs",
             "byType": "css",
-            "definition": "select.greq-input[data-test-id='eval-type-dropdown']",
+            "definition": ".greq-input[data-test-id='eval-type-dropdown']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "mathEnforceEndpoints",
             "byType": "css",
-            "definition": ".greq-input[data-test-id='edit-panel-checkbox']",
+            "definition": "input[data-test-id='edit-panel-checkbox-interval_endpoints']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "mathNumericTolerance",
             "byType": "css",
-            "definition": ".greq-input[data-test-id='numeric-tolerance-radio']",
+            "definition": "input[data-test-id='numeric-tolerance-radio']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "numericUpperTolerance",
             "byType": "css",
-            "definition": "div.math-tolerance > div:nth-child(2) > input.numeric-entry-input",
+            "definition": "input[data-test-id='tolerance-above-field']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "numericLowerTolerance",
             "byType": "css",
-            "definition": "div.math-tolerance > div:nth-child(4)> input.numeric-entry-input",
+            "definition": "input[data-test-id='tolerance-below-field']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        }, {
             "name": "checkYourWorkAnswerText1",
             "byType": "css",
             "definition": "span.mq-math-mode",
@@ -219,15 +225,15 @@
         },
         {
             "name": "checkYourWorkAnswerText2",
-            "byType": "id",
-            "definition": "primary-content-area > * div > span > * textarea",
+            "byType": "css",
+            "definition": "#primary-content-area > * div > span > * textarea", 
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "noclick noclear"
         },
         {
             "name": "checkYourWorkSubmit",
-            "byType": "css",
-            "definition": "button#check-answer-button",
+            "byType": "id",
+            "definition": "check-answer-button",
             "frame": "default",
             "specialInstr": "NA"
         },

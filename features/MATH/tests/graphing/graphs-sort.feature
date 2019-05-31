@@ -16,7 +16,7 @@ Background: Logins to AMS and clicks on Graph Tab
     Scenario: Sorting by Title
         # TestRail Cases: C3126288
 
-        # Then I verify the graphs list is "unsorted" order of graph "Title" column name 
+        Then I verify the graphs list is "unsorted" order of graph "Title" column name 
         When I click on the "Title" column name
         Then I verify the graphs list is "ascending" order of graph "Title" column name
         When I click on the "Title" column name
