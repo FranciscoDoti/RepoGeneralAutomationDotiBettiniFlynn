@@ -20,6 +20,7 @@ Feature: Admin Grantroles to the user
             |"customer_support_2"   | "Customer Support"           | "Customer Support privileges have been granted for nowunojuwe@airsport.top."                  |
             |"media_producer_2"     | "Media Producer"             | "Media Producer privileges have been granted for cibico@mailhub.top."                         | 
             |"paid_access_1"        | "Paid Access Code Creator"   | "Paid Access Code Creator privileges have been granted for paidaccess@safe-planet.com."       |
+            |"media_editor_1"       | "Media Editor"               | "Media Editor privileges have been granted for mediaeditor13@gmail.com."                      |
     
             
 
