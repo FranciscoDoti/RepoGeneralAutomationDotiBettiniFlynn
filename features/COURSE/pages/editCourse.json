@@ -28,22 +28,20 @@
             "specialInstr": "NA"
 
         },
-        {   "name": "templateStatus",
+        {
+            "name": "templateStatus",
             "byType": "css",
             "definition": "[data-test-id='edit_course_status']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        }, {
             "name": "edit_course",
             "byType": "css",
             "definition": "[data-test-id='course_menu_edit_course']",
             "frame": "default",
             "specialInstr": "NA"
-       
-               
-    }]
+
+
+        }
+    ]
 }
-
-
-            
-        

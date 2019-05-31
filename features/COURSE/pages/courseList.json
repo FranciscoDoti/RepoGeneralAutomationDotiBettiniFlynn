@@ -5,7 +5,7 @@
         "definition": "//a[.='<ReplaceText>']/../../../../div/div/button[@data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
-    },  {
+    }, {
         "name": "share_template",
         "byType": "xpath",
         "definition": "//*[text()='Share Template']",
@@ -17,7 +17,7 @@
         "definition": "[data-test-id='manage_instructor_added']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "delete_course",
         "byType": "css",
         "definition": "[data-test-id='course_menu_delete_course']",
@@ -155,7 +155,7 @@
         "definition": "[data-test-id='edit_course_status']",
         "frame": "default",
         "specialInstr": "NA"
-    },  {
+    }, {
         "name": "ebook_link",
         "byType": "css",
         "definition": "[id='courseEbookLink']",

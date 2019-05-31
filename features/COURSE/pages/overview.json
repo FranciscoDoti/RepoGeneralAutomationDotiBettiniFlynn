@@ -1,139 +1,140 @@
 {
     "webElements": [{
-        "name": "Activity_link",
-        "byType": "css",
-        "definition": "[data-test-id='activity_name_link']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "Begin_activity",
-        "byType": "css",
-        "definition": "[data-test-id='beginActivityBtn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "multiple_choice",
-        "byType": "css",
-        "definition": "[data-test-id='multipleChoiceAnswer']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "next_question",
-        "byType": "css",
-        "definition": "[data-test-id='nextQuestionBtn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "slow_down_button",
-        "byType": "css",
-        "definition": "[data-test-id='slowDownModalOkBtn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "submit_button",
-        "byType": "css",
-        "definition": "[data-test-id='submitAnswerBtn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "congratulation_message",
-        "byType": "css",
-        "definition": "[class='CompletedActivityModal__congratulationText__26VY7']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "back_to_studyplan",
-        "byType": "css",
-        "definition": "[data-test-id='backToStudyPlanBtn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "close_learnigcurve",
-        "byType": "css",
-        "definition": "[data-test-id='closelearningcurve']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "resume_activity",
-        "byType": "xpath",
-        "definition": "//*[text()='Resume activity']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "correct_question",
-        "byType": "css",
-        "definition": "[data-test-id='correctAnswerSuccessModal']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "next_question_success",
-        "byType": "xpath",
-        "definition": "//*[text()='Next question']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "slowdownmodel",
-        "byType": "css",
-        "definition": "[data-test-id='slowDownModal']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "show_answer",
-        "byType": "css",
-        "definition": "[data-test-id='activityShowAnswerBtn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, 
-    {
-        "name": "frame_1_reading",
-        "byType": "xpath",
-        "definition": "//*[@id='container']/div/div/div/iframe",
-        "frame": "default",
-        "specialInstr": "NA"
+            "name": "Activity_link",
+            "byType": "css",
+            "definition": "[data-test-id='activity_name_link']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "Begin_activity",
+            "byType": "css",
+            "definition": "[data-test-id='beginActivityBtn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "multiple_choice",
+            "byType": "css",
+            "definition": "[data-test-id='multipleChoiceAnswer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "next_question",
+            "byType": "css",
+            "definition": "[data-test-id='nextQuestionBtn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "slow_down_button",
+            "byType": "css",
+            "definition": "[data-test-id='slowDownModalOkBtn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "submit_button",
+            "byType": "css",
+            "definition": "[data-test-id='submitAnswerBtn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "congratulation_message",
+            "byType": "css",
+            "definition": "[class='CompletedActivityModal__congratulationText__26VY7']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "back_to_studyplan",
+            "byType": "css",
+            "definition": "[data-test-id='backToStudyPlanBtn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "close_learnigcurve",
+            "byType": "css",
+            "definition": "[data-test-id='closelearningcurve']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "resume_activity",
+            "byType": "xpath",
+            "definition": "//*[text()='Resume activity']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "correct_question",
+            "byType": "css",
+            "definition": "[data-test-id='correctAnswerSuccessModal']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "next_question_success",
+            "byType": "xpath",
+            "definition": "//*[text()='Next question']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "slowdownmodel",
+            "byType": "css",
+            "definition": "[data-test-id='slowDownModal']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "show_answer",
+            "byType": "css",
+            "definition": "[data-test-id='activityShowAnswerBtn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "frame_1_reading",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div/div/div/iframe",
+            "frame": "default",
+            "specialInstr": "NA"
 
-    }, {
-        "name": "frame_2_reading",
-        "byType": "css",
-        "definition": "[title='Psychology 12e In Modules Read and Practice | About the Authors']",
-        "frame": "frame_1_reading" ,
-        "specialInstr": "NA"
-    }, {
-        "name": "frame_3_reading",
-        "byType": "id",
-        "definition": "epub-content",
-        "frame": "frame_2_reading",
-        "specialInstr": "NA"
-    }, {
-        "name": "reading_verification",
-        "byType": "css",
-        "definition": "[class='h2fm']",
-        "frame": "frame_3_reading",
-        "specialInstr": "NA"
-    }, {
-        "name": "learning_curve_activity",
-        "byType": "xpath",
-        "definition": "//*[@id='container']/div/div/div/div[4]/div/article/main/div/div[2]/div[2]/div[2]/div/div/div[1]/a",
-        "frame": "default",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "activityStatus",
-        "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>']/../../../../..//span[starts-with(@data-test-id, 'status')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "overviewtab_activity",
-        "byType": "xpath",
-        "definition": "//*[@data-test-id='activity_name_link' and .='<ReplaceText>']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "overview_verification",
-        "byType": "css",
-        "definition": "[class='_2elV']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }]
+        }, {
+            "name": "frame_2_reading",
+            "byType": "css",
+            "definition": "[title='Psychology 12e In Modules Read and Practice | About the Authors']",
+            "frame": "frame_1_reading",
+            "specialInstr": "NA"
+        }, {
+            "name": "frame_3_reading",
+            "byType": "id",
+            "definition": "epub-content",
+            "frame": "frame_2_reading",
+            "specialInstr": "NA"
+        }, {
+            "name": "reading_verification",
+            "byType": "css",
+            "definition": "[class='h2fm']",
+            "frame": "frame_3_reading",
+            "specialInstr": "NA"
+        }, {
+            "name": "learning_curve_activity",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div/div/div/div[4]/div/article/main/div/div[2]/div[2]/div[2]/div/div/div[1]/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "activityStatus",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../../..//span[starts-with(@data-test-id, 'status')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "overviewtab_activity",
+            "byType": "xpath",
+            "definition": "//*[@data-test-id='activity_name_link' and .='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "overview_verification",
+            "byType": "css",
+            "definition": "[class='_2elV']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }

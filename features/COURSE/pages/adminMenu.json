@@ -1,119 +1,120 @@
 {
     "webElements": [{
-        "name": "access_code_usage_report",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Access Code Usage Report')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "check_access_code",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Check AccessCode')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "check_account",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Check Account')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "course_report",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_course_report']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "import_resources",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Import Resources')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "individual_assignment_report",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Individual Assignment Report')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "manage_product_models_and_indices",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Product Models & Indices')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_manage_roles']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "password_reset",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "restore_deleted_courses",
-        "byType": "xpath",
-        "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Restore Deleted Courses')]",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "update_access_code",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_update_access_code']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "create_access_code",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_check_account']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "update_access_code_input",
-        "byType": "css",
-        "definition": "[data-test-id='update_access_code_modal_search_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "manage_role_email_input",
-        "byType": "css",
-        "definition": "[id='__manageRoles_emailInput']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "manage_role_select_list",
-        "byType": "css",
-        "definition": "[data-test-id='manage_roles_modal_select_list']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "grantrole",
-        "byType": "css",
-        "definition": "[data-test-id='manage_roles_modal_grant_role_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "generate_report",
-        "byType": "css",
-        "definition": "[data-test-id='course_report_modal_generate_report_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "export_report",
-        "byType": "css",
-        "definition": "[data-test-id='course_report_modal_export_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    },{
-        "name": "revokerole",
-        "byType": "css",
-        "definition": "[data-test-id='manage_roles_modal_revoke_role_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }]
+            "name": "access_code_usage_report",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Access Code Usage Report')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "check_access_code",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Check AccessCode')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "check_account",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Check Account')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "course_report",
+            "byType": "css",
+            "definition": "[data-test-id='menu_user_admin_course_report']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "import_resources",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Import Resources')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "individual_assignment_report",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Individual Assignment Report')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "manage_product_models_and_indices",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Manage Product Models & Indices')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "manage_roles",
+            "byType": "css",
+            "definition": "[data-test-id='menu_user_admin_manage_roles']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "password_reset",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "restore_deleted_courses",
+            "byType": "xpath",
+            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Restore Deleted Courses')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "update_access_code",
+            "byType": "css",
+            "definition": "[data-test-id='menu_user_admin_update_access_code']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "create_access_code",
+            "byType": "css",
+            "definition": "[data-test-id='menu_user_admin_check_account']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "update_access_code_input",
+            "byType": "css",
+            "definition": "[data-test-id='update_access_code_modal_search_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "manage_role_email_input",
+            "byType": "css",
+            "definition": "[id='__manageRoles_emailInput']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "manage_role_select_list",
+            "byType": "css",
+            "definition": "[data-test-id='manage_roles_modal_select_list']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "grantrole",
+            "byType": "css",
+            "definition": "[data-test-id='manage_roles_modal_grant_role_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "generate_report",
+            "byType": "css",
+            "definition": "[data-test-id='course_report_modal_generate_report_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "export_report",
+            "byType": "css",
+            "definition": "[data-test-id='course_report_modal_export_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "revokerole",
+            "byType": "css",
+            "definition": "[data-test-id='manage_roles_modal_revoke_role_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }

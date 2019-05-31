@@ -320,7 +320,7 @@
             "name": "assignmenttitle",
             "byType": "xpath",
             "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
-            "frame":"custom_assesment_frame" ,
+            "frame": "custom_assesment_frame",
             "specialInstr": "NA"
         }, {
             "name": "assignmentType",

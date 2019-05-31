@@ -11,18 +11,18 @@
         "definition": "copyCourseShortName",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "save_copycourse",
         "byType": "css",
         "definition": "[data-test-id='copy_course_save_btn']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "copy_course",
         "byType": "css",
         "definition": "[data-test-id='copy_course_modal']",
         "frame": "default",
         "specialInstr": "NA"
-        
+
     }]
 }
