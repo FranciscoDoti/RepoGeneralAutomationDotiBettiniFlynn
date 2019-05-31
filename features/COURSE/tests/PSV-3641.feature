@@ -7,8 +7,8 @@ Feature: Admin Grantroles to the user
 
         Then I verify Manage roles is displayed
             | field                    | disabled   |
-            | manage_role_email_input  | grantrole  |
-            | manage_role_select_list  | revokerole |
+            | manageRolesEmailInput    | grantRole  |
+            | chooseRole               | revokeRole |
        
         When I revoke <roles> of <users> 
         And I grant <roles> to the <users>

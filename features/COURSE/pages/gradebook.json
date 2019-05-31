@@ -1,24 +1,54 @@
 {
     "webElements": [{
-        "name": "studentPercent",
-        "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_percent_cell']",
-        "frame": "default",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "studentAssignmentpoints",
-        "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>)']/../../../../../../../td[@data-test-id='student_gradebook_assignment_points_cell']",
-        "frame": "default",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "studentPercenOfTotalGrades",
-        "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>)']/../../../../../../../td[@data-test-id='student_gradebook_total_grades_cell']",
-        "frame": "default",
-        "specialInstr": "NA"
-    
-    }]
+            "name": "studentPercent",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_percent_cell']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "studentAssignmentpoints",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>)']/../../../../../../../td[@data-test-id='student_gradebook_assignment_points_cell']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "studentPercenOfTotalGrades",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>)']/../../../../../../../td[@data-test-id='student_gradebook_total_grades_cell']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "assigmentDateText",
+            "byType": "css",
+            "definition": "[class='Assignments_activityDetailsText_AFA']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "assigmentPointsText",
+            "byType": "css",
+            "definition": "[class='Assignments_activityDetailsText_AFA false Assignments_textBold_CPx']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "assigmentInProgressText",
+            "byType": "css",
+            "definition": "[class='AssignmentHeaderLabelAndTool_inProgress_1z8']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "gradebookAverageTotal",
+            "byType": "css",
+            "definition": "[data-test-id='gradebook_table_course_total_cell']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "gradebookAverageAssigment",
+            "byType": "css",
+            "definition": "[class='PointOrGrade_pointOrPercent_10e ClassTotalRow_pointOrGrade_14u']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }

@@ -7,27 +7,27 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName) {
   let payload = await _.get(users, [this.environment, user]);
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('course_card', courseName);
-  await pages.createCourse.click('course_card', courseName);
-  await pages.home.click('toggler_menu');
-  await pages.user.assertElementExists('admin');
-  await pages.user.click('admin');
-  await pages.home.click('manage_enrollments');
-  await pages.home.populate('manage_enrollements_input', payload.username);
-  await pages.home.click('add_user_button');
-  await pages.home.click('close_manage_roles');
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.home.click('togglerMenu');
+  await pages.adminMenu.assertElementExists('admin');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('manageEnrollments');
+  await pages.adminMenu.populate('emailInput', payload.username);
+  await pages.adminMenu.click('addUserButton');
+  await pages.adminMenu.click('closeManageRoles');
 });
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('course_name', courseName);
-  await pages.createCourse.click('course_card', courseName);
+  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.click('courseCard', courseName);
 });
 
 When('I click on Manage roles', async function () {
-  await pages.home.click('toggler_menu');
-  await pages.user.click('admin');
-  await pages.adminMenu.click('manage_roles')
+  await pages.home.click('togglerMenu');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('manageRoles')
 });
 
 Then('I verify Manage roles is displayed', async function (data_table) {
@@ -39,17 +39,17 @@ Then('I verify Manage roles is displayed', async function (data_table) {
 
 When(/^I revoke "(.*)" of "(.*)"$/, async function (roles, user) {
   let payload = await _.get(users, [this.environment, user]);
-  await pages.adminMenu.populate('manage_role_email_input', payload.username);
-  await pages.adminMenu.populate('manage_role_select_list', roles);
-  await pages.adminMenu.click('revokerole');
-  await pages.home.click('close_alert');
+  await pages.adminMenu.populate('manageRolesEmailInput', payload.username);
+  await pages.adminMenu.populate('chooseRole', roles);
+  await pages.adminMenu.click('revokeRole');
+  await pages.home.click('closeAlert');
 });
 
 When(/^I grant "(.*)" to the "(.*)"$/, async function (roles, user) {
   let payload = await _.get(users, [this.environment, user]);
-  await pages.adminMenu.populate('manage_role_email_input', payload.username);
-  await pages.adminMenu.populate('manage_role_select_list', roles);
-  await pages.adminMenu.click('grantrole');
+  await pages.adminMenu.populate('manageRolesEmailInput', payload.username);
+  await pages.adminMenu.populate('chooseRole', roles);
+  await pages.adminMenu.click('grantRole');
 });
 
 Then(/^I verify the message for each "(.*)"$/, async function (message) {
