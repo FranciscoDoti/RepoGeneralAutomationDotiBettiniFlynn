@@ -5,7 +5,7 @@
         "definition": "button[data-test-id='sign_in_link_btn']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "username",
         "byType": "id",
         "definition": "username",
@@ -18,12 +18,24 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "signOut",
+        "byType": "css",
+        "definition": "[data-test-id='menu_user_sign_out']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "togglerMenu",
+        "byType": "css",
+        "definition": "[data-test-id='user_dropdown_menu_open']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "submit",
         "byType": "id",
         "definition": "submitButton",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "signin",
         "byType": "id",
         "definition": "signin",
