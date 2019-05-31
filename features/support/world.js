@@ -1,6 +1,5 @@
 const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } = require('cucumber');
 const { config, takeScreenshot } = require(`${process.cwd()}/app/driver`);
-const argv = require('minimist')(process.argv.slice(2));
 
 function ThisWorld({ attach }) {
   this.environment = config.environment;

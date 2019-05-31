@@ -1,0 +1,41 @@
+{
+"webElements": [{
+    "name": "addLink",
+    "byType": "css",
+    "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+    "frame": "default",
+    "specialInstr": "NA"
+},{
+    "name": "modulePallete",
+    "byType": "xpath",
+    "definition": "//div[@data-test-id='<ReplaceText>']",
+    "frame": "default",
+    "specialInstr": "NA" 
+},{
+    "name": "contentArea",
+    "byType": "css",
+    "definition": "div[class='content-preview']",
+    "frame": "default",
+    "specialInstr": "NA" 
+},{
+    "name": "moreButton",
+    "byType": "css",
+    "definition": "h2[data-test-id='PRIMARY MORE']",
+    "frame": "default",
+    "specialInstr": "NA" 
+},{
+    "name": "saveAsDraft",
+    "byType": "css",
+    "definition": "li[id='save-button']",
+    "frame": "default",
+    "specialInstr": "NA" 
+},{
+    "name": "amsItemCreate",
+    "byType": "css",
+    "definition": "tr[data-id='<ReplaceText>']",
+    "frame": "default",
+    "specialInstr": "NA" 
+}
+]
+}
+
