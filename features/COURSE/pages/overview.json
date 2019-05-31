@@ -95,13 +95,13 @@
             "name": "frame3Reading",
             "byType": "id",
             "definition": "epub-content",
-            "frame": "frame_2_reading",
+            "frame": "frame2Reading",
             "specialInstr": "NA"
         }, {
             "name": "readingVerification",
             "byType": "css",
             "definition": "[class='h2fm']",
-            "frame": "frame_3_reading",
+            "frame": "frame3Reading",
             "specialInstr": "NA"
         },
         {

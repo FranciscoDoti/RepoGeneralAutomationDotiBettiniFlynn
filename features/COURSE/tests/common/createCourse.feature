@@ -1,5 +1,6 @@
 Feature: Create course
 
+    @delete-mediaproducer-courses
     Scenario:  Create course Template for Quantitative
 
         Given I login to Achieve-CW as "media_producer_2"

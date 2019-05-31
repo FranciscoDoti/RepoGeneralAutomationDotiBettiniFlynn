@@ -20,13 +20,19 @@
     }, {
         "name": "deleteCourse",
         "byType": "css",
-        "definition": "[data-test-id='course_menu_deleteCourse']",
+        "definition": "[data-test-id='course_menu_delete_course']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "courseCard",
+        "byType": "css",
+        "definition": "[data-test-id='course_card']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "confirmDelete",
         "byType": "css",
-        "definition": "[data-test-id='deleteCourse_modal_yes_btn']",
+        "definition": "[data-test-id='delete_course_modal_yes_btn']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

@@ -1,6 +1,6 @@
 Feature: Copy course from the Template
 
-
+    @delete-mediaproducer-courses
     Scenario: Copy a course from the Template
 
         Given I login to Achieve-CW as "media_producer_2"

@@ -1,5 +1,6 @@
 Feature: Adding Instructor to the Template
 
+    @delete-mediaproducer-courses
     Scenario:  Verify that customer support is able to add Instructor to a course
 
          Given I login to Achieve-CW as "media_producer_2"
