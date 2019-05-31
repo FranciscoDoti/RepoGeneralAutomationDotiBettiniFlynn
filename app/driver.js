@@ -94,7 +94,6 @@ const closeBrowser = async function(){
 };
 
 const resetBrowser = async function () {
-  //close all tabs but 1
   var tabs = await driver.getAllWindowHandles();
   if (tabs.length > 1) {
     for (let index = 1; index < tabs.length; index++) {
@@ -104,7 +103,6 @@ const resetBrowser = async function () {
     }
   }
   await switchToTab(tabs[0]);
-  //clear cache and cookies
   log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
   await driver.manage().deleteAllCookies();
   return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');

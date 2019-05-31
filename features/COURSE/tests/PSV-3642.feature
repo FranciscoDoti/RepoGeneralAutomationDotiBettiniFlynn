@@ -1,5 +1,5 @@
 Feature: Student attempts all the activities in Quantitative
-    @delete-all-courses
+    @delete-mediaproducer-courses
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -28,16 +28,16 @@ Feature: Student attempts all the activities in Quantitative
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
-            | course            | Quantitative Course          |
+            | courseName        | Quantitative Course          |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_2" to the "Quantitative Course" course
+        And I assign "instructor_1" to the "Quantitative Course" course
         
         And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_2"
+        And I login to Achieve-CW as "instructor_1"
 
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
@@ -113,7 +113,7 @@ Feature: Student attempts all the activities in Quantitative
             | About The Authors                              |   100%      | 5       | 1%                   | 
 
         When I sign out of Achieve
-        And I login to Achieve-CW as "instructor_2"
+        And I login to Achieve-CW as "instructor_1"
         And I click on "Qualtitative Course"
 
         Then I verify the assignmenent grades in gradebook for below assigned activities 

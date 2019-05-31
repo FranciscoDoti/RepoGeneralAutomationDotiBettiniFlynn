@@ -1,5 +1,6 @@
 Feature: Admin enrolls the student in the course 
 
+    @delete-mediaproducer-courses
     Scenario: Verify that admin enrolls student in the course 
 
         Given I login to Achieve-CW as "media_producer_2"

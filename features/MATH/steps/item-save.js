@@ -21,3 +21,12 @@ Then(/^I create a new graded (".*") (".*") and save the question$/, async functi
   await pages.raptorAms.populate('equationField', eqn);
   await pages.raptorAms.click('saveButton, 1000');
 });
+
+Then(/^I note the item Id and save in a temp file$/, async function () {
+
+  let itemid = await pages.raptorAms.getText('getItemid');
+
+  // writing item id number into a file
+  let num = itemid.split(": ")[1]
+  fs.writeFileSync('raptor-itemId.txt', num);
+});

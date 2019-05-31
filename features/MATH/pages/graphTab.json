@@ -19,20 +19,20 @@
         "specialInstr": "NA"
     }, {
         "name": "table",
-        "byType": "id",
+        "byType": "css",
         "definition": "graph-panel > * tr",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "itemPreview",
         "byType": "css",
-        "definition": "span[data-test-id='item-preview-",
+        "definition": "span[data-test-id='item-preview-<ReplaceText>']",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
         "name": "itemWindow",
         "byType": "css",
-        "definition": "span[data-test-id='item-new-window-",
+        "definition": "span[data-test-id='item-new-window-<ReplaceText>']",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
@@ -44,7 +44,7 @@
     },{
         "name": "id",
         "byType": "css",
-        "definition": "table.graphList > tbody > tr > td[data-test-id]:nth-child(2)",
+        "definition": "table.graphList > tbody> :nth-child(1) > :nth-child(2)",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {
@@ -99,7 +99,7 @@
         "name": "filterInput",
         "byType": "css",
         "definition": "input[data-test-id='filterTbl']",
-        "frame": "graphsFrame",
+        "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "firstRow",

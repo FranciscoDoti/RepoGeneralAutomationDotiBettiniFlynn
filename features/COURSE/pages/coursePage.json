@@ -1,20 +1,8 @@
 {
     "webElements": [{
-            "name": "title",
+            "name": "courseMenu",
             "byType": "css",
-            "definition": ".tNeN",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "editSettings",
-            "byType": "css",
-            "definition": "._18Qx button",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "activityTitles",
-            "byType": "css",
-            "definition": "._3Jn1",
+            "definition": "[data-test-id='course_menu_button']",
             "frame": "default",
             "specialInstr": "NA"
         }, {

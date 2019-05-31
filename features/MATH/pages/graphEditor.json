@@ -25,7 +25,7 @@
         "specialInstr": "NA"
     }, {
         "name": "previewHeader",
-        "byType": "id",
+        "byType": "css",
         "definition": "div[data-test-id='graph-preview-header-options']",
         "frame": "default",
         "specialInstr": "NA"

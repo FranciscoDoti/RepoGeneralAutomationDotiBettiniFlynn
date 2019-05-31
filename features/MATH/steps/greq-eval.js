@@ -6,28 +6,28 @@ const { Key } = require('selenium-webdriver');
 /* Creating a new AMS raptor item for six Eval types: Relation, Expression, Point, Interval, Vector, Parametric */
 
 When(/^I set Item Details name as "(.*)"$/, async function (name) {
-  await pages.raptorAms.click('moreMenuBar');
+  await pages.raptorAms.click('menuBarMore');
   await pages.raptorAms.click('moreItemDetails');
   await pages.raptorAms.populate('itemDetailsName', name);
   await pages.raptorAms.click('itemDetailsSubmit');
 });
 
 When(/^I add Math equation module$/, async function () {
-  await pages.raptorAms.click('addMenuBar');
-  await pages.raptorAms.click('mathEquation');
+  await pages.raptorAms.click('menuBarAdd');
+  await pages.raptorAms.click('addMathEquation');
 });
 
 When(/^I click on the Question tab, and add an Answer field$/, async function () {
-  await pages.raptorAms.elementExists('questionTab');
+  // await pages.raptorAms.click('questionTab');
   await pages.raptorAms.click('questionContent');
-  await pages.raptorAms.elementExists('answerLabel');
+  await pages.raptorAms.assertElementExists('answerLabel');
 });
 
 When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
   await pages.raptorAms.click('correctTab');
-  await pages.raptorAms.populate('gradeAs', eval);
-  await pages.raptorAms.click('gradeAs');
-  await pages.raptorAms.sendKeys('equationField', eqn);
+  await pages.raptorAms.populate('mathGradeAs', eval);
+  await pages.raptorAms.click('mathGradeAs');
+  await pages.raptorAms.populate('mathEquationField', eqn);
 
   // by default the endpoints checkbox is checked for Interval equation
   if (endpoints === "unchecked") {
@@ -44,57 +44,71 @@ When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.
   }
 });
 
-Then(/^I save the question and verify saving message box$/, async function () {
-  await pages.raptorAms.click('moreMenuBar');
-  await pages.raptorAms.assertText('saveMessage','Saving...');
+Then(/^I save the question$/, async function () {
+  await pages.raptorAms.click('menuBarMore');
+  await pages.raptorAms.click('moreSaveAsDraft');
 });
 
-When(/^I simulate student interface and input the correct "(.*)"$/, async function (eqn) {
+When(/^I simulate student interface$/, async function () {
   // waits for the message box to disappear to execute next line: short cut keys for 'Check your work' mode
-  await pages.raptorAms.assertElementDoesNotExist('saveMessage');
-  
+  // await pages.raptorAms.assertElementDoesNotExist('saveMessage', 'Saving...');
+  await pages.raptorAms.click('menuBarMore');
+  await pages.raptorAms.click('moreCheckYourWork');
+});
+
+When(/^I input the correct "(.*)"$/, async function (eqn) {
+  // waits for the message box to disappear to execute next line: short cut keys for 'Check your work' mode
   //below line implements using the MacOS short cut keys 'CMD + \' for author student interface
   //replaces clicking the 'Check Your Work' from More menu
-  await pages.raptorAms.click('takeModeAnswerText1');
-
-  for (let i = 0; i < eqn.length; i++) {
-    let token = eqn.charAt(i);
-    await pages.raptorAms.populate('takeModeAnswerText2', Key.ENTER);
-
-    // for Vectors, insert '⟨' notation before start of the equation
-    // for Vectors, insert '⟩' notation after end of the equation
-
-    if (token === '⟨') {
-      await pages.palette.click('langle');
-    } else if (token === '⟩') {
-      await pages.palette.click('rangle');
-    }
-    // check whether the token is in the palette or not
-    else if (page.math.nonPalette.includes(token)) {
-      // if token is a nonPalette character, insert the value directly into input box
-      await pages.raptorAms.populate('takeModeAnswerText2', Key.ENTER);
-
-      // if a comma is encountered in the equation, the rightArrow key is sent before the comma
-      // this is required because the Math component is expecting a comma to signify the end of partial equation
-      // also the below logic with 2 right and left key arrows was implemented to disable closing right brackets 
-      // that is auto triggered by the app after the expression
-      if (token === ',') {
-        await pages.palette.click('rightArrow');
-        await pages.palette.click('rightArrow');
-        await pages.palette.click('leftArrow');
-      }
-      await pages.raptorAms.populate('takeModeAnswerText2', token);
-    } else {
-      // if token is a Palette character, click on the page object element
-      await pages.palette.click(`${token}`);
-    }
+  await pages.raptorAms.click('checkYourWorkAnswerText1');
+  
+  let splitarray = eqn.split(",");
+  await pages.raptorAms.populate('checkYourWorkAnswerText2', splitarray[0]);
+  for(let i=1; i<splitarray.length; i++){
+    await pages.palette.click('rightArrow');
+    await pages.palette.click('rightArrow');
+    await pages.palette.click('leftArrow');
+    await pages.raptorAms.populate('checkYourWorkAnswerText2', `,${splitarray[i]}`);
   }
+
+  // for (let i = 0; i < eqn.length; i++) {
+  //   let token = eqn.charAt(i);
+  //   // await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
+
+  //   // for Vectors, insert '⟨' notation before start of the equation
+  //   // for Vectors, insert '⟩' notation after end of the equation
+
+  //   if (token === '⟨') {
+  //     await pages.palette.click('langle');
+  //   } else if (token === '⟩') {
+  //     await pages.palette.click('rangle');
+  //   }
+  //   // check whether the token is in the palette or not
+  //   else if (page.math.nonPalette.includes(token)) {
+  //     // if token is a nonPalette character, insert the value directly into input box
+  //     await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
+
+  //     // if a comma is encountered in the equation, the rightArrow key is sent before the comma
+  //     // this is required because the Math component is expecting a comma to signify the end of partial equation
+  //     // also the below logic with 2 right and left key arrows was implemented to disable closing right brackets 
+  //     // that is auto triggered by the app after the expression
+  //     if (token === ',') {
+  //       await pages.palette.click('rightArrow');
+  //       await pages.palette.click('rightArrow');
+  //       await pages.palette.click('leftArrow');
+  //     }
+  //     await pages.raptorAms.populate('checkYourWorkAnswerText2', token);
+  //   } else {
+  //     // if token is a Palette character, click on the page object element
+  //     await pages.palette.click(`${token}`);
+  //   }
+  // }
 });
 
 When(/^I submit answer$/, async function () {
-  await pages.raptorAms.click('submitAnswer');
+  await pages.raptorAms.click('checkYourWorkSubmit');
 });
 
 Then(/^My answer is graded correctly$/, async function () {
-  await pages.raptorAms.elementExists('correctAnswer');
+  await pages.raptorAms.assertElementExists('correctAnswer');
 });

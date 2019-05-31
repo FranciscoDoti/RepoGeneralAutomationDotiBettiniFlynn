@@ -1,4 +1,5 @@
-Feature: New graph editor
+@graph-editor
+Feature:  New graph editor
 
     Background: Login with graphing permission and navigate to Graph tab
 
@@ -26,7 +27,7 @@ Feature: New graph editor
         Then I verify the graphId "14" editor will open in a new tab in edit mode
         And I verify the graph editor "url" has "a" graph Id number
 
-    Scenario: Verifies the graph url ID when an existing graph is open from preview icon
+    Scenario: Verifies the graph url when an existing graph is open from preview icon
 
         When I click the "preview" icon for graphId "14"
         Then I verify the graph editor will open in a new tab in student preview mode
@@ -73,5 +74,5 @@ Feature: New graph editor
         When I input "Fig 3.1" title
         And I click the Save button
         Then the Save button text changes to Saved with a checkmark
-        When I make any changes to title
+        When I make any changes to title "Fig 3.2"
         Then I verify Save button text changes from Saved to Save
