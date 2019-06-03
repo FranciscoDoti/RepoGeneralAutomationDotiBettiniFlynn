@@ -1,6 +1,6 @@
 const {After} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const users = require(`${process.cwd()}/features/shared/data/allusers.json`);
+const users = require(`${process.cwd()}/features/shared/data/users/allusers.json`);
 const _ = require('lodash');
 
 After('@delete-mediaproducer-courses', async function () {
