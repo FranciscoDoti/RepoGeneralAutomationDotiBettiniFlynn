@@ -1,7 +1,7 @@
 const { Given, When } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const pages = require('../pages/.page.js').pages;
+const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
 const users = require(`${process.cwd()}/features/shared/data/users/allusers.json`);
 
@@ -32,6 +32,7 @@ Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
   await pages.login.populate('password', user.password);
   await pages.login.click('signin');
 });
+
 When('I sign out of Achieve', async function () {
   await pages.login.click('togglerMenu');
   await pages.login.click('signOut');

@@ -1,5 +1,7 @@
 const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } = require('cucumber');
 const { config, takeScreenshot } = require(`${process.cwd()}/app/driver`);
+const fs = require('fs');
+const path = require('path');
 
 function ThisWorld({ attach }) {
   this.environment = config.environment;
@@ -7,6 +9,7 @@ function ThisWorld({ attach }) {
   this.browser = config.browser;
   this.screenshots = config.screenshots;
   this.headless = config.headless;
+  this.users = users();
 
   this.attach = attach;
   this.downloadLocation = process.cwd() + '/reports/downloads';
@@ -25,3 +28,15 @@ setDefinitionFunctionWrapper(function (fn) {
     } catch (err) {};
   };
 });
+
+const users = function(){
+  let that = {};
+  let folderPath = `${process.cwd()}/features/shared/data/users/${config.environment}`;
+  let files = fs.readdirSync(folderPath);
+  files.forEach(file => {
+    let filePath = `${folder}/${file}`
+    let data = require(filePath);
+    that[path.parse(filePath).name] = data;
+  });
+  return that;
+};
