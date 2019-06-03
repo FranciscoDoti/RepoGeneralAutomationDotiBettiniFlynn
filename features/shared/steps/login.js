@@ -32,3 +32,18 @@ Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
   await pages.login.populate('password', user.password);
   await pages.login.click('signin');
 });
+
+Given(/^I am on the landing page of an existing saplingcourse as "(.*)"/, async function (userType) {
+  let url = await _.get(urls, ['saplingcourse', this.environment]);
+  let user = await _.get(users, [this.environment, userType]);
+  await visitURL(url);
+  if (this.environment == 'local') {
+    await pages.login.populate('username-local', user.username);
+    await pages.login.populate('password-local', user.password);
+    await pages.login.click('submit-local')
+  } else {
+    await pages.login.populate('username', user.username);
+    await pages.login.populate('password', user.password);
+    await pages.login.click('submit')
+  };
+});

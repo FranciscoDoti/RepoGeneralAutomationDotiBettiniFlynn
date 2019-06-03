@@ -46,6 +46,10 @@
             "sq3_answer": "answer",
             "primarySchool": "Miami University"
         },
+        "nga_instructor": {
+            "username": "raptorinstructor",
+            "password": "fasterthansixmill"
+        },
         "admin_2": {
             "username": "james@pay-mon.com",
             "password": "ABCabc@123",
