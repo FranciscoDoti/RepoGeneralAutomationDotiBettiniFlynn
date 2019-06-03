@@ -1,9 +1,9 @@
 const { Given, When } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const pages = require('../pages/.page.js').pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
-const pages = require(`${process.cwd()}/features/shared/pages/.page`).pages;
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
 /* Verifies Sapling login, AMS page and navigation to AuthorApp page by clicking new Raptor item link */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
@@ -46,4 +46,9 @@ Given(/^I am on the landing page of an existing saplingcourse as "(.*)"/, async 
     await pages.login.populate('password', user.password);
     await pages.login.click('submit')
   };
+});
+
+When('I sign out of Achieve', async function () {
+  await pages.login.click('togglerMenu');
+  await pages.login.click('signOut');
 });

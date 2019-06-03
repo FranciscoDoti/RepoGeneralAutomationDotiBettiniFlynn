@@ -1,0 +1,47 @@
+{
+    "webElements": [{
+            "name": "courseCode",
+            "byType": "id",
+            "definition": "courseCode",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "courseName",
+            "byType": "id",
+            "definition": "courseName",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "isbnNumber",
+            "byType": "id",
+            "definition": "courseIsbn",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "save",
+            "byType": "css",
+            "definition": "[data-test-id='edit_course_save']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "templateStatus",
+            "byType": "css",
+            "definition": "[data-test-id='edit_course_status']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "editCourse",
+            "byType": "css",
+            "definition": "[data-test-id='course_menu_edit_course']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+
+        }
+    ]
+}

@@ -94,8 +94,6 @@ const closeBrowser = async function(){
 };
 
 const resetBrowser = async function () {
-  //close all tabs but 1
-  console.log("I am inside reset browser");
   var tabs = await driver.getAllWindowHandles();
   if (tabs.length > 1) {
     for (let index = 1; index < tabs.length; index++) {
@@ -105,7 +103,6 @@ const resetBrowser = async function () {
     }
   }
   await switchToTab(tabs[0]);
-  //clear cache and cookies
   log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
   await driver.manage().deleteAllCookies();
   return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
@@ -113,11 +110,13 @@ const resetBrowser = async function () {
 
 const activateTab = async function (tabName) {
   var masterTab = await driver.getWindowHandle();
+  console.log('Master tab window handle'+masterTab);
   var tabs = await driver.getAllWindowHandles();
-
+  console.log("Size of windows tab "+tabs.length);
   for (let index = 0; index < tabs.length; index++) {
     await switchToTab(tabs[index]);
     currentTabName = await getTitle();
+    console.log('Current tab title '+currentTabName);
     if (currentTabName.includes(tabName)) {
       break;
     }
