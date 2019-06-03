@@ -3,7 +3,7 @@ const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require('../pages/.page.js').pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const users = require(`${process.cwd()}/features/shared/data/allusers.json`);
 
 /* Verifies Sapling login, AMS page and navigation to AuthorApp page by clicking new Raptor item link */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
