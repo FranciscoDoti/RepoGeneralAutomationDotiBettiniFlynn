@@ -18,10 +18,9 @@ const config = {
   timeout : defaults.timeout
 };
 
-const buildDriver = function(){  
+const buildDriver = function() {  
   const driver = new webdriver.Builder();
-  log.info(`Launching ${config.browser}`);
-  
+  log.info(`Launching ${config.browser}`); 
   switch (config.browser.toLowerCase()) {
     case 'firefox': 
       var firefoxOptions = {
@@ -33,33 +32,43 @@ const buildDriver = function(){
         }
       };
       var firefoxCapabilities = webdriver.Capabilities.firefox();
-      firefoxCapabilities.set('firefoxOptions', firefoxOptions); 
+      firefoxCapabilities.set('firefoxOptions', firefoxOptions);
       driver.withCapabilities(firefoxCapabilities);
-      if(config.headless.toLowerCase().includes("true")){
+      if (config.headless.toLowerCase().includes('true')) {
         driver.setFirefoxOptions(new firefox.Options().headless());
       };
       break;
     case 'safari':
-      log.info("firefox not implement yet.");
+      let safariOptions = {
+        'args': ['--start-maximized', '--disable-infobars'],
+        'prefs': {
+          'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
+          'download.prompt_for_download': false,
+          'download.default_directory': `${process.cwd()}/reports/downloads`
+        }
+      }
+      var safariCapabilities = webdriver.Capabilities.safari();
+      safariCapabilities.set('safariOptions', safariOptions)
+      driver.withCapabilities(safariCapabilities)
       break;
     case 'ie':
-      log.info("firefox not implement yet.");
+      log.info('IE not implement yet.');
       break;
     case 'chrome':
     default:
       chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
       var chromeOptions = {
-        'args':['--start-maximized','--disable-infobars'],
-        'prefs':{
+        'args': ['--start-maximized', '--disable-infobars'],
+        'prefs': {
           'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
-          'download.prompt_for_download':false,
-          'download.default_directory':`${process.cwd()}/reports/downloads`
+          'download.prompt_for_download': false,
+          'download.default_directory': `${process.cwd()}/reports/downloads`
         }
       };
       var chromeCapabilities = webdriver.Capabilities.chrome();
-      chromeCapabilities.set('chromeOptions', chromeOptions); 
+      chromeCapabilities.set('chromeOptions', chromeOptions)
       driver.withCapabilities(chromeCapabilities);
-      if(config.headless.toLowerCase().includes("true")){
+      if (config.headless.toLowerCase().includes('true')) {
         driver.setChromeOptions(new chrome.Options().headless());
       };
   }
