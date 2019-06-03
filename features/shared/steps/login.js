@@ -3,13 +3,11 @@ const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
-const users = require(`${process.cwd()}/features/shared/data/users/allusers.json`);
 
 /* Verifies Sapling login, AMS page and navigation to AuthorApp page by clicking new Raptor item link */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['AMS', this.environment]);
-  let user = await _.get(users, [this.environment, userType]);
-
+  let user = this.users[userType];
   await visitURL(url);
   if (this.environment == 'local') {
     await pages.login.populate('username-local', user.username);
@@ -24,8 +22,7 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
 
 Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, userType]);
-
+  let user = this.users[userType];
   await visitURL(url);
   await pages.login.click('signinlink');
   await pages.login.populate('username', user.username);

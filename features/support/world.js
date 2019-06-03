@@ -31,12 +31,12 @@ setDefinitionFunctionWrapper(function (fn) {
 
 const users = function(){
   let that = {};
-  let folderPath = `${process.cwd()}/features/shared/data/users/${config.environment}`;
-  let files = fs.readdirSync(folderPath);
+  let folder = `${process.cwd()}/features/shared/data/users/${config.environment}`;
+  let files = fs.readdirSync(folder);
   files.forEach(file => {
     let filePath = `${folder}/${file}`
     let data = require(filePath);
-    that[path.parse(filePath).name] = data;
+    that[`${path.parse(filePath).name}`] = data;
   });
   return that;
 };

@@ -1,5 +1,6 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.courseList.populate('search', input);
 });
@@ -17,7 +18,6 @@ When('I click on resource tab', async function () {
 When('I click on home button to return to coursepage', async function () {
   await pages.home.click('achieveHome');
 });
-
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
   await pages.courseList.populate('search', CourseName)
