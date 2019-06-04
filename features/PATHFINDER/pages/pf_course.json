@@ -1,0 +1,9 @@
+{
+    "webElements": [{
+        "name": "chemistry_folder",
+        "byType": "css",
+        "definition": "[aria-label='Chemistry folder']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}
