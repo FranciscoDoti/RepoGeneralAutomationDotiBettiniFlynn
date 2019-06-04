@@ -35,6 +35,30 @@
     "definition": "tr[data-id='<ReplaceText>']",
     "frame": "default",
     "specialInstr": "NA" 
+},{
+    "name": "chemicalEquationPrefix",
+    "byType": "css",
+    "definition": "span[data-test-id=chem-eq-prefix-label] textarea",
+    "frame": "default",
+    "specialInstr": "noclick" 
+},{
+    "name": "correctContext",
+    "byType": "css",
+    "definition": "a[data-test-id='correct-context']",
+    "frame": "default",
+    "specialInstr": "NA" 
+},{
+    "name": "chemicalEquationAnswerInput",
+    "byType": "css",
+    "definition": "input[data-test-id=chem-eq-answer-input]",
+    "frame": "default",
+    "specialInstr": "NA" 
+},{
+    "name": "raptormoduleType",
+    "byType": "css",
+    "definition": "td[data-test-id='<ReplaceText>']",
+    "frame": "default",
+    "specialInstr": "NA" 
 }
 ]
 }
