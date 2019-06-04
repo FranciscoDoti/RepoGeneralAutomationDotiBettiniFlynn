@@ -5,7 +5,8 @@
     "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json --env int --mode local --browser firefox --headless true --screenshots false",
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
-    "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json"
+    "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
+    "moldraw-simple-structure-grade": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"

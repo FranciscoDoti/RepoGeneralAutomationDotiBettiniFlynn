@@ -1,41 +1,81 @@
 {
-"webElements": [{
-    "name": "addLink",
-    "byType": "css",
-    "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
-    "frame": "default",
-    "specialInstr": "NA"
-},{
-    "name": "modulePallete",
-    "byType": "xpath",
-    "definition": "//div[@data-test-id='<ReplaceText>']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "contentArea",
-    "byType": "css",
-    "definition": "div[class='content-preview']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "moreButton",
-    "byType": "css",
-    "definition": "h2[data-test-id='PRIMARY MORE']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "saveAsDraft",
-    "byType": "css",
-    "definition": "li[id='save-button']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "amsItemCreate",
-    "byType": "css",
-    "definition": "tr[data-id='<ReplaceText>']",
-    "frame": "default",
-    "specialInstr": "NA" 
+    "webElements": [
+        {
+            "name": "addLink",
+            "byType": "css",
+            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "modulePallete",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "contentArea",
+            "byType": "css",
+            "definition": "div[class='content-preview']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "moreButton",
+            "byType": "css",
+            "definition": "h2[data-test-id='PRIMARY MORE']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "saveAsDraft",
+            "byType": "css",
+            "definition": "li[id='save-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "amsItemCreate",
+            "byType": "css",
+            "definition": "tr[data-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addCorrectContextButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-correct-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addIncorrectContextButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-incorrect-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "checkAnswerSwitchMenu",
+            "byType": "css",
+            "definition": "div[class='slider round']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "activeTab",
+            "byType": "css",
+            "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active-disabled.disabled",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "molecularDrawingButton",
+            "byType": "css",
+            "definition": "#module-palette-moldraw > div.module-palette-button-text",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }
-]
-}
-
