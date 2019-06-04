@@ -119,13 +119,10 @@ const resetBrowser = async function () {
 
 const activateTab = async function (tabName) {
   var masterTab = await driver.getWindowHandle();
-  console.log('Master tab window handle'+masterTab);
   var tabs = await driver.getAllWindowHandles();
-  console.log("Size of windows tab "+tabs.length);
   for (let index = 0; index < tabs.length; index++) {
     await switchToTab(tabs[index]);
     currentTabName = await getTitle();
-    console.log('Current tab title '+currentTabName);
     if (currentTabName.includes(tabName)) {
       break;
     }
