@@ -57,7 +57,7 @@ const populateSelect = async function (selector, item, WebElementData) {
     await selector.selectByValue(item);
   } else {
     const options = await selector.findElements(By.tagName('option'));
-    for (let option of options)
+    for await (let option of options)
     {
       const optionText = await option.getText();
       if (item === optionText) {
