@@ -40,11 +40,7 @@ const populateInput = async function (selector, value, WebElementObject) {
       break;
 
     default:
-      log.debug(
-        'ERROR: populateInput() failed because the input type ' +
-          selector.getAttribute('type') +
-          ' has not been coded for.'
-      );
+      log.error(`ERROR: populateInput() failed because the input type ${type} has not been coded for.`);
   }
 };
 
@@ -62,6 +58,7 @@ const populateSelect = async function (selector, item, WebElementData) {
       const optionText = await option.getText();
       if (item === optionText) {
         await option.click();
+        break;
       }
     };
   }

@@ -38,10 +38,13 @@ Given('I create a new assessment with its necessary details', async function () 
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var assessment_name = "QAAssessment" + time;
+
+
     // await sleep(10000);
     // await assessment_pages.addItem.click('addActivity')
     // await assessment_pages.addItem.scrollElementIntoView('addAssessment');
     // await assert.include(await getTitle(), "Roadshow", "Title is same!");
+    
     await assessment_pages.addItem.populate("addAssessment", "Assessment");
     
     // await assessment_pages.addItem.populate("assessmentName", assessment_name)

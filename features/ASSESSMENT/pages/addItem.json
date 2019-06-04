@@ -8,8 +8,8 @@
     },
     {
         "name": "addAssessment",
-        "byType": "css",
-        "definition": "#section0_jump.section",
+        "byType": "xpath",
+        "definition": "//select[@id='section0_jump']",
         "frame": "default",
         "specialInstr": "NA"
     },
