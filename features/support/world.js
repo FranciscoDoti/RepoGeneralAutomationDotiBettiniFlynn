@@ -1,12 +1,13 @@
 const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } = require('cucumber');
-const { takeScreenshot } = require(`${process.cwd()}/app/driver`);
-const config = require(`${process.cwd()}/config/config.json`);
+const { config, takeScreenshot } = require(`${process.cwd()}/app/driver`);
 
 function ThisWorld({ attach }) {
   this.environment = config.environment;
-  this.mode = config.executionMode;
+  this.mode = config.mode;
   this.browser = config.browser;
   this.screenshots = config.screenshots;
+  this.headless = config.headless;
+
   this.attach = attach;
   this.downloadLocation = process.cwd() + '/reports/downloads';
   setDefaultTimeout(2*config.timeout);
@@ -18,8 +19,9 @@ setDefinitionFunctionWrapper(function (fn) {
   return async function () {
     await fn.apply(this, arguments);
     try {
-      var screenshot = await takeScreenshot();
-      await this.attach(screenshot, 'image/png');
-    } catch(err){ };
+      if (this.screenshots.toLowerCase().includes("true")) {
+        await this.attach(await takeScreenshot(), 'image/png');
+      }
+    } catch (err) {};
   };
 });

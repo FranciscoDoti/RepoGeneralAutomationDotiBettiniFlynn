@@ -1,14 +1,16 @@
 {
-    "environment": "local",
-    "mode": "docker-headless",
+    "environment": "int",
+    "mode": "local",
     "browser": "chrome",
+    "headless": "false",
     "screenshots": "true",
     "timeout": 60000,
 
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
-        "mode": "local | docker | docker-headless | browserstack | localgrid",
+        "mode": "local | docker | browserstack | localgrid | hub",
         "browser": "chrome | firefox",
+        "headless": "true | false",
         "screenshots": "true | onFail | false",
         "timeout": "Number-In-Milliseconds"
     }

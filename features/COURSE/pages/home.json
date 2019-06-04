@@ -1,200 +1,62 @@
 {
     "webElements": [{
+        "name": "achieveHome",
+        "byType": "css",
+        "definition": "[data-test-id='achieve_logo_link']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "createAccount",
+        "byType": "css",
+        "definition": "[id='createAccount']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "enroll",
         "byType": "css",
         "definition": "._1o0U",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "instructor_access",
-        "byType": "css",
-        "definition": "._21rl",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "sign_in",
-        "byType": "css",
-        "definition": "[data-test-id='sign_in_link_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "sign_out",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_sign_out']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "toggler_menu",
-        "byType": "css",
-        "definition": "[data-test-id='user_dropdown_menu_open']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "menu_user_admin",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "manage_enrollments",
-        "byType": "css",
-        "definition": "span[data-test-id='menu_user_admin_manage_enrollments']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "manage_enrollements_input",
-        "byType": "css",
-        "definition": "[data-test-id='manage_enrollment_modal_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "add_user_button",
-        "byType": "css",
-        "definition": "[data-test-id='manage_enrollment_modal_add_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "create_access_code",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_check_account']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "generate_access_code",
-        "byType": "css",
-        "definition": "[data-test-id='generate_access_code_modal_create_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "close_manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id='manage_enrollment_modal_close']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "menu_manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_manage_roles']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "input_mail_manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id='manage_roles_modal_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "select_role_manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id= 'manage_roles_modal_select_list']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "costumer_support_manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id= 'manage_roles_modal_select_list_support']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "grant_manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id= 'manage_roles_modal_grant_role_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "revoke_manage_roles",
-        "byType": "css",
-        "definition": "[data-test-id= 'manage_roles_modal_revoke_role_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "access_code",
-        "byType": "css",
-        "definition": "[data-test-id='generate_access_code_modal_code']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "menu_user_update_access_code",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_update_access_code']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "menu_user_update_access_code_input",
-        "byType": "css",
-        "definition": "[data-test-id='update_access_code_modal_search_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "update_access_code_modal_search_btn",
-        "byType": "css",
-        "definition": "[data-test-id='update_access_code_modal_search_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "check_access_code_modal_access_code_displayed",
-        "byType": "css",
-        "definition": "[data-test-id='check_access_code_modal_access_code_displayed']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "update_access_code_modal_total_input",
-        "byType": "css",
-        "definition": "[data-test-id='update_access_code_modal_total_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "update_access_code_modal_update_btn",
-        "byType": "css",
-        "definition": "[data-test-id='update_access_code_modal_update_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "close_access_code",
-        "byType": "css",
-        "definition": "[data-test-id='generate_access_code_modal_close_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "close_alert",
+        "name": "closeAlert",
         "byType": "css",
         "definition": "[data-test-id='alert_close_btn']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "access_code_modal_input",
-        "byType": "css",
-        "definition": "[data-test-id='generate_access_code_modal_input']",
+        "name": "signIn",
+        "byType": "id",
+        "definition": "signin",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "password_reset_menu",
-        "byType": "css",
-        "definition": "[data-test-id='menu_user_admin_reset_password']",
+        "name": "username",
+        "byType": "id",
+        "definition": "username",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "password_reset_modal_input",
-        "byType": "css",
-        "definition": "[data-test-id='password_reset_modal_input']",
+        "name": "password",
+        "byType": "id",
+        "definition": "password",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "password_reset_modal_reset_btn",
+        "name": "signInLocal",
         "byType": "css",
-        "definition": "[data-test-id='password_reset_modal_reset_btn']",
+        "definition": "[data-test-id='sign_in_link_btn']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "check_access_code_modal_total",
+        "name": "togglerMenu",
         "byType": "css",
-        "definition": "[data-test-id='check_access_code_modal_total']",
+        "definition": "[data-test-id='user_dropdown_menu_open']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "success_message",
+        "name": "signOut",
         "byType": "css",
-        "definition": "[data-test-id='alert'] span",
+        "definition": "[data-test-id='menu_user_sign_out']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -203,29 +65,6 @@
         "definition": "[data-test-id='achieve_logo_in_top_corner']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "check_email",
-        "byType": "xpath",
-        "definition": "//*[text()= 'Check your email']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "export_list",
-        "byType": "css",
-        "definition": "[aria-label='Export List of Generated Codes']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "single_use_code",
-        "byType": "css",
-        "definition": "[data-test-id='single_use_codes_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "length_access",
-        "byType": "css",
-        "definition": "[data-test-id='access_duration_input']",
-        "frame": "default",
-        "specialInstr": "NA"
+
     }]
 }
