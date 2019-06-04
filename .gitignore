@@ -4,8 +4,3 @@ node_modules
 package-lock.json
 *.csv
 reports/**
-<<<<<<< HEAD
-screenshots/**
-=======
-
->>>>>>> development
