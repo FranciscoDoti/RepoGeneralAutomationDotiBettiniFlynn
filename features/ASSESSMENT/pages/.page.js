@@ -3,7 +3,10 @@ const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 
 let pages = {
     raptor: new PageObject('raptor.json',stepsPath),
-    addItem: new PageObject('addItem.json',stepsPath)
+    createAssessment: new PageObject('createAssessment.json', stepsPath),
+    assessmentListPage: new PageObject('assessmentListPage.json', stepsPath),
+    newAssessmentModal: new PageObject('newAssessmentModal.json', stepsPath),
+    questionBank: new PageObject('questionBank.json', stepsPath)
 };
 
 module.exports ={

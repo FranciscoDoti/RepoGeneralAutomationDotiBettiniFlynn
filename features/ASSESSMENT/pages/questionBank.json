@@ -1,0 +1,9 @@
+{"webElements": [
+    {
+        "name": "QBitems",
+        "byType": "css",
+        "definition": ".list-item-container .item",
+        "frame": "default",
+        "specialInstr": "NA"
+    }
+]}

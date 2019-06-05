@@ -1,4 +1,4 @@
-{"webElements": [
+{"webElements":[
     {
         "name": "addActivity",
         "byType": "css",
@@ -12,13 +12,5 @@
         "definition": "//select[@id='section0_jump']",
         "frame": "default",
         "specialInstr": "NA"
-    },
-    {
-        "name": "assessmentName",
-        "byType": "css",
-        "definition": "#id_name",
-        "frame": "default",
-        "specialInstr": "NA"
     }
-]
-}
+]}

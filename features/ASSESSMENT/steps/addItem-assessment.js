@@ -1,5 +1,5 @@
 const { Given, When, Then}=require('cucumber');
-const assessment_pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
+const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
@@ -38,17 +38,13 @@ Given('I create a new assessment with its necessary details', async function () 
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var assessment_name = "QAAssessment" + time;
-
-
-    // await sleep(10000);
-    // await assessment_pages.addItem.click('addActivity')
-    // await assessment_pages.addItem.scrollElementIntoView('addAssessment');
-    // await assert.include(await getTitle(), "Roadshow", "Title is same!");
-    
-    await assessment_pages.addItem.populate("addAssessment", "Assessment");
-    
-    // await assessment_pages.addItem.populate("assessmentName", assessment_name)
-
+    await ngaPages.assessmentListPage.scrollElementIntoView('addAssessment');
+    await assert.include(await getTitle(), "Roadshow", "Title is same!"); 
+    await ngaPages.assessmentListPage.populate("addAssessment", "Assessment");
+    //add asseesment details
+    await ngaPages.createAssessment.populate("assessmentName", assessment_name);
+    await ngaPages.createAssessment.click("saveAndContinue");
+    await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
 });
 
 
