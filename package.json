@@ -12,6 +12,7 @@
     "node": ">=10"
   },
   "dependencies": {
+    "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
     "chromedriver": "latest",
