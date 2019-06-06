@@ -1,0 +1,27 @@
+{
+    "webElements": [{
+        "name": "chemistryFolder",
+        "byType": "css",
+        "definition": "[aria-label='Chemistry folder']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "coursePlanner",
+        "byType": "css",
+        "definition": "[data-test-id='course_planner_tab']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "expressionsFolder",
+        "byType": "css",
+        "definition": "[aria-label='Expressions folder']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "expressionsPracticeTest",
+        "byType": "xpath",
+        "definition": "//a[contains(@data-test-id,'activity_link') and contains(text(), 'Practice Test for Expressions')]",
+        "frame": "default",
+        "spectialInstr": "NA"
+    }]
+}
