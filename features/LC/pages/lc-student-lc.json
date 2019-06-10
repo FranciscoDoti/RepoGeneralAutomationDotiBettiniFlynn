@@ -1,0 +1,69 @@
+{
+  "webElements": [{
+      "name": "close_learing_curve",
+      "byType": "xpath",
+      "definition": "//a[@data-test-id='closelearningcurve']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "assignment_heading",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='pageTitle']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "tips_for_success",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='tipsForSuccessBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "fqa",
+      "byType": "xpath",
+      "definition": "//span[@data-test-id='showFaqPage']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "sections_headers",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='studyPlanItemTitleBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "section_book_list",
+      "byType": "xpath",
+      "definition": "//li[@data-test-id='studyPlanItemSuggestions']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "start_quiz_button",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='beginActivityBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "current_score",
+      "byType": "xpath",
+      "definition": "//span[@data-test-id='progressCurrentScore']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "target_score",
+      "byType": "xpath",
+      "definition": "//span[@data-test-id='progressTargetScore']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "quiz_results_show_details",
+      "byType": "xpath",
+      "definition": "//p[@data-test-id='toggleDetailsButton']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "section_results",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='studyPlanItem']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }]
+}

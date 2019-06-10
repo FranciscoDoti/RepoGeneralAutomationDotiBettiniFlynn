@@ -258,7 +258,6 @@ Then(/^I verify Save button text changes from Saved to Save$/, async function ()
 
 When(/^I navigate to AuthorApp$/, async function () {
     await pages.raptorAms.switchToTab('Raptor Authoring');
-    await pages.raptorAms.assertElementExists('menuBarAdd');
 });
 
 When(/^I click on the "(.*)" column name$/, async function (columnName) {

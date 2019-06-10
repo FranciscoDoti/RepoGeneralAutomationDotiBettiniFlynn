@@ -1,0 +1,23 @@
+{
+	"webElements": [
+		{
+            "name": "number_of_questions",
+            "byType": "xpath",
+			"definition": "//td[@data-test-id='studentListQuestionsReceived']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "completion_points",
+            "byType": "xpath",
+			"definition": "//td[@data-test-id='studentListQuestionsScore']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "topic_performance",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='topicPerformanceAccuracy']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}
