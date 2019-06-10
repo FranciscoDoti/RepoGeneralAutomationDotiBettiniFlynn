@@ -53,7 +53,17 @@
             "definition": "[data-test-id='menu_user_admin_manage_roles']",
             "frame": "default",
             "specialInstr": "NA"
+<<<<<<< HEAD
+        },{
+            "name": "manageRolesEmailInput",
+            "byType": "css",
+            "definition": "[data-test-id='manage_roles_modal_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+=======
         }, {
+>>>>>>> 9437c2fd29b03bfb1bb03f4a33d5def7c37731f8
             "name": "passwordReset",
             "byType": "xpath",
             "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
@@ -96,7 +106,7 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "manageRoleSelectList",
+            "name": "chooseRole",
             "byType": "css",
             "definition": "[data-test-id='manage_roles_modal_select_list']",
             "frame": "default",
