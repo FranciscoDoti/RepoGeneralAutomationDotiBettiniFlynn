@@ -104,7 +104,7 @@
     }, {
         "name": "firstRow",
         "byType": "css",
-        "definition": "td[data-test-id='graph-id-1']",
+        "definition": "table.graphList > tbody > tr:nth-child(1)",
         "frame": "graphsFrame",
         "specialInstr": "NA"
     }, {

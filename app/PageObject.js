@@ -251,14 +251,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       actionElement.webElement = WebElementObject;
       
       switch (value.toLowerCase()) {
+        case 'notexists':
+          return !WebElementObject.elementExists();
         case 'visible':
         case 'exists':
           return WebElementObject.elementExists();
-          break;
         case 'notvisible':
         case 'disabled':
           return WebElementObject.elementDisabled();
-          break;
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
@@ -269,7 +269,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
     if (await genericAssertElement(elementName, 'exists')) {
-      log.info(`Web Element ${elementName} found on page.`);
+      return log.info(`Web Element ${elementName} found on page.`);
     } else {
       assert.fail(`Web Element ${elementName} was not found on page.`);
     };
@@ -278,10 +278,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const assertDoesNotExist = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    if (await genericAssertElement(elementName, 'exists')) {
+    if (await genericAssertElement(elementName, 'notexists')) {
       assert.fail(`Web Element ${elementName} found on page.`);
     } else {
-      log.info(`Web Element ${elementName} was not found on page.`);
+      return log.info(`Web Element ${elementName} was not found on page.`);
     };
   };
 
