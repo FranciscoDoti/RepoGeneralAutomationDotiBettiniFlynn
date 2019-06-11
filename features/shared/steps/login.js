@@ -32,6 +32,7 @@ Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
   await pages.login.populate('password', user.password);
   await pages.login.click('signin');
 });
+
 When('I sign out of Achieve', async function () {
   await pages.login.click('togglerMenu');
   await pages.login.click('signOut');
