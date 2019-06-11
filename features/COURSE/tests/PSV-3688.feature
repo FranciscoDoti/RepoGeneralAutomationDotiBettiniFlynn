@@ -1,5 +1,5 @@
 Feature: Adding activities in Folder Resource Tab
-
+    @delete-mediaproducer-courses
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab
 
         Given I login to Achieve-CW as "media_producer_2"
