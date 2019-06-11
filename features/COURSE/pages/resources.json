@@ -96,7 +96,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "addFolderInput",
+        "name": "folderName",
         "byType": "css",
         "definition": "[data-test-id='add_folder_input']",
         "frame": "default",
@@ -117,6 +117,24 @@
         "name": "addUnitButton",
         "byType": "css",
         "definition": "[data-test-id='add_unit_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "threeButton",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../..//button[@data-test-id='three_button_popup']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "folderName",
+        "byType": "xpath",
+        "definition": "//span[contains(@data-test-id,'folder_label_name') and contains(text(), '<ReplaceText')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "moveItem",
+        "byType": "css",
+        "definition": "[data-test-id='move_item_to_folder']",
         "frame": "default",
         "specialInstr": "NA"
 

@@ -70,3 +70,11 @@ When(/^I create "(.*)" with the data$/, async function (courseName, data_table) 
   }
   await pages.createCourse.click('save');
 });
+
+When('I add folders in resource tab', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('addFolde');
+    await pages.resources.populate('folderName', data_table.hashes()[i].folder);
+    await pages.resources.click('addFolderButton');
+  }
+});

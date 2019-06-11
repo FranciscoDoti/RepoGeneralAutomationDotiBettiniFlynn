@@ -53,7 +53,6 @@
             "definition": "[data-test-id='menu_user_admin_manage_roles']",
             "frame": "default",
             "specialInstr": "NA"
-<<<<<<< HEAD
         },{
             "name": "manageRolesEmailInput",
             "byType": "css",
@@ -61,9 +60,6 @@
             "frame": "default",
             "specialInstr": "NA"
         },{
-=======
-        }, {
->>>>>>> 9437c2fd29b03bfb1bb03f4a33d5def7c37731f8
             "name": "passwordReset",
             "byType": "xpath",
             "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",
