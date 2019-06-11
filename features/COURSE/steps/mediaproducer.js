@@ -73,8 +73,48 @@ When(/^I create "(.*)" with the data$/, async function (courseName, data_table) 
 
 When('I add folders in resource tab', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.click('addFolde');
-    await pages.resources.populate('folderName', data_table.hashes()[i].folder);
+    await pages.resources.click('addFolder');
+    await pages.resources.populate('folderName', data_table.hashes()[i].folders);
     await pages.resources.click('addFolderButton');
+  }
+});
+
+When('I add the activities to respective folders in resource tab', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('threeButtonActivities', data_table.hashes()[i].activity);
+    await pages.resources.click('moveItem');
+    await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
+    await pages.resources.click('placeInFolder');
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+  }
+});
+Then('I verify the activities are added in folders', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('folderButton', data_table.hashes()[i].folders);
+    await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity)
+  }
+});
+
+When('I reorder the resources on template', async function (data_table) {
+  await pages.resources.click('threeButtonValidation');
+  await pages.resources.click('reorderItems');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('reorderResources', data_table.hashes()[i].folders);
+    await pages.resources.click(data_table.hashes()[i].reorder);
+  }
+  await pages.coursePlanner.click('modalSaveButton');
+});
+
+When('I delete the resources from the Template', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('threeButtonResources', data_table.hashes()[i].folders);
+    await pages.resources.click('removeItem');
+    await pages.resources.click('confirmRemoveItem');
+  }
+});
+
+Then('I verify that resources are deleted from Template', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.assertElementDoesNotExist('threeButtonResources', data_table.hashes()[i].folders);
   }
 });
