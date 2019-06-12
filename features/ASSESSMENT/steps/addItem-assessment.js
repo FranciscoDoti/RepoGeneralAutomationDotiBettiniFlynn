@@ -3,7 +3,7 @@ const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pag
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const { visitURL, sleep, getTitle } = require(`${process.cwd()}/app/driver`);
+const { visitURL, sleep, getTitle, getDriver} = require(`${process.cwd()}/app/driver`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const { assert, expect } = require('chai');
 
@@ -48,9 +48,16 @@ Given('I create a new assessment with its necessary details', async function () 
 });
 
 
-When('I have added an item to assessment', function () {
+When('I have added an item to assessment', async function () {
 // Write code here that turns the phrase above into concrete actions
-return 'pending';
+    let itemList = await ngaPages.questionBank.getWebElements("QBitems")
+    console.log(itemList.length);
+    // await ngaPages.questionBank.click()
+    for (let item in itemList){
+      await item.addEventListener('click', function(event) {
+        alert(event.target.attributes); 
+      })
+    }
 });
 
 
