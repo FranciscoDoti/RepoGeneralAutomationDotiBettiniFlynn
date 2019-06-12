@@ -252,9 +252,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notexists':
-          await getDriver().manage().setTimeouts({ implicit: 5000, pageLoad: config.timeout, script: config.timeout });
+          await getDriver().manage().setTimeouts({ implicit: 5000 });
           let retval = !(await WebElementObject.elementExists());
-          await getDriver().manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
+          await getDriver().manage().setTimeouts({ implicit: config.timeout });
           return retval;
         case 'visible':
         case 'exists':
