@@ -59,7 +59,40 @@
     "definition": "td[data-test-id='<ReplaceText>']",
     "frame": "default",
     "specialInstr": "NA" 
+},{
+            "name": "addCorrectContextButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-correct-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addIncorrectContextButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-incorrect-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "checkAnswerSwitchMenu",
+            "byType": "css",
+            "definition": "div[class='slider round']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "activeTab",
+            "byType": "css",
+            "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active-disabled.disabled",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "molecularDrawingButton",
+            "byType": "css",
+            "definition": "#module-palette-moldraw > div.module-palette-button-text",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }
-]
-}
-

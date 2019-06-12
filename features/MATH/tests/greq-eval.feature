@@ -18,9 +18,9 @@ Feature: Creating a new AMS raptor item for different Eval types and simulate gr
     Then My answer is graded correctly
     Examples:
       | evaltype     | questionEquation               | answerEquation          | enforceEndpoints | upperTolerance | lowerTolerance |
-      # | "Relation"   | "2x+26=0"                      | "2x+26=0"               | ""               | ""             | ""             |
-      # | "Expression" | "x+y"                          | "x+y"                   | ""               | ""             | ""             |
-      #  | "Point"      | "(1,4\pi)"                     | "(3/3 , 2*2*π)"           | ""               | ""             | ""             |
-      | "Interval"   | "(0,0.17) \cup (0.64,1)"       | "[0,1−0.83)∪[64/100,1)" | "unchecked"      | ""             | ""             |
-      # | "Vector"     | "\langle0.768,0,−0.640\rangle" | "⟨0.768,0,−0.640⟩"      | ""               | "0.0006"       | "0.0006"       |
-      # | "Parametric" | "(4t,3-t)"                     | "(2t+2t,3*1−t*1)"       | ""               | ""             | ""             |
+      | "Relation"   | "2x+26=0"                      | "2x+26=0"               | ""               | ""             | ""             |
+      | "Expression" | "x+y"                          | "x+y"                   | ""               | ""             | ""             |
+      | "Point"      | "(1,4\pi)"                     | "(3/3,2*2*π)"           | ""               | ""             | ""             |
+      | "Interval"   | "(0,0.17)\cup(0.64,1)"         | "[0,1−0.83)∪[64/100,1)" | "unchecked"      | ""             | ""             |
+      | "Vector"     | "\left\langle0.768,0,−0.640\right\rangle" | "⟨0.768,0,−0.640⟩" | ""         | "0.0006"       | "0.0006"       |
+      | "Parametric" | "(4t,3-t)"                     | "(2t+2t,3*1−t*1)"       | ""               | ""             | ""             |

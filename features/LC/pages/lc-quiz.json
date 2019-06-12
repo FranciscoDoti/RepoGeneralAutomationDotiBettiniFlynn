@@ -1,0 +1,167 @@
+{
+  "webElements": [
+    {
+      "name": "back_to_study_plan",
+      "byType": "xpath",
+      "definition": "//a[@data-test-id='backToStudyPlanBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "current_score",
+      "byType": "xpath",
+      "definition": "//span[@data-test-id='activityScoreValueInfo']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "question_points",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='activityQuestionPoints']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "whole_question",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='question']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "question",
+      "byType": "xpath",
+      "definition": "//h1[@data-test-id='activityQuestion']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "mc_answers",
+      "byType": "xpath",
+      "definition": "//label[@data-test-id='multipleChoiceAnswer']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }, {
+      "name": "fill_in_the_blank_answer",
+      "byType": "xpath",
+      "definition": "//input[@data-test-id='fillInTheBlankAnswer']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "open_ebook",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='readEBookBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "get_hint",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='showHintBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "get_answer",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='activityShowAnswerBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "challenge_question",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='showAnswerModalBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "correct_answer_modal",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='SuccessModal']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "incorrect_answer_modal",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='IncorrectModal']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "hint_answer_modal",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='QuestionHint']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "show_answer_correct_answer",
+      "byType": "xpath",
+      "definition": "//h3[@data-test-id='showAnswerModalAnswer']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "submit_answer",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='submitAnswerBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "next_question",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='nextQuestionBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "take_a_break",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='takeBreakBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "sentense_click",
+      "byType": "xpath",
+      "definition": "//a[@data-test-id='sentenceClick']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "complete_quiz_lc",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='quizCompleteModal']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "complete_quiz_lcrp",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='completedModalViewPlanBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "slow_down_ok",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='slowDownModalOkBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "slow_down_x",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='slowDownHideModalBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "midway_modal",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='midWayModall']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "back_to_study_plan_midpoint",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='midWayModalStudyPlanBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "next_question_midway",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='midWayModalNextQuestionBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "mathjax",
+      "byType": "className",
+      "definition": "MathJax",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "webElements": [{
+      "name": "close_learing_curve",
+      "byType": "xpath",
+      "definition": "//a[@data-test-id='closelearningcurve']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "ebook_pane",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='lcrpSplitEbookPane']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "ebook_iframe",
+      "byType": "id",
+      "definition": "splitScreenEbook",
+      "frame": "default",
+      "specialInstr": "NA" 
+    },{
+      "name": "popout_ereader",
+      "byType": "xpath",
+      "definition": "//a[@data-test-id='openSplitScreenNewTabBtn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },{
+      "name": "close_ereader",
+      "byType": "xpath",
+      "definition": "//a[@data-test-id='closeSplitScreenEbook']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }]
+}

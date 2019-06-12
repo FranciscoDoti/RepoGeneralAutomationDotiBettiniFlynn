@@ -1,17 +1,15 @@
 
-const { When, Then}=require('cucumber');
+const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages =require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-var _ = require('lodash');
 const { getDriver,sleep } = require(`${process.cwd()}/app/driver`);
 
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
     await mathpages.ams.click('raptorNewItem');
-    await pages.raptor.switchToTab('Raptor Authoring');
-    await mathpages.raptorAms.assertElementExists('menuBarAdd');
+    await mathpages.raptorAms.switchToTab('Raptor Authoring');
     await pages.raptor.click('addLink');
-    await pages.raptor.click('modulePallete',moduleType);
+    await pages.raptor.click('modulePallete', moduleType);
     await pages.raptor.click('contentArea');
     await pages.raptor.populate('chemicalEquationPrefix',"Photosynthesis");
     await pages.raptor.click('correctContext');
@@ -20,7 +18,6 @@ When(/^I add the "(.*)" module$/, async function (moduleType) {
 
 Then(/^I verify item has been created with following details$/, async function (data_table) {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1].trim();
-
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('moreButton');
     await pages.raptor.click('saveAsDraft');
