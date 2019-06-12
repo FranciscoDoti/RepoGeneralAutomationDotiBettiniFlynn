@@ -33,7 +33,7 @@ Feature: Adding activities in Folder Resource Tab
             | Assesment         |
             | ReadandPractice   |
 
-        And I add the activities to respective folders in resource tab
+        And I add the activities to respective folders
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |

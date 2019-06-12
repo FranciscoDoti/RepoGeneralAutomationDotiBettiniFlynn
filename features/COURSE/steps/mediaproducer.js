@@ -79,7 +79,7 @@ When('I add folders in resource tab', async function (data_table) {
   }
 });
 
-When('I add the activities to respective folders in resource tab', async function (data_table) {
+When('I add the activities to respective folders', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('threeButtonActivities', data_table.hashes()[i].activity);
     await pages.resources.click('moveItem');
@@ -110,11 +110,74 @@ When('I delete the resources from the Template', async function (data_table) {
     await pages.resources.click('threeButtonResources', data_table.hashes()[i].folders);
     await pages.resources.click('removeItem');
     await pages.resources.click('confirmRemoveItem');
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
   }
 });
 
 Then('I verify that resources are deleted from Template', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.assertElementDoesNotExist('threeButtonResources', data_table.hashes()[i].folders);
+  }
+});
+
+When('I add folders in courseplanner', async function (data_table) {
+  await pages.coursePage.click('coursePlanner');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('addUnit');
+    await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
+    await pages.coursePlanner.click('parentFolder');
+    await pages.coursePlanner.click('addUnitButton');
+  }
+});
+
+When('I add the activities in courseplanner', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('customContentButton');
+    await pages.coursePlanner.click('libraryTab');
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('closeCourseplanner');
+  }
+});
+
+When('I add the activities to respective folders in courseplanner', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('actionButton', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('actionMoveItemToFolder');
+    await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
+    await pages.resources.click('placeInFolder');
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+  }
+});
+
+When('I reorder the resources on template in courseplanner', async function (data_table) {
+  await pages.coursePlanner.click('actionButtonValidation');
+  await pages.coursePlanner.click('reorder');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('reorderResources', data_table.hashes()[i].folders);
+    await pages.resources.click(data_table.hashes()[i].reorder);
+  }
+  await pages.coursePlanner.click('modalSaveButton');
+});
+
+When('I delete the resources from the Template in courseplanner', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('actionButtonResources', data_table.hashes()[i].folders);
+    await pages.coursePlanner.click('actionRemoveItem');
+    await pages.resources.click('confirmRemoveItem');
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+  }
+});
+
+Then('I verify that resources are deleted from Template in courseplanner', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.assertElementDoesNotExist('actionButton', data_table.hashes()[i].folders);
+  }
+});
+
+Then('I verify the activities are added in folders which are present in courseplanner', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('folderName', data_table.hashes()[i].folders);
+    await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
   }
 });

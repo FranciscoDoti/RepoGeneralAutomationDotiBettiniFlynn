@@ -472,6 +472,98 @@
             "definition": "[class='_2XMC ']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "addUnit",
+            "byType": "css",
+            "definition": "[data-test-id='add_unit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "parentFolder",
+            "byType": "css",
+            "definition": "[data-test-id='parent_folder']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addUnitButton",
+            "byType": "css",
+            "definition": "[data-test-id='add_unit_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addUnitName",
+            "byType": "css",
+            "definition": "[data-test-id='add_unit_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "contentCheckbox",
+            "byType": "css",
+            "definition": "[data-test-id='content_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionButton",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionButtonValidation",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='action_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "actionMoveItemToFolder",
+            "byType": "css",
+            "definition": "[data-test-id='action_menu_items_move_item']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionRemoveItem",
+            "byType": "css",
+            "definition": "[data-test-id='action_menu_items_remove_item']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "reorder",
+            "byType": "css",
+            "definition": "[data-test-id='action_menu_items_reorder']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "folderName",
+            "byType": "xpath",
+            "definition": "//span[contains(@data-test-id,'folder_name') and contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "activityName",
+            "byType": "xpath",
+            "definition": "//*[@data-test-id='activity_link' and .='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionButtonResources",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
     ]
 }
