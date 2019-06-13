@@ -564,6 +564,14 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "reorderValidation",
+            "byType": "xpath",
+            "definition": "//div[<ReplaceText>]/div/div/div/div/div/div/a[@data-test-id='activity_link']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
     ]
 }

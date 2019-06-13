@@ -224,6 +224,13 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },{
+        "name": "resourcesReorderVerification",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div[@role='row']//span[@data-test-id='folder_label_name']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     },  {
         "name": "moveToEnd",
         "byType": "css",
@@ -231,4 +238,6 @@
         "frame": "default",
         "specialInstr": "NA"
     }]
+    
+
 }

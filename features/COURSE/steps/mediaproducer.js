@@ -79,7 +79,7 @@ When('I add folders in resource tab', async function (data_table) {
   }
 });
 
-When('I add the activities to respective folders', async function (data_table) {
+When('I add the following activities to respective folders in resource tab', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addFolder');
     await pages.resources.populate('folderName', data_table.hashes()[i].folders);
@@ -91,7 +91,7 @@ When('I add the activities to respective folders', async function (data_table) {
     await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
   }
 });
-Then('I verify the activities are added in folders', async function (data_table) {
+Then('I verify the following activities are present in folders', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('folderButton', data_table.hashes()[i].folders);
     await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity)
@@ -108,7 +108,7 @@ When('I reorder the resources on template', async function (data_table) {
   await pages.coursePlanner.click('modalSaveButton');
 });
 
-When('I delete the resources from the Template', async function (data_table) {
+When('I delete the following resources from the Template', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('threeButtonResources', data_table.hashes()[i].folders);
     await pages.resources.click('removeItem');
@@ -117,24 +117,20 @@ When('I delete the resources from the Template', async function (data_table) {
   }
 });
 
-Then('I verify that resources are deleted from Template', async function (data_table) {
+Then('I verify that the following resources are not present in the Template', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.assertElementDoesNotExist('threeButtonResources', data_table.hashes()[i].folders);
   }
 });
 
-When('I add folders in courseplanner', async function (data_table) {
-  await pages.coursePage.click('coursePlanner');
+Then('I verify that resources are reordered', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('addUnit');
-    await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
-    await pages.coursePlanner.click('parentFolder');
-    await pages.coursePlanner.click('addUnitButton');
+    await pages.resources.assertTextIncludes('resourcesReorderVerification', data_table.hashes()[i].orderNumber, data_table.hashes()[i].folders);
   }
 });
 
-When('I add the activities in courseplanner', async function (data_table) {
-  await pages.coursePage.click('coursePlanner');
+When(/^I add the activities in "(.*)"$/, async function (coursePage, data_table) {
+  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('customContentButton');
     await pages.coursePlanner.click('libraryTab');
@@ -144,7 +140,8 @@ When('I add the activities in courseplanner', async function (data_table) {
   }
 });
 
-When('I add the activities to respective folders in courseplanner', async function (data_table) {
+When(/^I add the activities to respective folders in "(.*)"$/, async function (coursePage, data_table) {
+  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('addUnit');
     await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
@@ -154,21 +151,31 @@ When('I add the activities to respective folders in courseplanner', async functi
     await pages.coursePlanner.click('actionMoveItemToFolder');
     await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
     await pages.resources.click('placeInFolder');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message);
   }
 });
 
-When('I reorder the resources on template in courseplanner', async function (data_table) {
+When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {
+  await pages.coursePage.click(coursePage);
   await pages.coursePlanner.click('actionButtonValidation');
   await pages.coursePlanner.click('reorder');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.click('reorderResources', data_table.hashes()[i].folders);
+    await pages.resources.click('reorderResources', data_table.hashes()[i].actvities);
     await pages.resources.click(data_table.hashes()[i].reorder);
   }
   await pages.coursePlanner.click('modalSaveButton');
 });
 
-When('I delete the resources from the Template in courseplanner', async function (data_table) {
+Then(/^I verify the activities are added in folders which are present in "(.*)"$/, async function (coursePage, data_table) {
+  await pages.coursePage.click(coursePage);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('folderName', data_table.hashes()[i].folders);
+    await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
+  }
+});
+
+When(/^I delete the resources from the Template in "(.*)"$/, async function (coursePage, data_table) {
+  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('actionButtonResources', data_table.hashes()[i].folders);
     await pages.coursePlanner.click('actionRemoveItem');
@@ -177,15 +184,16 @@ When('I delete the resources from the Template in courseplanner', async function
   }
 });
 
-Then('I verify that resources are deleted from Template in courseplanner', async function (data_table) {
+Then(/I verify that resources are deleted from Template in "(.*)"$/, async function (coursePage, data_table) {
+  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementDoesNotExist('actionButton', data_table.hashes()[i].folders);
   }
 });
 
-Then('I verify the activities are added in folders which are present in courseplanner', async function (data_table) {
+Then(/^I verify that resources are reordered in "(.*)"$/, async function (coursePage, data_table) {
+  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('folderName', data_table.hashes()[i].folders);
-    await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
+    await pages.coursePlanner.assertTextIncludes('reorderValidation', data_table.hashes()[i].orderNumber, data_table.hashes()[i].activities);
   }
 });
