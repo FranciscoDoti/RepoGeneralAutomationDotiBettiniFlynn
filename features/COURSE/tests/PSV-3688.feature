@@ -26,13 +26,6 @@ Feature: Adding activities in Folder Resource Tab
             | addReadingButton         |  About The Authors                            |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
-        And I add folders in resource tab
-            | folders           |
-            | Reading           |  
-            | Learning Curve    |
-            | Assesment         |
-            | ReadandPractice   |
-
         And I add the activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
@@ -55,11 +48,11 @@ Feature: Adding activities in Folder Resource Tab
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the resources from the Template
-            | folders           |
-            | Reading           |  
-            | Learning Curve    |
-            | Assesment         |
-            | ReadandPractice   |
+            | folders           | message                                 |
+            | Reading           | 'Reading' has been removed.             |
+            | Learning Curve    | 'Learning Curve' has been removed.      |
+            | Assesment         | 'Assesment' has been removed.           |
+            | ReadandPractice   | 'ReadandPractice' has been removed.     |
 
         Then I verify that resources are deleted from Template 
             | folders           |

@@ -81,6 +81,9 @@ When('I add folders in resource tab', async function (data_table) {
 
 When('I add the activities to respective folders in resource tab', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('addFolder');
+    await pages.resources.populate('folderName', data_table.hashes()[i].folders);
+    await pages.resources.click('addFolderButton');
     await pages.resources.click('threeButtonActivities', data_table.hashes()[i].activity);
     await pages.resources.click('moveItem');
     await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
@@ -110,6 +113,7 @@ When('I delete the resources from the Template', async function (data_table) {
     await pages.resources.click('threeButtonResources', data_table.hashes()[i].folders);
     await pages.resources.click('removeItem');
     await pages.resources.click('confirmRemoveItem');
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
   }
 });
 
