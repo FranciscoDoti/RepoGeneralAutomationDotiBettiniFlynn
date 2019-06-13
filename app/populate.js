@@ -97,8 +97,10 @@ const populateTextField = async function (selector, value, WebElementObject) {
     await selector.clear();
   }
 
-  await selector.sendKeys(value);
-  log.debug(`Post populate text field value: ${eleValue}`);
+  if (value != ''){
+    await selector.sendKeys(value);
+    log.debug(`Post populate text field value: ${eleValue}`);
+  }
 
   if (localSpecialInstr.toLowerCase().includes('tabafter')) {
     log.debug('Hitting tab key');
