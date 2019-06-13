@@ -19,14 +19,14 @@ Feature: Adding activities in Folder Resource Tab
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        And I add the activities in resources to "Quantitative Template" template
+        And I add the following activities in resources to "Quantitative Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         |  About The Authors                            |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
-        And I add the activities to respective folders in resource tab
+        And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
@@ -55,14 +55,14 @@ Feature: Adding activities in Folder Resource Tab
             | About The Authors                             | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
-        When I delete the resources from the Template
+        When I delete the following resources from the Template
             | folders           | message                                 |
             | Reading           | 'Reading' has been removed.             |
             | Learning Curve    | 'Learning Curve' has been removed.      |
             | Assesment         | 'Assesment' has been removed.           |
             | ReadandPractice   | 'ReadandPractice' has been removed.     |
 
-        Then I verify that resources are deleted from Template 
+        Then I verify that the following resources are not present in the Template 
             | folders           |
             | Reading           |  
             | Learning Curve    |
