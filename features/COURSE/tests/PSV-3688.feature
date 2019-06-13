@@ -40,7 +40,15 @@ Feature: Adding activities in Folder Resource Tab
             | Assesment         | moveToEnd      |
             | ReadandPractice   | moveUpButton   |
 
-        Then I verify the activities are added in folders
+        Then I verify that resources are reordered
+            | folders         | orderNumber |
+            | ReadandPractice | 1           |
+            | Reading         | 2           |
+            | Learning Curve  | 3           |
+            | Assesment       | 4           |
+
+
+        And I verify the activities are added in folders
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |

@@ -122,3 +122,9 @@ Then('I verify that resources are deleted from Template', async function (data_t
     await pages.resources.assertElementDoesNotExist('threeButtonResources', data_table.hashes()[i].folders);
   }
 });
+
+Then('I verify that resources are reordered', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.assertTextIncludes('resourcesReorderVerification', data_table.hashes()[i].orderNumber, data_table.hashes()[i].folders);
+  }
+})
