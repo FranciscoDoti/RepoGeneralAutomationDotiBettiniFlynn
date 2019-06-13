@@ -52,14 +52,7 @@ Feature: Instructor adds folder, remove folder and reorders it
             | LC1551301608988                                                   |
             | About The Authors                                                 |
             | LCRP1550612138614                                                 |
-
-        And I add folders in courseplanner
-            | folders           |
-            | Reading           |  
-            | Learning Curve    |
-            | Assesment         |
-            | ReadandPractice   |
-        
+ 
         And I add the activities to respective folders in courseplanner
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |

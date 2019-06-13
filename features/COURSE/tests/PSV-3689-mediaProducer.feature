@@ -27,12 +27,6 @@ Feature: Adding activities in Folder courseplanner
             | addReadingButton         |  About The Authors                            |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
-        And I add folders in courseplanner
-            | folders           |
-            | Reading           |  
-            | Learning Curve    |
-            | Assesment         |
-            | ReadandPractice   |
 
         And I add the activities in courseplanner
             | activity                                                          | 

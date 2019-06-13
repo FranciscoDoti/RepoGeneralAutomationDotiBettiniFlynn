@@ -81,6 +81,9 @@ When('I add folders in resource tab', async function (data_table) {
 
 When('I add the activities to respective folders', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('addFolder');
+    await pages.resources.populate('folderName', data_table.hashes()[i].folders);
+    await pages.resources.click('addFolderButton');
     await pages.resources.click('threeButtonActivities', data_table.hashes()[i].activity);
     await pages.resources.click('moveItem');
     await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
@@ -131,6 +134,7 @@ When('I add folders in courseplanner', async function (data_table) {
 });
 
 When('I add the activities in courseplanner', async function (data_table) {
+  await pages.coursePage.click('coursePlanner');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('customContentButton');
     await pages.coursePlanner.click('libraryTab');
@@ -142,6 +146,10 @@ When('I add the activities in courseplanner', async function (data_table) {
 
 When('I add the activities to respective folders in courseplanner', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('addUnit');
+    await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
+    await pages.coursePlanner.click('parentFolder');
+    await pages.coursePlanner.click('addUnitButton');
     await pages.coursePlanner.click('actionButton', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('actionMoveItemToFolder');
     await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
