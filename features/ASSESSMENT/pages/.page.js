@@ -6,7 +6,8 @@ let pages = {
     createAssessment: new PageObject('createAssessment.json', stepsPath),
     assessmentListPage: new PageObject('assessmentListPage.json', stepsPath),
     newAssessmentModal: new PageObject('newAssessmentModal.json', stepsPath),
-    questionBank: new PageObject('questionBank.json', stepsPath)
+    questionBank: new PageObject('questionBank.json', stepsPath),
+    assignmentTab: new PageObject('assignmentTab.json', stepsPath)
 };
 
 module.exports ={

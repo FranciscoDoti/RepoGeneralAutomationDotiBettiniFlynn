@@ -1,0 +1,9 @@
+{"webElements": [
+    {
+        "name": "AssignmentTab",
+        "byType": "css",
+        "definition": "a[data-test-id='link-to-assignment']",
+        "frame": "aeIframe",
+        "specialInstr": "NA"
+    }
+]}

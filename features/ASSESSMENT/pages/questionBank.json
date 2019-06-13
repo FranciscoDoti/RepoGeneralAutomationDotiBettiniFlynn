@@ -7,10 +7,25 @@
         "specialInstr": "NA"
     },
     {
-        "name": "QBitems",
+        "name": "QBitemsCheckbox",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "QBActionBarButtonsLabel",
         "byType": "css",
-        "definition": ".list-item-container .item",
+        "definition": "div[data-test-id='action-bar-button-label']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "QBActionBarButtons",
+        "byType": "css",
+        "definition": "button.action-bar-button",
         "frame": "aeFrame",
         "specialInstr": "NA"
     }
+    
 ]}

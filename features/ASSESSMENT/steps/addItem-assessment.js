@@ -48,17 +48,23 @@ Given('I create a new assessment with its necessary details', async function () 
 });
 
 
-When('I have added an item to assessment', async function () {
+When(/^I have added "(.*)" random item to assessment$/, async function (count) {
 // Write code here that turns the phrase above into concrete actions
-    let itemList = await ngaPages.questionBank.getWebElements("QBitems")
-    console.log(itemList.length);
-    // await ngaPages.questionBank.click()
-    for (let item in itemList){
-      await item.addEventListener('click', function(event) {
-        alert(event.target.attributes); 
-      })
+    for (let i= 1; i <= count ; i++){
+      await ngaPages.questionBank.click("QBitemsCheckbox", i);
     }
+    let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
+    let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
+    for (let i = 0; i < actionBarButtonsLabel.length; i++) {
+      let buttonText = await actionBarButtonsLabel[i].getText();
+      if (buttonText==="ADD"){
+        await actionBarButtons[i].click();
+        break;
+      }
+    }
+    await ngaPages.assignmentTab.click('AssignmentTab');
 });
+
 
 
 Then('I see the item present in the assessment', function () {
