@@ -16,7 +16,7 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "latest",
+    "chromedriver": "74.0",
     "csvtojson": "latest",
     "cucumber": "latest",
     "dateformat": "latest",
