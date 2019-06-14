@@ -8,6 +8,8 @@ let pages = {
     newAssessmentModal: new PageObject('newAssessmentModal.json', stepsPath),
     questionBank: new PageObject('questionBank.json', stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath)
+    moldraw: new PageObject('moldraw.json',stepsPath),
+    multipleSelect: new PageObject('multipleSelect.json',stepsPath)
 };
 
 module.exports ={

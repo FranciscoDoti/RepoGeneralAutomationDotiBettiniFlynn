@@ -22,14 +22,14 @@ Feature:  New graph editor
         And I verify the graph editor "ID" has "no" graph Id number
 
     Scenario:  Verifies the graph url ID when an existing graph is open from window icon
-
-        When I click the "window" icon for graphId "14"
-        Then I verify the graphId "14" editor will open in a new tab in edit mode
+        # Hard coding id values is bad because it will require manual maintenance when int rebuilds bc data replication from live
+        When I click the "window" icon for graphId "258" 
+        Then I verify the graphId "258" editor will open in a new tab in edit mode
         And I verify the graph editor "url" has "a" graph Id number
 
     Scenario: Verifies the graph url when an existing graph is open from preview icon
-
-        When I click the "preview" icon for graphId "14"
+        # Hard coding id values is bad because it will require manual maintenance when int rebuilds bc data replication from live
+        When I click the "preview" icon for graphId "258" 
         Then I verify the graph editor will open in a new tab in student preview mode
         And I verify the graph editor "url" has "a" graph Id number
 
@@ -53,7 +53,7 @@ Feature:  New graph editor
         When I click on new Graph button
         Then I verify new graph editor opens in a new tab with that tab in focus
         When I click on the student preview button
-        Then I verify right and left hand setting panels, edit and Save buttons are not visible and graph is displayed with "Previewing as Student" in header bar
+        Then I verify author panels and controls not visible and graph is displayed with student header bar
 
     Scenario: Verifies addition of new row in AMS tab when a new graph is saved
         # Test Cases: C3191303

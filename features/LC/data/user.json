@@ -1,0 +1,134 @@
+{
+    "dev": {
+      "instructor":{
+        "firstName":"Automation",
+        "lastName":"Instructor",
+        "email":"Instructor@auto.test",
+        "userId":"fake_user_523595208",
+        "userType": "instructor",
+        "admin": false
+      },
+      "student1":{
+        "firstName":"Automation",
+        "lastName":"Student1",
+        "email":"Student1@auto.test",
+        "userId":"fake_user_1045355543",
+        "userType": "student",
+        "admin": false
+      },
+      "student2":{
+        "firstName":"Automation",
+        "lastName":"Student2",
+        "email":"Student2@auto.test",
+        "userId":"fake_user_2029375234",
+        "userType": "student",
+        "admin": false
+      }
+    },
+    "int": {
+      "instructor":{
+        "firstName":"Automation",
+        "lastName":"Instructor",
+        "email":"Instructor@auto.test",
+        "userId":"fake_user_1396301957",
+        "userType": "instructor",
+        "admin": false
+      },
+      "student1":{
+        "firstName":"Automation",
+        "lastName":"Student1",
+        "email":"Student1@auto.test",
+        "userId":"fake_user_1776216624",
+        "userType": "student",
+        "admin": false
+      },
+      "student2":{
+        "firstName":"Automation",
+        "lastName":"Student2",
+        "email":"Student2@auto.test",
+        "userId":"fake_user_239169258",
+        "userType": "student",
+        "admin": false
+      }
+    },
+    "achieve": {
+      "instructor":{
+        "firstName":"Automation",
+        "lastName":"Instructor",
+        "email":"Instructor@auto.test",
+        "userId":"fake_user_191697968",
+        "userType": "instructor",
+        "admin": false
+      },
+      "student1":{
+        "firstName":"Automation",
+        "lastName":"Student1",
+        "email":"Student1@auto.test",
+        "userId":"fake_user_1181076082",
+        "userType": "student",
+        "admin": false
+      },
+      "student2":{
+        "firstName":"Automation",
+        "lastName":"Student2",
+        "email":"Student2@auto.test",
+        "userId":"fake_user_1949024581",
+        "userType": "student",
+        "admin": false
+      }
+    },
+    "uat": {
+      "instructor":{
+        "firstName":"Automation",
+        "lastName":"Instructor",
+        "email":"Instructor@auto.test",
+        "userId":"fake_user_1441188053",
+        "userType": "instructor",
+        "admin": false
+      },
+      "student1":{
+        "firstName":"Automation",
+        "lastName":"Student1",
+        "email":"Student1@auto.test",
+        "userId":"fake_user_817975468",
+        "userType": "student",
+        "admin": false
+      },
+      "student2":{
+        "firstName":"Automation",
+        "lastName":"Student2",
+        "email":"Student2@auto.test",
+        "userId":"fake_user_611775137",
+        "userType": "student",
+        "admin": false
+      }
+    },
+    "demo":{},
+    "preprod":{
+      "instructor":{
+        "firstName":"Automation",
+        "lastName":"Instructor",
+        "email":"Instructor@auto.test",
+        "userId":"fake_user_1918564709",
+        "userType": "instructor",
+        "admin": false
+      },
+      "student1":{
+        "firstName":"Automation",
+        "lastName":"Student1",
+        "email":"Student1@auto.test",
+        "userId":"fake_user_942841704",
+        "userType": "student",
+        "admin": false
+      },
+      "student2":{
+        "firstName":"Automation",
+        "lastName":"Student2",
+        "email":"Student2@auto.test",
+        "userId":"fake_user_1365897964",
+        "userType": "student",
+        "admin": false
+      }
+    },
+    "prod":{}
+  }

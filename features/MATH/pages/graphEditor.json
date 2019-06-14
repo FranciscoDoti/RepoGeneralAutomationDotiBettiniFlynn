@@ -10,7 +10,7 @@
         "byType": "css",
         "definition": "input[data-test-id='graph-title-input']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "overwrite enterafter"
     }, {
         "name": "editTitleButton",
         "byType": "css",
@@ -61,7 +61,7 @@
         "specialInstr": "NA"
     }, {
         "name": "settingsIcon",
-        "byType": "id",
+        "byType": "css",
         "definition": "i.dcg-icon-wrench",
         "frame": "default",
         "specialInstr": "NA"

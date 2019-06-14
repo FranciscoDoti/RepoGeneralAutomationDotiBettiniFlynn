@@ -1,41 +1,206 @@
 {
-"webElements": [{
-    "name": "addLink",
-    "byType": "css",
-    "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
-    "frame": "default",
-    "specialInstr": "NA"
-},{
-    "name": "modulePallete",
-    "byType": "xpath",
-    "definition": "//div[@data-test-id='<ReplaceText>']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "contentArea",
-    "byType": "css",
-    "definition": "div[class='content-preview']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "moreButton",
-    "byType": "css",
-    "definition": "h2[data-test-id='PRIMARY MORE']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "saveAsDraft",
-    "byType": "css",
-    "definition": "li[id='save-button']",
-    "frame": "default",
-    "specialInstr": "NA" 
-},{
-    "name": "amsItemCreate",
-    "byType": "css",
-    "definition": "tr[data-id='<ReplaceText>']",
-    "frame": "default",
-    "specialInstr": "NA" 
+    "webElements": [{
+            "name": "addLink",
+            "byType": "css",
+            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "modulePallete",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "contentArea",
+            "byType": "css",
+            "definition": "section[id='primary-content-area']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "moreButton",
+            "byType": "css",
+            "definition": "h2[data-test-id='PRIMARY MORE']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "saveAsDraft",
+            "byType": "css",
+            "definition": "li[id='save-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "amsItemCreate",
+            "byType": "css",
+            "definition": "tr[data-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addCorrectContextButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-correct-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addIncorrectContextButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-incorrect-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "checkAnswerSwitchMenu",
+            "byType": "css",
+            "definition": "div[class='slider round']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "activeTab",
+            "byType": "css",
+            "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active-disabled.disabled",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "itemDetailsTitle",
+            "byType": "css",
+            "definition": "#item-details-container > div > div > div:nth-child(4) > input[type=text]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "itemDetailsDoneButton",
+            "byType": "css",
+            "definition": "#authoring-menu-bar > div:nth-child(3) > div > div.cdl-dialog-actions > input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "variablesChevron",
+            "byType": "css",
+            "definition": "#algos-button > span",
+            "frame": "default",
+            "specialInstr": "noclear"
+        },
+        {
+            "name": "addListVariableButton",
+            "byType": "css",
+            "definition": "#algos-container > div.algo-controls > button:nth-child(1)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addRangeAlgoButton",
+            "byType": "css",
+            "definition": "#algos-container > div.algo-controls > button:nth-child(2)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addCalculatedAlgoButton",
+            "byType": "css",
+            "definition": "#algos-container > div.algo-controls > button:nth-child(3)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addRowButton",
+            "byType": "css",
+            "definition": "#algos-container > div.list-algo-div > button:nth-child(2)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addColumnButton",
+            "byType": "css",
+            "definition": "#algos-container > div.list-algo-div > button:nth-child(3)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "variableTypeDropdown",
+            "byType": "xpath",
+            "definition": "//table[@class='table list-algo-table']/tbody/tr[<ReplaceText>]/td/select",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "variableNameTextbox",
+            "byType": "xpath",
+            "definition": "//table[@class='table list-algo-table']/tbody/tr[<ReplaceText>]/td[4]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "variableValue1Textbox",
+            "byType": "xpath",
+            "definition": "//table[@class='table list-algo-table']/tbody/tr[<ReplaceText>]/td[5]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "variableValue2Textbox",
+            "byType": "xpath",
+            "definition": "//table[@class='table list-algo-table']/tbody/tr[<ReplaceText>]/td[6]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "rangeNameTextbox",
+            "byType": "xpath",
+            "definition": "//td[.='Range']/../../tr[<ReplaceText>]/td[4]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "rangeMinimumTextbox",
+            "byType": "xpath",
+            "definition": "//td[.='Range']/../../tr[<ReplaceText>]/td[5]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "rangeMaximumTextbox",
+            "byType": "xpath",
+            "definition": "//td[.='Range']/../../tr[<ReplaceText>]/td[6]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "rangeIncrementTextbox",
+            "byType": "xpath",
+            "definition": "//td[.='Range']/../../tr[<ReplaceText>]/td[7]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "calculatedNameTextbox",
+            "byType": "xpath",
+            "definition": "//td[.='Calculated']/../../tr[<ReplaceText>]/td[4]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "calculatedEquationTextbox",
+            "byType": "xpath",
+            "definition": "//td[.='Calculated']/../../tr[<ReplaceText>]/td[5]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "cycleVariablesButton",
+            "byType": "xpath",
+            "definition": "//div[@class='cycle-variables-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }
-]
-}
-

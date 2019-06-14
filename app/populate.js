@@ -54,8 +54,7 @@ const populateSelect = async function (selector, item, WebElementData) {
     await selector.selectByValue(item);
   } else {
     const options = await selector.findElements(By.tagName('option'));
-    for await (let option of options)
-    {
+    for await (let option of options) {
       const optionText = await option.getText();
       if (item === optionText) {
         await option.click();
@@ -96,8 +95,10 @@ const populateTextField = async function (selector, value, WebElementObject) {
     await selector.clear();
   }
 
-  await selector.sendKeys(value);
-  log.debug(`Post populate text field value: ${eleValue}`);
+  if (value != ''){
+    await selector.sendKeys(value);
+    log.debug(`Post populate text field value: ${eleValue}`);
+  }
 
   if (localSpecialInstr.toLowerCase().includes('tabafter')) {
     log.debug('Hitting tab key');
