@@ -1,0 +1,31 @@
+{"webElements": [
+    {
+        "name": "aeFrame",
+        "byType": "css",
+        "definition": "#aeIframe",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "QBitemsCheckbox",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "QBActionBarButtonsLabel",
+        "byType": "css",
+        "definition": "div[data-test-id='action-bar-button-label']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "QBActionBarButtons",
+        "byType": "css",
+        "definition": "button.action-bar-button",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    }
+    
+]}
