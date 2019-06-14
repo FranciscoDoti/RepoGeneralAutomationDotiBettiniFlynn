@@ -6,16 +6,8 @@ const urls = require(`${process.cwd()}/config/urls.json`);
 const { visitURL, sleep, getTitle, getDriver} = require(`${process.cwd()}/app/driver`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const { assert, expect } = require('chai');
-
-
-// When(/^I add the "(.*)" module$/, async function (moduleType) {
-//     await mathpages.ams.click('raptorNewItem');
-//     await mathpages.raptorAms.switchToTab('Raptor Authoring');
-//     await mathpages.raptorAms.assertElementExists('menuBarAdd');
-//     await pages.raptor.click('addLink');
-//     await pages.raptor.click('modulePallete',moduleType);
-//     await pages.raptor.click('contentArea');
-// });
+var QBTabQuestionSet= new Set();
+var assignmentQuestionSet = new Set();
 
 Given(/^I login to an existing course as "(.*)"$/, async function (userType){
     let url = await _.get(urls, ['IBISCMS-Roadshow', this.environment]);
@@ -41,7 +33,6 @@ Given('I create a new assessment with its necessary details', async function () 
     await ngaPages.assessmentListPage.scrollElementIntoView('addAssessment');
     await assert.include(await getTitle(), "Roadshow", "Title is same!"); 
     await ngaPages.assessmentListPage.populate("addAssessment", "Assessment");
-    //add asseesment details
     await ngaPages.createAssessment.populate("assessmentName", assessment_name);
     await ngaPages.createAssessment.click("saveAndContinue");
     await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
@@ -52,6 +43,8 @@ When(/^I have added "(.*)" random item to assessment$/, async function (count) {
 // Write code here that turns the phrase above into concrete actions
     for (let i= 1; i <= count ; i++){
       await ngaPages.questionBank.click("QBitemsCheckbox", i);
+      var questionIdElement = await ngaPages.questionBank.addDynamicElement('questionsId', i);
+      QBTabQuestionSet.add(await ngaPages.questionBank.getAttributeValue(questionIdElement, 'id'))
     }
     let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
     let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
@@ -66,8 +59,12 @@ When(/^I have added "(.*)" random item to assessment$/, async function (count) {
 });
 
 
-
-Then('I see the item present in the assessment', function () {
+Then('I see the item present in the assessment', async function () {
 // Write code here that turns the phrase above into concrete actions
-return 'pending';
-});
+let itemList =  await ngaPages.assignmentTab.getWebElements('itemList');
+for (let i= 1; i <= itemList.length-1 ; i++){
+  var assignmentQuestionIds = await ngaPages.assignmentTab.addDynamicElement('questionsId', i);
+  assignmentQuestionSet.add(await ngaPages.assignmentTab.getAttributeValue(assignmentQuestionIds, 'id'));
+}
+assert.deepEqual(assignmentQuestionSet, QBTabQuestionSet);
+}); 

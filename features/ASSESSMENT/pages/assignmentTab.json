@@ -1,9 +1,30 @@
 {"webElements": [
     {
+        "name": "aeFrame",
+        "byType": "css",
+        "definition": "#aeIframe",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
         "name": "AssignmentTab",
         "byType": "css",
         "definition": "a[data-test-id='link-to-assignment']",
-        "frame": "aeIframe",
+        "frame": "aeFrame",
         "specialInstr": "NA"
+    },
+    {
+        "name": "itemList",
+        "byType": "css",
+        "definition": ".ae-checkbox",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "questionsId",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
+        "frame": "aeFrame",
+        "specialInstr":"NA"
     }
 ]}

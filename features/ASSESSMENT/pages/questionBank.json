@@ -26,6 +26,12 @@
         "definition": "button.action-bar-button",
         "frame": "aeFrame",
         "specialInstr": "NA"
+    },
+    {
+        "name": "questionsId",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
     }
-    
 ]}

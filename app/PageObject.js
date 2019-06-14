@@ -396,6 +396,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.populate = populateElement;
   that.click = clickElement;
   that.getAttributeValue = getAttributeValue;
+  that.addDynamicElement = addDynamicElement;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
   that.assertElementExists = assertExists;
