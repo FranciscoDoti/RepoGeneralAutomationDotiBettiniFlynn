@@ -77,16 +77,3 @@ Feature: Adding activities in Folder courseplanner
             | Learning Curve    |
             | Assesment         |
             | ReadandPractice   |
-
-
-
-
-
-
-
-    
-    
-
-
-
-       

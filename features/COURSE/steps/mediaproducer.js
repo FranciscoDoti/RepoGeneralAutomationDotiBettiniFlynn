@@ -197,3 +197,32 @@ Then(/^I verify that resources are reordered in "(.*)"$/, async function (course
     await pages.coursePlanner.assertTextIncludes('reorderValidation', data_table.hashes()[i].orderNumber, data_table.hashes()[i].activities);
   }
 });
+
+Then('I verify that resources are reordered in ebook', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.eBook.assertTextIncludes('reorderValidation', data_table.hashes()[i].orderNumber, data_table.hashes()[i].activities);
+  }
+});
+
+When('I add the activities to respective folders in ebook', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('addUnit');
+    await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
+    await pages.coursePlanner.click('parentFolder');
+    await pages.coursePlanner.click('addUnitButton');
+    await pages.eBook.click('actionButton', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('actionMoveItemToFolder');
+    await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
+    await pages.resources.click('placeInFolder');
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message);
+  }
+});
+
+When('I delete the resources from the Template in ebook', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.eBook.click('actionButtonResources', data_table.hashes()[i].folders);
+    await pages.coursePlanner.click('actionRemoveItem');
+    await pages.resources.click('confirmRemoveItem');
+    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+  }
+})
