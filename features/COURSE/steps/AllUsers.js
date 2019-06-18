@@ -88,3 +88,7 @@ When(/^I attempt "(.*)" learning curve activity$/, async function (activityName,
     }
   }
 });
+
+Then(/^I verify that "(.*)" course has the following information$/, async function (courseName, data_table) {
+
+});

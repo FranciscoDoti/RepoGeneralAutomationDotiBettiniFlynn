@@ -1,5 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const _ = require('lodash');
 
 When('I create Course Template with the data', async function (data_table) {
   await pages.createCourse.click('createCourseButton');
@@ -60,7 +62,7 @@ Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async fu
 });
 
 When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
-  await pages.createCourse.click('button');
+  await pages.createCourse.click('createCourseButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
       await pages.createCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
@@ -226,3 +228,13 @@ When('I delete the resources from the Template in ebook', async function (data_t
     await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
   }
 })
+
+When(/I add "(.*)" as collaborator to "(.*)"$/, async function (user, courseName) {
+  let payload = await _.get(users, [this.environment, user]);
+  await pages.home.click('achieveHome');
+  await pages.courseList.click('courseMenu', courseName);
+  await pages.createCourse.click('shareTemplate');
+  await pages.createCourse.populate('collaboratorsEmail', payload.username);
+  await pages.createCourse.click('addCollaborators');
+  await pages.createCourse.click('closeCollaboratorModal');
+});
