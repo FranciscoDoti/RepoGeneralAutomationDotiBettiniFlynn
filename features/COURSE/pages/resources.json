@@ -140,12 +140,6 @@
         "frame": "default",
         "specialInstr": "NA"
     },{
-        "name": "folderName",
-        "byType": "css",
-        "definition": "[data-test-id='add_folder_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
         "name": "moveItem",
         "byType": "css",
         "definition": "[data-test-id='move_item_to_folder']",
