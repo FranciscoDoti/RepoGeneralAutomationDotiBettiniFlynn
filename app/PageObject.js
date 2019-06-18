@@ -121,12 +121,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const webElement = await WebElementObject.getWebElement();
       const tagName = await webElement.getTagName();
       switch (tagName.toLowerCase()) {
-        case 'input': 
+        case 'input':
         case 'textarea':
-        case 'button':
-        await populateInput(webElement, value, actionElement);
+          await populateInput(webElement, value, actionElement);
           break;
         case 'a':
+        case 'button':
         case 'div':
         case 'span':
         case 'ul':
@@ -199,15 +199,15 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       // Generate a list of NA for the page object.
       var NAList = "";
       var i;
-      var elementCount = that.pageElements.length; 
-      for (i = 0; i < elementCount; i++) { 
+      var elementCount = that.pageElements.length;
+      for (i = 0; i < elementCount; i++) {
         NAList += _NA;
       }
       console.log(`${NAList}|`);
 
     } catch (err) {
-        log.error(err.stack);
-        throw err;
+      log.error(err.stack);
+      throw err;
     }
   }
 
@@ -325,11 +325,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       await addDynamicElement(elementName, replaceText);
       elementName = elementName + (replaceText || '');
     }
-    
+
     try {
       const actualValue = await getAttributeValue(elementName);
       log.info(`Asserting text for "${elementName}".`);
-      if(await expect(actualValue).to.include(expectedValue)){
+      if (await expect(actualValue).to.include(expectedValue)) {
         log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
       };
     } catch (err) {
@@ -347,7 +347,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const populateElement = async function (elementName, strValue) {
+  const populateElement = async function (elementName, replaceText, strValue) {
+    if (strValue === undefined) {
+      strValue = replaceText;
+    } else {
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+    }
+
     try {
       log.info(`Starting populate the web element: ${elementName} with value ${strValue}`);
       strValue = await sp.strEval(strValue);
