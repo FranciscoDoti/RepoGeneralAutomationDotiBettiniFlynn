@@ -39,9 +39,9 @@
     },{
         "name": "QuestionPromptEditArea",
         "byType": "css",
-        "definition": ".rte-edit-area",
+        "definition": ".notranslate.public-DraftEditor-content",
         "frame": "aeframe",
-        "specialInstr": "noclick"
+        "specialInstr": "NA"
     },{
         "name": "ImageButton",
         "byType": "css",
@@ -53,7 +53,7 @@
         "byType": "css",
         "definition": ".image-upload-form input",
         "frame": "aeframe",
-        "specialInstr": "NA"
+        "specialInstr": "noclick"
     },{
         "name": "AddImage",
         "byType": "xpath",
@@ -95,6 +95,30 @@
         "byType": "css",
         "definition": ".collapsible-header",
         "frame": "aeframe",
+        "specialInstr": "NA"
+    },{
+        "name": "HatchlingSave",
+        "byType": "css",
+        "definition": "button[data-test-id=hatchling-create-update-button]",
+        "frame": "aeframe",
+        "specialInstr": "NA"
+    },{
+        "name": "listAssessments",
+        "byType": "xpath",
+        "definition": "//span[contains(text(),'QAAssessment')]/../../..//div",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "listAssessmentsDelete",
+        "byType": "xpath",
+        "definition": "//span[contains(text(),'QAAssessment')]/../../..//div//ul//a[@title='Delete']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "SubmitYes",
+        "byType": "css",
+        "definition": "input[value=' Yes ']",
+        "frame": "default",
         "specialInstr": "NA"
     }
 ]}
