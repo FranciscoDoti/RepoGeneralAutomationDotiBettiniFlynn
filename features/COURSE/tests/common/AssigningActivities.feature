@@ -20,7 +20,7 @@ Feature: Assigning the activities present in the course
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        And I add the activities in resources to "Quantitative Template" template
+        And I add the following activities in resources to "Quantitative Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
