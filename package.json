@@ -14,7 +14,8 @@
     "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
     "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json",
     "AC":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/add-collaborator.feature -f json:reports/cucumber_report.json",
-    "Media": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-update-template.feature -f json:reports/cucumber_report.json"
+    "Media": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-update-template.feature -f json:reports/cucumber_report.json",
+    "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-viewaccess.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"

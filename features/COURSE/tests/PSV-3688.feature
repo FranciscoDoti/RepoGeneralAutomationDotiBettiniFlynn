@@ -3,7 +3,7 @@ Feature: Adding activities in Folder Resource Tab
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When I create "Quantitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |

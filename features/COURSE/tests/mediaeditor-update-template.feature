@@ -1,9 +1,10 @@
 Feature: Media Editor is able to create a template and update
 
+   @delete-ISBN-9781464199499
     Scenario: Verify that media editor is bale to create a template and update it 
 
         Given I login to Achieve-CW as "media_editor_1"
-        When I create "Quantitative Course Template" with the data 
+        When I create Course Template with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
@@ -14,7 +15,7 @@ Feature: Media Editor is able to create a template and update
             | courseStatus      | draft                        |
 
         Then I verify that "Quantitative Template Created." message is displayed
-        And I verify that "Quantitative Course Template" has created with following "ISBN: 9781464199499" number
+        And I verify that "Quantitative Template" has created with following "ISBN: 9781464199499" number
 
        And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
@@ -22,4 +23,8 @@ Feature: Media Editor is able to create a template and update
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        Then I verify that "Quantitative Template updated." message is displayed
+        Then I verify that "Quantitative Template" is created with following data
+            | field                 | value                     |
+            | courseCardName        | Quantitative Template     |
+            | courseDate            |  E2E 301                  |
+            | courseShortId         | Template                  |

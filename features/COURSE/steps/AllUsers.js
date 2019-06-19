@@ -89,6 +89,9 @@ When(/^I attempt "(.*)" learning curve activity$/, async function (activityName,
   }
 });
 
-Then(/^I verify that "(.*)" course has the following information$/, async function (courseName, data_table) {
-
+Then(/^I verify that "(.*)" is created with following data$/, async function (courseName, data_table) {
+  await pages.courseList.populate('search', courseName);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.createCourse.assertTextIncludes(data_table.hashes()[i].field, data_table.hashes()[i].value);
+  }
 });

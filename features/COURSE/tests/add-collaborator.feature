@@ -1,9 +1,10 @@
 Feature: Adding collaborator to the template 
 
+    @delete-mediaproducer-courses
     Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to the template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When I create "Quantitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
@@ -26,6 +27,7 @@ Feature: Adding collaborator to the template
             | addReadingButton        |  About The Authors                            |
 
         And I add "media_editor_1" as collaborator to "Quantitative Template"
+        And I sign out of Achieve
         And I login to Achieve-CW as "media_editor_1"
 
         Then I verify that "Quantitative Template" is present and media editor has access to it has collaborator

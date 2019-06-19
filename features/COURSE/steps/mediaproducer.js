@@ -4,7 +4,7 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const _ = require('lodash');
 
 When('I create Course Template with the data', async function (data_table) {
-  await pages.createCourse.click('createCourseButton');
+  await pages.createCourse.click('plusButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
       await pages.createCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
@@ -14,7 +14,6 @@ When('I create Course Template with the data', async function (data_table) {
   }
 
   await pages.createCourse.click('save');
-  await pages.home.click('closeAlert');
 });
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
@@ -54,14 +53,17 @@ When(/^I copy course from the "(.*)" template with the following data$/, async f
 });
 
 Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
-  await pages.home.assertTextIncludes('closeAlert', message);
+  await pages.home.assertTextIncludes('alert', message);
 });
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
-  await pages.home.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
+  await pages.courseList.populate('search', courseName);
+  await pages.createCourse.assertElementExists('ISBNVerification', courseName);
+  await pages.createCourse.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
 });
 
 When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
+  await pages.createCourse.assertElementExists('createCourseButton');
   await pages.createCourse.click('createCourseButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
