@@ -6,6 +6,8 @@
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
+    "create-hatchling": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json",
+    "moldraw-simple-structure-grade": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
     "NGA-7194": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/addItem-assessment.feature -f json:reports/cucumber_report.json",
     "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
     "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json"
@@ -17,7 +19,7 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "latest",
+    "chromedriver": "74.0",
     "csvtojson": "latest",
     "cucumber": "latest",
     "dateformat": "latest",

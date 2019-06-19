@@ -5,8 +5,7 @@
         "definition": "#id_name",
         "frame": "default",
         "specialInstr": "NA"
-    },
-    {
+    }, {
         "name": "saveAndContinue",
         "byType": "css",
         "definition": "#id_submitbutton",

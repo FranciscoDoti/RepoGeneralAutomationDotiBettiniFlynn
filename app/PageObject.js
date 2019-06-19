@@ -124,9 +124,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'input':
         case 'textarea':
         case 'button':
-        await populateInput(webElement, value, actionElement);
+          await populateInput(webElement, value, actionElement);
           break;
         case 'a':
+        case 'button':
         case 'div':
         case 'span':
         case 'ul':

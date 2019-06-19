@@ -18,6 +18,7 @@ const populateInput = async function (selector, value, WebElementObject) {
 
     case 'email':
     case 'text':
+    case 'file':
     case 'textarea':
     case 'password':
       await populateTextField(selector, value, WebElementObject);
@@ -39,6 +40,7 @@ const populateInput = async function (selector, value, WebElementObject) {
         log.debug('Bypassing the button click');
       }
       break;
+
 
     default:
     assert.fail(`ERROR: populateInput() failed because the input type ${type} has not been coded for.`);
