@@ -7,7 +7,6 @@ const pages = {
     graphTab: new PageObject('graphTab.json', stepsPath),
     graphEditor: new PageObject('graphEditor.json', stepsPath),
     palette: new PageObject('palette.json', stepsPath),
-    nonPalette: new PageObject('nonPalette.json', stepsPath),
 };
 
 module.exports = {

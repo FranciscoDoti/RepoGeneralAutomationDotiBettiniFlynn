@@ -8,17 +8,13 @@ When(/^I am on the AMS page and click open a saved raptor item$/, async function
   let fs = require('fs');
 
   // reading item id number from file
-  let savedItemId = fs.readFileSync("raptor-itemId.txt").toString();
-  await pages.ams.populate('filterSearch', savedItemId.split(" ")[0]);
-  console.log("test");
-
-  await pages.ams.click('itemId', savedItemId.split(" ")[0]);
-  console.log("test11");
-
+  let savedItemId = fs.readFileSync('raptor-itemId.txt').toString();
+  await pages.ams.populate('filterSearch', savedItemId.split(' ')[0]);
+  await pages.ams.click('itemId', savedItemId.split(' ')[0]);
 });
 
 When(/^I set the item status to live$/, async function () {
-  await pages.ams.populate('itemStatus', "Live");
+  await pages.ams.populate('itemStatus', 'Live');
   await pages.ams.click('itemStatus');
   await pages.ams.click('modalSave');
 });

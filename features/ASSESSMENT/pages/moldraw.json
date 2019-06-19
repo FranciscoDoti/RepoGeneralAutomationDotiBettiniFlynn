@@ -1,6 +1,13 @@
 {
     "webElements": [
         {
+            "name": "moldrawStaticModuleCheckbox",
+            "byType": "css",
+            "definition": "input[name='answerable']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "drawingArea",
             "byType": "css",
             "definition": ".K-Widget.K-Normal-Background.K-Chem-Editor.K-Chem-Editor2D.K-NonSelectable.K-Layout-H.K-Dynamic-Created.K-State-Normal",

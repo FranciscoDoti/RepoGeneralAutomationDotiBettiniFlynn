@@ -88,3 +88,5 @@ When('I assign the activities in courseplanner', async function (data_table) {
 When(/^I click on "(.*)"$/, async function (courseName) {
   await pages.createCourse.click('courseCard', courseName);
 });
+
+
