@@ -123,7 +123,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       switch (tagName.toLowerCase()) {
         case 'input':
         case 'textarea':
-        case 'button':
           await populateInput(webElement, value, actionElement);
           break;
         case 'a':

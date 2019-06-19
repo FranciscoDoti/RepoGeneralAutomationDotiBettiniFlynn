@@ -1,0 +1,23 @@
+{
+    "webElements": [{
+        "name": "CustomQuestionTab",
+        "byType": "css",
+        "definition": "a[data-test-id='link-to-customquestions']",
+        "frame": "aeframe",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "aeframe",
+        "byType": "css",
+        "definition": "#aeIframe",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "createQuestionButton",
+        "byType": "css",
+        "definition": "button[data-test-id='add-another-button']",
+        "frame": "aeframe",
+        "specialInstr": "NA"
+    }
+]}

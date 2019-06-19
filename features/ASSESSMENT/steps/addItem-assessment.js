@@ -37,7 +37,7 @@ Given('I create a new assessment with its necessary details', async function (da
     for (let i = 0; i < datatable.rows().length; i++) {
     var assessment_name = datatable.hashes()[i].Assessment_Name + time;
     await ngaPages.createAssessment.populate('assessmentName', assessment_name);
-    await ngaPages.createAssessment.populate('assessmentDescription', datatable.hashes()[i].Assessment_Description);
+    // await ngaPages.createAssessment.populate('assessmentDescription', datatable.hashes()[i].Assessment_Description);
   }
 
     // await ngaPages.createAssessment.populate("assessmentName", assessment_name);
@@ -47,22 +47,43 @@ Given('I create a new assessment with its necessary details', async function (da
 
 
 When(/^I have added "(.*)" random item to assessment$/, async function (count) {
-// Write code here that turns the phrase above into concrete actions
-    for (let i= 1; i <= count ; i++){
-      await ngaPages.questionBank.click("QBitemsCheckbox", i);
-      var questionIdElement = await ngaPages.questionBank.addDynamicElement('questionsId', i);
-      QBTabQuestionSet.add(await ngaPages.questionBank.getAttributeValue(questionIdElement, 'id'))
+// Create number of items first 
+    await ngaPages.customQuestion.click("CustomQuestionTab");
+    for ( let i =1 ; i <= count; i++){
+      //First create number of questions 
+      // When ("I add hatchling item as numeric_entry from activity editor");
+      //https://github.com/cucumber-attic/cuke4duke/blob/master/examples/java/src/test/java/simple/CallingSteps.java
+      var item_type = "multiple_choice";
+      await ngaPages.customQuestion.click('createQuestionButton');
+      await ngaPages.assignmentTab.click('HatchlingQuestionType',item_type);
+      var timeStamp = new Date().getTime();
+      var title = item_type + timeStamp;
+      await ngaPages.hatchlingItem.click('QuestionTitle');
+      await ngaPages.hatchlingItem.populate('title',title);
+      await ngaPages.hatchlingItem.click('QuestionPromptEditArea');
+      await ngaPages.hatchlingItem.populate('QuestionPromptEditArea','Automated '+ i + ' hatchling question!');
+      await ngaPages.hatchlingItem.click('MCCorrectAnswerTextbox');
+      await ngaPages.hatchlingItem.populate('MCCorrectAnswerTextbox','Like');
+      await ngaPages.hatchlingItem.click('addAnswerButton');
+      await ngaPages.hatchlingItem.click('MCInCorrectAnswerTextbox');
+      await ngaPages.hatchlingItem.populate('MCInCorrectAnswerTextbox','Unlike');
+      await pages.assignmentTab.click('HatchlingSave');
     }
-    let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
-    let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
-    for (let i = 0; i < actionBarButtonsLabel.length; i++) {
-      let buttonText = await actionBarButtonsLabel[i].getText();
-      if (buttonText==="ADD"){
-        await actionBarButtons[i].click();
-        break;
-      }
-    }
-    await ngaPages.assignmentTab.click('AssignmentTab');
+    // for (let i= 1; i <= count ; i++){
+    //   await ngaPages.questionBank.click("QBitemsCheckbox", i);
+    //   var questionIdElement = await ngaPages.questionBank.addDynamicElement('questionsId', i);
+    //   QBTabQuestionSet.add(await ngaPages.questionBank.getAttributeValue(questionIdElement, 'id'))
+    // }
+    // let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
+    // let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
+    // for (let i = 0; i < actionBarButtonsLabel.length; i++) {
+    //   let buttonText = await actionBarButtonsLabel[i].getText();
+    //   if (buttonText==="ADD"){
+    //     await actionBarButtons[i].click();
+    //     break;
+    //   }
+    // }
+    // await ngaPages.assignmentTab.click('AssignmentTab');
 });
 
 

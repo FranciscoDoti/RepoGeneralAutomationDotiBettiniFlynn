@@ -25,7 +25,7 @@ When(/^I add hatchling item as "(.*)" from activity editor$/, async function (ha
     await pages.assignmentTab.click('HatchlingSave');
 });
 
-And(/^I delete all QA added assessments$/, async function () {
+When(/^I delete all QA added assessments$/, async function () {
     let assessments= await pages.assignmentTab.getWebElements('listAssessments');
     let deleteBtnAssessments=await pages.assignmentTab.getWebElements('listAssessmentsDelete');
     for (let i = 0; i < assessments.length; i++) {

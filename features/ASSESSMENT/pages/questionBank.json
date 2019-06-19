@@ -5,6 +5,13 @@
         "definition": "#aeIframe",
         "frame": "default",
         "specialInstr": "NA"
+    },
+    {
+        "name": "QuestionBankTab",
+        "byType": "css",
+        "definition": "a[data-test-id='link-to-questionbank']",
+        "frame": "aeframe",
+        "specialInstr": "NA"
     }, {
         "name": "QBitemsCheckbox",
         "byType": "xpath",

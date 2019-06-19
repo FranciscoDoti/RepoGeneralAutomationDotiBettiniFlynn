@@ -5,41 +5,7 @@
             "definition": "#aeIframe",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "AssignmentTab",
-            "byType": "css",
-            "definition": "a[data-test-id='link-to-assignment']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
         },
-        {
-            "name": "itemList",
-            "byType": "css",
-            "definition": ".ae-checkbox",
-            "frame": "aeFrame",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "questionsId",
-            "byType": "xpath",
-            "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
-            "frame": "aeFrame",
-            "specialInstr":"NA"
-        },
-        {
-            "name": "CreateMyOwn",
-            "byType": "css",
-            "definition": "button[data-test-id='assignment-create-actions-create-my-own']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "HatchlingQuestionType",
-            "byType": "css",
-            "definition": "a[name='<ReplaceText>']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
         {
             "name": "QuestionTitle",
             "byType": "css",
@@ -130,26 +96,33 @@
             "definition": "button[data-test-id=hatchling-create-update-button]",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "listAssessments",
-            "byType": "xpath",
-            "definition": "//span[contains(text(),'QAAssessment')]/../../..//div",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "listAssessmentsDelete",
-            "byType": "xpath",
-            "definition": "//span[contains(text(),'QAAssessment')]/../../..//div//ul//a[@title='Delete']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "SubmitYes",
             "byType": "css",
             "definition": "input[value=' Yes ']",
             "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "MCCorrectAnswerTextbox",
+            "byType": "css",
+            "definition": "div[data-test-id='hatchling-correct-choice'] .notranslate.public-DraftEditor-content",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "MCInCorrectAnswerTextbox",
+            "byType": "css",
+            "definition": "div[data-test-id='hatchling-incorrect-choice'] .notranslate.public-DraftEditor-content",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addAnswerButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-answer-choice']",
+            "frame": "aeframe",
             "specialInstr": "NA"
         }
     ]

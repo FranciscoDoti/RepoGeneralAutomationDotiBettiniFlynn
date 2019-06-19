@@ -7,6 +7,8 @@ let pages = {
     assessmentListPage: new PageObject('assessmentListPage.json', stepsPath),
     newAssessmentModal: new PageObject('newAssessmentModal.json', stepsPath),
     questionBank: new PageObject('questionBank.json', stepsPath),
+    customQuestion: new PageObject('customQuestionsTab.json',stepsPath),
+    hatchlingItem: new PageObject('hatchlingItemModal.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
     moldraw: new PageObject('moldraw.json',stepsPath),
     multipleSelect: new PageObject('multipleSelect.json',stepsPath)
