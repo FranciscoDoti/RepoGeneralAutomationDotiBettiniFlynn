@@ -26,14 +26,21 @@ Given(/^I login to an existing course as "(.*)"$/, async function (userType){
 });
 
 
-Given('I create a new assessment with its necessary details', async function () {
+Given('I create a new assessment with its necessary details', async function (datatable) {
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var assessment_name = "QAAssessment" + time;
     await ngaPages.assessmentListPage.scrollElementIntoView('addAssessment');
     await assert.include(await getTitle(), "Roadshow", "Title is same!"); 
     await ngaPages.assessmentListPage.populate("addAssessment", "Assessment");
-    await ngaPages.createAssessment.populate("assessmentName", assessment_name);
+
+    for (let i = 0; i < datatable.rows().length; i++) {
+    var assessment_name = datatable.hashes()[i].Assessment_Name + time;
+    await ngaPages.createAssessment.populate('assessmentName', assessment_name);
+    await ngaPages.createAssessment.populate('assessmentDescription', datatable.hashes()[i].Assessment_Description);
+  }
+
+    // await ngaPages.createAssessment.populate("assessmentName", assessment_name);
     await ngaPages.createAssessment.click("saveAndContinue");
     await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
 });

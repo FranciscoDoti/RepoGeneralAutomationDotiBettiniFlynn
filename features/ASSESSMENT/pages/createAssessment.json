@@ -12,6 +12,20 @@
         "definition": "#id_submitbutton",
         "frame": "default",
         "specialInstr": "NA"
+    },
+    {
+        "name": "assessmentFrame",
+        "byType": "css",
+        "definition": "#id_description_ifr",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "assessmentDescription",
+        "byType": "css",
+        "definition": "#tinymce p",
+        "frame": "assessmentFrame",
+        "specialInstr": "NA"
     }
 ]
 }
