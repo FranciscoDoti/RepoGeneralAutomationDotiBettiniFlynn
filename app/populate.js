@@ -1,8 +1,7 @@
-const { getDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
+const { onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
 const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
-const { assert } = require('chai');
 
 const populateInput = async function (selector, value, WebElementObject) {
   const type = await selector.getAttribute('type');
@@ -14,10 +13,6 @@ const populateInput = async function (selector, value, WebElementObject) {
       } else {
         log.debug('By passing radio button click');
       }
-      break;
-    
-    case 'file':
-      await populateFile(selector, value, WebElementObject);
       break;
 
     case 'email':
@@ -44,9 +39,12 @@ const populateInput = async function (selector, value, WebElementObject) {
       }
       break;
 
-
     default:
-    assert.fail(`ERROR: populateInput() failed because the input type ${type} has not been coded for.`);
+      log.debug(
+        'ERROR: populateInput() failed because the input type ' +
+          selector.getAttribute('type') +
+          ' has not been coded for.'
+      );
   }
 };
 
@@ -63,7 +61,6 @@ const populateSelect = async function (selector, item, WebElementData) {
       const optionText = await option.getText();
       if (item === optionText) {
         await option.click();
-        break;
       }
     };
   }
@@ -100,10 +97,8 @@ const populateTextField = async function (selector, value, WebElementObject) {
     await selector.clear();
   }
 
-  if (value != ''){
-    await selector.sendKeys(value);
-    log.debug(`Post populate text field value: ${eleValue}`);
-  }
+  await selector.sendKeys(value);
+  log.debug(`Post populate text field value: ${eleValue}`);
 
   if (localSpecialInstr.toLowerCase().includes('tabafter')) {
     log.debug('Hitting tab key');
@@ -178,55 +173,6 @@ const populateClick = async function (selector, value, WebElementObject) {
       log.debug(`Sleeping 2 seconds: Click - waitAfter2secs ${localSpecialInstr.toLowerCase().indexOf('waitAfter2secs')}`);
       await sleep(2000);
       log.debug('Waking up.');
-    } catch (e) {
-      log.error(e);
-    }
-  }
-};
-
-const populateFile = async function (selector, value, WebElementObject) {
-  let localSpecialInstr = '';
-  const WebElementData = WebElementObject.element;
-  if (WebElementData && WebElementData.specialInstr != null) {
-    localSpecialInstr = WebElementData.specialInstr;
-  }
-
-  if (localSpecialInstr.toLowerCase().includes('makevisible')) {
-    log.debug(`Special Instruction is : ${localSpecialInstr}. Running javascript on page.`);
-    getDriver().executeScript("arguments[0].style.height='auto'; arguments[0].style.visibility='visible';", selector);
-  }
-
-  if (!localSpecialInstr.toLowerCase().includes('noclick')) {
-    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
-    await selector.click();
-  }
-
-  if (localSpecialInstr.toLowerCase().includes('overwrite')) {
-    //no use case yet
-  } else if (!localSpecialInstr.toLowerCase().includes('noclear')) {
-    //no use case yet
-  }
-
-  await selector.sendKeys(value);
-  log.debug(`File at path '${value}' uploaded.`);
-
-  if (localSpecialInstr.toLowerCase().includes('tabafter')) {
-    log.debug('Hitting tab key');
-    await selector.sendKeys(Key.chord(Key.TAB));
-  }
-  if (localSpecialInstr.toLowerCase().includes('arrowdownafter')) {
-    log.debug('Hitting arrow down key');
-    await selector.sendKeys(Key.DOWN);
-  }
-  if (localSpecialInstr.toLowerCase().includes('enterafter')) {
-    log.debug('Hitting return key');
-    await selector.sendKeys(Key.RETURN);
-  }
-
-  if (localSpecialInstr.toLowerCase().includes('waitafter2secs')) {
-    try {
-      log.debug(`Sleeping 2 seconds. Special Instruction is : ${localSpecialInstr}`);
-      sleep(3000);
     } catch (e) {
       log.error(e);
     }
