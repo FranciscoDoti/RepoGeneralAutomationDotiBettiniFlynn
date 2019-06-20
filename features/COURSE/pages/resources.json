@@ -65,7 +65,14 @@
         "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_staticfile']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
+    },{
+        "name": "addURLButton",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../button[@class='_4_Uf']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
         "name": "closeResource",
         "byType": "xpath",
         "definition": "//*[@data-test-id='close_resource_search_nav']",
@@ -225,7 +232,43 @@
         "frame": "default",
         "specialInstr": "NA"
 
-    },  {
+    }, {
+        "name": "createCustomActivity",
+        "byType": "css",
+        "definition": "[data-test-id='create_custom_activity']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, 
+    {
+        "name": "urlLink",
+        "byType": "css",
+        "definition": "[data-test-id='url_link_tab']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, {
+        "name": "addUrlLinkinput",
+        "byType": "css",
+        "definition": "[data-test-id='add_url_input']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, {
+        "name": "addUrlLink",
+        "byType": "css",
+        "definition": "[data-test-id='add_url']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "goToContent",
+        "byType": "css",
+        "definition": "[data-test-id='add_url']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
         "name": "moveToEnd",
         "byType": "css",
         "definition": "[data-test-id='move_to_end_button']",

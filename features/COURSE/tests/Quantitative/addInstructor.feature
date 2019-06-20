@@ -3,7 +3,7 @@ Feature: Adding Instructor to the Template
     @delete-mediaproducer-courses
     Scenario:  Verify that customer support is able to add Instructor to a course
 
-         Given I login to Achieve-CW as "media_producer_2"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create Course Template with the data 
             | field             | value                        |
             | productModel      | Quantitative                 |
@@ -23,7 +23,7 @@ Feature: Adding Instructor to the Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                             |
+            | addReadingButton        |  About The Authors                            |
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data

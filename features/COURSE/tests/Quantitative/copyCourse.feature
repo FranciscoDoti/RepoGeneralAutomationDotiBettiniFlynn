@@ -1,10 +1,10 @@
-Feature: Adding activities to the template
+Feature: Copy course from the Template
 
     @delete-mediaproducer-courses
-    Scenario: Verify that Media Producer is able to add activities to the template
+    Scenario: Copy a course from the Template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When I create "Quantitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
@@ -20,8 +20,23 @@ Feature: Adding activities to the template
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        And I add the following activities in resources to "Quantitative Template" template
+        And I add the activities in resources to "Quantitative Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors |
+            | addReadingButton        |  About The Authors                             |
+
+        And I click on home button to return to coursepage
+        And I copy course from the "Quantitative Template" template with the following data
+            | field             | value                        |
+            | courseName        | Quantitative Course          |
+            | courseCode        | E2E301                       |
+
+        Then I verify that "Quantitative Course" is created with following data
+            | field                 | value                     |
+            | courseName            | Quantitative Course       |
+            | courseDate            |  E2E301                   |
+           
+
+
+

@@ -564,6 +564,13 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },{
+            "name": "libraryItem",
+            "byType": "xpath",
+            "definition": "//a[@class='_25Nb' and .='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         },
         {
             "name": "reorderValidation",

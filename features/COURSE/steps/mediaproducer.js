@@ -234,9 +234,15 @@ When('I delete the resources from the Template in ebook', async function (data_t
 When(/I add "(.*)" as collaborator to "(.*)"$/, async function (user, courseName) {
   let payload = await _.get(users, [this.environment, user]);
   await pages.home.click('achieveHome');
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.click('courseCard', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', payload.username);
   await pages.createCourse.click('addCollaborators');
   await pages.createCourse.click('closeCollaboratorModal');
 });
+
+Then('I verify that activties are added', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity);
+  }
+})

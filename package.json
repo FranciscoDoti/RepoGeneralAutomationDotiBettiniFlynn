@@ -15,7 +15,10 @@
     "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json",
     "AC":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/add-collaborator.feature -f json:reports/cucumber_report.json",
     "Media": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-update-template.feature -f json:reports/cucumber_report.json",
-    "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-viewaccess.feature -f json:reports/cucumber_report.json"
+    "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-viewaccess.feature -f json:reports/cucumber_report.json",
+    "copyCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/copyCourse.feature -f json:reports/cucumber_report.json",
+    "addActivities": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/AddActivities.feature -f json:reports/cucumber_report.json",
+    "URL": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Quantitative/URL_MP.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
