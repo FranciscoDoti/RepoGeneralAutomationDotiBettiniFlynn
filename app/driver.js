@@ -255,6 +255,5 @@ module.exports = {
   onWaitForElementToBeVisible,
   onWaitForElementToBeInvisible,
   config,
-  sleep,
-  getTitle
+  sleep
 };
