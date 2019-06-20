@@ -10,7 +10,7 @@ const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
 const { getDriver, getWebDriver, sleep, activateTab, getURL, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
-const { populateInput, populateClick, populateSelect, populateTextField } = require(`${process.cwd()}/app/populate`);
+const { populateInput, populateClick, populateSelect } = require(`${process.cwd()}/app/populate`);
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
@@ -65,7 +65,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         await that.driver.wait(that.webdriver.until.ableToSwitchToFrame(elementName, config.timeout));
       } else {
         log.debug(`Switching to frame ${elementName}`);
-        if (await genericAssertElement(elementName, 'exists')) {
+        if (await genericAssertElement(elementName, 'displayed')) {
           const WebElementData = await getElement(elementName);
           const WebElementObject = await WebElement(WebElementData);
           const webElement = await WebElementObject.getWebElement();
@@ -251,17 +251,20 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       actionElement.webElement = WebElementObject;
 
       switch (value.toLowerCase()) {
-        case 'notexists':
+        case 'notdisplayed':
           await getDriver().manage().setTimeouts({ implicit: 5000 });
-          let retval = !(await WebElementObject.elementExists());
+          let retval = !(await WebElementObject.elementDisplayed());
           await getDriver().manage().setTimeouts({ implicit: config.timeout });
           return retval;
         case 'visible':
-        case 'exists':
-          return (await WebElementObject.elementExists());
+        case 'displayed':
+          return (await WebElementObject.elementDisplayed());
         case 'notvisible':
         case 'disabled':
           return (await WebElementObject.elementDisabled());
+        case 'exists':
+          var collection = await WebElementObject.getWebElements();
+          return collection.length > 0 ? true : false;          
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
@@ -272,19 +275,29 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
     if (await genericAssertElement(elementName, 'exists')) {
-      log.info(`Web Element ${elementName} found on page. PASS`);
+      log.info(`Web Element ${elementName} exists on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} was not found on page.`);
+      assert.fail(`Web Element ${elementName} does not exist on page.`);
     };
   };
 
-  const assertDoesNotExist = async function (elementName, replaceText) {
+  const assertElementExists = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    if (await genericAssertElement(elementName, 'notexists')) {
-      log.info(`Web Element ${elementName} was not found on page. PASS`);
+    if (await genericAssertElement(elementName, 'displayed')) {
+      log.info(`Web Element ${elementName} is displayed on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} found on page.`);
+      assert.fail(`Web Element ${elementName} is not displayed on page.`);
+    };
+  };
+
+  const assertElementDoesNotExist = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
+    if (await genericAssertElement(elementName, 'notdisplayed')) {
+      log.info(`Web Element ${elementName} is not displayed on page. PASS`);
+    } else {
+      assert.fail(`Web Element ${elementName} is displayed on page.`);
     };
   };
 
@@ -397,6 +410,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  that.assertExists = assertExists;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
   that.assertDisabled = assertDisabled;
@@ -408,8 +422,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
-  that.assertElementExists = assertExists;
-  that.assertElementDoesNotExist = assertDoesNotExist;
+  that.assertElementExists = assertElementExists;
+  that.assertElementDoesNotExist = assertElementDoesNotExist;
   that.getWebElements = getWebElements;
   that.generateDataTable = generateDataTable;
   that.scrollElementIntoView = scrollElementIntoView;
