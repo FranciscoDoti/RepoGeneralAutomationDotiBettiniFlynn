@@ -9,6 +9,6 @@ When('I navigate to assignment preview', async function () {
 });
 
 Then('I the assignment preview is opened in a new tab', async function () {
-    await pages.sac.switchToTab('Question 1 of 11 - All Mods');
+    await pages.sac.switchToTab('Sapling Learning Student Assignment Container');
     await pages.sac.assertElementExists('previewCheckAnswerButton');
 });

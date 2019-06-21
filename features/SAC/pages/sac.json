@@ -15,16 +15,23 @@
             "specialInstr": "NA"
         },
         {
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "assignmentPreviewButton",
             "byType": "xpath",
-            "definition": "//button[@id='assignment']",
-            "frame": "default",
+            "definition": "//button[@data-test-id='assignment-preview-button']",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "previewCheckAnswerButton",
             "byType": "xpath",
-            "definition": "//button[@id='button-check']",
+            "definition": "//button[@data-test-id='check-answer-button']",
             "frame": "default",
             "specialInstr": "NA"
         }
