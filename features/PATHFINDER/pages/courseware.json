@@ -1,38 +1,8 @@
 {
     "webElements": [{
-        "name": "signinlink",
-        "byType": "css",
-        "definition": "button[data-test-id='sign_in_link_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "username",
-        "byType": "id",
-        "definition": "username",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "password",
-        "byType": "id",
-        "definition": "password",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "signin",
-        "byType": "id",
-        "definition": "signin",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
         "name": "chemistryFolder",
         "byType": "css",
         "definition": "[aria-label='Chemistry folder']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "coursePlanner",
-        "byType": "css",
-        "definition": "[data-test-id='course_planner_tab']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -47,29 +17,5 @@
         "definition": "//a[contains(@data-test-id,'activity_link') and contains(text(), 'Practice Test for Expressions')]",
         "frame": "default",
         "spectialInstr": "NA"
-    }, {
-        "name": "resultsButton",
-        "byType": "id",
-        "definition": "overview-go-to-results-button",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "search",
-        "byType": "css",
-        "definition": "[data-test-id='course_search_input']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "courseName",
-        "byType": "xpath",
-        "definition": "//a[@data-test-id='course_name' and .='<ReplaceText>']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "courseCard",
-        "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>']/../../../../../div[@data-test-id='course_card']",
-        "frame": "default",
-        "specialInstr": "NA"
     }]
 }

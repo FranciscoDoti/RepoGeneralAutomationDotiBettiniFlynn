@@ -1,25 +1,33 @@
 Feature: Test the basic functionality of the admin view of a practice test
 
     Scenario: An admin launches a practice test and sees the admin view of the practice test page
-        Given I launch the Practice Test for Expressions from the "Pathfinder Automation Template" course as "admin"
-            Then there should be a "resultsButton" on the instructor assignment page
-            Then there should be a "studentPreviewLink" on the instructor assignment page
-            Then there should be a "activityEditorLink" on the instructor assignment page
-            Then there should be a "changeGradingSettingsButton" on the instructor assignment page
-            Then there should be a "latePenaltyButton" on the instructor assignment page
+        Given I login to Achieve-CW as "pf-admin"
+            When I search for "Pathfinder Automation Template" and click on course card
+            When I launch the Practice Test for Expressions
+                Then there should be a "resultsButton" on the instructor assignment page
+                Then there should be a "studentPreviewLink" on the instructor assignment page
+                Then there should be a "activityEditorLink" on the instructor assignment page
+                Then there should be a "changeGradingSettingsButton" on the instructor assignment page
+                Then there should be a "latePenaltyButton" on the instructor assignment page
 
     Scenario: An admin can preview the practice test as a student
-        Given I launch the Practice Test for Expressions from the "Pathfinder Automation Template" course as "admin"
+        Given I login to Achieve-CW as "pf-admin"
+            When I search for "Pathfinder Automation Template" and click on course card
+            When I launch the Practice Test for Expressions
             When I click on the "studentPreviewLink" on the instructor assignment page
                 Then the user should be taken to a student preview
 
     Scenario: An admin can get to the activity editor for the practice test
-        Given I launch the Practice Test for Expressions from the "Pathfinder Automation Template" course as "admin"
+        Given I login to Achieve-CW as "pf-admin"
+            When I search for "Pathfinder Automation Template" and click on course card
+            When I launch the Practice Test for Expressions
             When I click on the "activityEditorLink" on the instructor assignment page
                 Then the user should be taken to the activity editor
 
     Scenario: An admin can toggle the grading settings between performance and completion
-        Given I launch the Practice Test for Expressions from the "Pathfinder Automation Template" course as "admin"
+        Given I login to Achieve-CW as "pf-admin"
+            When I search for "Pathfinder Automation Template" and click on course card
+            When I launch the Practice Test for Expressions
             When I click on the "changeGradingSettingsButton" on the instructor assignment page
                 Then there should be a "gradingSettingsSaveButton" on the instructor assignment page
                 Then there should be a "gradingSettingsCancelButton" on the instructor assignment page
@@ -52,7 +60,9 @@ Feature: Test the basic functionality of the admin view of a practice test
                 Then "preTestGradingSettingsContainer" should include the text "Performance"
 
     Scenario: An admin can set a late penalty
-        Given I launch the Practice Test for Expressions from the "Pathfinder Automation Template" course as "admin"
+        Given I login to Achieve-CW as "pf-admin"
+            When I search for "Pathfinder Automation Template" and click on course card
+            When I launch the Practice Test for Expressions
             When I click on the "latePenaltyButton" on the instructor assignment page
                 Then there should be a "latePenaltySaveButton" on the instructor assignment page
                 Then there should be a "latePenaltyCancelButton" on the instructor assignment page
