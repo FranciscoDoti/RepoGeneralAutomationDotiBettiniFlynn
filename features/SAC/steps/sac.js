@@ -8,7 +8,7 @@ When('I navigate to assignment preview', async function () {
     await pages.sac.click('assignmentPreviewButton');
 });
 
-Then('I the assignment preview is opened in a new tab', async function () {
+Then('The assignment preview is opened in a new tab', async function () {
     await pages.sac.switchToTab('Sapling Learning Student Assignment Container');
     await pages.sac.assertElementExists('previewCheckAnswerButton');
 });
