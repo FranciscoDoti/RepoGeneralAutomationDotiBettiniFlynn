@@ -1,5 +1,5 @@
 const { When, Then } = require('cucumber');
-const pages = require(`${process.cwd()}/features/SAC/pages/.page.js`).pages;
+const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver`);
 
 When('I navigate to assignment preview', async function () {

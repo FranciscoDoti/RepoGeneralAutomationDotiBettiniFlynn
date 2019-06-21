@@ -12,7 +12,7 @@
     "ebook": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3690.feature -f json:reports/cucumber_report.json",
     "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
     "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json",
-    "sac": "node ./node_modules/cucumber/bin/cucumber-js features/SAC/tests/sac.feature -f json:reports/cucumber_report.json"
+    "sac": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"

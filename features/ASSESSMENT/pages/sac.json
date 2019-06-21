@@ -1,0 +1,33 @@
+{
+    "webElements": [{
+        "name": "assignmentLink",
+        "byType": "xpath",
+        "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "courseLink",
+        "byType": "xpath",
+        "definition": "//*[@id='module-2838592']/a/span/span",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "aeframe",
+        "byType": "css",
+        "definition": "#aeIframe",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "assignmentPreviewButton",
+        "byType": "xpath",
+        "definition": "//button[@data-test-id='assignment-preview-button']",
+        "frame": "aeframe",
+        "specialInstr": "NA"
+    }, {
+        "name": "previewCheckAnswerButton",
+        "byType": "xpath",
+        "definition": "//button[@data-test-id='check-answer-button']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}
