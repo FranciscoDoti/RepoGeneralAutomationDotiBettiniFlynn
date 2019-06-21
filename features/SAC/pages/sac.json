@@ -1,0 +1,32 @@
+{
+    "webElements": [
+        {
+            "name": "assignmentLink",
+            "byType": "xpath",
+            "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "courseLink",
+            "byType": "xpath",
+            "definition": "//*[@id='module-2838592']/a/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "assignmentPreviewButton",
+            "byType": "xpath",
+            "definition": "//button[@id='assignment']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "previewCheckAnswerButton",
+            "byType": "xpath",
+            "definition": "//button[@id='button-check']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

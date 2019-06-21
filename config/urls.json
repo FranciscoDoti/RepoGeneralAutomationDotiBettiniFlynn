@@ -34,5 +34,8 @@
         "dev":"http://dev.application.me:3080",
         "prod":"http://prod.application.me:3080",
         "pre-prod":"http://pre-prod.application.me:3080"
+    },
+    "IBISCMS":{
+        "int":"http://int.saplinglearning.me/ibiscms"
     }
 }
