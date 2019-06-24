@@ -2,7 +2,6 @@ const { onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeL
 const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
-const { assert } = require('chai');
 
 const populateInput = async function (selector, value, WebElementObject) {
   const type = await selector.getAttribute('type');
@@ -18,7 +17,6 @@ const populateInput = async function (selector, value, WebElementObject) {
 
     case 'email':
     case 'text':
-    case 'file':
     case 'textarea':
     case 'password':
       await populateTextField(selector, value, WebElementObject);
@@ -41,9 +39,12 @@ const populateInput = async function (selector, value, WebElementObject) {
       }
       break;
 
-
     default:
-    assert.fail(`ERROR: populateInput() failed because the input type ${type} has not been coded for.`);
+      log.debug(
+        'ERROR: populateInput() failed because the input type ' +
+          selector.getAttribute('type') +
+          ' has not been coded for.'
+      );
   }
 };
 
@@ -60,7 +61,6 @@ const populateSelect = async function (selector, item, WebElementData) {
       const optionText = await option.getText();
       if (item === optionText) {
         await option.click();
-        break;
       }
     };
   }

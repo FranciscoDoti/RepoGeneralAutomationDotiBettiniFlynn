@@ -120,6 +120,7 @@ const resetBrowser = async function () {
 const activateTab = async function (tabName) {
   var masterTab = await driver.getWindowHandle();
   var tabs = await driver.getAllWindowHandles();
+
   for (let index = 0; index < tabs.length; index++) {
     await switchToTab(tabs[index]);
     currentTabName = await getTitle();
@@ -255,6 +256,5 @@ module.exports = {
   onWaitForElementToBeVisible,
   onWaitForElementToBeInvisible,
   config,
-  sleep,
-  getTitle
+  sleep
 };

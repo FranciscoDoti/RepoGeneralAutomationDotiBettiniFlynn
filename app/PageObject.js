@@ -10,7 +10,7 @@ const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
 const { getDriver, getWebDriver, sleep, activateTab, getURL, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
-const { populateInput, populateClick, populateSelect, populateTextField } = require(`${process.cwd()}/app/populate`);
+const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
@@ -134,7 +134,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'th':
         case 'h2':
         case 'section':
-          await populateClick(webElement, value, actionElement);
+          value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
         case 'select':
         case 'svg':
@@ -406,7 +406,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.populate = populateElement;
   that.click = clickElement;
   that.getAttributeValue = getAttributeValue;
-  that.addDynamicElement = addDynamicElement;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
   that.assertElementExists = assertExists;

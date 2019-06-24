@@ -1,7 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const jwt = require(`${process.cwd()}/app/jwt`);
 const stepsPath = process.cwd() + '/features/LC/pages/';
-const { PageObject } = require(`${process.cwd()}/app/pageObject`);
+const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 const pages = require(`${process.cwd()}/features/LC/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
 const { getDriver, sleep } = require(`${process.cwd()}/app/driver`);
