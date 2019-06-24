@@ -233,8 +233,21 @@ const populateFile = async function (selector, value, WebElementObject) {
   }
 };
 
+const populateRichTextField = async function (selector, value, WebElementObject) {
+  let localSpecialInstr = '';
+  const WebElementData = WebElementObject.element;
+  if (WebElementData && WebElementData.specialInstr != null) {
+    localSpecialInstr = WebElementData.specialInstr;
+  }
+  
+  const actions = getDriver().actions({bridge: true});
+  await actions.click(selector).sendKeys(value).perform();
+  log.debug(`Post populate text field value: ${value}`);
+};
+
 module.exports = {
   populateInput,
   populateClick,
-  populateSelect
+  populateSelect,
+  populateRichTextField
 };
