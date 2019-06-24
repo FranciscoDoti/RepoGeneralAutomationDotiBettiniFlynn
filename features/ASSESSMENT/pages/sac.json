@@ -1,33 +1,53 @@
 {
-    "webElements": [{
-        "name": "assignmentLink",
-        "byType": "xpath",
-        "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "courseLink",
-        "byType": "xpath",
-        "definition": "//*[@id='module-2838592']/a/span/span",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "aeframe",
-        "byType": "css",
-        "definition": "#aeIframe",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "assignmentPreviewButton",
-        "byType": "xpath",
-        "definition": "//button[@data-test-id='assignment-preview-button']",
-        "frame": "aeframe",
-        "specialInstr": "NA"
-    }, {
-        "name": "previewCheckAnswerButton",
-        "byType": "xpath",
-        "definition": "//button[@data-test-id='check-answer-button']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }]
+    "webElements": [
+        {
+            "name": "instructorAssignmentLink",
+            "byType": "xpath",
+            "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "studentAssignmentLink",
+            "byType": "xpath",
+            "definition": "//*[@id='div_acc_courses']/li/ul/li[2]/ul/li[1]/div/div[1]/div/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "courseLink",
+            "byType": "xpath",
+            "definition": "//*[@id='module-2838592']/a/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "assignmentPreviewButton",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='assignment-preview-button']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "previewCheckAnswerButton",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='check-answer-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "breadcrumb2",
+            "byType": "xpath",
+            "definition": "//*[@id='breadcrumbs']/li[2]/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }
