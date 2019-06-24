@@ -13,12 +13,11 @@ When(/^I click on the "(.*)" in NGA$/, async function (locator) {
 })
 
 Then("the user should be taken to a student preview", async function () {
-  await pages.NGA.assertElementExists("aboutStudentPreviewModal");
+  await pages.instructorAssignmentPage.assertElementExists("pathfinderModal");
   await pages.NGA.assertElementExists("aboutStudentPreviewModalCancelButton");
   await pages.NGA.click("aboutStudentPreviewModalContinueButton");
   await pages.NGA.assertElementExists("studentPreviewBar");
   await pages.NGA.assertElementExists("submitAllQuestionsButton");
-  // await driver.sleep(3000)
   await pages.NGA.assertElementExists("saveAnswerButton");
 })
 

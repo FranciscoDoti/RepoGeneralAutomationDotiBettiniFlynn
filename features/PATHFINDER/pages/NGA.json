@@ -30,12 +30,6 @@
         "frame": "ngaFrame",
         "specialInstr": "NA"
     }, {
-        "name": "aboutStudentPreviewModal",
-        "byType": "css",
-        "definition": "[class*='our-modal-component__container']",
-        "frame": "default",
-        "spectialInstr": "NA"
-    }, {
         "name": "aboutStudentPreviewModalContinueButton",
         "byType": "id",
         "definition": "continue--button",
