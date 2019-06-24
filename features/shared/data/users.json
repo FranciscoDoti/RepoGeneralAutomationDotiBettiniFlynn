@@ -44,6 +44,10 @@
             "username": "raptoradmin",
             "password": "fasterthansixmill"
         },
+        "raptor-instructor": {
+            "username": "raptorinstructor",
+            "password": "fasterthansixmill"
+        },
         "non-graph-user": {
             "username": "remote.author",
             "password": "fasterthansixmill"

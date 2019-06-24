@@ -8,7 +8,7 @@ const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
 const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
-const { getDriver, getWebDriver, sleep, activateTab, getURL, config } = require(`${process.cwd()}/app/driver`);
+const { getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect } = require(`${process.cwd()}/app/populate`);
 
@@ -410,6 +410,42 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  const assertPageTitle = async function (expectedValue) {
+    try {
+      const actualValue = await getPageTitle();
+      log.info(`Asserting page title match for current tab.`);
+      if (await expect(actualValue).to.equal(expectedValue)) {
+        log.info(`Actual value "${actualValue}" equals Expected value "${expectedValue}". PASS`);
+      };
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const assertPageTitleIncludes = async function (expectedValue) {
+    try {
+      const actualValue = await getPageTitle();
+      log.info(`Asserting page title partial match for current tab.`);
+      if (await expect(actualValue).to.include(expectedValue)) {
+        log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
+      };
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const getPageTitle = async function () {
+    try {
+      log.debug(`Getting the title of the current tab.`);
+      return await getTitle();
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
   that.assertExists = assertExists;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
@@ -431,6 +467,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getText = getText;
   that.switchToTab = switchToTab;
   that.getCurrentURL = getCurrentURL;
+  that.getPageTitle=getPageTitle;
+  that.assertPageTitle=assertPageTitle;
+  that.assertPageTitleIncludes=assertPageTitleIncludes;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

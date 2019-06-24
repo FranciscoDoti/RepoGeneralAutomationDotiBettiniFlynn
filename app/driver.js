@@ -244,6 +244,7 @@ module.exports = {
   resetBrowser,
   visitURL,
   getURL,
+  getTitle,
   activateTab,
   takeScreenshot,
   getDriver,
