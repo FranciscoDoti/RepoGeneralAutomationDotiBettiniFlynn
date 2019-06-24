@@ -107,14 +107,14 @@
         {
             "name": "MCCorrectAnswerTextbox",
             "byType": "css",
-            "definition": "div[data-test-id='hatchling-correct-choice'] .notranslate.public-DraftEditor-content",
+            "definition": "div[data-test-id='hatchling-correct-choice']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "MCInCorrectAnswerTextbox",
             "byType": "css",
-            "definition": "div[data-test-id='hatchling-incorrect-choice'] .notranslate.public-DraftEditor-content",
+            "definition": "div[data-test-id='hatchling-incorrect-choice']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
