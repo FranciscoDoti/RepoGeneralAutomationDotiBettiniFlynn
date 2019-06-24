@@ -7,7 +7,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "QuestionTitle",
+            "name": "Question Title",
             "byType": "css",
             "definition": ".edit-question-title",
             "frame": "aeframe",
@@ -21,9 +21,9 @@
             "specialInstr": "NA"
         }, 
         {
-            "name": "QuestionPromptEditArea",
-            "byType": "css",
-            "definition": ".notranslate.public-DraftEditor-content",
+            "name": "Question Prompt",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='hatchling-question-prompt']",
             "frame": "aeframe",
             "specialInstr": "NA"
         }, 

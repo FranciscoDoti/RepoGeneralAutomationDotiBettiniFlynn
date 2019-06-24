@@ -58,10 +58,10 @@ When(/^I have added "(.*)" random item to assessment$/, async function (count) {
       await ngaPages.assignmentTab.click('HatchlingQuestionType',item_type);
       var timeStamp = new Date().getTime();
       var title = item_type + timeStamp;
-      await ngaPages.hatchlingItem.click('QuestionTitle');
-      await ngaPages.hatchlingItem.populate('title',title);
-      await ngaPages.hatchlingItem.click('QuestionPromptEditArea');
-      await ngaPages.hatchlingItem.populate('QuestionPromptEditArea','Automated '+ i + ' hatchling question!');
+      await ngaPages.hatchlingItem.click('Question Title');
+      await ngaPages.hatchlingItem.populate('title',title);   
+      await ngaPages.hatchlingItem.populate('Question Prompt','Automated '+ i + ' hatchling question!');
+      
       await ngaPages.hatchlingItem.click('MCCorrectAnswerTextbox');
       await ngaPages.hatchlingItem.populate('MCCorrectAnswerTextbox','Like');
       await ngaPages.hatchlingItem.click('addAnswerButton');
