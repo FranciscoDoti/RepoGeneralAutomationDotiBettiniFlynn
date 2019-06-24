@@ -109,14 +109,14 @@
             "byType": "css",
             "definition": "div[data-test-id='hatchling-correct-choice']",
             "frame": "aeframe",
-            "specialInstr": "NA"
+            "specialInstr": "noclick"
         },
         {
             "name": "MCInCorrectAnswerTextbox",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-incorrect-choice']",
             "frame": "aeframe",
-            "specialInstr": "NA"
+            "specialInstr": "noclick"
         },
         {
             "name": "addAnswerButton",
@@ -124,6 +124,20 @@
             "definition": "button[data-test-id='add-answer-choice']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "hatchlingBody",
+            "byType": "css",
+            "definition": ".hatchling-body",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "hatchlingFooter",
+            "byType": "css",
+            "definition": ".cdl-dialog-actions",
+            "frame": "aeframe",
+            "specialInstr":"NA"
         }
     ]
 }

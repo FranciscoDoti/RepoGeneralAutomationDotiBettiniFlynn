@@ -62,12 +62,11 @@ When(/^I have added "(.*)" random item to assessment$/, async function (count) {
       await ngaPages.hatchlingItem.populate('title',title);
       await ngaPages.hatchlingItem.click('QuestionPromptEditArea');
       await ngaPages.hatchlingItem.populate('QuestionPromptEditArea','Automated '+ i + ' hatchling question!');
-      await ngaPages.hatchlingItem.click('MCCorrectAnswerTextbox');
       await ngaPages.hatchlingItem.populate('MCCorrectAnswerTextbox','Like');
+      await ngaPages.hatchlingItem.click('hatchlingBody');
       await ngaPages.hatchlingItem.click('addAnswerButton');
-      await ngaPages.hatchlingItem.click('MCInCorrectAnswerTextbox');
       await ngaPages.hatchlingItem.populate('MCInCorrectAnswerTextbox','Unlike');
-      await pages.assignmentTab.click('HatchlingSave');
+      await ngaPages.hatchlingItem.click('HatchlingSave');
     }
     // for (let i= 1; i <= count ; i++){
     //   await ngaPages.questionBank.click("QBitemsCheckbox", i);
