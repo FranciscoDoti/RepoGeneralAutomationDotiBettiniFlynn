@@ -37,3 +37,19 @@ When('I sign out of Achieve', async function () {
   await pages.login.click('togglerMenu');
   await pages.login.click('signOut');
 });
+
+Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
+  let url = await _.get(urls, ['IBISCMS', this.environment]);
+  let user = await _.get(users, [this.environment, userType]);
+
+  await visitURL(url);
+  if (this.environment == 'local') {
+    await pages.login.populate('username-local', user.username);
+    await pages.login.populate('password-local', user.password);
+    await pages.login.click('submit-local')
+  } else {
+    await pages.login.populate('username', user.username);
+    await pages.login.populate('password', user.password);
+    await pages.login.click('submit')
+  };
+});
