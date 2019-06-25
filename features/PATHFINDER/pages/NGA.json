@@ -1,51 +1,51 @@
 {
     "webElements": [{
-        "name": "ngaFrame",
+        "name": "NGA Frame",
         "byType": "id",
         "definition": "activity-iframe",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "assignmentPreviewButton",
+        "name": "Assignment Preview Button",
         "byType": "css",
         "definition": "[data-test-id='assignment-preview-button']",
-        "frame": "ngaFrame",
+        "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
-        "name": "resetPreviewAttemptsButton",
+        "name": "Reset Preview Attempts Button",
         "byType": "css",
         "definition": "[data-test-id='assignment-reset-button']",
-        "frame": "ngaFrame",
+        "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
-        "name": "studentPreviewBar",
+        "name": "Student Preview Bar",
         "byType": "css",
         "definition": "[class*='student-activity-view__previewAlert']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "submitAllQuestionsButton",
+        "name": "Submit All Questions Button",
         "byType": "css",
         "definition": "[data-test-id='submit-assignment-button']",
-        "frame": "ngaFrame",
+        "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
-        "name": "aboutStudentPreviewModalContinueButton",
+        "name": "About Student Preview Modal Continue Button",
         "byType": "id",
         "definition": "continue--button",
         "frame": "default",
         "spectialInstr": "NA"
     }, {
-        "name": "aboutStudentPreviewModalCancelButton",
+        "name": "About Student Preview Modal Cancel Button",
         "byType": "id",
         "definition": "cancel-button",
         "frame": "default",
         "spectialInstr": "NA"
     }, {
-        "name": "saveAnswerButton",
+        "name": "Save Answer Button",
         "byType": "css",
         "definition": "[data-test-id='check-answer-button']",
-        "frame": "ngaFrame",
+        "frame": "NGA Frame",
         "spectialInstr": "NA"
     }]
 }
