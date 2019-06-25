@@ -4,31 +4,31 @@ Feature: Test the basic functionality of the admin view of a practice test
         Given I login to Achieve-CW as "pf-admin"
             When I search for "Pathfinder Automation Template" and click on course card
             When I launch the Practice Test for Expressions
-                Then there should be a "resultsButton" on the instructor assignment page
-                Then there should be a "studentPreviewLink" on the instructor assignment page
-                Then there should be a "activityEditorLink" on the instructor assignment page
-                Then there should be a "changeGradingSettingsButton" on the instructor assignment page
-                Then there should be a "latePenaltyButton" on the instructor assignment page
+                Then there should be a "Results Button" on the instructor assignment page
+                Then there should be a "Student Preview Link" on the instructor assignment page
+                Then there should be a "Activity Editor Link" on the instructor assignment page
+                Then there should be a "Change Grading Settings Button" on the instructor assignment page
+                Then there should be a "Late Penalty Button" on the instructor assignment page
 
     Scenario: An admin can preview the practice test as a student
         Given I login to Achieve-CW as "pf-admin"
             When I search for "Pathfinder Automation Template" and click on course card
             When I launch the Practice Test for Expressions
-            When I click on the "studentPreviewLink" on the instructor assignment page
+            When I click on the "Student Preview Link" on the instructor assignment page
                 Then the user should be taken to a student preview
 
     Scenario: An admin can get to the activity editor for the practice test
         Given I login to Achieve-CW as "pf-admin"
             When I search for "Pathfinder Automation Template" and click on course card
             When I launch the Practice Test for Expressions
-            When I click on the "activityEditorLink" on the instructor assignment page
+            When I click on the "Activity Editor Link" on the instructor assignment page
                 Then the user should be taken to the activity editor
 
     Scenario: An admin can toggle the grading settings between performance and completion
         Given I login to Achieve-CW as "pf-admin"
             When I search for "Pathfinder Automation Template" and click on course card
             When I launch the Practice Test for Expressions
-            When I click on the "changeGradingSettingsButton" on the instructor assignment page
+            When I click on the "Change Grading Settings Button" on the instructor assignment page
                 Then there should be a "gradingSettingsSaveButton" on the instructor assignment page
                 Then there should be a "gradingSettingsCancelButton" on the instructor assignment page
                 Then there should be a "gradingSettingsPerformanceSelected" on the instructor assignment page
@@ -45,7 +45,7 @@ Feature: Test the basic functionality of the admin view of a practice test
                 Then "preTestGradingSettingsContainer" should include the text "Completion"
 
 # return grading setting to original state
-            When I click on the "changeGradingSettingsButton" on the instructor assignment page
+            When I click on the "Change Grading Settings Button" on the instructor assignment page
                 Then there should be a "gradingSettingsCompletionSelected" on the instructor assignment page
                 Then there should be a "gradingSettingsPerformanceUnselected" on the instructor assignment page
 
@@ -63,7 +63,7 @@ Feature: Test the basic functionality of the admin view of a practice test
         Given I login to Achieve-CW as "pf-admin"
             When I search for "Pathfinder Automation Template" and click on course card
             When I launch the Practice Test for Expressions
-            When I click on the "latePenaltyButton" on the instructor assignment page
+            When I click on the "Late Penalty Button" on the instructor assignment page
                 Then there should be a "latePenaltySaveButton" on the instructor assignment page
                 Then there should be a "latePenaltyCancelButton" on the instructor assignment page
                 Then there should be a "noLatePenaltyToggleSelected" on the instructor assignment page
@@ -86,7 +86,7 @@ Feature: Test the basic functionality of the admin view of a practice test
                 Then "preTestGradingSettingsContainer" should include the text "Cumulative Late Penalty"
 
 # return late penalty to original state
-            When I click on the "latePenaltyButton" on the instructor assignment page
+            When I click on the "Late Penalty Button" on the instructor assignment page
                 Then there should be a "latePenaltyToggleSelected" on the instructor assignment page
                 Then there should be a "noLatePenaltyToggleUnselected" on the instructor assignment page
 

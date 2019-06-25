@@ -1,18 +1,18 @@
 {
     "webElements": [{
-        "name": "resultsButton",
+        "name": "Results Button",
         "byType": "id",
         "definition": "overview-go-to-results-button",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "studentPreviewLink",
+        "name": "Student Preview Link",
         "byType": "xpath",
         "definition": "//a[contains(@id,'preview-overview-link') and contains(text(), 'Preview Practice Test as a Student')]",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "activityEditorLink",
+        "name": "Activity Editor Link",
         "byType": "xpath",
         "definition": "//a[contains(@id,'preview-overview-link') and contains(text(), 'Activity Editor')]",
         "frame": "default",
@@ -24,7 +24,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "changeGradingSettingsButton",
+        "name": "Change Grading Settings Button",
         "byType": "id",
         "definition": "settings-section-change-button",
         "frame": "default",
@@ -90,7 +90,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "latePenaltyButton",
+        "name": "Late Penalty Button",
         "byType": "id",
         "definition": "settings-section-change-penalty-button",
         "frame": "default",
