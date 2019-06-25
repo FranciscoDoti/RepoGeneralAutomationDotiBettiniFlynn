@@ -4,7 +4,7 @@ Feature: Copy course from the Template
     Scenario: Copy a course from the Template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When I create "Quantitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
