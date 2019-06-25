@@ -41,7 +41,7 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
   }
 });
 
-When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
+/*When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
   await pages.copyCourse.click('copyCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -57,7 +57,8 @@ Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
   await pages.home.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
-});
+}); */
+
 
 When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
   await pages.createCourse.click('button');

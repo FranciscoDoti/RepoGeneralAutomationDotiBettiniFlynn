@@ -4,7 +4,6 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
-
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object != 'day') {
       await pages.editCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value);
@@ -53,7 +52,7 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
     await pages.coursePlanner.click('customContentButton');
     await pages.coursePlanner.click('libraryTab');
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+/*    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity); */
     await pages.coursePlanner.click('closeCourseplanner');
   }
 });
@@ -74,19 +73,23 @@ When('I assign the activities in courseplanner', async function (data_table) {
     let countlinks = Elements.length;
     let x = countlinks - 1;
     while (x >= 0) {
-      x--;
-      await pages.coursePlanner.click('assignAssignmentButton');
+      x--; 
+      
+      await pages.coursePlanner.click('action'); 
+      await pages.coursePlanner.click('actionmenuitem');
       await pages.coursePlanner.click('vissibilityButton');
       await pages.coursePlanner.populate('pointsInput', data_table.hashes()[i].Points);
       await pages.coursePlanner.click('assignButton');
       await pages.home.click('closeAlert');
       break;
-    }
-  }
+    } 
+  } 
 });
+
 
 When(/^I click on "(.*)"$/, async function (courseName) {
   await pages.createCourse.click('courseCard', courseName);
-});
+})
+
 
 

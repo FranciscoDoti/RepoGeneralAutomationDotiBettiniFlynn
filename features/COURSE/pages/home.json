@@ -55,8 +55,8 @@
         "specialInstr": "NA"
     }, {
         "name": "togglerMenu",
-        "byType": "css",
-        "definition": "[data-test-id='user_dropdown_menu_open']",
+        "byType": "XPATH",
+        "definition": "//*[@id='container']/div/div/div/div/div[1]/div/div[2]/div[3]/div/button",
         "frame": "default",
         "specialInstr": "NA"
     }, {

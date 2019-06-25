@@ -3,7 +3,7 @@
 
             "name": "createCourseButton",
             "byType": "xpath",
-            "definition": "//*[@id='container']/div/div[2]/div/div/div/div/div[3]/div/button",
+            "definition": "//*[@id='container']/div/div[2]/div[2]/button",
             "frame": "default",
             "specialInstr": "NA"
         }, {
