@@ -28,6 +28,10 @@
             "username": "raptoradmin",
             "password": "fasterthansixmill"
         },
+        "raptor-instructor": {
+            "username": "raptorinstructor",
+            "password": "fasterthansixmill"
+        },
         "non-graph-user": {
             "username": "remote.author",
             "password": "fasterthansixmill"
@@ -166,6 +170,19 @@
             "sq3": "What is the name of your pet?",
             "sq3_answer": "answer",
             "primarySchool": "macmillan learning"
+        }
+    },
+    "ae": {
+        "all-permissions-author": {
+            "username": "raptoradmin",
+            "password": "fasterthansixmill"
+        },
+        "user2": {
+            "username": "user2 name",
+            "password": "user2 password",
+            "email": "user2 email",
+            "firstname": "user2 firstname",
+            "lastname": "user2 lastname"
         }
     },
 

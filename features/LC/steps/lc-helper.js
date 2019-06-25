@@ -1,5 +1,5 @@
 const stepsPath = process.cwd() + '/features/LC/pages/';
-const { PageObject } = require(`${process.cwd()}/app/pageObject`);
+const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
 const assert = require('assert');
 const {By} = require('selenium-webdriver');

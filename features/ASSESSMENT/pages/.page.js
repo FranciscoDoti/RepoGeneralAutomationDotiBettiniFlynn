@@ -11,7 +11,9 @@ let pages = {
     hatchlingItem: new PageObject('hatchlingItemModal.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
     moldraw: new PageObject('moldraw.json',stepsPath),
-    multipleSelect: new PageObject('multipleSelect.json',stepsPath)
+    multipleSelect: new PageObject('multipleSelect.json',stepsPath),
+    raptor: new PageObject('raptor.json',stepsPath),
+    sac: new PageObject('sac.json',stepsPath)
 };
 
 module.exports ={

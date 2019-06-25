@@ -35,10 +35,8 @@
         "prod":"http://prod.application.me:3080",
         "pre-prod":"http://pre-prod.application.me:3080"
     },
-    "saplingcourse":{
-        "int":"http://int.saplinglearning.me/ibiscms/course/view.php?id=79848"
-    },
-    "IBISCMS-Roadshow":{
-        "int": "http://ae.saplinglearning.me/ibiscms/course/view.php?id=21038"
+    "IBISCMS":{
+        "int":"http://int.saplinglearning.me/ibiscms",
+        "ae": "http://ae.saplinglearning.me/ibiscms/course/view.php?id=21038"
     }
 }

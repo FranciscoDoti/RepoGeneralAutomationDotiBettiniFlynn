@@ -16,14 +16,14 @@
             "name": "itemList",
             "byType": "css",
             "definition": ".ae-checkbox",
-            "frame": "aeFrame",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "questionsId",
             "byType": "xpath",
             "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
-            "frame": "aeFrame",
+            "frame": "aeframe",
             "specialInstr":"NA"
         },
         {
@@ -134,14 +134,14 @@
         {
             "name": "listAssessments",
             "byType": "xpath",
-            "definition": "//span[contains(text(),'QAAssessment')]/../../..//div",
+            "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div",
             "frame": "default",
             "specialInstr": "NA"
         }, 
         {
             "name": "listAssessmentsDelete",
             "byType": "xpath",
-            "definition": "//span[contains(text(),'QAAssessment')]/../../..//div//ul//a[@title='Delete']",
+            "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div//ul//a[@title='Delete']",
             "frame": "default",
             "specialInstr": "NA"
         }, 
@@ -151,6 +151,13 @@
             "definition": "input[value=' Yes ']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "courseName",
+            "byType": "xpath",
+            "definition": "//span[contains(text(),'Playground/Showcase/')]",
+            "frame": "default",
+            "specialInstr":"NA"
         }
     ]
 }

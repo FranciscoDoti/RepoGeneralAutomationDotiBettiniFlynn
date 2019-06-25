@@ -244,6 +244,7 @@ module.exports = {
   resetBrowser,
   visitURL,
   getURL,
+  getTitle,
   activateTab,
   takeScreenshot,
   getDriver,
@@ -255,6 +256,5 @@ module.exports = {
   onWaitForElementToBeVisible,
   onWaitForElementToBeInvisible,
   config,
-  sleep,
-  getTitle
+  sleep
 };
