@@ -1,5 +1,4 @@
-const { Given, When, Then } = require('cucumber');
-const expect = require('chai').expect;
+const { When, Then } = require('cucumber');
 const driver = require(`${process.cwd()}/app/driver.js`);
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
 const cwpages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;

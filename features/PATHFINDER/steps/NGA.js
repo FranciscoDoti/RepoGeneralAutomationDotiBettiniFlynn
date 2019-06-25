@@ -1,7 +1,4 @@
-const { Given, When, Then } = require('cucumber');
-const expect = require('chai').expect;
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const driver = require(`${process.cwd()}/app/driver.js`);
+const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
 
 Then(/^there should be a "(.*)" in NGA$/, async function (locator) {
