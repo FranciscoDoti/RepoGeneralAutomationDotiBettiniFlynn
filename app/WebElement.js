@@ -26,7 +26,7 @@ const WebElement = function (element) {
     return await my.driver.findElements(definition);
   };
 
-  that.elementExists = async function () {
+  that.elementDisplayed = async function () {
     const definition = await this.getBy();
     try{
       return await my.driver.findElement(definition).isDisplayed();

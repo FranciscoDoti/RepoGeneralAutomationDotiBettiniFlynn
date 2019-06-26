@@ -89,4 +89,21 @@ When(/^I click on "(.*)"$/, async function (courseName) {
   await pages.createCourse.click('courseCard', courseName);
 });
 
+Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userName){
+  let payload = await _.get(users, [this.environment, userName]);
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', payload.username);
+  await pages.home.populate('password', payload.password);
+  await pages.home.click('signIn');
+  await pages.courseList.assertElementExists('courseName', courseName);
+
+});
+
+Then('I verify that activities are assigned', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.assertTextIncludes('assignmentStatus', data_table.hashes()[i].activity, data_table.hashes()[i].Status)
+  }
+});
+
+
 

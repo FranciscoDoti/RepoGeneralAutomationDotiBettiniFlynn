@@ -564,7 +564,7 @@
             "frame": "default",
             "specialInstr": "NA"
 
-        },{
+        }, {
             "name": "libraryItem",
             "byType": "xpath",
             "definition": "//a[@class='_25Nb' and .='<ReplaceText>']",
@@ -579,6 +579,16 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "assignmentStatus",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../..//div[@data-test-id='assignment_status']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
+
+
     ]
 }

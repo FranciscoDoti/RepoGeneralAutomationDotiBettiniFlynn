@@ -1,7 +1,7 @@
 Feature: Media Editor is able to create a template and update
 
    @delete-ISBN-9781464199499
-    Scenario: Verify that media editor is bale to create a template and update it 
+    Scenario: Verify that media editor is able to create a template and update it 
 
         Given I login to Achieve-CW as "media_editor_1"
         When I create Course Template with the data 
