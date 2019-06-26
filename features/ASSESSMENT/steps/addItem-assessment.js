@@ -94,13 +94,3 @@ for (let i= 1; i <= itemList.length-1 ; i++){
 }
 assert.deepEqual(assignmentQuestionSet, CQBTabQuestionSet);
 }); 
-
-
-// Delete the newly created assessment
-After('@assessmentCreation', async function () {
-  // await getDriver().get("http://ae.saplinglearning.me/ibiscms/course/view.php?id=21038");
-  await ngaPages.assignmentTab.click('courseName');
-  await ngaPages.assignmentTab.click('listAssessments', assessment_name);
-  await ngaPages.assignmentTab.click('listAssessmentsDelete', assessment_name);
-  await ngaPages.assignmentTab.click('SubmitYes');
-});
