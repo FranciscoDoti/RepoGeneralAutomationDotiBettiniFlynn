@@ -17,9 +17,8 @@ AfterAll(async function () {
 
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {
-  // await getDriver().get("http://ae.saplinglearning.me/ibiscms/course/view.php?id=21038");
   await asmtpages.assignmentTab.click('courseName');
-  await asmtpages.assignmentTab.click('listAssessments', assessment_name);
-  await asmtpages.assignmentTab.click('listAssessmentsDelete', assessment_name);
+  await asmtpages.assignmentTab.click('listAssessments', "QAAssessment");
+  await asmtpages.assignmentTab.click('listAssessmentsDelete', "QAAssessment");
   await asmtpages.assignmentTab.click('SubmitYes');
 });

@@ -1,3 +1,4 @@
+'use strict';
 const { Given, When, Then, After}=require('cucumber');
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
@@ -8,7 +9,7 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const { assert, expect } = require('chai');
 var CQBTabQuestionSet= new Set();
 var assignmentQuestionSet = new Set();
-var assessment_name = "";
+var assessment_name="";
 
 Given(/^I login to an existing course as "(.*)"$/, async function (userType){
     let url = await _.get(urls, ['IBISCMS', this.environment]);
@@ -28,20 +29,16 @@ Given(/^I login to an existing course as "(.*)"$/, async function (userType){
 
 
 Given('I create a new assessment with its necessary details', async function (datatable) {
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    // assessment_name = "QAAssessment" + time;
+    // var today = new Date();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     await ngaPages.assessmentListPage.scrollElementIntoView('addAssessment');
     await assert.include(await getTitle(), "Roadshow", "Title is same!"); 
     await ngaPages.assessmentListPage.populate("addAssessment", "Assessment");
-
+    assessment_name = "QAAssessment";
     for (let i = 0; i < datatable.rows().length; i++) {
-    assessment_name = datatable.hashes()[i].Assessment_Name + time;
     await ngaPages.createAssessment.populate('assessmentName', assessment_name);
     await ngaPages.createAssessment.populate('assessmentDescription', datatable.hashes()[i].Assessment_Description);
   }
-
-    // await ngaPages.createAssessment.populate("assessmentName", assessment_name);
     await ngaPages.createAssessment.click("saveAndContinue");
     await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
 });
@@ -93,4 +90,4 @@ for (let i= 1; i <= itemList.length-1 ; i++){
   assignmentQuestionSet.add(await ngaPages.assignmentTab.getAttributeValue(assignmentQuestionIds, 'id'));
 }
 assert.deepEqual(assignmentQuestionSet, CQBTabQuestionSet);
-}); 
+});
