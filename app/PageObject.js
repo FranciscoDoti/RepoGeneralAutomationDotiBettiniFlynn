@@ -163,7 +163,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const getAttributeValue = async function (elementName, attributeName) {
+  const getAttributeValue = async function (elementName, replaceText, attributeName) {
+    if (attributeName === undefined) {
+      attributeName = replaceText;
+    } else {
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+    }
+
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
@@ -312,15 +319,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertText = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) {
-      expectedValue = replaceText;
-    } else {
-      await addDynamicElement(elementName, replaceText);
-      elementName = elementName + (replaceText || '');
-    }
-
     try {
-      const actualValue = await getAttributeValue(elementName);
+      const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
       if (await expect(actualValue).to.equal(expectedValue)) {
         log.info(`Actual value "${actualValue}" equals Expected value "${expectedValue}". PASS`);
@@ -332,15 +332,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) {
-      expectedValue = replaceText;
-    } else {
-      await addDynamicElement(elementName, replaceText);
-      elementName = elementName + (replaceText || '');
-    }
-
     try {
-      const actualValue = await getAttributeValue(elementName);
+      const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
       if (await expect(actualValue).to.include(expectedValue)) {
         log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
