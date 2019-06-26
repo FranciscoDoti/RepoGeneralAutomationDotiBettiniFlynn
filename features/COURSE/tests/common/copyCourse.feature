@@ -29,7 +29,7 @@ Feature: Copy course from the Template
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
-            | course            | Quantitative Course          |
+            | courseName        | Quantitative Course          |
             | courseCode        | E2E301                       |
 
 

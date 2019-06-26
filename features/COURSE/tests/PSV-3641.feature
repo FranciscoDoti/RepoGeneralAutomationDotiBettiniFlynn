@@ -17,10 +17,10 @@ Feature: Admin Grantroles to the user
         Examples: 
             |users                  | roles                        | role                                                                                          |
             |"admin_2"              | "Admin"                      | "Admin privileges have been granted for james@pay-mon.com."                                   |
-            |"customer_support_2"   | "Customer Support"           | "Customer Support privileges have been granted for nowunojuwe@airsport.top."                  |
+            |"customer_support_1"   | "Customer Support"           | "Customer Support privileges have been granted for customersupport@2emailock.com."                  |
             |"media_producer_2"     | "Media Producer"             | "Media Producer privileges have been granted for cibico@mailhub.top."                         | 
-            |"paid_access_1"        | "Paid Access Code Creator"   | "Paid Access Code Creator privileges have been granted for paidaccess@safe-planet.com."       |
-            |"media_editor_1"       | "Media Editor"               | "Media Editor privileges have been granted for mediaeditor13@gmail.com."                      |
+            |"paid_access"          | "Paid Access Code Creator"   | "Paid Access Code Creator privileges have been granted for paidaccess@2emailock.com."       |
+            |"media_editor_1"       | "Media Editor"               | "Media Editor privileges have been granted for vunujiw@2emailock.com."                      |
     
             
 

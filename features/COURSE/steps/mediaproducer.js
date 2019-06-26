@@ -60,6 +60,7 @@ Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async fu
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('ISBNVerification', courseName);
   await pages.createCourse.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
+  await pages.home.click('closeAlert');
 });
 
 When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
