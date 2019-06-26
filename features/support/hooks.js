@@ -1,5 +1,6 @@
 var { After, AfterAll } = require('cucumber');
 const { closeBrowser, resetBrowser, takeScreenshot } = require(`${process.cwd()}/app/driver`);
+const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 
 After(async function (scenario) {
   console.log(scenario.result.status);
@@ -12,4 +13,13 @@ After(async function (scenario) {
 
 AfterAll(async function () {
   await closeBrowser();
+});
+
+// Delete the newly created assessment
+After('@assessmentCreation', async function () {
+  // await getDriver().get("http://ae.saplinglearning.me/ibiscms/course/view.php?id=21038");
+  await asmtpages.assignmentTab.click('courseName');
+  await asmtpages.assignmentTab.click('listAssessments', assessment_name);
+  await asmtpages.assignmentTab.click('listAssessmentsDelete', assessment_name);
+  await asmtpages.assignmentTab.click('SubmitYes');
 });
