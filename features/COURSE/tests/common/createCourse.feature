@@ -15,6 +15,6 @@ Feature: Create course
             | courseStatus      | draft                        |
 
         Then I verify that "Quantitative Template Created." message is displayed
-        And I verify that "Quantitative Course Template" has created with following "ISBN: 9781464199498" number
+        And I verify that "Quantitative Template" has created with following "ISBN: 9781464199498" number
 
     
