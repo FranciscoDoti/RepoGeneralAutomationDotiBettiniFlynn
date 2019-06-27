@@ -16,6 +16,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.adminMenu.populate('emailInput', payload.username);
   await pages.adminMenu.click('addUserButton');
   await pages.adminMenu.click('closeManageRoles');
+  await pages.home.click('closeAlert');
 });
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
