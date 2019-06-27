@@ -1,33 +1,130 @@
 {
-    "webElements": [{
-        "name": "assignmentLink",
-        "byType": "xpath",
-        "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "courseLink",
-        "byType": "xpath",
-        "definition": "//*[@id='module-2838592']/a/span/span",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "aeframe",
-        "byType": "css",
-        "definition": "#aeIframe",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "assignmentPreviewButton",
-        "byType": "xpath",
-        "definition": "//button[@data-test-id='assignment-preview-button']",
-        "frame": "aeframe",
-        "specialInstr": "NA"
-    }, {
-        "name": "previewCheckAnswerButton",
-        "byType": "xpath",
-        "definition": "//button[@data-test-id='check-answer-button']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }]
+    "webElements": [
+        {
+            "name": "courseLink",
+            "byType": "xpath",
+            "definition": "//h4[.='Raptor Automation - Do Not Delete']/..",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "assignmentLink",
+            "byType": "xpath",
+            "definition": "//*[@id='module-2838592']/a/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionList",
+            "byType": "css",
+            "definition": "#flcn_assignment",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "assignmentPreviewButton",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='assignment-preview-button']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "previewCheckAnswerButton",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='check-answer-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "studentAnalysisTab",
+            "byType": "xpath",
+            "definition": "//*[@id='navigation-tabs']/a[5]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "editStudentAttemptsButton",
+            "byType": "xpath",
+            "definition": "//button[.='Edit']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "saveStudentAttemptsButton",
+            "byType": "xpath",
+            "definition": "//button[.='Save']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "studentCheckbox",
+            "byType": "xpath",
+            "definition": "//div[.='<ReplaceText>']/../input",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "resetStudentAttemptsButton",
+            "byType": "xpath",
+            "definition": "//button[.='Reset Attempts']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "sampleAssessmentQuestionRadioButton",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "checkAnswerButton",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='check-answer-button']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionButton",
+            "byType": "xpath",
+            "definition": "//ul[@id='question-nav']/li[<ReplaceText>]/div/button",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "viewSolutionButton",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='solution-modal-view-solution']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "giveUpButton",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='giveup-button-text']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "confirmGiveUpButton",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='give-up-modal-give-up']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "answerScore",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='side-nav-item-<ReplaceText>-score']/span",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        }
+    ]
 }

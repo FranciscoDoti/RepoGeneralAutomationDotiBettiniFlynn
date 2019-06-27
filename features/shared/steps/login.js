@@ -53,3 +53,9 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
     await pages.login.click('submit')
   };
 });
+
+When('I logout IBISCMS', async function () {
+  await pages.login.click('userMenuButton');
+  await pages.login.click('logoutMenu');
+});
+
