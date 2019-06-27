@@ -248,5 +248,47 @@ Then('I verify that activties are added', async function (data_table) {
   }
 })
 Then('I verify that custom activity is present in courseplanner your content section', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) { 
+  await pages.coursePage.click('coursePlanner');
+    await pages.coursePlanner.click('customContentButton');
+    await pages.coursePlanner.click('libraryTab');
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+    await pages.coursePlanner.assertElementExists('libraryItem', data_table.hashes()[i].activity);
+  }
+});
+
+When(/^I create Custom Task in "(.*)" and add it to resources$/, async function (courseName, data_table){
+  await pages.createCourse.click('courseCard', courseName)
+  await pages.coursePage.click('resources');
+  await pages.resources.click('addActivity');
+  await pages.resources.click('createCustomActivity');
+  await pages.coursePlanner.click('assessmentButton');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
+  } 
+  await pages.coursePlanner.click('resetModel');
+  await pages.coursePlanner.click('questionBank');
+  await pages.coursePlanner.click('checkBoxAssignment');
+  await pages.coursePlanner.click('addQuestionButton');
+  await pages.coursePlanner.click('close');
+});
+
+Then('I verify that custom content is added to resources', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('addContent');
+    await pages.resources.populate('searchBar', data_table.hashes()[i].activity);
+    await pages.resources.click('addCCButton', data_table.hashes()[i].activity);
+    await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity);
+  }
+});
+
+When(/^I create writing Custom Task in "(.*)" and add it to resources$/, async function (courseName, data_table){
+  await pages.createCourse.click('courseCard', courseName)
+  await pages.coursePage.click('resources');
+  await pages.resources.click('addActivity');
+  await pages.resources.click('createCustomActivity');
+  await pages.resources.click('writingPrompt');
+  for (let i = 0; i < data_table.rows().length; i++) {
+  }
 
 });

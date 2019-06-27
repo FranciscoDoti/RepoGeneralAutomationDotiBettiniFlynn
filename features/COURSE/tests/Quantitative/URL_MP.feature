@@ -21,19 +21,19 @@ Feature: Verify that mediaProducer is able to create URL
             | templateStatus   | Active On Date                                              |
 
         And I add URL link to "Quantitative Template" 
-            | field             | link                     |
-            | addUrlLinkinput   | http://www.cnn.com       |
+            | field             | link                         |
+            | addUrlLinkinput   | https://www.google.com       |
 
         Then I verify that "URL Link Added to "Your Content"" message is displayed
 
         And I add URL activity in resource tab
             | activity                                    |
-            | CNN - Breaking News, Latest News and Videos |
+            | Google                                      |
 
         Then I verify that activties are added 
             | activity                                                            | 
-            | CNN - Breaking News, Latest News and Vid ...                        |
+            | Google                                                              |
 
         And I verify that custom activity is present in courseplanner your content section
             | activity                                                            | 
-            |  CNN - Breaking News, Latest News and Vid ...                       |                                                         
+            | Google                                                              |                                                         

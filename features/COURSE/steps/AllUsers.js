@@ -111,13 +111,7 @@ When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
 When('I add URL activity in resource tab', async function (data_table) {
   await pages.resources.click('goToContent');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.click('addURLButton', data_table.hashes()[i].activity)
+    await pages.resources.click('addCCButton', data_table.hashes()[i].activity)
   }
 });
 
-Then('I verify that custom activity is present in courseplanner your content section', async function (data_table) {
-  await pages.coursePage.click('coursePlanner');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.assertElementExists('libraryItem', data_table.hashes()[i].activity);
-  }
-});

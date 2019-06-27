@@ -347,7 +347,7 @@
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
         }, {
-            "name": "AddAssignmentButton",
+            "name": "addQuestionButton",
             "byType": "css",
             "definition": "[data-test-id='add-question-button']",
             "frame": "customAssesmentFrame",
