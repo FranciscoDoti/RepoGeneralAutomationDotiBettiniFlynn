@@ -10,6 +10,7 @@ const { assert, expect } = require('chai');
 var CQBTabQuestionSet= new Set();
 var assignmentQuestionSet = new Set();
 var assessment_name="";
+var question_count;
 
 Given(/^I login to an existing course as "(.*)"$/, async function (userType){
     let url = await _.get(urls, ['IBISCMS', this.environment]);
@@ -37,17 +38,18 @@ Given('I create a new assessment with its necessary details', async function (da
     assessment_name = "QAAssessment";
     for (let i = 0; i < datatable.rows().length; i++) {
     await ngaPages.createAssessment.populate('assessmentName', assessment_name);
-    await ngaPages.createAssessment.populate('assessmentDescription', datatable.hashes()[i].Assessment_Description);
+    // await ngaPages.createAssessment.populate('assessmentDescription', datatable.hashes()[i].Assessment_Description);
   }
     await ngaPages.createAssessment.click("saveAndContinue");
     await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
 });
 
 
-When(/^I have added "(.*)" random item to assessment$/, async function (count) {
-// Create number of items first 
+When(/^I have created "(.*)" random questions$/, async function (count) {
+    // Create number of items first 
+    question_count = count;
     await ngaPages.customQuestion.click("CustomQuestionTab");
-    for ( let i =1 ; i <= count; i++){
+    for ( let i =1 ; i <= question_count; i++){
       var item_type = "multiple_choice";
       await ngaPages.customQuestion.click('createQuestionButton');
       await ngaPages.assignmentTab.click('HatchlingQuestionType',item_type);
@@ -64,21 +66,24 @@ When(/^I have added "(.*)" random item to assessment$/, async function (count) {
       await ngaPages.hatchlingItem.click('HatchlingSave');
       await sleep(5000);
     }
-    for (let i= 1; i <= count ; i++){
-      await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
-      var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
-      CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue(questionIdElement, 'id'))
+});
+
+When(/^added it to assessment$/, async function () {
+  for (let i= 1; i <= question_count ; i++){
+    await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
+    var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
+    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue(questionIdElement, 'id'))
+  }
+  let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
+  let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
+  for (let i = 0; i < actionBarButtonsLabel.length; i++) {
+    let buttonText = await actionBarButtonsLabel[i].getText();
+    if (buttonText==="Add"){
+      await actionBarButtons[i].click();
+      break;
     }
-    let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
-    let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
-    for (let i = 0; i < actionBarButtonsLabel.length; i++) {
-      let buttonText = await actionBarButtonsLabel[i].getText();
-      if (buttonText==="Add"){
-        await actionBarButtons[i].click();
-        break;
-      }
-    }
-    await ngaPages.assignmentTab.click('AssignmentTab');
+  }
+  await ngaPages.assignmentTab.click('AssignmentTab');
 });
 
 
