@@ -1,0 +1,28 @@
+{
+  "default": {
+    "1551301608988": {
+      "lc": {
+        "fq": "music/automation/auto_manuscript_lc_1551301608988",
+        "achieve": "LC1551301608988"
+      },
+      "lcrp": {
+        "fq": "music/automation/auto_manuscript_lcrp_1551301608988",
+        "achieve": "LCRP1551301608988"
+      },
+      "key": "./features/LC/_data/auto_manuscript_1551301608988.json"
+    }
+  },
+  "prod": {
+    "1551301608988": {
+      "lc": {
+        "fq": "music/automation/auto_manuscript_lc_1551301608988",
+        "achieve": "LC1551301608988"
+      },
+      "lcrp": {
+        "fq": "music/automation/auto_manuscript_lcrp_1551301608988",
+        "achieve": "LCRP1551301608988"
+      },
+      "key": "./features/LC/_data/auto_manuscript_1551301608988.json"
+    }
+  }
+}

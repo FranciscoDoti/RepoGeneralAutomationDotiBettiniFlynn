@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 Then('I grade Correct tab', async function () {
-  await pages.editorPanel.click('moldrawStaticModuleCheckbox');
+  await pages.moldraw.click('moldrawStaticModuleCheckbox');
   await mathpages.raptorAms.click('correctTab');
   await pages.moldraw.click('singleBondButton');
   await pages.moldraw.click('drawingArea');
@@ -18,7 +18,7 @@ Then('I grade Correct tab', async function () {
 });
 
 Then('I grade Incorrect tab', async function () {
-  await pages.editorPanel.click('moldrawStaticModuleCheckbox');
+  await pages.moldraw.click('moldrawStaticModuleCheckbox');
   await mathpages.raptorAms.click('correctTab');
   await pages.moldraw.click('singleBondButton');
   await pages.moldraw.click('drawingArea');
@@ -36,7 +36,7 @@ Then('I grade Incorrect tab', async function () {
 });
 
 Then('I grade Default tab', async function () {
-  await pages.editorPanel.click('moldrawStaticModuleCheckbox');
+  await pages.moldraw.click('moldrawStaticModuleCheckbox');
   await mathpages.raptorAms.click('correctTab');
   await pages.moldraw.click('singleBondButton');
   await pages.moldraw.click('drawingArea');

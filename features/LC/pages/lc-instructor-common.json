@@ -1,0 +1,163 @@
+{
+	"webElements": [
+		{
+			"name": "close_learningcurve",
+            "byType": "xpath",
+			"definition": "//a[@data-test-id='closelearningcurve']",
+			"frame": "default",
+			"specialInstr": "NA"
+			
+        },{
+			"name": "page_title",
+            "byType": "xpath",
+			"definition": "//h2[@data-test-id='pageTitle']",
+			"frame": "default",
+			"specialInstr": "NA"
+			
+        },{
+			"name": "instructor_about",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='openInstructorAbout']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "preview_as_student",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='openInstructorAbout']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "target_score",
+            "byType": "xpath",
+			"definition": "//p[@data-test-id='targetAndTopicSummaryScoreTotal']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "edit_target_score",
+            "byType": "xpath",
+			"definition": "//button[@data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "topic_count",
+            "byType": "xpath",
+			"definition": "//p[@data-test-id='targetAndTopicSummaryTopicCount']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "topic_count",
+            "byType": "xpath",
+			"definition": "//button[@data-test-id='targetAndTopicSummaryTopicCountBtn']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "assignments_started",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryQuizesStarted']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "assignments_completed",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryQuizesCompleted']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "accuracy_low",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryAccuracyLow']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "accuracy_medium",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryAccuracyMedium']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "accuracy_high",
+            "byType": "xpath",
+			"definition": "//span[@data-test-id='targetAndTopicSummaryAccuracyHigh']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "performance_distribution",
+            "byType": "xpath",
+			"definition": "//ul[@data-test-id='performanceDistrubtion']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "student_search",
+            "byType": "xpath",
+			"definition": "//input[@data-test-id='studentSearchInput']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "student_search_button",
+            "byType": "xpath",
+			"definition": "//input[@data-test-id='studentListSearchIcon']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "students",
+            "byType": "xpath",
+			"definition": "//*[@data-test-id='studentListRow']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "student_name",
+            "byType": "xpath",
+			"definition": "//td[@data-test-id='studentListName']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "completed_icon",
+            "byType": "xpath",
+			"definition": "//img[@data-test-id='completedCheckbox']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "test_plan_item",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='studyPlanItem']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "topic_title",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='studyPlanItemTitle']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "study_plan_item",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='studyPlanItemSuggestions']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "topic_accuracy",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='topicAccuracy']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+			"name": "activity_performance",
+			"byType": "xpath",
+			"definition": "//h2[@data-test-id='activityPerformanceLabel']",
+			"frame": "default",
+			"specialInstr": "NA"
+		},{
+			"name": "preview_as_student",
+			"byType": "xpath",
+			"definition": "//button[@data-test-id='previewAsStudentBtn']",
+			"frame": "default",
+			"specialInstr": "NA"
+		},{
+			"name": "sample_students",
+			"byType": "xpath",
+			"definition": "//button[@data-test-id='toggleSampleStudents']",
+			"frame": "default",
+			"specialInstr": "NA"
+		}
+    ]
+}

@@ -1,0 +1,77 @@
+{
+	"webElements": [
+		{
+			"name": "first_attempt_inprogress",
+            "byType": "xpath",
+			"definition": "//img[@data-test-id='firstAttemptInProgress']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "first_attempt_icon_contrainer",
+            "byType": "xpath",
+			"definition": "//td[@data-test-id='studentListClassCompletion']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "first_attempt",
+            "byType": "xpath",
+			"definition": "//td[@data-test-id='studentListCompletedFirst']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "retake_attempt",
+            "byType": "xpath",
+			"definition": "//td[@data-test-id='studentListRetakePercentage']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "show_class_average",
+            "byType": "id",
+			"definition": "classAverageCheckboxRecentRetakes",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+			"name": "topic_accuracy",
+            "byType": "xpath",
+			"definition": "//div[@data-test-id='studyPlanItemAccuracy']",
+			"frame": "default",
+			"specialInstr": "NA"
+        },{
+            "name": "time_spent_topic",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='topicAndPerformanceQuizTimeSpent']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "time_per_question",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='topicAndPerformanceQuizAverageAnswerSpeed']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "topic_performance",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='classAverageAccuracy']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "trends_and_insights",
+            "byType": "xpath",
+            "definition": "//span[text()='Trends & Insights']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+			"name": "averageTime",
+			"byType": "xpath",
+			"definition": "//p[@data-test-id='instructorTrendsAverageTime']",
+			"frame": "default",
+			"specialInstr": "NA"
+		},{
+			"name": "averageSpeed",
+			"byType": "xpath",
+			"definition": "//p[@data-test-id='instructorTrendsAverageSpeed']",
+			"frame": "default",
+			"specialInstr": "NA"
+		}
+    ]
+}

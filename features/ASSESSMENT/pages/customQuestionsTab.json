@@ -1,0 +1,37 @@
+{
+    "webElements": [{
+        "name": "CustomQuestionTab",
+        "byType": "css",
+        "definition": "a[data-test-id='link-to-customquestions']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "aeFrame",
+        "byType": "css",
+        "definition": "#aeIframe",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "createQuestionButton",
+        "byType": "css",
+        "definition": "button[data-test-id='add-another-button']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "CQBItemsCheckbox",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "CQquestionsId",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    }
+]}
