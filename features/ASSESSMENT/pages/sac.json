@@ -1,14 +1,14 @@
 {
     "webElements": [
         {
-            "name": "instructorAssignmentLink",
+            "name": "Instructor Assignment Link",
             "byType": "xpath",
             "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "studentAssignmentLink",
+            "name": "Student Assignment Link",
             "byType": "xpath",
             "definition": "//*[@id='div_acc_courses']/li/ul/li[2]/ul/li[1]/div/div[1]/div/a",
             "frame": "default",
@@ -29,14 +29,14 @@
             "specialInstr": "NA"
         },
         {
-            "name": "assignmentPreviewButton",
+            "name": "Assignment Preview Button",
             "byType": "xpath",
             "definition": "//button[@data-test-id='assignment-preview-button']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
-            "name": "previewCheckAnswerButton",
+            "name": "Preview Check Answer Button",
             "byType": "xpath",
             "definition": "//button[@data-test-id='check-answer-button']",
             "frame": "default",
