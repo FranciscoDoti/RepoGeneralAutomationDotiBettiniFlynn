@@ -1,23 +1,30 @@
 {
     "webElements": [
         {
-            "name": "Instructor Assignment Link",
+            "name": "Instructor Course Link",
             "byType": "xpath",
             "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "Student Assignment Link",
+            "name": "Student Course Link",
             "byType": "xpath",
             "definition": "//*[@id='div_acc_courses']/li/ul/li[2]/ul/li[1]/div/div[1]/div/a",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "courseLink",
+            "name": "Instructor Assessment Link",
             "byType": "xpath",
-            "definition": "//*[@id='module-2838592']/a/span/span",
+            "definition": "//tr[@class='section main sectionSortable'][1]/td/ul/li[1]/a/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Student Assessment Link",
+            "byType": "xpath",
+            "definition": "//tr[@class='section main '][1]/td/ul/li[1]/a/span/span",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -43,9 +50,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "breadcrumb2",
+            "name": "Breadcrumb",
             "byType": "xpath",
-            "definition": "//*[@id='breadcrumbs']/li[2]/a",
+            "definition": "//span[.='<ReplaceText>']/..",
             "frame": "default",
             "specialInstr": "NA"
         }

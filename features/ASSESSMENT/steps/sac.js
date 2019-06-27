@@ -3,15 +3,15 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 const driver = require(`${process.cwd()}/app/driver`);
 
 When('I navigate to assignment preview', async function () {
-    await pages.sac.click('Instructor Assignment Link');
-    await pages.sac.click('courseLink');
+    await pages.sac.click('Instructor Course Link');
+    await pages.sac.click('Instructor Assessment Link');
     await pages.sac.click('Assignment Preview Button');
 });
 
 When('I navigate to assignment and go back to the course landing page', async function () {
-    await pages.sac.click('Student Assignment Link');
-    await pages.sac.click('courseLink');
-    await pages.sac.click('breadcrumb2');
+    await pages.sac.click('Student Course Link');
+    await pages.sac.click('Student Assessment Link');
+    await pages.sac.click('Breadcrumb', 'Raptor Automation');
 });
 
 Then('The assignment preview is opened in a new tab', async function () {
@@ -20,5 +20,5 @@ Then('The assignment preview is opened in a new tab', async function () {
 });
 
 Then('The course landing page is loaded', async function () {
-    await pages.sac.assertElementExists('courseLink');
+    await pages.sac.assertElementExists('Student Assessment Link');
 });
