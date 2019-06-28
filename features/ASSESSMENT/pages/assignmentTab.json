@@ -90,15 +90,7 @@
             "definition": "#targetValue",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "Measurement",
-            "byType": "css",
-            "definition": "#targetValue",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
+        }, {
             "name": "Measurement",
             "byType": "css",
             "definition": "#units",
