@@ -171,6 +171,10 @@
             "sq3_answer": "answer",
             "primarySchool": "Macmillan Learning"
         },
+        "student_2": {
+            "username": "raptorstudent",
+            "password": "fasterthansixmill"
+        },
         "instructor_1": {
             "username": "instructor@2emailock.com",
             "password": "ABCabc@123",
