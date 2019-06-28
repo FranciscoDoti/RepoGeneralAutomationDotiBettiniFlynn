@@ -41,7 +41,7 @@ When('I sign out of Achieve', async function () {
 Given(/^navigate to a course having course id "(.*)"$/, async function (courseid){
   var currentURL = await pages.login.getCurrentURL();
   var courseURL = currentURL + "course/view.php?id=" + courseid;
-  await getDriver().get(courseURL);
+  await visitURL(courseURL);
 });
 
 Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
