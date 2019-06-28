@@ -36,3 +36,9 @@ When('I sign out of Achieve', async function () {
   await pages.login.click('togglerMenu');
   await pages.login.click('signOut');
 });
+
+Given(/^navigate to a course having course id "(.*)"$/, async function (courseid){
+  var currentURL = await pages.login.getCurrentURL();
+  var courseURL = currentURL + "course/view.php?id=" + courseid;
+  await getDriver().get(courseURL);
+});
