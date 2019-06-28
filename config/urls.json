@@ -20,11 +20,22 @@
         "prod":"",
         "pre-prod":""
     },
+    "LC":{
+        "devlc": "https://dev-learning-curve-learningcurve.mldev.cloud/",
+        "dev": "https://dev-achieve-learningcurve.mldev.cloud/",
+        "int": "https://int-achieve-learningcurve.mldev.cloud/",
+        "uat": "https://dev-achieve-uat-learningcurve.mldev.cloud/",
+        "pre-prod": "https://int-achieve-preprod-learningcurve.mldev.cloud",
+        "prod": "https://learningcurve.macmillanlearning.com/"
+    },
     "ApplicationName":{
         "local":"http://local.application.me:3080",
         "int":"http://int.application.me:3080",
         "dev":"http://dev.application.me:3080",
         "prod":"http://prod.application.me:3080",
         "pre-prod":"http://pre-prod.application.me:3080"
+    },
+    "IBISCMS":{
+        "int":"http://int.saplinglearning.me/ibiscms"
     }
 }

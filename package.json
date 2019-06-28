@@ -3,15 +3,31 @@
   "lockfileVersion": 1,
   "scripts": {
     "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json --env int --mode local --browser firefox --headless true --screenshots false",
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json",
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
-    "moldraw-simple-structure-grade": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json"
+    "folder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3688.feature -f json:reports/cucumber_report.json",
+    "mp": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3689-mediaProducer.feature -f json:reports/cucumber_report.json",
+    "instructorFolder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3689-Instructor.feature -f json:reports/cucumber_report.json",
+    "ebook": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3690.feature -f json:reports/cucumber_report.json",
+    "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
+    "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json",
+    "AC":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/add-collaborator.feature -f json:reports/cucumber_report.json",
+    "Media": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-update-template.feature -f json:reports/cucumber_report.json",
+    "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-viewaccess.feature -f json:reports/cucumber_report.json",
+    "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests -f json:reports/cucumber_report.json",
+    "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common -f json:reports/cucumber_report.json",
+    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/AdminEnrollsStudent.feature",
+    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/LST-420-practice-test-admin-view.feature -f json:reports/cucumber_report.json",
+    "sac-bas": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json",
+    "sac-int": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-intermediate.feature -f json:reports/cucumber_report.json",
+    "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment ae"
   },
   "engines": {
     "node": ">=10"
   },
   "dependencies": {
+    "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
     "chromedriver": "latest",
@@ -25,16 +41,16 @@
     "jsonwebtoken": "latest",
     "mailparser": "latest",
     "parse-duration": "latest",
-    "selenium-webdriver": "latest"
+    "selenium-webdriver": "latest",
+    "cucumber-html-reporter": "latest",
+    "winston": "latest"
   },
   "devDependencies": {
-    "cucumber-html-reporter": "^4.0.4",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
-    "node-dir": "^0.1.17",
-    "winston": "^3.0.0"
+    "node-dir": "^0.1.17"
   }
 }

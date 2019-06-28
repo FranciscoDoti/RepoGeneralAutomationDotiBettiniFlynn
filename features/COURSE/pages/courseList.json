@@ -23,7 +23,7 @@
         "definition": "[data-test-id='course_menu_delete_course']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "courseCard",
         "byType": "css",
         "definition": "[data-test-id='course_card']",
@@ -69,6 +69,12 @@
         "name": "course",
         "byType": "css",
         "definition": "[id='courseName']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "ISBN",
+        "byType": "xpath",
+        "definition": "//div[@data-test-id='course_activation_date' and .='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

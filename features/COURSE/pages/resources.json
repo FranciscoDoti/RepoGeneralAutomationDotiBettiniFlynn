@@ -96,7 +96,7 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "addFolderInput",
+        "name": "folderName",
         "byType": "css",
         "definition": "[data-test-id='add_folder_input']",
         "frame": "default",
@@ -119,6 +119,119 @@
         "definition": "[data-test-id='add_unit_button']",
         "frame": "default",
         "specialInstr": "NA"
+    }, {
+        "name": "threeButtonActivities",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']/../../..//button[@data-test-id='three_button_popup']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "threeButtonResources",
+        "byType": "xpath",
+        "definition": "//span[.='<ReplaceText>']/../../..//button[@data-test-id='three_button_popup']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },  
+    {
+        "name": "threeButtonValidation",
+        "byType": "xpath",
+        "definition": "//button[@data-test-id='three_button_popup']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "moveItem",
+        "byType": "css",
+        "definition": "[data-test-id='move_item_to_folder']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "moveItemToFolder",
+        "byType": "xpath",
+        "definition": "//button[@class='_3S0D']/..//span[text()='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "placeInFolder",
+        "byType": "css",
+        "definition": "[data-test-id='place_in_folder']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "folderButton",
+        "byType": "xpath",
+        "definition": "//span[text()='<ReplaceText>']/../..//button[starts-with(@data-test-id, 'folder_button')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "assignmentValidation",
+        "byType": "xpath",
+        "definition": "//*[@data-test-id='assignment_link' and .='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "reorderItems",
+        "byType": "css",
+        "definition": "[data-test-id='reorder_item']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "reorderResources",
+        "byType": "xpath",
+        "definition": "//button[@class='IwDV']/..//span[text()='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
 
+    },
+    {
+        "name": "moveToTop",
+        "byType": "css",
+        "definition": "[data-test-id='move_to_top_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, {
+        "name": "removeItem",
+        "byType": "css",
+        "definition": "[data-test-id='remove_item']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, {
+        "name": "confirmRemoveItem",
+        "byType": "css",
+        "definition": "[data-test-id='yes_remove_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, {
+        "name": "moveUpButton",
+        "byType": "css",
+        "definition": "[data-test-id='move_up_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }, {
+        "name": "movedownButton",
+        "byType": "css",
+        "definition": "[data-test-id='move_down_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "resourcesReorderVerification",
+        "byType": "xpath",
+        "definition": "//div[<ReplaceText>]/div[@role='row']//span[@data-test-id='folder_label_name']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },  {
+        "name": "moveToEnd",
+        "byType": "css",
+        "definition": "[data-test-id='move_to_end_button']",
+        "frame": "default",
+        "specialInstr": "NA"
     }]
+    
+
 }
