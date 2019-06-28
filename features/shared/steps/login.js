@@ -53,6 +53,12 @@ When('I sign out of Achieve', async function () {
   await pages.login.click('signOut');
 });
 
+Given(/^navigate to a course having course id "(.*)"$/, async function (courseid){
+  var currentURL = await pages.login.getCurrentURL();
+  var courseURL = currentURL + "course/view.php?id=" + courseid;
+  await visitURL(courseURL);
+});
+
 Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['IBISCMS', this.environment]);
   let user = await _.get(users, [this.environment, userType]);
@@ -68,3 +74,4 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
     await pages.login.click('submit')
   };
 });
+

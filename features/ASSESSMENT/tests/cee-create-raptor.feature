@@ -5,5 +5,5 @@ Feature: CEE module type creation
       When I add the "Chemical Equation" module
       Then I verify item has been created with following details
       |field      |value      |
-      |module_type|CEE        |
+      |module type|CEE        |
       |status     |in progress|

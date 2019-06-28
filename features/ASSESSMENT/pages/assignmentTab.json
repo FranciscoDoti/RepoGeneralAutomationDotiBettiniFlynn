@@ -53,9 +53,8 @@
             "definition": "input[data-test-id='hatchling-item-title']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "QuestionPromptEditArea",
+        }, {
+            "name": "Question Prompt Area",
             "byType": "css",
             "definition": ".notranslate.public-DraftEditor-content",
             "frame": "aeframe",
@@ -67,51 +66,44 @@
             "definition": "div[data-test-id='image-button']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "ImageHolder",
-            "byType": "css",
-            "definition": ".image-upload-form input",
+        }, {
+            "name": "Image Holder",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']",
             "frame": "aeframe",
-            "specialInstr": "noclick"
-        }, 
-        {
+            "specialInstr": "noclick makevisible"
+        }, {
+            "name": "Uploaded Image",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']/../img",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
             "name": "AddImage",
             "byType": "xpath",
             "definition": "//button[text()='Add Image']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "targetValue",
+        }, {
+            "name": "target Value",
             "byType": "css",
             "definition": "#targetValue",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
+        }, {
             "name": "Measurement",
             "byType": "css",
             "definition": "#units",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "Measurement",
-            "byType": "css",
-            "definition": "#units",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "DerivationType",
+        }, {
+            "name": "Derivation Type",
             "byType": "css",
             "definition": "select[name='derivationType']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "DerivationAmount",
+        }, {
+            "name": "Derivation Amount",
             "byType": "css",
             "definition": "input[id=derivationAmount]",
             "frame": "aeframe",
@@ -157,6 +149,12 @@
             "byType": "xpath",
             "definition": "//span[contains(text(),'Playground/Showcase/')]",
             "frame": "default",
+            "specialInstr":"NA"
+        },{
+            "name": "NETitle",
+            "byType": "css",
+            "definition": "input[data-test-id='hatchling-item-title']",
+            "frame": "aeframe",
             "specialInstr":"NA"
         }
     ]
