@@ -1,0 +1,30 @@
+{"webElements": [
+    {
+        "name": "assessmentName",
+        "byType": "css",
+        "definition": "#id_name",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "saveAndContinue",
+        "byType": "css",
+        "definition": "#id_submitbutton",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "assessmentFrame",
+        "byType": "css",
+        "definition": "#id_description_ifr",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "assessmentDescription",
+        "byType": "css",
+        "definition": "#tinymce p",
+        "frame": "assessmentFrame",
+        "specialInstr": "NA"
+    }
+]
+}

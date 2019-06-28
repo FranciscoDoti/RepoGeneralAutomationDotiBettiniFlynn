@@ -1,0 +1,15 @@
+{"webElements":[
+    {
+        "name": "aeFrame",
+        "byType": "css",
+        "definition": "#aeIframe",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "assessmentModalButtons",
+        "byType": "css",
+        "definition": "a[data-test-id='<ReplaceText>']",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    }
+]}

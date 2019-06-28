@@ -143,18 +143,6 @@
             "definition": "input[value=' Yes ']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "NEAssessment",
-            "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        },{
-            "name": "HintArea",
-            "byType": "xpath",
-            "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
         },
         {
             "name": "courseName",
