@@ -2,6 +2,9 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
+const _= require('lodash');
+const urls = require(`${process.cwd()}/config/urls.json`);
+const {visitURL} = require(`${process.cwd()}/app/driver`)
 chai.use(require('chai-sorted'));
 
 When(/^I click on the Graphs tab$/, async function () {
@@ -116,6 +119,7 @@ Then(/^I verify the graph editor "(.*)" has "(.*)" graph Id number$/, async func
 When(/^I click the "(.*)" icon for graphId "(.*)"$/, async function (icon, userGraphId) {
   if (icon === 'window') {
     await pages.graphTab.click('itemWindow', userGraphId);
+    await pages.graphEditor.switchToTab('Graphing');
   } else if (icon === 'preview') {
     await pages.graphTab.click('itemPreview', userGraphId);
     await pages.graphEditor.switchToTab('Graphing');
@@ -285,3 +289,59 @@ Then(/^I verify the graphs list is "(.*)" order of graph "(.*)" column name$/, a
       expect(dataArray).to.be.sorted();
   }
 });
+
+Then(/^I go back to sapling page and logout$/, async function(){
+let url = await _.get(urls, ['sapling', this.environment]);
+await pages.saplingLearning.switchToTab('Sapling');
+await visitURL(url);
+await pages.saplingLearning.click('RaptorAdmin');
+await pages.saplingLearning.click('logout');
+});
+
+When(/^I try to save the previously opened graph editor$/, async function(){
+  await pages.graphEditor.switchToTab('Graphing');
+  await pages.graphEditor.click('saveButton');
+});
+
+Then(/^the unauthorized error message pops up$/, async function(){
+  const driver = pages.graphEditor.getDriver()
+  await driver.sleep(1000)
+  try {
+    const alert = await driver.switchTo().alert();
+    const text = await alert.getText()
+    expect(text).to.be.eql('Error: Unauthorized, please log in and try again.');
+    alert.accept()
+  } catch (err) {
+  }
+});
+
+Then(/^the error message to contact an Assessments representative pops up$/, async function(){
+  const driver = pages.graphEditor.getDriver()
+  await driver.sleep(1000)
+  try {
+    const alert = await driver.switchTo().alert();
+    const text = await alert.getText()
+    expect(text).to.be.eql('Error: An error occurred. Please try again or contact an Assessments representative.');
+    alert.accept()
+  } catch (err) {
+  }
+});
+
+Then(/^the alert message to refresh your AMS tab pops up$/, async function(){
+  const driver = pages.graphEditor.getDriver()
+  await driver.sleep(1000)
+  try {
+    const alert = await driver.switchTo().alert();
+    const text = await alert.getText();
+    expect(text).to.be.eql('Graph saved. You may need to refresh your AMS tab to see the changes.');
+    alert.accept()
+  } catch (err) {
+  }
+});
+
+When(/^I input non-existing graphid in the graph editor url$/, async function(){
+let url = await _.get(urls, ['graph', this.environment]);
+await visitURL(url, Key.ENTER);
+await pages.graphEditor.click('saveButton');
+
+})

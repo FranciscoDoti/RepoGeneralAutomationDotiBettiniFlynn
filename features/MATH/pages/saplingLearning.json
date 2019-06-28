@@ -1,0 +1,16 @@
+{
+    "webElements": [{
+    "name": "RaptorAdmin",
+    "byType": "id",
+    "definition": "user_menu",
+    "frame": "default",
+    "specialInstr": "NA"
+},
+{
+    "name": "logout",
+    "byType": "xpath",
+    "definition": "//a[. = 'logout']",
+    "frame": "default",
+    "specialInstr": "NA"
+}]
+}
