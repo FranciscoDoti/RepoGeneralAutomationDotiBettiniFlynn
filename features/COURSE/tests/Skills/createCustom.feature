@@ -15,7 +15,7 @@ Feature: Verify that media Producer is able to create Custom Task
 
         And I activate the "Skills Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Quantitative Template                                       |       
+            | courseName       | Skills Template                                       |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
