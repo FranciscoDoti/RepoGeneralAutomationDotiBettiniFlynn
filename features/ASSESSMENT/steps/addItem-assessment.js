@@ -86,6 +86,33 @@ When(/^added it to assessment$/, async function () {
   await ngaPages.assignmentTab.click('AssignmentTab');
 });
 
+When(/^added it to new assessment as pool$/, async function () {
+for (let i= 1; i <= question_count ; i++){
+  await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
+  var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
+  CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue(questionIdElement, 'id'))
+}
+let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
+let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
+let poolModalButtons = await ngaPages.customQuestion.getWebElements('pool modal buttons');
+
+for (let i = 0; i < actionBarButtonsLabel.length; i++) {
+  let buttonText = await actionBarButtonsLabel[i].getText();
+  if (buttonText==="Pool"){
+    await actionBarButtons[i].click();
+    await ngaPages.customQuestion.click('pool button');
+    for (let j = 0; j < poolModalButtons.length; j++){
+      let poolButtonText = await poolModalButtons[j].getText();
+      if (poolButtonText === "Save"){
+        await poolModalButtons[j].click();
+      }
+    }
+    break;
+  }
+}
+await ngaPages.assignmentTab.click('AssignmentTab');
+});
+
 
 Then('I see the item present in the assessment', async function () {
 // Write code here that turns the phrase above into concrete actions
