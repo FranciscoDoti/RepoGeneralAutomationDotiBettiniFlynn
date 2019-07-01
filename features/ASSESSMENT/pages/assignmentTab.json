@@ -5,7 +5,8 @@
             "definition": "#aeIframe",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        }, 
+        {
             "name": "AssignmentTab",
             "byType": "css",
             "definition": "a[data-test-id='link-to-assignment']",
@@ -41,21 +42,21 @@
             "specialInstr": "NA"
         },
         {
-            "name": "listAssessments",
+            "name": "list Assessments",
             "byType": "xpath",
             "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div",
             "frame": "default",
             "specialInstr": "NA"
         }, 
         {
-            "name": "listAssessmentsDelete",
+            "name": "list Assessments Delete",
             "byType": "xpath",
             "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div//ul//a[@title='Delete']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "courseName",
+            "name": "course Name",
             "byType": "xpath",
             "definition": "//span[contains(text(),'Playground/Showcase/')]",
             "frame": "default",
