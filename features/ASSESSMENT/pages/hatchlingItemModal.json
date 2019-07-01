@@ -35,11 +35,11 @@
             "specialInstr": "NA"
         }, 
         {
-            "name": "ImageHolder",
-            "byType": "css",
-            "definition": ".image-upload-form input",
+            "name": "Image Holder",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']",
             "frame": "aeframe",
-            "specialInstr": "noclick"
+            "specialInstr": "noclick makevisible"
         }, 
         {
             "name": "AddImage",
@@ -49,7 +49,7 @@
             "specialInstr": "NA"
         }, 
         {
-            "name": "targetValue",
+            "name": "target Value",
             "byType": "css",
             "definition": "#targetValue",
             "frame": "aeframe",
@@ -61,23 +61,16 @@
             "definition": "#units",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },  
         {
-            "name": "Measurement",
-            "byType": "css",
-            "definition": "#units",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "DerivationType",
+            "name": "Derivation Type",
             "byType": "css",
             "definition": "select[name='derivationType']",
             "frame": "aeframe",
             "specialInstr": "NA"
         }, 
         {
-            "name": "DerivationAmount",
+            "name": "Derivation Amount",
             "byType": "css",
             "definition": "input[id=derivationAmount]",
             "frame": "aeframe",
@@ -97,6 +90,13 @@
             "frame": "aeframe",
             "specialInstr": "NA"
         },
+        {
+            "name": "Uploaded Image",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']/../img",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
         {
             "name": "SubmitYes",
             "byType": "css",
