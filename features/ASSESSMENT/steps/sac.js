@@ -1,6 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const loginPages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 let scores = [];
@@ -50,13 +49,16 @@ When('I answer questions', async function (datatable) {
                 let correct = false;
                 let option = 1;
                 let score = 100;
+                // In this loop I select and check every answer from the first one to the last one
                 while (!correct) {
                     await pages.sac.click('Sample Assessment Question Radio Button', option);
                     await pages.sac.click('Check Answer Button');
                     let buttonText = await pages.sac.getText('Check Answer Button');
+                    // This commented loop is to wait the button to be ready to click so I know if the answer was correct or incorrect
                     while (buttonText == "Please Wait") {
                         buttonText = await pages.sac.getText('Check Answer Button');
                     }
+                    // 
                     if (buttonText == 'Try Again') { //Wrong answer
                         score -= 5;
                         await pages.sac.click('Check Answer Button');
@@ -71,6 +73,7 @@ When('I answer questions', async function (datatable) {
             case "DD":
                 await pages.sac.click('Check Answer Button');
                 let buttonText = await pages.sac.getText('Check Answer Button');
+                // This commented loop is to wait for the server response and then I can click the Give Up button
                 while (buttonText == "Please Wait") {
                     buttonText = await pages.sac.getText('Check Answer Button');
                 }
@@ -85,6 +88,8 @@ When('I answer questions', async function (datatable) {
 
 Then('I verify grades for answers', async function () {
     for (let i = 0; i < scores.length; i++) {
+        await console.log(i+1);
+        await console.log(scores[i]);
         await pages.sac.assertText('Answer Score', i + 1, scores[i]);
     }
 });

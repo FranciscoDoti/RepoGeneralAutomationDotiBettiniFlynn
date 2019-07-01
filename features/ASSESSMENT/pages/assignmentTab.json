@@ -1,0 +1,173 @@
+{
+    "webElements": [{
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "AssignmentTab",
+            "byType": "css",
+            "definition": "a[data-test-id='link-to-assignment']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "itemList",
+            "byType": "css",
+            "definition": ".ae-checkbox",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionsId",
+            "byType": "xpath",
+            "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "CreateMyOwn",
+            "byType": "css",
+            "definition": "button[data-test-id='assignment-create-actions-create-my-own']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "HatchlingQuestionType",
+            "byType": "css",
+            "definition": "a[name='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "QuestionTitle",
+            "byType": "css",
+            "definition": ".edit-question-title",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "title",
+            "byType": "css",
+            "definition": "input[data-test-id='hatchling-item-title']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "Question Prompt Area",
+            "byType": "css",
+            "definition": ".notranslate.public-DraftEditor-content",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "ImageButton",
+            "byType": "css",
+            "definition": "div[data-test-id='image-button']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "Image Holder",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']",
+            "frame": "aeframe",
+            "specialInstr": "noclick makevisible"
+        }, {
+            "name": "Uploaded Image",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']/../img",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "AddImage",
+            "byType": "xpath",
+            "definition": "//button[text()='Add Image']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "target Value",
+            "byType": "css",
+            "definition": "#targetValue",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "Measurement",
+            "byType": "css",
+            "definition": "#units",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "Derivation Type",
+            "byType": "css",
+            "definition": "select[name='derivationType']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "Derivation Amount",
+            "byType": "css",
+            "definition": "input[id=derivationAmount]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "Hint",
+            "byType": "css",
+            "definition": ".collapsible-header",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "HatchlingSave",
+            "byType": "css",
+            "definition": "button[data-test-id=hatchling-create-update-button]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "listAssessments",
+            "byType": "xpath",
+            "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "listAssessmentsDelete",
+            "byType": "xpath",
+            "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div//ul//a[@title='Delete']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "SubmitYes",
+            "byType": "css",
+            "definition": "input[value=' Yes ']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "NEAssessment",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },{
+            "name": "HintArea",
+            "byType": "xpath",
+            "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "courseName",
+            "byType": "xpath",
+            "definition": "//span[contains(text(),'Playground/Showcase/')]",
+            "frame": "default",
+            "specialInstr":"NA"
+        },{
+            "name": "NETitle",
+            "byType": "css",
+            "definition": "input[data-test-id='hatchling-item-title']",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        }
+    ]
+}
