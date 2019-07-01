@@ -105,5 +105,16 @@ Then('I verify that activities are assigned', async function (data_table){
   }
 });
 
+When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('coursePlanner');
+  await pages.coursePlanner.click('customContentButton');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('urlLink');
+    await pages.resources.populate(data_table.hashes()[i].field, data_table.hashes()[i].link)
+    await pages.resources.click('addUrlLink');
+  }
+});
+
 
 

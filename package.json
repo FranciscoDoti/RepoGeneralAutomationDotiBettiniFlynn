@@ -22,7 +22,7 @@
     "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests -f json:reports/cucumber_report.json",
     "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common -f json:reports/cucumber_report.json",
     "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/AdminEnrollsStudent.feature", 
-    "CC-Q": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Quantitative/createCustom.feature -f json:reports/cucumber_report.json"
+    "CC-Q": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/URL.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
