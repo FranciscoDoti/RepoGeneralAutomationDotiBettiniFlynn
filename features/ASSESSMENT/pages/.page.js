@@ -4,7 +4,9 @@ const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 let pages = {
     moldraw: new PageObject('moldraw.json',stepsPath),
     multipleSelect: new PageObject('multipleSelect.json',stepsPath),
-    raptor: new PageObject('raptor.json',stepsPath)
+    raptor: new PageObject('raptor.json',stepsPath),
+    sac: new PageObject('sac.json',stepsPath),
+    assignmentTab: new PageObject('assignmentTab.json', stepsPath)
 };
 
 module.exports ={

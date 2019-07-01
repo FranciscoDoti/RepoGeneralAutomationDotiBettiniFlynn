@@ -6,8 +6,22 @@
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
+    "folder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3688.feature -f json:reports/cucumber_report.json",
+    "mp": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3689-mediaProducer.feature -f json:reports/cucumber_report.json",
+    "instructorFolder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3689-Instructor.feature -f json:reports/cucumber_report.json",
+    "ebook": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3690.feature -f json:reports/cucumber_report.json",
     "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
-    "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json"
+    "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json",
+    "AC":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/add-collaborator.feature -f json:reports/cucumber_report.json",
+    "Media": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-update-template.feature -f json:reports/cucumber_report.json",
+    "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-viewaccess.feature -f json:reports/cucumber_report.json",
+    "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests -f json:reports/cucumber_report.json",
+    "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common -f json:reports/cucumber_report.json",
+    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/AdminEnrollsStudent.feature",
+    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/LST-420-practice-test-admin-view.feature -f json:reports/cucumber_report.json",
+    "sac-bas": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json",
+    "sac-int": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-intermediate.feature -f json:reports/cucumber_report.json",
+    "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment ae"
   },
   "engines": {
     "node": ">=10"

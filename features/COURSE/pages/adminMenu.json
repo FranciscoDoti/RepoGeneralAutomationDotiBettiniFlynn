@@ -60,7 +60,6 @@
             "frame": "default",
             "specialInstr": "NA"
         },{
-
             "name": "passwordReset",
             "byType": "xpath",
             "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Password Reset')]",

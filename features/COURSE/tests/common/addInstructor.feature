@@ -4,10 +4,11 @@ Feature: Adding Instructor to the Template
     Scenario:  Verify that customer support is able to add Instructor to a course
 
          Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When I create "Quantitative Template" with the data 
             | field             | value                        |
+            | courseType        | Template                     |
             | productModel      | Quantitative                 |
-            | courseName        | Quantitative Template |
+            | courseName        | Quantitative Template        |
             | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
             | isbnNumber        | 9781464199498                |
@@ -28,12 +29,11 @@ Feature: Adding Instructor to the Template
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
-            | course            | Quantitative Course          |
+            | courseName        | Quantitative Course          |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_2" to the "Quantitative Course" course
+        And I assign "instructor_1" to the "Quantitative Course" course
         
-        And I sign out of Achieve

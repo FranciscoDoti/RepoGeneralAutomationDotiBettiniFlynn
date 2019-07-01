@@ -4,7 +4,7 @@ Feature: Admin enrolls the student in the course
     Scenario: Verify that admin enrolls student in the course 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When I create "Quantitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
@@ -24,21 +24,21 @@ Feature: Admin enrolls the student in the course
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors |
+            
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
-            | course            | Quantitative Course          |
+            | courseName        | Quantitative Course          |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_2" to the "Quantitative Course" course
+        And I assign "instructor_1" to the "Quantitative Course" course
         
         And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_2"
+        And I login to Achieve-CW as "instructor_1"
 
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
@@ -50,19 +50,13 @@ Feature: Admin enrolls the student in the course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-        
-        And I add custom made activities in courseplanner
-            | activity                           |
-            | Qual Test                          |
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
-            | Qual Test                                                        | 5      |
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      | 
- 
 
         And I sign out of Achieve
         And I login to Achieve-CW as "admin_1" 
         And I enroll the "student_1" in "Quantitative Course" course  
-        And I sign out of Achieve
+    
