@@ -15,10 +15,13 @@ var question_count;
 
 Then('I see a pool of questions is created in the assessment', async function () {
 // Write code here that turns the phrase above into concrete actions
-let itemList =  await ngaPages.assignmentTab.getWebElements('itemList');
-for (let i= 1; i <= itemList.length-1 ; i++){
-  var assignmentQuestionIds = await ngaPages.assignmentTab.addDynamicElement('questionsId', i);
-  assignmentQuestionSet.add(await ngaPages.assignmentTab.getAttributeValue(assignmentQuestionIds, 'id'));
+await ngaPages.assignmentTab.click('pool dropdown');
+let itemList =  await ngaPages.assignmentTab.getWebElements('pool questions id');
+console.log(itemList.length)
+for (let i= 1; i <= itemList.length ; i++){
+  // var assignmentQuestionIds = await ngaPages.assignmentTab.addDynamicElement('questionsId', i);
+  assignmentQuestionSet.add(await ngaPages.assignmentTab.getAttributeValue(itemList[i], 'id'));
 }
+console.log(assignmentQuestionSet + "               " + CQBTabQuestionSet)
 assert.deepEqual(assignmentQuestionSet, CQBTabQuestionSet);
 });

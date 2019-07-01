@@ -252,6 +252,20 @@
             "primarySchool": "Test Macmillan"
         }
     },
+    "ae": {
+        "all-permissions-author": {
+            "username": "raptoradmin",
+            "password": "fasterthansixmill"
+        },
+        "user2": {
+            "username": "user2 name",
+            "password": "user2 password",
+            "email": "user2 email",
+            "firstname": "user2 firstname",
+            "lastname": "user2 lastname"
+        }
+    },
+    
     "environment name": {
         "user1": {
             "username": "user1 name",

@@ -12,23 +12,6 @@ var assignmentQuestionSet = new Set();
 var assessment_name="";
 var question_count;
 
-Given(/^I login to an existing course as "(.*)"$/, async function (userType){
-    let url = await _.get(urls, ['IBISCMS', this.environment]);
-    let user = await _.get(users, [this.environment, userType]);
-
-  await visitURL(url);
-  if (this.environment == 'local') {
-    await pages.login.populate('username-local', user.username);
-    await pages.login.populate('password-local', user.password);
-    await pages.login.click('submit-local')
-  } else {
-    await pages.login.populate('username', user.username);
-    await pages.login.populate('password', user.password);
-    await pages.login.click('submit')
-  };
-});
-
-
 Given('I create a new assessment with its necessary details', async function (datatable) {
     // var today = new Date();
     // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -71,8 +54,7 @@ When(/^I have created "(.*)" random questions$/, async function (count) {
 When(/^added it to assessment$/, async function () {
   for (let i= 1; i <= question_count ; i++){
     await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
-    var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
-    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue(questionIdElement, 'id'))
+    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue('CQquestionsId', i, 'id'))
   }
   let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
   let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
@@ -87,39 +69,37 @@ When(/^added it to assessment$/, async function () {
 });
 
 When(/^added it to new assessment as pool$/, async function () {
-for (let i= 1; i <= question_count ; i++){
-  await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
-  var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
-  CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue(questionIdElement, 'id'))
-}
-let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
-let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
-let poolModalButtons = await ngaPages.customQuestion.getWebElements('pool modal buttons');
-
-for (let i = 0; i < actionBarButtonsLabel.length; i++) {
-  let buttonText = await actionBarButtonsLabel[i].getText();
-  if (buttonText==="Pool"){
-    await actionBarButtons[i].click();
-    await ngaPages.customQuestion.click('pool button');
-    for (let j = 0; j < poolModalButtons.length; j++){
-      let poolButtonText = await poolModalButtons[j].getText();
-      if (poolButtonText === "Save"){
-        await poolModalButtons[j].click();
-      }
-    }
-    break;
+  for (let i= 1; i <= question_count ; i++){
+    await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
+    // var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
+    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue('CQquestionsId', i, 'id'))
   }
-}
-await ngaPages.assignmentTab.click('AssignmentTab');
-});
-
+  let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
+  let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
+  
+  for (let i = 0; i < actionBarButtonsLabel.length; i++) {
+    let buttonText = await actionBarButtonsLabel[i].getText();
+    if (buttonText==="Pool"){
+      await actionBarButtons[i].click();
+      await ngaPages.customQuestion.click('pool button');
+      let poolModalButtons = await ngaPages.customQuestion.getWebElements('pool modal buttons');
+      for (let j = 0; j < poolModalButtons.length; j++){
+        let poolButtonText = await poolModalButtons[j].getText();
+        if (poolButtonText === "Save"){
+          await poolModalButtons[j].click();
+        }
+      }
+      break;
+    }
+  }
+  await ngaPages.assignmentTab.click('AssignmentTab');
+  });
 
 Then('I see the item present in the assessment', async function () {
 // Write code here that turns the phrase above into concrete actions
 let itemList =  await ngaPages.assignmentTab.getWebElements('itemList');
 for (let i= 1; i <= itemList.length-1 ; i++){
-  var assignmentQuestionIds = await ngaPages.assignmentTab.addDynamicElement('questionsId', i);
-  assignmentQuestionSet.add(await ngaPages.assignmentTab.getAttributeValue(assignmentQuestionIds, 'id'));
+  assignmentQuestionSet.add(await ngaPages.assignmentTab.getAttributeValue('questionsId', i, 'id'));
 }
 assert.deepEqual(assignmentQuestionSet, CQBTabQuestionSet);
 });

@@ -156,6 +156,27 @@
             "definition": "input[data-test-id='hatchling-item-title']",
             "frame": "aeframe",
             "specialInstr":"NA"
+        },
+        {
+            "name": "pool dropdown",
+            "byType": "css",
+            "definition": ".pool-content .ae-dropdown",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "pool question list",
+            "byType": "css",
+            "definition": ".question-pool-indicator .ae-checkbox",
+            "frame":"aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "pool questions id",
+            "byType": "css",
+            "definition": ".question-pool-indicator .ae-checkbox span input",
+            "frame":"aeframe",
+            "specialInstr":"NA"
         }
     ]
 }

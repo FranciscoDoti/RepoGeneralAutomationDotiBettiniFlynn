@@ -7,9 +7,10 @@ Feature: As an instructor/ admin, i should be able to create pools of questions
     #     |Assessment_Name| Assessment_Description| 
     #     |Assessment | This is automated test assessment|
 
-    # @assessmentCreation
+    @assessmentCreation
     Scenario: Create pools in Question Bank and add it to assessmnet
-        Given I login to an existing course as "all-permissions-author"
+        Given I login to IBISCMS as "all-permissions-author"
+        And navigate to a course having course id "21038"
         And I create a new assessment with its necessary details
         |Assessment_Name | Assessment_Description| 
         |QAAssessment    | This is automated test assessment|
