@@ -10,7 +10,7 @@ const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
 const { getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
-const { populateInput, populateClick, populateSelect } = require(`${process.cwd()}/app/populate`);
+const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
@@ -134,7 +134,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'th':
         case 'h2':
         case 'section':
-          await populateClick(webElement, value, actionElement);
+          value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
         case 'select':
         case 'svg':
@@ -163,7 +163,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const getAttributeValue = async function (elementName, attributeName) {
+  const getAttributeValue = async function (elementName, replaceText, attributeName) {
+    if (attributeName === undefined) {
+      attributeName = replaceText;
+    } else {
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+    }
+
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
@@ -312,15 +319,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertText = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) {
-      expectedValue = replaceText;
-    } else {
-      await addDynamicElement(elementName, replaceText);
-      elementName = elementName + (replaceText || '');
-    }
-
     try {
-      const actualValue = await getAttributeValue(elementName);
+      const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
       if (await expect(actualValue).to.equal(expectedValue)) {
         log.info(`Actual value "${actualValue}" equals Expected value "${expectedValue}". PASS`);
@@ -332,15 +332,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) {
-      expectedValue = replaceText;
-    } else {
-      await addDynamicElement(elementName, replaceText);
-      elementName = elementName + (replaceText || '');
-    }
-
     try {
-      const actualValue = await getAttributeValue(elementName);
+      const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
       if (await expect(actualValue).to.include(expectedValue)) {
         log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);

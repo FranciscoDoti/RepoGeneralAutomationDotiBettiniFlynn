@@ -587,8 +587,20 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../..//div[@data-test-id='assignment_status']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
 
+
+
+
+        data-id="MLCard-Assignment-Prompt-expanded"
 
     ]
 }
