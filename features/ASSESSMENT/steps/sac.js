@@ -58,7 +58,6 @@ When('I answer questions', async function (datatable) {
                     while (buttonText == "Please Wait") {
                         buttonText = await pages.sac.getText('Check Answer Button');
                     }
-                    // 
                     if (buttonText == 'Try Again') { //Wrong answer
                         score -= 5;
                         await pages.sac.click('Check Answer Button');
@@ -88,8 +87,6 @@ When('I answer questions', async function (datatable) {
 
 Then('I verify grades for answers', async function () {
     for (let i = 0; i < scores.length; i++) {
-        await console.log(i+1);
-        await console.log(scores[i]);
         await pages.sac.assertText('Answer Score', i + 1, scores[i]);
     }
 });
