@@ -28,6 +28,13 @@
             "specialInstr":"NA"
         },
         {
+            "name": "Assessment questions id",
+            "byType": "css",
+            "definition": "input[id='<ReplaceText>']",
+            "frame":"aeframe",
+            "specialInstr":"NA"
+        },
+        {
             "name": "CreateMyOwn",
             "byType": "css",
             "definition": "button[data-test-id='assignment-create-actions-create-my-own']",
