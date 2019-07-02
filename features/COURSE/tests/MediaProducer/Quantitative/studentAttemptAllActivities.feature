@@ -1,3 +1,4 @@
+@Smoke
 Feature: Student attempts all the activities in Quantitative
     @delete-mediaproducer-courses
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
@@ -8,8 +9,8 @@ Feature: Student attempts all the activities in Quantitative
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 

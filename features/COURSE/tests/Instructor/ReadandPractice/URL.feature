@@ -1,45 +1,44 @@
 Feature: Verify that Instructor is able to create URL
 
    
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
+    Scenario: Verify that mediaproducer is able to create a custom task with URL
 
         Given I login to Achieve-CW as "media_producer_1"
-        When I create "Qualitative Template" with the data
+        When I create "Read & Practice Template" with the data
             | field             | value                        |
             | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
+            | productModel      | Read & Practice              |
+            | courseName        | Read & Practice Template     |
             | courseCode        | E2E 301                      |
-            | learningObjective | macmillan calculus           |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 
-        And I activate the "Qualitative Template" template and add the following data
+        And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
+            | courseName       | Read & Practice Template                                    |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        And I copy course from the "Qualitative Template" template with the following data
+        And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
-            | courseName        | Qualitative Course           |
+            | courseName        | Read & Practice Course       |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Qualitative Course" course
+        And I assign "instructor_1" to the "Read & Practice Course" course
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I activate "Qualitative Course" course with following data 
+        When I activate "Read & Practice Course" course with following data 
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Read & Practice Course       |
             | courseCode        |  E2E301                      |
             | templateStatus    |  Active On Date              |
 
-        And I add URL link to "Qualitative Course" in coursePlanner
+        And I add URL link to "Read & Practice Course" in coursePlanner
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 
@@ -51,4 +50,4 @@ Feature: Verify that Instructor is able to create URL
 
         Then I verify that activties are added in courseplanner
             | activity                                                            | 
-            | Google                                                              |                                                         
+            | Google                                                              |

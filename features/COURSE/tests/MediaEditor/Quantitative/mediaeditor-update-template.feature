@@ -1,3 +1,4 @@
+@Smoke
 Feature: Media Editor is able to create a template and update
 
    @delete-ISBN-9781464199499
@@ -9,8 +10,8 @@ Feature: Media Editor is able to create a template and update
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199499                |
             | courseStatus      | draft                        |
 

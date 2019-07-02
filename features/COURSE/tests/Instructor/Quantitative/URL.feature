@@ -1,10 +1,9 @@
-@Smoke
-Feature: Verify that mediaProducer is able to create URL
+Feature: Verify that Instructor is able to create URL
 
-   @delete-mediaproducer-courses
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
+   
+    Scenario: Verify that mediaproducer is able to create a custom task with URL
 
-        Given I login to Achieve-CW as "media_producer_2"
+        Given I login to Achieve-CW as "media_producer_1"
         When I create "Quantitative Template" with the data
             | field             | value                        |
             | courseType        | Template                     |
@@ -21,20 +20,35 @@ Feature: Verify that mediaProducer is able to create URL
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        And I add URL link to "Quantitative Template" 
+        And I copy course from the "Quantitative Template" template with the following data
+            | field             | value                        |
+            | courseName        | Quantitative Course          |
+            | courseCode        | E2E301                       |
+
+        And I sign out of Achieve
+        And I login to Achieve-CW as "customer_support_1"
+
+        And I assign "instructor_1" to the "Quantitative Course" course
+        
+        And I sign out of Achieve
+        And I login to Achieve-CW as "instructor_1"
+
+        When I activate "Quantitative Course" course with following data 
+            | field             | value                        |
+            | courseName        | Quantitative Course          |
+            | courseCode        |  E2E301                      |
+            | templateStatus    |  Active On Date              |
+
+        And I add URL link to "Quantitative Course" in coursePlanner
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 
         Then I verify that "URL Link Added to "Your Content"" message is displayed
 
-        And I add URL activity in resource tab
+        And I add url link in courseplanner
             | activity                                    |
             | Google                                      |
 
-        Then I verify that activties are added 
+        Then I verify that activties are added in courseplanner
             | activity                                                            | 
-            | Google                                                              |
-
-        And I verify that custom activity is present in courseplanner your content section
-            | activity                                                            | 
-            | Google                                                              |                                                         
+            | Google                                                               |      
