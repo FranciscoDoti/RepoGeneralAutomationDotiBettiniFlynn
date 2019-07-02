@@ -1,0 +1,15 @@
+{"webElements":[
+    {
+        "name": "addActivity",
+        "byType": "css",
+        "definition": "#section0_jump.section",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "addAssessment",
+        "byType": "xpath",
+        "definition": "//select[@id='section0_jump']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }
+]}
