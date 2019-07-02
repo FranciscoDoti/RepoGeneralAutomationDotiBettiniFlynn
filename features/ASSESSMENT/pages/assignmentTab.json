@@ -174,7 +174,7 @@
         {
             "name": "pool questions id",
             "byType": "css",
-            "definition": ".question-pool-indicator .ae-checkbox span input",
+            "definition": "input[id='<ReplaceText>']",
             "frame":"aeframe",
             "specialInstr":"NA"
         }
