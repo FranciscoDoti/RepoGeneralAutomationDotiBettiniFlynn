@@ -106,7 +106,6 @@ assert.deepEqual(assignmentQuestionSet, CQBTabQuestionSet);
 
 Then('I see a pool of questions is created in the assessment', async function () {
   // Write code here that turns the phrase above into concrete actions
-  // using entries to get iterator 
   var getEntriesArry = CQBTabQuestionSet.values(); 
   await ngaPages.assignmentTab.click('pool dropdown');
   console.log(CQBTabQuestionSet.size)
