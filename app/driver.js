@@ -14,7 +14,7 @@ const config = {
   mode : argv.mode || defaults.mode,
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
-  headless : argv.h || argv.headless || defaults.headless,
+  headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
   timeout : defaults.timeout
 };
 
@@ -86,7 +86,6 @@ const buildDriver = function() {
     case "hub":
       driver.usingServer('http://dev-qa-hub.mldev.cloud/wd/hub')
   }
-
   return driver.build();
 };
 driver = buildDriver();
