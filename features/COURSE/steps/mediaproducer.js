@@ -93,7 +93,9 @@ When('I add the following activities to respective folders in resource tab', asy
     await pages.resources.click('moveItem');
     await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
     await pages.resources.click('placeInFolder');
+    console.log(data_table.hashes()[i].message);
     await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+    
   }
 });
 Then('I verify the following activities are present in folders', async function (data_table) {
@@ -282,13 +284,20 @@ Then('I verify that custom content is added to resources', async function (data_
   }
 });
 
-When(/^I create writing Custom Task in "(.*)" and add it to resources$/, async function (courseName, data_table){
+When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async function (customName,courseName, data_table){
   await pages.createCourse.click('courseCard', courseName)
   await pages.coursePage.click('resources');
   await pages.resources.click('addActivity');
   await pages.resources.click('createCustomActivity');
   await pages.resources.click('writingPrompt');
+  await pages.coursePlanner.click('editTittle');
+  await pages.coursePlanner.populate('activityTittle', customName);
+  await pages.coursePlanner.click('tittleSave');
+  await pages.coursePlanner.click('customRubric');
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
+    await pages.coursePlanner.populate('rubricScale', data_table.hashes()[i].Scales, data_table.hashes()[i].Description)
   }
-
+  await pages.coursePlanner.click('customRubricSave');
+  await pages.coursePlanner.click('close');
 });

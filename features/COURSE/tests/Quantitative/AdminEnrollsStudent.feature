@@ -1,3 +1,4 @@
+@Smoke
 Feature: Admin enrolls the student in the course 
 
     @delete-mediaproducer-courses
@@ -9,8 +10,8 @@ Feature: Admin enrolls the student in the course
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 

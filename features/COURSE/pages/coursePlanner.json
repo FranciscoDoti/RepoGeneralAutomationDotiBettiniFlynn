@@ -589,18 +589,99 @@
 
         },
         {
-            "name": "",
+            "name": "customIframe",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../..//div[@data-test-id='assignment_status']",
+            "definition": "//*[@id='container']/div/div/div/iframe",
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "addPrompt",
+            "byType": "css",
+            "definition": "a[data-id='add-prompt']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "editTittle",
+            "byType": "css",
+            "definition": "[class='ActivityTitle__titleEdit__3jSK4']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "activityTittle",
+            "byType": "css",
+            "definition": "[data-id='activity-title-editField']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "tittleSave",
+            "byType": "css",
+            "definition": "[data-id='title-save']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "customRubric",
+            "byType": "css",
+            "definition": "[data-id='create-rubric']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "nameRubric",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-title-input']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "criterion",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-name']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "criterionDescription",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-description']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "rubricScale",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//input[@data-id='custom-rubric-scale-name']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        }, 
+        {
+            "name": "scaleDescription",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-description']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "customRubricSave",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-save']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
         }
-
-
-
-
-        data-id="MLCard-Assignment-Prompt-expanded"
-
     ]
 }

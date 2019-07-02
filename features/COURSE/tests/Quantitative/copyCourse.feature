@@ -1,3 +1,4 @@
+@Smoke
 Feature: Copy course from the Template
 
     @delete-mediaproducer-courses
@@ -9,8 +10,8 @@ Feature: Copy course from the Template
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 

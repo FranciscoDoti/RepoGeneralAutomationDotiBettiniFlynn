@@ -1,3 +1,4 @@
+@Smoke
 Feature: Adding activities in Folder Resource Tab
     @delete-mediaproducer-courses
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab
@@ -8,8 +9,8 @@ Feature: Adding activities in Folder Resource Tab
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 

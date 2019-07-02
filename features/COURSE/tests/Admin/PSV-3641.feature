@@ -1,3 +1,4 @@
+@Smoke
 Feature: Admin Grantroles to the user 
 
     Scenario Outline: Verify that existing Admin is able to grant roles for Admin, Media Producer, Media Editor, Customer Support & Paid access Code Creators

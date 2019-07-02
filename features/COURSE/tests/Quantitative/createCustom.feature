@@ -1,8 +1,7 @@
+@Smoke
 Feature: Verify that media Producer is able to create Custom Task 
-
-    Scenario: Verify that media Producer is able to create Custom Task in Quantitative Template
-
-        
+    @delete-mediaproducer-courses
+    Scenario: Verify that media Producer is able to create Custom Task in Quantitative Template 
         Given I login to Achieve-CW as "media_producer_2"
         When I create "Quantitative Template" with the data 
             | field             | value                        |
