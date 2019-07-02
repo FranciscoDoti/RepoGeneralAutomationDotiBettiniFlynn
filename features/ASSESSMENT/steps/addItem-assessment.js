@@ -2,10 +2,6 @@
 const { Given, When, Then, After}=require('cucumber');
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
-const _ = require('lodash');
-const urls = require(`${process.cwd()}/config/urls.json`);
-const { sleep, getDriver} = require(`${process.cwd()}/app/driver`);
-const { assert, expect } = require('chai');
 var CQBTabQuestionSet= new Set();
 var assignmentQuestionSet = new Set();
 var assessment_name="";
