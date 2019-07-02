@@ -164,7 +164,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const getAttributeValue = async function (elementName, replaceText, attributeName) {
-    if (attributeName === undefined) {
+    if (attributeName !== undefined && replaceText === undefined) {
       attributeName = replaceText;
     } else {
       await addDynamicElement(elementName, replaceText);
@@ -319,6 +319,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertText = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined) { expectedValue = replaceText };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
@@ -332,6 +333,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined) { expectedValue = replaceText };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
