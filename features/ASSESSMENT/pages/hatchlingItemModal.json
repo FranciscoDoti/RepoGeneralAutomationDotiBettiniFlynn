@@ -1,0 +1,143 @@
+{
+    "webElements": [{
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question Title",
+            "byType": "css",
+            "definition": ".edit-question-title",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "title",
+            "byType": "css",
+            "definition": "input[data-test-id='hatchling-item-title']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "Question Prompt",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='hatchling-question-prompt']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "ImageButton",
+            "byType": "css",
+            "definition": "div[data-test-id='image-button']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "Image Holder",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']",
+            "frame": "aeframe",
+            "specialInstr": "noclick makevisible"
+        }, 
+        {
+            "name": "AddImage",
+            "byType": "xpath",
+            "definition": "//button[text()='Add Image']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "target Value",
+            "byType": "css",
+            "definition": "#targetValue",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "Measurement",
+            "byType": "css",
+            "definition": "#units",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },  
+        {
+            "name": "Derivation Type",
+            "byType": "css",
+            "definition": "select[name='derivationType']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "Derivation Amount",
+            "byType": "css",
+            "definition": "input[id=derivationAmount]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "Hint",
+            "byType": "css",
+            "definition": ".collapsible-header",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "HatchlingSave",
+            "byType": "css",
+            "definition": "button[data-test-id=hatchling-create-update-button]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Uploaded Image",
+            "byType": "xpath",
+            "definition": "//input[@accept='image/jpeg, image/png']/../img",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "Submit Yes",
+            "byType": "css",
+            "definition": "input[value=' Yes ']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "MCCorrectAnswerTextbox",
+            "byType": "css",
+            "definition": "div[data-test-id='hatchling-correct-choice']",
+            "frame": "aeframe",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "MCInCorrectAnswerTextbox",
+            "byType": "css",
+            "definition": "div[data-test-id='hatchling-incorrect-choice']",
+            "frame": "aeframe",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "addAnswerButton",
+            "byType": "css",
+            "definition": "button[data-test-id='add-answer-choice']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "hatchlingBody",
+            "byType": "css",
+            "definition": ".hatchling-body",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "hatchlingFooter",
+            "byType": "css",
+            "definition": ".cdl-dialog-actions",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        }
+    ]
+}
