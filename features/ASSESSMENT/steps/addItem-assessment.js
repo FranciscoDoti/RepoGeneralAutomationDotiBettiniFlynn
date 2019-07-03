@@ -11,10 +11,10 @@ var question_count;
 Given('I create a new assessment with its necessary details', async function (datatable) {
     await ngaPages.assessmentListPage.assertPageTitleIncludes("Roadshow");
     await ngaPages.assessmentListPage.populate("addAssessment", "Assessment");
-    for (let i = 0; i < datatable.rows().length; i++) {
-      assessment_name = datatable.hashes()[i].Assessment_Name;
-      await ngaPages.createAssessment.populate('assessmentName', assessment_name);
-  }
+    var rows = datatable.hashes();
+    for(let i = 0; i < datatable.rows().length; i++){
+      await ngaPages.createAssessment.populate(rows[i].field, rows[i].value);
+    }
     await ngaPages.createAssessment.click("saveAndContinue");
     await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
 });
