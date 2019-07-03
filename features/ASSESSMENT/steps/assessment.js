@@ -60,9 +60,9 @@ When(/^added it to assessment$/, async function () {
 
 When(/^added it to new assessment as pool$/, async function () {
   for (let i= 1; i <= question_count ; i++){
-    await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
+    await ngaPages.customQuestion.click("Items Checkbox", i);
     // var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
-    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue('CQquestionsId', i, 'id'))
+    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue('Questions Id', i, 'id'))
   }
   let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
   let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
@@ -93,17 +93,16 @@ for (let i=1; i <= CQBTabQuestionSet.size ; i++){
   var entry = getEntriesArry.next().value;
   await ngaPages.assignmentTab.assertElementExists('Assessment questions id', entry);
 }
+CQBTabQuestionSet.clear();
 });
 
 Then('I see a pool of questions is created in the assessment', async function () {
   // Write code here that turns the phrase above into concrete actions
   var getEntriesArry = CQBTabQuestionSet.values(); 
   await ngaPages.assignmentTab.click('pool dropdown');
-  console.log(CQBTabQuestionSet.size)
   for (let i=1; i<= CQBTabQuestionSet.size ; i++){
     var entry = getEntriesArry.next().value;
     await ngaPages.assignmentTab.assertElementExists('pool questions id', entry);
   }
-  });
 CQBTabQuestionSet.clear();
 });
