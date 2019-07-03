@@ -35,14 +35,14 @@
         "specialInstr": "NA"
     },
     {
-        "name": "CQBItemsCheckbox",
+        "name": "Items Checkbox",
         "byType": "xpath",
         "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']",
         "frame": "aeFrame",
         "specialInstr": "NA"
     },
     {
-        "name": "CQquestionsId",
+        "name": "Questions Id",
         "byType": "xpath",
         "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
         "frame": "aeFrame",

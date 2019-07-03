@@ -2,26 +2,17 @@
 const { Given, When, Then, After}=require('cucumber');
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
-const _ = require('lodash');
-const urls = require(`${process.cwd()}/config/urls.json`);
-const { visitURL, sleep, getTitle, getDriver} = require(`${process.cwd()}/app/driver`);
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const { assert, expect } = require('chai');
+const { sleep} = require(`${process.cwd()}/app/driver`);
 var CQBTabQuestionSet= new Set();
-var assignmentQuestionSet = new Set();
 var assessment_name="";
 var question_count;
 
 Given('I create a new assessment with its necessary details', async function (datatable) {
-    // var today = new Date();
-    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    await ngaPages.assessmentListPage.scrollElementIntoView('addAssessment');
-    await assert.include(await getTitle(), "Roadshow", "Title is same!"); 
+    await ngaPages.assessmentListPage.assertPageTitleIncludes("Roadshow");
     await ngaPages.assessmentListPage.populate("addAssessment", "Assessment");
-    assessment_name = "QAAssessment";
     for (let i = 0; i < datatable.rows().length; i++) {
-    await ngaPages.createAssessment.populate('assessmentName', assessment_name);
-    // await ngaPages.createAssessment.populate('assessmentDescription', datatable.hashes()[i].Assessment_Description);
+      assessment_name = datatable.hashes()[i].Assessment_Name;
+      await ngaPages.createAssessment.populate('assessmentName', assessment_name);
   }
     await ngaPages.createAssessment.click("saveAndContinue");
     await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
@@ -29,7 +20,6 @@ Given('I create a new assessment with its necessary details', async function (da
 
 
 When(/^I have created "(.*)" random questions$/, async function (count) {
-    // Create number of items first 
     question_count = count;
     await ngaPages.customQuestion.click("CustomQuestionTab");
     for ( let i =1 ; i <= question_count; i++){
@@ -53,8 +43,8 @@ When(/^I have created "(.*)" random questions$/, async function (count) {
 
 When(/^added it to assessment$/, async function () {
   for (let i= 1; i <= question_count ; i++){
-    await ngaPages.customQuestion.click("CQBItemsCheckbox", i);
-    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue('CQquestionsId', i, 'id'))
+    await ngaPages.customQuestion.click("Items Checkbox", i);
+    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue('Questions Id', i, 'id'))
   }
   let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
   let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
@@ -96,12 +86,13 @@ When(/^added it to new assessment as pool$/, async function () {
   });
 
 Then('I see the item present in the assessment', async function () {
-// Write code here that turns the phrase above into concrete actions
+
 let itemList =  await ngaPages.assignmentTab.getWebElements('itemList');
-for (let i= 1; i <= itemList.length-1 ; i++){
-  assignmentQuestionSet.add(await ngaPages.assignmentTab.getAttributeValue('questionsId', i, 'id'));
+var getEntriesArry = CQBTabQuestionSet.values(); 
+for (let i=1; i <= CQBTabQuestionSet.size ; i++){
+  var entry = getEntriesArry.next().value;
+  await ngaPages.assignmentTab.assertElementExists('Assessment questions id', entry);
 }
-assert.deepEqual(assignmentQuestionSet, CQBTabQuestionSet);
 });
 
 Then('I see a pool of questions is created in the assessment', async function () {
@@ -114,3 +105,5 @@ Then('I see a pool of questions is created in the assessment', async function ()
     await ngaPages.assignmentTab.assertElementExists('pool questions id', entry);
   }
   });
+CQBTabQuestionSet.clear();
+});

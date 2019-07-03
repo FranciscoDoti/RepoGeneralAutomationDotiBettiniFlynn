@@ -18,6 +18,6 @@ Scenario: Add multiple random items to a new assignment
     And I create a new assessment with its necessary details
     |Assessment_Name | Assessment_Description| 
     |QAAssessment | This is automated test assessment|
-    When I have created "3" random questions
+    When I have created "2" random questions
     And added it to assessment
     Then I see the item present in the assessment

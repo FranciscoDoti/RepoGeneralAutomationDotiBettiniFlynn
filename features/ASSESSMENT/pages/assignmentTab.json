@@ -5,7 +5,8 @@
             "definition": "#aeIframe",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        }, 
+        {
             "name": "AssignmentTab",
             "byType": "css",
             "definition": "a[data-test-id='link-to-assignment']",
@@ -27,6 +28,13 @@
             "specialInstr":"NA"
         },
         {
+            "name": "Assessment questions id",
+            "byType": "css",
+            "definition": "input[id='<ReplaceText>']",
+            "frame":"aeframe",
+            "specialInstr":"NA"
+        },
+        {
             "name": "CreateMyOwn",
             "byType": "css",
             "definition": "button[data-test-id='assignment-create-actions-create-my-own']",
@@ -39,113 +47,23 @@
             "definition": "a[name='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
-            "name": "QuestionTitle",
-            "byType": "css",
-            "definition": ".edit-question-title",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "title",
-            "byType": "css",
-            "definition": "input[data-test-id='hatchling-item-title']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, {
-            "name": "Question Prompt Area",
-            "byType": "css",
-            "definition": ".notranslate.public-DraftEditor-content",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "ImageButton",
-            "byType": "css",
-            "definition": "div[data-test-id='image-button']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, {
-            "name": "Image Holder",
-            "byType": "xpath",
-            "definition": "//input[@accept='image/jpeg, image/png']",
-            "frame": "aeframe",
-            "specialInstr": "noclick makevisible"
-        }, {
-            "name": "Uploaded Image",
-            "byType": "xpath",
-            "definition": "//input[@accept='image/jpeg, image/png']/../img",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, {
-            "name": "AddImage",
-            "byType": "xpath",
-            "definition": "//button[text()='Add Image']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, {
-            "name": "target Value",
-            "byType": "css",
-            "definition": "#targetValue",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, {
-            "name": "Measurement",
-            "byType": "css",
-            "definition": "#units",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, {
-            "name": "Derivation Type",
-            "byType": "css",
-            "definition": "select[name='derivationType']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, {
-            "name": "Derivation Amount",
-            "byType": "css",
-            "definition": "input[id=derivationAmount]",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "Hint",
-            "byType": "css",
-            "definition": ".collapsible-header",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "HatchlingSave",
-            "byType": "css",
-            "definition": "button[data-test-id=hatchling-create-update-button]",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
-        {
-            "name": "listAssessments",
+            "name": "list Assessments",
             "byType": "xpath",
             "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div",
             "frame": "default",
             "specialInstr": "NA"
         }, 
         {
-            "name": "listAssessmentsDelete",
+            "name": "list Assessments Delete",
             "byType": "xpath",
             "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div//ul//a[@title='Delete']",
             "frame": "default",
             "specialInstr": "NA"
-        }, 
-        {
-            "name": "SubmitYes",
-            "byType": "css",
-            "definition": "input[value=' Yes ']",
-            "frame": "default",
-            "specialInstr": "NA"
         },
         {
-            "name": "courseName",
+            "name": "course Name",
             "byType": "xpath",
             "definition": "//span[contains(text(),'Playground/Showcase/')]",
             "frame": "default",
