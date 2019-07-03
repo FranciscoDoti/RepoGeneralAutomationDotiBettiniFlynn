@@ -59,3 +59,4 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
     await pages.login.click('submit')
   };
 });
+
