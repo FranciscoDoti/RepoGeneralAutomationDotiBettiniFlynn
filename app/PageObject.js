@@ -2,36 +2,15 @@
  * http://usejsdoc.org/
  */
 'use strict';
-const {
-  assert,
-  expect
-} = require('chai');
+const {assert,expect} = require('chai');
 const HashTable = require(`${process.cwd()}/app/HashTable`);
 const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
 const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
-const {
-  loadJSONFile
-} = require(`${process.cwd()}/app/util`);
-const {
-  getDriver,
-  getWebDriver,
-  sleep,
-  activateTab,
-  getURL,
-  getTitle,
-  config
-} = require(`${process.cwd()}/app/driver`);
-const {
-  log
-} = require(`${process.cwd()}/app/logger`);
-const {
-  populateInput,
-  populateClick,
-  populateSelect,
-  populateRichTextField
-} = require(`${process.cwd()}/app/populate`);
-
+const {loadJSONFile} = require(`${process.cwd()}/app/util`);
+const {getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config} = require(`${process.cwd()}/app/driver`);
+const {log} = require(`${process.cwd()}/app/logger`);
+const {populateInput, populateClick, populateSelect, populateRichTextField} = require(`${process.cwd()}/app/populate`);
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
   that.ScenarioData = ScenarioData;
