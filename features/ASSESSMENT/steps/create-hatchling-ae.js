@@ -4,26 +4,37 @@ const { getDriver,sleep } = require(`${process.cwd()}/app/driver`);
 var assessment_name;
 
 
-When(/^I add hatchling item as numeric_entry from activity editor with following details$/, async function (data_table) {
-    await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-assignment');
-    await pages.assignmentTab.click('CreateMyOwn');
+When(/^I add hatchling item as numeric_entry from "(.*)" with following details$/, async function (tabName,data_table) {
+    console.log("Tab name is "+tabName);
+    switch(tabName){
+        case 'activity editor':
+                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-assignment');
+                await pages.assignmentTab.click('CreateMyOwn');
+                break;
+        case 'custom question':
+                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-customquestions');
+                await pages.customQuestion.click('createQuestionButton');
+                break;
+        default:
+            console.log('You have not selected correct hatchling creation tab');
+    }
     await pages.assignmentTab.click('HatchlingQuestionType',"numeric_entry");
     var timeStamp = new Date().getTime();
     assessment_name = "QA_Hatchling_NE" + timeStamp;
-    await pages.assignmentTab.click('QuestionTitle');
+    await pages.hatchlingItem.click('Question Title');
     await pages.assignmentTab.populate('NETitle',assessment_name);
     var rows = data_table.hashes();
     for (let i = 0; i < data_table.rows().length; i++) {
-        await pages.assignmentTab.populate(rows[i].field,rows[i].value);
+        await pages.hatchlingItem.populate(rows[i].field,rows[i].value);
     }
-    await pages.assignmentTab.click('Question Prompt Area');
-    await pages.assignmentTab.click('ImageButton');
-    await pages.assignmentTab.populate('Image Holder',`${process.cwd()}/features/ASSESSMENT/resources/image.png`);
-    await pages.assignmentTab.assertExists('Uploaded Image');
-    await pages.assignmentTab.click('AddImage');
-    await pages.assignmentTab.click('Hint');
-    await pages.assignmentTab.populate('HintArea',"X2");
-    await pages.assignmentTab.click('HatchlingSave');
+    await pages.hatchlingItem.click('NE Question Area');
+    await pages.hatchlingItem.click('ImageButton');
+    await pages.hatchlingItem.populate('Image Holder',`${process.cwd()}/features/ASSESSMENT/resources/image.png`);
+    await pages.hatchlingItem.assertExists('Uploaded Image');
+    await pages.hatchlingItem.click('AddImage');
+    await pages.hatchlingItem.click('Hint');
+    await pages.hatchlingItem.populate('HintArea',"X2");
+    await pages.hatchlingItem.click('HatchlingSave');
 });
 
 When(/^I delete all QA added assessments$/, async function () {

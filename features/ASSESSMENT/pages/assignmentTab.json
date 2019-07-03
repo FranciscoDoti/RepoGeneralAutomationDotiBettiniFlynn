@@ -74,6 +74,12 @@
             "definition": "input[data-test-id='hatchling-item-title']",
             "frame": "aeframe",
             "specialInstr":"NA"
+        }, {
+            "name": "NEAssessment",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }
