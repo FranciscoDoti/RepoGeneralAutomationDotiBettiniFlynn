@@ -4,7 +4,6 @@ const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pag
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const { sleep} = require(`${process.cwd()}/app/driver`);
 var CQBTabQuestionSet= new Set();
-var assignmentQuestionSet = new Set();
 var assessment_name="";
 var question_count;
 
@@ -59,6 +58,32 @@ When(/^added it to assessment$/, async function () {
   await ngaPages.assignmentTab.click('AssignmentTab');
 });
 
+When(/^added it to new assessment as pool$/, async function () {
+  for (let i= 1; i <= question_count ; i++){
+    await ngaPages.customQuestion.click("Items Checkbox", i);
+    // var questionIdElement = await ngaPages.customQuestion.addDynamicElement('CQquestionsId', i);
+    CQBTabQuestionSet.add(await ngaPages.customQuestion.getAttributeValue('Questions Id', i, 'id'))
+  }
+  let actionBarButtonsLabel = await ngaPages.questionBank.getWebElements('QBActionBarButtonsLabel');
+  let actionBarButtons = await ngaPages.questionBank.getWebElements('QBActionBarButtons');
+  
+  for (let i = 0; i < actionBarButtonsLabel.length; i++) {
+    let buttonText = await actionBarButtonsLabel[i].getText();
+    if (buttonText==="Pool"){
+      await actionBarButtons[i].click();
+      await ngaPages.customQuestion.click('pool button');
+      let poolModalButtons = await ngaPages.customQuestion.getWebElements('pool modal buttons');
+      for (let j = 0; j < poolModalButtons.length; j++){
+        let poolButtonText = await poolModalButtons[j].getText();
+        if (poolButtonText === "Save"){
+          await poolModalButtons[j].click();
+        }
+      }
+      break;
+    }
+  }
+  await ngaPages.assignmentTab.click('AssignmentTab');
+  });
 
 Then('I see the item present in the assessment', async function () {
 
@@ -68,5 +93,16 @@ for (let i=1; i <= CQBTabQuestionSet.size ; i++){
   var entry = getEntriesArry.next().value;
   await ngaPages.assignmentTab.assertElementExists('Assessment questions id', entry);
 }
+CQBTabQuestionSet.clear();
+});
+
+Then('I see a pool of questions is created in the assessment', async function () {
+  // Write code here that turns the phrase above into concrete actions
+  var getEntriesArry = CQBTabQuestionSet.values(); 
+  await ngaPages.assignmentTab.click('pool dropdown');
+  for (let i=1; i<= CQBTabQuestionSet.size ; i++){
+    var entry = getEntriesArry.next().value;
+    await ngaPages.assignmentTab.assertElementExists('pool questions id', entry);
+  }
 CQBTabQuestionSet.clear();
 });

@@ -19,10 +19,11 @@
     "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common -f json:reports/cucumber_report.json",
     "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/AdminEnrollsStudent.feature",
     "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/LST-420-practice-test-admin-view.feature -f json:reports/cucumber_report.json",
+    "NGA-7194": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/addItem-assessment.feature -f json:reports/cucumber_report.json",
+    "NGA-7264": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/createPools.feature -f json:reports/cucumber_report.json ",
     "sac-bas": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json",
     "sac-int": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-intermediate.feature -f json:reports/cucumber_report.json",
     "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment int",
-    "NGA-7194": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/addItem-assessment.feature -f json:reports/cucumber_report.json --environment=ae ",
     "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int"
   },
   "engines": {
