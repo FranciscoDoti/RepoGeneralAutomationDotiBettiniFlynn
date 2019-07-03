@@ -1,23 +1,10 @@
 const { When,Then} = require('cucumber')
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const { getDriver,sleep } = require(`${process.cwd()}/app/driver`);
 var assessment_name;
+const { log } = require(`${process.cwd()}/app/logger`);
 
 
-When(/^I add hatchling item as numeric_entry from "(.*)" with following details$/, async function (tabName,data_table) {
-    console.log("Tab name is "+tabName);
-    switch(tabName){
-        case 'activity editor':
-                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-assignment');
-                await pages.assignmentTab.click('CreateMyOwn');
-                break;
-        case 'custom question':
-                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-customquestions');
-                await pages.customQuestion.click('createQuestionButton');
-                break;
-        default:
-            console.log('You have not selected correct hatchling creation tab');
-    }
+When(/^I add hatchling item as numeric entry with following details$/, async function (data_table) {
     await pages.assignmentTab.click('HatchlingQuestionType',"numeric_entry");
     var timeStamp = new Date().getTime();
     assessment_name = "QA_Hatchling_NE" + timeStamp;
@@ -51,4 +38,19 @@ When(/^I delete all QA added assessments$/, async function () {
 
 Then(/^I verify NE hatchling item gets created$/, async function () {
     await pages.assignmentTab.assertElementExists('NEAssessment',assessment_name);
+});
+
+Then(/^I am creating hatchling item from "(.*)" tab$/, async function (tabName) {
+    switch(tabName){
+        case 'assessment':
+                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-assignment');
+                await pages.assignmentTab.click('CreateMyOwn');
+                break;
+        case 'custom question':
+                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-customquestions');
+                await pages.customQuestion.click('createQuestionButton');
+                break;
+        default:
+            log.info('You have not selected correct hatchling creation tab');
+    }
 });

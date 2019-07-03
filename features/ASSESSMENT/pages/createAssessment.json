@@ -1,6 +1,6 @@
 {"webElements": [
     {
-        "name": "assessmentName",
+        "name": "Assessment Name",
         "byType": "css",
         "definition": "#id_name",
         "frame": "default",
