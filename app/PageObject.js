@@ -164,7 +164,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const getAttributeValue = async function (elementName, replaceText, attributeName) {
-    if (attributeName !== undefined && replaceText === undefined) {
+    if (attributeName === undefined) {
       attributeName = replaceText;
     } else {
       await addDynamicElement(elementName, replaceText);
@@ -319,7 +319,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertText = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) { expectedValue = replaceText };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
@@ -333,7 +332,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) { expectedValue = replaceText };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
@@ -441,69 +439,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const acceptAlert = async function(){
-    await genericAlertOperations('accept');
-    log.info(`Accepted alert popup.`);
-  };
-
-  const dismissAlert = async function(){
-    await genericAlertOperations('dismiss');
-    log.info(`Dismissed alert popup.`);
-  };
-
-  const getAlertText = async function(){
-    log.debug("Getting text in alert popup.");
-    let actualValue = await genericAlertOperations('text');
-    log.info(`${actualValue} is displayed in the alert popup.`);
-    return actualValue;
-  };
-
-  const assertAlertText = async function(expectedValue){
-    log.debug("Asserting text in alert popup.");
-    let actualValue = await genericAlertOperations('text');
-    if (actualValue === expectedValue) {
-      log.info(`Actual value "${actualValue}" matches Expected value "${expectedValue}". PASS`);
-    } else {
-      assert.fail(`Actual value "${actualValue}" does not match Expected value "${expectedValue}". FAIL`);
-    };
-  };
-
-  const assertAlertTextIncludes = async function(expectedValue){
-    log.debug("Asserting text in alert popup.");
-    let actualValue = await genericAlertOperations('text');
-    if (actualValue.includes(expectedValue)) {
-      log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
-    } else {
-      assert.fail(`Actual value "${actualValue}" does not include Expected value "${expectedValue}". FAIL`);
-    };
-  };
-
-  const genericAlertOperations = async function(operation){
-    if (await that.driver.wait(that.webdriver.until.alertIsPresent())){
-      let alert = that.driver.switchTo().alert();
-      switch (operation.toLowerCase()){
-        case 'accept':
-          await alert.accept();
-          break;
-        case 'dismiss':
-          await alert.dismiss();
-          break;
-        case 'text':
-          return (await alert.getText());
-          break;
-        default:
-          assert.fail(`ERROR: ${operation} is not implemented in genericAlertOperations().`)
-      }
-    } else {
-      assert.fail(`ERROR: Assert pop up was not displayed.`);
-    };
-  };
-
-  that.acceptAlert = acceptAlert;
-  that.dismissAlert = dismissAlert;
-  that.getAlertText = getAlertText;
-  that.assertAlertText = assertAlertText;
-  that.assertAlertTextIncludes = assertAlertTextIncludes;
   that.assertExists = assertExists;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
@@ -528,7 +463,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getPageTitle=getPageTitle;
   that.assertPageTitle=assertPageTitle;
   that.assertPageTitleIncludes=assertPageTitleIncludes;
-  that.addDynamicElement = addDynamicElement;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }
