@@ -23,7 +23,8 @@
     "NGA-7264": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/createPools.feature -f json:reports/cucumber_report.json ",
     "sac-bas": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json",
     "sac-int": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-intermediate.feature -f json:reports/cucumber_report.json",
-    "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment ae"
+    "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment int",
+    "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int"
   },
   "engines": {
     "node": ">=10"
@@ -32,13 +33,13 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "74.0",
+    "chromedriver": "2.46.0",
     "csvtojson": "latest",
     "cucumber": "latest",
     "dateformat": "latest",
     "eslint": "latest",
     "faker": "latest",
-    "geckodriver": "latest",
+    "geckodriver": "1.14.1",
     "imap": "latest",
     "jsonwebtoken": "latest",
     "mailparser": "latest",

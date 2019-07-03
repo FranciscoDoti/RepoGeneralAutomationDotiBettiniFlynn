@@ -1,29 +1,27 @@
 const { When,Then} = require('cucumber')
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const { getDriver,sleep } = require(`${process.cwd()}/app/driver`);
 var assessment_name;
+const { log } = require(`${process.cwd()}/app/logger`);
 
 
-When(/^I add hatchling item as numeric_entry from activity editor with following details$/, async function (data_table) {
-    await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-assignment');
-    await pages.assignmentTab.click('CreateMyOwn');
+When(/^I add hatchling item as numeric entry with following details$/, async function (data_table) {
     await pages.assignmentTab.click('HatchlingQuestionType',"numeric_entry");
     var timeStamp = new Date().getTime();
     assessment_name = "QA_Hatchling_NE" + timeStamp;
-    await pages.assignmentTab.click('QuestionTitle');
+    await pages.hatchlingItem.click('Question Title');
     await pages.assignmentTab.populate('NETitle',assessment_name);
     var rows = data_table.hashes();
     for (let i = 0; i < data_table.rows().length; i++) {
-        await pages.assignmentTab.populate(rows[i].field,rows[i].value);
+        await pages.hatchlingItem.populate(rows[i].field,rows[i].value);
     }
-    await pages.assignmentTab.click('Question Prompt Area');
-    await pages.assignmentTab.click('ImageButton');
-    await pages.assignmentTab.populate('Image Holder',`${process.cwd()}/features/ASSESSMENT/resources/image.png`);
-    await pages.assignmentTab.assertExists('Uploaded Image');
-    await pages.assignmentTab.click('AddImage');
-    await pages.assignmentTab.click('Hint');
-    await pages.assignmentTab.populate('HintArea',"X2");
-    await pages.assignmentTab.click('HatchlingSave');
+    await pages.hatchlingItem.click('NE Question Area');
+    await pages.hatchlingItem.click('ImageButton');
+    await pages.hatchlingItem.populate('Image Holder',`${process.cwd()}/features/ASSESSMENT/resources/image.png`);
+    await pages.hatchlingItem.assertExists('Uploaded Image');
+    await pages.hatchlingItem.click('AddImage');
+    await pages.hatchlingItem.click('Hint');
+    await pages.hatchlingItem.populate('HintArea',"X2");
+    await pages.hatchlingItem.click('HatchlingSave');
 });
 
 When(/^I delete all QA added assessments$/, async function () {
@@ -40,4 +38,19 @@ When(/^I delete all QA added assessments$/, async function () {
 
 Then(/^I verify NE hatchling item gets created$/, async function () {
     await pages.assignmentTab.assertElementExists('NEAssessment',assessment_name);
+});
+
+Then(/^I am creating hatchling item from "(.*)" tab$/, async function (tabName) {
+    switch(tabName){
+        case 'assessment':
+                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-assignment');
+                await pages.assignmentTab.click('CreateMyOwn');
+                break;
+        case 'custom question':
+                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-customquestions');
+                await pages.customQuestion.click('createQuestionButton');
+                break;
+        default:
+            log.info('You have not selected correct hatchling creation tab');
+    }
 });

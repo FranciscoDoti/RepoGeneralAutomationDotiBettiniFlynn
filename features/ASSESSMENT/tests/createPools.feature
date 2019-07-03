@@ -5,8 +5,8 @@ Feature: As an instructor/ admin, i should be able to create pools of questions
         Given I login to IBISCMS as "all-permissions-author"
         And navigate to a course having course id "79848"
         And I create a new assessment with its necessary details
-        |Assessment_Name| Assessment_Description| 
-        |Assessment | This is automated test assessment|
+        | field           | value           |
+        | Assessment Name | QAAssessment    |
 
     @assessmentCreation
     Scenario: Create pools in Question Bank and add it to assessmnet
