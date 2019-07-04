@@ -4,7 +4,7 @@
     "browser": "chrome",
     "headless": false,
     "screenshots": "true",
-    "timeout": 60000,
+    "timeout": 80000,
 
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
