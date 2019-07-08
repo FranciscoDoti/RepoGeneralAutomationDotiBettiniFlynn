@@ -2,16 +2,15 @@
  * http://usejsdoc.org/
  */
 'use strict';
-const { assert, expect } = require('chai');
+const {assert,expect} = require('chai');
 const HashTable = require(`${process.cwd()}/app/HashTable`);
 const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
 const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
-const { loadJSONFile } = require(`${process.cwd()}/app/util`);
-const { getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
-const { log } = require(`${process.cwd()}/app/logger`);
-const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
-
+const {loadJSONFile} = require(`${process.cwd()}/app/util`);
+const {getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config} = require(`${process.cwd()}/app/driver`);
+const {log} = require(`${process.cwd()}/app/logger`);
+const {populateInput, populateClick, populateSelect, populateRichTextField} = require(`${process.cwd()}/app/populate`);
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
   that.ScenarioData = ScenarioData;
@@ -164,8 +163,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const getAttributeValue = async function (elementName, replaceText, attributeName) {
-    if (replaceText === undefined) {
-            attributeName = replaceText;
+    if (attributeName !== undefined && replaceText === undefined) {
+      attributeName = replaceText;
     } else {
       await addDynamicElement(elementName, replaceText);
       elementName = elementName + (replaceText || '');
@@ -259,9 +258,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
-          await getDriver().manage().setTimeouts({ implicit: 5000 });
+          await getDriver().manage().setTimeouts({
+            implicit: 5000
+          });
           let retval = !(await WebElementObject.elementDisplayed());
-          await getDriver().manage().setTimeouts({ implicit: config.timeout });
+          await getDriver().manage().setTimeouts({
+            implicit: config.timeout
+          });
           return retval;
         case 'visible':
         case 'displayed':
@@ -271,7 +274,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           return (await WebElementObject.elementDisabled());
         case 'exists':
           var collection = await WebElementObject.getWebElements();
-          return collection.length > 0 ? true : false;          
+          return collection.length > 0 ? true : false;
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
@@ -319,7 +322,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertText = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) { expectedValue = replaceText };
+    if (expectedValue === undefined) {
+      expectedValue = replaceText
+    };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
@@ -333,7 +338,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) { expectedValue = replaceText };
+    if (expectedValue === undefined) {
+      expectedValue = replaceText
+    };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
@@ -525,11 +532,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getText = getText;
   that.switchToTab = switchToTab;
   that.getCurrentURL = getCurrentURL;
-  that.getPageTitle=getPageTitle;
-  that.assertPageTitle=assertPageTitle;
-  that.assertPageTitleIncludes=assertPageTitleIncludes;
+  that.getPageTitle = getPageTitle;
+  that.assertPageTitle = assertPageTitle;
+  that.assertPageTitleIncludes = assertPageTitleIncludes;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }
 
-module.exports = { PageObject };
+module.exports = {
+  PageObject
+};
