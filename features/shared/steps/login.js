@@ -1,7 +1,7 @@
 const { Given, When } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const pages = require('../pages/.page.js').pages;
+const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
@@ -23,7 +23,6 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
 });
 
 Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
-  this.data.set('key1','value1');
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, userType]);
 
