@@ -23,6 +23,7 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
 });
 
 Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
+  this.data.set('key1','value1');
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, userType]);
 

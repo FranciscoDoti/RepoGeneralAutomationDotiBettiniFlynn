@@ -9,7 +9,7 @@ function ThisWorld({ attach }) {
   this.headless = config.headless;
 
   this.attach = attach;
-  this.downloadLocation = process.cwd() + '/reports/downloads';
+  this.downloadLocation = `${process.cwd()}/reports/downloads`;
   setDefaultTimeout(2*config.timeout);
 };
 

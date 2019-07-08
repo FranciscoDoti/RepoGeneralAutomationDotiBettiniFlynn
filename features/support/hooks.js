@@ -9,6 +9,8 @@ After(async function (scenario) {
     await this.attach(await takeScreenshot(), 'image/png');
   }
   await resetBrowser();
+  console.log(this.data.get('key1'));
+  console.log(this.data.get('key2'));
 });
 
 AfterAll(async function () {
