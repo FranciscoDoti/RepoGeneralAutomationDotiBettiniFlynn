@@ -2,7 +2,7 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json --env int --mode local --browser firefox --headless true --screenshots false",
+    "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/sample.feature -f json:reports/cucumber_report.json --env int --mode local --browser chrome --headless true --screenshots false",
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
@@ -20,12 +20,12 @@
     "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/AdminEnrollsStudent.feature", 
     "CC-Q": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/URL.feature -f json:reports/cucumber_report.json",
     "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/LST-420-practice-test-admin-view.feature -f json:reports/cucumber_report.json",
+    "NGA-7194": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/addItem-assessment.feature -f json:reports/cucumber_report.json",
+    "NGA-7264": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/createPools.feature -f json:reports/cucumber_report.json ",
     "sac-bas": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json",
     "sac-int": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-intermediate.feature -f json:reports/cucumber_report.json",
-    "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment ae", 
-    "createCustom": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Skills/createCustom.feature -f json:reports/cucumber_report.json", 
-    "URL-Admin": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/Qualitative/URL.feature -f json:reports/cucumber_report.json",
-    "URL-MediaEditor": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaEditor/Qualitative/URL.feature -f json:reports/cucumber_report.json"
+    "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment int",
+    "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int"
   },
   "engines": {
     "node": ">=10"
@@ -34,13 +34,13 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "latest",
+    "chromedriver": "2.46.0",
     "csvtojson": "latest",
     "cucumber": "latest",
     "dateformat": "latest",
     "eslint": "latest",
     "faker": "latest",
-    "geckodriver": "latest",
+    "geckodriver": "1.14.1",
     "imap": "latest",
     "jsonwebtoken": "latest",
     "mailparser": "latest",
