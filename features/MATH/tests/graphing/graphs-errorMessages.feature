@@ -7,7 +7,7 @@ Feature: Verify Graph editor error messages
 
     Scenario: Verify the error message for an existing graph id opened in edit mode when user logs out and logs back as non-graph user
 
-        When I click the "window" icon for graphId "258"
+        When I click the "window" icon for graphId "301"
         And I go back to sapling page and logout
         And I login to AMS as "non-graph-user"
         And I try to save the previously opened graph editor
@@ -23,13 +23,13 @@ Feature: Verify Graph editor error messages
 
     Scenario: Verify the error message for non-existing graph id by navigating directly to the URL of a graph ID that does not exist.
 
-        When I click the "window" icon for graphId "260"
+        When I click the "window" icon for graphId "301"
         And I input non-existing graphid in the graph editor url
         Then the error message to contact an Assessments representative pops up
 
     Scenario: Verify the error message for an existing graph id opened in edit mode after the user logs out and then logs back in and tries to save already opened graph.
 
-        When I click the "window" icon for graphId "258"
+        When I click the "window" icon for graphId "301"
         And I go back to sapling page and logout
         And I login to AMS as "all-permissions-author"
         And I click on the Graphs tab
