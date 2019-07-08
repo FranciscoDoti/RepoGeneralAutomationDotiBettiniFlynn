@@ -1,15 +1,17 @@
+@Smoke
 Feature: Verify that Admin is able to create URL
 
+    @delete-ISBN-9781464199499
     Scenario: Verify that Admin is able to create a custom task with URL
 
-       Given I login to Achieve-CW as "media_producer_2"
+       Given I login to Achieve-CW as "admin_1"
         When I create "Read & Practice Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Read & Practice              |
             | courseName        | Read & Practice Template     |
             | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
+            | isbnNumber        | 9781464199499                |
             | courseStatus      | draft                        |
         And I click on search button and input "Read & Practice Template" to search the course
 

@@ -1,3 +1,4 @@
+@Smoke
 Feature: Adding reading activities in reading tab 
 
     @delete-mediaproducer-courses

@@ -1,3 +1,4 @@
+@Smoke
 Feature: Admin enrolls the student in the course 
 
     @delete-mediaproducer-courses

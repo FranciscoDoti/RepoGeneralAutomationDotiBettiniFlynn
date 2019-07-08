@@ -1,3 +1,4 @@
+@Smoke
 Feature: Copy course from the Template
 
     @delete-mediaproducer-courses

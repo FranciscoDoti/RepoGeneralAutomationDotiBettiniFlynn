@@ -1,7 +1,8 @@
-Feature: Adding Instructor to the Template
+@Smoke
+Feature: Assigning the activities present in the course 
 
     @delete-mediaproducer-courses
-    Scenario:  Verify that customer support is able to add Instructor to a course
+    Scenario: Verify that Instructor is able to assign the activities in the course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create "Qualitative Template" with the data 
@@ -24,7 +25,7 @@ Feature: Adding Instructor to the Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                            |
+            | addReadingButton        |  About The Authors |
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
@@ -36,8 +37,33 @@ Feature: Adding Instructor to the Template
         And I login to Achieve-CW as "customer_support_1"
 
         And I assign "instructor_1" to the "Qualitative Course" course
+        
         And I sign out of Achieve
+        And I login to Achieve-CW as "instructor_1"
 
-        Then I verify that "Qualitative Course" is assigned to "instructor_1"
+        When I activate "Qualitative Course" course with following data 
+            | field             | value                        |
+            | courseName        | Qualitative Course          |
+            | courseCode        |  E2E301                      |
+            | templateStatus    |  Active On Date              |
 
-           
+     
+        And I add the activities in courseplanner to "Qualitative Course" course
+            | activity                                                          | 
+            | Exercise: Misused words 1 (autoscored)                            |                                                        
+            | LC1551301608988                                                   |
+            | About The Authors                                                 |
+
+
+        And I assign the activities in courseplanner
+            | activity                                                         | Points | 
+            | Exercise: Misused words 1 (autoscored)                           | 5      | 
+            | LC1551301608988                                                  | 5      |
+            | About The Authors                                                | 5      |
+
+        Then I verify that activities are assigned
+            | activity                                                         | Status | 
+            | Exercise: Misused words 1 (autoscored)                           | Open   | 
+            | LC1551301608988                                                  | Open   |
+            | About The Authors                                                | Open   |
+

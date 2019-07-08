@@ -1,3 +1,4 @@
+@Smoke
 Feature: Verify that Instructor is able to create URL
 
    

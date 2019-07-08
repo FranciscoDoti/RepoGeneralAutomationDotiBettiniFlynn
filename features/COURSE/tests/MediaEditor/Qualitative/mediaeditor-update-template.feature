@@ -1,3 +1,4 @@
+@Smoke
 Feature: Media Editor is able to create a template and update
 
    @delete-ISBN-9781464199499

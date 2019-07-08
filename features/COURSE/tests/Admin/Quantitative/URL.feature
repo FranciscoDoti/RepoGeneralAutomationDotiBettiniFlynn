@@ -1,5 +1,7 @@
+@Smoke
 Feature: Verify that Admin is able to create URL
 
+    @delete-ISBN-9781464199499
     Scenario: Verify that Admin is able to create a custom task with URL
 
        Given I login to Achieve-CW as "media_producer_2"
@@ -10,7 +12,7 @@ Feature: Verify that Admin is able to create URL
             | courseName        | Quantitative Template        |
             | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
+            | isbnNumber        | 9781464199499                |
             | courseStatus      | draft                        |
         And I click on search button and input "Quantitative Template" to search the course
 

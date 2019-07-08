@@ -1,27 +1,27 @@
 @Smoke
-Feature: Verify that mediaProducer is able to create URL
+Feature: Verify that MediaEditor is able to create URL
 
-   
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
+    @delete-ISBN-9781464199499
+    Scenario: Verify that Admin is able to create a custom task with URL
 
-        Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data
+       Given I login to Achieve-CW as "media_editor_1"
+        When I create "Read & Practice Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
+            | productModel      | Read & Practice              |
+            | courseName        | Read & Practice Template     |
             | courseCode        | E2E 301                      |
-            | learningObjective | macmillan calculus           |
-            | isbnNumber        | 9781464199498                |
+            | isbnNumber        | 9781464199499                |
             | courseStatus      | draft                        |
+        And I click on search button and input "Read & Practice Template" to search the course
 
-        And I activate the "Qualitative Template" template and add the following data
+        And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
+            | courseName       | Read & Practice Template                                    |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        And I add URL link to "Qualitative Template" 
+        And I add URL link to "Read & Practice Template" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 
@@ -37,4 +37,4 @@ Feature: Verify that mediaProducer is able to create URL
 
         And I verify that custom activity is present in courseplanner your content section
             | activity                                                            | 
-            | Google                                                              |                                                         
+            | Google                                                              |

@@ -1,3 +1,4 @@
+@Smoke
 Feature: Verify that media Producer is able to create Custom Task 
 
     Scenario: Verify that media Producer is able to create Custom Task in Qualitative Template

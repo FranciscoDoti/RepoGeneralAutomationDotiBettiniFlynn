@@ -1,3 +1,4 @@
+@Smoke
 Feature: Create course
 
     @delete-mediaproducer-courses

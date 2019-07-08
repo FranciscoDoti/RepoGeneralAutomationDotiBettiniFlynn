@@ -1,10 +1,11 @@
+@Smoke
 Feature: Verify that Admin is able to create URL
 
-    
+    @delete-ISBN-9781464199499
     Scenario: Verify that Admin is able to create a custom tsak with URL in Qual course
 
        Given I login to Achieve-CW as "admin_1"
-        When I create "Qualitative Template" with the data 
+        When I create Course Template with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |
@@ -21,7 +22,7 @@ Feature: Verify that Admin is able to create URL
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
-        And I add URL link to "Skills Template" 
+        And I add URL link to "Qualitative Template" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 

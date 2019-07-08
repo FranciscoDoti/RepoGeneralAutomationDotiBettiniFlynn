@@ -20,7 +20,7 @@ After('@delete-mediaproducer-courses', async function () {
 });
 
 After('@delete-ISBN-9781464199499', async function () {
-  let payload = await _.get(users, [this.environment, 'media_editor_1']);
+  let payload = await _.get(users, [this.environment, 'admin_1']);
   await pages.home.click('togglerMenu');
   await pages.home.click('signOut');
   await pages.home.click('signInLocal');

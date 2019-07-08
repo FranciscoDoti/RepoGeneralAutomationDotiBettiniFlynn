@@ -1,3 +1,4 @@
+@Smoke
 Feature: Adding activities in Folder courseplanner
 
     @delete-mediaproducer-courses

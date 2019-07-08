@@ -1,3 +1,4 @@
+@Smoke
 Feature: Adding activities to the template
 
     @delete-mediaproducer-courses
