@@ -29,4 +29,4 @@ const ScenarioData = function () {
   return that;
 }
 
-module.exports = ScenarioData;
+module.exports = {ScenarioData};
