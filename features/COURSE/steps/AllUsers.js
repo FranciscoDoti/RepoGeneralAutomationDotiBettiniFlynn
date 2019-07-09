@@ -90,3 +90,31 @@ When(/^I attempt "(.*)" learning curve activity$/, async function (activityName,
     }
   }
 });
+
+Then(/^I verify that "(.*)" is created with following data$/, async function (courseName, data_table) {
+  await pages.courseList.populate('search', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.courseList.assertElementExists(data_table.hashes()[i].field, data_table.hashes()[i].value);
+  }
+});
+
+When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('resources');
+  await pages.resources.click('addActivity');
+  await pages.resources.click('createCustomActivity');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('urlLink');
+    await pages.resources.populate(data_table.hashes()[i].field, data_table.hashes()[i].link)
+    await pages.resources.click('addUrlLink');
+  }
+});
+
+When('I add URL activity in resource tab', async function (data_table) {
+  await pages.resources.click('goToContent');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('addCCButton', data_table.hashes()[i].activity)
+  }
+});
+

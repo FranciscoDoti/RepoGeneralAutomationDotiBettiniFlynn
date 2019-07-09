@@ -1,0 +1,106 @@
+{
+    "webElements": [{
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "AssignmentTab",
+            "byType": "css",
+            "definition": "a[data-test-id='link-to-assignment']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "itemList",
+            "byType": "css",
+            "definition": ".ae-checkbox",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionsId",
+            "byType": "xpath",
+            "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "Assessment questions id",
+            "byType": "css",
+            "definition": "input[id='<ReplaceText>']",
+            "frame":"aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "CreateMyOwn",
+            "byType": "css",
+            "definition": "button[data-test-id='assignment-create-actions-create-my-own']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "HatchlingQuestionType",
+            "byType": "css",
+            "definition": "a[name='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "list Assessments",
+            "byType": "xpath",
+            "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "list Assessments Delete",
+            "byType": "xpath",
+            "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div//ul//a[@title='Delete']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "course Name",
+            "byType": "xpath",
+            "definition": "//span[contains(text(),'Playground/Showcase/')]",
+            "frame": "default",
+            "specialInstr":"NA"
+        },{
+            "name": "NETitle",
+            "byType": "css",
+            "definition": "input[data-test-id='hatchling-item-title']",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "pool dropdown",
+            "byType": "css",
+            "definition": ".pool-content .ae-dropdown",
+            "frame": "aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "pool question list",
+            "byType": "css",
+            "definition": ".question-pool-indicator .ae-checkbox",
+            "frame":"aeframe",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "pool questions id",
+            "byType": "css",
+            "definition": "input[id='<ReplaceText>']",
+            "frame":"aeframe",
+            "specialInstr":"NA"
+        }, {
+            "name": "NEAssessment",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }
+    ]
+}

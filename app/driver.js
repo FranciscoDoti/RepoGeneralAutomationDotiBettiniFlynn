@@ -14,7 +14,7 @@ const config = {
   mode : argv.mode || defaults.mode,
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
-  headless : argv.headless || defaults.headless,
+  headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
   timeout : defaults.timeout
 };
 
@@ -34,7 +34,7 @@ const buildDriver = function() {
       var firefoxCapabilities = webdriver.Capabilities.firefox();
       firefoxCapabilities.set('firefoxOptions', firefoxOptions);
       driver.withCapabilities(firefoxCapabilities);
-      if (config.headless.toLowerCase().includes('true')) {
+      if (config.headless === true) {
         driver.setFirefoxOptions(new firefox.Options().headless());
       };
       break;
@@ -68,7 +68,7 @@ const buildDriver = function() {
       var chromeCapabilities = webdriver.Capabilities.chrome();
       chromeCapabilities.set('chromeOptions', chromeOptions)
       driver.withCapabilities(chromeCapabilities);
-      if (config.headless.toLowerCase().includes('true')) {
+      if (config.headless === true) {
         driver.setChromeOptions(new chrome.Options().headless());
       };
   }
@@ -84,9 +84,8 @@ const buildDriver = function() {
       driver.usingServer('http://localhost:4444/wd/hub/')
       break;
     case "hub":
-      driver.usingServer('http://selenium:4444/wd/hub')
+      driver.usingServer('https://dev-qa-hub.mldev.cloud/wd/hub')
   }
-
   return driver.build();
 };
 driver = buildDriver();

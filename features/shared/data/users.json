@@ -94,7 +94,7 @@
             "primarySchool": "Test Macmillan"
         },
         "customer_support_1": {
-            "username": "coustomer.macmillan@gmail.com",
+            "username": "customersupport@2emailock.com",
             "password": "ABCabc@123",
             "firstName": "Cust",
             "lastName": "Spport",
@@ -107,7 +107,7 @@
             "primarySchool": "Miami University"
         },
         "media_editor_1": {
-            "username": "mediaeditor13@gmail.com",
+            "username": "vunujiw@2emailock.com",
             "password": "ABCabc@123",
             "firstName": "Media",
             "lastName": "editor",
@@ -146,7 +146,7 @@
             "primarySchool": "macmillan learning"
         },
         "paid_access": {
-            "username": "kazavogoc@hubii-network.com",
+            "username": "paidaccess@2emailock.com",
             "password": "ABCabc@123",
             "firstName": "sugdi",
             "lastName": "ram",
@@ -171,8 +171,16 @@
             "sq3_answer": "answer",
             "primarySchool": "Macmillan Learning"
         },
+        "student_2": {
+            "username": "raptorstudent",
+            "password": "fasterthansixmill"
+        },
         "instructor_1": {
+<<<<<<< HEAD
             "username": "yawekow@intempmail.com",
+=======
+            "username": "vuwud@crowd-mail.com",
+>>>>>>> 13eddd9ae5f6eb40cef39ec6b6f5323510cd9442
             "password": "ABCabc@123",
             "firstName": "instructor",
             "lastName": "macmillan",
@@ -230,6 +238,20 @@
             "primarySchool": "Test Macmillan"
         }
     },
+    "ae": {
+        "all-permissions-author": {
+            "username": "raptoradmin",
+            "password": "fasterthansixmill"
+        },
+        "user2": {
+            "username": "user2 name",
+            "password": "user2 password",
+            "email": "user2 email",
+            "firstname": "user2 firstname",
+            "lastname": "user2 lastname"
+        }
+    },
+    
     "environment name": {
         "user1": {
             "username": "user1 name",

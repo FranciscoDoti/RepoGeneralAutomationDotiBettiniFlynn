@@ -18,4 +18,20 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseN
   
 });
 
+When(/^I check the account of "(.*)"$/, async function (userName){
+  let user = await _.get(users, [this.environment, userName]);
+  await pages.home.click('togglerMenu');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('checkAccount');
+  await pages.adminMenu.populate('checkAccountEmailId', user.username);
+  await pages.adminMenu.click('checkAccountSearchButton');
+})
 
+Then(/^I verify that "(.*)" details$/, async function (userName, data_table){
+  let user = await _.get(users, [this.environment, userName]);
+  await pages.adminMenu.assertTextIncludes('studentEmail', user.username);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.adminMenu.assertTextIncludes(data_table.hashes()[i].Details, data_table.hashes()[i].Value);
+  }
+
+})
