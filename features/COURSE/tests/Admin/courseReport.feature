@@ -1,6 +1,6 @@
 Feature: Administrator Tools
 
-    @PSV-3069 @PSV-3766
+    @Smoke
     Scenario: Verify that Admin is able to download course report
 
         Given I login to Achieve-CW as "admin_1"
