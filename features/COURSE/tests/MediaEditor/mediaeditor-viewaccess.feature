@@ -1,16 +1,17 @@
-Feature: Adding Instructor to the Template
+@Smoke
+Feature: Media Editor has only view access that they are not a collaborator
 
-    @delete-mediaproducer-courses
-    Scenario:  Verify that customer support is able to add Instructor to a course
+     @delete-mediaproducer-courses
+    Scenario: Verify that Media Editor has only view access that they are not collaborator
 
-         Given I login to Achieve-CW as "media_producer_2"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create "Quantitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 
@@ -24,16 +25,11 @@ Feature: Adding Instructor to the Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                             |
-
-        And I click on home button to return to coursepage
-        And I copy course from the "Quantitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Quantitative Course          |
-            | courseCode        | E2E301                       |
+            | addReadingButton        |  About The Authors                            |
 
         And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Quantitative Course" course
+        And I login to Achieve-CW as "media_editor_1"
+
+        Then I verify that media editor has only view access to "Quantitative Template"
         

@@ -1,3 +1,4 @@
+@Smoke
 Feature: Media Editor is able to create a template and update
 
    @delete-ISBN-9781464199499
@@ -9,8 +10,8 @@ Feature: Media Editor is able to create a template and update
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199499                |
             | courseStatus      | draft                        |
 
@@ -25,6 +26,6 @@ Feature: Media Editor is able to create a template and update
 
         Then I verify that "Quantitative Template" is created with following data
             | field                 | value                     |
-            | courseCardName        | Quantitative Template     |
+            | courseName            | Quantitative Template     |
             | courseDate            |  E2E 301                  |
             | courseShortId         | Template                  |

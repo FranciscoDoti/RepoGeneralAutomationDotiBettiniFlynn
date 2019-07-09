@@ -6,7 +6,7 @@
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
-    "folder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3688.feature -f json:reports/cucumber_report.json",
+    "folder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Quantitative/PSV-3688.feature -f json:reports/cucumber_report.json",
     "mp": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3689-mediaProducer.feature -f json:reports/cucumber_report.json",
     "instructorFolder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3689-Instructor.feature -f json:reports/cucumber_report.json",
     "ebook": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3690.feature -f json:reports/cucumber_report.json",
@@ -23,6 +23,8 @@
     "NGA-7264": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/createPools.feature -f json:reports/cucumber_report.json ",
     "sac-bas": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json",
     "sac-int": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-intermediate.feature -f json:reports/cucumber_report.json",
+    "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment ae", 
+    "createCustom": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Skills/createCustom.feature -f json:reports/cucumber_report.json",
     "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment int",
     "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int"
   },

@@ -1,7 +1,9 @@
-Feature: Admin enrolls the student in the course 
+
+@Smoke
+Feature: Assigning the activities present in the course 
 
     @delete-mediaproducer-courses
-    Scenario: Verify that admin enrolls student in the course 
+    Scenario: Verify that Instructor is able to assign the activities in the course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create "Quantitative Template" with the data 
@@ -9,8 +11,8 @@ Feature: Admin enrolls the student in the course
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 
@@ -24,7 +26,7 @@ Feature: Admin enrolls the student in the course
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            
+            | addReadingButton        |  About The Authors |
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
@@ -45,18 +47,24 @@ Feature: Admin enrolls the student in the course
             | courseName        | Quantitative Course          |
             | courseCode        |  E2E301                      |
             | templateStatus    |  Active On Date              |
+
      
         And I add the activities in courseplanner to "Quantitative Course" course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
+            | About The Authors                                                 |
+
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
-            | LC1551301608988                                                  | 5      | 
+            | LC1551301608988                                                  | 5      |
+            | About The Authors                                                | 5      |
 
-        And I sign out of Achieve
-        And I login to Achieve-CW as "admin_1" 
-        And I enroll the "student_1" in "Quantitative Course" course  
-    
+        Then I verify that activities are assigned
+            | activity                                                         | Status | 
+            | Exercise: Misused words 1 (autoscored)                           | Open   | 
+            | LC1551301608988                                                  | Open   |
+            | About The Authors                                                | Open   |
+

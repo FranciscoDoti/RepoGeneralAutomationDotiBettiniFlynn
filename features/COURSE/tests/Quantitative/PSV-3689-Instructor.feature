@@ -1,7 +1,7 @@
-Feature: Adding activities in Folder courseplanner
-
+@Smoke
+Feature: Instructor adds folder, remove folder and reorders it 
     @delete-mediaproducer-courses
-    Scenario: Verify that Media Producer is able to add folder in courseplanner
+    Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create "Quantitative Template" with the data 
@@ -9,8 +9,8 @@ Feature: Adding activities in Folder courseplanner
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
+            | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 
@@ -21,21 +21,39 @@ Feature: Adding activities in Folder courseplanner
             | templateStatus   | Active On Date                                              |
 
         And I add the activities in resources to "Quantitative Template" template
-            | type                     | activity                                      |
-            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         |  About The Authors                            |
-            | addButtonReadandpractice | LCRP1550612138614                             |
+            | type                      | activity                                      |
+            | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
+            | addButtonLearningcurve    | LC1551301608988                               |
+            | addReadingButton          |  About The Authors                            |
+            | addButtonReadandpractice  | LCRP1550612138614                             |                         
 
+        And I click on home button to return to coursepage
+        And I copy course from the "Quantitative Template" template with the following data
+            | field             | value                        |
+            | courseName        | Quantitative Course          |
+            | courseCode        | E2E301                       |
 
-        And I add the activities in "coursePlanner"
+        And I sign out of Achieve
+        And I login to Achieve-CW as "customer_support_1"
+
+        And I assign "instructor_1" to the "Quantitative Course" course
+        
+        And I sign out of Achieve
+        And I login to Achieve-CW as "instructor_1"
+
+        When I activate "Quantitative Course" course with following data 
+            | field             | value                        |
+            | courseName        | Quantitative Course          |
+            | courseCode        |  E2E301                      |
+            | templateStatus    |  Active On Date              |
+     
+        And I add the activities in courseplanner to "Quantitative Course" course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
             | About The Authors                                                 |
             | LCRP1550612138614                                                 |
-
-
+            
         And I reorder the resources on template in "coursePlanner"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
@@ -77,3 +95,8 @@ Feature: Adding activities in Folder courseplanner
             | Learning Curve    |
             | Assesment         |
             | ReadandPractice   |
+
+
+
+ 
+        
