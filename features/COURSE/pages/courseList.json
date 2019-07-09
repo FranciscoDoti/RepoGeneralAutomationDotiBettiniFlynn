@@ -61,8 +61,8 @@
         "specialInstr": "NA"
     }, {
         "name": "courseName",
-        "byType": "css",
-        "definition": "[data-test-id='course_name']",
+        "byType": "xpath",
+        "definition": "//a[@data-test-id='course_name' and .='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

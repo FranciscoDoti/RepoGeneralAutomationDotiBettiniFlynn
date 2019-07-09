@@ -1,17 +1,17 @@
 Feature: Customer Support attempts all the activities in Quantitative Template
-       @delete-mediaproducer-courses
-       @delete-customersupport-courses
+
+    @delete-ISBN-9781464199499
     Scenario: Verify that Customer Support is able to create course from Quantitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When  I create "Quantitative Template" with the data
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
             | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
+            | isbnNumber        | 9781464199499                |
             | courseStatus      | draft                        |
 
         And I activate the "Quantitative Template" template and add the following data
@@ -34,9 +34,14 @@ Feature: Customer Support attempts all the activities in Quantitative Template
                 
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
-            | courseName        | Quantitative Template2       |
+            | courseName        | Quantitative Course          |
             | courseCode        | E2E301                       |
 
-        And I click on search button and input "Quantitative Template2" to search the course
-        And I verify that Quantitative Template2 has created with the following data
+        And I click on search button and input "Quantitative Course" to search the course
+        
+        Then I verify that "Quantitative Course" is created with following data
+            | field                 | value                     |
+            | courseName            | Quantitative Course       |
+            | courseDate            |  E2E301                   |
+           
         

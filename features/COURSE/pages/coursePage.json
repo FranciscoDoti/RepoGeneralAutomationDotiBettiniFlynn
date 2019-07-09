@@ -91,6 +91,22 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "courseName",
+            "byType": "xpath",
+            "definition": "//span[contains(@data-test-id,'course_template_name') and contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "selectTemplate",
+            "byType": "css",
+            "definition": "[aria-label='Create from selected template']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
         
     ]

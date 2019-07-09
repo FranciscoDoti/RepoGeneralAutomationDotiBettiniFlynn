@@ -1,17 +1,16 @@
 Feature: Instructor attempts all the activities in Quantitative Template
-       @delete-mediaproducer-courses
-       @delete-instructor-courses
+       @delete-ISBN-9781464199499
     Scenario: Verify that Instructor is able to copy course from Quantitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When I create Course Template with the data 
+        When  I create "Quantitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |
             | courseName        | Quantitative Template        |
             | learningObjective | Principles of Microeconomics |
             | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
+            | isbnNumber        | 9781464199499                |
             | courseStatus      | draft                        |
 
         And I activate the "Quantitative Template" template and add the following data
@@ -26,29 +25,35 @@ Feature: Instructor attempts all the activities in Quantitative Template
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         | About The Authors                             |
             | addButtonReadandpractice | LCRP1550612138614                             |
-       
-        And I sign out of Achieve
-        
-        And I login to Achieve-CW as "media_producer_2"
-        And I click on search button and input "Quantitative Template" to search the course
+        And I click on home button to return to coursepage
 
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
-            | courseName        | Quantitative Template2       |
+            | courseName        | Quantitative Course          |
             | courseCode        | E2E301                       |
-      
-        And I click on search button and input "Quantitative Template2" to search the course
-        And I assign "instructor_1" to the "Quantitative Template2" course
        
         And I sign out of Achieve
+
+        And I login to Achieve-CW as "customer_support_1"
+
+        And I assign "instructor_1" to the "Quantitative Course" course
         
+        And I sign out of Achieve
+
         And I login to Achieve-CW as "instructor_1"
-        And I create Course Template by coping from "Quantitative Template2" template
-                        
-        And Instructor copy course from the "Quantitative Template2" template with the following data
-            | field             | value                        |
-            | courseName        | Quantitative Template        |
-            | courseCode        | E2E301                       |
+
+        And I create a course "Quantitative Template" with the following data
+            | field             | value                                  |
+            | courseName        | Quantitative Instructor Course         |
+            | courseCode        | E2E301                                 |
+
+        Then I verify that "Course Copied." message is displayed
+        And I verify that "Quantitative Instructor Course" is created with following data
+            | field                 | value                                |
+            | courseName            | Quantitative Instructor Course       |
+            | courseDate            |  E2E301                              |
+           
+        
 
        
        

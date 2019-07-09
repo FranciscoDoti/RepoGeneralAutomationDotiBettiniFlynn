@@ -20,40 +20,6 @@ After('@delete-mediaproducer-courses', async function () {
   }
 });
 
-After('@delete-customersupport-courses', async function () {
-  let payload = await _.get(users, [this.environment, 'customer_support_1']);
-/*  await pages.home.click('togglerMenu');
-  await pages.home.click('signOut');
-  await pages.home.click('signInLocal');
-  await pages.home.populate('username', payload.username);
-  await pages.home.populate('password', payload.password);
-  await pages.home.click('signIn') */
-  let elements = await pages.courseList.getWebElements('courseCard');
-  for (let i = 0; i < elements.length; i++) {
-    await pages.coursePage.click('courseMenu');
-    await pages.courseList.click('deleteCourse');
-    await pages.courseList.click('confirmDelete');
-    await pages.home.click('closeAlert');
-  }
-});
-
-After('@delete-instructor-courses', async function () {
-  let payload = await _.get(users, [this.environment, 'instructor_1']);
-  /*  await pages.home.click('togglerMenu');
-  await pages.home.click('signOut');
-  await pages.home.click('signInLocal');
-  await pages.home.populate('username', payload.username);
-  await pages.home.populate('password', payload.password);
-  await pages.home.click('signIn') */
- let elements = await pages.courseList.getWebElements('courseCard');
-  for (let i = 0; i < elements.length; i++) {
-    await pages.coursePage.click('courseMenu');
-    await pages.courseList.click('deleteCourse');
-    await pages.courseList.click('confirmDelete');
-    await pages.home.click('closeAlert');
-  }
-});
-
 After('@delete-ISBN-9781464199499', async function () {
   let payload = await _.get(users, [this.environment, 'admin_1']);
   await pages.home.click('togglerMenu');
@@ -64,7 +30,11 @@ After('@delete-ISBN-9781464199499', async function () {
   await pages.home.click('signIn')
   await pages.courseList.populate('search', '9781464199499');
   await pages.courseList.assertElementExists('ISBN', 'ISBN: 9781464199499');
-  await pages.coursePage.click('courseMenu');
-  await pages.courseList.click('deleteCourse');
-  await pages.courseList.click('confirmDelete');
+  let elements = await pages.courseList.getWebElements('courseCard')
+  for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
+    await pages.courseList.click('deleteCourse');
+    await pages.courseList.click('confirmDelete');
+    await pages.home.click('closeAlert');
+  }
 });
