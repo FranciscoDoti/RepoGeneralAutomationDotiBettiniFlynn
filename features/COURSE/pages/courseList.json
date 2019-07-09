@@ -23,7 +23,7 @@
         "definition": "[data-test-id='course_menu_delete_course']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "courseCard",
         "byType": "css",
         "definition": "[data-test-id='course_card']",
@@ -72,21 +72,34 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "ISBN",
+        "byType": "xpath",
+        "definition": "//div[@data-test-id='course_activation_date' and .='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "courseCode",
         "byType": "css",
         "definition": "[id='courseCode']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "courseNameCourseCode",
-        "byType": "css",
-        "definition": "[data-test-id='course_number_date_time']",
+        "name": "courseDate",
+        "byType": "xpath",
+        "definition": "//div[@data-test-id='course_number_date_time' and .='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "courseNameIsbn",
         "byType": "css",
         "definition": "[data-test-id='course_activation_date']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "courseShortId",
+        "byType": "xpath",
+        "definition": "//span[@data-test-id='course_short_id' and .='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -161,6 +174,13 @@
         "definition": "[data-test-id='courseMenu_invite_students']",
         "frame": "default",
         "specialInstr": "NA"
+    },{
+        "name": "inviteStudentsButton",
+        "byType": "css",
+        "definition": "[data-test-id='courseMenu_invite_students']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     }, {
         "name": "ebookLink",
         "byType": "css",

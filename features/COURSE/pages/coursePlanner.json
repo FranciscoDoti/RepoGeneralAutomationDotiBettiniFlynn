@@ -347,7 +347,7 @@
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
         }, {
-            "name": "AddAssignmentButton",
+            "name": "addQuestionButton",
             "byType": "css",
             "definition": "[data-test-id='add-question-button']",
             "frame": "customAssesmentFrame",
@@ -472,6 +472,216 @@
             "definition": "[class='_2XMC ']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "addUnit",
+            "byType": "css",
+            "definition": "[data-test-id='add_unit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "parentFolder",
+            "byType": "css",
+            "definition": "[data-test-id='parent_folder']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addUnitButton",
+            "byType": "css",
+            "definition": "[data-test-id='add_unit_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addUnitName",
+            "byType": "css",
+            "definition": "[data-test-id='add_unit_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "contentCheckbox",
+            "byType": "css",
+            "definition": "[data-test-id='content_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionButton",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionButtonValidation",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='action_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "actionMoveItemToFolder",
+            "byType": "css",
+            "definition": "[data-test-id='action_menu_items_move_item']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionRemoveItem",
+            "byType": "css",
+            "definition": "[data-test-id='action_menu_items_remove_item']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "reorder",
+            "byType": "css",
+            "definition": "[data-test-id='action_menu_items_reorder']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "folderName",
+            "byType": "xpath",
+            "definition": "//span[contains(@data-test-id,'folder_name') and contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "activityName",
+            "byType": "xpath",
+            "definition": "//*[@data-test-id='activity_link' and .='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "actionButtonResources",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "libraryItem",
+            "byType": "xpath",
+            "definition": "//a[@class='_25Nb' and .='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "reorderValidation",
+            "byType": "xpath",
+            "definition": "//div[<ReplaceText>]/div/div/div/div/div/div/a[@data-test-id='activity_link']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "assignmentStatus",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../..//div[@data-test-id='assignment_status']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "customIframe",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div/div/div/iframe",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "addPrompt",
+            "byType": "css",
+            "definition": "a[data-id='add-prompt']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "editTittle",
+            "byType": "css",
+            "definition": "[class='ActivityTitle__titleEdit__3jSK4']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "activityTittle",
+            "byType": "css",
+            "definition": "[data-id='activity-title-editField']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "tittleSave",
+            "byType": "css",
+            "definition": "[data-id='title-save']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "customRubric",
+            "byType": "css",
+            "definition": "[data-id='create-rubric']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "nameRubric",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-title-input']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "criterion",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-name']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "criterionDescription",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-description']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "rubricScale",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//input[@data-id='custom-rubric-scale-name']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        }, 
+        {
+            "name": "scaleDescription",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-description']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "customRubricSave",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-save']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
         }
     ]
 }
