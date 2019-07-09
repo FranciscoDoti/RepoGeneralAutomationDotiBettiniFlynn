@@ -13,7 +13,10 @@
     "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
     "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json",
     "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/LST-420-practice-test-admin-view.feature -f json:reports/cucumber_report.json",
-    "sac": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac.feature -f json:reports/cucumber_report.json"
+    "sac": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac.feature -f json:reports/cucumber_report.json",
+    "PSV-3691cs": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3691-customerSupport.feature -f json:reports/cucumber_report.json",
+    "PSV-3691I": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3691-Instructor.feature -f json:reports/cucumber_report.json",
+    "PSV": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-test.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
@@ -25,16 +28,17 @@
     "chromedriver": "latest",
     "csvtojson": "latest",
     "cucumber": "latest",
+    "cucumber-html-reporter": "latest",
     "dateformat": "latest",
     "eslint": "latest",
     "faker": "latest",
     "geckodriver": "latest",
     "imap": "latest",
+    "js-datepicker": "^4.6.1",
     "jsonwebtoken": "latest",
     "mailparser": "latest",
     "parse-duration": "latest",
     "selenium-webdriver": "latest",
-    "cucumber-html-reporter": "latest",
     "winston": "latest"
   },
   "devDependencies": {

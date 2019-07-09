@@ -18,9 +18,11 @@ When('I click on home button to return to coursepage', async function () {
   await pages.home.click('achieveHome');
 });
 
-
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
-  await pages.courseList.populate('search', CourseName)
+  await pages.courseList.populate('search', CourseName);
+  await pages.createCourse.assertElementExists('courseCard', CourseName)
+});
+When('I verify that Quantitative Template{int} has created with the following data', function (int) {
 });
 
 When('I delete the courses', async function () {

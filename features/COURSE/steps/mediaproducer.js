@@ -23,7 +23,7 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
     if (data_table.hashes()[i].page_object !== 'day') {
       await pages.editCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value);
     } else {
-      await pages.createCourse.click('selectDay', data_table.hashes()[i].value);
+      await pages.createCourse.click('templateStatus', data_table.hashes()[i].value);
     }
   }
   await pages.editCourse.click('save');
@@ -225,4 +225,7 @@ When('I delete the resources from the Template in ebook', async function (data_t
     await pages.resources.click('confirmRemoveItem');
     await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
   }
-})
+});
+
+
+

@@ -32,7 +32,7 @@
         }, {
             "name": "resources",
             "byType": "css",
-            "definition": "[data-test-id='resources_tab']",
+            "definition": "li[data-test-id='resources_tab']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -65,8 +65,7 @@
             "definition": "[data-test-id='achieve_logo_link']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "gradebookTab",
             "byType": "css",
             "definition": "[data-test-id='gradebook_tab']",

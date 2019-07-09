@@ -182,8 +182,7 @@
         "frame": "default",
         "specialInstr": "NA"
 
-    },
-    {
+    }, {
         "name": "moveToTop",
         "byType": "css",
         "definition": "[data-test-id='move_to_top_button']",
@@ -218,7 +217,7 @@
         "frame": "default",
         "specialInstr": "NA"
 
-    },{
+    }, {
         "name": "resourcesReorderVerification",
         "byType": "xpath",
         "definition": "//div[<ReplaceText>]/div[@role='row']//span[@data-test-id='folder_label_name']",
@@ -231,6 +230,8 @@
         "definition": "[data-test-id='move_to_end_button']",
         "frame": "default",
         "specialInstr": "NA"
+
+    
     }]
     
 
