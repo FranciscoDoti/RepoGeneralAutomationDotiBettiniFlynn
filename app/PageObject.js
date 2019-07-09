@@ -2,15 +2,16 @@
  * http://usejsdoc.org/
  */
 'use strict';
-const {assert,expect} = require('chai');
+const { assert, expect } = require('chai');
 const HashTable = require(`${process.cwd()}/app/HashTable`);
 const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
 const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
-const {loadJSONFile} = require(`${process.cwd()}/app/util`);
-const {getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config} = require(`${process.cwd()}/app/driver`);
-const {log} = require(`${process.cwd()}/app/logger`);
-const {populateInput, populateClick, populateSelect, populateRichTextField} = require(`${process.cwd()}/app/populate`);
+const { loadJSONFile } = require(`${process.cwd()}/app/util`);
+const { getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
+const { log } = require(`${process.cwd()}/app/logger`);
+const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
+
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
   that.ScenarioData = ScenarioData;
@@ -258,13 +259,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
-          await getDriver().manage().setTimeouts({
-            implicit: 5000
-          });
+          await getDriver().manage().setTimeouts({ implicit: 5000 });
           let retval = !(await WebElementObject.elementDisplayed());
-          await getDriver().manage().setTimeouts({
-            implicit: config.timeout
-          });
+          await getDriver().manage().setTimeouts({ implicit: config.timeout });
           return retval;
         case 'visible':
         case 'displayed':
@@ -274,7 +271,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           return (await WebElementObject.elementDisabled());
         case 'exists':
           var collection = await WebElementObject.getWebElements();
-          return collection.length > 0 ? true : false;
+          return collection.length > 0 ? true : false;          
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
@@ -322,9 +319,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertText = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) {
-      expectedValue = replaceText
-    };
+    if (expectedValue === undefined) { expectedValue = replaceText };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
@@ -338,9 +333,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) {
-      expectedValue = replaceText
-    };
+    if (expectedValue === undefined) { expectedValue = replaceText };
     try {
       const actualValue = await getAttributeValue(elementName, replaceText);
       log.info(`Asserting text for "${elementName}".`);
@@ -448,69 +441,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const acceptAlert = async function(){
-    await genericAlertOperations('accept');
-    log.info(`Accepted alert popup.`);
-  };
-
-  const dismissAlert = async function(){
-    await genericAlertOperations('dismiss');
-    log.info(`Dismissed alert popup.`);
-  };
-
-  const getAlertText = async function(){
-    log.debug("Getting text in alert popup.");
-    let actualValue = await genericAlertOperations('text');
-    log.info(`${actualValue} is displayed in the alert popup.`);
-    return actualValue;
-  };
-
-  const assertAlertText = async function(expectedValue){
-    log.debug("Asserting text in alert popup.");
-    let actualValue = await genericAlertOperations('text');
-    if (actualValue === expectedValue) {
-      log.info(`Actual value "${actualValue}" matches Expected value "${expectedValue}". PASS`);
-    } else {
-      assert.fail(`Actual value "${actualValue}" does not match Expected value "${expectedValue}". FAIL`);
-    };
-  };
-
-  const assertAlertTextIncludes = async function(expectedValue){
-    log.debug("Asserting text in alert popup.");
-    let actualValue = await genericAlertOperations('text');
-    if (actualValue.includes(expectedValue)) {
-      log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
-    } else {
-      assert.fail(`Actual value "${actualValue}" does not include Expected value "${expectedValue}". FAIL`);
-    };
-  };
-
-  const genericAlertOperations = async function(operation){
-    if (await that.driver.wait(that.webdriver.until.alertIsPresent())){
-      let alert = that.driver.switchTo().alert();
-      switch (operation.toLowerCase()){
-        case 'accept':
-          await alert.accept();
-          break;
-        case 'dismiss':
-          await alert.dismiss();
-          break;
-        case 'text':
-          return (await alert.getText());
-          break;
-        default:
-          assert.fail(`ERROR: ${operation} is not implemented in genericAlertOperations().`)
-      }
-    } else {
-      assert.fail(`ERROR: Assert pop up was not displayed.`);
-    };
-  };
-
-  that.acceptAlert = acceptAlert;
-  that.dismissAlert = dismissAlert;
-  that.getAlertText = getAlertText;
-  that.assertAlertText = assertAlertText;
-  that.assertAlertTextIncludes = assertAlertTextIncludes;
   that.assertExists = assertExists;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
@@ -532,13 +462,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getText = getText;
   that.switchToTab = switchToTab;
   that.getCurrentURL = getCurrentURL;
-  that.getPageTitle = getPageTitle;
-  that.assertPageTitle = assertPageTitle;
-  that.assertPageTitleIncludes = assertPageTitleIncludes;
+  that.getPageTitle=getPageTitle;
+  that.assertPageTitle=assertPageTitle;
+  that.assertPageTitleIncludes=assertPageTitleIncludes;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }
 
-module.exports = {
-  PageObject
-};
+module.exports = { PageObject };
