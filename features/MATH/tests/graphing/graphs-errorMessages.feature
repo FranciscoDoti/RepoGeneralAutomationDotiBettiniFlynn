@@ -19,7 +19,7 @@ Feature: Verify Graph editor error messages
         And I go back to sapling page and logout
         And I login to AMS as "non-graph-user"
         And I try to save the previously opened graph editor
-        Then I verify window pop up message "Error: An error occurred"
+        Then I verify window pop up message "Error: Unauthorized"
 
     Scenario: Verify the error message for non-existing graph id by navigating directly to the URL of a graph ID that does not exist.
 

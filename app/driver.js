@@ -67,7 +67,6 @@ const buildDriver = function() {
       };
       var chromeCapabilities = webdriver.Capabilities.chrome();
       chromeCapabilities.set('chromeOptions', chromeOptions)
-      chromeCapabilities.setAlertBehavior('accept')
       driver.withCapabilities(chromeCapabilities);
       if (config.headless === true) {
         driver.setChromeOptions(new chrome.Options().headless());

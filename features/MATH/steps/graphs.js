@@ -310,81 +310,23 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popup) {
   await driver.sleep(1000)
   switch (popup) {
     case 'Error: Unauthorized':
-      try {
-        const alert = await driver.switchTo().alert();
-        const text = await alert.getText()
-        expect(text).to.be.eql('Error: Unauthorized, please log in and try again.');
-        alert.accept()
-        console.log("alert text:", text)
-
-      } catch (err) {
-      }
+      await pages.graphEditor.assertAlertText('Error: Unauthorized, please log in and try again.');
+      // await pages.graphEditor.acceptAlert();
       break;
     case 'Error: An error occurred':
-      try {
-        const alert = await driver.switchTo().alert();
-        const text = await alert.getText()
-        expect(text).to.be.eql('Error: An error occurred. Please try again or contact an Assessments representative.');
-        alert.accept()
-        console.log("alert text:", text)
-      } catch (err) {
-      }
+      await pages.graphEditor.assertAlertText('Error: An error occurred. Please try again or contact an Assessments representative.');
+      // await pages.graphEditor.acceptAlert();
       break;
     case 'Graph saved. refresh AMS':
-      try {
-        const alert = await driver.switchTo().alert();
-        const text = await alert.getText();
-        expect(text).to.be.eql('Graph saved. You may need to refresh your AMS tab to see the changes.');
-        alert.accept()
-      } catch (err) {
-      }
-      default:
+      await pages.graphEditor.assertAlertText('Graph saved. You may need to refresh your AMS tab to see the changes.');
+      // await pages.graphEditor.acceptAlert();
+      break;
+    default:
+      await pages.graphEditor.acceptAlert();
   }
+  await pages.graphEditor.acceptAlert();
 });
 
-// Then(/^I verify window pop up message "(.*)"$/, async function (popup) {
-//   const driver = pages.graphEditor.getDriver()
-//   await driver.sleep(1000)
-//   console.log("alert 0000:")
-
-//       // try {
-//         const alert = await driver.switchTo().alert();
-//         console.log("alert text11111:")
-
-//         const text = await alert.getText()
-//         console.log("alert 222:", text)
-
-//         expect(text).to.be.eql('Error: Unauthorized, please log in and try again.');
-//         alert.accept()
-//         console.log("alert text:", text)
-
-//       // } catch (err) {
-//       // }
-// });
-// Then(/^the error message to contact an Assessments representative pops up$/, async function () {
-//   const driver = pages.graphEditor.getDriver()
-//   await driver.sleep(1000)
-
-//   try {
-//     const alert = await driver.switchTo().alert();
-//     const text = await alert.getText()
-//     expect(text).to.be.eql('Error: An error occurred. Please try again or contact an Assessments representative.');
-//     alert.accept()
-//   } catch (err) {
-//   }
-// });
-
-// Then(/^the alert message to refresh your AMS tab pops up$/, async function () {
-//   const driver = pages.graphEditor.getDriver()
-//   await driver.sleep(1000)
-//   try {
-//     const alert = await driver.switchTo().alert();
-//     const text = await alert.getText();
-//     expect(text).to.be.eql('Graph saved. You may need to refresh your AMS tab to see the changes.');
-//     alert.accept()
-//   } catch (err) {
-//   }
-// });
 
 When(/^I input non-existing graphid in the graph editor url$/, async function () {
   let url = await _.get(urls, ['graph', this.environment]);
