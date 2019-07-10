@@ -1,37 +1,32 @@
-/**
- * http://usejsdoc.org/
- */
-'use strict';
-
 const HashTable = require(`${process.cwd()}/app/HashTable`);
-
-const ScenarioData = function (ScenarioName) {
+//const ScenarioData = function (ScenarioName) {
+const ScenarioData = function () {
   let that = Object.assign({});
-
   that.data = new HashTable();
 
-  let storeData = async function (key, value) {
+  let storeData = function (key, value) {
     that.data.setItem(key, value);
   };
 
-  let getData = async function (key) {
+  let getData = function (key) {
     return that.data.getItem(key);
   };
 
-  let saveToFile = async function (scenarioFileName) {
+  let saveToFile = function (scenarioFileName) {
     // Implement me!!!
   };
-  let readFromFile = async function (scenarioFileName) {
+  let readFromFile = function (scenarioFileName) {
     //Implement me!!!
   };
 
   that.storeData = storeData;
-  that.get = getData;
+  that.set = storeData;
   that.put = storeData;
+  that.get = getData;
+  that.getData = getData;
   that.saveToFile = saveToFile;
   that.readFromFile = readFromFile;
-
   return that;
-};
+}
 
-module.exports = ScenarioData;
+module.exports = {ScenarioData};
