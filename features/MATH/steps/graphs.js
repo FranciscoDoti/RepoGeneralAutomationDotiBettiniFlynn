@@ -292,13 +292,13 @@ Then(/^I verify the graphs list is "(.*)" order of graph "(.*)" column name$/, a
   }
 });
 
-Then(/^I go back to sapling page and logout$/, async function () {
-  let url = await _.get(urls, ['sapling', this.environment]);
-  await pages.saplingLearning.switchToTab('Sapling');
-  await visitURL(url);
-  await pages.saplingLearning.click('RaptorAdmin');
-  await pages.saplingLearning.click('logout');
-});
+// Then(/^I go back to sapling page and logout$/, async function () {
+//   let url = await _.get(urls, ['sapling', this.environment]);
+//   await pages.saplingLearning.switchToTab('Sapling');
+//   await visitURL(url);
+//   await pages.saplingLearning.click('RaptorAdmin');
+//   await pages.saplingLearning.click('logout');
+// });
 
 When(/^I try to save the previously opened graph editor$/, async function () {
   await pages.graphEditor.switchToTab('Graphing');
@@ -319,7 +319,6 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popup) {
 
       } catch (err) {
       }
-
       break;
     case 'Error: An error occurred':
       try {
@@ -339,9 +338,29 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popup) {
         alert.accept()
       } catch (err) {
       }
+      default:
   }
 });
 
+// Then(/^I verify window pop up message "(.*)"$/, async function (popup) {
+//   const driver = pages.graphEditor.getDriver()
+//   await driver.sleep(1000)
+//   console.log("alert 0000:")
+
+//       // try {
+//         const alert = await driver.switchTo().alert();
+//         console.log("alert text11111:")
+
+//         const text = await alert.getText()
+//         console.log("alert 222:", text)
+
+//         expect(text).to.be.eql('Error: Unauthorized, please log in and try again.');
+//         alert.accept()
+//         console.log("alert text:", text)
+
+//       // } catch (err) {
+//       // }
+// });
 // Then(/^the error message to contact an Assessments representative pops up$/, async function () {
 //   const driver = pages.graphEditor.getDriver()
 //   await driver.sleep(1000)
@@ -371,5 +390,4 @@ When(/^I input non-existing graphid in the graph editor url$/, async function ()
   let url = await _.get(urls, ['graph', this.environment]);
   await visitURL(url, Key.ENTER);
   await pages.graphEditor.click('saveButton');
-
-})
+});
