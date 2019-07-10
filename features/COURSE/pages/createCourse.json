@@ -164,13 +164,7 @@
             "definition": "[data-test-id='invite_students_modal_send_invites_btn']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "plusButton",
-            "byType": "css",
-            "definition": "",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },  {
             "name": "template",
             "byType": "css",
             "definition": "[data-test-id='createCourse_from_template_button']",
@@ -220,8 +214,8 @@
         },
         {
             "name": "plusButton",
-            "byType": "css",
-            "definition": "[data-test-id='add_create_course_button']",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div/div[2]/div[3]/button",
             "frame": "default",
             "specialInstr": "NA"
 

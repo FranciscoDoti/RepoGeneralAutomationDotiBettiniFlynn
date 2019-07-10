@@ -11,6 +11,13 @@
             "definition": "[data-test-id='overview_tab']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "welcomeMessage",
+            "byType": "css",
+            "definition": "[data-test-id='welcome_modal_course_list_button']",
+            "frame": "default",
+            "specialInstr": "NA"
         }, {
             "name": "coursePlanner",
             "byType": "css",
@@ -86,5 +93,6 @@
             "specialInstr": "NA"
 
         }
+        
     ]
 }

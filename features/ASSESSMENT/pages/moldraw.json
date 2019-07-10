@@ -1,48 +1,41 @@
 {
-    "webElements": [
-        {
+    "webElements": [{
             "name": "moldrawStaticModuleCheckbox",
             "byType": "css",
             "definition": "input[name='answerable']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "drawingArea",
             "byType": "css",
             "definition": ".K-Widget.K-Normal-Background.K-Chem-Editor.K-Chem-Editor2D.K-NonSelectable.K-Layout-H.K-Dynamic-Created.K-State-Normal",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "singleBondButton",
             "byType": "css",
             "definition": ".K-Chem-MolBondIaController-Single",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "doubleBondButton",
             "byType": "css",
             "definition": ".K-Chem-MolBondIaController-Double",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "tripleBondButton",
             "byType": "css",
             "definition": ".K-Chem-MolBondIaController-Triple",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "wedgeUpBondButton",
             "byType": "css",
             "definition": ".K-Chem-MolBondIaController-WedgeUp",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "wedgeDownBondButton",
             "byType": "css",
             "definition": ".K-Chem-MolBondIaController-WedgeDown",

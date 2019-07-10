@@ -1,5 +1,6 @@
 const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } = require('cucumber');
 const { config, takeScreenshot } = require(`${process.cwd()}/app/driver`);
+const { ScenarioData } = require(`${process.cwd()}/app/ScenarioData`);
 
 function ThisWorld({ attach }) {
   this.environment = config.environment;
@@ -9,8 +10,10 @@ function ThisWorld({ attach }) {
   this.headless = config.headless;
 
   this.attach = attach;
-  this.downloadLocation = process.cwd() + '/reports/downloads';
+  this.downloadLocation = `${process.cwd()}/reports/downloads`;
   setDefaultTimeout(2*config.timeout);
+
+  this.data = ScenarioData();
 };
 
 setWorldConstructor(ThisWorld);
