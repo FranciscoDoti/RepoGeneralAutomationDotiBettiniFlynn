@@ -39,7 +39,7 @@ Feature: Adding collaborator to the template
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
-            | addButtonReadandpractice                      | ReadandParctice   | 'LCRP1550612138614' was successfully moved to addButtonReadandpractice              |                            |
+            | addButtonReadandpractice                      | ReadandParctice   | 'LCRP1550612138614' was successfully moved to addButtonReadandpractice              |
             | Active and Passive Voice                      | Learning Curve    | 'Active and Passive Voice' was successfully moved to Learning Curve.                |
             | SYMBOLS AND NOTATION                          | Reading           | 'SYMBOLS AND NOTATION' was successfully moved to Reading.                           |
            
