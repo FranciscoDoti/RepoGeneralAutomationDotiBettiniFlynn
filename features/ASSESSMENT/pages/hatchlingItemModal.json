@@ -138,6 +138,18 @@
             "definition": ".cdl-dialog-actions",
             "frame": "aeframe",
             "specialInstr":"NA"
+        }, {
+            "name": "NE Question Area",
+            "byType": "css",
+            "definition": ".notranslate.public-DraftEditor-content",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },{
+            "name": "HintArea",
+            "byType": "xpath",
+            "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }

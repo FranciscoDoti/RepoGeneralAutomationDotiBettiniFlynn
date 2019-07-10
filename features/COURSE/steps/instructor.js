@@ -89,4 +89,48 @@ When(/^I click on "(.*)"$/, async function (courseName) {
   await pages.createCourse.click('courseCard', courseName);
 });
 
+Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userName){
+  let payload = await _.get(users, [this.environment, userName]);
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', payload.username);
+  await pages.home.populate('password', payload.password);
+  await pages.home.click('signIn');
+  await pages.courseList.assertElementExists('courseName', courseName);
+
+});
+
+Then('I verify that activities are assigned', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.assertTextIncludes('assignmentStatus', data_table.hashes()[i].activity, data_table.hashes()[i].Status)
+  }
+});
+
+When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('coursePlanner');
+  await pages.coursePlanner.click('customContentButton');
+  await pages.coursePlanner.click('newCustom');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('urlLink');
+    await pages.resources.populate(data_table.hashes()[i].field, data_table.hashes()[i].link)
+    await pages.resources.click('addUrlLink');
+  }
+});
+
+When('I add url link in courseplanner', async function (data_table){
+  await pages.resources.click('goToContent');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('yourContent');
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('closeCourseplanner');
+  }
+});
+
+Then('I verify that activties are added in courseplanner', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
+  }
+});
+
 
