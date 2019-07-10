@@ -17,7 +17,7 @@
     "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-viewaccess.feature -f json:reports/cucumber_report.json",
     "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests -f json:reports/cucumber_report.json",
     "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common -f json:reports/cucumber_report.json",
-    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common/AdminEnrollsStudent.feature", 
+    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/Qualitative/AdminEnrollsStudent.feature", 
     "CC-Q": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/URL.feature -f json:reports/cucumber_report.json",
     "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/LST-420-practice-test-admin-view.feature -f json:reports/cucumber_report.json",
     "NGA-7194": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/addItem-assessment.feature -f json:reports/cucumber_report.json",
@@ -28,7 +28,8 @@
     "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int",
     "user": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport/userValidation.feature -f json:reports/cucumber_report.json --environment int",
     "3691-customersupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3691-customerSupport.feature -f json:reports/cucumber_report.json --environment int",
-    "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Skills/cloneCourse.feature -f json:reports/cucumber_report.json --environment int"
+    "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Skills/cloneCourse.feature -f json:reports/cucumber_report.json --environment int",
+    "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int"
   },
   "engines": {
     "node": ">=10"

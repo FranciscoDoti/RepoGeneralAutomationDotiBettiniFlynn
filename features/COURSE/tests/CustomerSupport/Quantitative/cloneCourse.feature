@@ -24,7 +24,7 @@ Feature: Customer Support attempts all the activities in Quantitative Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        | About The Authors                             |
+            | addReadingButton        | Dedication                             |
             | addButtonReadandpractice | LCRP1550612138614                            |
 
         And I sign out of Achieve

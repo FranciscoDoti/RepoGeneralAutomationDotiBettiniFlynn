@@ -24,7 +24,7 @@ Feature: Adding collaborator to the template
             | type                    | activity                                      |
             | addButtonReadandpractice | LCRP1550612138614                            |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                            |
+            | addReadingButton        |  Dedication                            |
 
         And I add "media_editor_1" as collaborator to "Read & Practice Template"
         And I sign out of Achieve
@@ -39,7 +39,7 @@ Feature: Adding collaborator to the template
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
-            | addButtonReadandpractice                      | ReadandParctice   | 'LCRP1550612138614' was successfully moved to addButtonReadandpractice              |                            |
+            | addButtonReadandpractice                      | ReadandParctice   | 'LCRP1550612138614' was successfully moved to addButtonReadandpractice              |                            
             | Active and Passive Voice                      | Learning Curve    | 'Active and Passive Voice' was successfully moved to Learning Curve.                |
             | SYMBOLS AND NOTATION                          | Reading           | 'SYMBOLS AND NOTATION' was successfully moved to Reading.                           |
            

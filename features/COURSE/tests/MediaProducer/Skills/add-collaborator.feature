@@ -24,7 +24,7 @@ Feature: Adding collaborator to the template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                            |
+            | addReadingButton        |  Dedication                            |
 
         And I add "media_editor_1" as collaborator to "Skills Template"
         And I sign out of Achieve

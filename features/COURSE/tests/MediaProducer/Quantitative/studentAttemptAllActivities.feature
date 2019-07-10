@@ -24,7 +24,7 @@ Feature: Student attempts all the activities in Quantitative
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                            |
+            | addReadingButton        |  Dedication                            |
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
@@ -50,7 +50,7 @@ Feature: Student attempts all the activities in Quantitative
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | About The Authors                                                 |
+            | Dedication                                                 |
 
         # And I create custom made activity in "Quantitative Course" with the following data
         #     | activity           | value                                    |
@@ -67,7 +67,7 @@ Feature: Student attempts all the activities in Quantitative
             # | Qual Test                                                        | 5      |
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      | 
-            | About The Authors                                                 | 5      |
+            | Dedication                                                 | 5      |
  
 
         And I sign out of Achieve
@@ -95,7 +95,7 @@ Feature: Student attempts all the activities in Quantitative
 
         When I complete the reading activity 
             | activity           |
-            | About The Authors  |
+            | Dedication  |
         
 
         Then I verify the activity status for the following activities
@@ -103,7 +103,7 @@ Feature: Student attempts all the activities in Quantitative
             | Exercise: Misused words 1 (autoscored)        | Complete  |
             # | Qual Test                                     | Complete  | 
             # | LC1551301608988                               | Complete  | 
-            | About The Authors                              | Complete  |
+            | Dedication                              | Complete  |
 
 
         And I verify the assignmenent grades in gradebook for below assigned activities 
@@ -111,7 +111,7 @@ Feature: Student attempts all the activities in Quantitative
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
             # | Qual Test                                     |  100%       | 5       | 1%                   |
             # | LC1551301608988                               |  100%       | 5       | 1%                   |
-            | About The Authors                              |   100%      | 5       | 1%                   | 
+            | Dedication                              |   100%      | 5       | 1%                   | 
 
         When I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
@@ -122,7 +122,7 @@ Feature: Student attempts all the activities in Quantitative
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
             # | Qual Test                                     |  100%       | 5       | 1%                   |
             # | LC1551301608988                               |  100%       | 5       | 1%                   |
-            | About The Authors                              |   100%      | 5       | 1%                   | 
+            | Dedication                              |   100%      | 5       | 1%                   | 
 
         When I sign out of Achieve
         And I login to Achieve-CW as "admin_1"
@@ -133,4 +133,4 @@ Feature: Student attempts all the activities in Quantitative
             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 33%                   |
             # | Qual Test                                     |  100%       | 5       | 33%                   |
             # | LC1551301608988                               |  100%       | 5       | 33%                   |
-            | About The Authors                             |   100%      | 5       | 33%                   |   
+            | Dedication                             |   100%      | 5       | 33%                   |   

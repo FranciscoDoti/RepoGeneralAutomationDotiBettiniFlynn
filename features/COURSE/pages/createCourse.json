@@ -212,8 +212,8 @@
         },
         {
             "name": "plusButton",
-            "byType": "xpath",
-            "definition": "//*[@id='container']/div/div[2]/div[3]/button",
+            "byType": "css",
+            "definition": "[data-test-id='add_create_course_button']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -239,6 +239,14 @@
             "definition": "[data-test-id='course_name']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "courseTittle",
+            "byType": "css",
+            "definition": "[data-test-id='course_title']",
+            "frame": "default",
+            "specialInstr": "NA"
+
 
         }
           

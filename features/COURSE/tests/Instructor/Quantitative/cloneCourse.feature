@@ -23,7 +23,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | About The Authors                             |
+            | addReadingButton         | Dedication                             |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 
@@ -48,6 +48,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
             | courseCode        | E2E301                                 |
 
         Then I verify that "Course Copied." message is displayed
+        And I close the popup message
         And I verify that "Quantitative Instructor Course" is created with following data
             | field                 | value                                |
             | courseName            | Quantitative Instructor Course       |

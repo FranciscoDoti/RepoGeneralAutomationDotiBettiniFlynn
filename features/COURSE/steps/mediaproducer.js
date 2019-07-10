@@ -7,6 +7,7 @@ When('I create Course Template with the data', async function (data_table) {
   await pages.createCourse.click('plusButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
+      await pages.createCourse.assertElementExists(data_table.hashes()[i].field)
       await pages.createCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
     } else {
       await pages.createCourse.click('selectDay', data_table.hashes()[i].value);
@@ -54,7 +55,6 @@ When(/^I copy course from the "(.*)" template with the following data$/, async f
 
 Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
   await pages.home.assertTextIncludes('alert', message);
-  await pages.home.click('closeAlert');
 });
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
@@ -69,6 +69,7 @@ When(/^I create "(.*)" with the data$/, async function (courseName, data_table) 
   await pages.createCourse.click('createCourseButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
+      await pages.createCourse.assertElementExists(data_table.hashes()[i].field)
       await pages.createCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
     } else {
       await pages.createCourse.click('selectDay', data_table.hashes()[i].value);

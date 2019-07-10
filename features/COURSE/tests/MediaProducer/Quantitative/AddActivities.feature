@@ -25,10 +25,10 @@ Feature: Adding activities to the template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                            |
+            | addReadingButton        |  Dedication                            |
 
         Then I verify that activties are added
             | activity                                      |
             | Exercise: Misused words 1 (autoscored)        |     
             | LC1551301608988                               |
-            |  About The Authors                            |            
+            |  Dedication                            |            

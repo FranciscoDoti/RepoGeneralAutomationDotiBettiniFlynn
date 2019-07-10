@@ -1,5 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const _ = require('lodash');
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
