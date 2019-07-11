@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Adding activities in Folder Resource Tab
     @delete-mediaproducer-courses

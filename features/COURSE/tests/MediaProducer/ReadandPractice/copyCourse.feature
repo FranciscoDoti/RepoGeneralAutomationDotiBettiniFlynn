@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Copy course from the Template
 

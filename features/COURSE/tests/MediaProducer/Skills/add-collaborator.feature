@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Adding collaborator to the template 
 

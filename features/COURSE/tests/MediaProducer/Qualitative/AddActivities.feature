@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Adding activities to the template
 
