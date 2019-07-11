@@ -78,14 +78,14 @@
             "specialInstr": "NA"
         },
         {
-            "name": "userMenuButton",
+            "name": "User Menu Button",
             "byType": "xpath",
             "definition": "//button[@id='user_menu']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "logoutMenu",
+            "name": "Logout Menu",
             "byType": "xpath",
             "definition": "//a[.='logout']",
             "frame": "default",
