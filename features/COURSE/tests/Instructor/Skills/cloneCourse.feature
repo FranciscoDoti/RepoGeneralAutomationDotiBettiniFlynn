@@ -1,4 +1,6 @@
+@Course
 Feature: Instructor attempts all the activities in Skills Template
+
     @delete-mediaproducer-courses
     @delete-Instructor   
     Scenario: Verify that Instructor is able to copy course from Skills Template

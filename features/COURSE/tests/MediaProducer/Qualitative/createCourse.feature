@@ -11,8 +11,8 @@ Feature: Create course
             | courseType        | Template                     |
             | productModel      | Qualitative                  |
             | courseName        | Qualitative Template         |
-            | learningObjective | macmillancalculus            |
             | courseCode        | E2E 301                      |
+            | learningObjective | macmillan calculus           |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 

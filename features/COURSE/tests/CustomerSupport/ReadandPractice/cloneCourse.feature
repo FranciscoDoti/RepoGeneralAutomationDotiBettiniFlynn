@@ -1,3 +1,4 @@
+@Course
 Feature: Customer Support attempts all the activities in Read & Practice Template
 
     @delete-customerSupport-9781464199499

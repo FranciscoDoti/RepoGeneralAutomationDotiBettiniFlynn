@@ -1,4 +1,6 @@
+@Course
 Feature: Instructor attempts all the activities in Read & Practice Template
+
     @delete-mediaproducer-courses   
     @delete-Instructor
     Scenario: Verify that Instructor is able to copy course from Read & Practice Template
