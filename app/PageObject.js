@@ -150,6 +150,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const getWebElements = async function (elementName) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
+    
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
