@@ -5,13 +5,13 @@ Feature: Create course
     Scenario:  Create course Template for Qualitative
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Course Template" with the data 
+        When I create "Qualitative Template" with the data 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |
             | courseName        | Qualitative Template         |
-            | learningObjective | macmillancalculus            |
             | courseCode        | E2E 301                      |
+            | learningObjective | macmillan calculus           |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
 
