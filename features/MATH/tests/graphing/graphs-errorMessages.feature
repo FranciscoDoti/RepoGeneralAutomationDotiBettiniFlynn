@@ -31,7 +31,7 @@ Feature: Verify Graph editor error messages
 
         When I click the "window" icon for graphId "287"
         And I go back to sapling page and logout
-        And I login to AMS as "all-permissions-author"
+        And I login back to AMS again as "all-permissions-author"
         And I click on the Graphs tab
         And I try to save the previously opened graph editor
         Then I verify window pop up message "Graph saved. refresh AMS"

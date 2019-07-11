@@ -292,34 +292,21 @@ Then(/^I verify the graphs list is "(.*)" order of graph "(.*)" column name$/, a
   }
 });
 
-// Then(/^I go back to sapling page and logout$/, async function () {
-//   let url = await _.get(urls, ['sapling', this.environment]);
-//   await pages.saplingLearning.switchToTab('Sapling');
-//   await visitURL(url);
-//   await pages.saplingLearning.click('RaptorAdmin');
-//   await pages.saplingLearning.click('logout');
-// });
-
 When(/^I try to save the previously opened graph editor$/, async function () {
   await pages.graphEditor.switchToTab('Graphing');
   await pages.graphEditor.click('saveButton');
 });
 
-Then(/^I verify window pop up message "(.*)"$/, async function (popup) {
-  const driver = pages.graphEditor.getDriver()
-  await driver.sleep(1000)
-  switch (popup) {
+Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
+  switch (popupText) {
     case 'Error: Unauthorized':
       await pages.graphEditor.assertAlertText('Error: Unauthorized, please log in and try again.');
-      // await pages.graphEditor.acceptAlert();
       break;
     case 'Error: An error occurred':
       await pages.graphEditor.assertAlertText('Error: An error occurred. Please try again or contact an Assessments representative.');
-      // await pages.graphEditor.acceptAlert();
       break;
     case 'Graph saved. refresh AMS':
       await pages.graphEditor.assertAlertText('Graph saved. You may need to refresh your AMS tab to see the changes.');
-      // await pages.graphEditor.acceptAlert();
       break;
     default:
       await pages.graphEditor.acceptAlert();
