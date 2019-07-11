@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Verify that Admin is able to create URL
 

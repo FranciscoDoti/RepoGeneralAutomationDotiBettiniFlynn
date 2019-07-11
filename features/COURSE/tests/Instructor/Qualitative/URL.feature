@@ -1,3 +1,4 @@
+@Course
 Feature: Verify that Instructor is able to create URL
 
    @delete-mediaproducer-courses
@@ -35,7 +36,7 @@ Feature: Verify that Instructor is able to create URL
 
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Qualitative Course           |
             | courseCode        |  E2E301                      |
             | templateStatus    |  Active On Date              |
 

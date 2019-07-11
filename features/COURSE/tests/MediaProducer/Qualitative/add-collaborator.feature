@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Adding collaborator to the template 
 
@@ -17,7 +18,7 @@ Feature: Adding collaborator to the template
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                       |       
+            | courseName       | Qualitative Template                                        |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
@@ -25,7 +26,7 @@ Feature: Adding collaborator to the template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                            |
+            | addReadingButton        |  Dedication                                   |
 
         And I add "media_editor_1" as collaborator to "Qualitative Template"
         And I sign out of Achieve

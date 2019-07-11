@@ -1,3 +1,4 @@
+@Course
 Feature: Instructor attempts all the activities in Qualitative Template
 
     @delete-mediaproducer-courses
@@ -25,7 +26,7 @@ Feature: Instructor attempts all the activities in Qualitative Template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                             |
+            | addReadingButton         | Dedication                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 

@@ -1,3 +1,4 @@
+@Course
 Feature: Assigning the activities present in the course 
 
     @delete-mediaproducer-courses
@@ -23,7 +24,7 @@ Feature: Assigning the activities present in the course
             | type                      | activity                                      |
             | addButtonReadandpractice  | LCRP1550612138614                             |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Dedication                            |
+            | addReadingButton          |  Dedication                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Read & Practice Template" template with the following data
@@ -50,18 +51,18 @@ Feature: Assigning the activities present in the course
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | LC1551301608988                                                   |
-            | Dedication                                                 |
+            | Dedication                                                        |
 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | LCRP1550612138614                                                | 5      | 
             | LC1551301608988                                                  | 5      |
-            | Dedication                                                | 5      |
+            | Dedication                                                       | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Dedication                                                | Open   |
+            | Dedication                                                       | Open   |
 

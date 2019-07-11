@@ -1,3 +1,4 @@
+@Course
  @Smoke
  Feature: Update the Template   
      

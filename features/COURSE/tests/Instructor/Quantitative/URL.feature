@@ -1,6 +1,7 @@
+@Course
 Feature: Verify that Instructor is able to create URL
 
-   
+   @delete-mediaproducer-courses
     Scenario: Verify that mediaproducer is able to create a custom task with URL
 
         Given I login to Achieve-CW as "media_producer_1"
@@ -51,4 +52,4 @@ Feature: Verify that Instructor is able to create URL
 
         Then I verify that activties are added in courseplanner
             | activity                                                            | 
-            | Google                                                               |      
+            | Google                                                              |      

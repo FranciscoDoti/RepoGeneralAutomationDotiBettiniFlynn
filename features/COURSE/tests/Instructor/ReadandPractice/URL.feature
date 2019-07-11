@@ -1,7 +1,8 @@
+@Course
 @Smoke
 Feature: Verify that Instructor is able to create URL
 
-   
+   @delete-mediaproducer-courses
     Scenario: Verify that mediaproducer is able to create a custom task with URL
 
         Given I login to Achieve-CW as "media_producer_1"

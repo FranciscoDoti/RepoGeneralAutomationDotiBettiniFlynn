@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Assigning the activities present in the course 
 
@@ -24,12 +25,12 @@ Feature: Assigning the activities present in the course
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication |
+            | addReadingButton        |  Dedication                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
-            | courseName        | Skills Course          |
+            | courseName        | Skills Course                |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve
@@ -42,7 +43,7 @@ Feature: Assigning the activities present in the course
 
         When I activate "Skills Course" course with following data 
             | field             | value                        |
-            | courseName        | Skills Course          |
+            | courseName        | Skills Course                |
             | courseCode        |  E2E301                      |
             | templateStatus    |  Active On Date              |
 
@@ -51,7 +52,7 @@ Feature: Assigning the activities present in the course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | Dedication                                                 |
+            | Dedication                                                        |
 
 
         And I assign the activities in courseplanner

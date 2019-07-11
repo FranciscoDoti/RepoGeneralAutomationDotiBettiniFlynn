@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Admin enrolls the student in the course 
 
@@ -30,7 +31,7 @@ Feature: Admin enrolls the student in the course
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Qualitative Course           |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve
@@ -43,7 +44,7 @@ Feature: Admin enrolls the student in the course
 
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Qualitative Course           |
             | courseCode        |  E2E301                      |
             | templateStatus    |  Active On Date              |
      

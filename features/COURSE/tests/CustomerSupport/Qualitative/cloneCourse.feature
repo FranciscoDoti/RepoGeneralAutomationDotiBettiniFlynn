@@ -1,3 +1,4 @@
+@Course
 Feature: Customer Support attempts all the activities in Qualitative Template
 
     @delete-customerSupport-9781464199499
@@ -24,7 +25,7 @@ Feature: Customer Support attempts all the activities in Qualitative Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        | Dedication                             |
+            | addReadingButton        | Dedication                                    |
             | addButtonReadandpractice | LCRP1550612138614                            |
 
         And I sign out of Achieve
@@ -34,7 +35,7 @@ Feature: Customer Support attempts all the activities in Qualitative Template
                 
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Qualitative Course           |
             | courseCode        | E2E301                       |
 
         And I click on search button and input "Qualitative Course" to search the course

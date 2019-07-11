@@ -1,3 +1,4 @@
+ @Course
  @Smoke
  Feature: Update the Template   
      
@@ -17,12 +18,12 @@
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                       |       
+            | courseName       | Qualitative Template                                        |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
             
         Then I verify that "Qualitative Template" is created with following data
             | field                 | value                     |
-            | courseName            | Qualitative Template     |
+            | courseName            | Qualitative Template      |
             | courseDate            |  E2E 301                  |
             | courseShortId         | Template                  |

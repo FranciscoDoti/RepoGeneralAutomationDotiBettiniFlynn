@@ -4,7 +4,6 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 When('I complete the reading activity', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.click('activityName', data_table.hashes()[i].activity);
-    await pages.overview.getAttributeValue('readingVerification', data_table.hashes()[i].activity);
   }
   await pages.coursePlanner.click('close');
 });

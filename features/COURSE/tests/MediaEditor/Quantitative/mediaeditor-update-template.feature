@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Media Editor is able to create a template and update
 

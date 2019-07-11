@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Adding Instructor to the Template
 
@@ -24,12 +25,12 @@ Feature: Adding Instructor to the Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                            |
+            | addReadingButton        |  Dedication                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
-            | courseName        | Skills Course          |
+            | courseName        | Skills Course                |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve

@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Adding collaborator to the template 
 
@@ -24,7 +25,7 @@ Feature: Adding collaborator to the template
             | type                    | activity                                      |
             | addButtonReadandpractice | LCRP1550612138614                            |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                            |
+            | addReadingButton        |  Dedication                                   |
 
         And I add "media_editor_1" as collaborator to "Read & Practice Template"
         And I sign out of Achieve

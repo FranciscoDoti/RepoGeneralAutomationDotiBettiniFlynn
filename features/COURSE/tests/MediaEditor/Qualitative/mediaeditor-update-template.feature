@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Media Editor is able to create a template and update
 
@@ -26,6 +27,6 @@ Feature: Media Editor is able to create a template and update
 
         Then I verify that "Qualitative Template" is created with following data
             | field                 | value                     |
-            | courseName            | Qualitative Template     |
+            | courseName            | Qualitative Template      |
             | courseDate            |  E2E 301                  |
             | courseShortId         | Template                  |

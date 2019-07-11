@@ -17,7 +17,7 @@ Feature: Adding activities to the template
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                       |       
+            | courseName       | Qualitative Template                                        |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
@@ -25,10 +25,10 @@ Feature: Adding activities to the template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                            |
+            | addReadingButton        |  Dedication                                   |
 
         Then I verify that activties are added
             | activity                                      |
             | Exercise: Misused words 1 (autoscored)        |     
             | LC1551301608988                               |
-            |  Dedication                            |            
+            |  Dedication                                   |            

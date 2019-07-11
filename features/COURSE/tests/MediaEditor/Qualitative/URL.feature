@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Verify that Media EDitor is able to create URL
 

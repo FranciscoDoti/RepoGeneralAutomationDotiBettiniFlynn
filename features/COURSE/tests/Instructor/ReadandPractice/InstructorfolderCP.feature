@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Instructor adds folder, remove folder and reorders it 
 
@@ -23,7 +24,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I add the activities in resources to "Read & Practice Template" template
             | type                      | activity                                      |    
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Dedication                            |
+            | addReadingButton          |  Dedication                                   |
             | addButtonReadandpractice  | LCRP1550612138614                             |                         
 
         And I click on home button to return to coursepage
@@ -49,31 +50,31 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I add the activities in courseplanner to "Read & Practice Course" course
             | activity                                                          |                                                        
             | LC1551301608988                                                   |
-            | Dedication                                                 |
+            | Dedication                                                        |
             | LCRP1550612138614                                                 |
             
         And I reorder the resources on template in "coursePlanner"
             | actvities                                                         | reorder        |                                                    
             | LC1551301608988                                                   | movedownButton |
-            | Dedication                                                 | moveToEnd      |
+            | Dedication                                                        | moveToEnd      |
             | LCRP1550612138614                                                 | moveUpButton   |
 
         Then I verify that resources are reordered in "coursePlanner"
             | activities                                                        | orderNumber    |
             | LCRP1550612138614                                                 |  1             |                                                       
             | LC1551301608988                                                   |  2             |
-            | Dedication                                                 |  3             |      
+            | Dedication                                                        |  3             |      
 
         And I add the activities to respective folders in "coursePlanner"
             | activity                                      | folders           | message                                                                             |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Dedication                             | Reading           | 'Dedication' was successfully moved to Reading.                              |
+            | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                     |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "coursePlanner"
             | activity                                      | folders           |
             | LC1551301608988                               | Learning Curve    |
-            | Dedication                             | Reading           |
+            | Dedication                                    | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the resources from the Template in "coursePlanner"

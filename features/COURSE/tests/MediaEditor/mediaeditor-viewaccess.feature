@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Media Editor has only view access that they are not a collaborator
 
@@ -25,7 +26,7 @@ Feature: Media Editor has only view access that they are not a collaborator
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                            |
+            | addReadingButton        |  Dedication                                   |
 
         And I sign out of Achieve
 

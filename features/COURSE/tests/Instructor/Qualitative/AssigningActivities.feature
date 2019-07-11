@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Assigning the activities present in the course 
 
@@ -30,7 +31,7 @@ Feature: Assigning the activities present in the course
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Qualitative Course           |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve
@@ -65,5 +66,5 @@ Feature: Assigning the activities present in the course
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Dedication                                                        | Open   |
+            | Dedication                                                       | Open   |
 

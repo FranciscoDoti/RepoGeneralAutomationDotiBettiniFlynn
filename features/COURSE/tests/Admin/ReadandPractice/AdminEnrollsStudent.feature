@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Admin enrolls the student in the course 
 

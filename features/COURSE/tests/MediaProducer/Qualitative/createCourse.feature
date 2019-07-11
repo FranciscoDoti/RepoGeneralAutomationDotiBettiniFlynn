@@ -1,3 +1,4 @@
+@Course
 @Smoke
 Feature: Create course
 
