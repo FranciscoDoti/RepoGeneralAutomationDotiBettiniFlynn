@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Verify that Admin is able to create URL
 
     @delete-admin-9781464199499

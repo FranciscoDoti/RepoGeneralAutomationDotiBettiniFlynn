@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Verify that mediaProducer is able to create URL
 
    

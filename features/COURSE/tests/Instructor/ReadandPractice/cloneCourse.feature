@@ -1,4 +1,4 @@
-@Course
+@Course @Smoke
 Feature: Instructor attempts all the activities in Read & Practice Template
 
     @delete-mediaproducer-courses   

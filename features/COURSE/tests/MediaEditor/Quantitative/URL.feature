@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Verify that Media Editor is able to create URL
 
     @delete-mediaEditor-9781464199499

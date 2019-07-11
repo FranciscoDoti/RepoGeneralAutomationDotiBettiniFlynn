@@ -1,5 +1,4 @@
- @Course
- @Smoke
+ @Course @Smoke
  Feature: Update the Template   
      
     @delete-mediaproducer-courses       

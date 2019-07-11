@@ -1,4 +1,4 @@
-@Course
+@Course @Smoke
 Feature: Instructor attempts all the activities in Skills Template
 
     @delete-mediaproducer-courses

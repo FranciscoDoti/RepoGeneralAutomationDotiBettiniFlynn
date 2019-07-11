@@ -1,4 +1,4 @@
-@Course
+@Course @Smoke
 Feature: Customer Support attempts all the activities in Skills Template
 
     @delete-customerSupport-9781464199499

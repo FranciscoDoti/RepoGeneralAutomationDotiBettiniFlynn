@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Media Editor has only view access that they are not a collaborator
 
      @delete-mediaproducer-courses

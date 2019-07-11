@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Adding Instructor to the Template
 
     @delete-mediaproducer-courses

@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Instructor adds folder, remove folder and reorders it 
 
     @delete-mediaproducer-courses

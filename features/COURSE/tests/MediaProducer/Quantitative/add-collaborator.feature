@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Adding collaborator to the template 
 
     @delete-mediaproducer-courses

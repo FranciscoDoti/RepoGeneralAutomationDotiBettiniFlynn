@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Verify that media Producer is able to create Custom Task 
     @delete-mediaproducer-courses
     Scenario: Verify that media Producer is able to create Custom Task in Quantitative Template

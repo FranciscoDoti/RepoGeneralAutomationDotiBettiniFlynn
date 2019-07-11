@@ -1,4 +1,4 @@
-@Course
+@Course @Smoke
 Feature: Instructor attempts all the activities in Qualitative Template
 
     @delete-mediaproducer-courses

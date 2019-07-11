@@ -1,5 +1,4 @@
-@Course
-@Smoke
+@Course @Smoke
 Feature: Assigning the activities present in the course 
 
     @delete-mediaproducer-courses
