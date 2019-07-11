@@ -32,11 +32,9 @@ Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
 
   await visitURL(url);
   if (this.environment == 'local') {
-    // await pages.login.populate('username-local', user.username);
     await pages.login.populate('password-local', user.password);
     await pages.login.click('submit-local')
   } else {
-    // await pages.login.populate('username', user.username);
     await pages.login.populate('password', user.password);
     await pages.login.click('submit')
   };
