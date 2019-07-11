@@ -149,7 +149,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const getWebElements = async function (elementName) {
+  const getWebElements = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
     
