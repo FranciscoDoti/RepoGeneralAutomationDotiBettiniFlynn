@@ -316,7 +316,7 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
 
 
 When(/^I input non-existing graphid in the graph editor url$/, async function () {
-  let url = await _.get(urls, ['graph', this.environment]);
+  let url = await _.get(urls, ['graphNoid', this.environment]);
   await visitURL(url, Key.ENTER);
   await pages.graphEditor.click('saveButton');
 });

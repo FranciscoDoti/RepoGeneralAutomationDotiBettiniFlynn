@@ -43,7 +43,7 @@ Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
 });
 
 When(/^I go back to sapling page and logout$/, async function () {
-  let url = await _.get(urls, ['sapling', this.environment]);
+  let url = await _.get(urls, ['IBISCMS', this.environment]);
   await mathPages.saplingLearning.switchToTab('Sapling');
   await visitURL(url);
   await mathPages.saplingLearning.click('RaptorAdmin');
