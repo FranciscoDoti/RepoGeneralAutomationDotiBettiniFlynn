@@ -5,7 +5,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
     Scenario: Verify that Customer Support is able to create course from Read & Practice Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Read & Practice Template" with ISBN "9781464199498"
+        When  I create "Read & Practice Template" with ISBN "9781464199498" and course code "E2E 301"
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Read & Practice              |

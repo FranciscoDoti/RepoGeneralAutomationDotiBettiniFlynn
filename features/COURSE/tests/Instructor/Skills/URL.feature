@@ -5,7 +5,7 @@ Feature: Verify that Instructor is able to create URL
     Scenario: Verify that mediaproducer is able to create a custom task with URL
 
         Given I login to Achieve-CW as "media_producer_1"
-        When I create "Skills Template" with ISBN "9781464199498"
+        When I create "Skills Template" with ISBN "9781464199498" and course code "E2E 301" and course code "E2E 301"
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Skills                       |

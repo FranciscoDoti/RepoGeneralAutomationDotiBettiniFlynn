@@ -2,6 +2,9 @@ var { After, AfterAll } = require('cucumber');
 const { closeBrowser, resetBrowser, takeScreenshot, visitURL } = require(`${process.cwd()}/app/driver`);
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const urls = require(`${process.cwd()}/config/urls.json`);
+const _ = require('lodash');
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 After(async function (scenario) {
   console.log(scenario.result.status);
@@ -33,10 +36,11 @@ After('@delete-mediaproducer-courses', async function () {
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')
+  let Code = this.data.get('code');
   let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('ISBN', 'ISBN: '+courseName);
-  let elements = await pages.courseList.getWebElements('ISBN', 'ISBN: '+courseName)
+  await pages.courseList.assertElementExists('courseNumber', Code);
+  let elements = await pages.courseList.getWebElements('courseNumber', Code )
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
@@ -73,10 +77,11 @@ After('@delete-admin-9781464199499', async function () {
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')
-  let courseName = this.data.get('Number');
+  let Code = this.data.get('code');
+  let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('ISBN', 'ISBN: '+courseName);
-  let elements = await pages.courseList.getWebElements('ISBN', 'ISBN: '+courseName);
+  await pages.courseList.assertElementExists('courseNumber', Code);
+  let elements = await pages.courseList.getWebElements('courseNumber', Code )
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
@@ -94,10 +99,11 @@ After('@delete-mediaEditor-9781464199499', async function () {
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')
-  let courseName = this.data.get('Number');
+  let Code = this.data.get('code');
+  let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('ISBN', 'ISBN: '+courseName);
-  let elements = await pages.courseList.getWebElements('ISBN', 'ISBN: '+courseName)
+  await pages.courseList.assertElementExists('courseNumber', Code);
+  let elements = await pages.courseList.getWebElements('courseNumber', Code )
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
@@ -115,10 +121,11 @@ After('@delete-customerSupport-9781464199499', async function () {
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')
-  let courseName = this.data.get('Number');
+  let Code = this.data.get('code');
+  let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('ISBN', 'ISBN: '+courseName);
-  let elements = await pages.courseList.getWebElements('ISBN', 'ISBN: '+courseName)
+  await pages.courseList.assertElementExists('courseNumber', Code);
+  let elements = await pages.courseList.getWebElements('courseNumber', Code )
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');

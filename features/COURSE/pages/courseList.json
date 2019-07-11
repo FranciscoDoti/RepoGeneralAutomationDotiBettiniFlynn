@@ -187,7 +187,14 @@
         "definition": "[id='courseEbookLink']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
+    }, 
+    {
+        "name": "courseNumber",
+        "byType": "xpath",
+        "definition": "//div[contains(@data-test-id,'course_number_date_time') and contains(text(), '<ReplaceText>')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
         "name": "courseSearchBtn",
         "byType": "css",
         "definition": "[data-test-id='course_search_input_btn']",
