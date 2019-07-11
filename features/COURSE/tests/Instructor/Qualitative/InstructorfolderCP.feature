@@ -1,10 +1,11 @@
 @Smoke
 Feature: Instructor adds folder, remove folder and reorders it 
+
     @delete-mediaproducer-courses
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
+        When I create "Qualitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |
@@ -16,7 +17,7 @@ Feature: Instructor adds folder, remove folder and reorders it
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                       |       
+            | courseName       | Qualitative Template                                        |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
@@ -24,13 +25,13 @@ Feature: Instructor adds folder, remove folder and reorders it
             | type                      | activity                                      |
             | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Dedication                            |
+            | addReadingButton          |  Dedication                                   |
             | addButtonReadandpractice  | LCRP1550612138614                             |                         
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Qualitative Course           |
             | courseCode        | E2E301                       |
 
         And I sign out of Achieve

@@ -1,10 +1,10 @@
 Feature: Customer Support attempts all the activities in Qualitative Template
 
-    @delete-ISBN-9781464199499
+    @delete-customerSupport-9781464199499
     Scenario: Verify that Customer Support is able to create course from Qualitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Qualitative Template" with the data
+        When  I create "Qualitative Template" with ISBN "9781464199498"
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |

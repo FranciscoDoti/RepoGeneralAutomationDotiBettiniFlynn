@@ -5,7 +5,7 @@ Feature: Adding Instructor to the Template
     Scenario:  Verify that customer support is able to add Instructor to a course
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
+        When I create "Qualitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |

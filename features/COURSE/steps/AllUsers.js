@@ -93,6 +93,7 @@ When(/^I attempt "(.*)" learning curve activity$/, async function (activityName,
 
 Then(/^I verify that "(.*)" is created with following data$/, async function (courseName, data_table) {
   // await pages.courseList.populate('search', courseName);
+  this.data.set('course',courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.courseList.assertElementExists(data_table.hashes()[i].field, data_table.hashes()[i].value);

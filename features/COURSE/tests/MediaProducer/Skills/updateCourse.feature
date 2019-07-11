@@ -5,7 +5,7 @@
     Scenario: Verify that Media Producer is able to update the template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Skills Template" with the data 
+        When I create "Skills Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Skills                       |

@@ -5,7 +5,7 @@ Feature: Verify that media Producer is able to create Custom Task
 
         
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
+        When I create "Qualitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |

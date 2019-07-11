@@ -5,7 +5,7 @@ Feature: Verify that mediaProducer is able to create URL
     Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data
+        When I create "Qualitative Template" with ISBN "9781464199498"
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |

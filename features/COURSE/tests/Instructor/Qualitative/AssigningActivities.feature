@@ -5,7 +5,7 @@ Feature: Assigning the activities present in the course
     Scenario: Verify that Instructor is able to assign the activities in the course
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
+        When I create "Qualitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |
@@ -17,7 +17,7 @@ Feature: Assigning the activities present in the course
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                       |       
+            | courseName       | Qualitative Template                                        |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
@@ -43,7 +43,7 @@ Feature: Assigning the activities present in the course
 
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
-            | courseName        | Qualitative Course          |
+            | courseName        | Qualitative Course           |
             | courseCode        |  E2E301                      |
             | templateStatus    |  Active On Date              |
 
@@ -52,18 +52,18 @@ Feature: Assigning the activities present in the course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | Dedication                                                 |
+            | Dedication                                                        |
 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      |
-            | Dedication                                                | 5      |
+            | Dedication                                                       | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Dedication                                                | Open   |
+            | Dedication                                                        | Open   |
 

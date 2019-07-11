@@ -5,7 +5,7 @@ Feature: Adding activities to the template
     Scenario: Verify that Media Producer is able to add activities to the template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Quantitative Template" with the data 
+        When I create "Quantitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |

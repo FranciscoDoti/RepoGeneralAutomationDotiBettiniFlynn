@@ -4,7 +4,7 @@ Feature: Adding activities in Folder Resource Tab
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
+        When I create "Qualitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |

@@ -29,7 +29,8 @@
     "user": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport/userValidation.feature -f json:reports/cucumber_report.json --environment int",
     "3691-customersupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3691-customerSupport.feature -f json:reports/cucumber_report.json --environment int",
     "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Skills/cloneCourse.feature -f json:reports/cucumber_report.json --environment int",
-    "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int"
+    "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int",
+    "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json --environment int"
   },
   "engines": {
     "node": ">=10"

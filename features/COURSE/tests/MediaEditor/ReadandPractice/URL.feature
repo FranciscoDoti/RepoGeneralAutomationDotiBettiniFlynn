@@ -1,11 +1,11 @@
 @Smoke
 Feature: Verify that MediaEditor is able to create URL
 
-    @delete-ISBN-9781464199499
+    @delete-mediaEditor-9781464199499
     Scenario: Verify that Admin is able to create a custom task with URL
 
        Given I login to Achieve-CW as "media_editor_1"
-        When I create "Read & Practice Template" with the data 
+        When I create "Read & Practice Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Read & Practice              |

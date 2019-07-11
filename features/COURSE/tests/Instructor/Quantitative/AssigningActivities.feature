@@ -6,7 +6,7 @@ Feature: Assigning the activities present in the course
     Scenario: Verify that Instructor is able to assign the activities in the course
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Quantitative Template" with the data 
+        When I create "Quantitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |

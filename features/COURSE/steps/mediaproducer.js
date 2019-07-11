@@ -3,7 +3,8 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const _ = require('lodash');
 
-When('I create Course Template with the data', async function (data_table) {
+When(/^I create Course Template with ISBN "(.*)"$/, async function (number, data_table) {
+  this.data.set('Number',number);
   await pages.createCourse.click('plusButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
@@ -64,7 +65,8 @@ Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async fu
   await pages.home.click('closeAlert');
 });
 
-When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
+When(/^I create "(.*)" with ISBN "(.*)"$/, async function (courseName,number,data_table) {
+  this.data.set('course name',number);
   await pages.createCourse.assertElementExists('createCourseButton');
   await pages.createCourse.click('createCourseButton');
   for (let i = 0; i < data_table.rows().length; i++) {

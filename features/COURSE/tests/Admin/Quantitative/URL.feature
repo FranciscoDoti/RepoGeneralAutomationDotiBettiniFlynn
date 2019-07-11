@@ -1,11 +1,11 @@
 @Smoke
 Feature: Verify that Admin is able to create URL
 
-    @delete-ISBN-9781464199499
+    @delete-admin-9781464199499
     Scenario: Verify that Admin is able to create a custom task with URL
 
-       Given I login to Achieve-CW as "media_producer_2"
-        When I create "Quantitative Template" with the data 
+       Given I login to Achieve-CW as "admin_1"
+        When I create "Quantitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Quantitative                 |

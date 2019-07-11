@@ -1,10 +1,11 @@
 @Smoke
-Feature: Instructor adds folder, remove folder and reorders it 
+Feature: Instructor adds folder, remove folder and reorders it
+
     @delete-mediaproducer-courses
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Skills Template" with the data 
+        When I create "Skills Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Skills                       |

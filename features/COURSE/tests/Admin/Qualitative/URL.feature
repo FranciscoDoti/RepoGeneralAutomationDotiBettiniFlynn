@@ -1,11 +1,11 @@
 @Smoke
 Feature: Verify that Admin is able to create URL
 
-    @delete-ISBN-9781464199499
+    @delete-admin-9781464199499
     Scenario: Verify that Admin is able to create a custom tsak with URL in Qual course
 
        Given I login to Achieve-CW as "admin_1"
-        When I create Course Template with the data 
+        When I create Course Template with ISBN "9781464199499" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |

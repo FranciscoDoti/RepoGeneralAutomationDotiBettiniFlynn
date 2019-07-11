@@ -1,9 +1,11 @@
 Feature: Instructor attempts all the activities in Qualitative Template
-    @delete-ISBN-9781464199499
+
+    @delete-mediaproducer-courses
+    @delete-Instructor
     Scenario: Verify that Instructor is able to copy course from Qualitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Qualitative Template" with the data 
+        When  I create "Qualitative Template" with ISBN "9781464199498" 
             | field             | value                        |
             | courseType        | Template                     |
             | productModel      | Qualitative                  |
@@ -51,7 +53,7 @@ Feature: Instructor attempts all the activities in Qualitative Template
         And I close the popup message
         And I verify that "Qualitative Instructor Course" is created with following data
             | field                 | value                                |
-            | courseName            | Qualitative Instructor Course       |
+            | courseName            | Qualitative Instructor Course        |
             | courseDate            |  E2E301                              |
            
         
