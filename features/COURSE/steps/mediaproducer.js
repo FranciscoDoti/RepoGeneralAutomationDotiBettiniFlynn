@@ -64,6 +64,7 @@ Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async fu
 });
 
 When(/^I create "(.*)" with the data$/, async function (courseName, data_table) {
+  this.data.set('course name',courseName);
   await pages.createCourse.assertElementExists('createCourseButton');
   await pages.createCourse.click('createCourseButton');
   for (let i = 0; i < data_table.rows().length; i++) {

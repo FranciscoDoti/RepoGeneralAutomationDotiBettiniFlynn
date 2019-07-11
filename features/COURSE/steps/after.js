@@ -33,3 +33,23 @@ After('@delete-ISBN-9781464199499', async function () {
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
 });
+
+After('@delet-CourseName', async function (){
+  let payload = await _.get(users, [this.environment, 'media_producer_2']);
+  await pages.home.click('togglerMenu');
+  await pages.home.click('signOut');
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', payload.username);
+  await pages.home.populate('password', payload.password);
+  await pages.home.click('signIn');
+  let courseName = this.data.get('course name');
+  await pages.courseList.populate('search', courseName);
+  let elements = await pages.createCourse.getWebElements('courseCard', courseName);
+  for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
+    await pages.courseList.click('deleteCourse');
+    await pages.courseList.click('confirmDelete');
+  }
+  await pages.home.click('togglerMenu');
+  await pages.home.click('signOut');
+});
