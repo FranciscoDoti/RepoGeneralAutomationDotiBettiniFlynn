@@ -3,7 +3,7 @@
     "mode": "local",
     "browser": "chrome",
     "headless": false,
-    "screenshots": "onFail",
+    "screenshots": "true",
     "timeout": 30000,
 
     "_examples": {

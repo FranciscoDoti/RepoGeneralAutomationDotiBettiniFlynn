@@ -6,18 +6,18 @@ const { closeBrowser, resetBrowser, takeScreenshot, visitURL } = require(`${proc
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
-After(async function (scenario) {
-  console.log(scenario.result.status);
-  if (this.screenshots.toLowerCase().includes('onfail')
-    && scenario.result.status.toLowerCase().includes('fail')) {
-    await this.attach(await takeScreenshot(), 'image/png');
-  }
-  await resetBrowser();
-});
+// After(async function (scenario) {
+//   console.log(scenario.result.status);
+//   if (this.screenshots.toLowerCase().includes('onfail')
+//     && scenario.result.status.toLowerCase().includes('fail')) {
+//     await this.attach(await takeScreenshot(), 'image/png');
+//   }
+//   await resetBrowser();
+// });
 
-AfterAll(async function () {
-  await closeBrowser();
-});
+// AfterAll(async function () {
+//   await closeBrowser();
+// });
 
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {
@@ -31,18 +31,20 @@ After('@delete-mediaproducer-courses', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'media_producer_2']);
   await resetBrowser();
-  
+
   await visitURL(url);
   await pages.home.click('signInLocal');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')
   
+  
   let course = this.data.get('code');
   let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course)
+  console.log(elements.length+'no');
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
