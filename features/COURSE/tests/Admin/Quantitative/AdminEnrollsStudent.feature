@@ -63,4 +63,5 @@ Feature: Admin enrolls the student in the course
         And I sign out of Achieve
 
         Then I verify that "Quantitative Course" is assigned to "student_1" 
+        And I sign out of Achieve
     
