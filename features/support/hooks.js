@@ -1,9 +1,9 @@
 var { After, AfterAll } = require('cucumber');
+const _ = require('lodash');
+const urls = require(`${process.cwd()}/config/urls.json`);
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const { closeBrowser, resetBrowser, takeScreenshot, visitURL } = require(`${process.cwd()}/app/driver`);
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const urls = require(`${process.cwd()}/config/urls.json`);
-const _ = require('lodash');
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 After(async function (scenario) {
@@ -28,19 +28,21 @@ After('@assessmentCreation', async function () {
 });
 
 After('@delete-mediaproducer-courses', async function () {
-  await resetBrowser();
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  await visitURL(url);
   let user = await _.get(users, [this.environment, 'media_producer_2']);
+  await resetBrowser();
+  
+  await visitURL(url);
   await pages.home.click('signInLocal');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')
-  let Code = this.data.get('code');
+  
+  let course = this.data.get('code');
   let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseNumber', Code);
-  let elements = await pages.courseList.getWebElements('courseNumber', Code )
+  await pages.courseList.assertElementExists('courseNumber', course);
+  let elements = await pages.courseList.getWebElements('courseNumber', course)
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
@@ -48,18 +50,21 @@ After('@delete-mediaproducer-courses', async function () {
     await pages.home.click('closeAlert');
   }
 });
+
 After('@delete-Instructor', async function () {
-  await resetBrowser();
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  await visitURL(url);
   let user = await _.get(users, [this.environment, 'instructor_1']);
+  await resetBrowser();
+  
+  await visitURL(url);
   await pages.home.click('signInLocal');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')
-  let courseName = this.data.get('course');
-  await pages.createCourse.assertElementExists('courseCard', courseName);
-  let elements = await pages.createCourse.getWebElements('courseCard', courseName)
+
+  let course = this.data.get('course');
+  await pages.createCourse.assertElementExists('courseCard', course);
+  let elements = await pages.createCourse.getWebElements('courseCard', course)
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
@@ -69,19 +74,21 @@ After('@delete-Instructor', async function () {
 });
 
 After('@delete-admin-9781464199499', async function () {
-  await resetBrowser();
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  await visitURL(url);
   let user = await _.get(users, [this.environment, 'admin_1']);
+  await resetBrowser();
+
+  await visitURL(url);
   await pages.home.click('signInLocal');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
-  await pages.home.click('signIn')
-  let Code = this.data.get('code');
+  await pages.home.click('signIn');
+
+  let course = this.data.get('code');
   let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseNumber', Code);
-  let elements = await pages.courseList.getWebElements('courseNumber', Code )
+  await pages.courseList.assertElementExists('courseNumber', course);
+  let elements = await pages.courseList.getWebElements('courseNumber', course);
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
@@ -91,19 +98,21 @@ After('@delete-admin-9781464199499', async function () {
 });
 
 After('@delete-mediaEditor-9781464199499', async function () {
-  await resetBrowser();
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  await visitURL(url);
   let user = await _.get(users, [this.environment, 'media_editor_1']);
+  await resetBrowser();
+
+  await visitURL(url);
   await pages.home.click('signInLocal');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
-  await pages.home.click('signIn')
-  let Code = this.data.get('code');
+  await pages.home.click('signIn');
+
+  let course = this.data.get('code');
   let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseNumber', Code);
-  let elements = await pages.courseList.getWebElements('courseNumber', Code )
+  await pages.courseList.assertElementExists('courseNumber', course);
+  let elements = await pages.courseList.getWebElements('courseNumber', course);
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
@@ -113,19 +122,21 @@ After('@delete-mediaEditor-9781464199499', async function () {
 });
 
 After('@delete-customerSupport-9781464199499', async function () {
-  await resetBrowser();
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  await visitURL(url);
   let user = await _.get(users, [this.environment, 'customer_support_1']);
+  await resetBrowser();
+
+  await visitURL(url);
   await pages.home.click('signInLocal');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
-  await pages.home.click('signIn')
-  let Code = this.data.get('code');
+  await pages.home.click('signIn');
+
+  let course = this.data.get('code');
   let courseName = this.data.get('course name');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseNumber', Code);
-  let elements = await pages.courseList.getWebElements('courseNumber', Code )
+  await pages.courseList.assertElementExists('courseNumber', course);
+  let elements = await pages.courseList.getWebElements('courseNumber', course);
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
