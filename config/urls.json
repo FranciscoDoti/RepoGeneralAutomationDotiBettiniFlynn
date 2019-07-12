@@ -20,10 +20,6 @@
         "prod":"",
         "pre-prod":""
     },
-    "graphNoid":{
-        "local": "",
-        "int": "https://njs-int.saplinglearning.me/graphing/author/1123"
-    },
     "LC":{
         "devlc": "https://dev-learning-curve-learningcurve.mldev.cloud/",
         "dev": "https://dev-achieve-learningcurve.mldev.cloud/",

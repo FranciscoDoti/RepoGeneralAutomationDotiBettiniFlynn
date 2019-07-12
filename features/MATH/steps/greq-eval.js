@@ -53,7 +53,6 @@ Then(/^I save the question$/, async function () {
 
 When(/^I simulate student interface$/, async function () {
   // waits for the message box to disappear to execute next line: short cut keys for 'Check your work' mode
-  await pages.raptorAms.assertElementDoesNotExist('saveMessage');
   await pages.raptorAms.click('menuBarMore');
   await pages.raptorAms.click('moreCheckYourWork');
 });

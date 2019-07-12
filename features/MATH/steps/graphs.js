@@ -3,7 +3,6 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
-const urls = require(`${process.cwd()}/config/urls.json`);
 const { visitURL } = require(`${process.cwd()}/app/driver`)
 chai.use(require('chai-sorted'));
 const { Key } = require('selenium-webdriver');
@@ -316,7 +315,9 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
 
 
 When(/^I input non-existing graphid in the graph editor url$/, async function () {
-  let url = await _.get(urls, ['graphNoid', this.environment]);
-  await visitURL(url, Key.ENTER);
+  let currentUrl = await pages.graphEditor.getCurrentURL();
+  let urlNonExistGraphId = currentUrl+101;
+  
+  await visitURL(urlNonExistGraphId, Key.ENTER);
   await pages.graphEditor.click('saveButton');
 });

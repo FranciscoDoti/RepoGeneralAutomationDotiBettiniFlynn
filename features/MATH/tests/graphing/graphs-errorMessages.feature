@@ -27,7 +27,7 @@ Feature: Verify Graph editor error messages
         And I input non-existing graphid in the graph editor url
         Then I verify window pop up message "Error: An error occurred"
 
-    Scenario: Verify the error message for an existing graph id opened in edit mode after the user logs out and then logs back in and tries to save already opened graph.
+   Scenario: Verify the error message for an existing graph id opened in edit mode after the user logs out and then logs back in and tries to save already opened graph.
 
         When I click the "window" icon for graphId "287"
         And I go back to sapling page and logout
