@@ -66,7 +66,7 @@ Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async fu
   await pages.home.click('closeAlert');
 });
 
-When(/^I create "(.*)" with ISBN "(.*)" and course code "(.*)" $/, async function (courseName,number, code, data_table) {
+When(/^I create "(.*)" with ISBN "(.*)" and course code "(.*)"$/, async function (courseName,number, code, data_table) {
   this.data.set('code',code);
   this.data.set('course name',number);
   await pages.createCourse.assertElementExists('createCourseButton');
