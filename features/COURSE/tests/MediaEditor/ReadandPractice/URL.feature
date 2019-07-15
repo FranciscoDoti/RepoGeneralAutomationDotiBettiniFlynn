@@ -1,13 +1,13 @@
 @Course @Smoke
 Feature: Verify that MediaEditor is able to create URL
 
-    @delete-mediaEditor-9781464199499
+    @medieditor-delete-course
     Scenario: Verify that Admin is able to create a custom task with URL
 
        Given I login to Achieve-CW as "media_editor_1"
-        When I create "Read & Practice Template" Template with following data 
-            | courseType  | productModel      | courseName                  | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    | E2E 301      | 9781464199498 | draft         |                      
+        When I create template with following data 
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I click on search button and input "Read & Practice Template" to search the course
 

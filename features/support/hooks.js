@@ -27,7 +27,7 @@ After('@assessmentCreation', async function () {
   await asmtpages.hatchlingItem.click('Submit Yes');
 });
 
-After('@delete-mediaproducer-courses', async function () {
+After('@mediaproducer-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'media_producer_2']);
   await resetBrowser();
@@ -50,7 +50,7 @@ After('@delete-mediaproducer-courses', async function () {
   }
 });
 
-After('@delete-Instructor', async function () {
+After('@instructor-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'instructor_1']);
   await resetBrowser();  
@@ -71,7 +71,7 @@ After('@delete-Instructor', async function () {
   }
 });
 
-After('@delete-admin-9781464199499', async function () {
+After('@admin-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'admin_1']);
   await resetBrowser();
@@ -96,7 +96,7 @@ After('@delete-admin-9781464199499', async function () {
   }
 });
 
-After('@delete-mediaEditor-9781464199499', async function () {
+After('@medieditor-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'media_editor_1']);
   await resetBrowser();
@@ -121,7 +121,7 @@ After('@delete-mediaEditor-9781464199499', async function () {
   }
 });
 
-After('@delete-customerSupport-9781464199499', async function () {
+After('@custmersupport-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'customer_support_1']);
   await resetBrowser();

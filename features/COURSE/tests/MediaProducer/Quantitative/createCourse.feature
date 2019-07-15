@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Create course
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario:  Create course Template for Quantitative
 
        Given I login to Achieve-CW as "media_producer_2"

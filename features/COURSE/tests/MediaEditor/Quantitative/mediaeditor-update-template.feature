@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Media Editor is able to create a template and update
 
-   @delete-mediaEditor-9781464199499
+   @medieditor-delete-course
     Scenario: Verify that media editor is able to create a template and update it 
 
         Given I login to Achieve-CW as "media_editor_1"

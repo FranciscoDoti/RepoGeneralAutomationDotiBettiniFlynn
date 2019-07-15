@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding collaborator to the template 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to the template
 
         Given I login to Achieve-CW as "media_producer_2"

@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding reading activities in reading tab 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab
 
         Given I login to Achieve-CW as "media_producer_2"

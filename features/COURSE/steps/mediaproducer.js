@@ -346,12 +346,20 @@ When('I create template with following data', async function (data_table){
       await pages.createCourse.populate('courseName', data_table.hashes()[i].courseName)
       await pages.createCourse.assertElementExists('courseCode');
       await pages.createCourse.populate('courseCode', data_table.hashes()[i].courseCode)
+      if(data_table.hashes()[i].learningObjective != ''){
       await pages.createCourse.assertElementExists('learningObjective');
       await pages.createCourse.populate('learningObjective', data_table.hashes()[i].learningObjective)
       await pages.createCourse.assertElementExists('isbnNumber');
       await pages.createCourse.populate('isbnNumber', data_table.hashes()[i].isbnNumber)
       await pages.createCourse.assertElementExists('courseStatus');
       await pages.createCourse.populate('courseStatus', data_table.hashes()[i].courseStatus);
+   }
+   else{
+      await pages.createCourse.assertElementExists('isbnNumber');
+      await pages.createCourse.populate('isbnNumber', data_table.hashes()[i].isbnNumber)
+      await pages.createCourse.assertElementExists('courseStatus');
+      await pages.createCourse.populate('courseStatus', data_table.hashes()[i].courseStatus);
+   }
     }
     await pages.createCourse.click('save');
 });

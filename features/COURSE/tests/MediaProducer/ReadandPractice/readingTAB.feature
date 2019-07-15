@@ -1,13 +1,13 @@
 @Course @Smoke
 Feature: Adding reading activities in reading tab 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Read & Practice Template" Template with following data 
-            | courseType  | productModel      | courseName                  | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    | E2E 301      | 9781464199498 | draft         |                      
+        When I create template with following data 
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
 
 
         And I activate the "Read & Practice Template" template and add the following data

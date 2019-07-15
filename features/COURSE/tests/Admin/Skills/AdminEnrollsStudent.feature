@@ -1,13 +1,14 @@
 @Course @Smoke
 Feature: Admin enrolls the student in the course 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that admin enrolls student in the course 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Skills Template" Template with following data 
-            | courseType  | productModel | courseName       | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  | E2E 301      | 9781464199498 | draft         |                      
+        When I create template with following data 
+           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |
+                          
 
 
         And I activate the "Skills Template" template and add the following data

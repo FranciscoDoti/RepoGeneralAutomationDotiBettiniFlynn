@@ -1,6 +1,6 @@
 @Smoke
 Feature: Student attempts all the activities in Quantitative
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"

@@ -1,14 +1,14 @@
 @Course @Smoke
 Feature: Verify that Admin is able to create URL
 
-    @delete-admin-9781464199499
+    @admin-delete-course
     Scenario: Verify that Admin is able to create a custom task with URL
 
        Given I login to Achieve-CW as "admin_1"
-        When I create "Read & Practice Template" Template with following data 
-            | courseType  | productModel      | courseName                  | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    | E2E 301      | 9781464199498 | draft         |                      
-        And I activate the "Read & Practice Template" template and add the following data
+        When I create template with following data
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |
+                                
         And I click on search button and input "Read & Practice Template" to search the course
 
         And I activate the "Read & Practice Template" template and add the following data

@@ -5,9 +5,9 @@ Feature: Verify that mediaProducer is able to create URL
     Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Read & Practice Template" Template with following data 
-            | courseType  | productModel      | courseName                  | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    | E2E 301      | 9781464199498 | draft         |                      
+        When I create template with following data 
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                    
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |

@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Assigning the activities present in the course 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that Instructor is able to assign the activities in the course
 
         Given I login to Achieve-CW as "media_producer_2"

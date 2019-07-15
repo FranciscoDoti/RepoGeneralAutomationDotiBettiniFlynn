@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Instructor adds folder, remove folder and reorders it 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
         Given I login to Achieve-CW as "media_producer_2"

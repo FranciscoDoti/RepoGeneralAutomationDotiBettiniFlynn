@@ -1,7 +1,7 @@
  @Course @Smoke
  Feature: Update the Template   
      
-    @delete-mediaproducer-courses       
+    @mediaproducer-delete-course       
     Scenario: Verify that Media Producer is able to update the template
 
         Given I login to Achieve-CW as "media_producer_2"

@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Media Editor has only view access that they are not a collaborator
 
-     @delete-mediaproducer-courses
+     @mediaproducer-delete-course
     Scenario: Verify that Media Editor has only view access that they are not collaborator
 
         Given I login to Achieve-CW as "media_producer_2"

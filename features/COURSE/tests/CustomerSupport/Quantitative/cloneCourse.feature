@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Quantitative Template
 
-    @delete-customerSupport-9781464199499
+    @custmersupport-delete-course
     Scenario: Verify that Customer Support is able to create course from Quantitative Template
     
         Given I login to Achieve-CW as "media_producer_2"

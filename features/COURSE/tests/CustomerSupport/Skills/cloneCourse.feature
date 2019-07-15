@@ -1,13 +1,13 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Skills Template
 
-    @delete-customerSupport-9781464199499
+    @custmersupport-delete-course
     Scenario: Verify that Customer Support is able to create course from Skills Template
     
         Given I login to Achieve-CW as "media_producer_2"
-         When I create "Skills Template" Template with following data 
-            | courseType  | productModel | courseName       | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  | E2E 301      | 9781464199498 | draft         |                      
+         When I create template with following data 
+            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
 
         And I activate the "Skills Template" template and add the following data

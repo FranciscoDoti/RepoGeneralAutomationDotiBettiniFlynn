@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Copy course from the Template
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Copy a course from the Template
 
       Given I login to Achieve-CW as "media_producer_2"

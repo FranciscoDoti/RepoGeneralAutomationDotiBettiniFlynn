@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding activities in Folder courseplanner
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that Media Producer is able to add folder in courseplanner
 
         Given I login to Achieve-CW as "media_producer_2"

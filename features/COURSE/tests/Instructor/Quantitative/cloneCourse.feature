@@ -1,8 +1,8 @@
 @Course @Smoke
 Feature: Instructor attempts all the activities in Quantitative Template
 
-    @delete-mediaproducer-courses
-    @delete-Instructor
+    @mediaproducer-delete-course
+    @instructor-delete-course
     Scenario: Verify that Instructor is able to copy course from Quantitative Template
     
         Given I login to Achieve-CW as "media_producer_2"

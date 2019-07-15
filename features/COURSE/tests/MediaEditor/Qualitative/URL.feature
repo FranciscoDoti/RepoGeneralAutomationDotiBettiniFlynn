@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Verify that Media EDitor is able to create URL
 
-    @delete-mediaEditor-9781464199499
+    @medieditor-delete-course
     Scenario: Verify that Media Editor is able to create a custom tsak with URL in Qual course
 
        Given I login to Achieve-CW as "media_editor_1"
