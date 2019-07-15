@@ -8,4 +8,4 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And Instructor copy course from the "Quantitative Template2" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Template        |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |

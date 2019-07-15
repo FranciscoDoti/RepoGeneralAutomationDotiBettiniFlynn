@@ -6,14 +6,10 @@ Feature: Instructor attempts all the activities in Skills Template
     Scenario: Verify that Instructor is able to copy course from Skills Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Skills Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Skills                       |
-            | courseName        | Skills Template              |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create "Skills Template" Template with following data 
+            | courseType  | productModel | courseName       | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | E2E 301      | 9781464199498 | draft         |                      
+
 
         And I activate the "Skills Template" template and add the following data
             | field            | value                                                       |
@@ -32,7 +28,7 @@ Feature: Instructor attempts all the activities in Skills Template
         And I copy course from the "Skills Course" template with the following data
             | field             | value                        |
             | courseName        | Skills Course                |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
        
         And I sign out of Achieve
 
@@ -47,14 +43,14 @@ Feature: Instructor attempts all the activities in Skills Template
         And I create a course "Skills Template" with the following data
             | field             | value                                     |
             | courseName        | Skills Instructor Course                  |
-            | courseCode        | E2E301                                    |
+            | courseCode        | E2E 301                                   |
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And  I verify that "Skills Instructor Course" is created with following data
             | field                 | value                                   |
             | courseName            | Skills Instructor Course                |
-            | courseDate            |  E2E301                                 |
+            | courseDate            |  E2E 301                                |
            
         
 

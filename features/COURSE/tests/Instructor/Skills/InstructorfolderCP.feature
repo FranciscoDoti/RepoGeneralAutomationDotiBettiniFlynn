@@ -5,14 +5,9 @@ Feature: Instructor adds folder, remove folder and reorders it
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Skills Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Skills                       |
-            | courseName        | Skills Template              |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+         When I create "Skills Template" Template with following data 
+            | courseType  | productModel | courseName       | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | E2E 301      | 9781464199498 | draft         |                      
 
         And I activate the "Skills Template" template and add the following data
             | field            | value                                                       |
@@ -31,7 +26,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
             | courseName        | Skills Course                |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -44,7 +39,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         When I activate "Skills Course" course with following data 
             | field             | value                        |
             | courseName        | Skills Course                |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Skills Course" course

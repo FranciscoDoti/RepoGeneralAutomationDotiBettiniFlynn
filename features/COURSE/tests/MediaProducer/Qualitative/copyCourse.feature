@@ -4,16 +4,10 @@ Feature: Copy course from the Template
     @delete-mediaproducer-courses
     Scenario: Copy a course from the Template
 
-        Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
-            | learningObjective | macmillan calculus           |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+      Given I login to Achieve-CW as "media_producer_2"
+       When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
@@ -31,12 +25,12 @@ Feature: Copy course from the Template
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
             | courseName        | Qualitative Course           |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Qualitative Course        |
-            | courseDate            |  E2E301                   |
+            | courseDate            |  E2E 301                  |
            
 
 

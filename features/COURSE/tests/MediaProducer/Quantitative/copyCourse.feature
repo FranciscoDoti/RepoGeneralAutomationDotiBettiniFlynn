@@ -5,15 +5,9 @@ Feature: Copy course from the Template
     Scenario: Copy a course from the Template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Quantitative Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Quantitative                 |
-            | courseName        | Quantitative Template        |
-            | courseCode        | E2E 301                      |
-            | learningObjective | Principles of Microeconomics |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | Principles of Microeconomics      | E2E 301      | 9781464199498 | draft         |   
 
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
@@ -31,12 +25,12 @@ Feature: Copy course from the Template
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         Then I verify that "Quantitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Quantitative Course       |
-            | courseDate            |  E2E301                   |
+            | courseDate            |  E2E 301                   |
            
 
 

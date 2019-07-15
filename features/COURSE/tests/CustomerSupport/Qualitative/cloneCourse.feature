@@ -5,15 +5,9 @@ Feature: Customer Support attempts all the activities in Qualitative Template
     Scenario: Verify that Customer Support is able to create course from Qualitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Qualitative Template" with ISBN "9781464199498" and course code "E2E 301"
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | learningObjective | macmillan calculus           |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | macmillan calculus     | E2E 301      | 9781464199498 | draft         |                      
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
@@ -36,13 +30,13 @@ Feature: Customer Support attempts all the activities in Qualitative Template
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
             | courseName        | Qualitative Course           |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         And I click on search button and input "Qualitative Course" to search the course
         
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Qualitative Course        |
-            | courseDate            |  E2E301                   |
+            | courseDate            |  E2E 301                  |
            
         

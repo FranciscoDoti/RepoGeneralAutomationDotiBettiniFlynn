@@ -5,15 +5,9 @@ Feature: Customer Support attempts all the activities in Quantitative Template
     Scenario: Verify that Customer Support is able to create course from Quantitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Quantitative Template" with ISBN "9781464199498" and course code "E2E 301"
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Quantitative                 |
-            | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | Principles of Microeconomics      | E2E 301      | 9781464199498 | draft         |   
 
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
@@ -36,13 +30,13 @@ Feature: Customer Support attempts all the activities in Quantitative Template
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         And I click on search button and input "Quantitative Course" to search the course
         
         Then I verify that "Quantitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Quantitative Course       |
-            | courseDate            |  E2E301                   |
+            | courseDate            |  E2E 301                  |
            
         

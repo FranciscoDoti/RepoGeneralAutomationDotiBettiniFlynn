@@ -4,14 +4,9 @@ Feature: Verify that media Producer is able to create Custom Task
     Scenario: Verify that media Producer is able to create Custom Task in Quantitative Template
  
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Skills Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Skills                       |
-            | courseName        | Skills Template              |  
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create "Skills Template" Template with following data 
+            | courseType  | productModel | courseName       | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | E2E 301      | 9781464199498 | draft         |                      
 
         And I activate the "Skills Template" template and add the following data
             | field            | value                                                       |

@@ -6,15 +6,10 @@ Feature: Instructor attempts all the activities in Quantitative Template
     Scenario: Verify that Instructor is able to copy course from Quantitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Quantitative Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Quantitative                 |
-            | courseName        | Quantitative Template        |
-            | learningObjective | Principles of Microeconomics |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective               | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | Principles of Microeconomics    | E2E 301      | 9781464199498 | draft         |                      
+
 
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
@@ -33,7 +28,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
        
         And I sign out of Achieve
 
@@ -48,14 +43,14 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And I create a course "Quantitative Template" with the following data
             | field             | value                                  |
             | courseName        | Quantitative Instructor Course         |
-            | courseCode        | E2E301                                 |
+            | courseCode        | E2E 301                                 |
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And I verify that "Quantitative Instructor Course" is created with following data
             | field                 | value                                |
             | courseName            | Quantitative Instructor Course       |
-            | courseDate            |  E2E301                              |
+            | courseDate            |  E2E 301                              |
            
         
 

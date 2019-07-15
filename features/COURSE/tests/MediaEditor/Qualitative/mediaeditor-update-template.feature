@@ -5,15 +5,10 @@ Feature: Media Editor is able to create a template and update
     Scenario: Verify that media editor is able to create a template and update it 
 
         Given I login to Achieve-CW as "media_editor_1"
-        When I create Course Template with ISBN "9781464199499" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
-            | learningObjective | macmillan calculus           |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | macmillan calculus     | E2E 301      | 9781464199498 | draft         |                      
+
 
         Then I verify that "Qualitative Template Created." message is displayed
         And I verify that "Qualitative Template" has created with following "ISBN: 9781464199499" number

@@ -5,14 +5,9 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
     Scenario: Verify that Customer Support is able to create course from Read & Practice Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Read & Practice Template" with ISBN "9781464199498" and course code "E2E 301"
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Read & Practice              |
-            | courseName        | Read & Practice Template     |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create "Read & Practice Template" Template with following data 
+            | courseType  | productModel      | courseName                  | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    | E2E 301      | 9781464199498 | draft         |                      
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
@@ -34,13 +29,13 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         And I click on search button and input "Read & Practice Course" to search the course
         
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |
             | courseName            | Read & Practice Course    |
-            | courseDate            |  E2E301                   |
+            | courseDate            |  E2E 301                  |
            
         

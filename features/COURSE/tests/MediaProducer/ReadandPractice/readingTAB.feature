@@ -5,14 +5,10 @@ Feature: Adding reading activities in reading tab
     Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Read & Practice Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Read & Practice              |
-            | courseName        | Read & Practice Template     |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create "Read & Practice Template" Template with following data 
+            | courseType  | productModel      | courseName                  | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    | E2E 301      | 9781464199498 | draft         |                      
+
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |

@@ -5,15 +5,10 @@ Feature: Instructor adds folder, remove folder and reorders it
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         | 
-            | courseCode        | E2E 301                      |
-            | learningObjective | macmillan calculus           |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | macmillan calculus     | E2E 301      | 9781464199498 | draft         |                      
+
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
@@ -32,7 +27,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
             | courseName        | Qualitative Course           |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -45,7 +40,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
             | courseName        | Qualitative Course           |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Qualitative Course" course

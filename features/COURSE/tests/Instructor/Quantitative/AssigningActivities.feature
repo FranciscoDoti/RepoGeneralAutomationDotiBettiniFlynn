@@ -6,15 +6,9 @@ Feature: Assigning the activities present in the course
     Scenario: Verify that Instructor is able to assign the activities in the course
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Quantitative Template" with ISBN "9781464199498" and course code "E2E 301" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Quantitative                 |
-            | courseName        | Quantitative Template        |
-            | courseCode        | E2E 301                      |
-            | learningObjective | Principles of Microeconomics |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName       | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Template  | Principles of Microeconomics      | E2E 301      | 9781464199498 | draft         |                      
 
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
@@ -32,7 +26,7 @@ Feature: Assigning the activities present in the course
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -45,7 +39,7 @@ Feature: Assigning the activities present in the course
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                      |
             | templateStatus    |  Active On Date              |
 
      
