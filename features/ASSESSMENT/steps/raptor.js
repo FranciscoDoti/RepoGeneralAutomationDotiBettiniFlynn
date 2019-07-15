@@ -3,6 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
+    await mathpages.ams.assertElementExists('raptorNewItem');
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
     await pages.raptor.click('addLink');
