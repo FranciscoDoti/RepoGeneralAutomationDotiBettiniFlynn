@@ -38,8 +38,8 @@
             "specialInstr": "NA"
         }, {
             "name": "resources",
-            "byType": "css",
-            "definition": "li[data-test-id='resources_tab']",
+            "byType": "xpath",
+            "definition": "//button[@class='_3Mch' and .='Resources']",
             "frame": "default",
             "specialInstr": "NA"
         }, {

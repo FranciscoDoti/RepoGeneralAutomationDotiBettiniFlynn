@@ -333,7 +333,7 @@ When(/^I create "(.*)" Template with following data$/, async function (courseNam
     await pages.createCourse.click('save');
 });
 
-When('I create template with following data', async function (){
+When('I create template with following data', async function (data_table){
   await pages.createCourse.click('plusButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     this.data.set('code', data_table.hashes()[i].courseCode);

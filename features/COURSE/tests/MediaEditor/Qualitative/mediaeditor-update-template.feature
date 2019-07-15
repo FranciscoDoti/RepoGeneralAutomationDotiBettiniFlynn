@@ -6,8 +6,8 @@ Feature: Media Editor is able to create a template and update
 
         Given I login to Achieve-CW as "media_editor_1"
         When I create template with following data 
-            | courseType  | productModel | courseName       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  | macmillan calculus     | E2E 301      | 9781464199498 | draft         |                      
+            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
 
         Then I verify that "Qualitative Template Created." message is displayed

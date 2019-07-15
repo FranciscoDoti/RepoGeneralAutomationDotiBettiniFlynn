@@ -6,8 +6,8 @@ Feature: Media Editor has only view access that they are not a collaborator
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName       | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  | Principles of Microeconomics      | E2E 301      | 9781464199498 | draft         |   
+            | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
 
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |

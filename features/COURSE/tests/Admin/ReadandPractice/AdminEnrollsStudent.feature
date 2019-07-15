@@ -9,9 +9,6 @@ Feature: Admin enrolls the student in the course
             | courseType  | productModel      | courseName                  | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Read & Practice   | Read & Practice Template    | E2E 301      | 9781464199498 | draft         |                      
 
-
-        And I activate the "Read & Practice Template" template and add the following data
-
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
             | courseName       | Read & Practice Template                                    |       
