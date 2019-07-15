@@ -15,9 +15,9 @@ After(async function (scenario) {
   await resetBrowser();
 });
 
-// AfterAll(async function () {
-//   await closeBrowser();
-// });
+AfterAll(async function () {
+  await closeBrowser();
+});
 
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {
