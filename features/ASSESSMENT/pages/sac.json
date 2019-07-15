@@ -1,6 +1,20 @@
 {
     "webElements": [
         {
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionList",
+            "byType": "css",
+            "definition": "#flcn_assignment",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Instructor Course Link",
             "byType": "xpath",
             "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
@@ -29,10 +43,38 @@
             "specialInstr": "NA"
         },
         {
-            "name": "aeframe",
-            "byType": "css",
-            "definition": "#aeIframe",
-            "frame": "default",
+            "name": "Student Analysis Tab",
+            "byType": "xpath",
+            "definition": "//*[@id='navigation-tabs']/a[5]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Edit Student Attempts Button",
+            "byType": "xpath",
+            "definition": "//button[.='Edit']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Save Student Attempts Button",
+            "byType": "xpath",
+            "definition": "//button[.='Save']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Student Checkbox",
+            "byType": "xpath",
+            "definition": "//div[.='<ReplaceText>']/../input",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Reset Student Attempts Button",
+            "byType": "xpath",
+            "definition": "//button[.='Reset Attempts']",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
@@ -40,6 +82,55 @@
             "byType": "xpath",
             "definition": "//button[@data-test-id='assignment-preview-button']",
             "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Sample Assessment Question Radio Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Check Answer Button",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='check-answer-button']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question Button",
+            "byType": "xpath",
+            "definition": "//ul[@id='question-nav']/li[<ReplaceText>]/div/button",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "View Solution Button",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='solution-modal-view-solution']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Give Up Button",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='giveup-button-text']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Confirm Give Up Button",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='give-up-modal-give-up']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Answer Score",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='side-nav-item-<ReplaceText>-score']/span",
+            "frame": "questionList",
             "specialInstr": "NA"
         },
         {
