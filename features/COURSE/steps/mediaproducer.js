@@ -300,9 +300,9 @@ When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async fu
   await pages.resources.click('addActivity');
   await pages.resources.click('createCustomActivity');
   await pages.resources.click('writingPrompt');
-  await pages.coursePlanner.click('editTittle');
-  await pages.coursePlanner.populate('activityTittle', customName);
-  await pages.coursePlanner.click('tittleSave');
+  await pages.coursePlanner.click('editTitle');
+  await pages.coursePlanner.populate('activityTitle', customName);
+  await pages.coursePlanner.click('TitleSave');
   await pages.coursePlanner.click('customRubric');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
@@ -310,27 +310,6 @@ When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async fu
   }
   await pages.coursePlanner.click('customRubricSave');
   await pages.coursePlanner.click('close');
-});
-
-When(/^I create "(.*)" Template with following data$/, async function (courseName, data_table) {
-  await pages.createCourse.click('plusButton');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    this.data.set('code', data_table.hashes()[i].courseCode);
-    this.data.set('Number',data_table.hashes()[i].isbnNumber);
-      await pages.createCourse.assertElementExists('courseType');
-      await pages.createCourse.populate('courseType', data_table.hashes()[i].courseType)
-      await pages.createCourse.assertElementExists('productModel');
-      await pages.createCourse.populate('productModel', data_table.hashes()[i].productModel)
-      await pages.createCourse.assertElementExists('courseName');
-      await pages.createCourse.populate('courseName', data_table.hashes()[i].courseName)
-      await pages.createCourse.assertElementExists('courseCode');
-      await pages.createCourse.populate('courseCode', data_table.hashes()[i].courseCode)
-      await pages.createCourse.assertElementExists('isbnNumber');
-      await pages.createCourse.populate('isbnNumber', data_table.hashes()[i].isbnNumber)
-      await pages.createCourse.assertElementExists('courseStatus');
-      await pages.createCourse.populate('courseStatus', data_table.hashes()[i].courseStatus);
-    }
-    await pages.createCourse.click('save');
 });
 
 When('I create template with following data', async function (data_table){
@@ -347,7 +326,7 @@ When('I create template with following data', async function (data_table){
       await pages.createCourse.populate('courseName', c.courseName)
       await pages.createCourse.assertElementExists('courseCode');
       await pages.createCourse.populate('courseCode', c.courseCode)
-      if(data_table.hashes()[i].learningObjective != ''){
+      if(c.learningObjective != ''){
       await pages.createCourse.assertElementExists('learningObjective');
       await pages.createCourse.populate('learningObjective', c.learningObjective)
       }

@@ -241,7 +241,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "courseTittle",
+            "name": "courseTitle",
             "byType": "css",
             "definition": "[data-test-id='course_title']",
             "frame": "default",
