@@ -1,18 +1,13 @@
-@Smoke
+@Course @Smoke
 Feature: Admin enrolls the student in the course 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that admin enrolls student in the course 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Read & Practice Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Read & Practice              |
-            | courseName        | Read & Practice Template     |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
@@ -30,7 +25,7 @@ Feature: Admin enrolls the student in the course
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -43,7 +38,7 @@ Feature: Admin enrolls the student in the course
         When I activate "Read & Practice Course" course with following data 
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Read & Practice Course" course
@@ -58,7 +53,9 @@ Feature: Admin enrolls the student in the course
 
         And I sign out of Achieve
         And I login to Achieve-CW as "admin_1" 
-        And I enroll the "student_1" in "Read & Practice Course" course  
+        And I enroll the "student_1" in "Read & Practice Course" course
+        And I sign out of Achieve
 
-        Then I verify that "Read & Practice Course" is assigned to "student_1" 
+        Then I verify that "Read & Practice Course" is assigned to "student_1"
+        And I sign out of Achieve 
     

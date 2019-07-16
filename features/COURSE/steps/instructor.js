@@ -1,5 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const _ = require('lodash');
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
@@ -85,9 +87,24 @@ When('I assign the activities in courseplanner', async function (data_table) {
   }
 });
 
-When(/^I click on "(.*)"$/, async function (courseName) {
-  await pages.createCourse.click('courseCard', courseName);
+When('I create Course Template by coping from {string} template', async function (string) {
+  await pages.createCourse.click('createCourseButton');
+  await pages.createCourse.click('template');
+  await pages.createCourse.click('selectedTemplateBtn');
 });
+
+When(/^Instructor copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
+/*  await pages.courseList.click('courseMenu', courseName);
+  await pages.copyCourse.click('copyCourse'); */
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.copyCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value, data_table.hashes()[i].clear);
+  };
+  await pages.copyCourse.click('save');
+  await pages.home.click('closeAlert');
+});
+  
+   
+  
 
 Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userName){
   let payload = await _.get(users, [this.environment, userName]);
@@ -131,6 +148,16 @@ Then('I verify that activties are added in courseplanner', async function (data_
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
   }
+});
+
+When(/^I create a course "(.*)" with the following data$/, async function (courseName, data_table){
+await pages.createCourse.click('createCourseButton');
+await pages.coursePage.click('courseName', courseName);
+await pages.coursePage.click('selectTemplate');
+for (let i = 0; i < data_table.rows().length; i++) {
+ await pages.copyCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i]. value)
+}
+await pages.copyCourse.click('save');
 });
 
 

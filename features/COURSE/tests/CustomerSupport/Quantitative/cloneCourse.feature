@@ -1,9 +1,9 @@
 @Course @Smoke
-Feature: Copy course from the Template
+Feature: Customer Support attempts all the activities in Quantitative Template
 
-    @mediaproducer-delete-course
-    Scenario: Copy a course from the Template
-
+    @custmersupport-delete-course
+    Scenario: Verify that Customer Support is able to create course from Quantitative Template
+    
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
@@ -19,19 +19,24 @@ Feature: Copy course from the Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        | Dedication                                    |
+            | addButtonReadandpractice | LCRP1550612138614                            |
 
-        And I click on home button to return to coursepage
+        And I sign out of Achieve
+        
+        And I login to Achieve-CW as "customer_support_1"
+        And I click on search button and input "Quantitative Template" to search the course
+                
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        | E2E 301                       |
+            | courseCode        | E2E 301                      |
 
+        And I click on search button and input "Quantitative Course" to search the course
+        
         Then I verify that "Quantitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Quantitative Course       |
-            | courseDate            |  E2E 301                   |
+            | courseDate            |  E2E 301                  |
            
-
-
-
+        

@@ -1,19 +1,14 @@
-@Smoke
+@Course @Smoke
 Feature: Verify that mediaProducer is able to create URL
 
    
     Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
 
-        Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
-            | courseCode        | E2E 301                      |
-            | learningObjective | macmillan calculus           |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+      Given I login to Achieve-CW as "media_producer_2"
+       When I create template with following data 
+            | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
