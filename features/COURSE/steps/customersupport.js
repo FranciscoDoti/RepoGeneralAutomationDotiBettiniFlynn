@@ -15,14 +15,20 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseN
   await pages.courseList.click('instructorClose');
 });
 
-When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
-  await pages.courseList.click('courseMenu', courseName);
-  await pages.copyCourse.click('copyCourse');
+When(/^I check the account of "(.*)"$/, async function (userName){
+  let user = await _.get(users, [this.environment, userName]);
+  await pages.home.click('togglerMenu');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('checkAccount');
+  await pages.adminMenu.populate('checkAccountEmailId', user.username);
+  await pages.adminMenu.click('checkAccountSearchButton');
+})
 
-  await pages.copyCourse.click('saveinstructor');
-  await pages.home.click('closeAlert');
-}); 
+Then(/^I verify that "(.*)" details$/, async function (userName, data_table){
+  let user = await _.get(users, [this.environment, userName]);
+  await pages.adminMenu.assertTextIncludes('studentEmail', user.username);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.adminMenu.assertTextIncludes(data_table.hashes()[i].Details, data_table.hashes()[i].Value);
+  }
 
-Then('I verify that {string} has created with the following data', function (_string, data_table) {
-
-});
+})

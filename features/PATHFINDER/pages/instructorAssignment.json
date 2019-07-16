@@ -1,0 +1,159 @@
+{
+    "webElements": [{
+        "name": "Results Button",
+        "byType": "id",
+        "definition": "overview-go-to-results-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Student Preview Link",
+        "byType": "xpath",
+        "definition": "//a[contains(@id,'preview-overview-link') and contains(text(), 'Preview Practice Test as a Student')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Activity Editor Link",
+        "byType": "xpath",
+        "definition": "//a[contains(@id,'preview-overview-link') and contains(text(), 'Activity Editor')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "PreTest Grading Settings Container",
+        "byType": "id",
+        "definition": "instructor-overview-PreTest-grade-settings",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Change Grading Settings Button",
+        "byType": "id",
+        "definition": "settings-section-change-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Save Button",
+        "byType": "id",
+        "definition": "save-changes-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Cancel Button",
+        "byType": "id",
+        "definition": "cancel-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Performance",
+        "byType": "id",
+        "definition": "undefined-0-toggle-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Performance Selected",
+        "byType": "css",
+        "definition": "[id='undefined-0-toggle-button'][class*='modals__toggletrue']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Performance Unselected",
+        "byType": "css",
+        "definition": "[id='undefined-0-toggle-button'][class*='modals__togglefalse']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Completion",
+        "byType": "id",
+        "definition": "undefined-1-toggle-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Completion Selected",
+        "byType": "css",
+        "definition": "[id='undefined-1-toggle-button'][class*='modals__toggletrue']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Completion Unselected",
+        "byType": "css",
+        "definition": "[id='undefined-1-toggle-button'][class*='modals__togglefalse']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Pathfinder Modal",
+        "byType": "css",
+        "definition": "[class*='our-modal-component__container']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Grading Settings Changed Modal Ok Button",
+        "byType": "id",
+        "definition": "OK-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Button",
+        "byType": "id",
+        "definition": "settings-section-change-penalty-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Save Button",
+        "byType": "id",
+        "definition": "save-penalty-changes-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Cancel Button",
+        "byType": "id",
+        "definition": "cancel-penalty-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "No Late Penalty Toggle",
+        "byType": "id",
+        "definition": "NoLatePenalty-0-toggle-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "No Late Penalty Toggle Selected",
+        "byType": "css",
+        "definition": "[id='NoLatePenalty-0-toggle-button'][class*='modals__toggletrue']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "No Late Penalty Toggle Unselected",
+        "byType": "css",
+        "definition": "[id='NoLatePenalty-0-toggle-button'][class*='modals__togglefalse']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Toggle",
+        "byType": "id",
+        "definition": "LatePenalty-1-toggle-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Toggle Unselected",
+        "byType": "css",
+        "definition": "[id='LatePenalty-1-toggle-button'][class*='modals__togglefalse']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Toggle Selected",
+        "byType": "css",
+        "definition": "[id='LatePenalty-1-toggle-button'][class*='modals__toggletrue']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Confirm Button",
+        "byType": "id",
+        "definition": "penalty-save-changes-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "Late Penalty Confirmation Modal Cancel Button",
+        "byType": "id",
+        "definition": "penalty-cancel-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]
+}

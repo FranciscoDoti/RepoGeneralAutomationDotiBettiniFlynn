@@ -41,7 +41,8 @@
             "definition": "div[data-test-id='hatchling-item-title-edit']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "QuestionTitleCQ",
             "byType": "css",
             "definition": "input[data-test-id ='hatchling-item-title']",
@@ -53,7 +54,8 @@
             "definition": "[class='rte-content']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "enterAnswerCQ",
             "byType": "css",
             "definition": "[class='notranslate public-DraftEditor-content']",
@@ -131,7 +133,8 @@
             "definition": "[data-test-id='library_tab']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addAssignmentButton",
             "byType": "xpath",
             "definition": "//a[.='<ReplaceText>']/../../../../div/div/div/button[@data-test-id='add_assignment']",
@@ -145,8 +148,8 @@
             "specialInstr": "NA"
         }, {
             "name": "assignAssignmentButton",
-            "byType": "xpath",
-            "definition": "//*[@id='path-1']",
+            "byType": "css",
+            "definition": "[aria-label='Assign Item']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -157,8 +160,8 @@
             "specialInstr": "NA"
         }, {
             "name": "assignButton",
-            "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div[3]/div[2]/div[2]/button",
+            "byType": "css",
+            "definition": "[data-test-id='assign_button']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -305,13 +308,15 @@
             "definition": "[data-test-id='assessment_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "customAssesmentFrame",
             "byType": "xpath",
             "definition": "//iframe[@allowfullscreen]",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assignmentTitle",
             "byType": "xpath",
             "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
@@ -342,7 +347,7 @@
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
         }, {
-            "name": "AddAssignmentButton",
+            "name": "addQuestionButton",
             "byType": "css",
             "definition": "[data-test-id='add-question-button']",
             "frame": "customAssesmentFrame",
@@ -404,7 +409,7 @@
         }, {
             "name": "vissibilityButton",
             "byType": "xpath",
-            "definition": "//*[@id='accordion-body-ihcZ_gIEsx']/div[2]/div/div/section[1]/form/label[1]",
+            "definition": "//*[text()='Make visible to students for entirety of the course']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -467,43 +472,50 @@
             "definition": "[class='_2XMC ']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addUnit",
             "byType": "css",
             "definition": "[data-test-id='add_unit']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "parentFolder",
             "byType": "css",
             "definition": "[data-test-id='parent_folder']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addUnitButton",
             "byType": "css",
             "definition": "[data-test-id='add_unit_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addUnitName",
             "byType": "css",
             "definition": "[data-test-id='add_unit_input']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "contentCheckbox",
             "byType": "css",
             "definition": "[data-test-id='content_checkbox']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "actionButton",
             "byType": "xpath",
             "definition": "//a[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "actionButtonValidation",
             "byType": "xpath",
             "definition": "//button[@data-test-id='action_button']",
@@ -515,54 +527,159 @@
             "definition": "[data-test-id='action_menu_items_move_item']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "actionRemoveItem",
             "byType": "css",
             "definition": "[data-test-id='action_menu_items_remove_item']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "reorder",
             "byType": "css",
             "definition": "[data-test-id='action_menu_items_reorder']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "folderName",
             "byType": "xpath",
             "definition": "//span[contains(@data-test-id,'folder_name') and contains(text(), '<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
 
-        }, {
+        },
+        {
             "name": "activityName",
             "byType": "xpath",
             "definition": "//*[@data-test-id='activity_link' and .='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "actionButtonResources",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
             "frame": "default",
             "specialInstr": "NA"
+
         }, {
+            "name": "libraryItem",
+            "byType": "xpath",
+            "definition": "//a[@class='_25Nb' and .='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
             "name": "reorderValidation",
             "byType": "xpath",
             "definition": "//div[<ReplaceText>]/div/div/div/div/div/div/a[@data-test-id='activity_link']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "action",
+
+        },
+        {
+            "name": "assignmentStatus",
             "byType": "xpath",
-            "definition": "//*[@id='2774ff23-9ad7-456c-9d76-4c25fb9925a2']/div/div[6]/div/button",
+            "definition": "//a[.='<ReplaceText>']/../../../..//div[@data-test-id='assignment_status']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "actionmenuitem",
+
+        },
+        {
+            "name": "customIframe",
             "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div/div/div/div[1]/span",
+            "definition": "//*[@id='container']/div/div/div/iframe",
             "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "addPrompt",
+            "byType": "css",
+            "definition": "a[data-id='add-prompt']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "editTittle",
+            "byType": "css",
+            "definition": "[class='ActivityTitle__titleEdit__3jSK4']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "activityTittle",
+            "byType": "css",
+            "definition": "[data-id='activity-title-editField']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "tittleSave",
+            "byType": "css",
+            "definition": "[data-id='title-save']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "customRubric",
+            "byType": "css",
+            "definition": "[data-id='create-rubric']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "nameRubric",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-title-input']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "criterion",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-name']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "criterionDescription",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-description']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "rubricScale",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//input[@data-id='custom-rubric-scale-name']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        }, 
+        {
+            "name": "scaleDescription",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-criterion-description']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "customRubricSave",
+            "byType": "css",
+            "definition": "[data-id='custom-rubric-save']",
+            "frame": "customIframe",
             "specialInstr": "NA"
 
         }

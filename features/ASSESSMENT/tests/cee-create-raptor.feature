@@ -3,4 +3,7 @@ Feature: CEE module type creation
 
       Given I login to AMS as "all-permissions-author"
       When I add the "Chemical Equation" module
-      Then I verify item has been created
+      Then I verify item has been created with following details
+      |field      |value      |
+      |module type|CEE        |
+      |status     |in progress|

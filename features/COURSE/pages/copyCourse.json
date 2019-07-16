@@ -19,15 +19,10 @@
         "specialInstr": "NA"
     }, {
         "name": "copyCourse",
-        "byType": "xpath",
-        "definition": "/html/body/div[3]/div/div/div/div/div/div/span",
+        "byType": "css",
+        "definition": "[data-test-id='copy_course_modal']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "saveinstructor",
-        "byType": "xpath",
-        "definition": "/html/body/div[3]/div/div/div[3]/div[2]/div[2]/button",
-        "frame": "default",
-        "specialInstr": "NA"    
+
     }]
 }
