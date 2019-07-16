@@ -6,6 +6,7 @@ When('I navigate to assignment preview', async function () {
     await pages.sac.click('Instructor Course Link');
     await pages.sac.click('Instructor Assessment Link');
     await pages.sac.click('Assignment Preview Button');
+    await pages.sac.click('Keep Attempts Button');
 });
 
 When('I navigate to assignment and go back to the course landing page', async function () {
