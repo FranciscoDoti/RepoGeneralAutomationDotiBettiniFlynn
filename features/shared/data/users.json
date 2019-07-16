@@ -31,12 +31,143 @@
             "firstName": "pf-admin",
             "lastName": "Pathfinder",
             "sq1": "What is the first and last name of your first boyfriend or girlfriend?",
-            "sq1": "a",
+            "sq1_answer": "a",
             "sq2": "What was your favorite place to visit as a child?",
             "sq2_answer": "a",
             "sq3": "Who is your favorite actor, musician, or artist?",
             "sq3_answer": "a",
             "primarySchool": "Test Macmillan"
+        },
+        "admin_1": {
+            "username": "admin@courseware.com",
+            "password": "Passw0rd!",
+            "newpassword": "ABCabc@123",
+            "firstName": "Addy",
+            "lastName": "min",
+            "sq1": "What high school did you attend?",
+            "sq1_answer": "answer",
+            "sq2": "What is your favorite movie?",
+            "sq2_answer": "answer",
+            "sq3": "What is your favorite color?",
+            "sq3_answer": "answer",
+            "primarySchool": "Miami University"
+        },
+        "admin_2": {
+            "username": "jagujowed@maillist.in",
+            "password": "ABCabc@123",
+            "firstName": "courseware",
+            "lastName": "achieve",
+            "sq1": "What high school did you attend?",
+            "sq1_answer": "answer",
+            "sq2": "What is your favorite movie?",
+            "sq2_answer": "answer",
+            "sq3": "What is your favorite color?",
+            "sq3_answer": "answer",
+            "primarySchool": "Miami University"
+        },
+        "customer_support_1": {
+            "username": "zilet@mail-point.net",
+            "password": "ABCabc@123",
+            "firstName": "Cust",
+            "lastName": "Spport",
+            "sq1": "What high school did you attend?",
+            "sq1_answer": "answer",
+            "sq2": "What is your favorite movie?",
+            "sq2_answer": "answer",
+            "sq3": "What is your favorite color?",
+            "sq3_answer": "answer",
+            "primarySchool": "Miami University"
+        },
+        "media_editor_1": {
+            "username": "jafaziy@maillist.in",
+            "password": "ABCabc@123",
+            "firstName": "Media",
+            "lastName": "editor",
+            "sq1": "What high school did you attend?",
+            "sq1_answer": "answer",
+            "sq2": "What is your favorite movie?",
+            "sq2_answer": "answer",
+            "sq3": "What is your favorite color?",
+            "sq3_answer": "answer",
+            "primarySchool": "Miami University"
+        },
+        "media_producer_1": {
+            "username": "mediaproduer@gmail.com",
+            "password": "ABCabc@123",
+            "firstName": "media",
+            "lastName": "producer",
+            "sq1": "What is the name of your first school?",
+            "sq1_answer": "answer",
+            "sq2": "What high school did you attend?",
+            "sq2_answer": "answer",
+            "sq3": "What is the name of your favorite pet?",
+            "sq3_answer": "answer",
+            "primarySchool": "macmillan.com"
+        },
+        "media_producer_2": {
+            "username": "nehatenep@mail-click.net",
+            "password": "ABCabc@123",
+            "firstName": "media",
+            "lastName": "Producer",
+            "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
+            "sq1_answer": "answer",
+            "sq2": "What is the name of your first school?",
+            "sq2_answer": "answer",
+            "sq3": "What is the name of your pet?",
+            "sq3_answer": "answer",
+            "primarySchool": "macmillan learning"
+        },
+        "paid_access": {
+            "username": "tivujehek@simplemail.in",
+            "password": "ABCabc@123",
+            "firstName": "sugdi",
+            "lastName": "ram",
+            "sq1": "What high school did you attend?",
+            "sq1_answer": "answer",
+            "sq2": "What is your favorite movie?",
+            "sq2_answer": "answer",
+            "sq3": "What is your favorite color?",
+            "sq3_answer": "answer",
+            "primarySchool": "Miami University"
+        },
+        "student_1": {
+            "username": "macmillanstudent5@gmail.com",
+            "password": "ABCabc@123",
+            "firstName": "macmillan",
+            "lastName": "student",
+            "sq1": "What high school did you attend?",
+            "sq1_answer": "answer111",
+            "sq2": "What is your favorite movie?",
+            "sq2_answer": "answer222",
+            "sq3": "What is your favorite color?",
+            "sq3_answer": "answer",
+            "primarySchool": "Macmillan Learning"
+        },
+        "instructor_1": {
+            "username": "lesodene@simplemail.in",
+            "password": "ABCabc@123",
+            "firstName": "instructor",
+            "lastName": "macmillan",
+            "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
+            "sq1_answer": "answer",
+            "sq2": "What is the name of your first school?",
+            "sq2_answer": "answer",
+            "sq3": "What is the name of your pet?",
+            "sq3_answer": "answer",
+            "primarySchool": "macmillan learning"
+        },
+        "instructor_2": {
+            "username": "julukiboze@quickmail.in",
+            "password": "ABCabc@123",
+            "firstName": "instructor",
+            "lastName": "macmillan",
+            "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
+            "sq1_answer": "answer",
+            "sq2": "What is the name of your first school?",
+            "sq2_answer": "answer",
+            "sq3": "What is the name of your pet?",
+            "sq3_answer": "answer",
+            "primarySchool": "macmillan learning"
         }
     },
     "int": {
@@ -67,7 +198,7 @@
             "primarySchool": "Miami University"
         },
         "admin_2": {
-            "username": "james@pay-mon.com",
+            "username": "jagujowed@maillist.in",
             "password": "ABCabc@123",
             "firstName": "courseware",
             "lastName": "achieve",
@@ -86,7 +217,7 @@
             "firstName": "pf-admin",
             "lastName": "Pathfinder",
             "sq1": "What is the first and last name of your first boyfriend or girlfriend?",
-            "sq1": "a",
+            "sq1_answer": "a",
             "sq2": "What was your favorite place to visit as a child?",
             "sq2_answer": "a",
             "sq3": "Who is your favorite actor, musician, or artist?",
@@ -94,7 +225,7 @@
             "primarySchool": "Test Macmillan"
         },
         "customer_support_1": {
-            "username": "customersupport@2emailock.com",
+            "username": "zilet@mail-point.net",
             "password": "ABCabc@123",
             "firstName": "Cust",
             "lastName": "Spport",
@@ -107,7 +238,7 @@
             "primarySchool": "Miami University"
         },
         "media_editor_1": {
-            "username": "vunujiw@2emailock.com",
+            "username": "jafaziy@maillist.in",
             "password": "ABCabc@123",
             "firstName": "Media",
             "lastName": "editor",
@@ -133,7 +264,7 @@
             "primarySchool": "macmillan.com"
         },
         "media_producer_2": {
-            "username": "cibico@mailhub.top",
+            "username": "nehatenep@mail-click.net",
             "password": "ABCabc@123",
             "firstName": "media",
             "lastName": "Producer",
@@ -146,7 +277,7 @@
             "primarySchool": "macmillan learning"
         },
         "paid_access": {
-            "username": "paidaccess@2emailock.com",
+            "username": "tivujehek@simplemail.in",
             "password": "ABCabc@123",
             "firstName": "sugdi",
             "lastName": "ram",
@@ -159,7 +290,7 @@
             "primarySchool": "Miami University"
         },
         "student_1": {
-            "username": "tijup@directmail.top",
+            "username": "student@4simpleemail.com",
             "password": "ABCabc@123",
             "firstName": "macmillan",
             "lastName": "student",
@@ -173,10 +304,12 @@
         },
         "student_2": {
             "username": "raptorstudent",
-            "password": "fasterthansixmill"
+            "password": "fasterthansixmill",
+            "firstName": "Raptor",
+            "lastName": "Student"
         },
         "instructor_1": {
-            "username": "vuwud@crowd-mail.com",
+            "username": "instructor@theeasymail.com",
             "password": "ABCabc@123",
             "firstName": "instructor",
             "lastName": "macmillan",
@@ -210,7 +343,7 @@
             "firstName": "pf-admin",
             "lastName": "Pathfinder",
             "sq1": "What is the first and last name of your first boyfriend or girlfriend?",
-            "sq1": "a",
+            "sq1_answer": "a",
             "sq2": "What was your favorite place to visit as a child?",
             "sq2_answer": "a",
             "sq3": "Who is your favorite actor, musician, or artist?",
@@ -226,7 +359,7 @@
             "firstName": "pf-admin",
             "lastName": "Pathfinder",
             "sq1": "What is the first and last name of your first boyfriend or girlfriend?",
-            "sq1": "verdant",
+            "sq1_answer": "verdant",
             "sq2": "What was your favorite place to visit as a child?",
             "sq2_answer": "attempt",
             "sq3": "Who is your favorite actor, musician, or artist?",

@@ -39,7 +39,7 @@
         }, {
             "name": "resources",
             "byType": "css",
-            "definition": "[data-test-id='resources_tab']",
+            "definition": "li[data-test-id='resources_tab']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -72,8 +72,7 @@
             "definition": "[data-test-id='achieve_logo_link']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "gradebookTab",
             "byType": "css",
             "definition": "[data-test-id='gradebook_tab']",
@@ -89,6 +88,22 @@
             "name": "closeMessage",
             "byType": "xpath",
             "definition": "//*[@id='container']/div/div/div/div[4]/div/article/div[2]/div[2]/button",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "courseName",
+            "byType": "xpath",
+            "definition": "//span[contains(@data-test-id,'course_template_name') and contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "selectTemplate",
+            "byType": "css",
+            "definition": "[aria-label='Create from selected template']",
             "frame": "default",
             "specialInstr": "NA"
 

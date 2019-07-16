@@ -1,19 +1,15 @@
-@Course
+@Course @Smoke
 Feature: Instructor attempts all the activities in Read & Practice Template
 
-    @delete-mediaproducer-courses   
-    @delete-Instructor
+    @mediaproducer-delete-course   
+    @instructor-delete-course
     Scenario: Verify that Instructor is able to copy course from Read & Practice Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Read & Practice Template" with ISBN "9781464199498" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Read & Practice              |
-            | courseName        | Read & Practice Template     |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
+
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
@@ -32,7 +28,7 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         And I copy course from the "Read & Practice Course" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                      |
        
         And I sign out of Achieve
 
@@ -47,14 +43,14 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         And I create a course "Read & Practice Template" with the following data
             | field             | value                                     |
             | courseName        | Read & Practice Instructor Course         |
-            | courseCode        | E2E301                                    |
+            | courseCode        | E2E 301                                    |
          
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And I verify that "Read & Practice Instructor Course" is created with following data
             | field                 | value                                   |
             | courseName            | Read & Practice Instructor Course       |
-            | courseDate            |  E2E301                                 |
+            | courseDate            |  E2E 301                                 |
            
         
 

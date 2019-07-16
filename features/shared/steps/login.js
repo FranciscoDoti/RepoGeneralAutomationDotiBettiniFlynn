@@ -86,3 +86,7 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
   };
 });
 
+When('I logout IBISCMS', async function () {
+  await pages.login.click('User Menu Button');
+  await pages.login.click('Logout Menu');
+});

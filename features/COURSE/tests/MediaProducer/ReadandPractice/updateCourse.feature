@@ -1,18 +1,13 @@
- @Smoke
+@Course @Smoke
  Feature: Update the Template   
      
-    @delete-mediaproducer-courses       
+    @mediaproducer-delete-course       
     Scenario: Verify that Media Producer is able to update the template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Read & Practice Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Read & Practice              |
-            | courseName        | Read & Practice Template     |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create "Read & Practice Template" Template with following data 
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |

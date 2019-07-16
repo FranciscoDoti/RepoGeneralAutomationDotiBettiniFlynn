@@ -1,18 +1,14 @@
-@Smoke
+@Course @Smoke
 Feature: Adding activities to the template
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that Media Producer is able to add activities to the template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Read & Practice Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Read & Practice              |
-            | courseName        | Read & Practice Template     |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+           | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
+
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
@@ -24,10 +20,10 @@ Feature: Adding activities to the template
             | type                    | activity                                      |
             | addButtonReadandpractice | LCRP1550612138614                            |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  About The Authors                            |
+            | addReadingButton        |  Dedication                                   |
 
         Then I verify that activties are added
             | activity                                      |
             | LCRP1550612138614                             |    
             | LC1551301608988                               |
-            |  About The Authors                            |            
+            |  Dedication                                   |            

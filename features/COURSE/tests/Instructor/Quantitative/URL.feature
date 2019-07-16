@@ -1,18 +1,13 @@
+@Course @Smoke
 Feature: Verify that Instructor is able to create URL
 
-   
+   @mediaproducer-delete-course
     Scenario: Verify that mediaproducer is able to create a custom task with URL
 
         Given I login to Achieve-CW as "media_producer_1"
-        When I create "Quantitative Template" with the data
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Quantitative                 |
-            | courseName        | Quantitative Template        |
-            | courseCode        | E2E 301                      |
-            | learningObjective | Principles of Microeconomics |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
 
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
@@ -23,7 +18,7 @@ Feature: Verify that Instructor is able to create URL
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -36,7 +31,7 @@ Feature: Verify that Instructor is able to create URL
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
         And I add URL link to "Quantitative Course" in coursePlanner
@@ -51,4 +46,4 @@ Feature: Verify that Instructor is able to create URL
 
         Then I verify that activties are added in courseplanner
             | activity                                                            | 
-            | Google                                                               |      
+            | Google                                                              |      
