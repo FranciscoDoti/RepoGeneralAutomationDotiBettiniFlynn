@@ -11,15 +11,15 @@ When('I configure the following item details', async function (datatable) {
   await pages.raptor.click('itemDetailsDoneButton');
 });
 
-When(/^I add list variables with "(.*)" rows and "(.*)" columns$/, async function (rows, columns, datatable) {
+When('I add list variables', async function (datatable) {
   await pages.raptor.click('variablesChevron');
   await pages.raptor.click('addListVariableButton');
 
-  for (let col = 1; col < columns; col++) {
+  for (let col = 1; col < datatable.rows()[0].length - 3; col++) {
     await pages.raptor.click('addColumnButton');
   }
 
-  for (let row = 1; row < rows; row++) {
+  for (let row = 1; row < datatable.rows().length; row++) {
     await pages.raptor.click('addRowButton');
   }
 
@@ -27,6 +27,9 @@ When(/^I add list variables with "(.*)" rows and "(.*)" columns$/, async functio
     await pages.raptor.populate('variableNameTextbox', i + 1, datatable.hashes()[i].Name);
     await pages.raptor.populate('variableValue1Textbox', i + 1, datatable.hashes()[i].Value1);
     await pages.raptor.populate('variableValue2Textbox', i + 1, datatable.hashes()[i].Value2);
+    if (datatable.hashes()[i].Value3 !== undefined) {
+      await pages.raptor.populate('variableValue3Textbox', i + 1, datatable.hashes()[i].Value3);
+    }
     await pages.raptor.populate('variableTypeDropdown', i + 1, datatable.hashes()[i].Type);
   }
 });
@@ -54,17 +57,17 @@ When('I add the following calculated algos', async function (datatable) {
 When('I add the following choices', async function (datatable) {
   for (let i = 0; i < datatable.rows().length; i++) {
     if (i > 1) {
-      await pages.multipleSelect.click('addChoiceButton');
+      await pages.multipleSelect.click('Add Choice Button');
     }
-    await pages.multipleSelect.populate('choiceValueTextbox', i + 1, datatable.hashes()[i].Value);
+    await pages.multipleSelect.populate('Choice Value Textbox', i + 1, datatable.hashes()[i].Value);
   }
 });
 
 Then('The rendered values of the variables are displayed as choices in the module', async function () {
-  await pages.raptor.click('cycleVariablesButton');
-  await pages.raptor.click('moreButton');
-  await pages.raptor.click('saveAsDraft');
-  let text = await pages.multipleSelect.getText('choice1Text');
+  await pages.raptor.click('Cycle Variables Button');
+  await pages.raptor.click('More Button');
+  await pages.raptor.click('Save As Draft');
+  let text = await pages.multipleSelect.getText('Choice Text', '1');
   if (await expect(text.length).to.equal(1)) {
     log.info(`Expected length is "${1}". Actual length is "${text.length}". PASS`);
   };

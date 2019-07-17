@@ -15,8 +15,8 @@ Then(/^I verify item has been created$/, async function () {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1];
 
     //below two steps need to be added to I add the "(.*)" module
-    await pages.raptor.click('moreButton');
-    await pages.raptor.click('saveAsDraft');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
 });
@@ -24,8 +24,8 @@ Then(/^I verify item has been created$/, async function () {
 Then(/^I verify item has been created with following details$/, async function (dataTable) {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1].trim();
     //below two steps need to be added to I add the "(.*)" module
-    await pages.raptor.click('moreButton');
-    await pages.raptor.click('saveAsDraft');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
     await getDriver().navigate().refresh();
     await pages.raptor.assertElementExists('amsItemCreate',itemid.trim());
