@@ -3,7 +3,7 @@
   "lockfileVersion": 1,
   "scripts": {
     "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json",
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-errorMessages.feature -f json:reports/cucumber_report.json",
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
     "folder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Quantitative/PSV-3688.feature -f json:reports/cucumber_report.json",
