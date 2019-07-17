@@ -15,8 +15,12 @@ When(/^I am on the AMS page and click open a saved raptor item$/, async function
 
 When(/^I set the item status to live$/, async function () {
   await pages.ams.populate('itemStatus', 'Live');
+  console.log("clicked live");
   await pages.ams.click('itemStatus');
+  console.log("clicked itemStatus");
+
   await pages.ams.click('modalSave');
+  console.log("clicked modalSave");
 });
 
 Then(/^I verify the item reflects status update in "(.*)" element$/, async function (element) {
