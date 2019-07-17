@@ -78,6 +78,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Keep Attempts Button",
+            "byType": "xpath",
+            "definition": "//button[.='Keep Attempts and Launch']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Assignment Preview Button",
             "byType": "xpath",
             "definition": "//button[@data-test-id='assignment-preview-button']",
