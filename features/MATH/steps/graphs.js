@@ -2,7 +2,11 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
+const _ = require('lodash');
+const { visitURL } = require(`${process.cwd()}/app/driver`)
 chai.use(require('chai-sorted'));
+const { Key } = require('selenium-webdriver');
+
 
 When(/^I click on the Graphs tab$/, async function () {
   await pages.graphTab.click('tab');
@@ -116,6 +120,7 @@ Then(/^I verify the graph editor "(.*)" has "(.*)" graph Id number$/, async func
 When(/^I click the "(.*)" icon for graphId "(.*)"$/, async function (icon, userGraphId) {
   if (icon === 'window') {
     await pages.graphTab.click('itemWindow', userGraphId);
+    await pages.graphEditor.switchToTab('Graphing');
   } else if (icon === 'preview') {
     await pages.graphTab.click('itemPreview', userGraphId);
     await pages.graphEditor.switchToTab('Graphing');
@@ -284,4 +289,35 @@ Then(/^I verify the graphs list is "(.*)" order of graph "(.*)" column name$/, a
     default:
       expect(dataArray).to.be.sorted();
   }
+});
+
+When(/^I try to save the previously opened graph editor$/, async function () {
+  await pages.graphEditor.switchToTab('Graphing');
+  await pages.graphEditor.click('saveButton');
+});
+
+Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
+  switch (popupText) {
+    case 'Error: Unauthorized':
+      await pages.graphEditor.assertAlertText('Error: Unauthorized, please log in and try again.');
+      break;
+    case 'Error: An error occurred':
+      await pages.graphEditor.assertAlertText('Error: An error occurred. Please try again or contact an Assessments representative.');
+      break;
+    case 'Graph saved. refresh AMS':
+      await pages.graphEditor.assertAlertText('Graph saved. You may need to refresh your AMS tab to see the changes.');
+      break;
+    default:
+      await pages.graphEditor.acceptAlert();
+  }
+  await pages.graphEditor.acceptAlert();
+});
+
+
+When(/^I input non-existing graphid in the graph editor url$/, async function () {
+  let currentUrl = await pages.graphEditor.getCurrentURL();
+  let urlNonExistGraphId = currentUrl+101;
+  
+  await visitURL(urlNonExistGraphId, Key.ENTER);
+  await pages.graphEditor.click('saveButton');
 });

@@ -7,6 +7,7 @@ const pages = {
     graphTab: new PageObject('graphTab.json', stepsPath),
     graphEditor: new PageObject('graphEditor.json', stepsPath),
     palette: new PageObject('palette.json', stepsPath),
+    saplingLearning: new PageObject('saplingLearning.json', stepsPath)
 };
 
 module.exports = {
