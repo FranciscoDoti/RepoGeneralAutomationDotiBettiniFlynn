@@ -11,6 +11,13 @@
             "definition": "[data-test-id='overview_tab']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "welcomeMessage",
+            "byType": "css",
+            "definition": "[data-test-id='welcome_modal_course_list_button']",
+            "frame": "default",
+            "specialInstr": "NA"
         }, {
             "name": "coursePlanner",
             "byType": "css",
@@ -32,7 +39,7 @@
         }, {
             "name": "resources",
             "byType": "css",
-            "definition": "[data-test-id='resources_tab']",
+            "definition": "li[data-test-id='resources_tab']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -65,8 +72,7 @@
             "definition": "[data-test-id='achieve_logo_link']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "gradebookTab",
             "byType": "css",
             "definition": "[data-test-id='gradebook_tab']",
@@ -85,6 +91,23 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "courseName",
+            "byType": "xpath",
+            "definition": "//span[contains(@data-test-id,'course_template_name') and contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "selectTemplate",
+            "byType": "css",
+            "definition": "[aria-label='Create from selected template']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
+        
     ]
 }
