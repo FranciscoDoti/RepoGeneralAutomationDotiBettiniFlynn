@@ -520,6 +520,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getPageTitle=getPageTitle;
   that.assertPageTitle=assertPageTitle;
   that.assertPageTitleIncludes=assertPageTitleIncludes;
+  that.addDynamicElement=addDynamicElement;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }
