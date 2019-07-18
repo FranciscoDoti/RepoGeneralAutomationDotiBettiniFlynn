@@ -605,7 +605,7 @@
 
         },
         {
-            "name": "editTittle",
+            "name": "editTitle",
             "byType": "css",
             "definition": "[class='ActivityTitle__titleEdit__3jSK4']",
             "frame": "customIframe",
@@ -613,7 +613,7 @@
 
         },
         {
-            "name": "activityTittle",
+            "name": "activityTitle",
             "byType": "css",
             "definition": "[data-id='activity-title-editField']",
             "frame": "customIframe",
@@ -621,7 +621,7 @@
 
         },
         {
-            "name": "tittleSave",
+            "name": "TitleSave",
             "byType": "css",
             "definition": "[data-id='title-save']",
             "frame": "customIframe",

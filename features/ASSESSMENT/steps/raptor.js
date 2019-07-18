@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+const { getDriver, onWaitForElementToBeInvisible} = require(`${process.cwd()}/app/driver`);
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
     await mathpages.ams.assertElementExists('raptorNewItem');
@@ -9,11 +10,14 @@ When(/^I add the "(.*)" module$/, async function (moduleType) {
     await pages.raptor.click('addLink');
     await pages.raptor.click('modulePallete', moduleType);
     await pages.raptor.click('contentArea');
+    var rows = dataTable.hashes();
+    await pages.raptor.populate('chemicalEquationPrefix',rows[0].value);
+    await pages.raptor.click('correctContext');
+    await pages.raptor.populate('chemicalEquationAnswerInput',rows[1].value);
 });
 
 Then('I verify item has been created', async function () {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1];
-
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('moreButton');
     await pages.raptor.click('saveAsDraft');
@@ -28,7 +32,14 @@ Then('I verify item has been created with following details', async function (da
     await pages.raptor.click('saveAsDraft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
     await getDriver().navigate().refresh();
+<<<<<<< HEAD
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
+=======
+
+    //code to check element should not be present
+    await onWaitForElementToBeInvisible('algoliaProcessingText');
+    await pages.raptor.assertElementExists('amsItemCreate',itemid.trim());
+>>>>>>> c9453485dc652d4de6d4e552637bdfa57cf4725d
     var rows = dataTable.hashes();
     for (let i = 0; i < dataTable.rows().length; i++) {
         let field = await rows[i].field;

@@ -1,22 +1,17 @@
-@Smoke
+@Course @Smoke
 Feature: Adding activities in Folder Resource Tab
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
-            | learningObjective | macmillan calculus           |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Qualitative Template                                       |       
+            | courseName       | Qualitative Template                                        |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
@@ -24,14 +19,14 @@ Feature: Adding activities in Folder Resource Tab
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         |  About The Authors                            |
+            | addReadingButton         |  Dedication                                   |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | About The Authors                             | Reading           | 'About The Authors' was successfully moved to Reading.                              |
+            | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                     |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         When I reorder the resources on template
@@ -53,7 +48,7 @@ Feature: Adding activities in Folder Resource Tab
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | About The Authors                             | Reading           |
+            | Dedication                                    | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the following resources from the Template

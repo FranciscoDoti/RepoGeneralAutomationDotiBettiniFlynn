@@ -1,19 +1,14 @@
-@Smoke
+@Course @Smoke
 Feature: Create course
 
-    @delet-CourseName
+    @mediaproducer-delete-course
     Scenario:  Create course Template for Qualitative
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
-            | courseCode        | E2E 301                      |
-            | learningObjective | macmillan calculus           |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+            | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+
 
         Then I verify that "Qualitative Template Created." message is displayed
         And I verify that "Qualitative Template" has created with following "ISBN: 9781464199498" number

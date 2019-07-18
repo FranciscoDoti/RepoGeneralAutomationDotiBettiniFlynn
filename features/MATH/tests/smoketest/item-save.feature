@@ -11,9 +11,11 @@ Feature: To save the AMS raptor item
     And I click on the Question tab, and add an Answer field
 
     And I set the grade as <evaltype> type, with <enforceEndpoints>, <upperTolerance>, <lowerTolerance> and input <questionEquation>
-    Then I save the question and verify saving message box
+    Then I save the question
     And I note the item Id and save in a temp file
 
     Examples:
       | evaltype   | questionEquation | answerEquation | enforceEndpoints | upperTolerance | lowerTolerance |
       | "Relation" | "2x+26=0"        | "2x+26=0"      | ""               | ""             | ""             |
+
+  
