@@ -1,5 +1,6 @@
 Feature: To configure a complete authoring raptor item
 
+  @Assessment @AdvancedAuthoring @Smoke
   Scenario: User creates a new AMS raptor item and configures it
 
     Given I login to AMS as "all-permissions-author"
