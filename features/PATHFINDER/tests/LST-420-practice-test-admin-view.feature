@@ -1,3 +1,4 @@
+@Pathfinder
 Feature: Test the basic functionality of the admin view of a practice test
 
     Scenario: An admin launches a practice test and sees the admin view of the practice test page
