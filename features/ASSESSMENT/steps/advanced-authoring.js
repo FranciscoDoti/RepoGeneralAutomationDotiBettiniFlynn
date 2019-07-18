@@ -67,7 +67,7 @@ Then('The rendered values of the variables are displayed as choices in the modul
   await pages.raptor.click('Cycle Variables Button');
   await pages.raptor.click('More Button');
   await pages.raptor.click('Save As Draft');
-  let text = await pages.multipleSelect.getText('Choice Text', '1');
+  let text = await pages.multipleSelect.getText('Choice Text 1');
   if (await expect(text.length).to.equal(1)) {
     log.info(`Expected length is "${1}". Actual length is "${text.length}". PASS`);
   };

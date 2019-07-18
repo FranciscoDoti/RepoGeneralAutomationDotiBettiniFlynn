@@ -13,9 +13,9 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "Choice Text",
+            "name": "Choice Text 1",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span/label/span",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
             "frame": "default",
             "specialInstr": "NA"
         }
