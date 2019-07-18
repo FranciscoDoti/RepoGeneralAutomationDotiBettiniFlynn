@@ -32,7 +32,7 @@
     }, {
         "name": "filterSearch",
         "byType": "id",
-        "definition": "q",
+        "definition": "filter-input-id",
         "frame": "default",
         "specialInstr": "NA"
     }, 
