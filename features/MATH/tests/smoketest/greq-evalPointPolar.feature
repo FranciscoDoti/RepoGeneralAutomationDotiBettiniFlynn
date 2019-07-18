@@ -1,3 +1,4 @@
+@math @smoke
 Feature: Polar Coordinates for Point eval type
 
     Scenario: Verify an equivalent polar coordinate for Point eval type without transforming the angle by 2π

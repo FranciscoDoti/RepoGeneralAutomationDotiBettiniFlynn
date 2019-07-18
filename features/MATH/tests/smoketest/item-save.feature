@@ -1,3 +1,4 @@
+@math @smoke
 Feature: To save the AMS raptor item
 
   Scenario Outline: User creates and saves a new AMS raptor item question and save the item id in a file

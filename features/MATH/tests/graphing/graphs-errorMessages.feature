@@ -1,3 +1,4 @@
+@math @graph @graph-error
 Feature: Verify Graph editor error messages
 
     Background: Login with graphing permission and navigate to Graph tab
