@@ -1,5 +1,6 @@
 Feature: To configure a multiple choice raptor item
 
+  @@Assessment @MultipleChoice @Smoke
   Scenario: User creates a new AMS multiple choice raptor item and configures it
 
     Given I login to AMS as "all-permissions-author"
