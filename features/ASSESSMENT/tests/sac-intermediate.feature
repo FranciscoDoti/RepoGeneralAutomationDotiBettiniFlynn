@@ -1,6 +1,6 @@
 Feature: To configure an intermediate test in SAC
 
-  @SAC @Assessment @Smoke
+  @Assessment @SAC @Smoke
   Scenario: Student navigates to an existing assessment
 
     Given I login to IBISCMS as "student_2"

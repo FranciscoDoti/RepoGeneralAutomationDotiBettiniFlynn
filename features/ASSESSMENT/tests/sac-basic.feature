@@ -1,6 +1,6 @@
 Feature: To configure a basic test in SAC
 
-  @SAC @Assessment @Smoke
+  @Assessment @SAC @Smoke
   Scenario: User navigates to an existing assessment
 
     Given I login to IBISCMS as "raptor-instructor"
