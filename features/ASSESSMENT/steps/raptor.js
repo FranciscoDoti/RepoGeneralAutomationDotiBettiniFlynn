@@ -32,14 +32,10 @@ Then('I verify item has been created with following details', async function (da
     await pages.raptor.click('saveAsDraft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
     await getDriver().navigate().refresh();
-<<<<<<< HEAD
-    await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
-=======
 
     //code to check element should not be present
     await onWaitForElementToBeInvisible('algoliaProcessingText');
-    await pages.raptor.assertElementExists('amsItemCreate',itemid.trim());
->>>>>>> c9453485dc652d4de6d4e552637bdfa57cf4725d
+    await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
     var rows = dataTable.hashes();
     for (let i = 0; i < dataTable.rows().length; i++) {
         let field = await rows[i].field;
