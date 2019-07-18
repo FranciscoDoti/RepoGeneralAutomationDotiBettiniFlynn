@@ -216,7 +216,15 @@
             "definition": "input[data-test-id='tolerance-below-field']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
+            "name": "mathPolarCoordinate",
+            "byType": "css",
+            "definition": "input[data-test-id='edit-panel-checkbox-polar_form']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+         {
             "name": "checkYourWorkAnswerText1",
             "byType": "css",
             "definition": "span.mq-math-mode",
