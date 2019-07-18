@@ -1,6 +1,6 @@
-Feature: To configure a complete authoring raptor item
+Feature: To configure a multiple choice raptor item
 
-  Scenario: User creates a new AMS raptor item and configures it
+  Scenario: User creates a new AMS multiple choice raptor item and configures it
 
     Given I login to AMS as "all-permissions-author"
     When I add the "Multiple Choice" module
