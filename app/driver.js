@@ -1,5 +1,6 @@
 // ------------ Start up the chrome server ------------
 const webdriver = require('selenium-webdriver');
+const remote = require('selenium-webdriver/remote');
 const chrome = require('selenium-webdriver/chrome');
 const firefox = require('selenium-webdriver/firefox');
 const chromedriver = require('chromedriver');
@@ -93,6 +94,7 @@ driver = buildDriver();
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
+  await driver.setFileDetector(new remote.FileDetector());
   return driver.get(url);
 };
 

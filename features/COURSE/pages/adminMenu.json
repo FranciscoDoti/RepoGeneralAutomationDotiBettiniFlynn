@@ -172,6 +172,54 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "checkAccount",
+            "byType": "css",
+            "definition": "span[data-test-id='menu_user_admin_check_account']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "checkAccountEmailId",
+            "byType": "css",
+            "definition": "input[data-test-id='check_account_modal_search_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "checkAccountSearchButton",
+            "byType": "css",
+            "definition": "button[data-test-id='check_account_modal_search_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "accountName",
+            "byType": "css",
+            "definition": "span[data-test-id='check_account_modal_student_name']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "studentId",
+            "byType": "css",
+            "definition": "span[data-test-id='check_account_modal_student_id']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "studentEmail",
+            "byType": "css",
+            "definition": "span[data-test-id='check_account_modal_student_email']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
 
     ]
