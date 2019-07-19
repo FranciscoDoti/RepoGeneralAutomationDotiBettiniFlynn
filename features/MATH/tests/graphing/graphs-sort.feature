@@ -1,3 +1,4 @@
+@math @graph @graph-sort
 Feature: Graph sorting by Id, Title, Type
 
 Background: Logins to AMS and clicks on Graph Tab
