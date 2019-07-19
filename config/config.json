@@ -1,9 +1,9 @@
 {
     "environment": "int",
-    "mode": "local",
+    "mode": "hub",
     "browser": "chrome",
     "headless": false,
-    "screenshots": "true",
+    "screenshots": "onFail",
     "timeout": 80000,
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
