@@ -1,3 +1,4 @@
+@Assessment @WordAnswer @Smoke
 Feature: To configure a Word Answer raptor item
 
   Scenario: User creates a new Word Answer raptor item and configures it
