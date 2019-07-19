@@ -3,8 +3,8 @@
     "mode": "local",
     "browser": "chrome",
     "headless": false,
-    "screenshots": "true",
-    "timeout": 80000,
+    "screenshots": "onFail",
+    "timeout": 60000,
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
         "mode": "local | docker | browserstack | localgrid | hub",
