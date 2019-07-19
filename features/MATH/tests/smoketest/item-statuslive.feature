@@ -1,3 +1,4 @@
+@math @smoke
 Feature: Update AMS raptor item status to live
 
   Scenario Outline: User creates and saves a new AMS raptor item question and save the item id in a file
