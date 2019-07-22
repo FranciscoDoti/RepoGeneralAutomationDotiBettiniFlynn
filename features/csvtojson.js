@@ -11,6 +11,7 @@ let csvtojson = function (callback) {
     .fromFile(csvfile)
     .then((jsonObj) => {
       callback(jsonObj)
+      console.log(jsonObj);
 
     });
 };

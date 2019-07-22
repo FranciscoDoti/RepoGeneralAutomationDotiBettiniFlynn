@@ -116,7 +116,7 @@
         }, {
             "name": "generateAccessCode",
             "byType": "css",
-            "definition": "[data-test-id='generate_access_code_modal_create_btn']",
+            "definition": "[data-test-id='generate_access_code_modal_input']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -217,6 +217,14 @@
             "name": "studentEmail",
             "byType": "css",
             "definition": "span[data-test-id='check_account_modal_student_email']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "accessCode",
+            "byType": "css",
+            "definition": "span[data-test-id='generate_access_code_modal_code']",
             "frame": "default",
             "specialInstr": "NA"
 

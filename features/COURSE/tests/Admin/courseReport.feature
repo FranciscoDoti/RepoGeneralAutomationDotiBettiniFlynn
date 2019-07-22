@@ -7,8 +7,8 @@ Feature: Administrator Tools
         When I generate and export course report 
         Then I verify the report is dowloaded with following data
             | Verify                        |
-            | lcrp                          |
             | lc                            |
+            | lcrp                          |
             | Product Model                 |
             | pathfinder                    |
             | staticfile                    |

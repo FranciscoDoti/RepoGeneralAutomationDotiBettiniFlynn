@@ -311,7 +311,6 @@ When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async fu
   await pages.coursePlanner.click('close');
 });
 
-<<<<<<< HEAD
 When('I add the activities in ebook', async function (data_table){
   await pages.coursePage.click('ebook');
   await pages.coursePage.click('customContentButton');
@@ -321,30 +320,3 @@ When('I add the activities in ebook', async function (data_table){
     await pages.coursePlanner.click('closeCourseplanner')
   }
 });
-=======
-When('I create template with following data', async function (data_table){
-  await pages.createCourse.click('plusButton');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    var c = data_table.hashes()[i];
-    this.data.set('code', c.courseCode);
-    this.data.set('Number',c.isbnNumber);
-      await pages.createCourse.assertElementExists('courseType');
-      await pages.createCourse.populate('courseType', c.courseType)
-      await pages.createCourse.assertElementExists('productModel');
-      await pages.createCourse.populate('productModel', c.productModel)
-      await pages.createCourse.assertElementExists('courseName');
-      await pages.createCourse.populate('courseName', c.courseName)
-      await pages.createCourse.assertElementExists('courseCode');
-      await pages.createCourse.populate('courseCode', c.courseCode)
-      if(c.learningObjective != ''){
-      await pages.createCourse.assertElementExists('learningObjective');
-      await pages.createCourse.populate('learningObjective', c.learningObjective)
-      }
-      await pages.createCourse.assertElementExists('isbnNumber');
-      await pages.createCourse.populate('isbnNumber', c.isbnNumber)
-      await pages.createCourse.assertElementExists('courseStatus');
-      await pages.createCourse.populate('courseStatus', c.courseStatus);
-    }
-    await pages.createCourse.click('save');
-});
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
