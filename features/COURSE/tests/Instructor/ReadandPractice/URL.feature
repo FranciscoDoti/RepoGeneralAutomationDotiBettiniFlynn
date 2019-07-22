@@ -1,6 +1,7 @@
-@Smoke
+@Course @Smoke
 Feature: Verify that Instructor is able to create URL
 
+<<<<<<< HEAD
     @delete-mediaproducer-courses
     Scenario: Verify that mediaproducer is able to create a custom task with URL
 
@@ -13,6 +14,16 @@ Feature: Verify that Instructor is able to create URL
             | courseCode        | E2E 301                      |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
+=======
+   @mediaproducer-delete-course
+    Scenario: Verify that mediaproducer is able to create a custom task with URL
+
+        Given I login to Achieve-CW as "media_producer_1"
+       When I create template with following data 
+            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
+
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I activate the "Read & Practice Template" template and add the following data
             | field            | value                                                       |
@@ -23,7 +34,11 @@ Feature: Verify that Instructor is able to create URL
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
+<<<<<<< HEAD
             | courseCode        | E2E 301                       |
+=======
+            | courseCode        | E2E 301                      |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -36,7 +51,11 @@ Feature: Verify that Instructor is able to create URL
         When I activate "Read & Practice Course" course with following data 
             | field             | value                        |
             | courseName        | Read & Practice Course       |
+<<<<<<< HEAD
             | courseCode        |  E2E 301                      |
+=======
+            | courseCode        |  E2E 301                     |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             | templateStatus    |  Active On Date              |
 
         And I add URL link to "Read & Practice Course" in coursePlanner

@@ -38,8 +38,13 @@
             "specialInstr": "NA"
         }, {
             "name": "resources",
+<<<<<<< HEAD
             "byType": "xpath",
             "definition": "//button[@class='_3Mch' and .='Resources']",
+=======
+            "byType": "css",
+            "definition": "li[data-test-id='resources_tab']",
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -72,8 +77,7 @@
             "definition": "[data-test-id='achieve_logo_link']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "gradebookTab",
             "byType": "css",
             "definition": "[data-test-id='gradebook_tab']",
@@ -91,6 +95,7 @@
             "definition": "//*[@id='container']/div/div/div/div[4]/div/article/div[2]/div[2]/button",
             "frame": "default",
             "specialInstr": "NA"
+<<<<<<< HEAD
         },
         {
             "name": "browse",
@@ -104,6 +109,25 @@
             "definition": "//button[@class='_3Mch _2NuQ' and .='My Course']",
             "frame": "default",
             "specialInstr": "NA"
+=======
+
+        },
+        {
+            "name": "courseName",
+            "byType": "xpath",
+            "definition": "//span[contains(@data-test-id,'course_template_name') and contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "selectTemplate",
+            "byType": "css",
+            "definition": "[aria-label='Create from selected template']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
         }
 
 

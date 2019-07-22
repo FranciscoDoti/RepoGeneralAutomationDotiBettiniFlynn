@@ -1,3 +1,4 @@
+@Assessment @AdvancedAuthoring @Smoke
 Feature: To configure a complete authoring raptor item
 
   Scenario: User creates a new AMS raptor item and configures it

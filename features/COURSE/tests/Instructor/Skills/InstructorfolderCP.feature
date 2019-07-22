@@ -1,21 +1,17 @@
-@Smoke
-Feature: Instructor adds folder, remove folder and reorders it 
-    @delete-mediaproducer-courses
+@Course @Smoke
+Feature: Instructor adds folder, remove folder and reorders it
+
+    @mediaproducer-delete-course
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Skills Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Skills                       |
-            | courseName        | Skills Template              |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+         When I create template with following data 
+           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Skills Template" template and add the following data
             | field            | value                                                       |
-            | courseName       | Skills Template                                       |       
+            | courseName       | Skills Template                                             |       
             | courseCode       | E2E 301                                                     |
             | templateStatus   | Active On Date                                              |
 
@@ -23,14 +19,19 @@ Feature: Instructor adds folder, remove folder and reorders it
             | type                      | activity                                      |
             | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  About The Authors                            |
+            | addReadingButton          |  Dedication                                   |
             | addButtonReadandpractice  | LCRP1550612138614                             |                         
 
         And I click on home button to return to coursepage
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
+<<<<<<< HEAD
             | courseName        | Skills Course          |
             | courseCode        | E2E 301                       |
+=======
+            | courseName        | Skills Course                |
+            | courseCode        | E2E 301                      |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -42,22 +43,27 @@ Feature: Instructor adds folder, remove folder and reorders it
 
         When I activate "Skills Course" course with following data 
             | field             | value                        |
+<<<<<<< HEAD
             | courseName        | Skills Course          |
             | courseCode        |  E2E 301                      |
+=======
+            | courseName        | Skills Course                |
+            | courseCode        |  E2E 301                     |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Skills Course" course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | About The Authors                                                 |
+            | Dedication                                                        |
             | LCRP1550612138614                                                 |
             
         And I reorder the resources on template in "coursePlanner"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
             | LC1551301608988                                                   | movedownButton |
-            | About The Authors                                                 | moveToEnd      |
+            | Dedication                                                        | moveToEnd      |
             | LCRP1550612138614                                                 | moveUpButton   |
 
         Then I verify that resources are reordered in "coursePlanner"
@@ -65,20 +71,20 @@ Feature: Instructor adds folder, remove folder and reorders it
             | LCRP1550612138614                                                 |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
             | LC1551301608988                                                   |  3             |
-            | About The Authors                                                 |  4             |      
+            | Dedication                                                        |  4             |      
 
         And I add the activities to respective folders in "coursePlanner"
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | About The Authors                             | Reading           | 'About The Authors' was successfully moved to Reading.                              |
+            | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                              |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "coursePlanner"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | About The Authors                             | Reading           |
+            | Dedication                                    | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the resources from the Template in "coursePlanner"

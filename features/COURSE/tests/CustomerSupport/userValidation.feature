@@ -1,4 +1,4 @@
-@Smoke
+@Course @Smoke
 Feature: Validating the user
   
     Scenario:  Verify that customer support is able to check account of the user

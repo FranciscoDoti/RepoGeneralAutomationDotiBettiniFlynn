@@ -1,19 +1,15 @@
-@Course
+@Course @Smoke
 Feature: Instructor attempts all the activities in Skills Template
 
-    @delete-mediaproducer-courses
-    @delete-Instructor   
+    @mediaproducer-delete-course
+    @instructor-delete-course   
     Scenario: Verify that Instructor is able to copy course from Skills Template
     
         Given I login to Achieve-CW as "media_producer_2"
-        When  I create "Skills Template" with ISBN "9781464199498" 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Skills                       |
-            | courseName        | Skills Template              |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+
 
         And I activate the "Skills Template" template and add the following data
             | field            | value                                                       |
@@ -32,7 +28,11 @@ Feature: Instructor attempts all the activities in Skills Template
         And I copy course from the "Skills Course" template with the following data
             | field             | value                        |
             | courseName        | Skills Course                |
+<<<<<<< HEAD
             | courseCode        | E2E 301                       |
+=======
+            | courseCode        | E2E 301                      |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
        
         And I sign out of Achieve
 
@@ -47,14 +47,22 @@ Feature: Instructor attempts all the activities in Skills Template
         And I create a course "Skills Template" with the following data
             | field             | value                                     |
             | courseName        | Skills Instructor Course                  |
+<<<<<<< HEAD
             | courseCode        | E2E 301                                    |
+=======
+            | courseCode        | E2E 301                                   |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And  I verify that "Skills Instructor Course" is created with following data
             | field                 | value                                   |
             | courseName            | Skills Instructor Course                |
+<<<<<<< HEAD
             | courseDate            |  E2E 301                                 |
+=======
+            | courseDate            |  E2E 301                                |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
            
         
 

@@ -10,7 +10,7 @@ When(/^I click on the "(.*)" in NGA$/, async function (locator) {
 })
 
 Then("the user should be taken to a student preview", async function () {
-  await pages.instructorAssignment.assertElementExists("Pathfinder Modal");
+  await pages.NGA.assertElementExists("About Student Preview Modal");
   await pages.NGA.assertElementExists("About Student Preview Modal Cancel Button");
   await pages.NGA.click("About Student Preview Modal Continue Button");
   await pages.NGA.assertElementExists("Student Preview Bar");
@@ -20,5 +20,5 @@ Then("the user should be taken to a student preview", async function () {
 
 Then("the user should be taken to the activity editor", async function () {
   await pages.NGA.assertElementExists("Assignment Preview Button");
-  await pages.NGA.assertElementExists("Reset Preview Attempts Button");
+  await pages.NGA.assertElementExists("Grading Settings Button");
 })

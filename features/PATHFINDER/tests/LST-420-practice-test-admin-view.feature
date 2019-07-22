@@ -1,3 +1,5 @@
+@Pathfinder
+@admin
 Feature: Test the basic functionality of the admin view of a practice test
 
     Scenario: An admin launches a practice test and sees the admin view of the practice test page
@@ -5,7 +7,7 @@ Feature: Test the basic functionality of the admin view of a practice test
             When I search for "Pathfinder Automation Template" and click on course card
             When I launch the Practice Test for Expressions
                 Then there should be a "Results Button" on the instructor assignment page
-                Then there should be a "Student Preview Link" on the instructor assignment page
+                Then there should be a "Practice Test Student Preview Link" on the instructor assignment page
                 Then there should be a "Activity Editor Link" on the instructor assignment page
                 Then there should be a "Change Grading Settings Button" on the instructor assignment page
                 Then there should be a "Late Penalty Button" on the instructor assignment page
@@ -14,7 +16,7 @@ Feature: Test the basic functionality of the admin view of a practice test
         Given I login to Achieve-CW as "pf-admin"
             When I search for "Pathfinder Automation Template" and click on course card
             When I launch the Practice Test for Expressions
-            When I click on the "Student Preview Link" on the instructor assignment page
+            When I click on the "Practice Test Student Preview Link" on the instructor assignment page
                 Then the user should be taken to a student preview
 
     Scenario: An admin can get to the activity editor for the practice test
@@ -39,7 +41,7 @@ Feature: Test the basic functionality of the admin view of a practice test
                 Then there should be a "Grading Settings Performance Unselected" on the instructor assignment page
 
             When I click on the "Grading Settings Save Button" on the instructor assignment page
-                Then "Pathfinder Modal" should include the text "Grading setting changed."
+                Then "Confirm Save Modal" should include the text "Grading setting changed."
 
             When I click on the "Grading Settings Changed Modal Ok Button" on the instructor assignment page
                 Then "PreTest Grading Settings Container" should include the text "Completion"
@@ -54,7 +56,7 @@ Feature: Test the basic functionality of the admin view of a practice test
                 Then there should be a "Grading Settings Completion Unselected" on the instructor assignment page
 
             When I click on the "Grading Settings Save Button" on the instructor assignment page
-                Then "Pathfinder Modal" should include the text "Grading setting changed."
+                Then "Confirm Save Modal" should include the text "Grading setting changed."
 
             When I click on the "Grading Settings Changed Modal Ok Button" on the instructor assignment page
                 Then "PreTest Grading Settings Container" should include the text "Performance"
@@ -74,10 +76,10 @@ Feature: Test the basic functionality of the admin view of a practice test
                 Then there should be a "No Late Penalty Toggle Unselected" on the instructor assignment page
 
             When I click on the "Late Penalty Save Button" on the instructor assignment page
-                Then "Pathfinder Modal" should include the text "Do you want to confirm these changes?"
+                Then "Penalty Warning Confirm Modal" should include the text "Do you want to confirm these changes?"
 
             When I click on the "Late Penalty Confirm Button" on the instructor assignment page
-                Then "Pathfinder Modal" should include the text "Late Penalty Changes Saved"
+                Then "Penalty Warning Confirm Modal" should include the text "Late Penalty Changes Saved"
 
 # this step is actually clicking on the ok button on the Late Penalty Changes Saved modal,
 # but currently that button has the same id as the late penalty confirmation modal cancel button.
@@ -95,10 +97,10 @@ Feature: Test the basic functionality of the admin view of a practice test
                 Then there should be a "Late Penalty Toggle Unselected" on the instructor assignment page
 
             When I click on the "Late Penalty Save Button" on the instructor assignment page
-                Then "Pathfinder Modal" should include the text "Do you want to confirm these changes?"
+                Then "Penalty Warning Confirm Modal" should include the text "Do you want to confirm these changes?"
 
             When I click on the "Late Penalty Confirm Button" on the instructor assignment page
-                Then "Pathfinder Modal" should include the text "Late Penalty Changes Saved"
+                Then "Penalty Warning Confirm Modal" should include the text "Late Penalty Changes Saved"
 
 # this step is actually clicking on the ok button on the Late Penalty Changes Saved modal,
 # but currently that button has the same id as the late penalty confirmation modal cancel button.

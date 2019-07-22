@@ -12,8 +12,5 @@ When(/^I click on the "(.*)" on the instructor assignment page$/, async function
 })
 
 Then(/^"(.*)" should include the text "(.*)"$/, async function (locator, substring) {
-// this sleep is necessary because of a timing issue caused by not having separate identifiers
-// for each of the different modals. It will be removed after LST-500 fixes this problem.
-  await driver.sleep(3000);
   await pages.instructorAssignment.assertTextIncludes(locator, substring);
 })

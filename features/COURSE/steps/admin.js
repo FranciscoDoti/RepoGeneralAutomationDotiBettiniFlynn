@@ -9,14 +9,17 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
+  await pages.createCourse.assertTextIncludes('courseTitle', courseName )
+  await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', payload.username);
   await pages.adminMenu.click('addUserButton');
-  await pages.adminMenu.click('closeManageRoles');
   await pages.home.click('closeAlert');
+  await pages.adminMenu.click('closeManageRoles');
 });
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {

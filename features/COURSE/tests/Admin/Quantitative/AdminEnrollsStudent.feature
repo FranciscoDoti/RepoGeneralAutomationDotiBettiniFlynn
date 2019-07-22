@@ -1,20 +1,14 @@
-@Smoke
+@Course @Smoke
 Feature: Admin enrolls the student in the course 
 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that admin enrolls student in the course 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Quantitative Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Quantitative                 |
-            | courseName        | Quantitative Template        |
-            | courseCode        | E2E 301                      |
-            | learningObjective | Principles of Microeconomics |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
-
+        When I create template with following data 
+            | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
+            
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
             | courseName       | Quantitative Template                                       |       
@@ -29,8 +23,13 @@ Feature: Admin enrolls the student in the course
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
+<<<<<<< HEAD
             | field             | value                        |
             | courseName        | Quantitative Course          |
+=======
+            | field             | value                         |
+            | courseName        | Quantitative Course           |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
@@ -44,7 +43,11 @@ Feature: Admin enrolls the student in the course
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
+<<<<<<< HEAD
             | courseCode        |  E2E 301                      |
+=======
+            | courseCode        |  E2E 301                     |
+>>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Quantitative Course" course
@@ -59,7 +62,9 @@ Feature: Admin enrolls the student in the course
 
         And I sign out of Achieve
         And I login to Achieve-CW as "admin_1" 
-        And I enroll the "student_1" in "Quantitative Course" course  
+        And I enroll the "student_1" in "Quantitative Course" course
+        And I sign out of Achieve
 
         Then I verify that "Quantitative Course" is assigned to "student_1" 
+        And I sign out of Achieve
     
