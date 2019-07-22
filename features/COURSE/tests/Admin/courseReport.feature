@@ -14,3 +14,4 @@ Feature: Administrator Tools
             | staticfile                    |
             | reading                       |
             | url                           |
+            | writing                       |
