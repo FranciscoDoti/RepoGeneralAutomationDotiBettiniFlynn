@@ -123,8 +123,8 @@
             "specialInstr": "NA"
         }, {
             "name": "customContentButton",
-            "byType": "css",
-            "definition": "[data-test-id='custom_content_tab']",
+            "byType": "xpath",
+            "definition": "//button[@class='_1tkc' and .='New']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -137,7 +137,7 @@
         {
             "name": "addAssignmentButton",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../../div/div/div/button[@data-test-id='add_assignment']",
+            "definition": "//a[.='<ReplaceText>']/../../..//div[@class='_3a0e']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -403,7 +403,7 @@
         }, {
             "name": "addCustomActivity",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../button[@class='_1Uxg']",
+            "definition": "//a[.='<ReplaceText>']/../../../..//*[@type='add_to_course']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -605,7 +605,7 @@
 
         },
         {
-            "name": "editTittle",
+            "name": "editTitle",
             "byType": "css",
             "definition": "[class='ActivityTitle__titleEdit__3jSK4']",
             "frame": "customIframe",
@@ -613,7 +613,7 @@
 
         },
         {
-            "name": "activityTittle",
+            "name": "activityTitle",
             "byType": "css",
             "definition": "[data-id='activity-title-editField']",
             "frame": "customIframe",
@@ -621,7 +621,7 @@
 
         },
         {
-            "name": "tittleSave",
+            "name": "TitleSave",
             "byType": "css",
             "definition": "[data-id='title-save']",
             "frame": "customIframe",
@@ -680,6 +680,14 @@
             "byType": "css",
             "definition": "[data-id='custom-rubric-save']",
             "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "myContent",
+            "byType": "css",
+            "definition": "[aria-label='MY CONTENT']",
+            "frame": "default",
             "specialInstr": "NA"
 
         }

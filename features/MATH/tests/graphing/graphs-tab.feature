@@ -1,3 +1,4 @@
+@math @graph @graph-tab @smoke
 Feature: Verify the elements on Ams-Graph Tab page
 
     Background: AMS-Graph tab

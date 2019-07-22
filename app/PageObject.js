@@ -221,16 +221,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const scrollIntoView = async function (strName) {
-    try {
-      log.info(`Scrolling into view: ${strName}`);
-      return await scrollElementIntoView(strName);
-    } catch (err) {
-      log.error(err.stack);
-      throw err;
-    }
-  };
-
   const scrollElementIntoView = async function (elementName) {
     let WebElementObject = '';
     let WebElementData = {};
@@ -524,13 +514,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getWebElements = getWebElements;
   that.generateDataTable = generateDataTable;
   that.scrollElementIntoView = scrollElementIntoView;
-  that.scrollIntoView = scrollIntoView;
   that.getText = getText;
   that.switchToTab = switchToTab;
   that.getCurrentURL = getCurrentURL;
   that.getPageTitle=getPageTitle;
   that.assertPageTitle=assertPageTitle;
   that.assertPageTitleIncludes=assertPageTitleIncludes;
+  that.addDynamicElement=addDynamicElement;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

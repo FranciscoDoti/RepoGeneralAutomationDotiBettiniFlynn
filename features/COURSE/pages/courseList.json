@@ -1,8 +1,8 @@
 {
     "webElements": [{
         "name": "courseMenu",
-        "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>']/../../../../div/div/button[@data-test-id='course_menu_button']",
+        "byType": "css",
+        "definition": "[data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -68,7 +68,7 @@
     }, {
         "name": "course",
         "byType": "css",
-        "definition": "[id='courseName']",
+        "definition": "[data-test-id='create_coursecode_input']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -187,5 +187,19 @@
         "definition": "[id='courseEbookLink']",
         "frame": "default",
         "specialInstr": "NA"
+    }, 
+    {
+        "name": "courseNumber",
+        "byType": "xpath",
+        "definition": "//div[contains(@data-test-id,'course_number_date_time') and contains(text(), '<ReplaceText>')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "courseSearchBtn",
+        "byType": "css",
+        "definition": "[data-test-id='course_search_input_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     }]
 }

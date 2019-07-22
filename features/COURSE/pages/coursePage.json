@@ -21,7 +21,7 @@
         }, {
             "name": "coursePlanner",
             "byType": "css",
-            "definition": "[data-test-id='course_planner_tab']",
+            "definition": "[aria-label='COURSE PLAN']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -38,14 +38,14 @@
             "specialInstr": "NA"
         }, {
             "name": "resources",
-            "byType": "css",
-            "definition": "[data-test-id='resources_tab']",
+            "byType": "xpath",
+            "definition": "//button[@class='_3Mch' and .='Resources']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
             "name": "ebook",
             "byType": "xpath",
-            "definition": "//*[@data-test-id='reading_tab']",
+            "definition": "//button[@class='_3Mch _2NuQ' and .='E-book']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -72,8 +72,7 @@
             "definition": "[data-test-id='achieve_logo_link']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "gradebookTab",
             "byType": "css",
             "definition": "[data-test-id='gradebook_tab']",
@@ -91,8 +90,22 @@
             "definition": "//*[@id='container']/div/div/div/div[4]/div/article/div[2]/div[2]/button",
             "frame": "default",
             "specialInstr": "NA"
-
+        },
+        {
+            "name": "browse",
+            "byType": "xpath",
+            "definition": "//button[@class='_3Mch' and .='Browse']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "myCourse",
+            "byType": "xpath",
+            "definition": "//button[@class='_3Mch _2NuQ' and .='My Course']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
+
+
         
     ]
 }

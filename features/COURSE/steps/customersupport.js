@@ -4,15 +4,18 @@ const expect = require('chai').expect;
 const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
+
 When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseName) {
   let user = await _.get(users, [this.environment, userName]);
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseName', courseName);
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.click('courseMenu', courseName); 
   await pages.courseList.click('manageInstructor');
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
   await pages.courseList.click('instructorClose');
+  await pages.home.click('closeAlert');
+  
 });
 
 When(/^I check the account of "(.*)"$/, async function (userName){
@@ -30,5 +33,22 @@ Then(/^I verify that "(.*)" details$/, async function (userName, data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.adminMenu.assertTextIncludes(data_table.hashes()[i].Details, data_table.hashes()[i].Value);
   }
-
 })
+
+When(/^I generate access code for "(.*)"$/, async function (courseName){
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('checkAccount');
+  await pages.adminMenu.click('generateAccessCode');
+})
+
+Then('I verify that access code is generated', async function (){
+  await pages.adminMenu.assertElementExists('accessCode');
+})
+
+When('I update the access code', async function (data_table) {
+  await pages.adminMenu.getText('generateAccessCode')
+
+});

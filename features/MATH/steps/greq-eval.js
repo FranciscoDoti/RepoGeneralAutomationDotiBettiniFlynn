@@ -102,3 +102,20 @@ When(/^I submit answer$/, async function () {
 Then(/^My answer is graded correctly$/, async function () {
   await pages.raptorAms.assertElementExists('correctAnswer');
 });
+
+// The following steps are similar to greq-eval.feature but are broken down into simpler steps 
+// Down the road aim to refactor the greq-eval.feature into separate scenarios for each eval and keep js step functions simpler
+When(/^I set the grade as "(.*)" type$/, async function (gradeAsEval) {
+  await pages.raptorAms.click('correctTab');
+  await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
+  await pages.raptorAms.click('mathGradeAs');
+});
+
+When(/^I input author question "(.*)"$/, async function (eqnQuestion) {
+  await pages.raptorAms.populate('mathEquationField', eqnQuestion);
+});
+
+When(/^I select Polar Coordinate checkbox$/, async function () {
+  await pages.raptorAms.click('mathPolarCoordinate');
+});
+

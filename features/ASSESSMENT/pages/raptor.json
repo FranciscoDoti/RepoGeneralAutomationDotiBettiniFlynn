@@ -217,6 +217,12 @@
             "definition": "//div[@class='cycle-variables-button']",
             "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "algoliaProcessingText",
+            "byType": "xpath",
+            "definition": "(//i[text()='Algolia is Processing'])[1]",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

@@ -1,3 +1,4 @@
+@math @smoke
 Feature: Creating a new AMS raptor item for different Eval types and simulate grading for each
 
   Scenario Outline: Author creates a <evaltype> type <questionEquation> equation and verifies grading for correct answer <answerEquation> input
