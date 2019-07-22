@@ -27,7 +27,8 @@
     "sac-adv": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-advanced.feature -f json:reports/cucumber_report.json",
     "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment int",
     "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int",
-    "user": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport/userValidation.feature -f json:reports/cucumber_report.json --environment int"
+    "user": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport/userValidation.feature -f json:reports/cucumber_report.json --environment int",
+    "courseReport":"node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/courseReport.feature"
   },
   "engines": {
     "node": ">=10"

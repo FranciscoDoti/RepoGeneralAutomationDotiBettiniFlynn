@@ -56,3 +56,25 @@ When(/^I grant "(.*)" to the "(.*)"$/, async function (roles, user) {
 Then(/^I verify the message for each "(.*)"$/, async function (message) {
   await pages.home.assertTextIncludes('alert', message);
 });
+
+When('I generate and export course report', async function (){
+  await pages.home.click('togglerMenu');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('courseReport');
+  await pages.adminMenu.click('generateReport')
+  await pages.adminMenu.click('exportReport');
+});
+
+Then('I verify the report is dowloaded with following data', async function (data_table) {
+  let loadfile = require('../../csvtojson.js');
+  loadfile(function (jsonObj) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+      for (let e = 0; e < jsonObj.length; e++) {
+        let row = jsonObj[e]
+        let validate = row.hasOwnProperty(data_table.hashes()[i].Verify);
+        expect(validate).to.deep.equal(true)
+      }
+    }
+  })
+})
+
