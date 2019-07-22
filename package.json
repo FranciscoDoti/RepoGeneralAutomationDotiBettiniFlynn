@@ -19,7 +19,7 @@
     "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Skills/updateCourse.feature -f json:reports/cucumber_report.json",
     "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/ReadandPractice/AdminEnrollsStudent.feature -f json:reports/cucumber_report.json",
     "CC-Q": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/URL.feature -f json:reports/cucumber_report.json",
-    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/LST-420-practice-test-admin-view.feature -f json:reports/cucumber_report.json",
+    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json",
     "NGA-7194": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/addItem-assessment.feature -f json:reports/cucumber_report.json",
     "NGA-7264": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/createPools.feature -f json:reports/cucumber_report.json ",
     "sac-bas": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json",
