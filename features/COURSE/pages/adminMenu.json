@@ -95,7 +95,28 @@
             "definition": "[data-test-id='update_access_code_modal_search_input']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
+            "name": "updateAccessCodeSearch",
+            "byType": "css",
+            "definition": "[data-test-id='update_access_code_modal_search_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "totalInput",
+            "byType": "css",
+            "definition": "[data-test-id='update_access_code_modal_total_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "update",
+            "byType": "css",
+            "definition": "[data-test-id='update_access_code_modal_update_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "emailInput",
             "byType": "css",
             "definition": "[data-test-id='manage_enrollment_modal_input']",

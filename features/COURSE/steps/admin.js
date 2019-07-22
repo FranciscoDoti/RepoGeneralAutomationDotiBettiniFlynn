@@ -1,8 +1,9 @@
-const { Given, When, Then } = require('cucumber');
+const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const csvtojson = require('csvtojson');
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName) {
   let payload = await _.get(users, [this.environment, user]);
@@ -68,16 +69,13 @@ When('I generate and export course report', async function (){
   await pages.adminMenu.click('exportReport');
 });
 
-Then('I verify the report is dowloaded with following data', async function (data_table) {
-  let loadfile = require('../../csvtojson.js');
-  loadfile(function (jsonObj) {
-    for (let i = 0; i < data_table.rows().length; i++) {
-      for (let e = 0; e < jsonObj.length; e++) {
-        let row = jsonObj[e]
-        let validate = row.hasOwnProperty(data_table.hashes()[i].Verify);
-        expect(validate).to.deep.equal(true)
-      }
-    }
-  })
-})
+Then('I verify the report is dowloaded with following data', async function (datatable) {
+  const current = new Date();
+  let courseReport = `${this.downloadLocation}/course_report_${current.toString().split(' ')[1]}-${current.getDate()}-${current.getFullYear()}.csv`;
+  const data = await csvtojson().fromFile(courseReport);
+
+  for (let i = 0; i < datatable.rows().length; i++) {
+      expect(data[0]).to.have.property(datatable.hashes()[i].ColumnName);
+  }
+});
 

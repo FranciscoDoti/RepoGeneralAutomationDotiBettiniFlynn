@@ -18,21 +18,12 @@ Feature: Admin enrolls the student in the course
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-<<<<<<< HEAD
-            
-            
-=======
         
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
             | courseName        | Qualitative Course           |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
             | courseCode        | E2E 301                      |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -44,13 +35,8 @@ Feature: Admin enrolls the student in the course
 
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
-<<<<<<< HEAD
-            | courseName        | Qualitative Course          |
-            | courseCode        |  E2E 301                      |
-=======
             | courseName        | Qualitative Course           |
             | courseCode        |  E2E 301                     |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Qualitative Course" course
