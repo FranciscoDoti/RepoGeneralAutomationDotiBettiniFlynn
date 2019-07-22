@@ -1,9 +1,9 @@
 Feature: Verify that Instructor is able to create URL
 
-   
+    @delete-mediaproducer-courses
     Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create "Qualitative Template" with the data
             | field             | value                        |
             | courseType        | Template                     |
@@ -23,7 +23,7 @@ Feature: Verify that Instructor is able to create URL
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
             | courseName        | Qualitative Course           |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -36,7 +36,7 @@ Feature: Verify that Instructor is able to create URL
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
             | courseName        | Qualitative Course          |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                      |
             | templateStatus    |  Active On Date              |
 
         And I add URL link to "Qualitative Course" in coursePlanner

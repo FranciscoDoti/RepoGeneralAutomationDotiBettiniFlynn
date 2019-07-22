@@ -30,7 +30,7 @@ Feature: Adding Instructor to the Template
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"

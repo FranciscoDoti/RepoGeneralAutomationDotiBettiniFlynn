@@ -31,12 +31,12 @@ Feature: Copy course from the Template
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
             | courseName        | Qualitative Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Qualitative Course       |
-            | courseDate            |  E2E301                   |
+            | courseDate            |  E2E 301                   |
            
 
 

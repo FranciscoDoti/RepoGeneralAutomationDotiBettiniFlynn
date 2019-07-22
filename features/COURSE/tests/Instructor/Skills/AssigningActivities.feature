@@ -30,7 +30,7 @@ Feature: Assigning the activities present in the course
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
             | courseName        | Skills Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -43,7 +43,7 @@ Feature: Assigning the activities present in the course
         When I activate "Skills Course" course with following data 
             | field             | value                        |
             | courseName        | Skills Course          |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                      |
             | templateStatus    |  Active On Date              |
 
      

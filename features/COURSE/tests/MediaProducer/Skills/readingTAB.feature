@@ -29,7 +29,7 @@ Feature: Adding reading activities in reading tab
             | addReadingButton         | Regression and Error                          |
             | addReadingButton         | Confidence Intervals                          |
 
-        And I add the activities in "ebook"
+        And I add the activities in ebook
             | activity                                      | 
             | About The Authors                             |
             | SYMBOLS AND NOTATION                          |

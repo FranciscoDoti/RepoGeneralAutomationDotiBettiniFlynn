@@ -30,7 +30,7 @@ Feature: Student attempts all the activities in Quantitative
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -43,7 +43,7 @@ Feature: Student attempts all the activities in Quantitative
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                      |
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Quantitative Course" course

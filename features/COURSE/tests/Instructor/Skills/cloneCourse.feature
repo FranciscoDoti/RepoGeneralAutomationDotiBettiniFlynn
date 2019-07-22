@@ -32,7 +32,7 @@ Feature: Instructor attempts all the activities in Skills Template
         And I copy course from the "Skills Course" template with the following data
             | field             | value                        |
             | courseName        | Skills Course                |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
        
         And I sign out of Achieve
 
@@ -47,14 +47,14 @@ Feature: Instructor attempts all the activities in Skills Template
         And I create a course "Skills Template" with the following data
             | field             | value                                     |
             | courseName        | Skills Instructor Course                  |
-            | courseCode        | E2E301                                    |
+            | courseCode        | E2E 301                                    |
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And  I verify that "Skills Instructor Course" is created with following data
             | field                 | value                                   |
             | courseName            | Skills Instructor Course                |
-            | courseDate            |  E2E301                                 |
+            | courseDate            |  E2E 301                                 |
            
         
 

@@ -1,10 +1,10 @@
 @Smoke
 Feature: Verify that Instructor is able to create URL
 
-   
+    @delete-mediaproducer-courses
     Scenario: Verify that mediaproducer is able to create a custom task with URL
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create "Read & Practice Template" with the data
             | field             | value                        |
             | courseType        | Template                     |
@@ -23,7 +23,7 @@ Feature: Verify that Instructor is able to create URL
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -36,7 +36,7 @@ Feature: Verify that Instructor is able to create URL
         When I activate "Read & Practice Course" course with following data 
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        |  E2E301                      |
+            | courseCode        |  E2E 301                      |
             | templateStatus    |  Active On Date              |
 
         And I add URL link to "Read & Practice Course" in coursePlanner

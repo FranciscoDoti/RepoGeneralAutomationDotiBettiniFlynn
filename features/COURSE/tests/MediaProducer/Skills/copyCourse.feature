@@ -30,12 +30,12 @@ Feature: Copy course from the Template
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
             | courseName        | Skills Course          |
-            | courseCode        | E2E301                       |
+            | courseCode        | E2E 301                       |
 
         Then I verify that "Skills Course" is created with following data
             | field                 | value                     |
             | courseName            | Skills Course       |
-            | courseDate            |  E2E301                   |
+            | courseDate            |  E2E 301                   |
            
 
 
