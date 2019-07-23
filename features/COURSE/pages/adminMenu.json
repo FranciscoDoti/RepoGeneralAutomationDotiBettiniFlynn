@@ -249,6 +249,14 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "closeGenerateAccessCode",
+            "byType": "css",
+            "definition": "[data-test-id='generate_access_code_modal_close_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
 
     ]

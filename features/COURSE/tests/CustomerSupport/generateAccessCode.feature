@@ -3,15 +3,9 @@ Feature: Verify that customer Support is able to create access code for Template
     Scenario: Verify that customer Support is able to create access code for Template
 
          Given I login to Achieve-CW as "media_producer_2"
-        When I create "Qualitative Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Qualitative                  |
-            | courseName        | Qualitative Template         |
-            | learningObjective | macmillan calculus           |
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199498                |
-            | courseStatus      | draft                        |
+         When I create template with following data 
+            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |
 
         And I activate the "Qualitative Template" template and add the following data
             | field            | value                                                       |
@@ -40,8 +34,10 @@ Feature: Verify that customer Support is able to create access code for Template
         Then I verify that access code is generated
 
         When I update the access code
+            | AccessCode   | Value      |
+            | totalInput   | 2          |
 
-        Then I verify that access code is updated 
+        Then I verify that "Code update successful.." message is displayed 
 
         
 

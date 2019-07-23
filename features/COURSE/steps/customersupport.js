@@ -39,6 +39,7 @@ When(/^I generate access code for "(.*)"$/, async function (courseName){
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseName', courseName);
   await pages.createCourse.click('courseCard', courseName);
+  await pages.home.click('togglerMenu');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('checkAccount');
   await pages.adminMenu.click('generateAccessCode');
@@ -49,6 +50,16 @@ Then('I verify that access code is generated', async function (){
 })
 
 When('I update the access code', async function (data_table) {
-  await pages.adminMenu.getText('generateAccessCode')
-
+  for (let i = 0; i < data_table.rows().length; i++) {
+  let text = await pages.adminMenu.getText('generateAccessCode');
+  await pages.adminMenu.click('closeGenerateAccessCode');
+  await pages.home.click('achieveHome');
+  await pages.home.click('togglerMenu');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('updateAccessCode');
+  await pages.adminMenu.populate('updateAccessCodeInput', text);
+  await pages.adminMenu.click('updateAccessCodeSearch');
+  await pages.adminMenu.populate(data_table.hashes()[i].AccessCode, data_table.hashes()[i].Value);
+  await pages.adminMenu.click('update');
+  }
 });

@@ -29,21 +29,13 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
             | courseCode        | E2E 301                      |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I click on search button and input "Read & Practice Course" to search the course
         
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |
             | courseName            | Read & Practice Course    |
-<<<<<<< HEAD
-            | courseDate            |  E2E 301                   |
-=======
             | courseDate            |  E2E 301                  |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
            
         
