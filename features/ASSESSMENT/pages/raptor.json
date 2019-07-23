@@ -79,9 +79,16 @@
             "specialInstr": "NA"
         },
         {
-            "name": "activeTab",
+            "name": "activeTabTakeMode",
             "byType": "css",
             "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active-disabled.disabled",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "activeTabEditMode",
+            "byType": "css",
+            "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active",
             "frame": "default",
             "specialInstr": "NA"
         },
