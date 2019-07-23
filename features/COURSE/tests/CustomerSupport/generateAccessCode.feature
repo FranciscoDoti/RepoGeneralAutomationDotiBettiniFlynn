@@ -1,5 +1,6 @@
 Feature: Verify that customer Support is able to create access code for Template
 
+    @mediaproducer-delete-course
     Scenario: Verify that customer Support is able to create access code for Template
 
          Given I login to Achieve-CW as "media_producer_2"
@@ -25,11 +26,10 @@ Feature: Verify that customer Support is able to create access code for Template
             | courseName        | Qualitative Course           |
             | courseCode        | E2E 301                      |
 
-
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I generate access code for "Qualitative Template"
+        And I generate access code for "Qualitative Course"
 
         Then I verify that access code is generated
 

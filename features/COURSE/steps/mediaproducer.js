@@ -1,8 +1,4 @@
-const {
-  Given,
-  When,
-  Then
-} = require('cucumber');
+const {Given,When,Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const _ = require('lodash');
@@ -147,11 +143,13 @@ Then('I verify that resources are reordered', async function (data_table) {
 });
 
 When(/^I add the activities in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('browse');
   await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('customContentButton');
+    await pages.coursePlanner.click('libraryTab');
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('closeCourseplanner');
   }
 });
 
@@ -171,7 +169,6 @@ When(/^I add the activities to respective folders in "(.*)"$/, async function (c
 });
 
 When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('myCourse')
   await pages.coursePage.click(coursePage);
   await pages.coursePlanner.click('actionButtonValidation');
   await pages.coursePlanner.click('reorder');
@@ -311,12 +308,28 @@ When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async fu
   await pages.coursePlanner.click('close');
 });
 
-When('I add the activities in ebook', async function (data_table){
-  await pages.coursePage.click('ebook');
-  await pages.coursePage.click('customContentButton');
+When('I create template with following data', async function (data_table){
+  await pages.createCourse.click('plusButton');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('closeCourseplanner')
-  }
+    var c = data_table.hashes()[i];
+    this.data.set('code', c.courseCode);
+    this.data.set('Number',c.isbnNumber);
+      await pages.createCourse.assertElementExists('courseType');
+      await pages.createCourse.populate('courseType', c.courseType)
+      await pages.createCourse.assertElementExists('productModel');
+      await pages.createCourse.populate('productModel', c.productModel)
+      await pages.createCourse.assertElementExists('courseName');
+      await pages.createCourse.populate('courseName', c.courseName)
+      await pages.createCourse.assertElementExists('courseCode');
+      await pages.createCourse.populate('courseCode', c.courseCode)
+      if(c.learningObjective != ''){
+      await pages.createCourse.assertElementExists('learningObjective');
+      await pages.createCourse.populate('learningObjective', c.learningObjective)
+      }
+      await pages.createCourse.assertElementExists('isbnNumber');
+      await pages.createCourse.populate('isbnNumber', c.isbnNumber)
+      await pages.createCourse.assertElementExists('courseStatus');
+      await pages.createCourse.populate('courseStatus', c.courseStatus);
+    }
+    await pages.createCourse.click('save');
 });

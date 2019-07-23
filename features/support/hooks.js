@@ -6,18 +6,18 @@ const { closeBrowser, resetBrowser, takeScreenshot, visitURL } = require(`${proc
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
-// After(async function (scenario) {
-//   console.log(scenario.result.status);
-//   if (this.screenshots.toLowerCase().includes('onfail')
-//     && scenario.result.status.toLowerCase().includes('fail')) {
-//     await this.attach(await takeScreenshot(), 'image/png');
-//   }
-//   await resetBrowser();
-// });
+After(async function (scenario) {
+  console.log(scenario.result.status);
+  if (this.screenshots.toLowerCase().includes('onfail')
+    && scenario.result.status.toLowerCase().includes('fail')) {
+    await this.attach(await takeScreenshot(), 'image/png');
+  }
+  await resetBrowser();
+});
 
-// AfterAll(async function () {
-//   await closeBrowser();
-// });
+AfterAll(async function () {
+  await closeBrowser();
+});
 
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {

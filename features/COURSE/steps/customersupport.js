@@ -39,10 +39,11 @@ When(/^I generate access code for "(.*)"$/, async function (courseName){
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseName', courseName);
   await pages.createCourse.click('courseCard', courseName);
+  await pages.createCourse.assertTextIncludes('courseTitle', 'E2E 301: '+courseName )
   await pages.home.click('togglerMenu');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('checkAccount');
-  await pages.adminMenu.click('generateAccessCode');
+  await pages.adminMenu.click('createAccesscode');
 })
 
 Then('I verify that access code is generated', async function (){
@@ -51,7 +52,8 @@ Then('I verify that access code is generated', async function (){
 
 When('I update the access code', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
-  let text = await pages.adminMenu.getText('generateAccessCode');
+  await pages.adminMenu.getText('accessCode');
+  let text = await pages.adminMenu.getText('accessCode');
   await pages.adminMenu.click('closeGenerateAccessCode');
   await pages.home.click('achieveHome');
   await pages.home.click('togglerMenu');

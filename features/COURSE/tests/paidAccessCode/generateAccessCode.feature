@@ -1,9 +1,8 @@
-@Course @Smoke
-Feature: Customer Support attempts all the activities in Skills Template
+Feature: Verify that paid Access code Creater is able to generate, Check and update access code
 
-    @custmersupport-delete-course
-    Scenario: Verify that Customer Support is able to create course from Skills Template
-    
+    @mediaproducer-delete-course
+    Scenario: Verify that paid Access code Creater is able to generate, Check and update access code
+
         Given I login to Achieve-CW as "media_producer_2"
          When I create template with following data 
             | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
@@ -18,24 +17,30 @@ Feature: Customer Support attempts all the activities in Skills Template
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I sign out of Achieve
-        
-        And I login to Achieve-CW as "customer_support_1"
-        And I click on search button and input "Skills Template" to search the course
-                
-        And I copy course from the "Skills Template" template with the following data
-            | field             | value                        |
-            | courseName        | Skills Course                |
-            | courseCode        | E2E 301                      |
 
-        And I click on search button and input "Skills Course" to search the course
-        
-        Then I verify that "Skills Course" is created with following data
-            | field                 | value                     |
-            | courseName            | Skills Course             |
-            | courseDate            |  E2E 301                   |
-           
+        When I login to Achieve-CW as "paid_access"
+
+        And I generate "1" month length access code for "Skills Template" 
+
+        Then I verify that access code is generated "Skills Template"
+            | Value         |
+            | Access Code   |
+
+        When I check Access Code of "Skills Template" 
+
+        Then I verify that "Skills Template" is displayed
+
+        When I update the access code for "Skills Template"
+            | AccessCode   | Value      |
+            | totalInput   | 2          |
+
+        Then I verify that "Code update successful.." message is displayed 
+
+
+
+
+
         
