@@ -26,8 +26,8 @@ When('I login with invalid credentials', async function (data_table) {
     }
 });*/
 
-Then('I verify following message is displayed after {int} failure login attempts', async function (data_table, int) {
-    for (let i = 0; i < data_table.rows().length; i++) {
+Then('I verify following message is displayed after {int} failure login attempts', async function (int, data_table) {
+    for (let i = 3; i < data_table.rows().length; i++) {
     await pages.signIn.assertTextIncludes('verify', data_table.hashes()[i].verify);
     }
 });
