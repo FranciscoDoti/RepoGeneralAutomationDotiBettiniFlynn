@@ -27,6 +27,14 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
     }
 });
 
+When(/^I add the "(.*)" module$/, async function (moduleType) {
+    await mathpages.ams.click('raptorNewItem');
+    await mathpages.raptorAms.switchToTab('Raptor Authoring');
+    await pages.raptor.click('addLink');
+    await pages.raptor.click('modulePallete', moduleType);
+    await pages.raptor.click('contentArea');
+});
+
 Then(/^I verify item has been created$/, async function () {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1];
     //below two steps need to be added to I add the "(.*)" module
