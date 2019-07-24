@@ -1,10 +1,10 @@
 const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
+const pages = require(`${process.cwd()}/features/IAM/pages/.page.js`).pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+//const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 Given('I have opened Achieve "signURL"', async function () {
     let url = await _.get(urls, ['Achieve-CW', this.environment]);
@@ -14,17 +14,20 @@ Given('I have opened Achieve "signURL"', async function () {
 
 When('I login with invalid credentials', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.signIn.populate('username', data_table.hashes()[i].activity);
-    await pages.signIn.populate('password', data_table.hashes()[i].activity);
+    await pages.signIn.populate('username', data_table.hashes()[i].Username);
+    await pages.signIn.populate('password', data_table.hashes()[i].Password);
     await pages.signIn.click('signin');
+    
     }
 });
 
-Then(/^I verify the following message is displayed after "(.*)" failure attempts$/, async function (message) {
-    await pages.home.assertTextIncludes('verify', message);
+Then(/^I verify the following message is displayed after 3 failure attempts$/, async function (data_table) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.home.assertTextIncludes('verify', data_table.hashes()[i].verify);
+    }
 });
   
-Then('I verify that I am able to login with correct credentials as "admin"', async function (userType) {
+Then(/^I verify that I am able to login with correct credentials as "(.*)"$/, async function (userType) {
     let url = await _.get(urls, ['Achieve-CW', this.environment]);
     let user = await _.get(users, [this.environment, userType]);
   
