@@ -1,4 +1,4 @@
-const { Given, When } = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
@@ -12,13 +12,29 @@ Given('I have opened Achieve "signURL"', async function () {
     await pages.login.click('signinlink');
 });
 
-When('I login with invalid credentials', async function (userType) {
-    await pages.signIn.click('signinlink');
-    await pages.signIn.populate('username', user.username);
-    await pages.signIn.populate('password', user.password);
+When('I login with invalid credentials', async function (data_table) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.signIn.populate('username', data_table.hashes()[i].activity);
+    await pages.signIn.populate('password', data_table.hashes()[i].activity);
     await pages.signIn.click('signin');
+    }
+});
+
+Then(/^I verify the following message is displayed after "(.*)" failure attempts$/, async function (message) {
+    await pages.home.assertTextIncludes('verify', message);
 });
   
+Then('I verify that I am able to login with correct credentials as "admin"', async function (userType) {
+    let url = await _.get(urls, ['Achieve-CW', this.environment]);
+    let user = await _.get(users, [this.environment, userType]);
+  
+    await visitURL(url);
+    await pages.login.click('signinlink');
+    await pages.login.populate('username', user.username);
+    await pages.login.populate('password', user.password);
+    await pages.login.click('signin');
+});
+
 /*  When('I sign out of Achieve', async function () {
     await pages.login.click('togglerMenu');
     await pages.login.click('signOut');
