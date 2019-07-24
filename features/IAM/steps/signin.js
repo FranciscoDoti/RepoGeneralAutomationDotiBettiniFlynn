@@ -9,7 +9,7 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 Given('I have opened Achieve "signURL"', async function () {
     let url = await _.get(urls, ['Achieve-CW', this.environment]);
     await visitURL(url);
-    await pages.login.click('signinlink');
+    await pages.signIn.click('signinlink');
 });
 
 When('I login with invalid credentials', async function (data_table) {
@@ -22,7 +22,7 @@ When('I login with invalid credentials', async function (data_table) {
 
 Then(/^I verify the following message is displayed after 3 failure attempts$/, async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.home.assertTextIncludes('verify', data_table.hashes()[i].verify);
+    await pages.signIn.assertTextIncludes('verify', data_table.hashes()[i].verify);
     }
 });
   
@@ -31,10 +31,10 @@ Then(/^I verify that I am able to login with correct credentials as "(.*)"$/, as
     let user = await _.get(users, [this.environment, userType]);
   
     await visitURL(url);
-    await pages.login.click('signinlink');
-    await pages.login.populate('username', user.username);
-    await pages.login.populate('password', user.password);
-    await pages.login.click('signin');
+    await pages.signIn.click('signinlink');
+    await pages.signIn.populate('username', user.username);
+    await pages.signIn.populate('password', user.password);
+    await pages.signIn.click('signin');
 });
 
 /*  When('I sign out of Achieve', async function () {
