@@ -10,7 +10,7 @@ Feature: To configure a complete authoring raptor item
     |Title                              |
     |NGA QA Test MS Item with Variables |
 
-    And I add list variables with "2" rows and "2" columns
+    And I add list variables
     |Type   |Description    |Name           |Value1   |Value2 |
     |Number |Number         |num1           |1        |2      |
     |String |String         |string1        |one      |two    |
