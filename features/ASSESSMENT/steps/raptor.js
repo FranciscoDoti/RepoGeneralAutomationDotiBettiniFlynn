@@ -1,9 +1,9 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const { getDriver, onWaitForElementToBeInvisible} = require(`${process.cwd()}/app/driver`);
+const { getDriver, onWaitForElementToBeInvisible } = require(`${process.cwd()}/app/driver`);
 
-When(/^I add the "(.*)" module with following details$/, async function (moduleType,dataTable) {
+When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await mathpages.ams.assertElementExists('raptorNewItem');
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
@@ -11,9 +11,9 @@ When(/^I add the "(.*)" module with following details$/, async function (moduleT
     await pages.raptor.click('modulePallete', moduleType);
     await pages.raptor.click('contentArea');
     var rows = dataTable.hashes();
-    await pages.raptor.populate('chemicalEquationPrefix',rows[0].value);
+    await pages.raptor.populate('chemicalEquationPrefix', rows[0].value);
     await pages.raptor.click('correctContext');
-    await pages.raptor.populate('chemicalEquationAnswerInput',rows[1].value);
+    await pages.raptor.populate('chemicalEquationAnswerInput', rows[1].value);
 });
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
@@ -61,15 +61,15 @@ When('I configure the following item details', async function (datatable) {
     await pages.raptor.click('itemDetailsDoneButton');
 });
 
-When(/^I add list variables with "(.*)" rows and "(.*)" columns$/, async function (rows, columns, datatable) {
+When('I add list variables', async function (datatable) {
     await pages.raptor.click('variablesChevron');
     await pages.raptor.click('addListVariableButton');
 
-    for (let col = 1; col < columns; col++) {
+    for (let col = 1; col < datatable.rows()[0].length - 3; col++) {
         await pages.raptor.click('addColumnButton');
     }
 
-    for (let row = 1; row < rows; row++) {
+    for (let row = 1; row < datatable.rows().length; row++) {
         await pages.raptor.click('addRowButton');
     }
 
@@ -77,6 +77,9 @@ When(/^I add list variables with "(.*)" rows and "(.*)" columns$/, async functio
         await pages.raptor.populate('variableNameTextbox', i + 1, datatable.hashes()[i].Name);
         await pages.raptor.populate('variableValue1Textbox', i + 1, datatable.hashes()[i].Value1);
         await pages.raptor.populate('variableValue2Textbox', i + 1, datatable.hashes()[i].Value2);
+        if (datatable.hashes()[i].Value3 !== undefined) {
+            await pages.raptor.populate('variableValue3Textbox', i + 1, datatable.hashes()[i].Value3);
+        }
         await pages.raptor.populate('variableTypeDropdown', i + 1, datatable.hashes()[i].Type);
     }
 });
