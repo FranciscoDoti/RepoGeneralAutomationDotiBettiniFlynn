@@ -1,7 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const pages = require(`${process.cwd()}/features/IAM/pages/.page.js`).pages;
+const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 //const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
@@ -20,7 +20,13 @@ When('I login with invalid credentials', async function (data_table) {
     }
 });
 
-Then(/^I verify the following message is displayed after 3 failure attempts$/, async function (data_table) {
+/*Then(/^I verify the following message is displayed after 3 failure attempts$/, async function (data_table) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.signIn.assertTextIncludes('verify', data_table.hashes()[i].verify);
+    }
+});*/
+
+Then('I verify following message is displayed after {int} failure login attempts', async function (data_table, int) {
     for (let i = 0; i < data_table.rows().length; i++) {
     await pages.signIn.assertTextIncludes('verify', data_table.hashes()[i].verify);
     }
