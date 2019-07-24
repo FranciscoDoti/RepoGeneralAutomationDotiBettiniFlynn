@@ -1,6 +1,7 @@
-Feature: Student enrolls through course Id
+Feature: Student enrolls through course Id and access code
 
-    Scenario: Verify that student is able to enroll in course using Course Id
+    @mediaproducer-delete-course
+    Scenario: Verify that student is able to enroll in course using Course Id and access code
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -28,8 +29,13 @@ Feature: Student enrolls through course Id
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
-
         And I assign "instructor_1" to the "Qualitative Course" course
+        And I sign out of Achieve
+
+        When I login to Achieve-CW as "paid_access"
+
+        And I generate "1" month length access code for "Qualitative Template"
+        And I close generate access code
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
@@ -40,7 +46,7 @@ Feature: Student enrolls through course Id
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
-        And I enroll "student_1" in the course using Course ID
+        And I enroll "student_1" in the course using "Qualitative Template"
 
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |

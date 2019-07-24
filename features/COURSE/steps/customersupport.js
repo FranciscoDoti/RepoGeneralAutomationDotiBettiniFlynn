@@ -14,8 +14,6 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseN
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
   await pages.courseList.click('instructorClose');
-  await pages.home.click('closeAlert');
-  
 });
 
 When(/^I check the account of "(.*)"$/, async function (userName){

@@ -17,6 +17,8 @@ When(/^I activate "(.*)" course with following data$/, async function (courseNam
   await pages.courseList.click('endDate');
   await pages.courseList.click('nextMonthButton');
   await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
   await pages.courseList.click('selectDate');
   await pages.editCourse.click('save');
   await pages.home.click('closeAlert');
