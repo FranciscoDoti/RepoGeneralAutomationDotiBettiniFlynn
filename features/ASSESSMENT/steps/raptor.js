@@ -4,7 +4,7 @@ const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages
 const { getDriver, onWaitForElementToBeInvisible } = require(`${process.cwd()}/app/driver`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
-    await mathpages.ams.assertElementExists('raptorNewItem');
+    await mathpages.ams.assertElementExists('raptorNewEasyItem');
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
     await pages.raptor.click('addLink');
@@ -17,6 +17,7 @@ When(/^I add the "(.*)" module with following details$/, async function (moduleT
 });
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
+    await mathpages.ams.assertElementExists('raptorNewEasyItem');
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
     await pages.raptor.click('addLink');

@@ -21,8 +21,8 @@ When('I add the following word choices', async function (datatable) {
 });
 
 Then('I grade the following words', async function (datatable) {
-  await pages.raptor.click('moreButton');
-  await pages.raptor.click('saveAsDraft');
+  await pages.raptor.click('More Button');
+  await pages.raptor.click('Save As Draft');
   await driver.sleep(1000);
   await mathpages.raptorAms.click('menuBarMore');
   await pages.raptor.click('checkAnswerSwitchMenu');
