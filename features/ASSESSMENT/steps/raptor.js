@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const { getDriver, onWaitForElementToBeInvisible} = require(`${process.cwd()}/app/driver`);
 
-When(/^I add the "(.*)" module$/, async function (moduleType) {
+When(/^I add the "(.*)" module with following details$/, async function (moduleType,dataTable) {
     await mathpages.ams.assertElementExists('raptorNewItem');
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
@@ -16,11 +16,19 @@ When(/^I add the "(.*)" module$/, async function (moduleType) {
     await pages.raptor.populate('chemicalEquationAnswerInput',rows[1].value);
 });
 
+When(/^I add the "(.*)" module$/, async function (moduleType) {
+    await mathpages.ams.click('raptorNewItem');
+    await mathpages.raptorAms.switchToTab('Raptor Authoring');
+    await pages.raptor.click('addLink');
+    await pages.raptor.click('modulePallete', moduleType);
+    await pages.raptor.click('contentArea');
+});
+
 Then('I verify item has been created', async function () {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1];
     //below two steps need to be added to I add the "(.*)" module
-    await pages.raptor.click('moreButton');
-    await pages.raptor.click('saveAsDraft');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
 });
@@ -28,8 +36,8 @@ Then('I verify item has been created', async function () {
 Then('I verify item has been created with following details', async function (dataTable) {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1].trim();
     //below two steps need to be added to I add the "(.*)" module
-    await pages.raptor.click('moreButton');
-    await pages.raptor.click('saveAsDraft');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
     await getDriver().navigate().refresh();
 
