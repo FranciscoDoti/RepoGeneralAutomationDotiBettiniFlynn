@@ -1,5 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const _ = require('lodash');
+const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
 When('I complete the reading activity', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -52,4 +54,9 @@ Then('I verify the assignmenent grades in gradebook for below assigned activitie
     await pages.gradebook.assertTextinclue('studentAssignmentpoints', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
     await pages.gradebook.assertTextIncludes('studentPercenOfTotalGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades)
   }
+});
+
+When(/^I enroll "(.*)" in the course using Course ID$/, async function (user){
+  let Text = await 
+
 });

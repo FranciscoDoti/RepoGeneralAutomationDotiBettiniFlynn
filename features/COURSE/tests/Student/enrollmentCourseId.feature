@@ -1,8 +1,6 @@
-@Course @Smoke
-Feature: Assigning the activities present in the course 
+Feature: Student enrolls through course Id
 
-    @mediaproducer-delete-course
-    Scenario: Verify that Instructor is able to assign the activities in the course
+    Scenario: Verify that student is able to enroll in course using Course Id
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -42,23 +40,16 @@ Feature: Assigning the activities present in the course
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
+        And I enroll "student_1" in the course using Course ID
+
+        Then I verify that "Qualitative Course" is created with following data
+            | field                 | value                     |
+            | courseName            | Qualitative Course        |
+            | courseDate            |  E2E 301                  |
+
+
+
      
-        And I add the activities in courseplanner to "Qualitative Course" course
-            | activity                                                          | 
-            | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
-            | Dedication                                                        |
+        
 
-
-        And I assign the activities in courseplanner
-            | activity                                                         | Points | 
-            | Exercise: Misused words 1 (autoscored)                           | 5      | 
-            | LC1551301608988                                                  | 5      |
-            | Dedication                                                       | 5      |
-
-        Then I verify that activities are assigned
-            | activity                                                         | Status | 
-            | Exercise: Misused words 1 (autoscored)                           | Open   | 
-            | LC1551301608988                                                  | Open   |
-            | Dedication                                                       | Open   |
-
+    
