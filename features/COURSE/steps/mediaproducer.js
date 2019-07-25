@@ -256,11 +256,13 @@ Then('I verify that activties are added', async function (data_table) {
 })
 Then('I verify that custom activity is present in courseplanner your content section', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePage.click('coursePlanner');
-    await pages.coursePlanner.click('customContentButton');
-    await pages.coursePlanner.click('libraryTab');
+    await pages.coursePage.click('browse');
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.assertElementExists('libraryItem', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    await pages.coursePage.click('myCourse');
+    await pages.coursePage.click('coursePlanner');
+    await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity);
+
   }
 });
 

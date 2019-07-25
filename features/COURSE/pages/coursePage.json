@@ -100,7 +100,7 @@
         },{
             "name": "myCourse",
             "byType": "xpath",
-            "definition": "//button[@class='_3Mch _2NuQ' and .='My Course']",
+            "definition": "//*[text()='My Course']",
             "frame": "default",
             "specialInstr": "NA"
         }
