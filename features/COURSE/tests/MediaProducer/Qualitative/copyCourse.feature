@@ -24,15 +24,6 @@ Feature: Copy course from the Template
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
-<<<<<<< HEAD
-            | courseName        | Qualitative Course          |
-            | courseCode        | E2E 301                       |
-
-        Then I verify that "Qualitative Course" is created with following data
-            | field                 | value                     |
-            | courseName            | Qualitative Course       |
-            | courseDate            |  E2E 301                   |
-=======
             | courseName        | Qualitative Course           |
             | courseCode        | E2E 301                      |
 
@@ -40,7 +31,6 @@ Feature: Copy course from the Template
             | field                 | value                     |
             | courseName            | Qualitative Course        |
             | courseDate            |  E2E 301                  |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
            
 
 
