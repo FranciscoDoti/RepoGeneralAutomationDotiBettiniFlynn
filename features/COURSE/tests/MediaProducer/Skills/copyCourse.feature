@@ -25,20 +25,12 @@ Feature: Copy course from the Template
         And I click on home button to return to coursepage
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
-<<<<<<< HEAD
-            | courseName        | Skills Course          |
-=======
             | courseName        | Skills Course                |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
             | courseCode        | E2E 301                       |
 
         Then I verify that "Skills Course" is created with following data
             | field                 | value                     |
-<<<<<<< HEAD
-            | courseName            | Skills Course       |
-=======
             | courseName            | Skills Course             |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
             | courseDate            |  E2E 301                   |
            
 
