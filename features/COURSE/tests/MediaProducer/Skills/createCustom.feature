@@ -1,17 +1,12 @@
-@Smoke
+@Course @Smoke
 Feature: Verify that media Producer is able to create Custom Task 
-    @delete-mediaproducer-courses
+    @mediaproducer-delete-course
     Scenario: Verify that media Producer is able to create Custom Task in Quantitative Template
  
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Skills Template" with the data 
-            | field             | value                        |
-            | courseType        | Template                     |
-            | productModel      | Skills                       |
-            | courseName        | Skills Template              |  
-            | courseCode        | E2E 301                      |
-            | isbnNumber        | 9781464199499                |
-            | courseStatus      | draft                        |
+        When I create template with following data 
+           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Skills Template" template and add the following data
             | field            | value                                                       |

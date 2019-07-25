@@ -3,7 +3,7 @@
         "name": "NGA Frame",
         "byType": "id",
         "definition": "activity-iframe",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Assignment Preview Button",
@@ -12,16 +12,16 @@
         "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
-        "name": "Reset Preview Attempts Button",
+        "name": "Grading Settings Button",
         "byType": "css",
-        "definition": "[data-test-id='assignment-reset-button']",
+        "definition": "[data-test-id='assignment-settings-link']",
         "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
         "name": "Student Preview Bar",
         "byType": "css",
         "definition": "[class*='student-activity-view__previewAlert']",
-        "frame": "default",
+        "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Submit All Questions Button",
@@ -30,16 +30,22 @@
         "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
+        "name": "About Student Preview Modal",
+        "byType": "id",
+        "definition": "student-preview-modal-container",
+        "frame": 0,
+        "spectialInstr": "NA"
+    }, {
         "name": "About Student Preview Modal Continue Button",
         "byType": "id",
         "definition": "continue--button",
-        "frame": "default",
+        "frame": 0,
         "spectialInstr": "NA"
     }, {
         "name": "About Student Preview Modal Cancel Button",
         "byType": "id",
         "definition": "cancel-button",
-        "frame": "default",
+        "frame": 0,
         "spectialInstr": "NA"
     }, {
         "name": "Save Answer Button",

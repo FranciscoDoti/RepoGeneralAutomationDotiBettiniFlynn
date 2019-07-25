@@ -1,5 +1,7 @@
+@Course @Smoke
 Feature: Verify that Instructor is able to create URL
 
+<<<<<<< HEAD
     @delete-mediaproducer-courses
     Scenario: Verify that mediaproducer is able to create a custom task with URL
 
@@ -13,6 +15,15 @@ Feature: Verify that Instructor is able to create URL
             | learningObjective | Principles of Microeconomics |
             | isbnNumber        | 9781464199498                |
             | courseStatus      | draft                        |
+=======
+   @mediaproducer-delete-course
+    Scenario: Verify that mediaproducer is able to create a custom task with URL
+
+        Given I login to Achieve-CW as "media_producer_1"
+        When I create template with following data 
+            | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
+>>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
 
         And I activate the "Quantitative Template" template and add the following data
             | field            | value                                                       |
@@ -36,7 +47,11 @@ Feature: Verify that Instructor is able to create URL
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
+<<<<<<< HEAD
             | courseCode        |  E2E 301                      |
+=======
+            | courseCode        |  E2E 301                     |
+>>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
             | templateStatus    |  Active On Date              |
 
         And I add URL link to "Quantitative Course" in coursePlanner
@@ -51,4 +66,4 @@ Feature: Verify that Instructor is able to create URL
 
         Then I verify that activties are added in courseplanner
             | activity                                                            | 
-            | Google                                                               |      
+            | Google                                                              |      

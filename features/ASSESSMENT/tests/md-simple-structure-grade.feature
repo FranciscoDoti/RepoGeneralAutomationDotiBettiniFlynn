@@ -1,3 +1,4 @@
+@Assessment @MolDraw @Smoke
 Feature: To grade CORRECT, INCORRECT and DEFAULT a simple MolDraw structure
 
   Scenario: User creates a new AMS raptor item with a MD element, draws a simple structure as Correct and grades it successfully

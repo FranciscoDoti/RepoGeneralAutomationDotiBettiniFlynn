@@ -1,3 +1,4 @@
+@Assessment @SAC @Smoke
 Feature: To configure a basic test in SAC
 
   Scenario: Instructor removes previous responses from an assessment

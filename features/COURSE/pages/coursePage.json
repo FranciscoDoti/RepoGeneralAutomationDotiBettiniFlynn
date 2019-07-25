@@ -72,8 +72,7 @@
             "definition": "[data-test-id='achieve_logo_link']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "gradebookTab",
             "byType": "css",
             "definition": "[data-test-id='gradebook_tab']",

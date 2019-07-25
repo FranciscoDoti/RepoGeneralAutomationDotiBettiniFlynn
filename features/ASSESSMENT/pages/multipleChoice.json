@@ -1,0 +1,11 @@
+{
+    "webElements": [
+        {
+            "name": "Answer Radio Button 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
+            "frame": "default",
+            "specialInstr": ""
+        }
+    ]
+}

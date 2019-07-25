@@ -1,3 +1,4 @@
+@math @graph
 @graph-editor
 Feature:  New graph editor
 
