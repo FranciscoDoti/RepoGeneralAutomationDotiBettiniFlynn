@@ -23,13 +23,8 @@ Feature: Admin enrolls the student in the course
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
-<<<<<<< HEAD
-            | field             | value                        |
-            | courseName        | Quantitative Course          |
-=======
             | field             | value                         |
             | courseName        | Quantitative Course           |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
             | courseCode        | E2E 301                       |
 
         And I sign out of Achieve
@@ -43,11 +38,7 @@ Feature: Admin enrolls the student in the course
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
-<<<<<<< HEAD
-            | courseCode        |  E2E 301                      |
-=======
             | courseCode        |  E2E 301                     |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Quantitative Course" course

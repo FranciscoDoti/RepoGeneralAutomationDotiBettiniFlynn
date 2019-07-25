@@ -26,11 +26,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
             | courseCode        | E2E 301                      |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"

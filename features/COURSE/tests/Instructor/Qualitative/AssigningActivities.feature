@@ -25,13 +25,8 @@ Feature: Assigning the activities present in the course
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
             | field             | value                        |
-<<<<<<< HEAD
-            | courseName        | Qualitative Course          |
-            | courseCode        | E2E 301                       |
-=======
             | courseName        | Qualitative Course           |
             | courseCode        | E2E 301                      |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -43,13 +38,8 @@ Feature: Assigning the activities present in the course
 
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
-<<<<<<< HEAD
-            | courseName        | Qualitative Course          |
-            | courseCode        |  E2E 301                      |
-=======
             | courseName        | Qualitative Course           |
             | courseCode        |  E2E 301                     |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
             | templateStatus    |  Active On Date              |
 
      

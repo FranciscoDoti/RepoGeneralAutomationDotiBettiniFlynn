@@ -28,11 +28,7 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         And I copy course from the "Read & Practice Course" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
             | courseCode        | E2E 301                      |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
        
         And I sign out of Achieve
 

@@ -25,11 +25,7 @@ Feature: Adding Instructor to the Template
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
             | courseCode        | E2E 301                      |
->>>>>>> 803e85fe0dad639d7cde8e6de6eaa15bfaeae6f8
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
