@@ -17,6 +17,7 @@ When('I login with invalid credentials', async function (data_table) {
     await pages.signIn.populate('username', data_table.hashes()[i].Username);
     await pages.signIn.populate('password', data_table.hashes()[i].Password);
     await pages.signIn.click('signin');
+    await pages.signIn.assertTextIncludes('verify', data_table.hashes()[i].verify);
     }
 });
 
