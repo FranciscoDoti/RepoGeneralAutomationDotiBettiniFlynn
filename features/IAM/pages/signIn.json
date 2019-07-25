@@ -78,6 +78,12 @@
             "definition": "//a[.='logout']",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "verify",
+            "byType": "xpath",
+            "definition": "//*[@id='RegisterForm']/div[3]",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
