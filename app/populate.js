@@ -236,8 +236,16 @@ const populateFile = async function (selector, value, WebElementObject) {
 const populateRichTextField = async function (selector, value, WebElementObject) {
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
+  const eleValue = await selector.getAttribute('textContent');
   if (WebElementData && WebElementData.specialInstr != null) {
     localSpecialInstr = WebElementData.specialInstr;
+  }
+
+  if(localSpecialInstr.toLowerCase().includes('overwrite'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
+    const actions = getDriver().actions({bridge: true});
+    await actions.doubleClick(selector).sendKeys('').perform();
   }
   
   const actions = getDriver().actions({bridge: true});
