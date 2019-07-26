@@ -2,7 +2,6 @@
 const { Given, When, Then, After } = require('cucumber');
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const { sleep } = require(`${process.cwd()}/app/driver`);
 var CQBTabQuestionSet = new Set();
 var question_count;
@@ -87,7 +86,6 @@ When(/^added it to new assessment as pool$/, async function () {
 
 When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
   let selectedTabText = await ngaPages.raptor.getText('activeTabEditMode');
-  console.log(selectedTabText);
   if (selectedTabText !== "correct1") {
     await ngaPages.raptor.click('correctContext');
   }
