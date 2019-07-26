@@ -26,7 +26,7 @@
             "byType": "css",
             "definition": "#primary-content-area > section > div > article > article > div > div > div > div:nth-child(2) > div > div > div > div.numeric-entry-border.short-answer > div > div > div > div > div > div > span",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "overwrite"
         }
     ]
 }
