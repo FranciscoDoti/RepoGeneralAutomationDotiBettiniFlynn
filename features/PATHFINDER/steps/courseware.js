@@ -8,7 +8,7 @@ When('I launch the Practice Test for Expressions', async function () {
 // This refresh is here so that the test doesn't fail if it encounters the
 // courseware bug described in PSV-3956
   await driver.getDriver().navigate().refresh();
-  await cwpages.coursePage.click('coursePlanner');
+  await cwpages.coursePage.click('contents', 'COURSE PLAN');
   await cwpages.coursePlanner.click('folderName', 'Chemistry');
   await cwpages.coursePlanner.click('folderName', 'Expressions');
   await cwpages.coursePlanner.click('activityName', 'Practice Test for Expressions');
@@ -19,7 +19,7 @@ When('I launch the Final Test for Expressions', async function () {
 // This refresh is here so that the test doesn't fail if it encounters the
 // courseware bug described in PSV-3956
   await driver.getDriver().navigate().refresh();
-  await cwpages.coursePage.click('coursePlanner');
+  await cwpages.coursePage.click('contents', 'COURSE PLAN');
   await cwpages.coursePlanner.click('folderName', 'Chemistry');
   await cwpages.coursePlanner.click('folderName', 'Expressions');
   await cwpages.coursePlanner.click('activityName', 'Final Test for Expressions');
