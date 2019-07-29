@@ -682,14 +682,6 @@
             "frame": "customIframe",
             "specialInstr": "NA"
 
-        },
-        {
-            "name": "myContent",
-            "byType": "css",
-            "definition": "[aria-label='MY CONTENT']",
-            "frame": "default",
-            "specialInstr": "NA"
-
         }
     ]
 }

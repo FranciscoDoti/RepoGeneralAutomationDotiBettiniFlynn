@@ -18,37 +18,13 @@
             "definition": "[data-test-id='welcome_modal_course_list_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "coursePlanner",
-            "byType": "css",
-            "definition": "[aria-label='COURSE PLAN']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "gradebook",
-            "byType": "css",
-            "definition": "[data-test-id='gradebook_tab']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "reports",
-            "byType": "css",
-            "definition": "[data-test-id='reports_tab']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "resources",
+        },  {
+            "name": "navigation",
             "byType": "xpath",
-            "definition": "//button[@class='_3Mch' and .='Resources']",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "ebook",
-            "byType": "xpath",
-            "definition": "//button[@class='_3Mch _2NuQ' and .='E-book']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },  {
             "name": "generateAccessCode",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div[2]/div/div/div[3]/button[2]",
@@ -72,13 +48,7 @@
             "definition": "[data-test-id='achieve_logo_link']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "gradebookTab",
-            "byType": "css",
-            "definition": "[data-test-id='gradebook_tab']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },  {
             "name": "successMessage",
             "byType": "xpath",
             "definition": "//*[@id='container']/div/div/div/div[4]/div/article/div[2]/span",
@@ -92,19 +62,13 @@
             "specialInstr": "NA"
         },
         {
-            "name": "browse",
+            "name": "contents",
             "byType": "xpath",
-            "definition": "//button[@class='_3Mch' and .='Browse']",
+            "definition": "//*[.='ReplaceText']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
-            "name": "myCourse",
-            "byType": "xpath",
-            "definition": "//*[text()='My Course']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }
 
+        }
 
         
     ]
