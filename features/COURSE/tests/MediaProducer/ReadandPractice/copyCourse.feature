@@ -18,7 +18,7 @@ Feature: Copy course from the Template
             | type                      | activity                                      |
             | addButtonReadandpractice  | LCRP1550612138614                             |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Dedication                                   |
+            | addReadingButton          |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
         And I copy course from the "Read & Practice Template" template with the following data
@@ -28,7 +28,7 @@ Feature: Copy course from the Template
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |
             | courseName            | Read & Practice Course    |
-            | courseDate            |  E2E 301                   |
+            | courseDate            |  E2E 301                  |
            
 
 

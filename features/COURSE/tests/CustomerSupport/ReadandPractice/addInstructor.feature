@@ -18,7 +18,7 @@ Feature: Adding Instructor to the Template
             | type                      | activity                                      |
             | addButtonReadandpractice  | LCRP1550612138614                             |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Dedication                                   |
+            | addReadingButton          |  Glossary                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Read & Practice Template" template with the following data

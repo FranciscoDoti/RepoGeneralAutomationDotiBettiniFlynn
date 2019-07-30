@@ -16,12 +16,12 @@ Feature: Verify that customer Support is able to create access code for Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  Glossary                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
-            | courseName          | courseCode           |
-            | Skills Course       | E2E 301              |
+            | courseName               | courseCode           |
+            | Qualitative Course       | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"

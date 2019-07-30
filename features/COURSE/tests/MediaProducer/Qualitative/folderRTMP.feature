@@ -17,14 +17,14 @@ Feature: Adding activities in Folder Resource Tab
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         |  Dedication                                   |
+            | addReadingButton         |  Analyzing Drama                                     |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                     |
+            | Analyzing Drama                                      | Reading           | 'Analyzing Drama' was successfully moved to Reading.                                       |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         When I reorder the resources on template
@@ -46,7 +46,7 @@ Feature: Adding activities in Folder Resource Tab
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | Dedication                                    | Reading           |
+            | Analyzing Drama                               | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the following resources from the Template

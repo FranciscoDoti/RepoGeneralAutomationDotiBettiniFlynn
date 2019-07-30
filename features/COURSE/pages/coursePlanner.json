@@ -5,7 +5,15 @@
             "definition": "//a[contains(@data-test-id,'course_name') and contains(text(), 'Add Unit Course')]",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
+            "name": "addAssignment",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../..//button[@data-test-id='add_assignment']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
             "name": "addUnitFolder",
             "byType": "xpath",
             "definition": "//*[@data-test-id='add_unit']",

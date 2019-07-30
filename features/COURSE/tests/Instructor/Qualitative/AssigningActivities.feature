@@ -19,7 +19,7 @@ Feature: Assigning the activities present in the course
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  Glossary                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
@@ -45,18 +45,18 @@ Feature: Assigning the activities present in the course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | Dedication                                                        |
+            | Glossary                                                        |
 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      |
-            | Dedication                                                       | 5      |
+            | Glossary                                                       | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Dedication                                                       | Open   |
+            | Glossary                                                       | Open   |
 

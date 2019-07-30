@@ -144,14 +144,10 @@ Then('I verify that resources are reordered', async function (data_table) {
 
 When(/^I add the activities in "(.*)"$/, async function (coursePage, data_table) {
   await pages.coursePage.click('navigation','Browse');
-  await pages.coursePage.click(coursePage);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('customContentButton');
-    await pages.coursePlanner.click('libraryTab');
-    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('closeCourseplanner');
-  }
+    for (let i = 0; i < data_table.rows().length; i++) {
+      await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+      await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    }
 });
 
 When(/^I add the activities to respective folders in "(.*)"$/, async function (coursePage, data_table) {
@@ -182,7 +178,7 @@ When(/^I reorder the resources on template in "(.*)"$/, async function (coursePa
 });
 
 Then(/^I verify the activities are added in folders which are present in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
+  await pages.coursePage.click('navigation',coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('folderName', data_table.hashes()[i].folders);
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
@@ -200,7 +196,7 @@ When(/^I delete the resources from the Template in "(.*)"$/, async function (cou
 });
 
 Then(/I verify that resources are deleted from Template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
+  await pages.coursePage.click('navigation',coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementDoesNotExist('actionButton', data_table.hashes()[i].folders);
   }
@@ -244,8 +240,9 @@ When('I delete the resources from the Template in ebook', async function (data_t
 
 When(/I add "(.*)" as collaborator to "(.*)"$/, async function (user, courseName) {
   let payload = await _.get(users, [this.environment, user]);
+  await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
-  await pages.courseList.click('courseCard', courseName);
+  await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', payload.username);
   await pages.createCourse.click('addCollaborators');
@@ -264,7 +261,7 @@ Then('I verify that custom activity is present in courseplanner your content sec
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
     await pages.coursePage.click('navigation', 'My Course');
     await pages.coursePage.click('contents', 'COURSE PLAN');
-    await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity);
+    await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity);
 
   }
 });
@@ -315,10 +312,10 @@ When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async fu
 
 When('I add the activities in ebook', async function (data_table){
   await pages.coursePage.click('navigation','E-book');
-  await pages.coursePage.click('customContentButton');
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('yourContent');
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignment', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('closeCourseplanner')
   }
 });

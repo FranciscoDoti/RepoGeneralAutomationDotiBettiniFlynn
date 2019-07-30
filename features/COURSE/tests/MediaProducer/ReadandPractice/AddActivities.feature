@@ -18,10 +18,10 @@ Feature: Adding activities to the template
             | type                    | activity                                      |
             | addButtonReadandpractice | LCRP1550612138614                            |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  GLOSSARY                                     |
 
         Then I verify that activties are added
             | activity                                      |
             | LCRP1550612138614                             |    
             | LC1551301608988                               |
-            |  Dedication                                   |            
+            |  GLOSSARY                                     |            

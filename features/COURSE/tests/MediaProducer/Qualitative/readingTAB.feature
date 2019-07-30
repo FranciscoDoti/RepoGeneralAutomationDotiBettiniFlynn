@@ -18,47 +18,46 @@ Feature: Adding reading activities in reading tab
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
+            | addReadingButton         | Analyzing Drama                               |
+            | addReadingButton         |  Analyzing Literary Elements                  |
+            | addReadingButton         | Literary Elements                             |
             | addReadingButton         | Dedication                                    |
-            | addReadingButton         | SYMBOLS AND NOTATION                          |
-            | addReadingButton         | Regression and Error                          |
-            | addReadingButton         | Confidence Intervals                          |
 
         And I add the activities in ebook
-            | activity                                      | 
-            | Dedication                                    |
-            | SYMBOLS AND NOTATION                          |
-            | Regression and Error                          |
-            | Confidence Intervals                          |
-            
+            | activity                                      |                                                      
+            | Analyzing Literary Elements                   | 
+            | Literary Elements                             |
+            | Analyzing Drama                               | 
+            | Dedication                                    | 
 
         And I reorder the resources on template in "E-book"
             | actvities                                                         | reorder        |
-            | SYMBOLS AND NOTATION                                              | moveToTop      |                                                     
-            | Regression and Error                                              | movedownButton |
-            | Dedication                                                        | moveToEnd      |
-            | Confidence Intervals                                              | moveUpButton   |
+            |  Analyzing Literary Elements                                      | moveToTop      |                                                     
+            | Literary Elements                                                 | movedownButton |
+            | Analyzing Drama                                                   | moveToEnd      |
+            | Dedication                                                        | moveUpButton   |
 
         Then I verify that resources are reordered in ebook
-            | activities                 |   orderNumber   |
-            | Confidence Intervals       |   1             |                                                     
-            | SYMBOLS AND NOTATION       |   2             |
-            | Regression and Error       |   3             |                                                                                         
-            | Dedication                 |   4             |                                        
+            | activities                    |   orderNumber   |
+            | Dedication                    |   1             |                                                     
+            |  Analyzing Literary Elements  |   2             |
+            | Literary Elements             |     3           |                                                                                         
+            | Analyzing Drama               |   4             |                                        
                                                                                     
 
         And I add the activities to respective folders in ebook
             | activity                                      | folders               | message                                                                   |
-            | SYMBOLS AND NOTATION                          | Reading Symbols       | 'SYMBOLS AND NOTATION' was successfully moved to Reading Symbols.         |
-            | Regression and Error                          | Reading Regression    | 'Regression and Error' was successfully moved to Reading Regression.      |
-            | Confidence Intervals                          | Reading Interval      | 'Confidence Intervals' was successfully moved to Reading Interval.        |
-            | Dedication                                    | Reading Authors       | 'Dedication' was successfully moved to Reading Authors.                   |
+            |  Analyzing Literary Elements                  | Reading Symbols       | 'Analyzing Literary Elements' was successfully moved to Reading Symbols.  |
+            | Literary Elements                             | Reading Regression    | 'Literary Elements' was successfully moved to Reading Regression.         |
+            | Dedication                                    | Reading Interval      | 'Dedication' was successfully moved to Reading Interval.                  |
+            | Analyzing Drama                               | Reading Authors       | 'Analyzing Drama' was successfully moved to Reading Authors.              |
 
         And I verify the activities are added in folders which are present in "E-book"
             | activity                                      | folders               |
-            | SYMBOLS AND NOTATION                          | Reading Symbols       |
-            |  Regression and Error                         | Reading Regression    |
-            | Dedication                                    | Reading Authors       |
-            |  Confidence Intervals                         | Reading Interval      |
+            |  Analyzing Literary Elements                   | Reading Symbols       |
+            |  Literary Elements                            | Reading Regression    |
+            | Analyzing Drama                               | Reading Authors       |
+            |  Dedication                                   | Reading Interval      |
 
         When I delete the resources from the Template in ebook
             | folders               | message                                  |

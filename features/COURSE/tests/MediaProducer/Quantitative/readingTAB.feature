@@ -18,46 +18,46 @@ Feature: Adding reading activities in reading tab
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                                    |
-            | addReadingButton         | SYMBOLS AND NOTATION                          |
+            | addReadingButton         | Glossary                                      |
+            | addReadingButton         |  Appendix F                                   |
             | addReadingButton         | Regression and Error                          |
             | addReadingButton         | Confidence Intervals                          |
 
         And I add the activities in ebook
             | activity                                      | 
-            | Dedication                                    |
-            | SYMBOLS AND NOTATION                          |
+            | Glossary                                      |
+            |  Appendix F                                   |
             | Regression and Error                          |
             | Confidence Intervals                          |
             
 
-        And I reorder the resources on template in "ebook"
+        And I reorder the resources on template in "E-book"
             | actvities                                                         | reorder        |
-            | SYMBOLS AND NOTATION                                              | moveToTop      |                                                     
+            |  Appendix F                                                       | moveToTop      |                                                     
             | Regression and Error                                              | movedownButton |
-            | Dedication                                                        | moveToEnd      |
+            | Glossary                                                          | moveToEnd      |
             | Confidence Intervals                                              | moveUpButton   |
 
         Then I verify that resources are reordered in ebook
             | activities                 |   orderNumber   |
             | Confidence Intervals       |   1             |                                                     
-            | SYMBOLS AND NOTATION       |   2             |
+            |  Appendix F                |   2             |
             | Regression and Error       |   3             |                                                                                         
-            | Dedication                 |   4             |                                        
+            | Glossary                   |   4             |                                        
                                                                                     
 
         And I add the activities to respective folders in ebook
-            | activity                                      | folders               | message                                                                  |
-            | SYMBOLS AND NOTATION                          | Reading Symbols       | 'SYMBOLS AND NOTATION' was successfully moved to Reading Symbols.       |
-            | Regression and Error                          | Reading Regression    | 'Regression and Error' was successfully moved to Reading Regression.     |
-            | Confidence Intervals                          | Reading Interval      | 'Confidence Intervals' was successfully moved to Reading Interval.      |
-            | Dedication                                    | Reading Authors       | 'Dedication' was successfully moved to Reading Authors.           |
+            | activity                                      | folders               | message                                                                   |
+            |  Appendix F                                   | Reading Symbols       | 'Appendix F' was successfully moved to Reading Symbols.                   |
+            | Regression and Error                          | Reading Regression    | 'Regression and Error' was successfully moved to Reading Regression.      |
+            | Confidence Intervals                          | Reading Interval      | 'Confidence Intervals' was successfully moved to Reading Interval.        |
+            | Glossary                                      | Reading Authors       | 'Glossary' was successfully moved to Reading Authors.                     |
 
-        And I verify the activities are added in folders which are present in "ebook"
+        And I verify the activities are added in folders which are present in "E-book"
             | activity                                      | folders               |
-            | SYMBOLS AND NOTATION                          | Reading Symbols       |
+            |  Appendix F                                   | Reading Symbols       |
             |  Regression and Error                         | Reading Regression    |
-            | Dedication                                    | Reading Authors       |
+            | Glossary                                      | Reading Authors       |
             |  Confidence Intervals                         | Reading Interval      |
 
         When I delete the resources from the Template in ebook
@@ -67,7 +67,7 @@ Feature: Adding reading activities in reading tab
             | Reading Regression    | 'Reading Regression' has been removed.   |
             | Reading Symbols       | 'Reading Symbols' has been removed.      |
 
-        Then I verify that resources are deleted from Template in "ebook"
+        Then I verify that resources are deleted from Template in "E-book"
             | folders                   |
             | Reading Authors           |  
             | Reading Interval          |

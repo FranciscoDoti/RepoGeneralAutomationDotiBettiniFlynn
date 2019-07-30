@@ -1,7 +1,8 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Skills Template
 
-    @custmersupport-delete-course
+   @custmersupport-delete-course
+    @mediaproducer-delete-course
     Scenario: Verify that Customer Support is able to create course from Skills Template
     
         Given I login to Achieve-CW as "media_producer_2"
@@ -16,7 +17,7 @@ Feature: Customer Support attempts all the activities in Skills Template
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                                    |
+            | addReadingButton         | Glossary                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I sign out of Achieve

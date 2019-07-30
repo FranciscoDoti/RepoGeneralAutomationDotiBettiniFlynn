@@ -10,7 +10,7 @@ Feature: Media Editor is able to create a template and update
                 | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
 
         Then I verify that "Quantitative Template Created." message is displayed
-        And I verify that "Quantitative Template" has created with following "ISBN: 9781464199499" number
+        And I verify that "Quantitative Template" has created with following "ISBN: 9781464199498" number
 
        And I activate the "Quantitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
