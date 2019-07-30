@@ -15,6 +15,7 @@ let pages = {
     multipleChoice: new PageObject('multipleChoice.json', stepsPath),
     sac: new PageObject('sac.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
+    wordAnswer: new PageObject('wordAnswer.json', stepsPath),
     numericEntry: new PageObject('numericEntry.json', stepsPath)
 };
 
