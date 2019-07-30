@@ -12,7 +12,7 @@ When(/^I add the "(.*)" module with following details$/, async function (moduleT
     await pages.raptor.click('contentArea');
     var rows = dataTable.hashes();
     await pages.raptor.populate('chemicalEquationPrefix', rows[0].value);
-    await pages.raptor.click('correctContext');
+    await pages.raptor.click('Correct Context');
     await pages.raptor.populate('chemicalEquationAnswerInput', rows[1].value);
 });
 
