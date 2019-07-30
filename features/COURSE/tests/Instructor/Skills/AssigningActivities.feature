@@ -25,13 +25,8 @@ Feature: Assigning the activities present in the course
         And I click on home button to return to coursepage
         And I copy course from the "Skills Template" template with the following data
             | field             | value                        |
-<<<<<<< HEAD
-            | courseName        | Skills Course          |
-            | courseCode        | E2E 301                       |
-=======
             | courseName        | Skills Course                |
             | courseCode        | E2E 301                      |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -44,12 +39,17 @@ Feature: Assigning the activities present in the course
         When I activate "Skills Course" course with following data 
             | field             | value                        |
 <<<<<<< HEAD
+<<<<<<< HEAD
             | courseName        | Skills Course          |
             | courseCode        |  E2E 301                      |
 =======
             | courseName        | Skills Course                |
             | courseCode        |  E2E 301                     |
 >>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
+=======
+            | courseName        | Skills Course                |
+            | courseCode        |  E2E 301                     |
+>>>>>>> 095883211a2442e8da625c94cc99f57571a68c91
             | templateStatus    |  Active On Date              |
 
      

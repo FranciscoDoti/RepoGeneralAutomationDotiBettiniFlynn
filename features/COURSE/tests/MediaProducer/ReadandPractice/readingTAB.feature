@@ -24,7 +24,7 @@ Feature: Adding reading activities in reading tab
             | addReadingButton         | Regression and Error                          |
             | addReadingButton         | Confidence Intervals                          |
 
-        And I add the activities in "ebook"
+        And I add the activities in "E-book"
             | activity                                      | 
             | Dedication                                    |
             | SYMBOLS AND NOTATION                          |
@@ -32,7 +32,7 @@ Feature: Adding reading activities in reading tab
             | Confidence Intervals                          |
             
 
-        And I reorder the resources on template in "ebook"
+        And I reorder the resources on template in "E-book"
             | actvities                                                         | reorder        |
             | SYMBOLS AND NOTATION                                              | moveToTop      |                                                     
             | Regression and Error                                              | movedownButton |
@@ -54,7 +54,7 @@ Feature: Adding reading activities in reading tab
             | Confidence Intervals                          | Reading Interval      | 'Confidence Intervals' was successfully moved to Reading Interval.      |
             | Dedication                                    | Reading Authors       | 'Dedication' was successfully moved to Reading Authors.           |
 
-        And I verify the activities are added in folders which are present in "ebook"
+        And I verify the activities are added in folders which are present in "E-book"
             | activity                                      | folders               |
             | SYMBOLS AND NOTATION                          | Reading Symbols       |
             |  Regression and Error                         | Reading Regression    |
@@ -68,7 +68,7 @@ Feature: Adding reading activities in reading tab
             | Reading Regression    | 'Reading Regression' has been removed.   |
             | Reading Symbols       | 'Reading Symbols' has been removed.      |
 
-        Then I verify that resources are deleted from Template in "ebook"
+        Then I verify that resources are deleted from Template in "E-book"
             | folders                   |
             | Reading Authors           |  
             | Reading Interval          |

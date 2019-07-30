@@ -31,7 +31,7 @@ Feature: Copy course from the Template
         Then I verify that "Skills Course" is created with following data
             | field                 | value                     |
             | courseName            | Skills Course             |
-            | courseDate            |  E2E 301                  |
+            | courseDate            |  E2E 301                   |
            
 
 

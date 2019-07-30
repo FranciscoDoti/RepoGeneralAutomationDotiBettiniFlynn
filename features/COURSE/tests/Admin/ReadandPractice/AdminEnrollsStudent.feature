@@ -25,11 +25,7 @@ Feature: Admin enrolls the student in the course
         And I copy course from the "Read & Practice Template" template with the following data
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
             | courseCode        | E2E 301                      |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -42,11 +38,7 @@ Feature: Admin enrolls the student in the course
         When I activate "Read & Practice Course" course with following data 
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-<<<<<<< HEAD
-            | courseCode        |  E2E 301                      |
-=======
             | courseCode        |  E2E 301                     |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Read & Practice Course" course

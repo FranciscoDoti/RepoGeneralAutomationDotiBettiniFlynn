@@ -27,10 +27,14 @@ Feature: Assigning the activities present in the course
             | field             | value                        |
             | courseName        | Quantitative Course          |
 <<<<<<< HEAD
+<<<<<<< HEAD
             | courseCode        | E2E 301                       |
 =======
             | courseCode        | E2E 301                      |
 >>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
+=======
+            | courseCode        | E2E 301                      |
+>>>>>>> 095883211a2442e8da625c94cc99f57571a68c91
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"

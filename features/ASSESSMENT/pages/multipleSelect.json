@@ -1,27 +1,21 @@
 {
     "webElements": [
         {
-            "name": "choiceValueTextbox",
+            "name": "Choice Value Textbox",
             "byType": "xpath",
             "definition": "//*[@id='module-edit-area']/div/div[2]/div/div[5]/div[<ReplaceText>]/div/div/div[2]/div/textarea",
             "frame": "default",
             "specialInstr": "noclick"
         }, {
-            "name": "addChoiceButton",
+            "name": "Add Choice Button",
             "byType": "xpath",
             "definition": "//a[@data-test-id='add-item-button']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "choice1Text",
+            "name": "Choice Text 1",
             "byType": "xpath",
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-           "name": "choice1Checkbox",
-            "byType": "xpath",
-            "definition": "//div[@data-module-type='multiple_select']/div[1]/fieldset/div/div[1]/span",
             "frame": "default",
             "specialInstr": "NA"
         }

@@ -26,11 +26,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I copy course from the "Quantitative Template" template with the following data
             | field             | value                        |
             | courseName        | Quantitative Course          |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
             | courseCode        | E2E 301                      |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -53,42 +49,42 @@ Feature: Instructor adds folder, remove folder and reorders it
             | Dedication                                                        |
             | LCRP1550612138614                                                 |
             
-        And I reorder the resources on template in "coursePlanner"
+        And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
             | LC1551301608988                                                   | movedownButton |
             | Dedication                                                        |  moveToEnd     |
             | LCRP1550612138614                                                 | moveUpButton   |
 
-        Then I verify that resources are reordered in "coursePlanner"
+        Then I verify that resources are reordered in "COURSE PLAN"
             | activities                                                        | orderNumber    |
             | LCRP1550612138614                                                 |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
             | LC1551301608988                                                   |  3             |
             | Dedication                                                        |  4             |      
 
-        And I add the activities to respective folders in "coursePlanner"
+        And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
             | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                              |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
-        And I verify the activities are added in folders which are present in "coursePlanner"
+        And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
             | Dedication                                    | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
-        When I delete the resources from the Template in "coursePlanner"
+        When I delete the resources from the Template in "COURSE PLAN"
             | folders           | message                                 |
             | Reading           | 'Reading' has been removed.             |
             | Learning Curve    | 'Learning Curve' has been removed.      |
             | Assesment         | 'Assesment' has been removed.           |
             | ReadandPractice   | 'ReadandPractice' has been removed.     |
 
-        Then I verify that resources are deleted from Template in "coursePlanner"
+        Then I verify that resources are deleted from Template in "COURSE PLAN"
             | folders           |
             | Reading           |  
             | Learning Curve    |
