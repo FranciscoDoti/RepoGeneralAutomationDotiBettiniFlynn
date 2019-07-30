@@ -33,9 +33,9 @@
     "sac-adv": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-advanced.feature -f json:reports/cucumber_report.json",
     "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment int",
     "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int",
-    "ne": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/numeric-entry.feature -f json:reports/cucumber_report.json --environment int",
     "wa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/word-answer.feature -f json:reports/cucumber_report.json",
     "mc": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/multiple-choice.feature -f json:reports/cucumber_report.json --environment int",
+    "ne": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/numeric-entry.feature -f json:reports/cucumber_report.json --environment int",
 
     "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json"
 
