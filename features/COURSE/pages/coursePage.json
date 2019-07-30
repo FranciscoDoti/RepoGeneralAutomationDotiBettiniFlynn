@@ -64,7 +64,7 @@
         {
             "name": "contents",
             "byType": "xpath",
-            "definition": "//*[.='ReplaceText']",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 
