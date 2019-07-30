@@ -14,7 +14,7 @@ Then('I grade Correct tab', async function () {
   await pages.moldraw.click('drawingArea');
   await mathpages.raptorAms.click('checkYourWorkSubmit');
 
-  await pages.raptor.assertText('activeTab', 'correct1');
+  await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
 
 Then('I grade Incorrect tab', async function () {
@@ -32,7 +32,7 @@ Then('I grade Incorrect tab', async function () {
   await pages.moldraw.click('drawingArea');
   await mathpages.raptorAms.click('checkYourWorkSubmit');
 
-  await pages.raptor.assertText('activeTab', 'incorrect1');
+  await pages.raptor.assertText('activeTabTakeMode', 'incorrect1');
 });
 
 Then('I grade Default tab', async function () {
@@ -47,5 +47,5 @@ Then('I grade Default tab', async function () {
   await pages.moldraw.click('drawingArea');
   await mathpages.raptorAms.click('checkYourWorkSubmit');
 
-  await pages.raptor.assertText('activeTab', 'default');
+  await pages.raptor.assertText('activeTabTakeMode', 'default');
 });
