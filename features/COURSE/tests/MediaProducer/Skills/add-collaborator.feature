@@ -11,10 +11,8 @@ Feature: Adding collaborator to the template
 
 
         And I activate the "Skills Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Skills Template                                             |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
             | type                    | activity                                      |

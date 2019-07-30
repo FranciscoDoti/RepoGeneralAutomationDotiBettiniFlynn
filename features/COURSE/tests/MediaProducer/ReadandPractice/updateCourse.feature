@@ -10,10 +10,8 @@
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
             
         Then I verify that "Read & Practice Template" is created with following data
             | field                 | value                     |

@@ -12,10 +12,9 @@ Feature: Instructor attempts all the activities in Quantitative Template
 
 
         And I activate the "Quantitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Quantitative Template                                       |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+             | courseName             |  courseCode   |  templateStatus      |
+             | Quantitative Template  |   E2E 301     |  Active On Date      | 
+
 
         And I add the activities in resources to "Quantitative Template" template
             | type                     | activity                                      |
@@ -26,9 +25,8 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And I click on home button to return to coursepage
 
         And I copy course from the "Quantitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Quantitative Course          |
-            | courseCode        | E2E 301                      |
+            | courseName           | courseCode           |
+            | Quantitative Course  | E2E 301              |
        
         And I sign out of Achieve
 

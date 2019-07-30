@@ -9,15 +9,13 @@ Feature: Verify that Instructor is able to create URL
             | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
 
         And I activate the "Quantitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Quantitative Template                                       |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Quantitative Template  |   E2E 301     |  Active On Date      | 
+
 
         And I copy course from the "Quantitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Quantitative Course          |
-            | courseCode        | E2E 301                       |
+            | courseName           | courseCode           |
+            | Quantitative Course  | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"

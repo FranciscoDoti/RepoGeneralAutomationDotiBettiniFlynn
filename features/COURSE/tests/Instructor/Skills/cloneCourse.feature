@@ -12,10 +12,8 @@ Feature: Instructor attempts all the activities in Skills Template
 
 
         And I activate the "Skills Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Skills Template                                             |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |
@@ -26,9 +24,8 @@ Feature: Instructor attempts all the activities in Skills Template
         And I click on home button to return to coursepage
 
         And I copy course from the "Skills Course" template with the following data
-            | field             | value                        |
-            | courseName        | Skills Course                |
-            | courseCode        | E2E 301                      |
+            | courseName          | courseCode           |
+            | Skills Course       | E2E 301              |
 
        
         And I sign out of Achieve

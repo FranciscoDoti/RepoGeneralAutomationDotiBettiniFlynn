@@ -10,10 +10,9 @@ Feature: Customer Support attempts all the activities in Qualitative Template
             | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+
 
         And I add the activities in resources to "Qualitative Template" template
             | type                    | activity                                      |
@@ -28,9 +27,8 @@ Feature: Customer Support attempts all the activities in Qualitative Template
         And I click on search button and input "Qualitative Template" to search the course
                 
         And I copy course from the "Qualitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Qualitative Course           |
-            | courseCode        | E2E 301                      |
+            | courseName          | courseCode           |
+            | Qualitative Course  | E2E 301              |
 
         And I click on search button and input "Qualitative Course" to search the course
         

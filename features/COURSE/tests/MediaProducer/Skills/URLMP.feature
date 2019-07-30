@@ -10,10 +10,8 @@ Feature: Verify that mediaProducer is able to create URL
             | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Skills Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Skills Template                                             |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add URL link to "Skills Template" 
             | field             | link                         |

@@ -11,10 +11,8 @@ Feature: Adding activities to the template
 
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                    | activity                                      |

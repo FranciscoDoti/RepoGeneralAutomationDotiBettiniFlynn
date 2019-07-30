@@ -11,10 +11,8 @@ Feature: Adding reading activities in reading tab
 
 
         And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Qualitative Template" template
             | type                     | activity                                      |

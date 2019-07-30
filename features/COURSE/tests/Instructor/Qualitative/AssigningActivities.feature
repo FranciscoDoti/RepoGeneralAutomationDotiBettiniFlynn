@@ -10,12 +10,11 @@ Feature: Assigning the activities present in the course
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
 
-        And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
-
+        And I activate the "Qualitative Template" template and add the following data 
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      |     
+            
+        
         And I add the activities in resources to "Qualitative Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
@@ -24,9 +23,8 @@ Feature: Assigning the activities present in the course
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Qualitative Course           |
-            | courseCode        | E2E 301                      |
+            | courseName          | courseCode           |
+            | Qualitative Course  | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"

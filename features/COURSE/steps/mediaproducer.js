@@ -23,12 +23,10 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.editCourse.assertElementExists(data_table.hashes()[i].field)
-    if (data_table.hashes()[i].page_object !== 'day') {
-      await pages.editCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value);
-    } else {
-      await pages.createCourse.click('templateStatus', data_table.hashes()[i].value);
-    }
+    var c = data_table.hashes()[i];
+    await pages.editCourse.populate('courseName', c.courseName)
+    await pages.editCourse.populate('courseCode', c.courseCode)
+    await pages.editCourse.populate('templateStatus', c.templateStatus)
   }
   await pages.editCourse.click('save');
   await pages.home.click('closeAlert');
@@ -36,7 +34,7 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
 
 When(/^I add the activities in resources to "(.*)" template$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('resources');
+  await pages.coursePage.click('navigation','Resources');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activity);
@@ -49,7 +47,9 @@ When(/^I copy course from the "(.*)" template with the following data$/, async f
   await pages.courseList.click('courseMenu', courseName);
   await pages.copyCourse.click('copyCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.copyCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value, data_table.hashes()[i].clear);
+    var c = data_table.hashes()[i];
+    await pages.copyCourse.populate('courseName', c.courseName)
+    await pages.copyCourse.populate('courseCode', c.courseCode)
   };
   await pages.copyCourse.click('save');
   await pages.home.click('closeAlert');
@@ -271,11 +271,12 @@ Then('I verify that custom activity is present in courseplanner your content sec
 
 When(/^I create Custom Task in "(.*)" and add it to resources$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName)
-  await pages.coursePage.click('resources');
+  await pages.coursePage.click('navigation','Resources');
   await pages.resources.click('addActivity');
   await pages.resources.click('createCustomActivity');
   await pages.coursePlanner.click('assessmentButton');
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.assertElementExists(data_table.hashes()[i].activity, data_table.hashes()[i].value);
     await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
   }
   await pages.coursePlanner.click('resetModel');

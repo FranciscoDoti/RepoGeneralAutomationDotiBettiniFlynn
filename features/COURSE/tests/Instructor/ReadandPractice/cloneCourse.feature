@@ -12,10 +12,8 @@ Feature: Instructor attempts all the activities in Read & Practice Template
 
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                     | activity                                      |
@@ -26,9 +24,8 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         And I click on home button to return to coursepage
 
         And I copy course from the "Read & Practice Course" template with the following data
-            | field             | value                        |
-            | courseName        | Read & Practice Course       |
-            | courseCode        | E2E 301                      |
+            | courseName              | courseCode           |
+            | Read & Practice Course  | E2E 301              |
        
         And I sign out of Achieve
 

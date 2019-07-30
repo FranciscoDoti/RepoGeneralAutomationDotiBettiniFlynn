@@ -10,10 +10,9 @@ Feature: Customer Support attempts all the activities in Quantitative Template
             | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
 
         And I activate the "Quantitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Quantitative Template                                       |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Quantitative Template  |   E2E 301     |  Active On Date      | 
+
 
         And I add the activities in resources to "Quantitative Template" template
             | type                    | activity                                      |
@@ -28,9 +27,8 @@ Feature: Customer Support attempts all the activities in Quantitative Template
         And I click on search button and input "Quantitative Template" to search the course
                 
         And I copy course from the "Quantitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Quantitative Course          |
-            | courseCode        | E2E 301                      |
+            | courseName          | courseCode           |
+            | Quantitative Course | E2E 301              |  
 
         And I click on search button and input "Quantitative Course" to search the course
         

@@ -136,8 +136,8 @@
         },
         {
             "name": "addAssignmentButton",
-            "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../..//*[@type='add_to_course']",
+            "byType": "css",
+            "definition": "[type='add_to_course']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -349,7 +349,7 @@
         }, {
             "name": "addQuestionButton",
             "byType": "css",
-            "definition": "[data-test-id='add-question-button']",
+            "definition": "[data-test-id='action-bar-button']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
         }, {

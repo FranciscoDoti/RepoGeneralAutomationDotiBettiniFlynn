@@ -10,10 +10,8 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                     | activity                                      |    
@@ -27,9 +25,8 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I click on search button and input "Read & Practice Template" to search the course
                 
         And I copy course from the "Read & Practice Template" template with the following data
-            | field             | value                        |
-            | courseName        | Read & Practice Course       |
-            | courseCode        | E2E 301                      |
+            | courseName              | courseCode           |
+            | Read & Practice Course  | E2E 301              |
 
         And I click on search button and input "Read & Practice Course" to search the course
         
