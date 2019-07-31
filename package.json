@@ -31,6 +31,7 @@
     "3691-customersupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3691-customerSupport.feature -f json:reports/cucumber_report.json --environment int",
     "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Skills/cloneCourse.feature -f json:reports/cucumber_report.json --environment int",
     "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int",
+    "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/smoketest -f json:reports/cucumber_report.json",
     "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json --environment int"
   },
   "engines": {

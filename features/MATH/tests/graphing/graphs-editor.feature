@@ -23,14 +23,26 @@ Feature:  New graph editor
         And I verify the graph editor "ID" has "no" graph Id number
 
     Scenario:  Verifies the graph url ID when an existing graph is open from window icon
-        # Hard coding id values is bad because it will require manual maintenance when int rebuilds bc data replication from live
-        When I click the "window" icon for graphId "258" 
-        Then I verify the graphId "258" editor will open in a new tab in edit mode
+        # Replaced the hard coded graphId with step functions to create new graphsId so that they can be used in the scenario steps
+       
+        When I click on new Graph button
+        And I input graphing expression "x^2+csc(cos(x))"
+        And I input "TrigFig 2.2" title
+        And I click the Save button
+        And I close the tab
+        When I click the "window" icon for the graphId
+        Then I verify the graphId editor will open in a new tab in edit mode
         And I verify the graph editor "url" has "a" graph Id number
 
     Scenario: Verifies the graph url when an existing graph is open from preview icon
-        # Hard coding id values is bad because it will require manual maintenance when int rebuilds bc data replication from live
-        When I click the "preview" icon for graphId "258" 
+        # Replaced the hard coded graphId with step functions to create new graphsId so that they can be used in the scenario steps
+        
+        When I click on new Graph button
+        And I input graphing expression "x^3+sin(cos(x))"
+        And I input "TrigFig 2.3" title
+        And I click the Save button
+        And I close the tab
+        When I click the "preview" icon for the graphId
         Then I verify the graph editor will open in a new tab in student preview mode
         And I verify the graph editor "url" has "a" graph Id number
 
@@ -61,7 +73,7 @@ Feature:  New graph editor
 
         When I click on new Graph button
         Then I verify new graph editor opens in a new tab with that tab in focus
-        When I input "AutoGraph11" title
+        When I input "TrigFig 2.4" title
         And I click the Save button
         Then the Save button text changes to Saved with a checkmark
         And I verify the graph editor "url" has "a" graph Id number
@@ -72,8 +84,8 @@ Feature:  New graph editor
 
         When I click on new Graph button
         Then I verify new graph editor opens in a new tab with that tab in focus
-        When I input "Fig 3.1" title
+        When I input "TrigFig 2.6" title
         And I click the Save button
         Then the Save button text changes to Saved with a checkmark
-        When I make any changes to title "Fig 3.2"
+        When I make any changes to title "Fig 2.5"
         Then I verify Save button text changes from Saved to Save
