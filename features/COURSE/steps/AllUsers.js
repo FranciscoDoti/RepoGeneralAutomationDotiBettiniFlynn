@@ -103,7 +103,7 @@ Then(/^I verify that "(.*)" is created with following data$/, async function (co
 
 When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('resources');
+  await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('addActivity');
   await pages.resources.click('createCustomActivity');
   for (let i = 0; i < data_table.rows().length; i++) {

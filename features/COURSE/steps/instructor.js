@@ -23,7 +23,7 @@ When(/^I activate "(.*)" course with following data$/, async function (courseNam
 });
 
 When(/^I create custom made activity in "(.*)" with the following data$/, async function (courseName, data_table) {
-  await pages.coursePage.click('coursePlanner');
+  await pages.coursePage.click('tab', 'COURSE PLANNER');
   await pages.coursePlanner.click('customContentButton');
   await pages.coursePlanner.click('newCustom');
   await pages.coursePlanner.click('assessmentButton');
@@ -50,27 +50,16 @@ When(/^I create custom made activity in "(.*)" with the following data$/, async 
 
 When(/^I add the activities in courseplanner to "(.*)" course$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('coursePlanner');
+  await pages.coursePage.click('navigation','Browse');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('customContentButton');
-    await pages.coursePlanner.click('libraryTab');
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('closeCourseplanner');
-  }
-});
-
-When('I add custom made activities in courseplanner', async function (data_table) {
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('custom_content_button');
-    await pages.coursePlanner.click('your_content');
-    await pages.coursePlanner.populate('library_search_input', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('add_custom_activity', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('closeCourseplanner');
   }
 });
 
 When('I assign the activities in courseplanner', async function (data_table) {
+  await pages.coursePage.click('navigation', 'My Course');
+  await pages.coursePage.click('tab', 'COURSE PLANNER')
   for (let i = 0; i < data_table.rows().length; i++) {
     let Elements = await pages.coursePlanner.getWebElements('assignAssignmentButton');
     let countlinks = Elements.length;
@@ -124,9 +113,9 @@ Then('I verify that activities are assigned', async function (data_table){
 
 When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, data_table){
   await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('coursePlanner');
+  await pages.coursePage.click('navigation','Browse');
+  await pages.coursePage.click('tab', 'MY CONTENT');
   await pages.coursePlanner.click('customContentButton');
-  await pages.coursePlanner.click('newCustom');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('urlLink');
     await pages.resources.populate(data_table.hashes()[i].field, data_table.hashes()[i].link)
@@ -137,14 +126,13 @@ When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, 
 When('I add url link in courseplanner', async function (data_table){
   await pages.resources.click('goToContent');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('yourContent');
-    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('closeCourseplanner');
+    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
   }
 });
 
 Then('I verify that activties are added in courseplanner', async function (data_table){
+  await pages.coursePage.click('navigation', 'My Course');
+  await pages.coursePage.click('tab', 'COURSE PLANNER');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
   }
