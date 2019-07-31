@@ -145,7 +145,7 @@
         {
             "name": "addAssignmentButton",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../div/*[local-name()='svg' and @type='add_to_course']",
+            "definition": "//a[.='<ReplaceText>']/../../../div/svg[@type='add_to_course']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
