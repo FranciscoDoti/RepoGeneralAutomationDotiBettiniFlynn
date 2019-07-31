@@ -84,6 +84,55 @@
             "definition": "//*[@id='RegisterForm']/div[3]",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "backBtn",
+            "byType": "xpath",
+            "definition": "/html/body/div[2]/main/div/div/div/div/div/div/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "footerLinks",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "privacy",
+            "byType":"xpath",
+            "definition": "//*[@id='top']/div/div[1]/div[1]/div/h1",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "termsOfPurchase",
+            "byType":"xpath",
+            "definition": "//*[@id='main']/div/div/div/div[1]/div[1]/div/h1",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "anti-Piracy",
+            "byType":"xpath",
+            "definition": "//*[@id='accesibility_refreshScreenReaderBufferField']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "home",
+            "byType":"xpath",
+            "definition": "//*[@id='ServiceCommunityTemplate']/div[4]/div/div[2]/div/div[1]/section/h1/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "piracyForm",
+            "byType":"xpath",
+            "definition": "//*[@id='Header']/div/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "instructorStore",
+            "byType":"xpath",
+            "definition": "//*[@id='single-search']/div/div[1]/div/div/h1",
+            "frame": "default",
+            "specialInstr": "NA"
+          
         }
     ]
 }

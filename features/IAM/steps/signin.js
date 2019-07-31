@@ -2,9 +2,12 @@ const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
-const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { visitURL, sleep } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+const driver = require(`${process.cwd()}/app/driver`);
+const PageObject = require(`${process.cwd()}/app/PageObject.js`);
+//const HashTable = require(`${process.cwd()}/app/HashTable.js`)HashTable;
 
 Given('I have opened Achieve "signURL"', async function () {
     let url = await _.get(urls, ['Achieve-CW', this.environment]);
@@ -17,9 +20,11 @@ When('I login with invalid credentials and I verify the message', async function
     await pages.signIn.populate('username', data_table.hashes()[i].Username);
     await pages.signIn.populate('password', data_table.hashes()[i].Password);
     await pages.signIn.click('signin');
-    await pages.signIn.assertElementExists('verify', data_table.hashes()[i].verify);
+    let test = await pages.signIn.getText('verify'); 
+        if (test === data_table.hashes()[i].verify);
+        console.log(test);
     }
-});
+}); 
 
 /*Then('I verify following message is displayed after {int} failure login attempts', async function (int, data_table) {
     for (let i = 1; i < data_table.rows(1).length; i++) {
@@ -50,15 +55,61 @@ When('I have logged in as {string}', async function (userType) {
     await pages.signIn.click('signin');
 });
 
-Then('I <verify> that I am able to login in as existing user before deployement.', async function (dataTable) {
+Then('I <verify> that I am able to login in as existing user before deployement.', async function (data_table) {
     await pages.signIn.assertElementExists('username');
-    })
+})
     
 When('I click on footer links, I verify that each link is directed to correct page', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.raptorAms.assertElementExists('Objects', data_table.hashes()[i].Objects);
-    await pages.raptorAms.click('Objects', data_table.hashes()[i].Objects);
-    await mathPages.raptorAms.switchToTab('pagedef', data_table.hashes()[i].pagedef);
-    await pages.raptorAms.assertElementExists('verify', data_table.hashes()[i].verify);
+    await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i].Objects);    
+    await pages.signIn.click('footerLinks', data_table.hashes()[i].Objects);
+//    await sleep(2000);
+    await pages.signIn.switchToTab('Privacy Notice');
+//    await sleep(2000);
+    let test = await pages.signIn.getText('privacy'); 
+        if (test === data_table.hashes()[i].verify);
+        console.log(test); 
+
+    await pages.signIn.switchToTab('Login');
+    await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 1].Objects);    
+    await pages.signIn.click('footerLinks', data_table.hashes()[i + 1].Objects);
+//    await sleep(2000);
+    await pages.signIn.switchToTab('Terms of Purchase');
+//    await sleep(2000);
+    let test1 = await pages.signIn.getText('termsOfPurchase'); 
+        if (test1 === data_table.hashes()[i + 1].verify);
+        console.log(test1); 
+
+    await pages.signIn.switchToTab('Login');
+    await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 2].Objects);    
+    await pages.signIn.click('footerLinks', data_table.hashes()[i + 2].Objects);
+//    await sleep(2000);
+    await pages.signIn.switchToTab('Anti-Piracy');
+//    await sleep(2000);
+   
+    let test2 = await pages.signIn.getText('anti-Piracy'); 
+        if (test2 === data_table.hashes()[i + 2].verify);
+        console.log(test2);
+
+    await pages.signIn.switchToTab('Login');
+    await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 3].Objects);    
+    await pages.signIn.click('footerLinks', data_table.hashes()[i + 3].Objects);
+    await sleep(2000);
+    await pages.signIn.switchToTab('Home');
+//    await sleep(2000);
+    let test3 = await pages.signIn.getText('home'); 
+        if (test3 === data_table.hashes()[i + 3].verify);
+        console.log(test3);
+
+    await pages.signIn.switchToTab('Login');
+    await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 4].Objects);    
+    await pages.signIn.click('footerLinks', data_table.hashes()[i + 4].Objects);
+//    await sleep(2000);
+    await pages.signIn.switchToTab('Instructor Store');
+//    await sleep(2000);
+    let test4 = await pages.signIn.getText('instructorStore'); 
+        if (test4 === data_table.hashes()[i + 4].verify);
+        console.log(test4); 
+    break   
     }
-});
+}); 
