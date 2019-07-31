@@ -120,7 +120,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       const webElement = await WebElementObject.getWebElement();
       const tagName = await webElement.getTagName();
-      console.log(`tagName = ${tagName}`);
       switch (tagName.toLowerCase()) {
         case 'input':
         case 'textarea':
