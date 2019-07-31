@@ -144,8 +144,8 @@
         },
         {
             "name": "addAssignmentButton",
-            "byType": "css",
-            "definition": "[type='add_to_course']",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../div/*[local-name()='svg' and @type='add_to_course']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
