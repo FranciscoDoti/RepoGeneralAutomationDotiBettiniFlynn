@@ -10,8 +10,9 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
             | courseName | PF Automation Student Test|
             | courseCode | PTH100                    |
 
-    Scenario: Admin adds student to course
+    Scenario: Admin adds student to course and assigns pathfinder assignment
         Given I login to Achieve-CW as "pf-admin"
+            When I search for "Pathfinder Automation Student Test"
             When I enroll the "pf-student1" in "PF Automation Student Test" course
             When I assign the activities in the courseplanner
             | activity                                                | Points |
@@ -26,27 +27,27 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
             When I click on the "Take the Practice Test Button"
             When I complete an NGA assignment with the following answers
             # answer all questions correctly
-            |Question |Answer |
-            | 1        | a     |
-            | 2        | b     |
-            | 3        | a     |
-            | 4        | d     |
-            | 5        | d     |
-            | 6        | c     |
-            | 7        | a     |
-            | 8        | c     |
-            | 9        | a     |
-            | 10       | a     |
-            | 11       | c     |
-            | 12       | b     |
-            | 13       | b     |
-            | 14       | b     |
-            | 15       | a     |
-            | 16       | a     |
-            | 17       | b     |
-            | 18       | d     |
-            | 19       | c     |
-            | 20       | a     |
+            |Question  |Answer  |
+            | 1        | a      |
+            | 2        | b      |
+            | 3        | a      |
+            | 4        | d      |
+            | 5        | d      |
+            | 6        | c      |
+            | 7        | a      |
+            | 8        | c      |
+            | 9        | a      |
+            | 10       | a      |
+            | 11       | c      |
+            | 12       | b      |
+            | 13       | b      |
+            | 14       | b      |
+            | 15       | a      |
+            | 16       | a      |
+            | 17       | b      |
+            | 18       | d      |
+            | 19       | c      |
+            | 20       | a      |
                 Then there should be a "Continue to Results Button"
 
             When I click on the "Continue To Results Button"
@@ -71,7 +72,7 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
             When I click on the "Take the Final Test Button"
             When I complete an NGA assignment with the following answers
             # answer all questions correctly
-            |Question |Answer |
+            |Question  |Answer |
             | 1        | d     |
             | 2        | c     |
             | 3        | a     |
@@ -102,5 +103,3 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
                 Then the "Patterns of Organization Topic" should contain the text "Maintained Mastery"
                 Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
                 Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
-                Then the "Topic Sentences and Supporting Details Topic" should contain the text "5/5 correct"
-                Then the "Topic Sentences and Supporting Details Topic" should contain the text "Maintained Mastery"
