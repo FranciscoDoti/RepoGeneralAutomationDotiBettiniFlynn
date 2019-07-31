@@ -152,7 +152,7 @@ When(/^I add the activities in "(.*)"$/, async function (coursePage, data_table)
 });
 
 When(/^I add the activities to respective folders in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
+  await pages.coursePage.click('tab',coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('addUnit');
     await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
@@ -179,7 +179,6 @@ When(/^I reorder the resources on template in "(.*)"$/, async function (coursePa
 });
 
 Then(/^I verify the activities are added in folders which are present in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('navigation',coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('folderName', data_table.hashes()[i].folders);
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
@@ -187,24 +186,22 @@ Then(/^I verify the activities are added in folders which are present in "(.*)"$
 });
 
 When(/^I delete the resources from the Template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('actionButtonResources', data_table.hashes()[i].folders);
     await pages.coursePlanner.click('actionRemoveItem');
     await pages.resources.click('confirmRemoveItem');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+
   }
 });
 
-Then(/I verify that resources are deleted from Template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('navigation',coursePage);
+Then(/^I verify that resources are deleted from Template in "(.*)"$/, async function (coursePage, data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementDoesNotExist('actionButton', data_table.hashes()[i].folders);
   }
 });
 
 Then(/^I verify that resources are reordered in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
+  await pages.coursePage.click('tab', coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertTextIncludes('reorderValidation', data_table.hashes()[i].orderNumber, data_table.hashes()[i].activities);
   }

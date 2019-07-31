@@ -7,7 +7,7 @@ Feature: Assigning the activities present in the course
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                       
 
         And I activate the "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
@@ -22,7 +22,7 @@ Feature: Assigning the activities present in the course
         And I click on home button to return to coursepage
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
-            | Read $ Practice Course  | E2E 301              |
+            | Read & Practice Course  | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -35,7 +35,7 @@ Feature: Assigning the activities present in the course
         When I activate "Read & Practice Course" course with following data 
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-            | courseCode        |  E2E 301                      |
+            | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
      
@@ -54,7 +54,7 @@ Feature: Assigning the activities present in the course
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
-            | Exercise: Misused words 1 (autoscored)                           | Open   | 
+            | LCRP1550612138614                                                | Open   | 
             | LC1551301608988                                                  | Open   |
             | GLOSSARY                                                         | Open   |
 

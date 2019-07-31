@@ -16,14 +16,13 @@ Feature: Instructor attempts all the activities in Read & Practice Template
             | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
-            | type                     | activity                                      |
-            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
+            | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 
-        And I copy course from the "Read & Practice Course" template with the following data
+        And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |
        

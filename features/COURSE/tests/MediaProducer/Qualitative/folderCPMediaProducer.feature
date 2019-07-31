@@ -22,7 +22,7 @@ Feature: Adding activities in Folder COURSE PLAN
             | addButtonReadandpractice | LCRP1550612138614                             |
 
 
-        And I add the activities in "coursePlanner"
+        And I add the activities in "COURSE PLAN"
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |

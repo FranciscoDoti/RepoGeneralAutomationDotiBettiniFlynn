@@ -19,7 +19,7 @@ Feature: Assigning the activities present in the course
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Glossary |
+            | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
         And I copy course from the "Quantitative Template" template with the following data
@@ -37,7 +37,7 @@ Feature: Assigning the activities present in the course
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        |  E2E 301                      |
+            | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
      

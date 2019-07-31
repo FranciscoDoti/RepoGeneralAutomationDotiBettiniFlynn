@@ -23,7 +23,7 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I click on home button to return to coursepage
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
-            | Read 7 Practice Course  | E2E 301              |
+            | Read & Practice Course  | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"

@@ -23,7 +23,7 @@ When(/^I activate "(.*)" course with following data$/, async function (courseNam
 });
 
 When(/^I create custom made activity in "(.*)" with the following data$/, async function (courseName, data_table) {
-  await pages.coursePage.click('tab', 'COURSE PLANNER');
+  await pages.coursePage.click('tab', 'COURSE PLAN');
   await pages.coursePlanner.click('customContentButton');
   await pages.coursePlanner.click('newCustom');
   await pages.coursePlanner.click('assessmentButton');
@@ -59,7 +59,7 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
 
 When('I assign the activities in courseplanner', async function (data_table) {
   await pages.coursePage.click('navigation', 'My Course');
-  await pages.coursePage.click('tab', 'COURSE PLANNER')
+  await pages.coursePage.click('tab', 'COURSE PLAN')
   for (let i = 0; i < data_table.rows().length; i++) {
     let Elements = await pages.coursePlanner.getWebElements('assignAssignmentButton');
     let countlinks = Elements.length;
@@ -132,7 +132,7 @@ When('I add url link in courseplanner', async function (data_table){
 
 Then('I verify that activties are added in courseplanner', async function (data_table){
   await pages.coursePage.click('navigation', 'My Course');
-  await pages.coursePage.click('tab', 'COURSE PLANNER');
+  await pages.coursePage.click('tab', 'COURSE PLAN');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
   }
