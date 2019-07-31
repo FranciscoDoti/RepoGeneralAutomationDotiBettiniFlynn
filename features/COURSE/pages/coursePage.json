@@ -11,8 +11,7 @@
             "definition": "[data-test-id='overview_tab']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "welcomeMessage",
             "byType": "css",
             "definition": "[data-test-id='welcome_modal_course_list_button']",
@@ -60,16 +59,13 @@
             "definition": "//*[@id='container']/div/div/div/div[4]/div/article/div[2]/div[2]/button",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "contents",
+        }, {
+            "name": "tab",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']",
+            "definition": "//div[@role='button' and .='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 
-        }
-
-
+        }   
     ]
 }

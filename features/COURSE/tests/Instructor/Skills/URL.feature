@@ -12,7 +12,7 @@ Feature: Verify that Instructor is able to create URL
 
         And I activate the "Skills Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |   |
+            | Skills Template           |   E2E 301     |  Active On Date      |   
 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |

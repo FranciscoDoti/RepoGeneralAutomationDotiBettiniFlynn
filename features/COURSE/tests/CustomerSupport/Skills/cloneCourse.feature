@@ -17,7 +17,7 @@ Feature: Customer Support attempts all the activities in Skills Template
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Glossary                                    |
+            | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I sign out of Achieve
