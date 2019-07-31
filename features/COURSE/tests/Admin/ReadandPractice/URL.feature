@@ -12,8 +12,8 @@ Feature: Verify that Admin is able to create URL
         And I click on search button and input "Read & Practice URL Template" to search the course
 
         And I activate the "Read & Practice URL Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+            | courseName                    |  courseCode   |  templateStatus      |
+            | Read & Practice URL Template  |   E2E 301     |  Active On Date      | 
 
         And I add URL link to "Read & Practice URL Template" 
             | field             | link                         |

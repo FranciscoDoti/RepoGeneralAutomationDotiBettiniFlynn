@@ -12,8 +12,8 @@ Feature: Verify that Admin is able to create URL
         And I click on search button and input "Skills URL Template" to search the course
 
         And I activate the "Skills URL Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |
+            | courseName                    |  courseCode   |  templateStatus      |
+            | Skills URL Template           |   E2E 301     |  Active On Date      |
 
         And I add URL link to "Skills URL Template" 
             | field             | link                         |

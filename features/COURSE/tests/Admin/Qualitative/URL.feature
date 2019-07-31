@@ -12,8 +12,8 @@ Feature: Verify that Admin is able to create URL
         And I click on search button and input "Qualitative URL Template" to search the course
 
         And I activate the "Qualitative URL Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Qualitative Template      |   E2E 301     |  Active On Date      | 
+            | courseName                    |  courseCode   |  templateStatus      |
+            | Qualitative URL Template      |   E2E 301     |  Active On Date      | 
 
         And I add URL link to "Qualitative URL Template" 
             | field             | link                         |
