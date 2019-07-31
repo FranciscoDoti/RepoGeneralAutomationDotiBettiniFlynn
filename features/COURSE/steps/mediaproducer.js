@@ -168,7 +168,7 @@ When(/^I add the activities to respective folders in "(.*)"$/, async function (c
 
 When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {
   await pages.coursePage.click('navigation', 'My Course')
-  await pages.coursePage.click('contents', coursePage);
+  await pages.coursePage.click('tab', 'COURSE PLANNER');
   await pages.coursePlanner.click('actionButtonValidation');
   await pages.coursePlanner.click('reorder');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -260,7 +260,7 @@ Then('I verify that custom activity is present in courseplanner your content sec
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
     await pages.coursePage.click('navigation', 'My Course');
-    await pages.coursePage.click('contents', 'COURSE PLAN');
+    await pages.coursePage.click('tab', 'COURSE PLANNER');
     await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity);
 
   }
