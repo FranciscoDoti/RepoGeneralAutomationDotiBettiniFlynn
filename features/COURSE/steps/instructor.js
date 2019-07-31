@@ -139,9 +139,8 @@ Then('I verify that activties are added in courseplanner', async function (data_
 });
 
 When(/^I create a course "(.*)" with the following data$/, async function (courseName, data_table){
-await pages.createCourse.click('createCourseButton');
-await pages.coursePage.click('courseName', courseName);
-await pages.coursePage.click('selectTemplate');
+await pages.courseList.click('courseMenu', courseName);
+await pages.copyCourse.click('copyCourse');
 for (let i = 0; i < data_table.rows().length; i++) {
  await pages.copyCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i]. value)
 }

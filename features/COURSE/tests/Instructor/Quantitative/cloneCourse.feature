@@ -38,7 +38,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
 
         And I login to Achieve-CW as "instructor_1"
 
-        And I create a course "Quantitative Template" with the following data
+        And I create a course "Quantitative Course" with the following data
             | field             | value                                  |
             | courseName        | Quantitative Instructor Course         |
             | courseCode        | E2E 301                                 |

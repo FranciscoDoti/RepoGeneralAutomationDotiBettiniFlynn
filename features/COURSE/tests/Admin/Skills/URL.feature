@@ -6,16 +6,16 @@ Feature: Verify that Admin is able to create URL
 
        Given I login to Achieve-CW as "admin_1"
         When I create template with following data 
-           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                   
+           | courseType  | productModel | courseName           |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills URL Template  |                  | E2E 301      | 9781464199499  | draft         |                   
 
-        And I click on search button and input "Skills Template" to search the course
+        And I click on search button and input "Skills URL Template" to search the course
 
-        And I activate the "Skills Template" template and add the following data
+        And I activate the "Skills URL Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
             | Skills Template           |   E2E 301     |  Active On Date      |
 
-        And I add URL link to "Skills Template" 
+        And I add URL link to "Skills URL Template" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 

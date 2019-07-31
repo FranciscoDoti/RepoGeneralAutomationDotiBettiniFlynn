@@ -262,7 +262,7 @@ Then('I verify that custom activity is present in courseplanner your content sec
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
     await pages.coursePage.click('navigation', 'My Course');
     await pages.coursePage.click('tab', 'COURSE PLAN');
-    await pages.resources.assertElementExists('assignmentValidation', data_table.hashes()[i].activity);
+    await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity);
 
   }
 });

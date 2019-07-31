@@ -23,7 +23,7 @@ Feature: Instructor attempts all the activities in Skills Template
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 
-        And I copy course from the "Skills Course" template with the following data
+        And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |
 
@@ -38,7 +38,7 @@ Feature: Instructor attempts all the activities in Skills Template
 
         And I login to Achieve-CW as "instructor_1"
 
-        And I create a course "Skills Template" with the following data
+        And I create a course "Skills Course" with the following data
             | field             | value                                     |
             | courseName        | Skills Instructor Course                  |
             | courseCode        | E2E 301                                   |
