@@ -3,7 +3,7 @@ Feature: Verify Help info icon information
     Scenario Outline: Verify that help info icon tooltip Information is consistent to application behavior
 
         Given I have opened Achieve "signURL"
-        When I hover on help icon "?" 
+        When I hover on "?" icon 
 
         Then I <verify> the help as following information 
         Examples:

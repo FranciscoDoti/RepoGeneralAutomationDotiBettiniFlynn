@@ -31,7 +31,14 @@
     "courseReport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/courseReport.feature",
     "signin": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/account_lock.feature",
     "existing": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/Existing_user_login.feature",
-    "footer": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/footer_link.feature"
+    "footer": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/footer_link.feature",
+    "help": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/help_info.feature",
+    "cancel": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/Cancel_forgot.feature",
+    "forgotfooter": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/footer_link_forgot.feature",
+    "forgot": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/forgot_page.feature",
+    "forgotPassWord": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/password_validation.feature",
+    "forgotSecQuest": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/Security_questions.feature",
+    "forgotVerify": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/verify_account.feature"
 
   },
   "engines": {

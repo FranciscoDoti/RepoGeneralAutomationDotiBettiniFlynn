@@ -132,6 +132,18 @@
             "definition": "//*[@id='single-search']/div/div[1]/div/div/h1",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "frameRegistration",
+            "byType":"xpath",
+            "definition": "//*[@id='RegisterForm']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "registration",
+            "byType":"xpath",
+            "definition": "//*[@id='RegisterForm']/div[1]/div[1]/span[2]/div/svg/g",
+            "frame": "default",
+            "specialInstr": "NA"
           
         }
     ]

@@ -1,6 +1,48 @@
 {
-    "webElements": [{
-
-
-    }]
+    "webElements": [
+        {
+            "name": "forgotLink",
+            "byType": "xpath",
+            "definition": "//*[@id=RegisterForm]/div[2]/div[1]/span[2]/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "cancelBtn",
+            "byType": "id",
+            "definition": "cancel",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "createAccount",
+            "byType": "id",
+            "definition": "createAccount",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "passwordResetPage",
+            "byType": "xpath",
+            "definition": "//*[@id='app']/div/div/main/div",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "resetPassBtn",
+            "byType": "xpath",
+            "definition": "//*[@id='resetpassword']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "verfyID",
+            "byType": "xpath",
+            "definition": "//*[@id='verifyForm']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "submitBtn",
+            "byType": "xpath",
+            "definition": "//*[@id='submitanswer']",
+            "frame": "default",
+            "specialInstr": "NA"
+       
+        }
+    ]
 }

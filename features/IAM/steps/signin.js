@@ -7,6 +7,7 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver`);
 const PageObject = require(`${process.cwd()}/app/PageObject.js`);
+const checkEmail = require(`${process.cwd()}/features/COURSE/steps/checkEmail.js`);
 //const HashTable = require(`${process.cwd()}/app/HashTable.js`)HashTable;
 
 Given('I have opened Achieve "signURL"', async function () {
@@ -113,3 +114,19 @@ When('I click on footer links, I verify that each link is directed to correct pa
     break   
     }
 }); 
+
+When(/^I hover on "(.*)" icon$/, async function (string) { 
+    await pages.signIn.assertElementExists('frameRegistration');
+    await pages.signIn.assertElementExists('registration');
+});
+
+Then('I {string} the help as following information', async function (string) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+        await pages.singIn.click('registration');
+        let test = await pages.signIn.getText('registration'); 
+            if (test === data_table.hashes()[i].verify);
+            console.log(test);
+    }
+});
+
+
