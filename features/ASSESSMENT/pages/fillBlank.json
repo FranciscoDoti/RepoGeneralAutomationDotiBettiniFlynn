@@ -1,0 +1,39 @@
+{
+    "webElements": [
+        {
+            "name": "Text",
+            "byType": "css",
+            "definition": "#module-edit-area > div > div > div:nth-child(2) > span > span > div > div:nth-child(2) > div > textarea",
+            "frame": "default",
+            "specialInstr": "noclick overwrite"
+        },
+        {
+            "name": "Add DropDown Button",
+            "byType": "xpath",
+            "definition": "//a[.='Add DropDown']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Value Text",
+            "byType": "xpath",
+            "definition": "//*[@id='module-edit-area']/div/div/div[3]/div[3]/div[<ReplaceText>]/div/div/div[2]/div/div[2]/div/div[3]/div/div/span",
+            "frame": "default",
+            "specialInstr": "overwrite"
+        },
+        {
+            "name": "DropDown",
+            "byType": "css",
+            "definition": "button[data-test-id='answerChoiceDropDown']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Option",
+            "byType": "css",
+            "definition": "ul[data-test-id='dropDownAnswerChoices'] > li:nth-child(<ReplaceText>)",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

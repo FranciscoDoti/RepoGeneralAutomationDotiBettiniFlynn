@@ -239,13 +239,6 @@
             "specialInstr": "noclick noclear"
         },
         {
-            "name": "checkYourWorkSubmit",
-            "byType": "id",
-            "definition": "check-answer-button",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "incorrectAnswerAlert",
             "byType": "css",
             "definition": "div#primary-content-area > section.red-border",

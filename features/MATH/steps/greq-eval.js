@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const expect = require('chai').expect;
+const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { Key } = require('selenium-webdriver');
 const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "∪", "."]
 
@@ -96,7 +96,7 @@ When(/^I input the correct "(.*)"$/, async function (eqn) {
 });
 
 When(/^I submit answer$/, async function () {
-  await pages.raptorAms.click('checkYourWorkSubmit');
+  await ngaPages.raptor.click('Check Your Work Submit Button');
 });
 
 Then(/^My answer is graded correctly$/, async function () {

@@ -23,11 +23,11 @@ Then('I grade the following words', async function (datatable) {
   await pages.raptor.click('More Button');
   await pages.raptor.click('Save As Draft');
   await mathpages.raptorAms.click('menuBarMore');
-  await pages.raptor.click('checkAnswerSwitchMenu');
+  await pages.raptor.click('Check Answer Switch Menu');
 
   for (let i = 0; i < datatable.rows().length; i++) {
     await pages.wordAnswer.populate('Word Answer Textbox', datatable.hashes()[i].Word);
-    await mathpages.raptorAms.click('checkYourWorkSubmit');
+    await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTab', datatable.hashes()[i].Result);
   }
 });
