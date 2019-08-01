@@ -11,6 +11,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
   await pages.createCourse.assertTextIncludes('courseTitle', 'E2E 301: '+courseName )
+  await pages.home.scrollElementIntoView('togglerMenu');
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
@@ -30,8 +31,11 @@ When(/^I search for "(.*)" and click on course card$/, async function (courseNam
 });
 
 When('I click on Manage roles', async function () {
+  await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
+  await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.assertElementExists('manageRoles');
   await pages.adminMenu.click('manageRoles')
 });
 

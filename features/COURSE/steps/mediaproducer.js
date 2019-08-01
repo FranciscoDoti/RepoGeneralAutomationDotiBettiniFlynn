@@ -167,7 +167,7 @@ When(/^I add the activities to respective folders in "(.*)"$/, async function (c
 });
 
 When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('navigation', coursePage)
+  await pages.coursePage.click('navigation', 'My Course')
   await pages.coursePage.click('tab', coursePage);
   await pages.coursePlanner.click('actionButtonValidation');
   await pages.coursePlanner.click('reorder');
@@ -342,3 +342,15 @@ When('I create template with following data', async function (data_table){
     }
     await pages.createCourse.click('save');
 });
+
+When('I reorder the resources on template in ebook', async function (data_table){
+  await pages.coursePage.click('navigation', 'E-Book');
+  await pages.coursePlanner.click('actionButtonValidation');
+  await pages.coursePlanner.click('reorder');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('reorderResources', data_table.hashes()[i].actvities);
+    await pages.resources.click(data_table.hashes()[i].reorder);
+  }
+  await pages.coursePlanner.click('modalSaveButton');
+});
+

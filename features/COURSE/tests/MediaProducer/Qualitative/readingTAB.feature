@@ -30,7 +30,7 @@ Feature: Adding reading activities in reading tab
             | Analyzing Drama                               | 
             | Dedication                                    | 
 
-        And I reorder the resources on template in "E-book"
+        And I reorder the resources on template in ebook
             | actvities                                                         | reorder        |
             |  Analyzing Literary Elements                                      | moveToTop      |                                                     
             | Literary Elements                                                 | movedownButton |

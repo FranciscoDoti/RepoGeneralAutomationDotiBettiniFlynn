@@ -31,7 +31,7 @@ Feature: Adding reading activities in reading tab
             | Confidence Intervals                          |
             
 
-        And I reorder the resources on template in "E-book"
+        And I reorder the resources on template in ebook
             | actvities                                                         | reorder        |
             |  Appendix F                                                       | moveToTop      |                                                     
             | Regression and Error                                              | movedownButton |
