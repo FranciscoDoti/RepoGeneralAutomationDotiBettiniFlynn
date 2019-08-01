@@ -30,9 +30,9 @@
     "wa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/word-answer.feature -f json:reports/cucumber_report.json",
     "user": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/ReadandPractice/InstructorfolderCP.feature -f json:reports/cucumber_report.json --environment int",
     "3691-customersupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3691-customerSupport.feature -f json:reports/cucumber_report.json --environment int",
-    "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/paidAccessCode/generateAccessCode.feature -f json:reports/cucumber_report.json --environment int",
+    "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/courseReport.feature -f json:reports/cucumber_report.json --environment int",
     "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor -f json:reports/cucumber_report.json --environment int",
-    "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaEditor -f json:reports/cucumber_report.json --environment int",
+    "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin -f json:reports/cucumber_report.json --environment int",
     "mc": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/multiple-choice.feature -f json:reports/cucumber_report.json --environment int"
   },
   "engines": {

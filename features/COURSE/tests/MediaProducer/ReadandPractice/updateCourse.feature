@@ -5,7 +5,7 @@
     Scenario: Verify that Media Producer is able to update the template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create "Read & Practice Template" Template with following data 
+        When I create template with following data 
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |
 

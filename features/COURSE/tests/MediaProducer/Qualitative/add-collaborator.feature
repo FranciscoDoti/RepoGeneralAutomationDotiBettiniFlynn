@@ -42,7 +42,7 @@ Feature: Adding collaborator to the template
             | activity                                      | folders           |
             | BR19.2: Bridge: Income Distribution           | Assesment         |
             | Active and Passive Voice                      | Learning Curve    |
-            |  Appendix F                          | Reading           |
+            |  Appendix F                                   | Reading           |
 
 
 

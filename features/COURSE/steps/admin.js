@@ -71,9 +71,9 @@ When('I generate and export course report', async function (){
 
 Then('I verify the report is dowloaded with following data', async function (datatable) {
   const current = new Date();
-  let courseReport = `${this.downloadLocation}/course_report_${current.toString().split(' ')[1]}-${current.getDate()}-${current.getFullYear()}.csv`;
+  let month = current.getDate();
+  let courseReport = `${this.downloadLocation}/course_report_${current.toString().split(' ')[1]}-${month<10?("0"+month):(month)}-${current.getFullYear()}.csv`;
   const data = await csvtojson().fromFile(courseReport);
-
   for (let i = 0; i < datatable.rows().length; i++) {
       expect(data[0]).to.have.property(datatable.hashes()[i].ColumnName);
   }

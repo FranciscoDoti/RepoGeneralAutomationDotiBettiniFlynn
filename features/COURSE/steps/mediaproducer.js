@@ -101,6 +101,7 @@ When('I add the following activities to respective folders in resource tab', asy
     await pages.resources.click('placeInFolder');
     console.log(data_table.hashes()[i].message);
     await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+    await pages.home.click('closeAlert');
 
   }
 });
@@ -126,7 +127,6 @@ When('I delete the following resources from the Template', async function (data_
     await pages.resources.click('threeButtonResources', data_table.hashes()[i].folders);
     await pages.resources.click('removeItem');
     await pages.resources.click('confirmRemoveItem');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
   }
 });
 
@@ -167,7 +167,7 @@ When(/^I add the activities to respective folders in "(.*)"$/, async function (c
 });
 
 When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('navigation', 'My Course')
+  await pages.coursePage.click('navigation', coursePage)
   await pages.coursePage.click('tab', coursePage);
   await pages.coursePlanner.click('actionButtonValidation');
   await pages.coursePlanner.click('reorder');
