@@ -136,8 +136,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
-        case 'select':
         case 'svg':
+          value == 'click' ? await populateClick(webElement, value, actionElement) : await populateSelect(webElement, value, actionElement);
+          break;
+        case 'select':
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;

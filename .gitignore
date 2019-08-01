@@ -5,3 +5,4 @@ package-lock.json
 *.csv
 reports/**
 screenshots/**
+**/config.json
