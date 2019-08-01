@@ -344,7 +344,6 @@ When('I create template with following data', async function (data_table){
 });
 
 When('I reorder the resources on template in ebook', async function (data_table){
-  await pages.coursePage.click('navigation', 'E-Book');
   await pages.coursePlanner.click('actionButtonValidation');
   await pages.coursePlanner.click('reorder');
   for (let i = 0; i < data_table.rows().length; i++) {
