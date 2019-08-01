@@ -20,14 +20,12 @@ When('I add the following word choices', async function (datatable) {
 });
 
 Then('I grade the following words', async function (datatable) {
-  await pages.raptor.click('More Button');
-  await pages.raptor.click('Save As Draft');
   await mathpages.raptorAms.click('menuBarMore');
   await pages.raptor.click('checkAnswerSwitchMenu');
 
   for (let i = 0; i < datatable.rows().length; i++) {
     await pages.wordAnswer.populate('Word Answer Textbox', datatable.hashes()[i].Word);
     await mathpages.raptorAms.click('checkYourWorkSubmit');
-    await pages.raptor.assertText('activeTab', datatable.hashes()[i].Result);
+    await pages.raptor.assertText('activeTabTakeMode', datatable.hashes()[i].Result);
   }
 });
