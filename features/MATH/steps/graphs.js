@@ -348,3 +348,21 @@ When(/^I input non-existing graphid in the graph editor url$/, async function ()
   await visitURL(urlNonExistGraphId, Key.ENTER);
   await pages.graphEditor.click('saveButton');
 });
+
+
+When('I create a new graph with the following details', async function (datatable) {
+  
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let data = datatable.hashes()[i];
+
+    await pages.graphTab.click('newGraphButton');
+    await pages.graphEditor.switchToTab('Graphing');
+    await pages.graphEditor.populate('graphingTextField', data.GraphingExpression);
+    await pages.graphEditor.click('editTitleButton');
+    await pages.graphEditor.populate('titleTextField', data.Title);
+    await pages.graphEditor.click('saveButton');
+    await pages.graphEditor.assertElementExists('isSavedButton');
+    await pages.graphEditor.closeTab('Graphing System');
+    await pages.graphEditor.switchToTab('Sapling Learning');
+  }
+});
