@@ -2,7 +2,7 @@ var { After, AfterAll } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const { closeBrowser, resetBrowser, takeScreenshot, visitURL } = require(`${process.cwd()}/app/driver`);
+const { closeBrowser, resetBrowser, takeScreenshot, visitURL, sleep } = require(`${process.cwd()}/app/driver`);
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
@@ -143,5 +143,24 @@ After('@custmersupport-delete-course', async function () {
     await pages.courseList.assertElementExists('confirmDelete')
     await pages.courseList.click('confirmDelete');
     await pages.home.click('closeAlert');
+  }
+});
+
+After('@pfproducer-delete-course', async function () {
+  let payload = await _.get(users, [this.environment, 'pf-producer']);
+  await pages.home.click('togglerMenu');
+  await pages.home.click('signOut');
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', payload.username);
+  await pages.home.populate('password', payload.password);
+  await pages.home.click('signIn')
+  await pages.courseList.populate('search', 'PF Automation')
+  await sleep(500)
+  let elements = await pages.courseList.getWebElements('courseCard');
+  for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
+    await sleep(500);
+    await pages.courseList.click('deleteCourse');
+    await pages.courseList.click('confirmDelete');
   }
 });

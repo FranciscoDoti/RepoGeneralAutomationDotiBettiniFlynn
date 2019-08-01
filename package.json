@@ -37,7 +37,8 @@
     "mc": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/multiple-choice.feature -f json:reports/cucumber_report.json --environment int",
     "ne": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/numeric-entry.feature -f json:reports/cucumber_report.json --environment int",
 
-    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json"
+    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json",
+    "pf-student": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@student' -f json:reports/cucumber_report.json"
 
   },
   "engines": {

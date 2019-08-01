@@ -1,4 +1,5 @@
 const { Given, When, Then } = require('cucumber');
+const driver = require(`${process.cwd()}/app/driver.js`);
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const _ = require('lodash');
@@ -9,7 +10,8 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await pages.createCourse.assertTextIncludes('courseTitle', courseName )
+  await driver.getDriver().navigate().refresh();
+  // await pages.createCourse.assertTextIncludes('courseTitle', courseName )
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
