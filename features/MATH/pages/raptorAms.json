@@ -162,7 +162,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "correctTab",
+            "name": "Correct Tab",
             "byType": "css",
             "definition": "a[data-test-id='correct-context']",
             "frame": "default",

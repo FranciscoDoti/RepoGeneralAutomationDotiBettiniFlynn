@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 When('I configure the following grading options', async function (datatable) {
-  await mathpages.raptorAms.click('correctTab');
+  await mathpages.raptorAms.click('Correct Tab');
   for (let i = 0; i < datatable.rows().length; i++) {
     let checkboxStatus = await pages.wordAnswer.getAttributeValue('Grading Option Checkbox', datatable.hashes()[i].Option, 'selected');
     if (checkboxStatus !== datatable.hashes()[i].Value) {

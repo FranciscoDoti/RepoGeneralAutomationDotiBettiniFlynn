@@ -25,7 +25,7 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
 });
 
 When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
-  await pages.raptorAms.click('correctTab');
+  await pages.raptorAms.click('Correct Tab');
   await pages.raptorAms.populate('mathGradeAs', eval);
   await pages.raptorAms.click('mathGradeAs');
   await pages.raptorAms.populate('mathEquationField', eqn);
@@ -106,7 +106,7 @@ Then(/^My answer is graded correctly$/, async function () {
 // The following steps are similar to greq-eval.feature but are broken down into simpler steps 
 // Down the road aim to refactor the greq-eval.feature into separate scenarios for each eval and keep js step functions simpler
 When(/^I set the grade as "(.*)" type$/, async function (gradeAsEval) {
-  await pages.raptorAms.click('correctTab');
+  await pages.raptorAms.click('Correct Tab');
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
   await pages.raptorAms.click('mathGradeAs');
 });
