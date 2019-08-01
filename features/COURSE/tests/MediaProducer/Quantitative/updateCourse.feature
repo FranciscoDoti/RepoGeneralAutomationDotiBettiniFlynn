@@ -10,10 +10,9 @@
             | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |  
 
         And I activate the "Quantitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Quantitative Template                                       |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Quantitative Template  |   E2E 301     |  Active On Date      | 
+
             
         Then I verify that "Quantitative Template" is created with following data
             | field                 | value                     |

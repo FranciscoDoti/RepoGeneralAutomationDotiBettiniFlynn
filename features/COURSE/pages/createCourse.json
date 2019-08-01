@@ -33,7 +33,7 @@
         }, {
             "name": "courseTitle",
             "byType": "css",
-            "definition": "[data-test-id='course_title']",
+            "definition": "[data-test-id='course_dropdown_selected_course']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -239,15 +239,6 @@
             "definition": "[data-test-id='course_name']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "courseTitle",
-            "byType": "css",
-            "definition": "[data-test-id='course_title']",
-            "frame": "default",
-            "specialInstr": "NA"
-
-
         }
           
     ]

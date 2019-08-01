@@ -12,23 +12,20 @@ Feature: Instructor attempts all the activities in Qualitative Template
 
 
         And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Qualitative Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                                    |
+            | addReadingButton         | Glossary                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 
         And I copy course from the "Qualitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Qualitative Course           |
-            | courseCode        | E2E 301                      |
+            | courseName          | courseCode           |
+            | Qualitative Course  | E2E 301              |
        
         And I sign out of Achieve
 
@@ -40,7 +37,7 @@ Feature: Instructor attempts all the activities in Qualitative Template
 
         And I login to Achieve-CW as "instructor_1"
 
-        And I create a course "Qualitative Template" with the following data
+        And I create a course "Qualitative Course" with the following data
             | field             | value                                  |
             | courseName        | Qualitative Instructor Course          |
             | courseCode        | E2E 301                                |

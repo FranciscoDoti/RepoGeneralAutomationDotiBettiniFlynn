@@ -11,24 +11,22 @@ Feature: Adding activities in Folder COURSE PLAN
 
 
         And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Qualitative Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         |  Dedication                                   |
+            | addReadingButton         |  Analyzing Drama                              |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
 
-        And I add the activities in "coursePlanner"
+        And I add the activities in "COURSE PLAN"
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | Dedication                                                        |
+            | Analyzing Drama                                                   |
             | LCRP1550612138614                                                 |
 
 
@@ -36,7 +34,7 @@ Feature: Adding activities in Folder COURSE PLAN
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
             | LC1551301608988                                                   | movedownButton |
-            | Dedication                                                        | moveToEnd      |
+            | Analyzing Drama                                                   | moveToEnd      |
             | LCRP1550612138614                                                 | moveUpButton   |
 
         Then I verify that resources are reordered in "COURSE PLAN"
@@ -44,20 +42,20 @@ Feature: Adding activities in Folder COURSE PLAN
             | LCRP1550612138614                                                 |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
             | LC1551301608988                                                   |  3             |
-            | Dedication                                                        |  4             |      
+            | Analyzing Drama                                                   |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                              |
+            | Analyzing Drama                               | Reading           | 'Analyzing Drama' was successfully moved to Reading.                                |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | Dedication                                    | Reading           |
+            | Analyzing Drama                               | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the resources from the Template in "COURSE PLAN"

@@ -13,8 +13,21 @@
             "specialInstr": "NA"
         }, {
             "name": "checkAccessCode",
-            "byType": "xpath",
-            "definition": "//span[contains(@class,'_12OR') and contains(text(), 'Check AccessCode')]",
+            "byType": "css",
+            "definition": "[data-test-id='menu_user_admin_check_access_code']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "checkAccessCodeInput",
+            "byType": "css",
+            "definition": "[data-test-id='check_access_code_modal_search_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "SearchAccessCode",
+            "byType": "css",
+            "definition": "[data-test-id='check_access_code_modal_search_btn']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -95,7 +108,28 @@
             "definition": "[data-test-id='update_access_code_modal_search_input']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
+            "name": "updateAccessCodeSearch",
+            "byType": "css",
+            "definition": "[data-test-id='update_access_code_modal_search_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "totalInput",
+            "byType": "css",
+            "definition": "[data-test-id='update_access_code_modal_total_input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, 
+        {
+            "name": "update",
+            "byType": "css",
+            "definition": "[data-test-id='update_access_code_modal_update_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "emailInput",
             "byType": "css",
             "definition": "[data-test-id='manage_enrollment_modal_input']",
@@ -116,7 +150,7 @@
         }, {
             "name": "generateAccessCode",
             "byType": "css",
-            "definition": "[data-test-id='generate_access_code_modal_create_btn']",
+            "definition": "[data-test-id='generate_access_code_modal_input']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -220,7 +254,96 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "accessCode",
+            "byType": "css",
+            "definition": "span[data-test-id='generate_access_code_modal_code']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "closeGenerateAccessCode",
+            "byType": "css",
+            "definition": "[data-test-id='generate_access_code_modal_close_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "createAccesscode",
+            "byType": "css",
+            "definition": "[data-test-id='generate_access_code_modal_create_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "generate",
+            "byType": "css",
+            "definition": "[class='_1tkc Otv4']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "exportList",
+            "byType": "css",
+            "definition": "[aria-label='Export List of Generated Codes']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "closeExportList",
+            "byType": "css",
+            "definition": "[aria-label='close']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        { 
+            "name": "redeemed",
+            "byType": "css",
+            "definition": "[data-test-id='check_access_code_modal_redeemed']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "total",
+            "byType": "css",
+            "definition": "[data-test-id='check_access_code_modal_total']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "remaining",
+            "byType": "css",
+            "definition": "data-test-id='check_access_code_modal_remaining']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "course",
+            "byType": "css",
+            "definition": "[data-test-id='check_access_code_modal_course_name']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "closeCheckAccessCode",
+            "byType": "css",
+            "definition": "[data-test-id='check_access_code_modal_close']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
+     
 
     ]
 }
