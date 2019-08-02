@@ -38,7 +38,7 @@ When(/^I reset attempts from student "(.*)"$/, async function (userType) {
 });
 
 When('I navigate to assessment', async function () {
-    await pages.sac.click('Course Link');
+    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
     await pages.sac.click('Student Assessment Link');
 });
 
