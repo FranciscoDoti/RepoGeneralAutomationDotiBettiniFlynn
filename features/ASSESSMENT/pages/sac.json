@@ -17,7 +17,7 @@
         {
             "name": "Course Link",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']",
+            "definition": "//*[@id='div_acc_courses']//a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
