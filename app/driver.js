@@ -139,7 +139,7 @@ const activateTab = async function (tabName) {
   if (!currentTabName.includes(tabName)) {
     log.info(`${tabName} tab was not found.`);
     if (currentTab) {
-      await switchToTab(masterTab);
+      await switchToTab(currentTab);
     }
   } else {
     log.debug(`${currentTabName} tab activated.`);
