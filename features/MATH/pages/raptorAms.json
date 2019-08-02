@@ -141,13 +141,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "questionTab",
-            "byType": "css",
-            "definition": "a[data-test-id='question-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "questionContent",
             "byType": "id",
             "definition": "primary-content-area",
@@ -155,16 +148,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "defaultTab",
+            "name": "Tab",
             "byType": "css",
-            "definition": "div > * li > a[data-test-id='default-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Correct Tab",
-            "byType": "css",
-            "definition": "a[data-test-id='correct-context']",
+            "definition": "a[data-test-id='<ReplaceText>-context']",
             "frame": "default",
             "specialInstr": "NA"
         },
