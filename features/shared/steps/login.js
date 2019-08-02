@@ -60,6 +60,8 @@ Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
 });
 
 When('I sign out of Achieve', async function () {
+  await pages.login.scrollElementIntoView('togglerMenu');
+  await pages.login.assertElementExists('togglerMenu');
   await pages.login.click('togglerMenu');
   await pages.login.click('signOut');
 });

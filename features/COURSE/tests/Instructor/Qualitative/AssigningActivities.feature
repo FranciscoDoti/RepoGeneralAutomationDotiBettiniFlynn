@@ -10,23 +10,21 @@ Feature: Assigning the activities present in the course
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
 
-        And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
-
+        And I activate the "Qualitative Template" template and add the following data 
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      |     
+            
+        
         And I add the activities in resources to "Qualitative Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  Glossary                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Qualitative Course           |
-            | courseCode        | E2E 301                      |
+            | courseName          | courseCode           |
+            | Qualitative Course  | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -47,18 +45,18 @@ Feature: Assigning the activities present in the course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | Dedication                                                        |
+            | Glossary                                                        |
 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      |
-            | Dedication                                                       | 5      |
+            | Glossary                                                       | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Dedication                                                       | Open   |
+            | Glossary                                                       | Open   |
 

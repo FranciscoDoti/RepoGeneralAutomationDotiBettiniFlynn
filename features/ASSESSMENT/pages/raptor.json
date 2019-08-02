@@ -18,13 +18,13 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "moreButton",
+            "name": "More Button",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY MORE']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "saveAsDraft",
+            "name": "Save As Draft",
             "byType": "css",
             "definition": "li[id='save-button']",
             "frame": "default",
@@ -42,7 +42,7 @@
             "frame": "default",
             "specialInstr": "noclick"
         }, {
-            "name": "correctContext",
+            "name": "Correct Context",
             "byType": "css",
             "definition": "a[data-test-id='correct-context']",
             "frame": "default",
@@ -79,9 +79,16 @@
             "specialInstr": "NA"
         },
         {
-            "name": "activeTab",
+            "name": "activeTabTakeMode",
             "byType": "css",
             "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active-disabled.disabled",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "activeTabEditMode",
+            "byType": "css",
+            "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -170,6 +177,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "variableValue3Textbox",
+            "byType": "xpath",
+            "definition": "//table[@class='table list-algo-table']/tbody/tr[<ReplaceText>]/td[7]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "rangeNameTextbox",
             "byType": "xpath",
             "definition": "//td[.='Range']/../../tr[<ReplaceText>]/td[4]/input",
@@ -212,7 +226,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "cycleVariablesButton",
+            "name": "Cycle Variables Button",
             "byType": "xpath",
             "definition": "//div[@class='cycle-variables-button']",
             "frame": "default",

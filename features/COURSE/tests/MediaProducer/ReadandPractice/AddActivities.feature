@@ -11,19 +11,17 @@ Feature: Adding activities to the template
 
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                    | activity                                      |
             | addButtonReadandpractice | LCRP1550612138614                            |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  GLOSSARY                                     |
 
         Then I verify that activties are added
             | activity                                      |
             | LCRP1550612138614                             |    
             | LC1551301608988                               |
-            |  Dedication                                   |            
+            |  GLOSSARY                                     |            

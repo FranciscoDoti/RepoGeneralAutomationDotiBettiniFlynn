@@ -11,19 +11,18 @@ Feature: Adding activities to the template
             
 
         And I activate the "Quantitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Quantitative Template                                       |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+             | courseName             |  courseCode   |  templateStatus      |
+             | Quantitative Template  |   E2E 301     |  Active On Date      | 
+
 
         And I add the activities in resources to "Quantitative Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  Glossary                                   |
 
         Then I verify that activties are added
             | activity                                      |
             | Exercise: Misused words 1 (autoscored)        |     
             | LC1551301608988                               |
-            |  Dedication                                   |            
+            |  Glossary                                     |            
