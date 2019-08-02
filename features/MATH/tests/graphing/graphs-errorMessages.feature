@@ -12,11 +12,11 @@ Feature: Verify Graph editor error messages
         When I create a new graph with the following details
         |   Title           |   GraphingExpression  |
         |   TrigFigEr 2.1   |   csc(x)+x            |
-        # When I click the "window" icon for the graphId
-        # And I go back to sapling page and logout
-        # And I login to AMS as "non-graph-user"
-        # And I try to save the previously opened graph editor
-        # Then I verify window pop up message "Error: Unauthorized"
+        When I click the "window" icon for the graphId
+        And I go back to sapling page and logout
+        And I login to AMS as "non-graph-user"
+        And I try to save the previously opened graph editor
+        Then I verify window pop up message "Error: Unauthorized"
 
     # Scenario: Verify the error message for a new graph, opened in edit mode and after the user logs out and logs back as non-graph user
 
