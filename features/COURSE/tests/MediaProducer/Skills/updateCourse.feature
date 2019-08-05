@@ -10,10 +10,8 @@
             | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Skills Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Skills Template                                             |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Skills Template           |   E2E 301     |  Active On Date      |
             
         Then I verify that "Skills Template" is created with following data
             | field                 | value                     |

@@ -12,10 +12,8 @@ Feature: Verify that Media EDitor is able to create URL
         And I click on search button and input "Qualitative Template" to search the course
 
         And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
         And I add URL link to "Qualitative Template" 
             | field             | link                         |
