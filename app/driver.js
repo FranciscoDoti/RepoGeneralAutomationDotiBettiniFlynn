@@ -131,7 +131,7 @@ const activateTab = async function (tabName) {
   currentTabName = await getTitle();
   if (!currentTabName.includes(tabName)) {
     log.info(`${tabName} tab was not found.`);
-    await switchToTab(tabs[index]);
+    await switchToTab(tabs[0]);
   } else {
     log.debug(`${currentTabName} tab activated.`);
   }
