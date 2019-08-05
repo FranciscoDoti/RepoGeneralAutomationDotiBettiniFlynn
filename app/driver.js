@@ -119,13 +119,6 @@ const resetBrowser = async function () {
 };
 
 const activateTab = async function (tabName) {
-  var currentTab
-  try {
-    currentTab = await driver.getWindowHandle();
-  } catch (error) {
-    // if current tab is closed, then getWindowHandle() throws error, so suppress the error
-    log.info('failed to getWindowHandle() on current tab. This tab may have been closed.')
-  }
   var tabs = await driver.getAllWindowHandles();
   for (let index = 0; index < tabs.length; index++) {
     await switchToTab(tabs[index]);
@@ -138,9 +131,7 @@ const activateTab = async function (tabName) {
   currentTabName = await getTitle();
   if (!currentTabName.includes(tabName)) {
     log.info(`${tabName} tab was not found.`);
-    if (currentTab) {
-      await switchToTab(currentTab);
-    }
+    await switchToTab(tabs[index]);
   } else {
     log.debug(`${currentTabName} tab activated.`);
   }

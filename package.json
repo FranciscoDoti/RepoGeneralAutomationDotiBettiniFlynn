@@ -2,7 +2,7 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js  features/MATH/tests/graphing/graphs-errorMessages.feature  -f json:reports/cucumber_report.json",
 
     "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
@@ -22,6 +22,8 @@
     "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Skills/cloneCourse.feature -f json:reports/cucumber_report.json --environment int",
     "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json --environment int",
     "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int",
+    "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/smoketest -f json:reports/cucumber_report.json",
+
 
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
     "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
