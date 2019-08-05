@@ -12,23 +12,19 @@ Feature: Instructor attempts all the activities in Read & Practice Template
 
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
-            | type                     | activity                                      |
-            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
+            | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                                    |
+            | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 
-        And I copy course from the "Read & Practice Course" template with the following data
-            | field             | value                        |
-            | courseName        | Read & Practice Course       |
-            | courseCode        | E2E 301                      |
+        And I copy course from the "Read & Practice Template" template with the following data
+            | courseName              | courseCode           |
+            | Read & Practice Course  | E2E 301              |
        
         And I sign out of Achieve
 
@@ -40,7 +36,7 @@ Feature: Instructor attempts all the activities in Read & Practice Template
 
         And I login to Achieve-CW as "instructor_1"
 
-        And I create a course "Read & Practice Template" with the following data
+        And I create a course "Read & Practice Course" with the following data
             | field             | value                                     |
             | courseName        | Read & Practice Instructor Course         |
             | courseCode        | E2E 301                                    |

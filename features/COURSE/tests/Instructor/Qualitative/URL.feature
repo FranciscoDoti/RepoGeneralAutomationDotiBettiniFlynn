@@ -4,21 +4,18 @@ Feature: Verify that Instructor is able to create URL
    @mediaproducer-delete-course
     Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
         And I copy course from the "Qualitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Qualitative Course           |
-            | courseCode        | E2E 301                      |
+            | courseName          | courseCode           |
+            | Qualitative Course  | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
