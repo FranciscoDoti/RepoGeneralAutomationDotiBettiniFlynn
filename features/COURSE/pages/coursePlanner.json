@@ -5,7 +5,15 @@
             "definition": "//a[contains(@data-test-id,'course_name') and contains(text(), 'Add Unit Course')]",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
+            "name": "addAssignment",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../..//button[@data-test-id='add_assignment']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
             "name": "addUnitFolder",
             "byType": "xpath",
             "definition": "//*[@data-test-id='add_unit']",
@@ -137,7 +145,7 @@
         {
             "name": "addAssignmentButton",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../..//*[@type='add_to_course']",
+            "definition": "//a[.='<ReplaceText>']/../../../div/*[@type='add_to_course']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -349,7 +357,7 @@
         }, {
             "name": "addQuestionButton",
             "byType": "css",
-            "definition": "[data-test-id='add-question-button']",
+            "definition": "[data-test-id='action-bar-button']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
         }, {

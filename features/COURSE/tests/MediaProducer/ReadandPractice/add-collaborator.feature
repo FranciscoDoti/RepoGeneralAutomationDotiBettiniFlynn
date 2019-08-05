@@ -10,17 +10,15 @@ Feature: Adding collaborator to the template
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                      | activity                                      |
             | addButtonReadandpractice  | LCRP1550612138614                             |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Dedication                                   |
-
+            | addReadingButton          |  GLOSSARY                                     |
+    
         And I add "media_editor_1" as collaborator to "Read & Practice Template"
         And I sign out of Achieve
         And I login to Achieve-CW as "media_editor_1"
@@ -30,19 +28,19 @@ Feature: Adding collaborator to the template
         And I add the activities in resources to "Read & Practice Template" template
             | type                     | activity                                      |   
             | addButtonLearningcurve   | Active and Passive Voice                      |
-            | addReadingButton         | SYMBOLS AND NOTATION                          |
+            | addReadingButton         |  Appendix F                                   |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | addButtonReadandpractice                      | ReadandParctice   | 'LCRP1550612138614' was successfully moved to addButtonReadandpractice              |                            
             | Active and Passive Voice                      | Learning Curve    | 'Active and Passive Voice' was successfully moved to Learning Curve.                |
-            | SYMBOLS AND NOTATION                          | Reading           | 'SYMBOLS AND NOTATION' was successfully moved to Reading.                           |
+            |  Appendix F                                   | Reading           | 'Appendix F' was successfully moved to Reading.                                     |
            
         Then I verify the following activities are present in folders
             | activity                                      | folders           |
             | LCRP1550612138614                             | ReadandPractice   |
             | Active and Passive Voice                      | Learning Curve    |
-            | SYMBOLS AND NOTATION                          | Reading           |
+            |  Appendix F                                   | Reading           |
 
 
 
