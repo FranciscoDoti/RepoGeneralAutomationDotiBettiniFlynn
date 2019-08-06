@@ -4,7 +4,7 @@ Feature: Adding reading activities in reading tab
     @mediaproducer-delete-course
     Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab
 
-        Given I login to Achieve-CW as "media_producer_2"
+        Given I login to Achieve-CW as "media_producer_1"
         When I create template with following data 
             | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
@@ -18,7 +18,7 @@ Feature: Adding reading activities in reading tab
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Analyzing Drama                               |
+            | addReadingButton         | Glossary                                      |
             | addReadingButton         |  Analyzing Literary Elements                  |
             | addReadingButton         | Literary Elements                             |
             | addReadingButton         | Dedication                                    |
@@ -27,14 +27,14 @@ Feature: Adding reading activities in reading tab
             | activity                                      |                                                      
             | Analyzing Literary Elements                   | 
             | Literary Elements                             |
-            | Analyzing Drama                               | 
+            | Glossary                                      | 
             | Dedication                                    | 
 
         And I reorder the resources on template in ebook
             | actvities                                                         | reorder        |
             |  Analyzing Literary Elements                                      | moveToTop      |                                                     
             | Literary Elements                                                 | movedownButton |
-            | Analyzing Drama                                                   | moveToEnd      |
+            | Glossary                                                          | moveToEnd      |
             | Dedication                                                        | moveUpButton   |
 
         Then I verify that resources are reordered in ebook
@@ -42,7 +42,7 @@ Feature: Adding reading activities in reading tab
             | Dedication                    |   1             |                                                     
             |  Analyzing Literary Elements  |   2             |
             | Literary Elements             |     3           |                                                                                         
-            | Analyzing Drama               |   4             |                                        
+            | Glossary                      |   4             |                                        
                                                                                     
 
         And I add the activities to respective folders in ebook
@@ -50,13 +50,13 @@ Feature: Adding reading activities in reading tab
             |  Analyzing Literary Elements                  | Reading Symbols       | 'Analyzing Literary Elements' was successfully moved to Reading Symbols.  |
             | Literary Elements                             | Reading Regression    | 'Literary Elements' was successfully moved to Reading Regression.         |
             | Dedication                                    | Reading Interval      | 'Dedication' was successfully moved to Reading Interval.                  |
-            | Analyzing Drama                               | Reading Authors       | 'Analyzing Drama' was successfully moved to Reading Authors.              |
+            | Glossary                               | Reading Authors       | 'Glossary' was successfully moved to Reading Authors.              |
 
         And I verify the activities are added in folders which are present in "E-book"
             | activity                                      | folders               |
             |  Analyzing Literary Elements                   | Reading Symbols       |
             |  Literary Elements                            | Reading Regression    |
-            | Analyzing Drama                               | Reading Authors       |
+            | Glossary                               | Reading Authors       |
             |  Dedication                                   | Reading Interval      |
 
         When I delete the resources from the Template in ebook
