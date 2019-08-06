@@ -118,22 +118,8 @@ When('I click on footer links, I verify that each link is directed to correct pa
 
 When(/^I hover on "(.*)" icon$/, async function (document) { 
     await pages.signIn.assertElementExists('frameRegistration');
-/*    var svgParent = document.getElementById('frameRegistration');
-    var svgElement = document.getElementById("tooltip");
-    await pages.signIn.assertElementExists('tooltip');
-    svgParent.className.baseVal = ''; //remove class "invisible"
-    svgElement.className.baseVal = ''; //remove class "invisible" */
+    await pages.signIn.assertElementExists('toolTip');
 
-    function checkValues() {
-    var isFormValid, form_fname;
-    isFormValid = true;
-    form_fname = document.getElementById('fname');
-    if (form_fname.value === '') {
-       isFormValid = false;
-    }
-    isFormValid || alert('I am indicating that there is something wrong with your input.');
-    return isFormValid;
-    };
 
 Then('I {string} the help as following information', async function (string) {
     for (let i = 0; i < data_table.rows().length; i++) {
