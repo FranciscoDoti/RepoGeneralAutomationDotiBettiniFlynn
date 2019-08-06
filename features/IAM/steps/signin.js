@@ -4,10 +4,6 @@ const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const { visitURL, sleep } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const driver  = require(`${process.cwd()}/app/driver`);
-const PageObject = require(`${process.cwd()}/app/PageObject.js`);
-const checkEmail = require(`${process.cwd()}/features/COURSE/steps/checkEmail.js`);
 //const HashTable = require(`${process.cwd()}/app/HashTable.js`)HashTable;
 var window = window;
 
@@ -57,7 +53,7 @@ When('I have logged in as {string}', async function (userType) {
     await pages.signIn.click('signin');
 });
 
-Then('I <verify> that I am able to login in as existing user before deployement.', async function (data_table) {
+Then(/^I "(.*)" that I am able to login in as existing user before deployement.$/, async function (data_table) {
     await pages.signIn.assertElementExists('username');
 })
     
@@ -116,18 +112,14 @@ When('I click on footer links, I verify that each link is directed to correct pa
     }
 }); 
 
-When(/^I hover on "(.*)" icon$/, async function (document) { 
-    await pages.signIn.assertElementExists('frameRegistration');
-    await pages.signIn.assertElementExists('toolTip');
+When('I hover on "?" icon', async function () { 
+    await pages.signIn.click('helpInfo');
+});
 
-
-Then('I {string} the help as following information', async function (string) {
-    for (let i = 0; i < data_table.rows().length; i++) {
-        await pages.singIn.click('registration');
-        let test = await pages.signIn.getText('registration'); 
-            if (test === data_table.hashes()[i].verify);
-            console.log(test);
+Then ('I verify the help as following information', async function (dataTable) {
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        await pages.signIn.assertElementExists('toolTip');
+        await pages.signIn.getText('toolTip', dataTable.hashes()[i].verify);
     }
 });
 
-});

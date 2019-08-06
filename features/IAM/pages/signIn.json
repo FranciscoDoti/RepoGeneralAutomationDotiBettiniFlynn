@@ -133,9 +133,9 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "frameRegistration",
-            "byType":"xpath",
-            "definition": "//*[@id='RegisterForm']",
+            "name": "helpInfo",
+            "byType":"css",
+            "definition": "[class='help_outlineIcon']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
