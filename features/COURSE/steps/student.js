@@ -77,3 +77,7 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, c
   await pages.coursePage.click('enter');
   await pages.coursePage.click('finishEnrollement');
 });
+
+When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName){
+
+});
