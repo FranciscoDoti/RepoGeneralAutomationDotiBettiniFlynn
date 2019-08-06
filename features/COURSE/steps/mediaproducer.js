@@ -1,8 +1,4 @@
-const {
-  Given,
-  When,
-  Then
-} = require('cucumber');
+const { Given, When,Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const _ = require('lodash');
@@ -27,12 +23,10 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.editCourse.assertElementExists(data_table.hashes()[i].field)
-    if (data_table.hashes()[i].page_object !== 'day') {
-      await pages.editCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value);
-    } else {
-      await pages.createCourse.click('templateStatus', data_table.hashes()[i].value);
-    }
+    var c = data_table.hashes()[i];
+    await pages.editCourse.populate('courseName', c.courseName)
+    await pages.editCourse.populate('courseCode', c.courseCode)
+    await pages.editCourse.populate('templateStatus', c.templateStatus)
   }
   await pages.editCourse.click('save');
   await pages.home.click('closeAlert');
@@ -40,7 +34,7 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
 
 When(/^I add the activities in resources to "(.*)" template$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('resources');
+  await pages.coursePage.click('navigation','Resources');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activity);
@@ -53,7 +47,9 @@ When(/^I copy course from the "(.*)" template with the following data$/, async f
   await pages.courseList.click('courseMenu', courseName);
   await pages.copyCourse.click('copyCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.copyCourse.populate(data_table.hashes()[i].field, data_table.hashes()[i].value, data_table.hashes()[i].clear);
+    var c = data_table.hashes()[i];
+    await pages.copyCourse.populate('courseName', c.courseName)
+    await pages.copyCourse.populate('courseCode', c.courseCode)
   };
   await pages.copyCourse.click('save');
   await pages.home.click('closeAlert');
@@ -105,6 +101,7 @@ When('I add the following activities to respective folders in resource tab', asy
     await pages.resources.click('placeInFolder');
     console.log(data_table.hashes()[i].message);
     await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+    await pages.home.click('closeAlert');
 
   }
 });
@@ -130,7 +127,6 @@ When('I delete the following resources from the Template', async function (data_
     await pages.resources.click('threeButtonResources', data_table.hashes()[i].folders);
     await pages.resources.click('removeItem');
     await pages.resources.click('confirmRemoveItem');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
   }
 });
 
@@ -147,16 +143,16 @@ Then('I verify that resources are reordered', async function (data_table) {
 });
 
 When(/^I add the activities in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('browse');
-  await pages.coursePage.click(coursePage);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-  }
+  await pages.coursePage.click('navigation','Browse');
+    for (let i = 0; i < data_table.rows().length; i++) {
+      await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+      await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    }
+
 });
 
 When(/^I add the activities to respective folders in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
+  await pages.coursePage.click('tab',coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('addUnit');
     await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
@@ -171,8 +167,8 @@ When(/^I add the activities to respective folders in "(.*)"$/, async function (c
 });
 
 When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('myCourse')
-  await pages.coursePage.click(coursePage);
+  await pages.coursePage.click('navigation', 'My Course')
+  await pages.coursePage.click('tab', coursePage);
   await pages.coursePlanner.click('actionButtonValidation');
   await pages.coursePlanner.click('reorder');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -183,7 +179,6 @@ When(/^I reorder the resources on template in "(.*)"$/, async function (coursePa
 });
 
 Then(/^I verify the activities are added in folders which are present in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('folderName', data_table.hashes()[i].folders);
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
@@ -191,24 +186,22 @@ Then(/^I verify the activities are added in folders which are present in "(.*)"$
 });
 
 When(/^I delete the resources from the Template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('actionButtonResources', data_table.hashes()[i].folders);
     await pages.coursePlanner.click('actionRemoveItem');
     await pages.resources.click('confirmRemoveItem');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message)
+
   }
 });
 
-Then(/I verify that resources are deleted from Template in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
+Then(/^I verify that resources are deleted from Template in "(.*)"$/, async function (coursePage, data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementDoesNotExist('actionButton', data_table.hashes()[i].folders);
   }
 });
 
 Then(/^I verify that resources are reordered in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click(coursePage);
+  await pages.coursePage.click('tab', coursePage);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertTextIncludes('reorderValidation', data_table.hashes()[i].orderNumber, data_table.hashes()[i].activities);
   }
@@ -245,8 +238,9 @@ When('I delete the resources from the Template in ebook', async function (data_t
 
 When(/I add "(.*)" as collaborator to "(.*)"$/, async function (user, courseName) {
   let payload = await _.get(users, [this.environment, user]);
+  await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
-  await pages.courseList.click('courseCard', courseName);
+  await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', payload.username);
   await pages.createCourse.click('addCollaborators');
@@ -260,21 +254,24 @@ Then('I verify that activties are added', async function (data_table) {
 })
 Then('I verify that custom activity is present in courseplanner your content section', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePage.click('coursePlanner');
-    await pages.coursePlanner.click('customContentButton');
-    await pages.coursePlanner.click('libraryTab');
+    await pages.coursePage.click('navigation','Browse');
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.assertElementExists('libraryItem', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    await pages.coursePage.click('navigation', 'My Course');
+    await pages.coursePage.click('tab', 'COURSE PLAN');
+    await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity);
+
   }
 });
 
 When(/^I create Custom Task in "(.*)" and add it to resources$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName)
-  await pages.coursePage.click('resources');
+  await pages.coursePage.click('navigation','Resources');
   await pages.resources.click('addActivity');
   await pages.resources.click('createCustomActivity');
   await pages.coursePlanner.click('assessmentButton');
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.assertElementExists(data_table.hashes()[i].activity, data_table.hashes()[i].value);
     await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
   }
   await pages.coursePlanner.click('resetModel');
@@ -295,7 +292,7 @@ Then('I verify that custom content is added to resources', async function (data_
 
 When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async function (customName, courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName)
-  await pages.coursePage.click('resources');
+  await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('addActivity');
   await pages.resources.click('createCustomActivity');
   await pages.resources.click('writingPrompt');
@@ -312,11 +309,47 @@ When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async fu
 });
 
 When('I add the activities in ebook', async function (data_table){
-  await pages.coursePage.click('ebook');
-  await pages.coursePage.click('customContentButton');
+  await pages.coursePage.click('navigation','E-book');
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('yourContent');
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignment', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('closeCourseplanner')
   }
 });
+When('I create template with following data', async function (data_table){
+  await pages.createCourse.click('plusButton');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    this.data.set('code', c.courseCode);
+    this.data.set('Number',c.isbnNumber);
+      await pages.createCourse.assertElementExists('courseType');
+      await pages.createCourse.populate('courseType', c.courseType)
+      await pages.createCourse.assertElementExists('productModel');
+      await pages.createCourse.populate('productModel', c.productModel)
+      await pages.createCourse.assertElementExists('courseName');
+      await pages.createCourse.populate('courseName', c.courseName)
+      await pages.createCourse.assertElementExists('courseCode');
+      await pages.createCourse.populate('courseCode', c.courseCode)
+      if(c.learningObjective != ''){
+      await pages.createCourse.assertElementExists('learningObjective');
+      await pages.createCourse.populate('learningObjective', c.learningObjective)
+      }
+      await pages.createCourse.assertElementExists('isbnNumber');
+      await pages.createCourse.populate('isbnNumber', c.isbnNumber)
+      await pages.createCourse.assertElementExists('courseStatus');
+      await pages.createCourse.populate('courseStatus', c.courseStatus);
+    }
+    await pages.createCourse.click('save');
+});
+
+When('I reorder the resources on template in ebook', async function (data_table){
+  await pages.coursePlanner.click('actionButtonValidation');
+  await pages.coursePlanner.click('reorder');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('reorderResources', data_table.hashes()[i].actvities);
+    await pages.resources.click(data_table.hashes()[i].reorder);
+  }
+  await pages.coursePlanner.click('modalSaveButton');
+});
+

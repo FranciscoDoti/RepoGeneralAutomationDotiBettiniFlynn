@@ -8,7 +8,7 @@ const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
 const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
-const { getDriver, getWebDriver, sleep, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
+const { getDriver, getWebDriver, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
 
@@ -136,8 +136,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
-        case 'select':
         case 'svg':
+          value == 'click' ? await populateClick(webElement, value, actionElement) : await populateSelect(webElement, value, actionElement);
+          break;
+        case 'select':
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;
@@ -388,6 +390,17 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  const closeTab = async function (tabName) {
+    try {
+      log.debug(`Closing tab : ${tabName}`);
+      await activateTab(tabName);
+      await getDriver().close();
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
   const getCurrentURL = async function () {
     try {
       log.debug(`Getting URL of the current tab.`);
@@ -526,6 +539,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.scrollElementIntoView = scrollElementIntoView;
   that.getText = getText;
   that.switchToTab = switchToTab;
+  that.closeTab = closeTab;
   that.getCurrentURL = getCurrentURL;
   that.getPageTitle = getPageTitle;
   that.assertPageTitle = assertPageTitle;

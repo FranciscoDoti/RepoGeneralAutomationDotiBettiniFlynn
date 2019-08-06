@@ -124,20 +124,15 @@ When(/^I hover on "(.*)" icon$/, async function (document) {
     svgParent.className.baseVal = ''; //remove class "invisible"
     svgElement.className.baseVal = ''; //remove class "invisible" */
 
-    function checkValues()
-{
-   var isFormValid, form_fname;
-
-   isFormValid = true;
-   form_fname = document.getElementById('fname');
-   if (form_fname.value === '')
-   {
+    function checkValues() {
+    var isFormValid, form_fname;
+    isFormValid = true;
+    form_fname = document.getElementById('fname');
+    if (form_fname.value === '') {
        isFormValid = false;
-   }
-   isFormValid || alert('I am indicating that there is something wrong with your input.')
-
-   return isFormValid;
-    
+    }
+    isFormValid || alert('I am indicating that there is something wrong with your input.');
+    return isFormValid;
     };
 
 Then('I {string} the help as following information', async function (string) {
