@@ -48,7 +48,7 @@ Feature: Adding activities in Folder COURSE PLAN
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Dedication                               | Reading           | 'Dedication' was successfully moved to Reading.                                |
+            | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"

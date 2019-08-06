@@ -4,7 +4,7 @@ Feature: Instructor adds folder, remove folder and reorders it
     @mediaproducer-delete-course
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
@@ -28,10 +28,10 @@ Feature: Instructor adds folder, remove folder and reorders it
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_2" to the "Read & Practice Course" course
+        And I assign "instructor_1" to the "Read & Practice Course" course
         
         And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_2"
+        And I login to Achieve-CW as "instructor_1"
 
         When I activate "Read & Practice Course" course with following data 
             | field             | value                        |

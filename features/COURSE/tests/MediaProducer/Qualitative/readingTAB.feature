@@ -4,7 +4,7 @@ Feature: Adding reading activities in reading tab
     @mediaproducer-delete-course
     Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
@@ -41,7 +41,7 @@ Feature: Adding reading activities in reading tab
             | activities                    |   orderNumber   |
             | Dedication                    |   1             |                                                     
             |  Analyzing Literary Elements  |   2             |
-            | Literary Elements             |     3           |                                                                                         
+            | Literary Elements             |   3             |                                                                                         
             | Glossary                      |   4             |                                        
                                                                                     
 
@@ -50,13 +50,13 @@ Feature: Adding reading activities in reading tab
             |  Analyzing Literary Elements                  | Reading Symbols       | 'Analyzing Literary Elements' was successfully moved to Reading Symbols.  |
             | Literary Elements                             | Reading Regression    | 'Literary Elements' was successfully moved to Reading Regression.         |
             | Dedication                                    | Reading Interval      | 'Dedication' was successfully moved to Reading Interval.                  |
-            | Glossary                               | Reading Authors       | 'Glossary' was successfully moved to Reading Authors.              |
+            | Glossary                                      | Reading Authors       | 'Glossary' was successfully moved to Reading Authors.                     |
 
         And I verify the activities are added in folders which are present in "E-book"
             | activity                                      | folders               |
-            |  Analyzing Literary Elements                   | Reading Symbols       |
+            |  Analyzing Literary Elements                  | Reading Symbols       |
             |  Literary Elements                            | Reading Regression    |
-            | Glossary                               | Reading Authors       |
+            | Glossary                                      | Reading Authors       |
             |  Dedication                                   | Reading Interval      |
 
         When I delete the resources from the Template in ebook
