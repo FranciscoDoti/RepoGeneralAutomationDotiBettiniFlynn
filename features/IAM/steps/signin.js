@@ -5,10 +5,11 @@ const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const { visitURL, sleep } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const driver = require(`${process.cwd()}/app/driver`);
+const driver  = require(`${process.cwd()}/app/driver`);
 const PageObject = require(`${process.cwd()}/app/PageObject.js`);
 const checkEmail = require(`${process.cwd()}/features/COURSE/steps/checkEmail.js`);
 //const HashTable = require(`${process.cwd()}/app/HashTable.js`)HashTable;
+var window = window;
 
 Given('I have opened Achieve "signURL"', async function () {
     let url = await _.get(urls, ['Achieve-CW', this.environment]);
@@ -115,10 +116,29 @@ When('I click on footer links, I verify that each link is directed to correct pa
     }
 }); 
 
-When(/^I hover on "(.*)" icon$/, async function (string) { 
+When(/^I hover on "(.*)" icon$/, async function (document) { 
     await pages.signIn.assertElementExists('frameRegistration');
-    await pages.signIn.assertElementExists('registration');
-});
+/*    var svgParent = document.getElementById('frameRegistration');
+    var svgElement = document.getElementById("tooltip");
+    await pages.signIn.assertElementExists('tooltip');
+    svgParent.className.baseVal = ''; //remove class "invisible"
+    svgElement.className.baseVal = ''; //remove class "invisible" */
+
+    function checkValues()
+{
+   var isFormValid, form_fname;
+
+   isFormValid = true;
+   form_fname = document.getElementById('fname');
+   if (form_fname.value === '')
+   {
+       isFormValid = false;
+   }
+   isFormValid || alert('I am indicating that there is something wrong with your input.')
+
+   return isFormValid;
+    
+    };
 
 Then('I {string} the help as following information', async function (string) {
     for (let i = 0; i < data_table.rows().length; i++) {
@@ -129,4 +149,4 @@ Then('I {string} the help as following information', async function (string) {
     }
 });
 
-
+});

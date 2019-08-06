@@ -492,6 +492,16 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
+  const getElementById = async function (elementId) {
+    try {
+      return await getElementById(elementId);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+  
+
   that.acceptAlert = acceptAlert;
   that.dismissAlert = dismissAlert;
   that.getAlertText = getAlertText;
@@ -517,10 +527,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getText = getText;
   that.switchToTab = switchToTab;
   that.getCurrentURL = getCurrentURL;
-  that.getPageTitle=getPageTitle;
-  that.assertPageTitle=assertPageTitle;
-  that.assertPageTitleIncludes=assertPageTitleIncludes;
-  that.addDynamicElement=addDynamicElement;
+  that.getPageTitle = getPageTitle;
+  that.assertPageTitle = assertPageTitle;
+  that.assertPageTitleIncludes = assertPageTitleIncludes;
+  that.addDynamicElement = addDynamicElement;
+  that.getElementById = getElementById;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

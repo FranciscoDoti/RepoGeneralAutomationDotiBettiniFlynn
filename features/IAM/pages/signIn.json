@@ -139,7 +139,7 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "registration",
+            "name": "tooltip",
             "byType":"xpath",
             "definition": "//*[@id='RegisterForm']/div[1]/div[1]/span[2]/div/svg/g",
             "frame": "default",
