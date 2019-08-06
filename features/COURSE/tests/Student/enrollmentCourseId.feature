@@ -8,12 +8,9 @@ Feature: Student enrolls through course Id and access code
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
-
         And I activate the "Qualitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Qualitative Template                                        |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName             |  courseCode   |  templateStatus      |
+            | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Qualitative Template" template
             | type                    | activity                                      |
