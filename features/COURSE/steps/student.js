@@ -53,3 +53,27 @@ Then('I verify the assignmenent grades in gradebook for below assigned activitie
     await pages.gradebook.assertTextIncludes('studentPercenOfTotalGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades)
   }
 });
+
+When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, courseName){
+  await pages.createCourse.getText('courseShortId');
+  let user = await _.get(users, [this.environment, userName]);
+  let text = await pages.createCourse.getText('courseShortId');
+  await Pages.login.click('togglerMenu');
+  await Pages.login.click('signOut');
+  await Pages.login.click('signinlink');
+  await Pages.login.populate('username', user.username);
+  await Pages.login.populate('password', user.password);
+  await Pages.login.click('signin');
+  await pages.coursePage.click('enroll');
+  await pages.coursePage.populate('accessModelInput', text);
+  await pages.coursePage.click('enter');
+  let courseReport = `${this.downloadLocation}/achieveaccesscode_${courseName}.csv`;
+  const data = await csvtojson().fromFile(courseReport);
+  await pages.coursePage.populate('accessModelInput', data[0]["Access Code"]);
+  await pages.coursePage.click('enter');
+  await pages.coursePage.click('finishEnrollement');
+});
+
+When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName){
+
+});
