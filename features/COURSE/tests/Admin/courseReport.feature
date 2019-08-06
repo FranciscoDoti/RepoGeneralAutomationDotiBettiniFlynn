@@ -1,4 +1,4 @@
-@Smoke
+@Smoke @Course
 Feature: Administrator Tools
 
     Scenario: Verify that Admin is able to download course report
