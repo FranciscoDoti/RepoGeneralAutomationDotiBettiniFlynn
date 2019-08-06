@@ -1,3 +1,4 @@
+@Skip
 Feature: Verify that paid Access code Creater is able to generate, Check and update access code
 
     @mediaproducer-delete-course
