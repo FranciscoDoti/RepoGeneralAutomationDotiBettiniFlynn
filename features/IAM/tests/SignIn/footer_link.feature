@@ -2,7 +2,7 @@ Feature: Verify that footer link are redirecting to appropriate page
 
     Scenario: Verify that footer link are redirecting to appropriate page
 
-        Given I have opened Achieve "signURL"
+        Given I have opened Achieve "Achieve-CW"
         When I click on footer links, I verify that each link is directed to correct page
           | Objects                 | verify                                                        |
           | Privacy                 | "Macmillan Learning Privacy and Cookie Notice"                | 

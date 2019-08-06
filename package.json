@@ -32,6 +32,7 @@
     "existing": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/Existing_user_login.feature",
     "footer": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/footer_link.feature",
     "help": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/help_info.feature",
+    "password": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/password_icon.feature",
     "cancel": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/Cancel_forgot.feature",
     "forgotfooter": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/footer_link_forgot.feature",
     "forgot": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/forgotPassword/forgot_page.feature",

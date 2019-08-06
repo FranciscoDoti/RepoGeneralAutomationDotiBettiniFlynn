@@ -1,7 +1,7 @@
 Feature: Account is locked with three inavlid account details
 
     Scenario: Verify that after 2 failure attempt to login account is locked for 15 minutes
-        Given I have opened Achieve "signURL"
+        Given I have opened Achieve "Achieve-CW"
         When I login with invalid credentials and I verify the message
             
             | Username                      | Password  | verify                                                    |

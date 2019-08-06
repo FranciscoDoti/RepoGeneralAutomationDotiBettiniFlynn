@@ -1,7 +1,7 @@
 Feature: Verify Help info icon information
 
     Scenario: Verify that help info icon tooltip Information is consistent to application behavior
-        Given I have opened Achieve "signURL"
+        Given I have opened Achieve "Achieve-CW"
         When I hover on "?" icon 
         Then I verify the help as following information
             | verify                                                                                                    |                                                                                                                                                       

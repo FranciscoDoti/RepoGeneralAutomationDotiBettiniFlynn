@@ -139,12 +139,11 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "toolTip",
+            "name": "viewBox",
             "byType":"css",
-            "definition": "[class='tooltipContent']",
+            "definition": "[class='viewBox']",
             "frame": "default",
-            "specialInstr": "NA"
-          
+            "specialInstr": "NA"          
         }
     ]
 }

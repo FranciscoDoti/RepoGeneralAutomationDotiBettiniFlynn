@@ -7,7 +7,7 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 //const HashTable = require(`${process.cwd()}/app/HashTable.js`)HashTable;
 var window = window;
 
-Given('I have opened Achieve "signURL"', async function () {
+Given('I have opened Achieve "Achieve-CW"', async function () {
     let url = await _.get(urls, ['Achieve-CW', this.environment]);
     await visitURL(url);
     await pages.signIn.click('signinlink');
@@ -18,9 +18,7 @@ When('I login with invalid credentials and I verify the message', async function
     await pages.signIn.populate('username', data_table.hashes()[i].Username);
     await pages.signIn.populate('password', data_table.hashes()[i].Password);
     await pages.signIn.click('signin');
-    let test = await pages.signIn.getText('verify'); 
-        if (test === data_table.hashes()[i].verify);
-        console.log(test);
+    await pages.signIn.getText('verify', data_table.hashes()[i].verify)
     }
 }); 
 
@@ -53,73 +51,65 @@ When('I have logged in as {string}', async function (userType) {
     await pages.signIn.click('signin');
 });
 
-Then(/^I "(.*)" that I am able to login in as existing user before deployement.$/, async function (data_table) {
-    await pages.signIn.assertElementExists('username');
-})
+Then('I verify that I am able to login in as existing user before deployement.', async function (data_table) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.login.getText('username', data_table.hashes()[i].verify);
+    }
+});
     
 When('I click on footer links, I verify that each link is directed to correct page', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++) {
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i].Objects);
-//    await sleep(2000);
     await pages.signIn.switchToTab('Privacy Notice');
-//    await sleep(2000);
-    let test = await pages.signIn.getText('privacy'); 
-        if (test === data_table.hashes()[i].verify);
-        console.log(test); 
+    await pages.signIn.getText('privacy', data_table.hashes()[i].verify) 
 
     await pages.signIn.switchToTab('Login');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 1].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 1].Objects);
-//    await sleep(2000);
     await pages.signIn.switchToTab('Terms of Purchase');
-//    await sleep(2000);
-    let test1 = await pages.signIn.getText('termsOfPurchase'); 
-        if (test1 === data_table.hashes()[i + 1].verify);
-        console.log(test1); 
+    await pages.signIn.getText('termsOfPurchase', data_table.hashes()[i + 1].verify) 
 
     await pages.signIn.switchToTab('Login');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 2].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 2].Objects);
-//    await sleep(2000);
     await pages.signIn.switchToTab('Anti-Piracy');
-//    await sleep(2000);
-   
-    let test2 = await pages.signIn.getText('anti-Piracy'); 
-        if (test2 === data_table.hashes()[i + 2].verify);
-        console.log(test2);
+    await pages.signIn.getText('anti-Piracy', data_table.hashes()[i + 2].verify)
 
     await pages.signIn.switchToTab('Login');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 3].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 3].Objects);
     await sleep(2000);
     await pages.signIn.switchToTab('Home');
-//    await sleep(2000);
-    let test3 = await pages.signIn.getText('home'); 
-        if (test3 === data_table.hashes()[i + 3].verify);
-        console.log(test3);
+    await pages.signIn.getText('home', data_table.hashes()[i + 3].verify)
 
     await pages.signIn.switchToTab('Login');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 4].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 4].Objects);
-//    await sleep(2000);
     await pages.signIn.switchToTab('Instructor Store');
-//    await sleep(2000);
-    let test4 = await pages.signIn.getText('instructorStore'); 
-        if (test4 === data_table.hashes()[i + 4].verify);
-        console.log(test4); 
+    await pages.signIn.getText('instructorStore', data_table.hashes()[i + 4].verify) 
     break   
     }
 }); 
 
 When('I hover on "?" icon', async function () { 
     await pages.signIn.click('helpInfo');
-});
+});    
 
-Then ('I verify the help as following information', async function (dataTable) {
+Then('I verify the help as following information', async function (dataTable) {
     for (let i = 0; i < dataTable.rows().length; i++) {
-        await pages.signIn.assertElementExists('toolTip');
-        await pages.signIn.getText('toolTip', dataTable.hashes()[i].verify);
+        await pages.signIn.assertElementExists('helpInfo');
+        await pages.signIn.getText('helpInfo', dataTable.hashes()[i].verify);
     }
 });
 
+When('I hover on "i" icon', async function () { 
+    await pages.signIn.click('viewBox');
+}); 
+
+Then('I verify the password as following information', async function (dataTable) {
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        await pages.signIn.assertElementExists('viewBox');
+        await pages.signIn.getText('viewBox', dataTable.hashes()[i].verify);
+    }
+});

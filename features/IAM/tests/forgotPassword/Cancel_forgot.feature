@@ -2,7 +2,7 @@ Feature: Verify Forgot Password page Cancel Button redirects to Sign In Page
 
     Scenario Outline: Verify Forgot Password page Cancel Button redirects to Sign In Page
 
-         Given I have opened Achieve "signURL"
+         Given I have opened Achieve "Achieve-CW"
          When I click on Forgot link
          And I click on Cancel Button
 

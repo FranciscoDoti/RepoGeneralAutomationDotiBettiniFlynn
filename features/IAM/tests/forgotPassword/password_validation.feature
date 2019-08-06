@@ -2,7 +2,7 @@ Feature: Password validation
 
     Scenario: Verify that password field validations are working as expected
 
-        Given I have opened Achieve "signURL"
+        Given I have opened Achieve "Achieve-CW"
         When I click on Forgot link
         And I am redirected to Password Reset page and enter "student_1" email address and click Reset Password
 

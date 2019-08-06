@@ -2,7 +2,7 @@ Feature: Verify that Security questions are working appropriately
 
     Scenario: Verify that Security Question & Answer validations are working as expected
 
-        Given I have opened Achieve "signURL"
+        Given I have opened Achieve "Achieve-CW"
         When I click on Forgot link
         And I enter the incorrect security answer three times and I verify the following message
             | security_questions  | answers  | verify                                                                                                                                                                |

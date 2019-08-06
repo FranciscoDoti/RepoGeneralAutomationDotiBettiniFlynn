@@ -3,7 +3,7 @@
         {
             "name": "forgotLink",
             "byType": "xpath",
-            "definition": "//*[@id=RegisterForm]/div[2]/div[1]/span[2]/a",
+            "definition": "//a[.='ReplaceText']",
             "frame": "default",
             "specialInstr": "NA"
         },  {
