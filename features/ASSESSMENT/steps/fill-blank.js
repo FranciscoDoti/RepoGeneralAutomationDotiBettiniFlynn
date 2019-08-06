@@ -13,7 +13,7 @@ When(/^I add a dropdown with text "(.*)" and the following options$/, async func
 });
 
 When(/^I set correct answer "(.*)" for FB$/, async function (answer) {
-  await pages.raptor.click('Correct Context');
+  await pages.raptor.click('Tab', 'correct');
   await pages.fillBlank.click('DropDown');
   await pages.fillBlank.click('Option', '2');
 });

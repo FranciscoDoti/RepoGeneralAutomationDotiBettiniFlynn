@@ -87,7 +87,7 @@ When(/^added it to new assessment as pool$/, async function () {
 When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
   let selectedTabText = await ngaPages.raptor.getText('activeTabEditMode');
   if (selectedTabText !== "correct1") {
-    await ngaPages.raptor.click('Correct Context');
+    await ngaPages.raptor.click('Tab', 'correct');
   }
   await ngaPages.numericEntry.click('Element', position);
   await ngaPages.numericEntry.populate('Target Value', value);

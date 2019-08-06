@@ -57,9 +57,9 @@
             "specialInstr": "noclick"
         },
         {
-            "name": "Correct Context",
+            "name": "Tab",
             "byType": "css",
-            "definition": "a[data-test-id='correct-context']",
+            "definition": "a[data-test-id='<ReplaceText>-context']",
             "frame": "default",
             "specialInstr": "NA"
         },
