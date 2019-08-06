@@ -10,10 +10,9 @@ Feature: Admin enrolls the student in the course
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
 
         And I activate the "Read & Practice Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Read & Practice Template                                    |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                      | activity                                      |
@@ -23,13 +22,8 @@ Feature: Admin enrolls the student in the course
 
         And I click on home button to return to coursepage
         And I copy course from the "Read & Practice Template" template with the following data
-            | field             | value                        |
-            | courseName        | Read & Practice Course       |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
-            | courseCode        | E2E 301                      |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
+            | courseName              | courseCode          |
+            | Read & Practice Course  | E2E 301             |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -42,11 +36,7 @@ Feature: Admin enrolls the student in the course
         When I activate "Read & Practice Course" course with following data 
             | field             | value                        |
             | courseName        | Read & Practice Course       |
-<<<<<<< HEAD
-            | courseCode        |  E2E 301                      |
-=======
             | courseCode        |  E2E 301                     |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Read & Practice Course" course

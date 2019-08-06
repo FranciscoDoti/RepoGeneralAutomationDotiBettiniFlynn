@@ -12,23 +12,21 @@ Feature: Instructor attempts all the activities in Quantitative Template
 
 
         And I activate the "Quantitative Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Quantitative Template                                       |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+             | courseName             |  courseCode   |  templateStatus      |
+             | Quantitative Template  |   E2E 301     |  Active On Date      | 
+
 
         And I add the activities in resources to "Quantitative Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                                    |
+            | addReadingButton         | Glossary                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 
         And I copy course from the "Quantitative Template" template with the following data
-            | field             | value                        |
-            | courseName        | Quantitative Course          |
-            | courseCode        | E2E 301                      |
+            | courseName           | courseCode           |
+            | Quantitative Course  | E2E 301              |
        
         And I sign out of Achieve
 
@@ -40,7 +38,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
 
         And I login to Achieve-CW as "instructor_1"
 
-        And I create a course "Quantitative Template" with the following data
+        And I create a course "Quantitative Course" with the following data
             | field             | value                                  |
             | courseName        | Quantitative Instructor Course         |
             | courseCode        | E2E 301                                 |

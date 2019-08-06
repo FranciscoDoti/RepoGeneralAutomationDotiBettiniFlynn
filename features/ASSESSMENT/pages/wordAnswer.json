@@ -1,0 +1,32 @@
+{
+    "webElements": [
+        {
+            "name": "Grading Option Checkbox",
+            "byType": "xpath",
+            "definition": "//label[contains(text(),'<ReplaceText>')]/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Choice Button",
+            "byType": "xpath",
+            "definition": "//a[contains(text(),'Add a Choice')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Word Choice Textbox",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]/div/div/div/div/div/div/div/div/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Word Answer Textbox",
+            "byType": "css",
+            "definition": "#primary-content-area > section > div > article > article > div > div > div > div:nth-child(2) > div > div > div > div.numeric-entry-border.short-answer > div > div > div > div > div > div > span",
+            "frame": "default",
+            "specialInstr": "overwrite"
+        }
+    ]
+}

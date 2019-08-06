@@ -14,13 +14,18 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userName, courseN
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
   await pages.courseList.click('instructorClose');
+  
 });
 
 When(/^I check the account of "(.*)"$/, async function (userName){
   let user = await _.get(users, [this.environment, userName]);
+  await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
+  await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.assertElementExists('checkAccount');
   await pages.adminMenu.click('checkAccount');
+  await pages.adminMenu.assertElementExists('checkAccountEmailId');
   await pages.adminMenu.populate('checkAccountEmailId', user.username);
   await pages.adminMenu.click('checkAccountSearchButton');
 })

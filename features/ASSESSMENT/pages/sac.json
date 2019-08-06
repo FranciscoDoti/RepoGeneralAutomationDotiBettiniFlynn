@@ -15,16 +15,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Instructor Course Link",
+            "name": "Course Link",
             "byType": "xpath",
-            "definition": "//*[@id='div_acc_courses']/li/ul/li/div/div[1]/div/a",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Student Course Link",
-            "byType": "xpath",
-            "definition": "//*[@id='div_acc_courses']/li/ul/li[2]/ul/li[1]/div/div[1]/div/a",
+            "definition": "//*[@id='div_acc_courses']//a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },

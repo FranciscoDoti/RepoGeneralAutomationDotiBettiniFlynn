@@ -12,27 +12,21 @@ Feature: Instructor attempts all the activities in Skills Template
 
 
         And I activate the "Skills Template" template and add the following data
-            | field            | value                                                       |
-            | courseName       | Skills Template                                             |       
-            | courseCode       | E2E 301                                                     |
-            | templateStatus   | Active On Date                                              |
+            | courseName                |  courseCode   |  templateStatus      |
+            | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Dedication                                    |
+            | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
 
-        And I copy course from the "Skills Course" template with the following data
-            | field             | value                        |
-            | courseName        | Skills Course                |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                       |
-=======
-            | courseCode        | E2E 301                      |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
+        And I copy course from the "Skills Template" template with the following data
+            | courseName          | courseCode           |
+            | Skills Course       | E2E 301              |
+
        
         And I sign out of Achieve
 
@@ -44,25 +38,17 @@ Feature: Instructor attempts all the activities in Skills Template
 
         And I login to Achieve-CW as "instructor_1"
 
-        And I create a course "Skills Template" with the following data
+        And I create a course "Skills Course" with the following data
             | field             | value                                     |
             | courseName        | Skills Instructor Course                  |
-<<<<<<< HEAD
-            | courseCode        | E2E 301                                    |
-=======
             | courseCode        | E2E 301                                   |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And  I verify that "Skills Instructor Course" is created with following data
             | field                 | value                                   |
             | courseName            | Skills Instructor Course                |
-<<<<<<< HEAD
-            | courseDate            |  E2E 301                                 |
-=======
             | courseDate            |  E2E 301                                |
->>>>>>> b42c4ba87404c2c5044ee48caf5ab7de3c828b56
            
         
 
