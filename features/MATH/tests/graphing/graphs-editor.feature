@@ -23,7 +23,6 @@ Feature:  New graph editor
         And I verify the graph editor "ID" has "no" graph Id number
 
     Scenario:  Verifies the graph url ID when an existing graph is open from window icon
-        # Replaced the hard coded graphId with step functions to create new graphsId so that they can be used in the scenario steps
 
         When I create a new graph with the following details
             | Title         | GraphingExpression |
@@ -33,7 +32,6 @@ Feature:  New graph editor
         And I verify the graph editor "url" has "a" graph Id number
 
     Scenario: Verifies the graph url when an existing graph is open from preview icon
-        # Replaced the hard coded graphId with step functions to create new graphsId so that they can be used in the scenario steps
 
         When I create a new graph with the following details
             | Title         | GraphingExpression |

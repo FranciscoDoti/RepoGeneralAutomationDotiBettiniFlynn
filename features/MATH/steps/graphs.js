@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
-const { visitURL, getDriver } = require(`${process.cwd()}/app/driver`);
+const { visitURL } = require(`${process.cwd()}/app/driver`);
 chai.use(require('chai-sorted'));
 const { Key } = require('selenium-webdriver');
 
@@ -211,19 +211,8 @@ When(/^I input "(.*)" title$/, async function (name) {
   await pages.graphEditor.populate('titleTextField', name);
 });
 
-When(/^I input graphing expression "(.*)"$/, async function (graphEqn) {
-  await pages.graphEditor.switchToTab('Graphing');
-  await pages.graphEditor.populate('graphingTextField', graphEqn);
-});
-
 When(/^I click the Save button$/, async function () {
   await pages.graphEditor.click('saveButton');
-});
-
-When(/^I close the tab$/, async function () {
-  await pages.graphEditor.switchToTab('Graphing');
-  await pages.graphEditor.closeTab('Graphing');
-
 });
 
 Then(/^the Save button text changes to Saved with a checkmark$/, async function () {
