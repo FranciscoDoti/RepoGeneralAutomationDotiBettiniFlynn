@@ -23,7 +23,6 @@ Feature: Verify that Security questions are working appropriately
 
         And I enter all correct security answer and I verify the following message
             | security_questions  | answers  | verify                                                                                                                                                                                                              |
-            | answer_text         | answer   | An email has been sent with instructions on how to reset your password and includes a link which will expire within 24 hours. If you don't receive an email shortly, check your spam or junk folders, or try again. |                                                                                                               |
-
+            | answer_text         | answer   | An email has been sent with instructions on how to reset your password and includes a link which will expire within 24 hours. If you don't receive an email shortly, check your spam or junk folders, or try again. |                                                                                                              
 
 

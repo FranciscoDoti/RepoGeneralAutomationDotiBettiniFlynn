@@ -88,7 +88,7 @@ When('I click on footer links, I verify that each link is directed to correct pa
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 4].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 4].Objects);
     await pages.signIn.switchToTab('Instructor Store');
-    await pages.signIn.getText('instructorStore', data_table.hashes()[i + 4].verify) 
+    await pages.signIn.getText('instructorStore', data_table.hashes()[i + 4].verify); 
     break   
     }
 }); 
@@ -109,8 +109,9 @@ When('I hover on "i" icon', async function () {
 }); 
 
 Then('I verify the password as following information', async function (dataTable) {
+    await pages.signIn.click('id')
     for (let i = 0; i < dataTable.rows().length; i++) {
-        await pages.signIn.assertElementExists('viewBox');
-        await pages.signIn.getText('viewBox', dataTable.hashes()[i].verify);
+        await pages.signIn.assertElementExists('id');
+        await pages.signIn.getText('id', dataTable.hashes()[i].verify);
     }
 });

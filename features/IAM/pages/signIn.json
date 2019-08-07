@@ -140,10 +140,22 @@
             "specialInstr": "NA"
         }, {
             "name": "viewBox",
-            "byType":"css",
-            "definition": "[class='viewBox']",
+            "byType":"css",    
+            "definition": "[class='withIcon']",
             "frame": "default",
-            "specialInstr": "NA"          
+            "specialInstr": "NA"  
+        }, {
+            "name": "email",
+            "byType":"css",    
+            "definition": "[title='Enter your email address']",
+            "frame": "default",
+            "specialInstr": "NA"   
+        }, {
+            "name": "id",
+            "byType":"xpath",    
+            "definition": "//*[@id='password']",
+            "frame": "default",
+            "specialInstr": "NA"     
         }
     ]
 }

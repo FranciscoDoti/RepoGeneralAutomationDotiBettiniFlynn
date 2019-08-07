@@ -20,13 +20,13 @@ Then('I <verify> that I am redirected to forgot page', function (dataTable) {
     return 'pending';
 });
 
-When(/^I am redirected to Password Reset page and enter "(.*)" email address and click Reset Password$/, async function (data_table) {
-    for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.signIn.populate('username', data_table.hashes()[i].Username);
+When(/^I am redirected to Password Reset page and enter "(.*)" email address and click Reset Password$/, async function (userType) {
+    let user = await _.get(users, [this.environment, userType]);
+    await pages.login.populate('username', user.username);
     await pages.forgot.assertElementExists('resetPassBtn');
     await pages.forgot.click('resetPassBtn');
     await pages.forgot.assertElementExists('verifyID');
-    }
+    
 });
 
 Then('I enter all correct security answers and I verify the following message', async function (data_table) {
@@ -49,12 +49,10 @@ When(/^I enter incorrect security answer (.*) times and I verify the following m
     }
 }); 
 
-When(/^I login with non registered (.*) credentials and verify the following message is displayed for not registered user$/, async function (data_table) {
+When('I login with non registered user credentials and verify the following message is displayed for not registered user', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++) {
     await pages.forgot.populate('Username', data_table.hashes()[i].Username);
-    await pages.forgot.assertElementExists('submitBtn');
     await pages.forgot.click('submitBtn');
-    await pages.forgot.assertElementExists('verify');
     await pages.forgot.getText('verify', data_table.hashes()[i].verify)
     }
 });  
