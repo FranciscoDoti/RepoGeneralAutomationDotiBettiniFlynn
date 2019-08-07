@@ -99,7 +99,7 @@
         }, {
             "name": "privacy",
             "byType":"xpath",
-            "definition": "//*[@id='top']/div/div[1]/div[1]/div/h1",
+            "definition": "//*[@id='top']/div/div[1]/div[1]/div",
             "frame": "default",
             "specialInstr": "NA"
         }, {

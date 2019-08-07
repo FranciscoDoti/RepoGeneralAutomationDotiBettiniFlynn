@@ -62,28 +62,29 @@ When('I click on footer links, I verify that each link is directed to correct pa
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i].Objects);
     await pages.signIn.switchToTab('Privacy Notice');
-    await pages.signIn.getText('privacy', data_table.hashes()[i].verify) 
+    await pages.signIn.getText('privacy', data_table.hashes()[i].verify);
+        
 
-    await pages.signIn.switchToTab('Login');
+    await pages.signIn.switchToTab('Macmillan Learning :: ');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 1].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 1].Objects);
     await pages.signIn.switchToTab('Terms of Purchase');
     await pages.signIn.getText('termsOfPurchase', data_table.hashes()[i + 1].verify) 
 
-    await pages.signIn.switchToTab('Login');
+    await pages.signIn.switchToTab('Macmillan Learning :: ');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 2].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 2].Objects);
     await pages.signIn.switchToTab('Anti-Piracy');
     await pages.signIn.getText('anti-Piracy', data_table.hashes()[i + 2].verify)
 
-    await pages.signIn.switchToTab('Login');
+    await pages.signIn.switchToTab('Macmillan Learning :: ');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 3].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 3].Objects);
     await sleep(2000);
     await pages.signIn.switchToTab('Home');
     await pages.signIn.getText('home', data_table.hashes()[i + 3].verify)
 
-    await pages.signIn.switchToTab('Login');
+    await pages.signIn.switchToTab('Macmillan Learning :: ');
     await pages.signIn.assertElementExists('footerLinks', data_table.hashes()[i + 4].Objects);    
     await pages.signIn.click('footerLinks', data_table.hashes()[i + 4].Objects);
     await pages.signIn.switchToTab('Instructor Store');

@@ -3,7 +3,7 @@
         {
             "name": "forgotLink",
             "byType": "xpath",
-            "definition": "//a[.='ReplaceText']",
+            "definition": "//div[@title='Forgot your password?']",
             "frame": "default",
             "specialInstr": "NA"
         },  {

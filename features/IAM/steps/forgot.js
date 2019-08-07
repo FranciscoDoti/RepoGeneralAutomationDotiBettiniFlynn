@@ -8,20 +8,25 @@ When('I click on Forgot link', async function () {
 
 When('I click on Cancel Button', async function () {
     await pages.forgot.click('cancelBtn');
-    await pages.signIn.assertElementExists('login');
 });
 
-Then('I verify that I am redirected to {string} page', async function (data_table) {
+/*Then('I verify that I am redirected to singin page', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.forgot.assertElementExists('createAccount', data_table.hashes()[i].verify);
+    await pages.login.assertElementExists('createAccount', data_table.hashes()[i].verify);
     }
+}); */
+
+Then('I <verify> that I am redirected to forgot page', function (dataTable) {
+    return 'pending';
 });
 
-When(/^I am redirected to Password Reset page and enter "(.*)" email address and click Reset Password$/, async function (username) {
-    await pages.login.populate('username');
+When(/^I am redirected to Password Reset page and enter "(.*)" email address and click Reset Password$/, async function (data_table) {
+    for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.signIn.populate('username', data_table.hashes()[i].Username);
     await pages.forgot.assertElementExists('resetPassBtn');
     await pages.forgot.click('resetPassBtn');
     await pages.forgot.assertElementExists('verifyID');
+    }
 });
 
 Then('I enter all correct security answers and I verify the following message', async function (data_table) {
