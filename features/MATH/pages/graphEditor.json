@@ -71,5 +71,12 @@
         "definition": ".header-info",
         "frame": "default",
         "specialInstr": "NA"
+    },
+    {
+        "name": "graphingTextField",
+        "byType": "css",
+        "definition": "span.dcg-mq-textarea",
+        "frame": "default",
+        "specialInstr": "NA"
     }]
 }
