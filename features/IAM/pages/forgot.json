@@ -2,8 +2,8 @@
     "webElements": [
         {
             "name": "forgotLink",
-            "byType": "xpath",
-            "definition": "//div[@title='Forgot your password?']",
+            "byType": "css",
+            "definition": "[title='Forgot your password?']",
             "frame": "default",
             "specialInstr": "NA"
         },  {
