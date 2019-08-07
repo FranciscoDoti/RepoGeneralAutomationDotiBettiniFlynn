@@ -1,3 +1,4 @@
+@Assessment @Smoke
 Feature: As an instructor/ admin, i should be able to create pools of questions
 
     Background: Navigate to Activity Editor
@@ -8,7 +9,7 @@ Feature: As an instructor/ admin, i should be able to create pools of questions
         | field           | value           |
         | Assessment Name | QAAssessment    |
 
-    @assessmentCreation @Assessment @Smoke
+    @assessmentCreation 
     Scenario: Create pools in Question Bank and add it to assessmnet
         When I have created "2" random questions
         And added it to new assessment as pool
