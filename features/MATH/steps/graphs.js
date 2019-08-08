@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
-const { visitURL } = require(`${process.cwd()}/app/driver`)
+const { visitURL } = require(`${process.cwd()}/app/driver`);
 chai.use(require('chai-sorted'));
 const { Key } = require('selenium-webdriver');
 
@@ -117,26 +117,40 @@ Then(/^I verify the graph editor "(.*)" has "(.*)" graph Id number$/, async func
   }
 });
 
-When(/^I click the "(.*)" icon for graphId "(.*)"$/, async function (icon, userGraphId) {
+When(/^I click the "(.*)" icon for the graphId$/, async function (icon) {
+  await pages.graphEditor.switchToTab('Sapling');
+
+  let newGraphRowId = await pages.graphTab.getText('id');
+
   if (icon === 'window') {
-    await pages.graphTab.click('itemWindow', userGraphId);
-    await pages.graphEditor.switchToTab('Graphing');
+    await pages.graphTab.click('itemWindow', newGraphRowId);
+
   } else if (icon === 'preview') {
-    await pages.graphTab.click('itemPreview', userGraphId);
-    await pages.graphEditor.switchToTab('Graphing');
+    await pages.graphTab.click('itemPreview', newGraphRowId);
   }
 });
 
-Then(/^I verify the graphId "(.*)" editor will open in a new tab in edit mode$/, async function (userGraphId) {
-  await pages.graphEditor.switchToTab('Graphing');
+Then(/^I verify the graphId editor will open in a new tab in edit mode$/, async function () {
+  let newGraphRowId = await pages.graphTab.getText('id');
 
+  await pages.graphEditor.switchToTab('Graphing');
   await pages.graphEditor.assertElementExists('graphId');
+
   let txt = await pages.graphEditor.getText('graphId');
   let graphIdText = txt.split(' ')[1];
-  expect(graphIdText).to.be.eql(userGraphId);
+
+  expect(graphIdText).to.be.eql(newGraphRowId);
 });
 
 Then(/^I verify the graph editor will open in a new tab in student preview mode$/, async function () {
+  let newGraphRowId = await pages.graphTab.getText('id');
+
+  await pages.graphEditor.switchToTab('Graphing');
+
+  let currentUrl = await pages.graphEditor.getCurrentURL();
+  let urlgraphId = currentUrl.split('/')[5];
+
+  expect(urlgraphId).to.be.eql(newGraphRowId);
   await pages.graphEditor.assertElementExists('previewHeader');
 });
 
@@ -315,9 +329,29 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
 
 
 When(/^I input non-existing graphid in the graph editor url$/, async function () {
+  await pages.graphEditor.switchToTab('Graphing');
+
   let currentUrl = await pages.graphEditor.getCurrentURL();
-  let urlNonExistGraphId = currentUrl+101;
-  
+  let urlNonExistGraphId = currentUrl + 101;
+
   await visitURL(urlNonExistGraphId, Key.ENTER);
   await pages.graphEditor.click('saveButton');
+});
+
+
+When('I create a new graph with the following details', async function (datatable) {
+  
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let data = datatable.hashes()[i];
+
+    await pages.graphTab.click('newGraphButton');
+    await pages.graphEditor.switchToTab('Graphing');
+    await pages.graphEditor.populate('graphingTextField', data.GraphingExpression);
+    await pages.graphEditor.click('editTitleButton');
+    await pages.graphEditor.populate('titleTextField', data.Title);
+    await pages.graphEditor.click('saveButton');
+    await pages.graphEditor.assertElementExists('isSavedButton');
+    await pages.graphEditor.closeTab('Graphing System');
+    await pages.graphEditor.switchToTab('Sapling Learning');
+  }
 });

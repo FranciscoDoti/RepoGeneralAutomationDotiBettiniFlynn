@@ -1,6 +1,7 @@
+@Assessment @Smoke
 Feature: As a user, I want to add an item to an assessment
 
-@assessmentCreation @Assessment @Smoke
+@assessmentCreation
 Scenario: Add an item to a new assignment
     Given I login to IBISCMS as "all-permissions-author"
     And navigate to a course having course id "79848"
@@ -11,7 +12,7 @@ Scenario: Add an item to a new assignment
     And added it to assessment
     Then I see the item present in the assessment
 
-@assessmentCreation @Assessment @Smoke
+@assessmentCreation
 Scenario: Add multiple random items to a new assignment
     Given I login to IBISCMS as "all-permissions-author"
     And navigate to a course having course id "79848"
