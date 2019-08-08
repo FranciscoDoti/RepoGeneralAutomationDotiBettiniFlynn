@@ -1,5 +1,5 @@
 'use strict';
-const { Given, When, Then, After } = require('cucumber');
+const { When, Then } = require('cucumber');
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 
 

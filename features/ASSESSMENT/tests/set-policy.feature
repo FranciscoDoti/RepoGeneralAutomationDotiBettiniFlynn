@@ -8,7 +8,7 @@ Background: Create an assessment with set of questions
     | Assessment Name | QAAssessment    |
     When I have created "2" random questions
     And added it to assessment
-    When I select "Grading Settings" option for the assessment
+    And I select "Grading Settings" option for the assessment
     Then I navigate to "Grading Settings" page
 
 @assessmentCreation
