@@ -11,7 +11,6 @@ When(/^I select "(.*)" policy for the assessment$/, async function (policyname) 
         }
     }
     
-//   await ngaPages.settingsPage.populate('default policy option', policyname, 'click');
 });
 
 When('save the changes', async function () {

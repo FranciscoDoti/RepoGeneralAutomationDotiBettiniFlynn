@@ -132,7 +132,6 @@ When(/^I select "(.*)" option for the assessment$/, async function (settings_but
 });
 
 Then(/^I navigate to "(.*)" page$/, async function (title) {
-  // var pagetitle = await ngaPages.settingsPage.getText('page title');
   await ngaPages.settingsPage.assertText('page title', title);
 });
 
