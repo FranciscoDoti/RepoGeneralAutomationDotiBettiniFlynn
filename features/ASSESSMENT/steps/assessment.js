@@ -123,3 +123,15 @@ Then('I check NE answers', async function () {
   await mathpages.raptorAms.click('checkYourWorkSubmit');
   await ngaPages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
+
+When(/^I select "(.*)" option for the assessment$/, async function (settings_button) {
+  await ngaPages.assignmentTab.click('Setting Button');
+});
+
+Then(/^I navigate to "(.*)" page$/, async function (title) {
+  // var pagetitle = await ngaPages.settingsPage.getText('page title');
+  await ngaPages.settingsPage.assertText('page title', title);
+});
+
+
+

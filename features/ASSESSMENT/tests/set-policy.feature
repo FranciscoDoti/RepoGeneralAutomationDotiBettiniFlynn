@@ -9,9 +9,10 @@ Background: Create an assessment with set of questions
     When I have created "2" random questions
     And added it to assessment
     When I select "Grading Settings" option for the assessment
-    Then I navigate to "Settings" page
+    Then I navigate to "Grading Settings" page
 
+@assessmentCreation
 Scenario: Set Test policy
-    When I select "Test/ Quiz" policy for the assessment
+    When I select "Test/Quiz" policy for the assessment
     And save the changes
-    Then I see the policy mentioned with the assessment title
+    Then I see the policy "Test/Quiz" mentioned with the assessment title
