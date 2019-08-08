@@ -36,16 +36,9 @@
         "specialInstr":"NA"
     },
     {
-        "name": "save changes",
+        "name": "button",
         "byType": "xpath",
-        "definition": "//button[text()='Save']",
-        "frame":"aeFrame",
-        "specialInstr":"NA"
-    },
-    {
-        "name": "cancel changes",
-        "byType": "xpath",
-        "definition": "//button[text()='Cancel']",
+        "definition": "//button[text()='<ReplaceText>']",
         "frame":"aeFrame",
         "specialInstr":"NA"
     }

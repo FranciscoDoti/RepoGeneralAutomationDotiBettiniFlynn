@@ -14,7 +14,7 @@ When(/^I select "(.*)" policy for the assessment$/, async function (policyname) 
 });
 
 When('save the changes', async function () {
-  await ngaPages.settingsPage.click('save changes');
+  await ngaPages.settingsPage.click('button', "Save");
 });
 
 Then(/^I see the policy "(.*)" mentioned with the assessment title$/, async function (policyname) {
