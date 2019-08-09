@@ -5,14 +5,14 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 let scores = [];
 
 When('I navigate to assignment preview', async function () {
-    await pages.sac.click('Instructor Course Link');
+    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
     await pages.sac.click('Instructor Assessment Link');
     await pages.sac.click('Assignment Preview Button');
     await pages.sac.click('Keep Attempts Button');
 });
 
 When('I navigate to assignment and go back to the course landing page', async function () {
-    await pages.sac.click('Student Course Link');
+    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
     await pages.sac.click('Student Assessment Link');
     await pages.sac.click('Breadcrumb', 'Raptor Automation');
 });
@@ -23,7 +23,7 @@ Then('The assignment preview is opened in a new tab', async function () {
 });
 
 When(/^I reset attempts from student "(.*)"$/, async function (userType) {
-    await pages.sac.click('Instructor Course Link');
+    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
     await pages.sac.click('Instructor Assessment Link');
     await pages.sac.assertElementExists('Student Analysis Tab');
     await pages.sac.click('Student Analysis Tab');
@@ -38,7 +38,7 @@ When(/^I reset attempts from student "(.*)"$/, async function (userType) {
 });
 
 When('I navigate to assessment', async function () {
-    await pages.sac.click('Student Course Link');
+    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
     await pages.sac.click('Student Assessment Link');
 });
 
