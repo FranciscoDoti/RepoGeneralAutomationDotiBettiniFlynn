@@ -1,0 +1,47 @@
+{
+    "webElements": [
+    {
+        "name": "aeFrame",
+        "byType": "css",
+        "definition": "#aeIframe",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "page title",
+        "byType": "xpath",
+        "definition": "//div/h1[contains(text(), 'Settings')]",
+        "frame": "aeFrame",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "policy options list",
+        "byType": "xpath",
+        "definition": "//div[@class='policy-container']//label/input",
+        "frame":"aeFrame",
+        "specialInstr":"NA"
+    },
+    {
+        "name": "policy options",
+        "byType": "xpath",
+        "definition": "(//div[@class='policy-container']//label/div)[<ReplaceText>]",
+        "frame":"aeFrame",
+        "specialInstr":"NA"
+    },
+    {
+        "name": "policy options name",
+        "byType": "xpath",
+        "definition": "(//div[@class='policy-container']//label/input)[<ReplaceText>]",
+        "frame":"aeFrame",
+        "specialInstr":"NA"
+    },
+    {
+        "name": "button",
+        "byType": "xpath",
+        "definition": "//button[text()='<ReplaceText>']",
+        "frame":"aeFrame",
+        "specialInstr":"NA"
+    }
+
+    ]
+}

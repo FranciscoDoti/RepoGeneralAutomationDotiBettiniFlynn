@@ -17,7 +17,7 @@ Feature: Copy course from the Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Analyzing Drama                              |
+            | addReadingButton        |  Dedication                                   |
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data

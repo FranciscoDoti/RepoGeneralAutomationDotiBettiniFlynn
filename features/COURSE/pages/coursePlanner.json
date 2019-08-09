@@ -583,7 +583,7 @@
         {
             "name": "reorderValidation",
             "byType": "xpath",
-            "definition": "//div[<ReplaceText>]/div/div/div/div/div/div/a[@data-test-id='activity_link']",
+            "definition": "(//a[@data-test-id='activity_link'])[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
 

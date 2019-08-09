@@ -22,8 +22,8 @@ AfterAll(async function () {
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {
   await asmtpages.assignmentTab.click('course Name');
-  await asmtpages.assignmentTab.click('list Assessments', "QAAssessment");
-  await asmtpages.assignmentTab.click('list Assessments Delete', "QAAssessment");
+  await asmtpages.assignmentTab.click('list Assessments', this.data.get('assessment_name'));
+  await asmtpages.assignmentTab.click('list Assessments Delete', this.data.get('assessment_name'));
   await asmtpages.hatchlingItem.click('Submit Yes');
 });
 
