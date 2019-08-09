@@ -101,6 +101,20 @@
             "definition": "//div[text()='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Setting Button",
+            "byType": "xpath",
+            "definition": "//div/a[@data-test-id='assignment-settings-link']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "policy name",
+            "byType": "xpath",
+            "definition": "//div[@class='assignment-sub-header']/h4",
+            "frame":"aeframe",
+            "specialInstr":"NA"
         }
     ]
 }
