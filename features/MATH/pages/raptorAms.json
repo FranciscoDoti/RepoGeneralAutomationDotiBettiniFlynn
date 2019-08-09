@@ -190,6 +190,27 @@
             "specialInstr": "NA"
         },
         {
+            "name": "mathIsList",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-is_list']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathGradeToConstant",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-grade_to_constant']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathExactTolerance",
+            "byType": "css",
+            "definition": "input.greq-input[data-test-id='exact-tolerance-radio']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "mathNumericTolerance",
             "byType": "css",
             "definition": "input[data-test-id='numeric-tolerance-radio']",
@@ -207,6 +228,13 @@
             "name": "numericLowerTolerance",
             "byType": "css",
             "definition": "input[data-test-id='tolerance-below-field']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathCreateVariableContext",
+            "byType": "css",
+            "definition": ".cdl-button[data-test-id='generic-feedback-button']",
             "frame": "default",
             "specialInstr": "NA"
         },
