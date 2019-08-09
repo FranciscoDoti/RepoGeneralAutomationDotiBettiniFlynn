@@ -26,9 +26,14 @@ Then(/^I verify graph filter field$/, async function () {
 When(/^graphs list with title containing alphanumeric characters exist$/, async function () {
   let titleColumnData = await pages.graphTab.getWebElements('titlecolumndata'); // refer let typeColumnData = await pages.graphTab.getWebElements('typecolumndata');
 
-  for (const element of titleColumnData) {
-    expect(await element.getText()).to.match(/\w(.*)/g);
+  for (let i = 0; i < titleColumnData.length - 1; i++) {
+    try {
+      console.log("element", titleColumnData[i].getText());
+      expect(await titleColumnData[i].getText()).to.match(/(\s.*)/)
+    } catch (e) {
+    }
   }
+
 });
 
 When(/^I input "(.*)" in the filter field$/, async function (userText) {
@@ -177,6 +182,7 @@ Then(/^I verify Graph type is Graded or Ungraded$/, async function () {
   let typeColumnData = await pages.graphTab.getWebElements('typecolumndata');
 
   for (const element of typeColumnData) {
+    console.log("element",element.getText());
     expect(await element.getText()).to.be.oneOf(['Graded', 'Ungraded']);
   }
 });
@@ -340,7 +346,7 @@ When(/^I input non-existing graphid in the graph editor url$/, async function ()
 
 
 When('I create a new graph with the following details', async function (datatable) {
-  
+
   for (let i = 0; i < datatable.rows().length; i++) {
     let data = datatable.hashes()[i];
 
