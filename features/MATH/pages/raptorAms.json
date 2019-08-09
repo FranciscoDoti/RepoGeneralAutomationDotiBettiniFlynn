@@ -176,6 +176,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "mathGradeAsExpression",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='eval-type-dropdown'] > option[value='expression']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "mathEnforceEndpoints",
             "byType": "css",
             "definition": "input[data-test-id='edit-panel-checkbox-interval_endpoints']",
