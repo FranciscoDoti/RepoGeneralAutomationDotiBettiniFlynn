@@ -16,7 +16,7 @@ Feature: Verify that customer Support is able to create access code for Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Glossary                                   |
+            | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
         And I copy course from the "Qualitative Template" template with the following data
