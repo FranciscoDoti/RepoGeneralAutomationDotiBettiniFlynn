@@ -34,6 +34,7 @@
     "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor -f json:reports/cucumber_report.json --environment int",
     "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int",
     "mc": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/multiple-choice.feature -f json:reports/cucumber_report.json --environment int",
+    "set-policy": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/set-policy.feature -f json:reports/cucumber_report.json --environment int",
     "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/smoketest -f json:reports/cucumber_report.json"
 
   },
