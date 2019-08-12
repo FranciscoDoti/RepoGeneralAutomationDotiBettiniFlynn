@@ -59,7 +59,8 @@
     "mailparser": "latest",
     "parse-duration": "latest",
     "selenium-webdriver": "latest",
-    "winston": "latest"
+    "winston": "latest",
+    "testrail-api":"latest"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
