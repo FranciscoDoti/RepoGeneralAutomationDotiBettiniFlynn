@@ -56,37 +56,37 @@
     }, {
         "name": "Grading Settings Performance",
         "byType": "id",
-        "definition": "undefined-0-toggle-button",
+        "definition": "Performance-0-toggle-button",
         "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Grading Settings Performance Selected",
         "byType": "css",
-        "definition": "[id='undefined-0-toggle-button'][class*='modals__toggletrue']",
+        "definition": "[id='Performance-0-toggle-button'][class*='modals__toggletrue']",
         "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Grading Settings Performance Unselected",
         "byType": "css",
-        "definition": "[id='undefined-0-toggle-button'][class*='modals__togglefalse']",
+        "definition": "[id='Performance-0-toggle-button'][class*='modals__togglefalse']",
         "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Grading Settings Completion",
         "byType": "id",
-        "definition": "undefined-1-toggle-button",
+        "definition": "Completion-1-toggle-button",
         "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Grading Settings Completion Selected",
         "byType": "css",
-        "definition": "[id='undefined-1-toggle-button'][class*='modals__toggletrue']",
+        "definition": "[id='Completion-1-toggle-button'][class*='modals__toggletrue']",
         "frame": 0,
         "specialInstr": "NA"
     }, {
         "name": "Grading Settings Completion Unselected",
         "byType": "css",
-        "definition": "[id='undefined-1-toggle-button'][class*='modals__togglefalse']",
+        "definition": "[id='Completion-1-toggle-button'][class*='modals__togglefalse']",
         "frame": 0,
         "specialInstr": "NA"
     }, {
