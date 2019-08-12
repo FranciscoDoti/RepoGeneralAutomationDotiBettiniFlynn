@@ -62,21 +62,12 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, c
   await pages.createCourse.getText('courseShortId');
   let user = await _.get(users, [this.environment, userName]);
   let text = await pages.createCourse.getText('courseShortId');
-<<<<<<< HEAD
   await Pages.login.click('togglerMenu');
   await Pages.login.click('signOut');
   await Pages.login.click('signinlink');
   await Pages.login.populate('username', user.username);
   await Pages.login.populate('password', user.password);
   await Pages.login.click('signin');
-=======
-  await share.login.click('togglerMenu');
-  await share.login.click('signOut');
-  await share.login.click('signinlink');
-  await share.login.populate('username', user.username);
-  await share.login.populate('password', user.password);
-  await share.login.click('signin');
->>>>>>> 937721b6042b29a50e4b540cf28ff4aaa3d9c4c6
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
@@ -86,10 +77,4 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, c
   await pages.coursePage.click('enter');
   await pages.coursePage.click('finishEnrollement');
 });
-<<<<<<< HEAD
 
-When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName){
-
-});
-=======
->>>>>>> 937721b6042b29a50e4b540cf28ff4aaa3d9c4c6
