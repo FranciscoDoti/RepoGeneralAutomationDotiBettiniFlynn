@@ -14,20 +14,20 @@ Feature: Verify the elements on Ams-Graph Tab page
     Scenario: Verify graph filter field
 
         And I verify graph filter field
-        And graphs list with title containing alphanumeric characters exist
+        And graphs list with alphanumeric characters or empty title exist
 
-    # Scenario Outline: Verify graph filter numeric search
-    # #Test Cases: C3218235
-    #     When I input <userText> in the filter field
-    #     Then I verify all graphs that have <userText> in the graph title or in graph Id are displayed
+    Scenario Outline: Verify graph filter numeric search
+        #Test Cases: C3218235
+        When I input <userText> in the filter field
+        Then I verify all graphs that have <userText> in the graph title or in graph Id are displayed
 
-    #     Examples:
-    #         | userText  |
-    #         | "g"       |
-    #         | "24"      |
+        Examples:
+            | userText |
+            | "g"      |
+            | "24"     |
 
 ## yet to be implemented sprint story
-# Scenario: Verify graph filter for case sensitive search  
+# Scenario: Verify graph filter for case sensitive search
 
 #          When I input "abc" in the filter field
 #         Then I verify all graphs have "abc" in the graph title or in graph Id are displayed

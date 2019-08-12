@@ -23,17 +23,12 @@ Then(/^I verify graph filter field$/, async function () {
   await pages.graphTab.assertElementExists('filterInput');
 });
 
-When(/^graphs list with title containing alphanumeric characters exist$/, async function () {
-  let titleColumnData = await pages.graphTab.getWebElements('titlecolumndata'); // refer let typeColumnData = await pages.graphTab.getWebElements('typecolumndata');
+When(/^graphs list with alphanumeric characters or empty title exist$/, async function () {
+  let titleColumnData = await pages.graphTab.getWebElements('titlecolumndata'); 
 
-  for (let i = 0; i < titleColumnData.length - 1; i++) {
-    try {
-      console.log("element", titleColumnData[i].getText());
-      expect(await titleColumnData[i].getText()).to.match(/(\s.*)/)
-    } catch (e) {
-    }
+  for (const element of titleColumnData) {
+    expect(await element.getText()).to.match(/\s*\w*$/);
   }
-
 });
 
 When(/^I input "(.*)" in the filter field$/, async function (userText) {
@@ -182,7 +177,6 @@ Then(/^I verify Graph type is Graded or Ungraded$/, async function () {
   let typeColumnData = await pages.graphTab.getWebElements('typecolumndata');
 
   for (const element of typeColumnData) {
-    console.log("element",element.getText());
     expect(await element.getText()).to.be.oneOf(['Graded', 'Ungraded']);
   }
 });
