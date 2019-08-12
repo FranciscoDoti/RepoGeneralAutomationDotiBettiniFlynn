@@ -27,7 +27,7 @@ When(/^graphs list with alphanumeric characters or empty title exist$/, async fu
   let titleColumnData = await pages.graphTab.getWebElements('titlecolumndata'); 
 
   for (const element of titleColumnData) {
-    expect(await element.getText()).to.match(/\s*\w*$/);
+    expect(await element.getText()).to.match(/.*/);
   }
 });
 
