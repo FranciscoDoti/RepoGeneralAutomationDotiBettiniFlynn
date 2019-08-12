@@ -231,13 +231,7 @@
             "frame": "default",
             "specialInstr": "NA"
         },
-        {
-            "name": "mathCreateVariableContext",
-            "byType": "css",
-            "definition": ".cdl-button[data-test-id='generic-feedback-button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
+
         {
             "name": "mathPolarCoordinate",
             "byType": "css",
