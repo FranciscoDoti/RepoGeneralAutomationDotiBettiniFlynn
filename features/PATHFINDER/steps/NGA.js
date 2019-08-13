@@ -1,13 +1,11 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
 
-Then(/^there should be a "(.*)" in NGA$/, async function (locator) {
-  await pages.NGA.assertElementExists(locator);
-})
-
-When(/^I click on the "(.*)" in NGA$/, async function (locator) {
-  await pages.NGA.click(locator);
-})
+// When('I complete an NGA assignment with the following answers', async function (datatable) {
+//   for (let i = 0; i < datatable.rows().length: i++) {
+    
+//   }
+// })
 
 Then("the user should be taken to a student preview", async function () {
   await pages.NGA.assertElementExists("About Student Preview Modal");

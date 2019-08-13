@@ -4,12 +4,14 @@ const expect = require('chai').expect;
 const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const csvtojson = require('csvtojson');
+const driver = require(`${process.cwd()}/app/driver.js`);
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName) {
   let payload = await _.get(users, [this.environment, user]);
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
+  await driver.getDriver().navigate().refresh();
   await pages.createCourse.assertTextIncludes('courseTitle', 'E2E 301: '+courseName )
   await pages.home.scrollElementIntoView('togglerMenu');
   await pages.home.assertElementExists('togglerMenu');
@@ -82,4 +84,3 @@ Then('I verify the report is dowloaded with following data', async function (dat
       expect(data[0]).to.have.property(datatable.hashes()[i].ColumnName);
   }
 });
-

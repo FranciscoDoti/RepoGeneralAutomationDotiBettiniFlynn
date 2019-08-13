@@ -24,7 +24,7 @@
         "frame": 0,
         "specialInstr": "NA"
     }, {
-        "name": "PreTest Grading Settings Container",
+        "name": "Practice Test Grading Settings Container",
         "byType": "id",
         "definition": "instructor-overview-PreTest-grade-settings",
         "frame": 0,
