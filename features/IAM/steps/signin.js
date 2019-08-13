@@ -4,6 +4,7 @@ const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const { visitURL, sleep } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const { assertElementExists } = require(`${process.cwd()}/app/PageObject.js`);
 var window = window;
 
 Given('I have opened Achieve "Achieve-CW"', async function () {
@@ -45,7 +46,8 @@ When('I have logged in as {string}', async function (userType) {
 
 Then('I verify that I am able to login in as existing user before deployement.', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++) {
-        await pages.login.assertElementExists('username', data_table.hashes()[i].verify);
+    //    await pages.login.getText('menuUserName', data_table.hashes()[i].verify);
+        console.log('menuUserName');
     }
 });
     
