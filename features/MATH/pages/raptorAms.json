@@ -204,13 +204,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "mathExactTolerance",
-            "byType": "css",
-            "definition": "input.greq-input[data-test-id='exact-tolerance-radio']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "mathNumericTolerance",
             "byType": "css",
             "definition": "input[data-test-id='numeric-tolerance-radio']",

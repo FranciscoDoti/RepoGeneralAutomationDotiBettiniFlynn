@@ -135,7 +135,7 @@ When(/^I select Math Equation module, click on Question tab$/, async function ()
 
 Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async function () {
   await pages.raptorAms.assertElementExists('mathGradeAs');
-  await pages.raptorAms.assertElementExists('mathIsList');
+  await pages.raptorAms.assertElementExists('mathGradeAsExpression');
 });
 
 Then(/^I verify corresponding check boxes are displayed for Expression evaltype question$/, async function () {
