@@ -31,9 +31,9 @@
             "frame": "default",
             "specialInstr": "NA"
         },  {
-            "name": "verfyID",
+            "name": "verify",
             "byType": "xpath",
-            "definition": "//*[@id='verifyForm']",
+            "definition": "//*[@id='confirm']",
             "frame": "default",
             "specialInstr": "NA"
         },  {
@@ -42,7 +42,42 @@
             "definition": "//*[@id='submitanswer']",
             "frame": "default",
             "specialInstr": "NA"
-       
+        },  {
+            "name": "email",
+            "byType":"css",    
+            "definition": "[title='Enter your email address']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "answer",
+            "byType":"xpath",    
+            "definition": "//*[@id='answerText']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "errorText",
+            "byType":"xpath",    
+            "definition": "//*[@id='verifyForm']/div/div[3]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "lastErrorText",
+            "byType":"xpath",    
+            "definition": "//*[@id='confirm']/div/div[1]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "backToLogin",
+            "byType":"xpath",    
+            "definition": "//*[@id='backToLogin']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "emailSent",
+            "byType":"xpath",    
+            "definition": "//*[@id='confirm']/div/p",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
