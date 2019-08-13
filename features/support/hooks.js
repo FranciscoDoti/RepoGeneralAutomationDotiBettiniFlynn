@@ -145,22 +145,3 @@ After('@instructor-delete-course', async function () {
     await pages.home.click('closeAlert');
   }
 });
-
-After('@pfproducer-delete-course', async function () {
-  let payload = await _.get(users, [this.environment, 'pf-producer']);
-  await pages.home.click('togglerMenu');
-  await pages.home.click('signOut');
-  await pages.home.click('signInLocal');
-  await pages.home.populate('username', payload.username);
-  await pages.home.populate('password', payload.password);
-  await pages.home.click('signIn')
-  await pages.courseList.populate('search', 'PF Automation')
-  await sleep(500)
-  let elements = await pages.courseList.getWebElements('courseCard');
-  for (let i = 0; i < elements.length; i++) {
-    await pages.coursePage.click('courseMenu');
-    await sleep(500);
-    await pages.courseList.click('deleteCourse');
-    await pages.courseList.click('confirmDelete');
-  }
-});
