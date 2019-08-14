@@ -1,5 +1,6 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "menuBarAdd",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
@@ -119,19 +120,18 @@
             "specialInstr": "NA"
         },
         {
-            "name": "saveMessage",       
+            "name": "saveMessage",
             "byType": "xpath",
             "definition": "//h4[@class='modal-title' and contains(.,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "getItemid",     
+            "name": "getItemid",
             "byType": "css",
             "definition": "div[data-test-id='edit-id']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "moduleTab",
@@ -176,30 +176,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "mathGradeAsExpression",
-            "byType": "css",
-            "definition": ".greq-input[data-test-id='eval-type-dropdown'] > option[value='expression']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "mathEnforceEndpoints",
             "byType": "css",
             "definition": "input[data-test-id='edit-panel-checkbox-interval_endpoints']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "mathIsList",
-            "byType": "css",
-            "definition": ".greq-input[data-test-id='edit-panel-checkbox-is_list']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "mathGradeToConstant",
-            "byType": "css",
-            "definition": ".greq-input[data-test-id='edit-panel-checkbox-grade_to_constant']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -224,7 +203,6 @@
             "frame": "default",
             "specialInstr": "NA"
         },
-
         {
             "name": "mathPolarCoordinate",
             "byType": "css",
@@ -232,7 +210,7 @@
             "frame": "default",
             "specialInstr": "NA"
         },
-         {
+        {
             "name": "checkYourWorkAnswerText1",
             "byType": "css",
             "definition": "span.mq-math-mode",
@@ -242,7 +220,7 @@
         {
             "name": "checkYourWorkAnswerText2",
             "byType": "css",
-            "definition": "#primary-content-area > * div > span > * textarea", 
+            "definition": "#primary-content-area > * div > span > * textarea",
             "frame": "default",
             "specialInstr": "noclick noclear"
         },

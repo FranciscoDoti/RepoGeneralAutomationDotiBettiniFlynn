@@ -1,0 +1,25 @@
+{
+    "webElements": [
+        {
+            "name": "mathGradeAsExpression",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='eval-type-dropdown'] > option[value='expression']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathIsList",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-is_list']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mathGradeToConstant",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-grade_to_constant']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

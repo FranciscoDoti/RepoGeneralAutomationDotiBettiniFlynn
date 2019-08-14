@@ -135,11 +135,11 @@ When(/^I select Math Equation module, click on Question tab$/, async function ()
 
 Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async function () {
   await pages.raptorAms.assertElementExists('mathGradeAs');
-  await pages.raptorAms.assertElementExists('mathGradeAsExpression');
+  await pages.mathModule.assertElementExists('mathGradeAsExpression');
 });
 
 Then(/^I verify corresponding check boxes are displayed for Expression evaltype question$/, async function () {
   await pages.raptorAms.assertElementExists('mathGradeAs');
-  await pages.raptorAms.assertElementExists('mathIsList');
-  await pages.raptorAms.assertElementExists('mathGradeToConstant');
+  await pages.mathModule.assertElementExists('mathIsList');
+  await pages.mathModule.assertElementExists('mathGradeToConstant');
 });
