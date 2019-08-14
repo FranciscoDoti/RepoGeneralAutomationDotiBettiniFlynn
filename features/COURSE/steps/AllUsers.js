@@ -120,3 +120,7 @@ When('I add URL activity in resource tab', async function (data_table) {
   }
 });
 
+When('I close generate access code', async function (){
+  await pages.adminMenu.click('closeExportList');
+});
+
