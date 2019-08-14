@@ -37,6 +37,7 @@
     },
     "IBISCMS":{
         "int":"http://int.saplinglearning.me/ibiscms",
-        "ae": "http://ae.saplinglearning.me/ibiscms"
+        "ae": "http://ae.saplinglearning.me/ibiscms",
+        "prod": "https://www.saplinglearning.com/ibiscms"
     }
 }

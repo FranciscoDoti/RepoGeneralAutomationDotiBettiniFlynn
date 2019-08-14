@@ -1,0 +1,87 @@
+Feature: Brightcove Video Player
+
+  # SAVI -> Mol3d -> Test Cases -> App loads
+  Scenario: Mol3d applet loads
+    Given I login to IBISCMS as "savicreate"
+    When I open the mol3d assessment
+    Then the mol3d applet loads
+    Then I see the correct molecule
+    Then I see the mol3d menubar fully
+
+  # SAVI -> Mol3d -> Test Cases -> Menu Rotate X
+  Scenario: Rotate the mol3d molecule on the X axis
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click the rotate X button
+    Then the molecule begins to rotate on the X axis and then all other rotations should cease
+
+  # SAVI -> Mol3d -> Test Cases -> Menu Rotate Y
+  Scenario: Rotate the mol3d molecule on the Y axis
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click the rotate Y button
+    Then the molecule begins to rotate on the Y axis and then all other rotations should cease
+
+  # SAVI -> Mol3d -> Test Cases -> Menu Rotate Z
+  Scenario: Rotate the mol3d molecule on the Z axis
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click the rotate Z button
+    Then the molecule begins to rotate on the Z axis and then all other rotations should cease
+
+  # SAVI -> Mol3d -> Test Cases -> Menu Zoom In
+  Scenario: Zoom in on the molecule viewer
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click the Zoom in button
+    Then the molecule viewer should zoom in on the molecule
+
+  # SAVI -> Mol3d -> Test Cases -> Menu Zoom Out
+  Scenario: Zoom out on the molecule viewer
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click the Zoom Out button
+    Then the molecule viewer should zoom out on the molecule
+
+  # SAVI -> Mol3d -> Test Cases -> Menu Label Atoms Toggle
+  Scenario: Toggle on the labels of the atoms
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click the Label Atoms button while it was deselected
+    Then the atom labels should appear
+
+  Scenario: Toggle off the labels of the atoms
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click the Label Atoms button while it was selected
+    Then the atom labels should disappear
+
+  # SAVI -> Mol3d -> Test Cases -> Mouse interaction Rotate molecule
+  Scenario: Rotate the molecule within the molecule viewer
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When I click and drag the molecule
+    Then the molecule should rotate according to the mouse movement
+
+  # SAVI -> Mol3d -> Test Cases -> Mouse interaction Scroll zoom
+  Scenario: Scroll in and out with mouse within the molecule viewer
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When the scrollwheel is scrolled up or down
+    Then the molecule viewer should either zoom in or zoom out based on scroll direction
+
+  # SAVI -> Mol3d -> Test Cases -> Google Analytics
+  Scenario: Google Analytics events are sent on event
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When an action is performed
+    Then a Google Analytics event is sent
+
+  Scenario: Google Analytics uses correct account
+    Given I login to IBISCMS as "savicreate"
+    Given the mol3d app is loaded
+    When a Google Analytics event is sent
+    Then the event should be sending to the correct account (Prod -1, QA -3)
+
+    
+  # TODO NGA, Shared Item, Extra Content
