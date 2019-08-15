@@ -27,29 +27,6 @@ After('@assessmentCreation', async function () {
   await asmtpages.hatchlingItem.click('Submit Yes');
 });
 
-After('@mediaproducer-delete-course', async function () {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, 'media_producer_2']);
-  await resetBrowser();
-  await visitURL(url);
-  await pages.home.click('signInLocal');
-  await pages.home.populate('username', user.username);
-  await pages.home.populate('password', user.password);
-  await pages.home.click('signIn')
-  let course = this.data.get('code');
-  let courseName = this.data.get('Number');
-  await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseNumber', course);
-  let elements = await pages.courseList.getWebElements('courseNumber', course)
-  console.log(elements.length+'no');
-  for (let i = 0; i < elements.length; i++) {
-    await pages.coursePage.click('courseMenu');
-    await pages.courseList.click('deleteCourse');
-    await pages.courseList.click('confirmDelete');
-    await pages.home.click('closeAlert');
-  }
-});
-
 After('@instructor-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'instructor_1']);
@@ -141,6 +118,29 @@ After('@custmersupport-delete-course', async function () {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.assertElementExists('confirmDelete')
+    await pages.courseList.click('confirmDelete');
+    await pages.home.click('closeAlert');
+  }
+});
+
+After('@mediaproducer-delete-course', async function () {
+  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let user = await _.get(users, [this.environment, 'media_producer_2']);
+  await resetBrowser();
+  await visitURL(url);
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', user.username);
+  await pages.home.populate('password', user.password);
+  await pages.home.click('signIn')
+  let course = this.data.get('code');
+  let courseName = this.data.get('Number');
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.assertElementExists('courseNumber', course);
+  let elements = await pages.courseList.getWebElements('courseNumber', course)
+  console.log(elements.length+'no');
+  for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
+    await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
     await pages.home.click('closeAlert');
   }
