@@ -22,26 +22,6 @@ After('@assessmentCreation', async function () {
   await asmtpages.hatchlingItem.click('Submit Yes');
 });
 
-After('@instructor-delete-course', async function () {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, 'instructor_1']);
-  await resetBrowser();  
-  await visitURL(url);
-  await pages.home.click('signInLocal');
-  await pages.home.populate('username', user.username);
-  await pages.home.populate('password', user.password);
-  await pages.home.click('signIn')
-  let course = this.data.get('course');
-  await pages.createCourse.assertElementExists('courseCard', course);
-  let elements = await pages.createCourse.getWebElements('courseCard', course)
-  for (let i = 0; i < elements.length; i++) {
-    await pages.coursePage.click('courseMenu');
-    await pages.courseList.click('deleteCourse');
-    await pages.courseList.assertElementExists('confirmDelete')
-    await pages.courseList.click('confirmDelete');
-    await pages.home.click('closeAlert');
-  }
-});
 
 After('@admin-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
@@ -117,7 +97,6 @@ After('@custmersupport-delete-course', async function () {
     await pages.home.click('closeAlert');
   }
 });
-
 After('@mediaproducer-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
   let user = await _.get(users, [this.environment, 'media_producer_2']);
@@ -141,6 +120,39 @@ After('@mediaproducer-delete-course', async function () {
   }
 });
 
+After('@instructor-delete-course', async function () {
+  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let user = await _.get(users, [this.environment, 'instructor_1']);
+  await resetBrowser();  
+  await visitURL(url);
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', user.username);
+  await pages.home.populate('password', user.password);
+  await pages.home.click('signIn')
+  let course = this.data.get('course');
+  await pages.createCourse.assertElementExists('courseCard', course);
+  let elements = await pages.createCourse.getWebElements('courseCard', course)
+  for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
+    await pages.courseList.click('deleteCourse');
+    await pages.courseList.assertElementExists('confirmDelete')
+    await pages.courseList.click('confirmDelete');
+    await pages.home.click('closeAlert');
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -148,8 +160,8 @@ After('@mediaproducer-delete-course', async function () {
 
 //***********           this After always needs to be at the bottom of this file           ***********//
 After(async function (scenario) {
-    if (this.screenshots.toLowerCase().includes('onfail')
-   && scenario.result.status.toLowerCase().includes('fail')) {
-  await this.attach(await takeScreenshot(), 'image/png');
-   }
+  if (this.screenshots.toLowerCase().includes('onfail')
+    && scenario.result.status.toLowerCase().includes('fail')) {
+    await this.attach(await takeScreenshot(), 'image/png');
+  }
 });
