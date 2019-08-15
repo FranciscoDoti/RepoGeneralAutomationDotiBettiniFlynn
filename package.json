@@ -35,7 +35,8 @@
     "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int",
     "mc": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/multiple-choice.feature -f json:reports/cucumber_report.json --environment int",
     "set-policy": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/set-policy.feature -f json:reports/cucumber_report.json --environment int",
-    "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/smoketest -f json:reports/cucumber_report.json"
+    "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/smoketest -f json:reports/cucumber_report.json",
+    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json"
 
   },
   "engines": {
@@ -45,21 +46,22 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "2.46.0",
+    "chromedriver": "latest",
     "csvtojson": "latest",
     "cucumber": "latest",
     "cucumber-html-reporter": "latest",
     "dateformat": "latest",
     "eslint": "latest",
     "faker": "latest",
-    "geckodriver": "1.14.1",
+    "geckodriver": "latest",
     "imap": "latest",
     "js-datepicker": "^4.6.1",
     "jsonwebtoken": "latest",
     "mailparser": "latest",
     "parse-duration": "latest",
     "selenium-webdriver": "latest",
-    "winston": "latest"
+    "winston": "latest",
+    "testrail-api":"latest"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",

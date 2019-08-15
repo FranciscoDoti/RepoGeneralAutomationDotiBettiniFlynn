@@ -7,11 +7,6 @@ const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pa
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 After(async function (scenario) {
-  console.log(scenario.result.status);
-  if (this.screenshots.toLowerCase().includes('onfail')
-    && scenario.result.status.toLowerCase().includes('fail')) {
-    await this.attach(await takeScreenshot(), 'image/png');
-  }
   await resetBrowser();
 });
 

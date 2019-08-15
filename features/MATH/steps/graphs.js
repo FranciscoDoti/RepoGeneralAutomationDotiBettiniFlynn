@@ -23,11 +23,11 @@ Then(/^I verify graph filter field$/, async function () {
   await pages.graphTab.assertElementExists('filterInput');
 });
 
-When(/^graphs list with title containing alphanumeric characters exist$/, async function () {
-  let titleColumnData = await pages.graphTab.getWebElements('titlecolumndata'); // refer let typeColumnData = await pages.graphTab.getWebElements('typecolumndata');
+When(/^graphs list with alphanumeric characters or empty title exist$/, async function () {
+  let titleColumnData = await pages.graphTab.getWebElements('titlecolumndata'); 
 
   for (const element of titleColumnData) {
-    expect(await element.getText()).to.match(/\w(.*)/g);
+    expect(await element.getText()).to.match(/.*/);
   }
 });
 
@@ -340,7 +340,7 @@ When(/^I input non-existing graphid in the graph editor url$/, async function ()
 
 
 When('I create a new graph with the following details', async function (datatable) {
-  
+
   for (let i = 0; i < datatable.rows().length; i++) {
     let data = datatable.hashes()[i];
 
