@@ -26,7 +26,7 @@ const populateInput = async function (selector, value, WebElementObject) {
     case 'password':
     case 'number':
       await populateTextField(selector, value, WebElementObject);
-    break;
+      break;
 
     case 'checkbox':
       if (value.toLowerCase() === 'click') {
