@@ -140,3 +140,16 @@ After('@mediaproducer-delete-course', async function () {
     await pages.home.click('closeAlert');
   }
 });
+
+
+
+
+
+
+//***********           this After always needs to be at the bottom of this file           ***********//
+After(async function (scenario) {
+    if (this.screenshots.toLowerCase().includes('onfail')
+   && scenario.result.status.toLowerCase().includes('fail')) {
+  await this.attach(await takeScreenshot(), 'image/png');
+   }
+});
