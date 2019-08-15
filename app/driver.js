@@ -93,6 +93,7 @@ driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
+  await driver.manage().window().maximize();
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
   return driver.get(url);
@@ -119,7 +120,6 @@ const resetBrowser = async function () {
 };
 
 const activateTab = async function (tabName) {
-  var masterTab = await driver.getWindowHandle();
   var tabs = await driver.getAllWindowHandles();
   for (let index = 0; index < tabs.length; index++) {
     await switchToTab(tabs[index]);
@@ -132,7 +132,7 @@ const activateTab = async function (tabName) {
   currentTabName = await getTitle();
   if (!currentTabName.includes(tabName)) {
     log.info(`${tabName} tab was not found.`);
-    await switchToTab(masterTab);
+    await switchToTab(tabs[0]);
   } else {
     log.debug(`${currentTabName} tab activated.`);
   }

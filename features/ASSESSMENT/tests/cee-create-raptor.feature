@@ -1,6 +1,6 @@
+@Assessment @Smoke
 Feature: CEE module type creation
 
-    @Assessment @Smoke
     Scenario: Verify that user can create CEE type of raptor item
       Given I login to AMS as "all-permissions-author"
       When I add the "Chemical Equation" module with following details

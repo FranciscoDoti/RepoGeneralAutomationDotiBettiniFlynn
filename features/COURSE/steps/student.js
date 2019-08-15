@@ -2,7 +2,7 @@ const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const Pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
+const share = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
 const { getDriver, onWaitForElementToBeInvisible } = require(`${process.cwd()}/app/driver`);
 
@@ -63,12 +63,12 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, c
   await pages.createCourse.getText('courseShortId');
   let user = await _.get(users, [this.environment, userName]);
   let text = await pages.createCourse.getText('courseShortId');
-  await Pages.login.click('togglerMenu');
-  await Pages.login.click('signOut');
-  await Pages.login.click('signinlink');
-  await Pages.login.populate('username', user.username);
-  await Pages.login.populate('password', user.password);
-  await Pages.login.click('signin');
+  await share.login.click('togglerMenu');
+  await share.login.click('signOut');
+  await share.login.click('signinlink');
+  await share.login.populate('username', user.username);
+  await share.login.populate('password', user.password);
+  await share.login.click('signin');
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
