@@ -118,7 +118,7 @@ When('I add the following calculated algos', async function (datatable) {
 });
 
 When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
-    let selectedTabText = await ngaPages.raptor.getText('activeTabEditMode');
+    let selectedTabText = await pages.raptor.getText('Active Tab Edit Mode');
     if (selectedTabText !== "correct1") {
         await pages.raptor.click('Correct Context');
     }

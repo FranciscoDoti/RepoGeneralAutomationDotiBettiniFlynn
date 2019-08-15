@@ -4,7 +4,6 @@
   "scripts": {
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/smoketest -f json:reports/cucumber_report.json",
-
     "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
     "folder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Quantitative/InstructorfolderCP.feature -f json:reports/cucumber_report.json",
@@ -16,14 +15,13 @@
     "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/manageRoles.feature -f json:reports/cucumber_report.json",
     "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests -f json:reports/cucumber_report.json",
     "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common -f json:reports/cucumber_report.json",
-    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/Qualitative/AdminEnrollsStudent.feature", 
+    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/Qualitative/AdminEnrollsStudent.feature",
     "CC-Q": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/URL.feature -f json:reports/cucumber_report.json",
     "user": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/ReadandPractice/InstructorfolderCP.feature -f json:reports/cucumber_report.json --environment int",
     "PA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/paidAccessCode/generateAccessCode.feature -f json:reports/cucumber_report.json --environment int",
     "clone": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/readingTAB.feature -f json:reports/cucumber_report.json --environment int",
     "customerSupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor -f json:reports/cucumber_report.json --environment int",
     "createCourse": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json --environment int",
-    
     "cee": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/cee-create-raptor.feature -f json:reports/cucumber_report.json",
     "md": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/md-simple-structure-grade.feature -f json:reports/cucumber_report.json",
     "aa": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/advanced-authoring.feature -f json:reports/cucumber_report.json",
@@ -38,9 +36,9 @@
     "mc": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/multiple-choice.feature -f json:reports/cucumber_report.json --environment int",
     "set-policy": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/set-policy.feature -f json:reports/cucumber_report.json --environment int",
     "fr": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/free-response.feature -f json:reports/cucumber_report.json",
-    
-    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json"
+    "ne": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/numeric-entry.feature -f json:reports/cucumber_report.json",
 
+    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
@@ -64,7 +62,7 @@
     "parse-duration": "latest",
     "selenium-webdriver": "latest",
     "winston": "latest",
-    "testrail-api":"latest"
+    "testrail-api": "latest"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
