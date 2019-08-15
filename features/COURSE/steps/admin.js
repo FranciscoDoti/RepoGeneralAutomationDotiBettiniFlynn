@@ -42,7 +42,7 @@ When('I click on Manage roles', async function () {
 Then('I verify Manage roles is displayed', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.adminMenu.assertElementExists(data_table.hashes()[i].field)
-    await pages.adminMenu.assertDisabled(data_table.hashes()[i].disabled)
+    await pages.adminMenu.assertElementDisabled(data_table.hashes()[i].disabled)
   }
 });
 
