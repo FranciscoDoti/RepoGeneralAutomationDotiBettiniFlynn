@@ -5,7 +5,7 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const { closeBrowser, resetBrowser, takeScreenshot, visitURL } = require(`${process.cwd()}/app/driver`);
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-/*
+
 After(async function (scenario) {
   console.log(scenario.result.status);
   if (this.screenshots.toLowerCase().includes('onfail')
@@ -18,7 +18,7 @@ After(async function (scenario) {
 AfterAll(async function () {
   await closeBrowser();
 });
-*/
+
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {
   await asmtpages.assignmentTab.click('course Name');

@@ -87,21 +87,6 @@ When(/^added it to new assessment as pool$/, async function () {
   await ngaPages.assignmentTab.click('AssignmentTab');
 });
 
-When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
-  let selectedTabText = await ngaPages.raptor.getText('activeTabEditMode');
-  if (selectedTabText !== "correct1") {
-    await ngaPages.raptor.click('Correct Context');
-  }
-  await ngaPages.numericEntry.click('Element', position);
-  await ngaPages.numericEntry.populate('Target Value', value);
-});
-
-When('I configure FR module', async function () {
-  await ngaPages.raptor.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
-  await ngaPages.freeResponse.populate('Min Character Count', '20');
-  await ngaPages.freeResponse.populate('Max Character Count', '40');
-});
-
 Then('I see the item present in the assessment', async function () {
 
   let itemList = await ngaPages.assignmentTab.getWebElements('itemList');
@@ -122,24 +107,6 @@ Then('I see a pool of questions is created in the assessment', async function ()
     await ngaPages.assignmentTab.assertElementExists('pool questions id', entry);
   }
   CQBTabQuestionSet.clear();
-});
-
-Then('I check NE answers', async function () {
-  await mathpages.raptorAms.click('menuBarMore');
-  await ngaPages.raptor.click('checkAnswerSwitchMenu');
-  await ngaPages.numericEntry.populate('Numeric Entry 1', '.0258');
-  await ngaPages.numericEntry.populate('Numeric Entry 2', '-0.0258');
-  await mathpages.raptorAms.click('checkYourWorkSubmit');
-  await ngaPages.raptor.assertText('activeTabTakeMode', 'correct1');
-});
-
-Then('I check FR answers', async function () {
-  await mathpages.raptorAms.click('menuBarMore');
-  await ngaPages.raptor.click('checkAnswerSwitchMenu');
-  await ngaPages.freeResponse.populate('Element Container Take Mode', '1');
-  await ngaPages.freeResponse.populate('Element Take Mode', '123456789012345678901');
-  await mathpages.raptorAms.click('checkYourWorkSubmit');
-  await ngaPages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
 
 When(/^I select "(.*)" option for the assessment$/, async function (settings_button) {

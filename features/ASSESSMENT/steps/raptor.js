@@ -116,3 +116,38 @@ When('I add the following calculated algos', async function (datatable) {
         await pages.raptor.populate('calculatedEquationTextbox', i * 2 + 1, datatable.hashes()[i].Equation);
     }
 });
+
+When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
+    let selectedTabText = await ngaPages.raptor.getText('activeTabEditMode');
+    if (selectedTabText !== "correct1") {
+        await pages.raptor.click('Correct Context');
+    }
+    await pages.numericEntry.click('Element', position);
+    await pages.numericEntry.populate('Target Value', value);
+});
+
+When('I configure FR module', async function () {
+    await pages.raptor.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
+    await pages.freeResponse.populate('Min Character Count', '20');
+    await pages.freeResponse.populate('Max Character Count', '40');
+});
+
+Then('I check NE answers', async function () {
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Check Answer Switch Menu');
+    await pages.numericEntry.populate('Numeric Entry 1', '.0258');
+    await pages.numericEntry.populate('Numeric Entry 2', '-0.0258');
+    await mathpages.raptorAms.click('checkYourWorkSubmit');
+    await pages.raptor.assertText('activeTabTakeMode', 'correct1');
+});
+
+Then('I check FR answers', async function () {
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Save As Draft');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Check Answer Switch Menu');
+    await pages.freeResponse.populate('Element Take Mode', '123456789012345678901');
+    await mathpages.raptorAms.click('checkYourWorkSubmit');
+    await pages.raptor.assertText('activeTabTakeMode', 'correct1');
+});
+

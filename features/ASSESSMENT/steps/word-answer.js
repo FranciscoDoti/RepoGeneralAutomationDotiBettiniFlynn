@@ -21,7 +21,7 @@ When('I add the following word choices', async function (datatable) {
 
 Then('I grade the following words', async function (datatable) {
   await mathpages.raptorAms.click('menuBarMore');
-  await pages.raptor.click('checkAnswerSwitchMenu');
+  await pages.raptor.click('Check Answer Switch Menu');
 
   for (let i = 0; i < datatable.rows().length; i++) {
     await pages.wordAnswer.populate('Word Answer Textbox', datatable.hashes()[i].Word);

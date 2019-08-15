@@ -10,7 +10,7 @@ Then('I grade Correct tab', async function () {
   await pages.moldraw.click('drawingArea');
 
   await mathpages.raptorAms.click('menuBarMore');
-  await pages.raptor.click('checkAnswerSwitchMenu');
+  await pages.raptor.click('Check Answer Switch Menu');
   await pages.moldraw.click('singleBondButton');
   await pages.moldraw.click('drawingArea');
   await mathpages.raptorAms.click('checkYourWorkSubmit');
@@ -29,7 +29,7 @@ Then('I grade Incorrect tab', async function () {
   await pages.moldraw.click('drawingArea');
 
   await mathpages.raptorAms.click('menuBarMore');
-  await pages.raptor.click('checkAnswerSwitchMenu');
+  await pages.raptor.click('Check Answer Switch Menu');
   await pages.moldraw.click('doubleBondButton');
   await pages.moldraw.click('drawingArea');
   await mathpages.raptorAms.click('checkYourWorkSubmit');
@@ -45,7 +45,7 @@ Then('I grade Default tab', async function () {
   await pages.moldraw.click('drawingArea');
 
   await mathpages.raptorAms.click('menuBarMore');
-  await pages.raptor.click('checkAnswerSwitchMenu');
+  await pages.raptor.click('Check Answer Switch Menu');
   await pages.moldraw.click('doubleBondButton');
   await pages.moldraw.click('drawingArea');
   await mathpages.raptorAms.click('checkYourWorkSubmit');

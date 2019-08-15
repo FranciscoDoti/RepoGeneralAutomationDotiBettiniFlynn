@@ -92,7 +92,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "checkAnswerSwitchMenu",
+            "name": "Check Answer Switch Menu",
             "byType": "css",
             "definition": "div[class='slider round']",
             "frame": "default",
