@@ -1,5 +1,6 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "menuBarAdd",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
@@ -119,19 +120,18 @@
             "specialInstr": "NA"
         },
         {
-            "name": "saveMessage",       
+            "name": "saveMessage",
             "byType": "xpath",
             "definition": "//h4[@class='modal-title' and contains(.,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "getItemid",     
+            "name": "getItemid",
             "byType": "css",
             "definition": "div[data-test-id='edit-id']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "moduleTab",
@@ -203,7 +203,7 @@
             "frame": "default",
             "specialInstr": "NA"
         },
-         {
+        {
             "name": "checkYourWorkAnswerText1",
             "byType": "css",
             "definition": "span.mq-math-mode",
@@ -213,7 +213,7 @@
         {
             "name": "checkYourWorkAnswerText2",
             "byType": "css",
-            "definition": "#primary-content-area > * div > span > * textarea", 
+            "definition": "#primary-content-area > * div > span > * textarea",
             "frame": "default",
             "specialInstr": "noclick noclear"
         },

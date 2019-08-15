@@ -1,6 +1,7 @@
+@Assessment @Smoke
 Feature: Create a Hatchling Item from AE
 
-    @assessmentCreation @Assessment @Smoke
+    @assessmentCreation
     Scenario: Verify that user able to create Hatchling Item through Activity Editor
         Given I login to IBISCMS as "all-permissions-author"
         And navigate to a course having course id "79848"

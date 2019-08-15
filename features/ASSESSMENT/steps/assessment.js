@@ -5,16 +5,19 @@ const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages
 const { sleep } = require(`${process.cwd()}/app/driver`);
 var CQBTabQuestionSet = new Set();
 var question_count;
+var assessment_name;
 
 Given('I create a new assessment with its necessary details', async function (datatable) {
   await ngaPages.assessmentListPage.assertPageTitleIncludes("Roadshow");
   await ngaPages.assessmentListPage.populate("addAssessment", "Assessment");
   var rows = datatable.hashes();
   for (let i = 0; i < datatable.rows().length; i++) {
-    await ngaPages.createAssessment.populate(rows[i].field, rows[i].value);
+    assessment_name = rows[i].value;
+    await ngaPages.createAssessment.populate(rows[i].field, assessment_name);
   }
   await ngaPages.createAssessment.click("saveAndContinue");
   await ngaPages.newAssessmentModal.click('assessmentModalButtons', 'assignment-create-actions-question-bank');
+  this.data.set('assessment_name', assessment_name);
 });
 
 
@@ -123,3 +126,14 @@ Then('I check NE answers', async function () {
   await ngaPages.raptor.click('Check Your Work Submit Button');
   await ngaPages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
+
+When(/^I select "(.*)" option for the assessment$/, async function (settings_button) {
+  await ngaPages.assignmentTab.click('Setting Button');
+});
+
+Then(/^I navigate to "(.*)" page$/, async function (title) {
+  await ngaPages.settingsPage.assertText('page title', title);
+});
+
+
+

@@ -14,10 +14,6 @@ const { populateInput, populateClick, populateSelect, populateRichTextField } = 
 
 const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
-  that.ScenarioData = ScenarioData;
-
-  let sp = StringProcessing(that.ScenarioData);
-  that.sp = sp;
   that.pageName = pageNameInput;
   that.pageDefinitionFileName = pageNameDirectoryInput + pageNameInput;
   that.pageElements = new HashTable({}); // a hash of all of the web elements for this page.
@@ -360,7 +356,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
     try {
       log.info(`Starting populate the web element: ${elementName} with value ${strValue}`);
-      strValue = await sp.strEval(strValue);
       await genericPopulateElement(elementName, strValue);
     } catch (err) {
       log.error(err.stack);
