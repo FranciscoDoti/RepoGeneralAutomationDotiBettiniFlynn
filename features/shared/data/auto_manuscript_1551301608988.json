@@ -476,17 +476,16 @@
     },
     "2002": {
       "Id": 2002,
-      "Type": "MC",
+      "Type": "SC",
       "Level": 1,
-      "Topic": "Topic_2",
-      "ebook": "Topic_2_0",
+      "Topic": "Topic_1",
+      "ebook": "Topic_1_0",
       "Answer": "Correct",
       "Hint": "Hint for question 2002",
-      "CYU": true,
-      "Primary": false,
+      "CYU": false,
+      "Primary": true,
       "ebookLink": true,
-      "Blooms": "Analyzing",
-      "Ordered": true
+      "Blooms": "Applying"
     },
     "2003": {
       "Id": 2003,
@@ -849,17 +848,16 @@
     },
     "3003": {
       "Id": 3003,
-      "Type": "MC",
-      "Level": 2,
+      "Type": "FB",
+      "Level": 3,
       "Topic": "Topic_3",
-      "ebook": "Topic_3_2",
+      "ebook": "Topic_3_0",
       "Answer": "Correct",
       "Hint": "Hint for question 3003",
       "CYU": false,
       "Primary": false,
-      "ebookLink": true,
-      "Blooms": "Evaluated",
-      "Ordered": false
+      "EbookLink": true,
+      "Blooms": "Applying"
     },
     "3004": {
       "Id": 3004,
@@ -944,16 +942,17 @@
     },
     "3010": {
       "Id": 3010,
-      "Type": "SC",
+      "Type": "MC",
       "Level": 1,
       "Topic": "Topic_3",
-      "ebook": "Topic_3_2",
+      "ebook": "Topic_3_0",
       "Answer": "Correct",
       "Hint": "Hint for question 3010",
-      "CYU": false,
+      "CYU": true,
       "Primary": true,
-      "ebookLink": false,
-      "Blooms": "Remembering"
+      "EbookLink": true,
+      "Blooms": "Analysing",
+      "Ordered": false
     },
     "3011": {
       "Id": 3011,

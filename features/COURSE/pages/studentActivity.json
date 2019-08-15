@@ -31,13 +31,7 @@
             "definition": "[data-test-id='submitAnswerBtn']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "quizComplete",
-            "byType": "css",
-            "definition": "[data-test-id='quizCompleteModal']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },  {
             "name": "nextAssesmentQuestion",
             "byType": "css",
             "definition": "[data-test-id='solution-modal-next-item']",

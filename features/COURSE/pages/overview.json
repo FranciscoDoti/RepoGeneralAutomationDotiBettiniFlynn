@@ -5,11 +5,47 @@
             "definition": "[data-test-id='activity_name_link']",
             "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "LCFrame",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div/div/div/iframe",
+            "frame": "default",
+            "specialInstr": "NA"
         }, {
+            "name": "quizComplete",
+            "byType": "xpath",
+            "definition": "//*[@data-test-id='quizCompleteModal' ]/..//*[@class='CompletedActivityModal__congratulationText__26VY7']",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+        },{
+            "name": "activityQuestion",
+            "byType": "css",
+            "definition": "[data-test-id='activityQuestion']",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+        }, {
+            "name": "mcAnswers",
+            "byType": "css",
+            "definition": "label[data-test-id='multipleChoiceAnswer']",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+        },{
+            "name": "sentenceClickLc",
+            "byType": "css",
+            "definition": "[data-test-id='sentenceClick']",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+        },{
+            "name": "fillInTheBlank",
+            "byType": "css",
+            "definition": "[data-test-id='fillInTheBlankAnswer']",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+        },{
             "name": "beginActivity",
             "byType": "css",
-            "definition": "[data-test-id='beginActivityBtn']",
-            "frame": "default",
+            "definition": "button[data-test-id='beginActivityBtn']",
+            "frame": "LCFrame",
             "specialInstr": "NA"
         }, {
             "name": "multipleChoice",
@@ -21,7 +57,7 @@
             "name": "nextQuestion",
             "byType": "css",
             "definition": "[data-test-id='nextQuestionBtn']",
-            "frame": "default",
+            "frame": "LCFrame",
             "specialInstr": "NA"
         }, {
             "name": "slowDownButton",
@@ -33,7 +69,7 @@
             "name": "submitButton",
             "byType": "css",
             "definition": "[data-test-id='submitAnswerBtn']",
-            "frame": "default",
+            "frame": "LCFrame",
             "specialInstr": "NA"
         }, {
             "name": "congratulationMessage",
@@ -45,7 +81,7 @@
             "name": "backToStudyPlan",
             "byType": "css",
             "definition": "[data-test-id='backToStudyPlanBtn']",
-            "frame": "default",
+            "frame": "LCFrame",
             "specialInstr": "NA"
         }, {
             "name": "closeLearnigcurve",
