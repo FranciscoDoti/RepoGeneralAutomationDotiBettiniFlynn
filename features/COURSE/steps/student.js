@@ -136,5 +136,5 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
             break
         }
       }
-    // }
+    }
 });
