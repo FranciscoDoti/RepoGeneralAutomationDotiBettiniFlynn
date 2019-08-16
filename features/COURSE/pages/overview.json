@@ -18,6 +18,18 @@
             "frame": "LCFrame",
             "specialInstr": "NA"
         },{
+            "name": "midwayLc",
+            "byType": "css",
+            "definition": "[data-test-id='midWayModalNextQuestionBtn']",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+        },{
+            "name": "score",
+            "byType": "xpath",
+            "definition": "(//span[@data-test-id='activityScoreValueInfo'])[1]",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+        },{
             "name": "activityQuestion",
             "byType": "css",
             "definition": "[data-test-id='activityQuestion']",

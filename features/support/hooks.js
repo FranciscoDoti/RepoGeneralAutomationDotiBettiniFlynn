@@ -6,21 +6,21 @@
 // const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 // const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
-After(async function (scenario) {
-  await resetBrowser();
-});
+// After(async function (scenario) {
+//   await resetBrowser();
+// });
 
 // AfterAll(async function () {
 //   await closeBrowser();
 // });
 
 // Delete the newly created assessment
-After('@assessmentCreation', async function () {
-  await asmtpages.assignmentTab.click('course Name');
-  await asmtpages.assignmentTab.click('list Assessments', this.data.get('assessment_name'));
-  await asmtpages.assignmentTab.click('list Assessments Delete', this.data.get('assessment_name'));
-  await asmtpages.hatchlingItem.click('Submit Yes');
-});
+// After('@assessmentCreation', async function () {
+//   await asmtpages.assignmentTab.click('course Name');
+//   await asmtpages.assignmentTab.click('list Assessments', this.data.get('assessment_name'));
+//   await asmtpages.assignmentTab.click('list Assessments Delete', this.data.get('assessment_name'));
+//   await asmtpages.hatchlingItem.click('Submit Yes');
+// });
 
 
 

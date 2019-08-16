@@ -4,7 +4,7 @@ const _ = require('lodash');
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const share = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
-const { getDriver, onWaitForElementToBeInvisible } = require(`${process.cwd()}/app/driver`);
+const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 
 When('I complete the reading activity', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -84,10 +84,14 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
   await pages.overview.assertElementExists('beginActivity');
   await pages.overview.click('beginActivity');
     while (true) {
-      let assert = await pages.overview.assertElementExists('quizComplete')
-      if (assert === true) {
+      let scoreFinal = await pages.overview.getText('score')
+      scoreFinal ==='640/600'
+      if (scoreFinal === true) {
         await pages.overview.click('backToStudyPlan');
-      } else {
+       if(scoreFinal=== '300/600') {
+        await pages.overview.click('midwayLc');
+      }
+    }else{
         let jsonObject = await pages.overview.getText('activityQuestion');
         let split = jsonObject.split('}')[0] + '}';
         console.log(split);
@@ -95,15 +99,20 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
         console.log(finalResult.Id);
         let result = require(`${process.cwd()}/features/shared/data/auto_manuscript_1551301608988.json`)
         let answerKey = result.questions[finalResult.Id]
-        console.log(answerKey);
-        console.log(answerKey.Type);
+        // console.log(answerKey);
+        // console.log(answerKey.Type);
         let answer = answerKey.Answer
         switch (answerKey.Type) {
           case 'SC':
           console.log('Entered SC') 
+          await sleep(500)
             let answerChoices = await pages.overview.getWebElements('sentenceClickLc')
+            console.log(answerChoices);
+            await sleep(1000);
               for (let i = 0; i < answerChoices.length; i++) {
+                await sleep(1000);
                 let text = await answerChoices[i].getText()
+                console.log(text);
               if (text.includes(answer)) {
                 await answerChoices[i].click()
               }
