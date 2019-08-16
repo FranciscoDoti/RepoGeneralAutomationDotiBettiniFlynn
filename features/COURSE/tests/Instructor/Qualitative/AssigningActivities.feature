@@ -45,7 +45,7 @@ Feature: Assigning the activities present in the course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | Glossary                                                        |
+            | Glossary                                                          |
 
 
         And I assign the activities in courseplanner

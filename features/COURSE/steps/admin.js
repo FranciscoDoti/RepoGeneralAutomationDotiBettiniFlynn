@@ -10,7 +10,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await pages.createCourse.assertTextIncludes('courseTitle', 'E2E 301: '+courseName )
+  await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
   await pages.home.scrollElementIntoView('togglerMenu');
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');

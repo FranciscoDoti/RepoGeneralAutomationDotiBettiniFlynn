@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @Skip
 Feature: Verify that Media EDitor is able to create URL
 
     @medieditor-delete-course
