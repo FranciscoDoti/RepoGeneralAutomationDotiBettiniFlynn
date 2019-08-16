@@ -29,7 +29,7 @@ Then('I enter all correct security answers and I verify the following message', 
     for (let i = 0; i < data_table.rows().length; i++) {
         await pages.forgot.populate('answer', data_table.hashes()[i].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.getText('verify', data_table.hashes()[i].verify) 
+        await pages.forgot.assertText('verify', data_table.hashes()[i].message); 
     }
 });
 
@@ -37,19 +37,16 @@ When('I enter the incorrect security answer three times and I verify the followi
     for (let i = 0; i < data_table.rows().length; i++) {
         await pages.forgot.populate('answer', data_table.hashes()[i].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('errorText', data_table.hashes()[i].verify);
-        console.log('errorText');
+        await pages.forgot.assertText('errorText', data_table.hashes()[i].message);      
     
         await pages.forgot.populate('answer', data_table.hashes()[i + 1].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('errorText', data_table.hashes()[i + 1].verify);
-        console.log('errorText');
+        await pages.forgot.assertText('errorText');        
 
         await pages.forgot.populate('answer', data_table.hashes()[i + 2].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('lastErrorText', data_table.hashes()[i + 2].verify);
-        console.log('lastErrorText');
-
+        await pages.forgot.assertText('lastErrorText');
+        
         await pages.forgot.click('backToLogin');
         await pages.forgot.click('forgotLink'); 
         await pages.signIn.switchToTab('Macmillan Learning :: ');  
@@ -61,17 +58,15 @@ When('I enter incorrect security answer two times and I verify the following mes
     for (let i = 0; i < data_table.rows().length; i++) {
         await pages.forgot.populate('answer', data_table.hashes()[i].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('errorText', data_table.hashes()[i].verify);
-        console.log('errorText');
-
+        await pages.forgot.assertText('errorText');
+       
         await pages.forgot.populate('answer', data_table.hashes()[i + 1].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('errorText', data_table.hashes()[i + 1].verify);
-        console.log('errorText');
-
+        await pages.forgot.assertText('errorText');
+      
         await pages.forgot.populate('answer', data_table.hashes()[i + 2].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('verify', data_table.hashes()[i + 2].verify);
+        await pages.forgot.assertText('verify');
        
         await pages.forgot.click('backToLogin');
         await pages.forgot.click('forgotLink'); 
@@ -84,12 +79,11 @@ When('I enter incorrect security answer one time and I verify the following mess
     for (let i = 0; i < data_table.rows().length; i++) {
         await pages.forgot.populate('answer', data_table.hashes()[i].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('errorText', data_table.hashes()[i].verify);
-        console.log('errorText');
-
+        await pages.forgot.assertText('errorText');
+       
         await pages.forgot.populate('answer', data_table.hashes()[i + 1].answers);
         await pages.forgot.click('submitBtn');
-        await pages.forgot.assertElementExists('verify', data_table.hashes()[i + 1].verify);
+        await pages.forgot.assertText('verify');
 
         await pages.forgot.click('backToLogin');
         await pages.forgot.click('forgotLink'); 
@@ -102,7 +96,6 @@ When('I login with non registered user credentials and <verify> the following me
     for (let i = 0; i < data_table.rows().length; i++) {
         await pages.forgot.populate('email', data_table.hashes()[i].Username);
         await pages.forgot.click('resetPassBtn');
-        await pages.forgot.assertElementExists('emailSent', data_table.hashes()[i].verify);
-        console.log('emailSent');
+        await pages.forgot.assertText('emailSent', data_table.hashes()[i].message);    
     }
 });  

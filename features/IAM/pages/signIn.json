@@ -105,7 +105,7 @@
         }, {
             "name": "Anti-Piracy Form",
             "byType":"xpath",
-            "definition": "//span[.='Anti-Piracy Form']",
+            "definition": "//span[.='Anti-Piracy']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -121,9 +121,21 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
+            "name": "tool tip content",
+            "byType":"xpath",    
+            "definition": "//*[@id='RegisterForm']/div[1]/div[1]/span[2]/div/span",
+            "frame": "default",
+            "specialInstr": "NA" 
+        }, {
             "name": "i",
             "byType":"css",    
             "definition": "div[tabindex]",
+            "frame": "default",
+            "specialInstr": "NA" 
+        }, {
+            "name": "content tip tool",
+            "byType":"xpath",    
+            "definition": "//*[@id='RegisterForm']/div[2]/div[1]/span[1]/label/div/span",
             "frame": "default",
             "specialInstr": "NA"  
         }, {

@@ -4,7 +4,6 @@ const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const { visitURL, sleep } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
-
 var window = window;
 
 Given('I have opened Achieve "Achieve-CW"', async function () {
@@ -46,7 +45,7 @@ await pages.signIn.click('Footer Link', linkText);
 
 Then('I verify {string} and {string} is displayed', async function (tabName, text) {
     await pages.signIn.switchToTab(tabName);
-    await pages.signIn.assertText('Page Title', text );
+    await pages.signIn.assertText('Page Title', text);
     await pages.signIn.switchToTab('Macmillan Learning :: ');       
 }); 
 
@@ -57,16 +56,16 @@ Then('I check {string} and {string} is displayed', async function (tabName, text
     await pages.signIn.switchToTab('Macmillan Learning :: ');       
 }); 
 
-When('I hover on ? icon', async function () { 
-   await pages.signIn.click('?');
+When(/^I hover on (.*) icon$/, async function (icon) { 
+   await pages.signIn.click(icon);
 });
 
-When('I hover on "i" icon', async function () { 
-    await pages.signIn.click('i');
-}); 
+Then(/^I ensure (.*) is displayed$/, async function (text) { 
+    await pages.signIn.assertText('tool tip content', text);
+});
 
-Then('I verify {string} is displayed', async function (Message) { 
-    await pages.signIn.assertText(Message);
+Then(/^I certify (.*) is displayed$/, async function (text) { 
+    await pages.signIn.assertText('content tip tool', text);
 });
 
 Then('I verify the password as following information', async function (dataTable) {
