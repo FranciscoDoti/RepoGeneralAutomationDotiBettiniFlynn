@@ -20,7 +20,7 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
       Scenario: Instructor assigns pathfinder activites
           Given I login to Achieve-CW as "pf-instructor"
-              When I click on the "PF Automation Student Test" course card
+              When I click on the course card for "PF Automation Student Test"
               When I assign the activities in courseplanner
               | activity                                                | Points |
               | Practice Test For Reading Skills - English V2           | 100    |
@@ -29,9 +29,9 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
     Scenario: Student Takes Practice Test
         Given I login to Achieve-CW as "pf-student1"
-            When I search for "PF Automation Student Test" and click on course card
-            When I launch the Pathfinder Assignment "English V2 Practice Test for Reading Skills"
-    #         When I click on the "Take the Practice Test Button"
+            When I click on the course card for "PF Automation Student Test"
+            When I launch the Pathfinder Assignment "Practice Test for Reading Skills - Engli ..."
+            When I click on the "Take Practice Test Button" on the "studentAssignment" page
     #         When I complete an NGA assignment with the following answers
     #         # answer all questions correctly
     #         |Question  |Answer  |
@@ -110,6 +110,6 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
     #             Then the "Patterns of Organization Topic" should contain the text "Maintained Mastery"
     #             Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
     #             Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
-    # Scenario: Delete courses
-    #     Given I login to Achieve-CW as "pf-producer"
-    #         When I delete all automation courses
+    Scenario: Delete courses
+        Given I login to Achieve-CW as "pf-producer"
+            When I delete all automation courses

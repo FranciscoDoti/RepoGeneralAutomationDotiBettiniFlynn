@@ -54,39 +54,27 @@
         "frame": 0,
         "specialInstr": "NA"
     }, {
-        "name": "Grading Settings Performance",
-        "byType": "id",
-        "definition": "Performance-0-toggle-button",
+        "name": "Completion Toggle Button",
+        "byType": "xpath",
+        "definition": "//*[contains(@id,'toggle-button') and contains(text(), 'Completion')]",
         "frame": 0,
         "specialInstr": "NA"
     }, {
-        "name": "Grading Settings Performance Selected",
-        "byType": "css",
-        "definition": "[id='Performance-0-toggle-button'][class*='modals__toggletrue']",
+        "name": "Performance Toggle Button",
+        "byType": "xpath",
+        "definition": "//*[contains(@id,'toggle-button') and contains(text(), 'Performance')]",
         "frame": 0,
         "specialInstr": "NA"
     }, {
-        "name": "Grading Settings Performance Unselected",
-        "byType": "css",
-        "definition": "[id='Performance-0-toggle-button'][class*='modals__togglefalse']",
+        "name": "Late Penalty Toggle Button",
+        "byType": "xpath",
+        "definition": "//*[contains(@id,'toggle-button') and contains(text(), 'Late Penalty') and not(contains(text(), 'No'))]",
         "frame": 0,
         "specialInstr": "NA"
     }, {
-        "name": "Grading Settings Completion",
-        "byType": "id",
-        "definition": "Completion-1-toggle-button",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "Grading Settings Completion Selected",
-        "byType": "css",
-        "definition": "[id='Completion-1-toggle-button'][class*='modals__toggletrue']",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "Grading Settings Completion Unselected",
-        "byType": "css",
-        "definition": "[id='Completion-1-toggle-button'][class*='modals__togglefalse']",
+        "name": "No Late Penalty Toggle Button",
+        "byType": "xpath",
+        "definition": "//*[contains(@id,'toggle-button') and contains(text(), 'No Late Penalty')]",
         "frame": 0,
         "specialInstr": "NA"
     }, {
@@ -123,42 +111,6 @@
         "name": "Late Penalty Cancel Button",
         "byType": "id",
         "definition": "cancel-penalty-button",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "No Late Penalty Toggle",
-        "byType": "id",
-        "definition": "NoLatePenalty-0-toggle-button",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "No Late Penalty Toggle Selected",
-        "byType": "css",
-        "definition": "[id='NoLatePenalty-0-toggle-button'][class*='modals__toggletrue']",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "No Late Penalty Toggle Unselected",
-        "byType": "css",
-        "definition": "[id='NoLatePenalty-0-toggle-button'][class*='modals__togglefalse']",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "Late Penalty Toggle",
-        "byType": "id",
-        "definition": "LatePenalty-1-toggle-button",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "Late Penalty Toggle Unselected",
-        "byType": "css",
-        "definition": "[id='LatePenalty-1-toggle-button'][class*='modals__togglefalse']",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "Late Penalty Toggle Selected",
-        "byType": "css",
-        "definition": "[id='LatePenalty-1-toggle-button'][class*='modals__toggletrue']",
         "frame": 0,
         "specialInstr": "NA"
     }, {

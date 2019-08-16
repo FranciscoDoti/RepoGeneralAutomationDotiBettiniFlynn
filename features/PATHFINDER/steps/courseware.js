@@ -3,7 +3,7 @@ const driver = require(`${process.cwd()}/app/driver.js`);
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 When(/^I launch the Pathfinder Assignment "(.*)"$/, async function (assignment) {
-  await driver.getDriver().manage().window().setRect({width: 1440, height: 900});
+  // await driver.getDriver().manage().window().setRect({width: 1440, height: 900});
 // This refresh is here so that the test doesn't fail if it encounters the
 // courseware bug described in PSV-3956
   await driver.getDriver().navigate().refresh();
@@ -21,4 +21,8 @@ When('I delete all automation courses', async function () {
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
   }
+});
+
+When(/^I click on the course card for "(.*)"$/, async function (courseName) {
+  await pages.courseList.click('courseCard', courseName);
 });
