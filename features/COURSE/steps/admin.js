@@ -10,7 +10,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await pages.createCourse.assertTextIncludes('courseTitle', 'E2E 301: '+courseName )
+  await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
   await pages.home.scrollElementIntoView('togglerMenu');
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
@@ -42,7 +42,7 @@ When('I click on Manage roles', async function () {
 Then('I verify Manage roles is displayed', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.adminMenu.assertElementExists(data_table.hashes()[i].field)
-    await pages.adminMenu.assertDisabled(data_table.hashes()[i].disabled)
+    await pages.adminMenu.assertElementDisabled(data_table.hashes()[i].disabled)
   }
 });
 

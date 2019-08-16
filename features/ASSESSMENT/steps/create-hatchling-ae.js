@@ -17,7 +17,7 @@ When(/^I add hatchling item as numeric entry with following details$/, async fun
     await pages.hatchlingItem.click('NE Question Area');
     await pages.hatchlingItem.click('ImageButton');
     await pages.hatchlingItem.populate('Image Holder',`${process.cwd()}/features/ASSESSMENT/resources/image.png`);
-    await pages.hatchlingItem.assertExists('Uploaded Image');
+    await pages.hatchlingItem.assertElementExists('Uploaded Image');
     await pages.hatchlingItem.click('AddImage');
     await pages.hatchlingItem.click('Hint');
     await pages.hatchlingItem.populate('HintArea',"X2");

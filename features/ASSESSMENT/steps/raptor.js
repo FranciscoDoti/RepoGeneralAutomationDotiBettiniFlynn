@@ -1,7 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const { getDriver, onWaitForElementToBeInvisible } = require(`${process.cwd()}/app/driver`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await mathpages.ams.assertElementExists('raptorNewEasyItem');
@@ -52,10 +51,9 @@ Then('I verify item has been created with following details', async function (da
     await pages.raptor.click('More Button');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
-    await getDriver().navigate().refresh();
-
+    
     //code to check element should not be present
-    await onWaitForElementToBeInvisible('algoliaProcessingText');
+    await pages.raptor.waitForElementInvisibility('Algolia is Processing');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
     var rows = dataTable.hashes();
     for (let i = 0; i < dataTable.rows().length; i++) {

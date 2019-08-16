@@ -47,6 +47,35 @@ const WebElement = function (element) {
     return await my.driver.wait(my.webdriver.until.elementIsDisabled(returnElement), 3000);
   };
 
+  that.waitForVisibility = async function () {
+    const definition = await this.getBy();
+    const wait = (await my.driver.manage().getTimeouts()).implicit;
+    await my.driver.manage().setTimeouts({ implicit: 1000});
+    let visibility = await my.driver.wait(async function () {
+      let elements = await my.driver.findElements(definition);
+      if (elements.length > 0) {
+        return true;
+      };
+    }, 120000);
+    await my.driver.manage().setTimeouts({ implicit: wait});
+    return visibility;
+  };
+
+  that.waitForInvisibility = async function () {
+    let counter = 0;
+    const definition = await this.getBy();
+    const wait = (await my.driver.manage().getTimeouts()).implicit;
+    await my.driver.manage().setTimeouts({ implicit: 1000});
+    let invisibility = await my.driver.wait(async function () {
+      let elements = await my.driver.findElements(definition);
+      if (elements.length <= 0) {
+        return true;
+      };
+    }, 120000);
+    await my.driver.manage().setTimeouts({ implicit: wait});
+    return invisibility;
+  };
+
   that.getBy = async function () {
     let byReturn = null;
     const classType = my.byType.toLowerCase().trim();

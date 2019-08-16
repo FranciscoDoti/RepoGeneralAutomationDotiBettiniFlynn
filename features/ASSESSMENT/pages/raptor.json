@@ -253,9 +253,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "algoliaProcessingText",
+            "name": "Algolia is Processing",
             "byType": "xpath",
-            "definition": "(//i[text()='Algolia is Processing'])[1]",
+            "definition": "//i[.='Algolia is Processing']",
             "frame": "default",
             "specialInstr": "NA"
         }
