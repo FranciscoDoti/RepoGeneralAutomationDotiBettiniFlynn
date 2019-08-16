@@ -1,9 +1,7 @@
-const { Given, When, Then } = require('cucumber');
+const { When, Then } = require('cucumber');
 const _ = require('lodash');
-const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const { onWaitForElementToBeVisible } = require(`${process.cwd()}/app/driver.js`);
 
 When('I click on Forgot link', async function () {
     await pages.forgot.click('forgotLink');
@@ -13,20 +11,12 @@ When('I click on Cancel Button', async function () {
     await pages.forgot.click('cancelBtn');
 });
 
-/*Then('I verify that I am redirected to singin page', async function (data_table) {
-    for (let i = 0; i < data_table.rows().length; i++) {
-        await pages.login.assertElementExists('createAccount', data_table.hashes()[i].verify);
-    }
-}); */
-
-Then('I verify that I am redirected to signin page', async function (verify) {
+Then('I verify that I am redirected to Login page', async function () {
     await pages.signIn.switchToTab('Macmillan Learning :: ');
-    await pages.forgot.assertElementExists('email', verify);
 });
 
-Then('I <verify> that I am redirected to forgot page', async function (verify) {
+Then('I verify that I am redirected to forgot page', async function () {
     await pages.signIn.switchToTab('Macmillan Learning :: ');
-    await pages.forgot.assertElementExists('email', verify);
 });
 
 When(/^I am redirected to Password Reset page and enter "(.*)" email address and click Reset Password$/, async function (userType) {    

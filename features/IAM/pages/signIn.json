@@ -79,7 +79,7 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "verify",
+            "name": "message",
             "byType": "xpath",
             "definition": "//*[@id='RegisterForm']/div[3]",
             "frame": "default",
@@ -91,27 +91,9 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "footerLinks",
-            "byType": "xpath",
+            "name": "Footer Link",
+            "byType":"xpath",
             "definition": "//a[.='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "privacy",
-            "byType":"xpath",
-            "definition": "//*[@id='top']/div/div[1]/div[1]/div",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "termsOfPurchase",
-            "byType":"xpath",
-            "definition": "//*[@id='main']/div/div/div/div[1]/div[1]/div/h1",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
-            "name": "anti-Piracy",
-            "byType":"xpath",
-            "definition": "//*[@id='accesibility_refreshScreenReaderBufferField']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -121,9 +103,9 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "piracyForm",
+            "name": "Anti-Piracy Form",
             "byType":"xpath",
-            "definition": "//*[@id='Header']/div/span",
+            "definition": "//span[.='Anti-Piracy Form']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -133,13 +115,13 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "helpInfo",
+            "name": "?",
             "byType":"css",
             "definition": "[class='help_outlineIcon']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "viewBox",
+            "name": "i",
             "byType":"css",    
             "definition": "div[tabindex]",
             "frame": "default",
@@ -154,6 +136,12 @@
             "name": "menuUserName",
             "byType": "css",
             "definition": "[data-test-id='menu_user_name']",
+            "frame": "default",
+            "specialInstr": "NA"   
+        }, {
+            "name": "Page Title",
+            "byType": "xpath",
+            "definition": "//h1[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"   
         }
