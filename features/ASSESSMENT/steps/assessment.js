@@ -120,7 +120,7 @@ Then('I see a pool of questions is created in the assessment', async function ()
 
 Then('I check NE answers', async function () {
   await mathpages.raptorAms.click('menuBarMore');
-  await ngaPages.raptor.click('Check Answer Switch Menu');
+  await ngaPages.raptor.click('Check Answer Slider');
   await ngaPages.numericEntry.populate('Numeric Entry 1', '.0258');
   await ngaPages.numericEntry.populate('Numeric Entry 2', '-0.0258');
   await ngaPages.raptor.click('Check Your Work Submit Button');
