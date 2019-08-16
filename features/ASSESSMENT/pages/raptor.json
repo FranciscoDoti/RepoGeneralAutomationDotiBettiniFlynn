@@ -30,8 +30,8 @@
         },
         {
             "name": "Check Your Work Submit Button",
-            "byType": "id",
-            "definition": "check-answer-button",
+            "byType": "xpath",
+            "definition": "//button[.='Submit Answer']",
             "frame": "default",
             "specialInstr": "NA"
         },
