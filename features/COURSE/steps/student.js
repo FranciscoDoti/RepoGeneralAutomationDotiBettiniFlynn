@@ -62,12 +62,12 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, c
   await pages.createCourse.getText('courseShortId');
   let user = await _.get(users, [this.environment, userName]);
   let text = await pages.createCourse.getText('courseShortId');
-  await share.login.click('togglerMenu');
-  await share.login.click('signOut');
-  await share.login.click('signinlink');
-  await share.login.populate('username', user.username);
-  await share.login.populate('password', user.password);
-  await share.login.click('signin');
+  await Pages.login.click('togglerMenu');
+  await Pages.login.click('signOut');
+  await Pages.login.click('signinlink');
+  await Pages.login.populate('username', user.username);
+  await Pages.login.populate('password', user.password);
+  await Pages.login.click('signin');
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
@@ -77,3 +77,4 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, c
   await pages.coursePage.click('enter');
   await pages.coursePage.click('finishEnrollement');
 });
+
