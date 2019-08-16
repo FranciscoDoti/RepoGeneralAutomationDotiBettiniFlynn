@@ -4,6 +4,7 @@ const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const { visitURL, sleep } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
+const { getDriver, onWaitForElementToBeInvisible } = require(`${process.cwd()}/app/driver`);
 
 var window = window;
 
@@ -51,9 +52,9 @@ Then('I verify {string} and {string} is displayed', async function (tabName, tex
 }); 
 
 Then('I check {string} and {string} is displayed', async function (tabName, text) {
-    await pages.signIn.switchToTab(tabName);
-    await pages.signIn.assertElementExists('Anti-Piracy Form');
-    await pages.signIn.assertText('Anti-Piracy Form', text);
+    await pages.signIn.switchToTab(tabName)
+    await sleep(1000);
+    await pages.signIn.assertElementExists('Anti-Piracy Form');;
     await pages.signIn.switchToTab('Macmillan Learning :: ');       
 }); 
 

@@ -105,7 +105,7 @@
         }, {
             "name": "Anti-Piracy Form",
             "byType":"xpath",
-            "definition": "//span[.='Anti-Piracy Form']",
+            "definition": "//form[@id='Page']//div[@id='Header']//span",
             "frame": "default",
             "specialInstr": "NA"
         }, {
