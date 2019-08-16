@@ -1,5 +1,5 @@
 
-@Course @Smoke
+@Course @Smoke @Skip
 Feature: Verify that media Producer is able to create Custom Task 
 
     @mediaproducer-delete-course

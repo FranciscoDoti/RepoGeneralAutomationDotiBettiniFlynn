@@ -32,8 +32,8 @@
             "specialInstr": "NA"
         }, {
             "name": "courseTitle",
-            "byType": "css",
-            "definition": "[data-test-id='course_dropdown_selected_course']",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {

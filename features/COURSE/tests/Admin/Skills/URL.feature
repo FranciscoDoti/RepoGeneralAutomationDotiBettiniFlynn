@@ -1,4 +1,4 @@
-@Course @Smoke 
+@Course @Smoke @Skip
 Feature: Verify that Admin is able to create URL
 
     @admin-delete-course
