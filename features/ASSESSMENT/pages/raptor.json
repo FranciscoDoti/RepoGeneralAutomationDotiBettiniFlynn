@@ -57,6 +57,13 @@
             "specialInstr": "noclick"
         },
         {
+            "name": "Prompt",
+            "byType": "css",
+            "definition": "div[data-test-id='ace-label'] > textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
             "name": "Tab",
             "byType": "css",
             "definition": "a[data-test-id='<ReplaceText>-context']",
@@ -106,7 +113,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "activeTabEditMode",
+            "name": "Active Tab Edit Mode",
             "byType": "css",
             "definition": "#feedback-context-list-container > div > div.context-list-container > ul > li.active",
             "frame": "default",

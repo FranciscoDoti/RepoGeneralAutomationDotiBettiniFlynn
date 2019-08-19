@@ -18,6 +18,7 @@ let pages = {
     wordAnswer: new PageObject('wordAnswer.json', stepsPath),
     numericEntry: new PageObject('numericEntry.json', stepsPath),
     settingsPage: new PageObject('settingsPage.json', stepsPath),
+    freeResponse: new PageObject('freeResponse.json', stepsPath),
     fillBlank: new PageObject('fillBlank.json', stepsPath)
 };
 
