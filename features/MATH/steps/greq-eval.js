@@ -119,3 +119,27 @@ When(/^I select Polar Coordinate checkbox$/, async function () {
   await pages.raptorAms.click('mathPolarCoordinate');
 });
 
+When(/^I navigate to AuthorApp clicking on Raptor item on AMS page$/, async function () {
+  await pages.ams.click('raptorNewItem');
+  await pages.raptorAms.switchToTab('Raptor Authoring');
+  await pages.raptorAms.assertElementExists('menuBarAdd');
+
+});
+
+When(/^I select Math Equation module, click on Question tab$/, async function () {
+  await pages.raptorAms.click('menuBarAdd');
+  await pages.raptorAms.click('addMathEquation');
+  await pages.raptorAms.click('questionContent');
+  await pages.raptorAms.assertElementExists('answerLabel');
+});
+
+Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async function () {
+  await pages.raptorAms.assertElementExists('mathGradeAs');
+  await pages.mathModule.assertElementExists('gradeAsExpression');
+});
+
+Then(/^I verify corresponding check boxes are displayed for Expression evaltype question$/, async function () {
+  await pages.raptorAms.assertElementExists('mathGradeAs');
+  await pages.mathModule.assertElementExists('isList');
+  await pages.mathModule.assertElementExists('gradeToConstant');
+});

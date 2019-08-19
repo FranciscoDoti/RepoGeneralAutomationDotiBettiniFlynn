@@ -2,7 +2,7 @@
     "Achieve-CW":{
         "local":"https://courseware-frontend.local-mml.cloud/start",
         "int":"https://int-achieve-courseware-frontend.mldev.cloud/start",
-        "dev":"https://dev-achieve-courseware-frontend.mldev.cloud/start",
+        "dev":"https://dev-cw-triage-courseware-frontend.mldev.cloud/start",
         "dev-gb": "https://dev-gradebook-courseware-frontend.mldev.cloud/start",
         "dev-triage": "https://dev-cw-triage-courseware-frontend.mldev.cloud/start",
         "dev-dash": "https://dev-dashboard-courseware-frontend.mldev.cloud/start",

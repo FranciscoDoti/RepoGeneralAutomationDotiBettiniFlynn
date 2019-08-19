@@ -105,7 +105,11 @@
         }, {
             "name": "Anti-Piracy Form",
             "byType":"xpath",
+<<<<<<< HEAD
             "definition": "//html[@class='JFEScope']//form[@id='Page']//span['Anti-Piracy Form']",  
+=======
+            "definition": "//form[@id='Page']//div[@id='Header']//span",
+>>>>>>> 263f62546dccee22ce407e444410515fe1072a0b
             "frame": "default",
             "specialInstr": "NA"
         }, {
