@@ -29,6 +29,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Check Your Work Submit Button",
+            "byType": "xpath",
+            "definition": "//button[.='Submit Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Save As Draft",
             "byType": "css",
             "definition": "li[id='save-button']",
@@ -57,9 +64,9 @@
             "specialInstr": "noclick"
         },
         {
-            "name": "Correct Context",
+            "name": "Tab",
             "byType": "css",
-            "definition": "a[data-test-id='correct-context']",
+            "definition": "a[data-test-id='<ReplaceText>-context']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -92,7 +99,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Check Answer Switch Menu",
+            "name": "Check Answer Slider",
             "byType": "css",
             "definition": "div[class='slider round']",
             "frame": "default",

@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 When('I configure the following grading options', async function (datatable) {
-  await mathpages.raptorAms.click('Tab', 'correct');
+  await pages.raptor.click('Tab', 'correct');
   for (let i = 0; i < datatable.rows().length; i++) {
     let checkboxStatus = await pages.wordAnswer.getAttributeValue('Grading Option Checkbox', datatable.hashes()[i].Option, 'selected');
     if (checkboxStatus !== datatable.hashes()[i].Value) {
@@ -21,11 +21,11 @@ When('I add the following word choices', async function (datatable) {
 
 Then('I grade the following words', async function (datatable) {
   await mathpages.raptorAms.click('menuBarMore');
-  await pages.raptor.click('Check Answer Switch Menu');
+  await pages.raptor.click('Check Answer Slider');
 
   for (let i = 0; i < datatable.rows().length; i++) {
     await pages.wordAnswer.populate('Word Answer Textbox', datatable.hashes()[i].Word);
-    await mathpages.raptorAms.click('checkYourWorkSubmit');
+    await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTabTakeMode', datatable.hashes()[i].Result);
   }
 });
