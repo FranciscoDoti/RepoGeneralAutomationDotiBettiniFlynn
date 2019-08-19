@@ -90,7 +90,7 @@ When(/^added it to new assessment as pool$/, async function () {
 When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
   let selectedTabText = await ngaPages.raptor.getText('activeTabEditMode');
   if (selectedTabText !== "correct1") {
-    await ngaPages.raptor.click('Correct Context');
+    await ngaPages.raptor.click('Tab', 'correct');
   }
   await ngaPages.numericEntry.click('Element', position);
   await ngaPages.numericEntry.populate('Target Value', value);
@@ -120,10 +120,10 @@ Then('I see a pool of questions is created in the assessment', async function ()
 
 Then('I check NE answers', async function () {
   await mathpages.raptorAms.click('menuBarMore');
-  await ngaPages.raptor.click('checkAnswerSwitchMenu');
+  await ngaPages.raptor.click('Check Answer Slider');
   await ngaPages.numericEntry.populate('Numeric Entry 1', '.0258');
   await ngaPages.numericEntry.populate('Numeric Entry 2', '-0.0258');
-  await mathpages.raptorAms.click('checkYourWorkSubmit');
+  await ngaPages.raptor.click('Check Your Work Submit Button');
   await ngaPages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
 

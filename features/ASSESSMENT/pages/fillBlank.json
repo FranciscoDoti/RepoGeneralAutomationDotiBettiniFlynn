@@ -1,0 +1,39 @@
+{
+    "webElements": [
+        {
+            "name": "Text",
+            "byType": "xpath",
+            "definition": "//div[@class='sticky-buttons']//div[@class='ace-here ace_editor ace-clouds']/textarea",
+            "frame": "default",
+            "specialInstr": "noclick overwrite"
+        },
+        {
+            "name": "Add DropDown Button",
+            "byType": "xpath",
+            "definition": "//a[.='Add DropDown']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Value Text",
+            "byType": "xpath",
+            "definition": "(//div[@class='sl-list-edit']//div[@class='ace_line'])[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "overwrite"
+        },
+        {
+            "name": "DropDown",
+            "byType": "css",
+            "definition": "button[data-test-id='answerChoiceDropDown']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Option",
+            "byType": "css",
+            "definition": "ul[data-test-id='dropDownAnswerChoices'] > li:nth-child(<ReplaceText>)",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

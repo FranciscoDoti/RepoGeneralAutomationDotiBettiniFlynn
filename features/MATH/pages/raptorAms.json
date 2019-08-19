@@ -148,13 +148,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Tab",
-            "byType": "css",
-            "definition": "a[data-test-id='<ReplaceText>-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "answerLabel",
             "byType": "css",
             "definition": "span[aria-label ='Answer =']",
@@ -223,13 +216,6 @@
             "definition": "#primary-content-area > * div > span > * textarea",
             "frame": "default",
             "specialInstr": "noclick noclear"
-        },
-        {
-            "name": "checkYourWorkSubmit",
-            "byType": "id",
-            "definition": "check-answer-button",
-            "frame": "default",
-            "specialInstr": "NA"
         },
         {
             "name": "incorrectAnswerAlert",

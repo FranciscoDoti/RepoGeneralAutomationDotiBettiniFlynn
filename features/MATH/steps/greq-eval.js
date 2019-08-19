@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const expect = require('chai').expect;
+const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { Key } = require('selenium-webdriver');
 const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "∪", "."]
 
@@ -25,7 +25,7 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
 });
 
 When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
-  await pages.raptorAms.click('Tab', 'correct');
+  await ngaPages.raptor.click('Tab', 'correct');
   await pages.raptorAms.populate('mathGradeAs', eval);
   await pages.raptorAms.click('mathGradeAs');
   await pages.raptorAms.populate('mathEquationField', eqn);
@@ -96,7 +96,7 @@ When(/^I input the correct "(.*)"$/, async function (eqn) {
 });
 
 When(/^I submit answer$/, async function () {
-  await pages.raptorAms.click('checkYourWorkSubmit');
+  await ngaPages.raptor.click('Check Your Work Submit Button');
 });
 
 Then(/^My answer is graded correctly$/, async function () {
@@ -106,7 +106,7 @@ Then(/^My answer is graded correctly$/, async function () {
 // The following steps are similar to greq-eval.feature but are broken down into simpler steps 
 // Down the road aim to refactor the greq-eval.feature into separate scenarios for each eval and keep js step functions simpler
 When(/^I set the grade as "(.*)" type$/, async function (gradeAsEval) {
-  await pages.raptorAms.click('Tab', 'correct');
+  await ngaPages.raptor.click('Tab', 'correct');
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
   await pages.raptorAms.click('mathGradeAs');
 });
