@@ -33,7 +33,7 @@
         },  {
             "name": "verify",
             "byType": "xpath",
-            "definition": "//*[@id='confirm']",
+            "definition": "//*[@id='confirm']/div/p",
             "frame": "default",
             "specialInstr": "NA"
         },  {
@@ -42,12 +42,7 @@
             "definition": "//*[@id='submitanswer']",
             "frame": "default",
             "specialInstr": "NA"
-        },  {
-            "name": "email",
-            "byType":"css",    
-            "definition": "[title='Enter your email address']",
-            "frame": "default",
-            "specialInstr": "NA"
+        
         },  {
             "name": "answer",
             "byType":"xpath",    
@@ -76,6 +71,18 @@
             "name": "emailSent",
             "byType":"xpath",    
             "definition": "//*[@id='confirm']/div/p",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "email",
+            "byType":"id",    
+            "definition": "email",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "username",
+            "byType": "id",
+            "definition": "username",
             "frame": "default",
             "specialInstr": "NA"
         }

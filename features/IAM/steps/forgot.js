@@ -19,8 +19,9 @@ Then('I verify that I am redirected to forgot page', async function () {
     await pages.signIn.switchToTab('Macmillan Learning :: ');
 });
 
-When(/^I am redirected to Password Reset page and enter "(.*)" email address and click Reset Password$/, async function (userType) {    
-    let user = await _.get(users, [this.environment, userType]);
+When(/^I am redirected to Password Reset page and enter "(.*)" username and click Reset Password$/, async function (userName) {    
+    await pages.signIn.switchToTab('Macmillan Learning :: ');
+    let user = await _.get(users, [this.environment, userName]);
         await pages.forgot.populate('email', user.username);
         await pages.forgot.click('resetPassBtn');
 });

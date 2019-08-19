@@ -2,13 +2,8 @@ const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
-const { visitURL, sleep, onWaitForWebElementToBeEnabled } = require(`${process.cwd()}/app/driver.js`);
+const { visitURL, sleep, } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
-<<<<<<< HEAD
-=======
-const { getDriver, onWaitForElementToBeInvisible } = require(`${process.cwd()}/app/driver`);
-
->>>>>>> 263f62546dccee22ce407e444410515fe1072a0b
 var window = window;
 
 Given('I have opened Achieve "Achieve-CW"', async function () {
@@ -56,17 +51,11 @@ Then('I verify {string} and {string} is displayed', async function (tabName, tex
 }); 
 
 Then('I check {string} and {string} is displayed', async function (tabName, text) {
-<<<<<<< HEAD
     await pages.signIn.switchToTab(tabName);
     await pages.signIn.getWebElements('embedded');
     await pages.signIn.getWebElements('Anti-Piracy Form', text);
     console.log(text);
-=======
-    await pages.signIn.switchToTab(tabName)
-    await sleep(1000);
-    await pages.signIn.assertElementExists('Anti-Piracy Form');;
->>>>>>> 263f62546dccee22ce407e444410515fe1072a0b
-    await pages.signIn.switchToTab('Macmillan Learning :: ');       
+    await pages.signIn.switchToTab('Macmillan Learning :: ')    
 }); 
 
 When(/^I hover on (.*) icon$/, async function (icon) { 
