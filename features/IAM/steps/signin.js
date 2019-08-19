@@ -2,7 +2,7 @@ const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
-const { visitURL, sleep } = require(`${process.cwd()}/app/driver.js`);
+const { visitURL, sleep, onWaitForWebElementToBeEnabled } = require(`${process.cwd()}/app/driver.js`);
 const users = require(`${process.cwd()}/features/shared/data/users.json`);
 var window = window;
 
@@ -44,6 +44,7 @@ await pages.signIn.click('Footer Link', linkText);
 });
 
 Then('I verify {string} and {string} is displayed', async function (tabName, text) {
+    await sleep(3000);
     await pages.signIn.switchToTab(tabName);
     await pages.signIn.assertText('Page Title', text);
     await pages.signIn.switchToTab('Macmillan Learning :: ');       
@@ -51,8 +52,9 @@ Then('I verify {string} and {string} is displayed', async function (tabName, tex
 
 Then('I check {string} and {string} is displayed', async function (tabName, text) {
     await pages.signIn.switchToTab(tabName);
-    await pages.signIn.assertElementExists('Anti-Piracy Form');
-    await pages.signIn.assertText('Anti-Piracy Form', text);
+    await pages.signIn.getWebElements('embedded');
+    await pages.signIn.getWebElements('Anti-Piracy Form', text);
+    console.log(text);
     await pages.signIn.switchToTab('Macmillan Learning :: ');       
 }); 
 

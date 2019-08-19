@@ -96,7 +96,7 @@
             "definition": "//a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        }, {            
             "name": "home",
             "byType":"xpath",
             "definition": "//*[@id='ServiceCommunityTemplate']/div[4]/div/div[2]/div/div[1]/section/h1/span/span",
@@ -105,7 +105,7 @@
         }, {
             "name": "Anti-Piracy Form",
             "byType":"xpath",
-            "definition": "//span[.='Anti-Piracy']",
+            "definition": "//html[@class='JFEScope']//form[@id='Page']//span['Anti-Piracy Form']",  
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -155,7 +155,14 @@
             "byType": "xpath",
             "definition": "//h1[.='<ReplaceText>']",
             "frame": "default",
-            "specialInstr": "NA"   
+            "specialInstr": "NA"  
+        }, {
+            "name": "embedded",
+            "byType": "xpath",
+            "definition": "//*[@id='microsite-page']/div/div/div/embed",
+            "frame": "default",
+            "specialInstr": "NA" 
+                
         }
     ]
 }
