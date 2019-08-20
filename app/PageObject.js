@@ -4,8 +4,6 @@
 'use strict';
 const { assert, expect } = require('chai');
 const HashTable = require(`${process.cwd()}/app/HashTable`);
-const StringProcessing = require(`${process.cwd()}/app/StringProcessing`);
-const ScenarioData = require(`${process.cwd()}/app/ScenarioData`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { loadJSONFile } = require(`${process.cwd()}/app/util`);
 const { getDriver, getWebDriver, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
@@ -242,11 +240,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);
-      const actionElement = Object.assign({});
-      actionElement.element = WebElementData;
       await switchFrame(WebElementData.frame);
       WebElementObject = await WebElement(WebElementData);
-      actionElement.webElement = WebElementObject;
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
@@ -265,18 +260,8 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           return collection.length > 0 ? true : false;          
       }
     } else {
-      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during AssertElement() attempt.`);
     }
-  };
-
-  const assertExists = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
-    if (await genericAssertElement(elementName, 'exists')) {
-      log.info(`Web Element ${elementName} exists on page. PASS`);
-    } else {
-      assert.fail(`Web Element ${elementName} does not exist on page.`);
-    };
   };
 
   const assertElementExists = async function (elementName, replaceText) {
@@ -299,7 +284,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const assertDisabled = async function (elementName, replaceText) {
+  const assertElementDisabled = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
     if (await genericAssertElement(elementName, 'disabled')) {
@@ -335,6 +320,46 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       log.error(err.stack);
       throw err;
     }
+  };
+
+  const genericWaitForElement = async function (elementName, condition) {
+    let WebElementObject = '';
+    let WebElementData = {};
+
+    if (await hasElement(elementName)) {
+      WebElementData = await getElement(elementName);
+      await switchFrame(WebElementData.frame);
+      WebElementObject = await WebElement(WebElementData);
+
+      switch (condition.toLowerCase()) {
+        case 'visibility':
+          return (await WebElementObject.waitForVisibility());
+        case 'invisibility':
+          return (await WebElementObject.waitForInvisibility());
+      }
+    } else {
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during WaitForElement() attempt.`);
+    }
+  };
+  
+  const waitForElementVisibility = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
+    if (await genericWaitForElement(elementName, 'visibility')) {
+      log.info(`Web Element ${elementName} is visible on page. PASS`);
+    } else {
+      assert.fail(`Web Element ${elementName} is not visible on page after 120 second wait. FAIL`);
+    };
+  };
+
+  const waitForElementInvisibility = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
+    if (await genericWaitForElement(elementName, 'invisibility')) {
+      log.info(`Web Element ${elementName} is not visible on page. PASS`);
+    } else {
+      assert.fail(`Web Element ${elementName} is visible on page after 120 second wait. FAIL`);
+    };
   };
 
   const getText = async function (elementName) {
@@ -505,10 +530,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAlertText = getAlertText;
   that.assertAlertText = assertAlertText;
   that.assertAlertTextIncludes = assertAlertTextIncludes;
-  that.assertExists = assertExists;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
-  that.assertDisabled = assertDisabled;
+  that.assertElementDisabled = assertElementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;
   that.getDriver = getDriver;
@@ -526,10 +550,19 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.switchToTab = switchToTab;
   that.closeTab = closeTab;
   that.getCurrentURL = getCurrentURL;
+<<<<<<< HEAD
   that.getPageTitle = getPageTitle;
   that.assertPageTitle = assertPageTitle;
   that.assertPageTitleIncludes = assertPageTitleIncludes;
   that.addDynamicElement = addDynamicElement;
+=======
+  that.getPageTitle=getPageTitle;
+  that.assertPageTitle=assertPageTitle;
+  that.assertPageTitleIncludes=assertPageTitleIncludes;
+  that.addDynamicElement=addDynamicElement;
+  that.waitForElementVisibility = waitForElementVisibility;
+  that.waitForElementInvisibility = waitForElementInvisibility;
+>>>>>>> 991f07900a66e417788c403ed5063e4dccf95cd8
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }
