@@ -10,7 +10,7 @@
         "byType": "css",
         "definition": "input[data-test-id='graph-title-input']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "overwrite enterafter"
     }, {
         "name": "editTitleButton",
         "byType": "css",
@@ -61,7 +61,7 @@
         "specialInstr": "NA"
     }, {
         "name": "settingsIcon",
-        "byType": "id",
+        "byType": "css",
         "definition": "i.dcg-icon-wrench",
         "frame": "default",
         "specialInstr": "NA"
@@ -69,6 +69,13 @@
         "name": "endPreview",
         "byType": "css",
         "definition": ".header-info",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "graphingTextField",
+        "byType": "css",
+        "definition": "span.dcg-mq-textarea",
         "frame": "default",
         "specialInstr": "NA"
     }]

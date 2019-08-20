@@ -1,5 +1,6 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "menuBarAdd",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
@@ -119,19 +120,18 @@
             "specialInstr": "NA"
         },
         {
-            "name": "saveMessage",       
+            "name": "saveMessage",
             "byType": "xpath",
             "definition": "//h4[@class='modal-title' and contains(.,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "getItemid",     
+            "name": "getItemid",
             "byType": "css",
             "definition": "div[data-test-id='edit-id']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "moduleTab",
@@ -141,30 +141,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "questionTab",
-            "byType": "css",
-            "definition": "a[data-test-id='question-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "questionContent",
             "byType": "id",
             "definition": "primary-content-area",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "defaultTab",
-            "byType": "css",
-            "definition": "div > * li > a[data-test-id='default-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "correctTab",
-            "byType": "css",
-            "definition": "a[data-test-id='correct-context']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -216,7 +195,15 @@
             "definition": "input[data-test-id='tolerance-below-field']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
+            "name": "mathPolarCoordinate",
+            "byType": "css",
+            "definition": "input[data-test-id='edit-panel-checkbox-polar_form']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "checkYourWorkAnswerText1",
             "byType": "css",
             "definition": "span.mq-math-mode",
@@ -226,16 +213,9 @@
         {
             "name": "checkYourWorkAnswerText2",
             "byType": "css",
-            "definition": "#primary-content-area > * div > span > * textarea", 
+            "definition": "#primary-content-area > * div > span > * textarea",
             "frame": "default",
             "specialInstr": "noclick noclear"
-        },
-        {
-            "name": "checkYourWorkSubmit",
-            "byType": "id",
-            "definition": "check-answer-button",
-            "frame": "default",
-            "specialInstr": "NA"
         },
         {
             "name": "incorrectAnswerAlert",

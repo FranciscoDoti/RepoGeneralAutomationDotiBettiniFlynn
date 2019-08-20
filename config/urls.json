@@ -2,7 +2,7 @@
     "Achieve-CW":{
         "local":"https://courseware-frontend.local-mml.cloud/start",
         "int":"https://int-achieve-courseware-frontend.mldev.cloud/start",
-        "dev":"https://dev-achieve-courseware-frontend.mldev.cloud/start",
+        "dev":"https://dev-cw-triage-courseware-frontend.mldev.cloud/start",
         "dev-gb": "https://dev-gradebook-courseware-frontend.mldev.cloud/start",
         "dev-triage": "https://dev-cw-triage-courseware-frontend.mldev.cloud/start",
         "dev-dash": "https://dev-dashboard-courseware-frontend.mldev.cloud/start",
@@ -20,11 +20,23 @@
         "prod":"",
         "pre-prod":""
     },
+    "LC":{
+        "devlc": "https://dev-learning-curve-learningcurve.mldev.cloud/",
+        "dev": "https://dev-achieve-learningcurve.mldev.cloud/",
+        "int": "https://int-achieve-learningcurve.mldev.cloud/",
+        "uat": "https://dev-achieve-uat-learningcurve.mldev.cloud/",
+        "pre-prod": "https://int-achieve-preprod-learningcurve.mldev.cloud",
+        "prod": "https://learningcurve.macmillanlearning.com/"
+    },
     "ApplicationName":{
         "local":"http://local.application.me:3080",
         "int":"http://int.application.me:3080",
         "dev":"http://dev.application.me:3080",
         "prod":"http://prod.application.me:3080",
         "pre-prod":"http://pre-prod.application.me:3080"
+    },
+    "IBISCMS":{
+        "int":"http://int.saplinglearning.me/ibiscms",
+        "ae": "http://ae.saplinglearning.me/ibiscms"
     }
 }

@@ -2,8 +2,8 @@
     "webElements": [{
 
             "name": "createCourseButton",
-            "byType": "xpath",
-            "definition": "//*[@id='container']/div/div[2]/div/div/div/div/div[3]/div/button",
+            "byType": "css",
+            "definition": "[data-test-id='add_create_course_button']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -32,8 +32,8 @@
             "specialInstr": "NA"
         }, {
             "name": "courseTitle",
-            "byType": "css",
-            "definition": "[data-test-id='course_title']",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -54,9 +54,7 @@
             "definition": "[name='courseType']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-
-        {
+        }, {
             "name": "productModel",
             "byType": "css",
             "definition": "[name='productModel']",
@@ -164,16 +162,10 @@
             "definition": "[data-test-id='invite_students_modal_send_invites_btn']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "plusButton",
-            "byType": "css",
-            "definition": "[data-test-id='add_createCourse_button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },  {
             "name": "template",
             "byType": "css",
-            "definition": "[data-test-id='createCourse_from_template_button']",
+            "definition": "[data-test-id='create_course_from_template_button']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -184,10 +176,70 @@
             "specialInstr": "NA"
         }, {
             "name": "ISBNVerification",
-            "byType": "css",
+            "byType": "xpath",
             "definition": "//a[.='<ReplaceText>']/../../../a/div[@data-test-id='course_activation_date']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "shareTemplate",
+            "byType": "css",
+            "definition": "[data-test-id='course_menu_share_template']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "collaboratorsEmail",
+            "byType": "css",
+            "definition": "[data-test-id='collaborator_email_textbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addCollaborators",
+            "byType": "css",
+            "definition": "button[data-test-id='add_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "closeCollaboratorModal",
+            "byType": "css",
+            "definition": "button[data-test-id='manage_collaborators_modal_close']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "plusButton",
+            "byType": "css",
+            "definition": "[data-test-id='add_create_course_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "courseDate",
+            "byType": "css",
+            "definition": "[data-test-id='course_number_date_time']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "courseShortId",
+            "byType": "css",
+            "definition": "[data-test-id='course_short_id']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        { 
+            "name": "courseCardName",
+            "byType": "css",
+            "definition": "[data-test-id='course_name']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
+          
     ]
 }

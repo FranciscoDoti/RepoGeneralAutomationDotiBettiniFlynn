@@ -4,10 +4,11 @@ const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 const pages = {
     ams: new PageObject('ams.json', stepsPath),
     raptorAms: new PageObject('raptorAms.json', stepsPath),
+    mathModule: new PageObject('mathModule.json', stepsPath),
     graphTab: new PageObject('graphTab.json', stepsPath),
     graphEditor: new PageObject('graphEditor.json', stepsPath),
     palette: new PageObject('palette.json', stepsPath),
-    nonPalette: new PageObject('nonPalette.json', stepsPath),
+    saplingLearning: new PageObject('saplingLearning.json', stepsPath)
 };
 
 module.exports = {

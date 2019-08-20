@@ -2,6 +2,7 @@ const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } =
 const { config, takeScreenshot } = require(`${process.cwd()}/app/driver`);
 const fs = require('fs');
 const path = require('path');
+const { ScenarioData } = require(`${process.cwd()}/app/ScenarioData`);
 
 function ThisWorld({ attach }) {
   this.environment = config.environment;
@@ -12,8 +13,10 @@ function ThisWorld({ attach }) {
   this.users = users();
 
   this.attach = attach;
-  this.downloadLocation = process.cwd() + '/reports/downloads';
+  this.downloadLocation = `${process.cwd()}/reports/downloads`;
   setDefaultTimeout(2*config.timeout);
+
+  this.data = ScenarioData();
 };
 
 setWorldConstructor(ThisWorld);

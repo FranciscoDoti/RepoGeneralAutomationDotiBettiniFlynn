@@ -1,5 +1,6 @@
 // ------------ Start up the chrome server ------------
 const webdriver = require('selenium-webdriver');
+const remote = require('selenium-webdriver/remote');
 const chrome = require('selenium-webdriver/chrome');
 const firefox = require('selenium-webdriver/firefox');
 const chromedriver = require('chromedriver');
@@ -14,7 +15,7 @@ const config = {
   mode : argv.mode || defaults.mode,
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
-  headless : argv.headless || defaults.headless,
+  headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
   timeout : defaults.timeout
 };
 
@@ -34,7 +35,7 @@ const buildDriver = function() {
       var firefoxCapabilities = webdriver.Capabilities.firefox();
       firefoxCapabilities.set('firefoxOptions', firefoxOptions);
       driver.withCapabilities(firefoxCapabilities);
-      if (config.headless.toLowerCase().includes('true')) {
+      if (config.headless === true) {
         driver.setFirefoxOptions(new firefox.Options().headless());
       };
       break;
@@ -68,7 +69,7 @@ const buildDriver = function() {
       var chromeCapabilities = webdriver.Capabilities.chrome();
       chromeCapabilities.set('chromeOptions', chromeOptions)
       driver.withCapabilities(chromeCapabilities);
-      if (config.headless.toLowerCase().includes('true')) {
+      if (config.headless === true) {
         driver.setChromeOptions(new chrome.Options().headless());
       };
   }
@@ -84,17 +85,23 @@ const buildDriver = function() {
       driver.usingServer('http://localhost:4444/wd/hub/')
       break;
     case "hub":
-      driver.usingServer('http://selenium:4444/wd/hub')
+      driver.usingServer('https://dev-qa-hub.mldev.cloud/wd/hub')
   }
-
   return driver.build();
 };
 driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
+  await driver.manage().window().maximize();
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
-  return driver.get(url);
+  await driver.setFileDetector(new remote.FileDetector());
+  await driver.get(url);
+  await driver.wait(async function () {
+    await sleep(2000);
+    let response = await driver.executeScript("return document.readyState");
+    return (response == 'complete');
+  }, 120000);
 };
 
 const closeBrowser = async function(){
@@ -118,9 +125,7 @@ const resetBrowser = async function () {
 };
 
 const activateTab = async function (tabName) {
-  var masterTab = await driver.getWindowHandle();
   var tabs = await driver.getAllWindowHandles();
-
   for (let index = 0; index < tabs.length; index++) {
     await switchToTab(tabs[index]);
     currentTabName = await getTitle();
@@ -132,7 +137,7 @@ const activateTab = async function (tabName) {
   currentTabName = await getTitle();
   if (!currentTabName.includes(tabName)) {
     log.info(`${tabName} tab was not found.`);
-    await switchToTab(masterTab);
+    await switchToTab(tabs[0]);
   } else {
     log.debug(`${currentTabName} tab activated.`);
   }
@@ -245,6 +250,7 @@ module.exports = {
   resetBrowser,
   visitURL,
   getURL,
+  getTitle,
   activateTab,
   takeScreenshot,
   getDriver,
