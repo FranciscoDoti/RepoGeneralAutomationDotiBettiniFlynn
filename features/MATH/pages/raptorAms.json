@@ -148,6 +148,20 @@
             "specialInstr": "NA"
         },
         {
+            "name": "questionTab",
+            "byType": "css",
+            "definition": "a[data-test-id = 'question-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "correctTab",
+            "byType": "css",
+            "definition": "a[data-test-id = 'correct-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "answerLabel",
             "byType": "css",
             "definition": "span[aria-label ='Answer =']",

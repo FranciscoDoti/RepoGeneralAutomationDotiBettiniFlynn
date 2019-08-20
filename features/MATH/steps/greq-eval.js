@@ -25,7 +25,7 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
 });
 
 When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
-  await ngaPages.raptor.click('Tab', 'correct');
+  await pages.raptor.click('correctTab');
   await pages.raptorAms.populate('mathGradeAs', eval);
   await pages.raptorAms.click('mathGradeAs');
   await pages.raptorAms.populate('mathEquationField', eqn);
@@ -138,8 +138,63 @@ Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async fun
   await pages.mathModule.assertElementExists('gradeAsExpression');
 });
 
-Then(/^I verify corresponding check boxes are displayed for Expression evaltype question$/, async function () {
-  await pages.raptorAms.assertElementExists('mathGradeAs');
-  await pages.mathModule.assertElementExists('isList');
-  await pages.mathModule.assertElementExists('gradeToConstant');
+Then(/^I verify corresponding page elements are displayed for "(.*)" evaltype$/, async function (gradeAsEval) {
+  switch (gradeAsEval) {
+    case 'Expression':
+      await pages.raptorAms.assertElementExists('mathGradeAs');
+      await pages.mathModule.assertElementExists('isList');
+      await pages.mathModule.assertElementExists('gradeToConstant');
+      break;
+    case 'Vector':
+      await pages.mathModule.assertElementExists('isList');
+      break;
+    case 'Point':
+      break;
+    default:
+      await pages.raptorAms.assertElementExists('mathGradeAs');
+
+  }
 });
+
+Then(/^I click on the Correct tab, verify corresponding page elements for "(.*)" evaltype$/, async function (gradeAsEval) {
+  
+  await pages.raptorAms.click('correctTab');
+  switch (gradeAsEval) {
+    case 'Expression':
+      await pages.mathModule.assertElementExists('isList');
+      await pages.mathModule.assertElementExists('gradeToConstant');
+      await pages.raptorAms.assertElementExists('mathNumericTolerance');
+      await pages.mathModule.assertElementExists('exactTolerance');
+      break;
+    case 'Vector':
+      await pages.raptorAms.assertElementExists('mathNumericTolerance');
+      await pages.mathModule.assertElementExists('exactTolerance');
+      await pages.mathModule.assertElementExists('vectorEnforceForm');
+      break;
+    case 'Point':
+      await pages.mathModule.assertElementExists('isList');
+      await pages.raptorAms.assertElementExists('mathNumericTolerance');
+      await pages.mathModule.assertElementExists('exactTolerance');
+      await pages.raptorAms.assertElementExists('mathPolarCoordinate');
+      break;
+    default:
+      await pages.raptorAms.assertElementExists('mathGradeAs');
+  }
+});
+
+When(/^I select GradeAs dropdown "(.*)" evaltype, click on Question tab$/, async function (gradeAsEval) {
+  console.log("before click")
+  await pages.raptorAms.click('questionTab');
+  console.log("after  click")
+  await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
+});
+
+Then(/^I verify there are no elements present: check boxes or radio buttons$/, async function () {
+  await pages.raptorAms.assertElementDoesNotExist('mathNumericTolerance');
+  await pages.mathModule.assertElementDoesNotExist('isList');
+  await pages.mathModule.assertElementDoesNotExist('gradeToConstant');
+});
+
+
+
+
