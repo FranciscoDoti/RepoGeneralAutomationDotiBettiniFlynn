@@ -3,10 +3,13 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
-const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { getDriver } = require(`${process.cwd()}/app/driver`);
 chai.use(require('chai-sorted'));
-const { Key } = require('selenium-webdriver');
 
+const visitInvalidURL = async function(url){
+  await getDriver().manage().window().maximize();
+  return getDriver().get(url);
+};
 
 When(/^I click on the Graphs tab$/, async function () {
   await pages.graphTab.click('tab');
@@ -334,7 +337,7 @@ When(/^I input non-existing graphid in the graph editor url$/, async function ()
   let currentUrl = await pages.graphEditor.getCurrentURL();
   let urlNonExistGraphId = currentUrl + 101;
 
-  await visitURL(urlNonExistGraphId, Key.ENTER);
+  await visitInvalidURL(urlNonExistGraphId);
   await pages.graphEditor.click('saveButton');
 });
 
