@@ -49,8 +49,8 @@ const buildDriver = function() {
         }
       }
       var safariCapabilities = webdriver.Capabilities.safari();
-      safariCapabilities.set('safariOptions', safariOptions)
-      driver.withCapabilities(safariCapabilities)
+      safariCapabilities.set('safariOptions', safariOptions);
+      driver.withCapabilities(safariCapabilities);
       break;
     case 'ie':
       log.info('IE not implement yet.');
