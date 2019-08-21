@@ -550,19 +550,12 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.switchToTab = switchToTab;
   that.closeTab = closeTab;
   that.getCurrentURL = getCurrentURL;
-<<<<<<< HEAD
-  that.getPageTitle = getPageTitle;
-  that.assertPageTitle = assertPageTitle;
-  that.assertPageTitleIncludes = assertPageTitleIncludes;
-  that.addDynamicElement = addDynamicElement;
-=======
   that.getPageTitle=getPageTitle;
   that.assertPageTitle=assertPageTitle;
   that.assertPageTitleIncludes=assertPageTitleIncludes;
   that.addDynamicElement=addDynamicElement;
   that.waitForElementVisibility = waitForElementVisibility;
   that.waitForElementInvisibility = waitForElementInvisibility;
->>>>>>> 991f07900a66e417788c403ed5063e4dccf95cd8
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

@@ -33,7 +33,7 @@
         },  {
             "name": "verify",
             "byType": "xpath",
-            "definition": "//*[@id='confirm']/div/p",
+            "definition": "//*[@id='confirm']/div/h2",
             "frame": "default",
             "specialInstr": "NA"
         },  {

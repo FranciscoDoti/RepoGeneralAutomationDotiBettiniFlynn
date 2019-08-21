@@ -162,6 +162,12 @@
             "definition": "//*[@id='microsite-page']/div/div/div/embed",
             "frame": "default",
             "specialInstr": "NA" 
+        }, {
+            "name": "reset",
+            "byType": "xpath",
+            "definition": "//*[@id='yiv7721424069']/div/table/tbody/tr/td/center/table[2]/tbody/tr[1]/td/p[2]/a",
+            "frame": "default",
+            "specialInstr": "NA"
                 
         }
     ]

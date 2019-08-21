@@ -53,7 +53,7 @@
     "set-policy": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/set-policy.feature -f json:reports/cucumber_report.json --environment int",
     "fr": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/free-response.feature -f json:reports/cucumber_report.json",
     "fb": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/fill-blank.feature -f json:reports/cucumber_report.json --environment int",
-
+    "passwordFun": "node ./node_modules/cucumber/bin/cucumber-js features/IAM/tests/SignIn/password_functionality.feature -f json:reports/cucumber_report.json --environment int",
     "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json"
   },
   "engines": {

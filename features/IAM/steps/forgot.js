@@ -26,7 +26,7 @@ When(/^I am redirected to Password Reset page and enter "(.*)" username and clic
         await pages.forgot.click('resetPassBtn');
 });
 
-Then('I enter the correct security answer {string} and I verify the following message {string}', async function (answer, text) {
+Then('I enter the correct security answer {string} and I verify the following title {string}', async function (answer, text) {
     await pages.forgot.populate('answer', answer);
     await pages.forgot.click('submitBtn');
     await pages.forgot.assertText('verify', text);
