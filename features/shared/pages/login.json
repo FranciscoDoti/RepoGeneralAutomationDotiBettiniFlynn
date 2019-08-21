@@ -90,6 +90,7 @@
             "definition": "//a[.='logout']",
             "frame": "default",
             "specialInstr": "NA"
+           
         }
     ]
 }
