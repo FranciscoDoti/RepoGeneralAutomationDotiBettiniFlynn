@@ -1,8 +1,9 @@
+@IAM
 Feature: Verify that Security questions are working appropriately 
 
     Scenario: Verify that Security Question & Answer validations are working as expected
 
-        Given I have opened Achieve "Achieve-CW"
+        Given I have opened "Achieve-CW"
         When I click on Forgot link
         And I am redirected to Password Reset page and enter "student_1" username and click Reset Password
     #    And I enter the incorrect security answer three times and I verify the following message

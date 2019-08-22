@@ -1,8 +1,9 @@
+@IAM
 Feature: Verify that footer link are redirecting to appropriate page
 
     Scenario: Verify that footer link are redirecting to appropriate page
 
-        Given I have opened Achieve "Achieve-CW"
+        Given I have opened "Achieve-CW"
         
         When I click on footer link "Privacy" 
         Then I verify "Privacy Notice" and "Macmillan Learning Privacy and Cookie Notice" is displayed

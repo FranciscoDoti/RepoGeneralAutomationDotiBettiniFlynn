@@ -1,8 +1,9 @@
+@IAM
 Feature: Message displayed for not registered user
 
     Scenario: Verify that forgot password is showing appropriate message for not registered with macmillan account e-mail address
 
-        Given I have opened Achieve "Achieve-CW"
+        Given I have opened "Achieve-CW"
         When I click on Forgot link 
         And I login with non registered user credentials and <verify> the following message is displayed for not registered user 
             | Username          | message |
