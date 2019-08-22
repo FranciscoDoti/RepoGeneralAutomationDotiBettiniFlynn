@@ -1,5 +1,5 @@
 @smoke @math
-Feature: Verify page elementsfor different eval types
+Feature: Verify page elements for different eval types
 
     Scenario: Verify Expression is default evaltype and verify page elements for each of the evaltype
 
@@ -12,7 +12,7 @@ Feature: Verify page elementsfor different eval types
         And I click on the Correct tab, verify checkboxes and radio buttons: IsList, GradeToConstant, Numeric and Exact Tolerance for Expression evaltype
 
         When I click on Question tab, select GradeAs dropdown "Point" evaltype
-        Then I verify the check box: IsList is displayed for Point evaltype
+        Then I verify the checkbox: IsList is displayed for Point evaltype
         And I click on the Correct tab, verify checkboxes and radio buttons: IsList, PolarCoordinate, Numeric and Exact Tolerance for Point evaltype
 
         When I click on Question tab, select GradeAs dropdown "Vector" evaltype
