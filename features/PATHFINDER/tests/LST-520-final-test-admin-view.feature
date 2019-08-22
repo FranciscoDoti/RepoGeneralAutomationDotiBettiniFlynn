@@ -32,7 +32,6 @@ Feature: Test the basic functionality of the admin view of a final test
             When I launch the Pathfinder Assignment "Final Test for Expressions"
             When I change the grading setting to completion
                 Then there should be a "Final Test Grading Settings Container" that includes the text "Completion" on the "instructorAssignment" page
-
             When I change the grading setting to performance
                 Then there should be a "Final Test Grading Settings Container" that includes the text "Performance" on the "instructorAssignment" page
 
@@ -42,6 +41,5 @@ Feature: Test the basic functionality of the admin view of a final test
             When I launch the Pathfinder Assignment "Final Test for Expressions"
             When I set a late penalty
                 Then there should be a "Final Test Grading Settings Container" that includes the text "Cumulative Late Penalty" on the "instructorAssignment" page
-
-              When I set no late penalty
-                  Then there should be a "Final Test Grading Settings Container" that includes the text "No Late Penalty" on the "instructorAssignment" page
+            When I set no late penalty
+                Then there should be a "Final Test Grading Settings Container" that includes the text "No Late Penalty" on the "instructorAssignment" page

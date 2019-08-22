@@ -5,5 +5,23 @@
         "definition": "orientation-pretest-button",
         "frame": 0,
         "specialInstr": "NA"
+    }, {
+        "name": "Student Practice Test Report",
+        "byType": "css",
+        "definition": "[class*='student-pretest-report-view__resultSummaryContainer']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Return to Assignment List Button",
+        "byType": "id",
+        "definition": "student-pretest-report-return-to-lms-button",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Review Practice Test Link",
+        "byType": "id",
+        "definition": "student-see-what-you-got-wrong-button",
+        "frame": 0,
+        "specialInstr": "NA"
     }]
 }

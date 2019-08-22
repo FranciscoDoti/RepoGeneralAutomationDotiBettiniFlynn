@@ -1,0 +1,9 @@
+{
+    "webElements": [{
+    "name": "Continue to Results Button",
+    "byType": "xpath",
+    "definition": "//a[contains(@class, 'header-secondary-component__button') and contains(text(), 'Continue to Results')]",
+    "frame": 0,
+    "specialInstr": "NA"
+    }]
+}

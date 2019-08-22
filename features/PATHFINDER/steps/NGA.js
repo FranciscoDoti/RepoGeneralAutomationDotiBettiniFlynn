@@ -1,11 +1,17 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
+const driver = require(`${process.cwd()}/app/driver.js`);
 
-// When('I complete an NGA assignment with the following answers', async function (datatable) {
-//   for (let i = 0; i < datatable.rows().length: i++) {
-    
-//   }
-// })
+When("I complete an NGA assignment with the following answers", async function (datatable) {
+  for (let i=0; i < datatable.rows().length; i++){
+    await driver.getDriver().sleep(500);
+    await pages.NGA.click('Multiple Choice Button', datatable.hashes()[i].Answer);
+    await driver.getDriver().sleep(500);
+    await pages.NGA.click('Next Question Button');
+  };
+  await pages.NGA.click('Submit All Questions Button');
+  await pages.NGA.click('Submit All Questions Confirmation Button')
+});
 
 Then("the user should be taken to a student preview", async function () {
   await pages.NGA.assertElementExists("About Student Preview Modal");

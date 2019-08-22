@@ -16,8 +16,10 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await pages.home.scrollElementIntoView('togglerMenu');
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
+  await driver.getDriver().sleep(500);
   await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await driver.getDriver().sleep(500);
   await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', payload.username);

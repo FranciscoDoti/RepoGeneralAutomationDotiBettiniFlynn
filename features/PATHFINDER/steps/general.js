@@ -20,3 +20,6 @@ When('I click on the {string} with the text {string} on the {string} page', asyn
   await pages[page].click(locator, text);
 });
 
+When('I sleep', async function (){
+  await driver.getDriver().sleep(1000);
+});

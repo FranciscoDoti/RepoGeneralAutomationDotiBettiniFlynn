@@ -22,94 +22,96 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
           Given I login to Achieve-CW as "pf-instructor"
               When I click on the course card for "PF Automation Student Test"
               When I assign the activities in courseplanner
-              | activity                                                | Points |
-              | Practice Test For Reading Skills - English V2           | 100    |
-              | Complete The Study Plan For Reading Skills - English V2 | 100    |
-              | Final Test For Reading Skills - English V2              | 100    |
+              | activity                                   | Points |
+              | Practice Test For Reading Skills           | 100    |
+              | Complete The Study Plan For Reading Skills | 100    |
+              | Final Test For Reading Skills              | 100    |
 
     Scenario: Student Takes Practice Test
         Given I login to Achieve-CW as "pf-student1"
             When I click on the course card for "PF Automation Student Test"
             When I launch the Pathfinder Assignment "Practice Test for Reading Skills - Engli ..."
             When I click on the "Take Practice Test Button" on the "studentAssignment" page
-    #         When I complete an NGA assignment with the following answers
-    #         # answer all questions correctly
-    #         |Question  |Answer  |
-    #         | 1        | a      |
-    #         | 2        | b      |
-    #         | 3        | a      |
-    #         | 4        | d      |
-    #         | 5        | d      |
-    #         | 6        | c      |
-    #         | 7        | a      |
-    #         | 8        | c      |
-    #         | 9        | a      |
-    #         | 10       | a      |
-    #         | 11       | c      |
-    #         | 12       | b      |
-    #         | 13       | b      |
-    #         | 14       | b      |
-    #         | 15       | a      |
-    #         | 16       | a      |
-    #         | 17       | b      |
-    #         | 18       | d      |
-    #         | 19       | c      |
-    #         | 20       | a      |
-    #             Then there should be a "Continue to Results Button"
+            When I complete an NGA assignment with the following answers
+            # answer all questions correctly
+            |Question  |Answer  |
+            | 1        | 1      |
+            | 2        | 2      |
+            | 3        | 1      |
+            | 4        | 4      |
+            | 5        | 4      |
+            | 6        | 3      |
+            | 7        | 1      |
+            | 8        | 3      |
+            | 9        | 1      |
+            | 10       | 1      |
+            | 11       | 3      |
+            | 12       | 2      |
+            | 13       | 2      |
+            | 14       | 2      |
+            | 15       | 1      |
+            | 16       | 1      |
+            | 17       | 2      |
+            | 18       | 4      |
+            | 19       | 3      |
+            | 20       | 1      |
+                Then there should be a "Continue to Results Button" on the "secondaryHeader" page
 
-    #         When I click on the "Continue To Results Button"
-    #             Then there should be a "Student PreTest Report" with the text "Nice! You tested out of every topic!"
-    #             Then there should be a "Return to my Assignment List Button"
-    #             Then there should be a "Review Practice Test Link"
-    #             Then the Vocabulary topic should have 5/5 correct
-    #             Then the Patterns of Organization topic topic should have 5/5 correct
-    #             Then the Topics and Main Ideas topic should have 5/5 correct
-    #             Then the Topic Sentences and Supporting Details topic should have 5/5 correct
+            When I sleep
+            When I click on the "Continue To Results Button" on the "secondaryHeader" page
+                Then there should be a "Student Practice Test Report" that includes the text "Nice! You tested out of every topic!" on the "studentAssignment" page
+                Then there should be a "Return to Assignment List Button" on the "studentAssignment" page
+                Then there should be a "Review Practice Test Link" on the "studentAssignment" page
+                # Then the Vocabulary topic should have 5/5 correct
+                # Then the Patterns of Organization topic topic should have 5/5 correct
+                # Then the Topics and Main Ideas topic should have 5/5 correct
+                # Then the Topic Sentences and Supporting Details topic should have 5/5 correct
 
     # Scenario: Student Uses Study Plan
-    #     Given I login to Achieve-CW as "pf-student1"
-    #         When I search for "PF-Automation Student Test" and click on the course card
-    #         When I launch the English V2 Study Plan
-    #             Then the "Student Tested Out Message" should contain the text "Nice! You tested out of the study plan for Reading Skills."
+        # Given I login to Achieve-CW as "pf-student1"
+            # When I search for "PF-Automation Student Test" and click on the course card
+            # When I launch the English V2 Study Plan
+                # Then the "Student Tested Out Message" should contain the text "Nice! You tested out of the study plan for Reading Skills."
 
     # Scenario: Student Takes Final Test and Answers Every Question Correctly
-    #     Given I login to Achieve-CW as "pf-student1"
-    #         When I search for "PF Automation Student Test" and click on the course card
-    #         When I launch the English V2 Final Test for Reading Skills
-    #         When I click on the "Take the Final Test Button"
-    #         When I complete an NGA assignment with the following answers
-    #         # answer all questions correctly
-    #         |Question  |Answer |
-    #         | 1        | d     |
-    #         | 2        | c     |
-    #         | 3        | a     |
-    #         | 4        | b     |
-    #         | 5        | c     |
-    #         | 6        | b     |
-    #         | 7        | a     |
-    #         | 8        | d     |
-    #         | 9        | c     |
-    #         | 10       | d     |
-    #         | 11       | b     |
-    #         | 12       | a     |
-    #         | 13       | c     |
-    #         | 14       | d     |
-    #         | 15       | c     |
-    #         | 16       | a     |
-    #         | 17       | a     |
-    #         | 18       | c     |
-    #         | 19       | d     |
-    #         | 20       | c     |
-    #             Then there should be a "Continue To Results Button"
+        # Given I login to Achieve-CW as "pf-student1"
+            # When I search for "PF Automation Student Test" and click on the course card
+            # When I launch the English V2 Final Test for Reading Skills
+            # When I click on the "Take the Final Test Button"
+            # When I complete an NGA assignment with the following answers
+            # # answer all questions correctly
+            # |Question  |Answer |
+            # | 1        | d     |
+            # | 2        | c     |
+            # | 3        | a     |
+            # | 4        | b     |
+            # | 5        | c     |
+            # | 6        | b     |
+            # | 7        | a     |
+            # | 8        | d     |
+            # | 9        | c     |
+            # | 10       | d     |
+            # | 11       | b     |
+            # | 12       | a     |
+            # | 13       | c     |
+            # | 14       | d     |
+            # | 15       | c     |
+            # | 16       | a     |
+            # | 17       | a     |
+            # | 18       | c     |
+            # | 19       | d     |
+            # | 20       | c     |
+                # Then there should be a "Continue To Results Button"
 
-    #         When I click on the "Continue To Results Button"
-    #             Then there should be a "Student Final Test Report" with the text "Excellent! You have completed the final test."
-    #             Then the "Vocabulary Topic" should contain the text "5/5 correct"
-    #             Then the "Vocabulary Topic" should contain the text "Maintained Mastery"
-    #             Then the "Patterns of Organization Topic" should contain the text "5/5 correct"
-    #             Then the "Patterns of Organization Topic" should contain the text "Maintained Mastery"
-    #             Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
-    #             Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
+            # When I click on the "Continue To Results Button"
+                # Then there should be a "Student Final Test Report" with the text "Excellent! You have completed the final test."
+                # Then the "Vocabulary Topic" should contain the text "5/5 correct"
+                # Then the "Vocabulary Topic" should contain the text "Maintained Mastery"
+                # Then the "Patterns of Organization Topic" should contain the text "5/5 correct"
+                # Then the "Patterns of Organization Topic" should contain the text "Maintained Mastery"
+                # Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
+                # Then the "Topics and Main Ideas Topic" should contain the text "5/5 correct"
+
     Scenario: Delete courses
         Given I login to Achieve-CW as "pf-producer"
             When I delete all automation courses
