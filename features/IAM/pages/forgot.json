@@ -1,0 +1,90 @@
+{
+    "webElements": [
+        {
+            "name": "forgotLink",
+            "byType": "css",
+            "definition": "[title='Forgot your password?']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "cancelBtn",
+            "byType": "id",
+            "definition": "cancel",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "createAccount",
+            "byType": "id",
+            "definition": "createAccount",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "passwordResetPage",
+            "byType": "xpath",
+            "definition": "//*[@id='app']/div/div/main/div",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "resetPassBtn",
+            "byType": "xpath",
+            "definition": "//*[@id='resetpassword']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "verify",
+            "byType": "xpath",
+            "definition": "//*[@id='confirm']/div/h2",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "submitBtn",
+            "byType": "xpath",
+            "definition": "//*[@id='submitanswer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        
+        },  {
+            "name": "answer",
+            "byType":"xpath",    
+            "definition": "//*[@id='answerText']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "errorText",
+            "byType":"xpath",    
+            "definition": "//*[@id='verifyForm']/div/div[3]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "lastErrorText",
+            "byType":"xpath",    
+            "definition": "//*[@id='confirm']/div/div[1]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "backToLogin",
+            "byType":"xpath",    
+            "definition": "//*[@id='backToLogin']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "emailSent",
+            "byType":"xpath",    
+            "definition": "//*[@id='confirm']/div/p",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "email",
+            "byType":"id",    
+            "definition": "email",
+            "frame": "default",
+            "specialInstr": "NA"
+        },  {
+            "name": "username",
+            "byType": "id",
+            "definition": "username",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "webElements": [
+        {
+            "name": "Min Character Count",
+            "byType": "css",
+            "definition": "div[class='min-max-fields'] > input:nth-child(3)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Max Character Count",
+            "byType": "css",
+            "definition": "div[class='min-max-fields'] > input:nth-child(6)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Element Take Mode",
+            "byType": "css",
+            "definition": "div[class='rte-content short-essay-content'] > div > div > div > div > div > div",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

@@ -1,8 +1,5 @@
-const { Given, When, Then } = require('cucumber');
+const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const _ = require('lodash');
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const share = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
 
 When('I complete the reading activity', async function (data_table) {
@@ -60,7 +57,7 @@ Then('I verify the assignmenent grades in gradebook for below assigned activitie
 
 When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, courseName){
   await pages.createCourse.getText('courseShortId');
-  let user = await _.get(users, [this.environment, userName]);
+  let user = this.users[userType];
   let text = await pages.createCourse.getText('courseShortId');
   await Pages.login.click('togglerMenu');
   await Pages.login.click('signOut');

@@ -11,7 +11,7 @@ When(/^I add the "(.*)" module with following details$/, async function (moduleT
     await pages.raptor.click('contentArea');
     var rows = dataTable.hashes();
     await pages.raptor.populate('chemicalEquationPrefix', rows[0].value);
-    await pages.raptor.click('Correct Context');
+    await pages.raptor.click('Tab', 'correct');
     await pages.raptor.populate('chemicalEquationAnswerInput', rows[1].value);
 });
 
@@ -114,3 +114,38 @@ When('I add the following calculated algos', async function (datatable) {
         await pages.raptor.populate('calculatedEquationTextbox', i * 2 + 1, datatable.hashes()[i].Equation);
     }
 });
+
+When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
+    let selectedTabText = await pages.raptor.getText('Active Tab Edit Mode');
+    if (selectedTabText !== "correct1") {
+        await pages.raptor.click('Tab', 'correct');
+    }
+    await pages.numericEntry.click('Element', position);
+    await pages.numericEntry.populate('Target Value', value);
+});
+
+When('I configure FR module', async function () {
+    await pages.raptor.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
+    await pages.freeResponse.populate('Min Character Count', '20');
+    await pages.freeResponse.populate('Max Character Count', '40');
+});
+
+Then('I check NE answers', async function () {
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Check Answer Slider');
+    await pages.numericEntry.populate('Numeric Entry 1', '.0258');
+    await pages.numericEntry.populate('Numeric Entry 2', '-0.0258');
+    await pages.raptor.click('Check Your Work Submit Button');
+    await pages.raptor.assertText('activeTabTakeMode', 'correct1');
+});
+
+Then('I check FR answers', async function () {
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Save As Draft');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Check Answer Slider');
+    await pages.freeResponse.populate('Element Take Mode', '123456789012345678901');
+    await pages.raptor.click('Check Your Work Submit Button');
+    await pages.raptor.assertText('activeTabTakeMode', 'correct1');
+});
+

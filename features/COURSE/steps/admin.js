@@ -1,13 +1,11 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
-const _ = require('lodash');
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const csvtojson = require('csvtojson');
 const driver = require(`${process.cwd()}/app/driver.js`);
 
-When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName) {
-  let payload = await _.get(users, [this.environment, user]);
+When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
+  let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
@@ -22,7 +20,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (user, courseName)
   await driver.getDriver().sleep(500);
   await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');
-  await pages.adminMenu.populate('emailInput', payload.username);
+  await pages.adminMenu.populate('emailInput', user.username);
   await pages.adminMenu.click('addUserButton');
   await pages.home.click('closeAlert');
   await pages.adminMenu.click('closeManageRoles');
@@ -50,17 +48,17 @@ Then('I verify Manage roles is displayed', async function (data_table) {
   }
 });
 
-When(/^I revoke "(.*)" of "(.*)"$/, async function (roles, user) {
-  let payload = await _.get(users, [this.environment, user]);
-  await pages.adminMenu.populate('manageRolesEmailInput', payload.username);
+When(/^I revoke "(.*)" of "(.*)"$/, async function (roles, userType) {
+  let user = this.users[userType];
+  await pages.adminMenu.populate('manageRolesEmailInput', user.username);
   await pages.adminMenu.populate('chooseRole', roles);
   await pages.adminMenu.click('revokeRole');
   await pages.home.click('closeAlert');
 });
 
-When(/^I grant "(.*)" to the "(.*)"$/, async function (roles, user) {
-  let payload = await _.get(users, [this.environment, user]);
-  await pages.adminMenu.populate('manageRolesEmailInput', payload.username);
+When(/^I grant "(.*)" to the "(.*)"$/, async function (roles, userType) {
+  let user = this.users[userType];
+  await pages.adminMenu.populate('manageRolesEmailInput', user.username);
   await pages.adminMenu.populate('chooseRole', roles);
   await pages.adminMenu.click('grantRole');
 });

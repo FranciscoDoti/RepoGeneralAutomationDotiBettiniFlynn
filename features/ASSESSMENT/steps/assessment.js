@@ -87,15 +87,6 @@ When(/^added it to new assessment as pool$/, async function () {
   await ngaPages.assignmentTab.click('AssignmentTab');
 });
 
-When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
-  let selectedTabText = await ngaPages.raptor.getText('activeTabEditMode');
-  if (selectedTabText !== "correct1") {
-    await ngaPages.raptor.click('Correct Context');
-  }
-  await ngaPages.numericEntry.click('Element', position);
-  await ngaPages.numericEntry.populate('Target Value', value);
-});
-
 Then('I see the item present in the assessment', async function () {
 
   let itemList = await ngaPages.assignmentTab.getWebElements('itemList');
@@ -118,15 +109,6 @@ Then('I see a pool of questions is created in the assessment', async function ()
   CQBTabQuestionSet.clear();
 });
 
-Then('I check NE answers', async function () {
-  await mathpages.raptorAms.click('menuBarMore');
-  await ngaPages.raptor.click('checkAnswerSwitchMenu');
-  await ngaPages.numericEntry.populate('Numeric Entry 1', '.0258');
-  await ngaPages.numericEntry.populate('Numeric Entry 2', '-0.0258');
-  await mathpages.raptorAms.click('checkYourWorkSubmit');
-  await ngaPages.raptor.assertText('activeTabTakeMode', 'correct1');
-});
-
 When(/^I select "(.*)" option for the assessment$/, async function (settings_button) {
   await ngaPages.assignmentTab.click('Setting Button');
 });
@@ -134,6 +116,3 @@ When(/^I select "(.*)" option for the assessment$/, async function (settings_but
 Then(/^I navigate to "(.*)" page$/, async function (title) {
   await ngaPages.settingsPage.assertText('page title', title);
 });
-
-
-

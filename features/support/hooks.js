@@ -1,8 +1,7 @@
 var { After, AfterAll } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const { closeBrowser, resetBrowser, takeScreenshot, visitURL, sleep } = require(`${process.cwd()}/app/driver`);
+const { closeBrowser, resetBrowser, takeScreenshot, visitURL } = require(`${process.cwd()}/app/driver`);
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
@@ -25,7 +24,7 @@ After('@assessmentCreation', async function () {
 
 After('@admin-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, 'admin_1']);
+  let user = this.users['admin_1'];
   await resetBrowser();
 
   await visitURL(url);
@@ -50,7 +49,7 @@ After('@admin-delete-course', async function () {
 
 After('@medieditor-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, 'media_editor_1']);
+  let user = this.users['media_editor_1'];
   await resetBrowser();
 
   await visitURL(url);
@@ -75,7 +74,7 @@ After('@medieditor-delete-course', async function () {
 
 After('@custmersupport-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, 'customer_support_1']);
+  let user = this.users['customer_support_1'];
   await resetBrowser();
 
   await visitURL(url);
@@ -99,7 +98,7 @@ After('@custmersupport-delete-course', async function () {
 });
 After('@mediaproducer-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, 'media_producer_2']);
+  let user = this.users['media_producer_2'];
   await resetBrowser();
   await visitURL(url);
   await pages.home.click('signInLocal');
@@ -122,7 +121,7 @@ After('@mediaproducer-delete-course', async function () {
 
 After('@instructor-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, 'instructor_1']);
+  let user = this.users['instructor_1'];
   await resetBrowser();  
   await visitURL(url);
   await pages.home.click('signInLocal');
