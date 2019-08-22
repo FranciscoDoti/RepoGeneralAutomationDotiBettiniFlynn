@@ -76,7 +76,8 @@
     "parse-duration": "latest",
     "selenium-webdriver": "latest",
     "winston": "latest",
-    "testrail-api": "latest"
+    "testrail-api": "latest",
+    "imap-simple":"latest"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
