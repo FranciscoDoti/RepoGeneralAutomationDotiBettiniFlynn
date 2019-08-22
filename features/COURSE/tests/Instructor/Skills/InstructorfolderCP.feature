@@ -18,7 +18,7 @@ Feature: Instructor adds folder, remove folder and reorders it
             | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve    | LC1551301608988                               |
             | addReadingButton          |  GLOSSARY                                     |
-            | addButtonReadandpractice  | LCRP1550612138614                             |                         
+            | addButtonReadandpractice  | Automation Test                               |                         
 
         And I click on home button to return to coursepage
         And I copy course from the "Skills Template" template with the following data
@@ -43,36 +43,36 @@ Feature: Instructor adds folder, remove folder and reorders it
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | GLOSSARY                                                        |
-            | LCRP1550612138614                                                 |
+            | GLOSSARY                                                          |
+            | Automation Test                                                   |
             
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
             | LC1551301608988                                                   | movedownButton |
-            | GLOSSARY                                                        | moveToEnd      |
-            | LCRP1550612138614                                                 | moveUpButton   |
+            | GLOSSARY                                                          | moveToEnd      |
+            | Automation Test                                                   | moveUpButton   |
 
         Then I verify that resources are reordered in "COURSE PLAN"
             | activities                                                        | orderNumber    |
-            | LCRP1550612138614                                                 |  1             |                                                       
+            | Automation Test                                                   |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
             | LC1551301608988                                                   |  3             |
-            | GLOSSARY                                                        |  4             |      
+            | GLOSSARY                                                          |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | GLOSSARY                                    | Reading           | 'GLOSSARY' was successfully moved to Reading.                              |
-            | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
+            | GLOSSARY                                      | Reading           | 'GLOSSARY' was successfully moved to Reading.                                       |
+            | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                        |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | GLOSSARY                                    | Reading           |
-            | LCRP1550612138614                             | ReadandPractice   |
+            | GLOSSARY                                      | Reading           |
+            | Automation Test                               | ReadandPractice   |
 
         When I delete the resources from the Template in "COURSE PLAN"
             | folders           | message                                 |

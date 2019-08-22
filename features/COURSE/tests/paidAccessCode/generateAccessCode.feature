@@ -15,7 +15,7 @@ Feature: Verify that paid Access code Creater is able to generate, Check and upd
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addButtonReadandpractice | LCRP1550612138614                             |
+            | addButtonReadandpractice | Automation Test                               |
 
         And I sign out of Achieve
 

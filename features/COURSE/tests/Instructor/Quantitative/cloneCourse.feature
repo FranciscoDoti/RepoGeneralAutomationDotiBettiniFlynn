@@ -17,11 +17,11 @@ Feature: Instructor attempts all the activities in Quantitative Template
 
 
         And I add the activities in resources to "Quantitative Template" template
-            | type                     | activity                                      |
-            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Glossary                                    |
-            | addButtonReadandpractice | LCRP1550612138614                             |
+            | type                     | activity                                       |
+            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)         |     
+            | addButtonLearningcurve   | LC1551301608988                                |
+            | addReadingButton         | Glossary                                       |
+            | addButtonReadandpractice | Automation Test                                |
         And I click on home button to return to coursepage
 
         And I copy course from the "Quantitative Template" template with the following data
@@ -41,7 +41,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And I create a course "Quantitative Course" with the following data
             | field             | value                                  |
             | courseName        | Quantitative Instructor Course         |
-            | courseCode        | E2E 301                                 |
+            | courseCode        | E2E 301                                |
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message

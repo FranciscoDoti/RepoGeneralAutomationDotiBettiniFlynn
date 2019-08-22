@@ -16,7 +16,7 @@ Feature: Admin enrolls the student in the course
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                      | activity                                      |
-            | addButtonReadandpractice  | LCRP1550612138614                             |     
+            | addButtonReadandpractice  | Automation Test                             |     
             | addButtonLearningcurve    | LC1551301608988                               |
             
 
@@ -41,12 +41,12 @@ Feature: Admin enrolls the student in the course
      
         And I add the activities in courseplanner to "Read & Practice Course" course
             | activity                                                          | 
-            | LCRP1550612138614                                                 |                                                        
+            | Automation Test                                                 |                                                        
             | LC1551301608988                                                   |
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
-            | LCRP1550612138614                                                | 5      | 
+            | Automation Test                                                | 5      | 
             | LC1551301608988                                                  | 5      | 
 
         And I sign out of Achieve

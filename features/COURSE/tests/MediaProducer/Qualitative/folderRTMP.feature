@@ -18,14 +18,14 @@ Feature: Adding activities in Folder Resource Tab
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         |  Dedication                                   |
-            | addButtonReadandpractice | LCRP1550612138614                             |
+            | addButtonReadandpractice | Automation Test                               |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
             | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                     |
-            | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
+            | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                        |
 
         When I reorder the resources on template
             | folders           | reorder        |
@@ -47,7 +47,7 @@ Feature: Adding activities in Folder Resource Tab
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
             | Dedication                                    | Reading           |
-            | LCRP1550612138614                             | ReadandPractice   |
+            | Automation Test                               | ReadandPractice   |
 
         When I delete the following resources from the Template
             | folders           | message                                 |

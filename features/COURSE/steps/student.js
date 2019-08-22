@@ -5,6 +5,7 @@ const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const share = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
 const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
+const { assert, expect } = require('chai');
 
 When('I complete the reading activity', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -83,15 +84,14 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
   await pages.overview.click('activityName', activityName);
   await pages.overview.assertElementExists('beginActivity');
   await pages.overview.click('beginActivity');
-    while (true) {
+      while(true){
       let scoreFinal = await pages.overview.getText('score')
-      scoreFinal ==='640/600'
-      if (scoreFinal === true) {
-        await pages.overview.click('backToStudyPlan');
-       if(scoreFinal=== '300/600') {
-        await pages.overview.click('midwayLc');
-      }
-    }else{
+      let x = eval(scoreFinal)
+      let y = eval(610/600)
+      let z = eval(325/600)
+      let a = eval(300/600)
+        if(x < y){
+         
         let jsonObject = await pages.overview.getText('activityQuestion');
         let split = jsonObject.split('}')[0] + '}';
         console.log(split);
@@ -105,16 +105,13 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
         switch (answerKey.Type) {
           case 'SC':
           console.log('Entered SC') 
-          await sleep(500)
             let answerChoices = await pages.overview.getWebElements('sentenceClickLc')
-            console.log(answerChoices);
-            await sleep(1000);
-              for (let i = 0; i < answerChoices.length; i++) {
-                await sleep(1000);
-                let text = await answerChoices[i].getText()
-                console.log(text);
+            console.log(answerChoices.length);
+              for await(let choice of answerChoices) {
+                let text = await choice.getText()
               if (text.includes(answer)) {
-                await answerChoices[i].click()
+                await choice.click()
+                break;
               }
             }
             await pages.overview.assertElementExists('nextQuestion')
@@ -141,9 +138,28 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
           case 'FB':
           console.log('Entered FB')
             await pages.overview.populate('fillInTheBlank', answerKey.Answer);
+            await pages.overview.click('submitButton');
             await pages.overview.click('nextQuestion');
             break
         }
+      console.log('there is more'+(x-1) + "more to run")
+
       }
+     if (x >= y){
+       await pages.overview.assertElementExists('backToStudyPlan');
+       await pages.overview.click('backToStudyPlan');
+       break;
+     }
     }
+});
+
+When(/^I attempt "(.*)" Read and Practice activity$/, async function (activityName) {
+  await pages.overview.click('activityName', activityName);
+  let answerChoices = await pages.overview.getWebElements('checkBox')
+  for await(let choice of answerChoices) {
+    await choice.click();
+    break;
+  }
+
+ 
 });

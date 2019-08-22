@@ -16,7 +16,7 @@ Feature: Adding Instructor to the Template
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                      | activity                                      |
-            | addButtonReadandpractice  | LCRP1550612138614                             |     
+            | addButtonReadandpractice  | Automation Test                             |     
             | addButtonLearningcurve    | LC1551301608988                               |
             | addReadingButton          |  GLOSSARY                                     |
 

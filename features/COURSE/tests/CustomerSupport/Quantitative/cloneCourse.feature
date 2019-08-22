@@ -16,11 +16,11 @@ Feature: Customer Support attempts all the activities in Quantitative Template
 
 
         And I add the activities in resources to "Quantitative Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        | Glossary                                    |
-            | addButtonReadandpractice | LCRP1550612138614                            |
+            | type                      | activity                                      |
+            | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
+            | addButtonLearningcurve    | LC1551301608988                               |
+            | addReadingButton          | Glossary                                      |
+            | addButtonReadandpractice  | Automation Test                               |
 
         And I sign out of Achieve
         

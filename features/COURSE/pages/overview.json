@@ -35,7 +35,14 @@
             "definition": "[data-test-id='activityQuestion']",
             "frame": "LCFrame",
             "specialInstr": "NA"
-        }, {
+        },{
+            "name": "checkBox",
+            "byType": "css",
+            "definition": "[name='readingCheckbox']",
+            "frame": "LCFrame",
+            "specialInstr": "NA"
+
+        },{
             "name": "mcAnswers",
             "byType": "css",
             "definition": "label[data-test-id='multipleChoiceAnswer']",

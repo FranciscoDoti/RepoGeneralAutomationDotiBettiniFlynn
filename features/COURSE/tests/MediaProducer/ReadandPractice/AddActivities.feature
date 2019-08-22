@@ -15,13 +15,13 @@ Feature: Adding activities to the template
             | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Read & Practice Template" template
-            | type                    | activity                                      |
-            | addButtonReadandpractice | LCRP1550612138614                            |     
-            | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  GLOSSARY                                     |
+            | type                      | activity                                      |
+            | addButtonReadandpractice  | Automation Test                               |     
+            | addButtonLearningcurve    | LC1551301608988                               |
+            | addReadingButton          |  GLOSSARY                                     |
 
         Then I verify that activties are added
             | activity                                      |
-            | LCRP1550612138614                             |    
+            | Automation Test                               |    
             | LC1551301608988                               |
             |  GLOSSARY                                     |            

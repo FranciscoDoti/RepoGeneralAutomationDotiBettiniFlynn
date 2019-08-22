@@ -18,7 +18,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
             | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         | GLOSSARY                                    |
-            | addButtonReadandpractice | LCRP1550612138614                             |
+            | addButtonReadandpractice | Automation Test                             |
 
         And I sign out of Achieve
         

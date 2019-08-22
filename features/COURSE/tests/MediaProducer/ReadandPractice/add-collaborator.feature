@@ -15,7 +15,7 @@ Feature: Adding collaborator to the template
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                      | activity                                      |
-            | addButtonReadandpractice  | LCRP1550612138614                             |     
+            | addButtonReadandpractice  | Automation Test                               |     
             | addButtonLearningcurve    | LC1551301608988                               |
             | addReadingButton          |  GLOSSARY                                     |
     
@@ -32,13 +32,13 @@ Feature: Adding collaborator to the template
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
-            | addButtonReadandpractice                      | ReadandParctice   | 'LCRP1550612138614' was successfully moved to addButtonReadandpractice              |                            
+            | addButtonReadandpractice                      | ReadandParctice   | 'Automation Test' was successfully moved to addButtonReadandpractice              |                            
             | Active and Passive Voice                      | Learning Curve    | 'Active and Passive Voice' was successfully moved to Learning Curve.                |
             |  Appendix F                                   | Reading           | 'Appendix F' was successfully moved to Reading.                                     |
            
         Then I verify the following activities are present in folders
             | activity                                      | folders           |
-            | LCRP1550612138614                             | ReadandPractice   |
+            | Automation Test                               | ReadandPractice   |
             | Active and Passive Voice                      | Learning Curve    |
             |  Appendix F                                   | Reading           |
 

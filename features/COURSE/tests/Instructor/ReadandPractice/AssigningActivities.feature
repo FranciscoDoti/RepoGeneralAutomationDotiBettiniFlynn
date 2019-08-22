@@ -15,7 +15,7 @@ Feature: Assigning the activities present in the course
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                      | activity                                      |
-            | addButtonReadandpractice  | LCRP1550612138614                             |     
+            | addButtonReadandpractice  | Automation Test                               |     
             | addButtonLearningcurve    | LC1551301608988                               |
             | addReadingButton          |  GLOSSARY                                     |
 
@@ -41,20 +41,20 @@ Feature: Assigning the activities present in the course
      
         And I add the activities in courseplanner to "Read & Practice Course" course
             | activity                                                          | 
-            | LCRP1550612138614                                                 |                                                        
+            | Automation Test                                                   |                                                        
             | LC1551301608988                                                   |
             | GLOSSARY                                                          |
 
 
         And I assign the activities in courseplanner
-            | activity                                                         | Points | 
-            | LCRP1550612138614                                                | 5      | 
-            | LC1551301608988                                                  | 5      |
-            | GLOSSARY                                                         | 5      |
+            | activity                                                          | Points | 
+            | Automation Test                                                   | 5      | 
+            | LC1551301608988                                                   | 5      |
+            | GLOSSARY                                                          | 5      |
 
         Then I verify that activities are assigned
-            | activity                                                         | Status | 
-            | LCRP1550612138614                                                | Open   | 
-            | LC1551301608988                                                  | Open   |
-            | GLOSSARY                                                         | Open   |
+            | activity                                                          | Status | 
+            | Automation Test                                                   | Open   | 
+            | LC1551301608988                                                   | Open   |
+            | GLOSSARY                                                          | Open   |
 

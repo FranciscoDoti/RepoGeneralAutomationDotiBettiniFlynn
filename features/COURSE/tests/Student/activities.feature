@@ -6,17 +6,18 @@ Feature: Student attempts reading activity
         # Given I login to Achieve-CW as "media_producer_1"
         # When I create template with following data 
         #     | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-        #     | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |
+        #     | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199487  | draft         |
 
         # And I activate the "Quantitative Template" template and add the following data
         #     | courseName             |  courseCode   |  templateStatus      |
         #     | Quantitative Template  |   E2E 301     |  Active On Date      |    
 
         # And I add the activities in resources to "Quantitative Template" template
-        #     | type                    | activity                                      |
-        #     | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-        #     | addButtonLearningcurve  | LC1551301608988                               |
-        #     | addReadingButton        |  Dedication                                   |
+        #     | type                      | activity                                      |
+        #     | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
+        #     | addButtonLearningcurve    | LC1551301608988                               |
+        #     | addReadingButton          |  Dedication                                   |
+        #     | addButtonReadandpractice  | Automation Test                               |
 
         # And I click on home button to return to coursepage
         # And I copy course from the "Quantitative Template" template with the following data
@@ -42,12 +43,14 @@ Feature: Student attempts reading activity
         #     | Dedication                                                        |
         #     | LC1551301608988                                                   |
         #     | Exercise: Misused words 1 (autoscored)                            |
+        #     | Automation Test                                                   |
 
         # And I assign the activities in courseplanner
         #     | activity                                                         | Points |
         #     | Exercise: Misused words 1 (autoscored)                           | 5      |
         #     | LC1551301608988                                                  | 5      |
         #     | Dedication                                                       | 5      |
+        #     | Automation Test                                                  | 5      |
  
 
         # And I sign out of Achieve
@@ -69,14 +72,24 @@ Feature: Student attempts reading activity
         #     | activity           |
         #     | Dedication         |
 
-        And I attempt "LC1551301608988" Learning curve activity
+        # And I attempt "LC1551301608988" Learning curve activity
         
+        And I attempt "Automation Test" Read and Practice activity
+            # | Topics    |
+            # | Topic_1_0 |
+            # | Topic_2_0 |
+            # | Topic_2_1 |
+            # | Topic_2_2 |
+            # | Topic_2_3 |
+            # | Topic_3_0 |
+            # | Topic_3_1 |
+            # | Topic_3_2 |
 
-        Then I verify the activity status for the following activities
-            | activity                                      | status    |
-            | Dedication                                    | Complete  |
-            | Exercise: Misused words 1 (autoscored)        | Complete  |
-            | LC1551301608988                               | Complete  |
+        # Then I verify the activity status for the following activities
+        #     | activity                                      | status    |
+        #     | Dedication                                    | Complete  |
+        #     | Exercise: Misused words 1 (autoscored)        | Complete  |
+        #     | LC1551301608988                               | Complete  |
 
 
         # And I verify the assignmenent grades in gradebook for below assigned activities 
