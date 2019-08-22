@@ -1,7 +1,5 @@
 const { When, Then } = require('cucumber');
-const _ = require('lodash');
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
 When('I click on Forgot link', async function () {
     await pages.forgot.click('forgotLink');
@@ -19,9 +17,9 @@ Then('I verify that I am redirected to forgot page', async function () {
     await pages.signIn.switchToTab('Macmillan Learning :: ');
 });
 
-When(/^I am redirected to Password Reset page and enter "(.*)" username and click Reset Password$/, async function (userName) {    
+When(/^I am redirected to Password Reset page and enter "(.*)" username and click Reset Password$/, async function (userType) {    
     await pages.signIn.switchToTab('Macmillan Learning :: ');
-    let user = await _.get(users, [this.environment, userName]);
+let user = this.users[userType];
         await pages.forgot.populate('email', user.username);
         await pages.forgot.click('resetPassBtn');
 });
