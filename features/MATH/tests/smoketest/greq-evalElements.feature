@@ -8,13 +8,13 @@ Feature: Verify page elements for different eval types
         And I select Math Equation module, click on Question tab
 
         Then I verify default evaltype for GradeAs dropdown is Expression
-        And I verify the checkboxes: IsList, GradeToConstant are displayed for Expression evaltype
-        And I click on the Correct tab, verify checkboxes and radio buttons: IsList, GradeToConstant, Numeric and Exact Tolerance for Expression evaltype
+        And I verify one or more corresponding checkbox(es): "isList, gradeToConstant"
+        And I click on the Correct tab, verify one or more corresponding checkbox(es) and radio button(s): "isList, gradeToConstant, mathNumericTolerance, exactTolerance"
 
         When I click on Question tab, select GradeAs dropdown "Point" evaltype
-        Then I verify the checkbox: IsList is displayed for Point evaltype
-        And I click on the Correct tab, verify checkboxes and radio buttons: IsList, PolarCoordinate, Numeric and Exact Tolerance for Point evaltype
+        Then I verify one or more corresponding checkbox(es): "isList"
+        And I click on the Correct tab, verify one or more corresponding checkbox(es) and radio button(s): "isList, mathPolarCoordinate, mathNumericTolerance, exactTolerance"
 
         When I click on Question tab, select GradeAs dropdown "Vector" evaltype
-        Then I verify there are no elements present: checkboxes or radio buttons for Vector evaltype
-        And I click on the Correct tab, verify checkboxes and radio buttons: Enforce Form, Numeric and Exact Tolerance for Vector evaltype
+        Then I verify there are no checkbox(es) or radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance"
+        And I click on the Correct tab, verify one or more corresponding checkbox(es) and radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance"

@@ -24,14 +24,14 @@
         {
             "name": "exactTolerance",
             "byType": "css",
-            "definition": "input.greq-input[data-test-id='exact-tolerance-radio']",
+            "definition": ".greq-input[data-test-id='exact-tolerance-radio']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "vectorEnforceForm",
             "byType": "css",
-            "definition": "input.greq-input[data-test-id='edit-panel-checkbox-vector_form']",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-vector_form']",
             "frame": "default",
             "specialInstr": "NA"
         }

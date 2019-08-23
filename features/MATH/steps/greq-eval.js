@@ -137,40 +137,33 @@ Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async fun
   await pages.mathModule.assertElementExists('gradeAsExpression');
 });
 
-Then(/^I verify the checkboxes: IsList, GradeToConstant are displayed for Expression evaltype$/, async function () {
-  await pages.raptorAms.assertElementExists('mathGradeAs');
-  await pages.mathModule.assertElementExists('isList');
-  await pages.mathModule.assertElementExists('gradeToConstant');
+Then(/^I verify one or more corresponding checkbox\(es\): "(.*)"$/, async function (objects) {
+  const elementList = objects.split(', ');
+
+  // try-catch is a temporary solution until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
+  for (i = 0; i < elementList.length; i++) {
+    try {
+      await pages.mathModule.assertElementExists(elementList[i])
+    } catch (e) { }
+    try {
+      await pages.raptorAms.assertElementExists(elementList[i])
+    } catch (e) { }
+  }
 });
 
-Then(/^I verify the checkbox: IsList is displayed for Point evaltype$/, async function () {
-  await pages.mathModule.assertElementExists('isList');
-});
-
-Then(/^I click on the Correct tab, verify checkboxes and radio buttons: IsList, GradeToConstant, Numeric and Exact Tolerance for Expression evaltype$/, async function () {
+Then(/^I click on the Correct tab, verify one or more corresponding checkbox\(es\) and radio button\(s\): "(.*)"$/, async function (objects) {
   await pages.raptorAms.click('contextTab', 'correct');
 
-  await pages.mathModule.assertElementExists('isList');
-  await pages.mathModule.assertElementExists('gradeToConstant');
-  await pages.raptorAms.assertElementExists('mathNumericTolerance');
-  await pages.mathModule.assertElementExists('exactTolerance');
-});
-
-Then(/^I click on the Correct tab, verify checkboxes and radio buttons: Enforce Form, Numeric and Exact Tolerance for Vector evaltype$/, async function () {
-  await pages.raptorAms.click('contextTab', 'correct');
-
-  await pages.raptorAms.assertElementExists('mathNumericTolerance');
-  await pages.mathModule.assertElementExists('exactTolerance');
-  await pages.mathModule.assertElementExists('vectorEnforceForm');
-});
-
-Then(/^I click on the Correct tab, verify checkboxes and radio buttons: IsList, PolarCoordinate, Numeric and Exact Tolerance for Point evaltype$/, async function () {
-  await pages.raptorAms.click('contextTab', 'correct');
-
-  await pages.mathModule.assertElementExists('isList');
-  await pages.raptorAms.assertElementExists('mathNumericTolerance');
-  await pages.mathModule.assertElementExists('exactTolerance');
-  await pages.raptorAms.assertElementExists('mathPolarCoordinate');
+  // try-catch is a temporary solution until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
+  const elementList = objects.split(', ');
+  for (i = 0; i < elementList.length; i++) {
+    try {
+      await pages.mathModule.assertElementExists(elementList[i])
+    } catch (e) { }
+    try {
+      await pages.raptorAms.assertElementExists(elementList[i])
+    } catch (e) { }
+  }
 });
 
 When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async function (gradeAsEval) {
@@ -178,12 +171,16 @@ When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
 });
 
-Then(/^I verify there are no elements present: checkboxes or radio buttons for Vector evaltype$/, async function () {
-  await pages.mathModule.assertElementDoesNotExist('vectorEnforceForm');
-  await pages.mathModule.assertElementDoesNotExist('exactTolerance');
-  await pages.raptorAms.assertElementDoesNotExist('mathNumericTolerance');
+Then(/^I verify there are no checkbox\(es\) or radio button\(s\): "(.*)"$/, async function (objects) {
+
+  // try-catch is a temporary solution until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
+  const elementList = objects.split(', ');
+  for (i = 0; i < elementList.length; i++) {
+    try {
+      await pages.mathModule.assertElementDoesNotExist(elementList[i])
+    } catch (e) { }
+    try {
+      await pages.raptorAms.assertElementDoesNotExist(elementList[i])
+    } catch (e) { }
+  }
 });
-
-
-
-
