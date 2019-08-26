@@ -6,18 +6,18 @@ Feature: Adding reading activities in reading tab
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel | courseName                 | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative  | Qualitative MPRT Template  | macmillan calculus     | E2E 342      | 9781464199429  | draft         |                      
 
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+        And I activate the "Qualitative MPRT Template" template and add the following data
+            | courseName                  |  courseCode   |  templateStatus      |
+            | Qualitative MPRT Template   |   E2E 342     |  Active On Date      | 
 
-        And I add the activities in resources to "Qualitative Template" template
+        And I add the activities in resources to "Qualitative MPRT Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve   | LC1551301608988                               |
+            | addButtonLearningcurve   | LC1551342608988                               |
             | addReadingButton         | Glossary                                      |
             | addReadingButton         |  Analyzing Literary Elements                  |
             | addReadingButton         | Literary Elements                             |

@@ -6,19 +6,19 @@ Feature: Media Editor is able to create a template and update
 
         Given I login to Achieve-CW as "media_editor_1"
         When I create template with following data 
-           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+           | courseType  | productModel | courseName          |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills ME Template  |                  | E2E 333      | 9781464199439  | draft         |                      
 
 
-        Then I verify that "Skills Template Created." message is displayed
-        And I verify that "Skills Template" has created with following "ISBN: 9781464199498" number
+        Then I verify that "Skills ME Template Created." message is displayed
+        And I verify that "Skills ME Template" has created with following "ISBN: 9781464199498" number
 
-       And I activate the "Skills Template" template and add the following data
+       And I activate the "Skills ME Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |
+            | Skills ME Template        |   E2E 333     |  Active On Date      |
 
-        Then I verify that "Skills Template" is created with following data
+        Then I verify that "Skills ME Template" is created with following data
             | field                 | value                     |
-            | courseName            | Skills Template           |
-            | courseDate            |  E2E 301                  |
+            | courseName            | Skills ME Template        |
+            | courseDate            |  E2E 333                  |
             | courseShortId         | Template                  |

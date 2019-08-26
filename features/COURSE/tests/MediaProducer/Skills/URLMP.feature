@@ -6,14 +6,14 @@ Feature: Verify that mediaProducer is able to create URL
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel | courseName             |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills MPURL Template  |                  | E2E 371      | 9781464199398  | draft         |                      
 
-        And I activate the "Skills Template" template and add the following data
+        And I activate the "Skills MPURL Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |
+            | Skills MPURL Template     |   E2E 371     |  Active On Date      |
 
-        And I add URL link to "Skills Template" 
+        And I add URL link to "Skills MPURL Template" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 

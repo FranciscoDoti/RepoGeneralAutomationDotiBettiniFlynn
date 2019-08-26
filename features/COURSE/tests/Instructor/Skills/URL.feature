@@ -7,32 +7,32 @@ Feature: Verify that Instructor is able to create URL
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+           | courseType  | productModel | courseName            |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills IURL Template  |                  | E2E 326      | 9781464199446   | draft         |                      
 
-        And I activate the "Skills Template" template and add the following data
+        And I activate the "Skills IURL Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |   
+            | Skills IURL Template      |   E2E 326     |  Active On Date      |   
 
-        And I copy course from the "Skills Template" template with the following data
+        And I copy course from the "Skills IURL Template" template with the following data
             | courseName          | courseCode           |
-            | Skills Course       | E2E 301              |
+            | Skills IURL Course  | E2E 326         |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Skills Course" course
+        And I assign "instructor_1" to the "Skills IURL Course" course
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I activate "Skills Course" course with following data 
+        When I activate "Skills IURL Course" course with following data 
             | field             | value                        |
-            | courseName        | Skills Course                |
-            | courseCode        |  E2E 301                     |
+            | courseName        | Skills IURL Course           |
+            | courseCode        |  E2E 326                     |
             | templateStatus    |  Active On Date              |
 
-        And I add URL link to "Skills Course" in coursePlanner
+        And I add URL link to "Skills IURL Course" in coursePlanner
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 

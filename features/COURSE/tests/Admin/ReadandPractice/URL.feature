@@ -7,7 +7,7 @@ Feature: Verify that Admin is able to create URL
        Given I login to Achieve-CW as "admin_1"
         When I create template with following data
             | courseType  | productModel      | courseName                      |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice URL Template    |                  | E2E 301      | 9781464199499  | draft         |
+            | Template    | Read & Practice   | Read & Practice URL Template    |                  | E2E 301      | 9781464199475  | draft         |
                                 
         And I click on search button and input "Read & Practice URL Template" to search the course
 

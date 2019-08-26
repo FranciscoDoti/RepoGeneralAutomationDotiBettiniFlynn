@@ -7,13 +7,13 @@ Feature: Verify that Admin is able to create URL
        Given I login to Achieve-CW as "admin_1"
         When I create template with following data 
             | courseType  | productModel | courseName                 | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative | Quantitative URL Template  | Principles of Microeconomics      | E2E 301      | 9781464199499  | draft         |   
+            | Template    | Quantitative | Quantitative URL Template  | Principles of Microeconomics      | E2E 304      | 9781464199410  | draft         |   
 
         And I click on search button and input "Quantitative URL Template" to search the course
 
         And I activate the "Quantitative URL Template" template and add the following data
-            | courseName                    |  courseCode   |  templateStatus      |
-            | Quantitative URL Template     |   E2E 301     |  Active On Date      |
+            | courseName                    |  courseCode    |  templateStatus      |
+            | Quantitative URL Template     |   E2E 304      |  Active On Date      |
 
         And I add URL link to "Quantitative URL Template" 
             | field             | link                         |

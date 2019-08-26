@@ -6,16 +6,16 @@ Feature: Verify that MediaEditor is able to create URL
 
        Given I login to Achieve-CW as "media_editor_1"
         When I create template with following data 
-            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel      | courseName                        |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice MEURL Template    |                  | E2E 332      | 9781464199440  | draft         |                      
 
-        And I click on search button and input "Read & Practice Template" to search the course
+        And I click on search button and input "Read & Practice MEURL Template" to search the course
 
-        And I activate the "Read & Practice Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+        And I activate the "Read & Practice MEURL Template" template and add the following data
+            | courseName                      |  courseCode   |  templateStatus      |
+            | Read & Practice MEURL Template  |   E2E 332     |  Active On Date      | 
 
-        And I add URL link to "Read & Practice Template" 
+        And I add URL link to "Read & Practice MEURL Template" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 

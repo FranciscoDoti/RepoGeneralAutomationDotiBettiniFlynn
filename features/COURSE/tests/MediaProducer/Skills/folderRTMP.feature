@@ -5,15 +5,15 @@ Feature: Adding activities in Folder Resource Tab
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+           | courseType  | productModel | courseName           |learningObjective | courseCode   | isbnNumber      | courseStatus  |
+           | Template    | Skills       | Skills MPR Template  |                  | E2E 368      | 97814641994904  | draft         |                      
 
 
-        And I activate the "Skills Template" template and add the following data
+        And I activate the "Skills MPR Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |
+            | Skills MPR Template       |   E2E 368     |  Active On Date      |
 
-        And I add the activities in resources to "Skills Template" template
+        And I add the activities in resources to "Skills MPR Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
@@ -25,7 +25,7 @@ Feature: Adding activities in Folder Resource Tab
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
             | GLOSSARY                                      | Reading           | 'GLOSSARY' was successfully moved to Reading.                                       |
-            | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                         |
+            | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                        |
 
         When I reorder the resources on template
             | folders           | reorder        |

@@ -6,31 +6,31 @@ Feature: Adding Instructor to the Template
 
         Given I login to Achieve-CW as "media_producer_2"
          When I create template with following data 
-            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498 | draft         |                      
+            | courseType  | productModel | courseName          |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills CS Template  |                  | E2E 311      | 9781464199464  | draft         |                      
 
 
-        And I activate the "Skills Template" template and add the following data
+        And I activate the "Skills CS Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      | 
+            | Skills CS Template        |   E2E 311     |  Active On Date      | 
 
-        And I add the activities in resources to "Skills Template" template
+        And I add the activities in resources to "Skills CS Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve  | LC1551301608988                               |
+            | addButtonLearningcurve  | LC1551311608988                               |
             | addReadingButton        |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
-        And I copy course from the "Skills Template" template with the following data
+        And I copy course from the "Skills CS Template" template with the following data
             | courseName          | courseCode           |
-            | Skills Course       | E2E 301              |
+            | Skills CS Course    | E2E 311              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Skills Course" course
+        And I assign "instructor_1" to the "Skills CS Course" course
         And I sign out of Achieve
 
-        Then I verify that "Skills Course" is assigned to "instructor_1"
+        Then I verify that "Skills CS Course" is assigned to "instructor_1"
 
            

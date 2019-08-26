@@ -6,15 +6,15 @@ Feature: Verify that mediaProducer is able to create URL
 
       Given I login to Achieve-CW as "media_producer_2"
        When I create template with following data 
-            | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel | courseName                  | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative  | Qualitative MPURL Template  | macmillan calculus     | E2E 344      | 9781464199498  | draft         |                      
 
 
-        And I activate the "Qualitative Template" template and add the following data
+        And I activate the "Qualitative MPURL Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+            | Qualitative MPURL Template   |   E2E 344     |  Active On Date      | 
 
-        And I add URL link to "Qualitative Template" 
+        And I add URL link to "Qualitative MPURL Template" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 

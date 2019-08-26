@@ -6,32 +6,32 @@ Feature: Verify that Instructor is able to create URL
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel      | courseName                 | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Qualitative IURL Template  | macmillan calculus     | E2E 316      | 9781464199458  | draft         |                      
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+        And I activate the "Qualitative IURL Template" template and add the following data
+            | courseName                  |  courseCode   |  templateStatus      |
+            | Qualitative IURL Template   |   E2E 316     |  Active On Date      | 
 
-        And I copy course from the "Qualitative Template" template with the following data
-            | courseName          | courseCode           |
-            | Qualitative Course  | E2E 301              |
+        And I copy course from the "Qualitative IURL Template" template with the following data
+            | courseName               | courseCode           |
+            | Qualitative IURL Course  | E2E 316              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Qualitative Course" course
+        And I assign "instructor_1" to the "Qualitative IURL Course" course
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I activate "Qualitative Course" course with following data 
+        When I activate "Qualitative IURL Course" course with following data 
             | field             | value                        |
-            | courseName        | Qualitative Course           |
-            | courseCode        |  E2E 301                     |
+            | courseName        | Qualitative IURL Course      |
+            | courseCode        |  E2E 316                     |
             | templateStatus    |  Active On Date              |
 
-        And I add URL link to "Qualitative Course" in coursePlanner
+        And I add URL link to "Qualitative IURL Course" in coursePlanner
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 

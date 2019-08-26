@@ -5,28 +5,28 @@ Feature: Verify that customer Support is able to create access code for Template
 
          Given I login to Achieve-CW as "media_producer_2"
          When I create template with following data 
-            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |
+            | courseType  | productModel      | courseName              | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Qualitative ACTemplate  | macmillan calculus     | E2E 313      | 9781464199462  | draft         |
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName            |  courseCode   |  templateStatus      |
-            | Qualitative Template  |   E2E 301     |  Active On Date      | 
+        And I activate the "Qualitative ACTemplate" template and add the following data
+            | courseName            |  courseCode     |  templateStatus      |
+            | Qualitative ACTemplate  |   E2E 313     |  Active On Date      | 
 
-        And I add the activities in resources to "Qualitative Template" template
+        And I add the activities in resources to "Qualitative ACTemplate" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve  | LC1551301608988                               |
+            | addButtonLearningcurve  | LC1551313608988                               |
             | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
-        And I copy course from the "Qualitative Template" template with the following data
-            | courseName               | courseCode           |
-            | Qualitative Course       | E2E 301              |
+        And I copy course from the "Qualitative ACTemplate" template with the following data
+            | courseName                 | courseCode           |
+            | Qualitative ACCourse       | E2E 313              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I generate access code for "Qualitative Course"
+        And I generate access code for "Qualitative ACCourse"
 
         Then I verify that access code is generated
 

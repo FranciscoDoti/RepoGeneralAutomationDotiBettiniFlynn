@@ -6,73 +6,73 @@ Feature: Instructor adds folder, remove folder and reorders it
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel      | courseName               | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Qualitative IF Template  | macmillan calculus     | E2E 316      | 9781464199459  | draft         |                      
 
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+        And I activate the "Qualitative IF Template" template and add the following data
+            | courseName                |  courseCode   |  templateStatus      |
+            | Qualitative IF Template   |   E2E 316     |  Active On Date      | 
 
-        And I add the activities in resources to "Qualitative Template" template
+        And I add the activities in resources to "Qualitative IF Template" template
             | type                      | activity                                      |
             | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve    | LC1551301608988                               |
+            | addButtonLearningcurve    | LC1551316608988                               |
             | addReadingButton          |  Glossary                                     |
             | addButtonReadandpractice  | Automation Test                               |                         
 
         And I click on home button to return to coursepage
-        And I copy course from the "Qualitative Template" template with the following data
-            | courseName          | courseCode           |
-            | Qualitative Course  | E2E 301              |
+        And I copy course from the "Qualitative IF Template" template with the following data
+            | courseName             | courseCode           |
+            | Qualitative IF Course  | E2E 316              |
 
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Qualitative Course" course
+        And I assign "instructor_1" to the "Qualitative IF Course" course
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I activate "Qualitative Course" course with following data 
+        When I activate "Qualitative IF Course" course with following data 
             | field             | value                        |
-            | courseName        | Qualitative Course           |
-            | courseCode        |  E2E 301                     |
+            | courseName        | Qualitative IF Course        |
+            | courseCode        |  E2E 316                     |
             | templateStatus    |  Active On Date              |
      
-        And I add the activities in courseplanner to "Qualitative Course" course
+        And I add the activities in courseplanner to "Qualitative IF Course" course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
+            | LC1551316608988                                                   |
             | Glossary                                                          |
             | Automation Test                                                   |
             
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
-            | LC1551301608988                                                   | movedownButton |
-            | Glossary                                                        | moveToEnd      |
-            | Automation Test                                                 | moveUpButton   |
+            | LC1551316608988                                                   | movedownButton |
+            | Glossary                                                          | moveToEnd      |
+            | Automation Test                                                   | moveUpButton   |
 
         Then I verify that resources are reordered in "COURSE PLAN"
             | activities                                                        | orderNumber    |
             | Automation Test                                                   |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
-            | LC1551301608988                                                   |  3             |
+            | LC1551316608988                                                   |  3             |
             | Glossary                                                          |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
-            | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Glossary                                      | Reading           | 'Glossary' was successfully moved to Reading.                              |
-            | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                      |
+            | LC1551316608988                               | Learning Curve    | 'LC1551316608988' was successfully moved to Learning Curve.                         |
+            | Glossary                                      | Reading           | 'Glossary' was successfully moved to Reading.                                       |
+            | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                        |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
-            | LC1551301608988                               | Learning Curve    |
+            | LC1551316608988                               | Learning Curve    |
             | Glossary                                      | Reading           |
             | Automation Test                               | ReadandPractice   |
 

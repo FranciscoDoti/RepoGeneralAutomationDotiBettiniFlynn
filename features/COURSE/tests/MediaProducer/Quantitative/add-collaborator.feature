@@ -6,28 +6,28 @@ Feature: Adding collaborator to the template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
+            | courseType  | productModel | courseName                 | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative | Quantitative MPC Template  | Principles of Microeconomics      | E2E 345      | 9781464199427  | draft         |   
 
-        And I activate the "Quantitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Quantitative Template  |   E2E 301     |  Active On Date      | 
+        And I activate the "Quantitative MPC Template" template and add the following data
+            | courseName                 |  courseCode   |  templateStatus      |
+            | Quantitative MPC Template  |   E2E 345     |  Active On Date      | 
 
 
-        And I add the activities in resources to "Quantitative Template" template
+        And I add the activities in resources to "Quantitative MPC Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve  | LC1551301608988                               |
+            | addButtonLearningcurve  | LC1551345608988                               |
             | addReadingButton        |  Glossary                                     |
 
 
-        And I add "media_editor_1" as collaborator to "Quantitative Template"
+        And I add "media_editor_1" as collaborator to "Quantitative MPC Template"
         And I sign out of Achieve
         And I login to Achieve-CW as "media_editor_1"
 
-        Then I verify that "Quantitative Template" is present and media editor has access to it has collaborator
+        Then I verify that "Quantitative MPC Template" is present and media editor has access to it has collaborator
 
-        And I add the activities in resources to "Quantitative Template" template
+        And I add the activities in resources to "Quantitative MPC Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | BR19.2: Bridge: Income Distribution           |     
             | addButtonLearningcurve   | Active and Passive Voice                      |
@@ -43,7 +43,7 @@ Feature: Adding collaborator to the template
             | activity                                      | folders           |
             | BR19.2: Bridge: Income Distribution           | Assesment         |
             | Active and Passive Voice                      | Learning Curve    |
-            |  Appendix F                          | Reading           |
+            |  Appendix F                                   | Reading           |
 
 
 

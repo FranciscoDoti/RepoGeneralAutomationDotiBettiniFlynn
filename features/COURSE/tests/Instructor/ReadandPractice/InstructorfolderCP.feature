@@ -6,66 +6,66 @@ Feature: Instructor adds folder, remove folder and reorders it
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel      | courseName                     |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice IF Template    |                  | E2E 322      | 9781464199451  | draft         |                      
 
 
-        And I activate the "Read & Practice Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+        And I activate the "Read & Practice IF Template" template and add the following data
+            | courseName                   |  courseCode   |  templateStatus      |
+            | Read & Practice IF Template  |   E2E 322     |  Active On Date      | 
 
-        And I add the activities in resources to "Read & Practice Template" template
+        And I add the activities in resources to "Read & Practice IF Template" template
             | type                      | activity                                      |    
-            | addButtonLearningcurve    | LC1551301608988                               |
+            | addButtonLearningcurve    | LC1551322608988                               |
             | addReadingButton          |  GLOSSARY                                     |
             | addButtonReadandpractice  | Automation Test                               |                         
 
         And I click on home button to return to coursepage
-        And I copy course from the "Read & Practice Template" template with the following data
-            | courseName              | courseCode           |
-            | Read & Practice Course  | E2E 301              |
+        And I copy course from the "Read & Practice IF Template" template with the following data
+            | courseName                 | courseCode           |
+            | Read & Practice IF Course  | E2E 322              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Read & Practice Course" course
+        And I assign "instructor_1" to the "Read & Practice IF Course" course
         
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
-        When I activate "Read & Practice Course" course with following data 
+        When I activate "Read & Practice IF Course" course with following data 
             | field             | value                        |
-            | courseName        | Read & Practice Course       |
-            | courseCode        |  E2E 301                     |
+            | courseName        | Read & Practice IF Course    |
+            | courseCode        |  E2E 322                     |
             | templateStatus    |  Active On Date              |
      
-        And I add the activities in courseplanner to "Read & Practice Course" course
+        And I add the activities in courseplanner to "Read & Practice IF Course" course
             | activity                                                          |                                                        
-            | LC1551301608988                                                   |
+            | LC1551322608988                                                   |
             | GLOSSARY                                                          |
             | Automation Test                                                   |
             
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |                                                    
-            | LC1551301608988                                                   | movedownButton |
+            | LC1551322608988                                                   | movedownButton |
             | GLOSSARY                                                          | moveToEnd      |
             | Automation Test                                                   | moveUpButton   |
 
         Then I verify that resources are reordered in "COURSE PLAN"
             | activities                                                        | orderNumber    |
             | Automation Test                                                   |  1             |                                                       
-            | LC1551301608988                                                   |  2             |
+            | LC1551322608988                                                   |  2             |
             | GLOSSARY                                                          |  3             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |
-            | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
+            | LC1551322608988                               | Learning Curve    | 'LC1551322608988' was successfully moved to Learning Curve.                         |
             | GLOSSARY                                      | Reading           | 'GLOSSARY' was successfully moved to Reading.                                     |
             | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
-            | LC1551301608988                               | Learning Curve    |
+            | LC1551322608988                               | Learning Curve    |
             | GLOSSARY                                      | Reading           |
             | Automation Test                               | ReadandPractice   |
 

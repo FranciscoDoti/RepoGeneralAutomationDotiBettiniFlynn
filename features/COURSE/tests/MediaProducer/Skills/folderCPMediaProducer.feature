@@ -6,15 +6,15 @@ Feature: Adding activities in Folder courseplanner
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+           | courseType  | productModel | courseName           |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills MPF Template  |                  | E2E 367      | 9781464199405  | draft         |                      
 
 
-        And I activate the "Skills Template" template and add the following data
+        And I activate the "Skills MPF Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |
+            | Skills MPF Template       |   E2E 367     |  Active On Date      |
 
-        And I add the activities in resources to "Skills Template" template
+        And I add the activities in resources to "Skills MPF Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |

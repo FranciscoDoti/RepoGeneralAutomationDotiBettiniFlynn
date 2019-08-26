@@ -6,15 +6,15 @@ Feature: Adding activities in Folder courseplanner
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
+            | courseType  | productModel       | courseName                 | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative       | Quantitative MPF Template  | Principles of Microeconomics      | E2E 350      | 9781464199422  | draft         |   
 
-        And I activate the "Quantitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Quantitative Template  |   E2E 301     |  Active On Date      | 
+        And I activate the "Quantitative MPF Template" template and add the following data
+            | courseName                 |  courseCode   |  templateStatus      |
+            | Quantitative MPF Template  |   E2E 350     |  Active On Date      | 
 
 
-        And I add the activities in resources to "Quantitative Template" template
+        And I add the activities in resources to "Quantitative MPF Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |

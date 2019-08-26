@@ -1,28 +1,28 @@
 @Course @Smoke
 Feature: Admin enrolls the student in the course 
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-course 
     Scenario: Verify that admin enrolls student in the course 
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
+            | courseType  | productModel | courseName                   | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative | Quantitative Admin Template  | Principles of Microeconomics      | E2E 303      | 9781464199477  | draft         |   
             
-        And I activate the "Quantitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Quantitative Template  |   E2E 301     |  Active On Date      | 
+        And I activate the "Quantitative Admin Template" template and add the following data
+            | courseName                   |  courseCode   |  templateStatus      |
+            | Quantitative Admin Template  |   E2E 303     |  Active On Date      | 
 
-        And I add the activities in resources to "Quantitative Template" template
+        And I add the activities in resources to "Quantitative Admin Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
             
 
         And I click on home button to return to coursepage
-        And I copy course from the "Quantitative Template" template with the following data
+        And I copy course from the "Quantitative Admin Template" template with the following data
              | courseName           | courseCode          |
-             | Quantitative Course  | E2E 301             |
+             | Quantitative Course  | E2E 303             |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -35,7 +35,7 @@ Feature: Admin enrolls the student in the course
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        |  E2E 301                     |
+            | courseCode        |  E2E 303                     |
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Quantitative Course" course

@@ -5,25 +5,25 @@ Feature: Adding activities in Folder Resource Tab
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative  | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel | courseName                | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative  | Qualitative MPR Template  | macmillan calculus     | E2E 341      | 9781464199430  | draft         |                      
 
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+        And I activate the "Qualitative MPR Template" template and add the following data
+            | courseName                 |  courseCode   |  templateStatus      |
+            | Qualitative MPR Template   |   E2E 341     |  Active On Date      | 
 
-        And I add the activities in resources to "Qualitative Template" template
+        And I add the activities in resources to "Qualitative MPR Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve   | LC1551301608988                               |
+            | addButtonLearningcurve   | LC1551341608988                               |
             | addReadingButton         |  Dedication                                   |
             | addButtonReadandpractice | Automation Test                               |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
-            | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
+            | LC1551341608988                               | Learning Curve    | 'LC1551341608988' was successfully moved to Learning Curve.                         |
             | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                     |
             | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                        |
 
@@ -45,7 +45,7 @@ Feature: Adding activities in Folder Resource Tab
         And I verify the following activities are present in folders
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
-            | LC1551301608988                               | Learning Curve    |
+            | LC1551341608988                               | Learning Curve    |
             | Dedication                                    | Reading           |
             | Automation Test                               | ReadandPractice   |
 

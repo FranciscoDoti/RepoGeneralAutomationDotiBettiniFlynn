@@ -6,11 +6,11 @@ Feature: Create course
 
         Given I login to Achieve-CW as "media_producer_2"
        When I create template with following data 
-            | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel      | courseName                      |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Read & Practice   | Read & Practice MPC Template    |                  | E2E 359      | 9781464199414  | draft         |                      
 
 
-        Then I verify that "Read & Practice Template Created." message is displayed
-        And I verify that "Read & Practice Template" has created with following "ISBN: 9781464199498" number
+        Then I verify that "Read & Practice MPC Template Created." message is displayed
+        And I verify that "Read & Practice MPC Template" has created with following "ISBN: 9781464199414" number
 
     

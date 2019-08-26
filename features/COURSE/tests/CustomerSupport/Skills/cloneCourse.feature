@@ -1,39 +1,39 @@
 @Course @Smoke
-Feature: Customer Support attempts all the activities in Skills Template
+Feature: Customer Support attempts all the activities in Skills CS CCTemplate
 
    @custmersupport-delete-course
     @mediaproducer-delete-course
-    Scenario: Verify that Customer Support is able to create course from Skills Template
+    Scenario: Verify that Customer Support is able to create course from Skills CS CCTemplate
     
         Given I login to Achieve-CW as "media_producer_2"
          When I create template with following data 
-            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel | courseName            |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills CS CCTemplate  |                  | E2E 312      | 9781464199463  | draft         |                      
 
-        And I activate the "Skills Template" template and add the following data
+        And I activate the "Skills CS CCTemplate" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      | 
+            | Skills CS CCTemplate      |   E2E 312     |  Active On Date      | 
 
-        And I add the activities in resources to "Skills Template" template
+        And I add the activities in resources to "Skills CS CCTemplate" template
             | type                     | activity                                      |    
-            | addButtonLearningcurve   | LC1551301608988                               |
+            | addButtonLearningcurve   | LC1551312608988                               |
             | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | Automation Test                               |
 
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
-        And I click on search button and input "Skills Template" to search the course
+        And I click on search button and input "Skills CS CCTemplate" to search the course
                 
-        And I copy course from the "Skills Template" template with the following data
+        And I copy course from the "Skills CS CCTemplate" template with the following data
             | courseName          | courseCode           |
-            | Skills Course       | E2E 301              |
+            | Skills CS CCCourse  | E2E 312              |
 
-        And I click on search button and input "Skills Course" to search the course
+        And I click on search button and input "Skills CS CCCourse" to search the course
         
-        Then I verify that "Skills Course" is created with following data
+        Then I verify that "Skills CS CCCourse" is created with following data
             | field                 | value                     |
-            | courseName            | Skills Course             |
-            | courseDate            |  E2E 301                   |
+            | courseName            | Skills CS CCCourse        |
+            | courseDate            |  E2E 312                  |
            
         

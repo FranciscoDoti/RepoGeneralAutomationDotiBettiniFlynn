@@ -5,27 +5,27 @@ Feature: Student enrolls through course Id and access code
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         | 
+            | courseType  | productModel      | courseName                 | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Qualitative ENCI Template  | macmillan calculus     | E2E 372      | 9781464199296  | draft         | 
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Qualitative Template      |   E2E 301     |  Active On Date      |                      
+        And I activate the "Qualitative ENCI Template" template and add the following data
+            | courseName                     |  courseCode   |  templateStatus      |
+            | Qualitative ENCI Template      |   E2E 372     |  Active On Date      |                      
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+        And I activate the "Qualitative ENCI Template" template and add the following data
+            | courseName                  |  courseCode   |  templateStatus      |
+            | Qualitative ENCI Template   |   E2E 372     |  Active On Date      | 
 
-        And I add the activities in resources to "Qualitative Template" template
+        And I add the activities in resources to "Qualitative ENCI Template" template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve  | LC1551301608988                               |
+            | addButtonLearningcurve  | LC1551372608988                               |
             | addReadingButton        |  Dedication                                   |
 
         And I click on home button to return to coursepage
-        And I copy course from the "Qualitative Template" template with the following data
+        And I copy course from the "Qualitative ENCI Template" template with the following data
             | courseName          | courseCode           |
-            | Qualitative Course  | E2E 301              |
+            | Qualitative Course  | E2E 372              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -34,7 +34,7 @@ Feature: Student enrolls through course Id and access code
 
         When I login to Achieve-CW as "paid_access"
 
-        And I generate "1" month length access code for "Qualitative Template"
+        And I generate "1" month length access code for "Qualitative ENCI Template"
         And I close generate access code
         
         And I sign out of Achieve
@@ -43,15 +43,15 @@ Feature: Student enrolls through course Id and access code
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
             | courseName        | Qualitative Course           |
-            | courseCode        |  E2E 301                     |
+            | courseCode        |  E2E 372                     |
             | templateStatus    |  Active On Date              |
 
-        And I enroll "student_1" in the course using "Qualitative Template"
+        And I enroll "student_1" in the course using "Qualitative ENCI Template"
 
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Qualitative Course        |
-            | courseDate            |  E2E 301                  |
+            | courseDate            |  E2E 372                  |
 
 
 

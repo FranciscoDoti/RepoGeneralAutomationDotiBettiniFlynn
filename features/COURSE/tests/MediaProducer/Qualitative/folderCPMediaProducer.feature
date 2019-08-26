@@ -6,18 +6,18 @@ Feature: Adding activities in Folder COURSE PLAN
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel      | courseName                | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Qualitative MPF Template  | macmillan calculus     | E2E 340      | 9781464199431  | draft         |                      
 
 
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+        And I activate the "Qualitative MPF Template" template and add the following data
+            | courseName                 |  courseCode   |  templateStatus      |
+            | Qualitative MPF Template   |   E2E 340     |  Active On Date      | 
 
-        And I add the activities in resources to "Qualitative Template" template
+        And I add the activities in resources to "Qualitative MPF Template" template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve   | LC1551301608988                               |
+            | addButtonLearningcurve   | LC1551340608988                               |
             | addReadingButton         |  Dedication                                   |
             | addButtonReadandpractice | Automation Test                               |
 
@@ -25,7 +25,7 @@ Feature: Adding activities in Folder COURSE PLAN
         And I add the activities in "COURSE PLAN"
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
+            | LC1551340608988                                                   |
             | Dedication                                                        |
             | Automation Test                                                   |
 
@@ -33,7 +33,7 @@ Feature: Adding activities in Folder COURSE PLAN
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
-            | LC1551301608988                                                   | movedownButton |
+            | LC1551340608988                                                   | movedownButton |
             | Dedication                                                        | moveToEnd      |
             | Automation Test                                                   | moveUpButton   |
 
@@ -41,20 +41,20 @@ Feature: Adding activities in Folder COURSE PLAN
             | activities                                                        | orderNumber    |
             | Automation Test                                                   |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
-            | LC1551301608988                                                   |  3             |
+            | LC1551340608988                                                   |  3             |
             | Dedication                                                        |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
-            | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
+            | LC1551340608988                               | Learning Curve    | 'LC1551340608988' was successfully moved to Learning Curve.                         |
             | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                     |
             | Automation Test                               | ReadandPractice   | 'Automation Test' was successfully moved to ReadandPractice.                        |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
-            | LC1551301608988                               | Learning Curve    |
+            | LC1551340608988                               | Learning Curve    |
             | Dedication                                    | Reading           |
             | Automation Test                               | ReadandPractice   |
 
