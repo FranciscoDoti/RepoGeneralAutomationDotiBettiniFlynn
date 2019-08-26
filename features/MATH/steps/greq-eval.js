@@ -118,7 +118,7 @@ When(/^I input the correct trigonometric expression "(.*)"$/, async function (ex
     else if (basicPalette.includes(triglist[i])) {
       await pages.palette.click('paletteMenu', 'BASIC');
       await pages.palette.click('basic',`${triglist[i]}`);
-      await pages.palette.click('basic','rightArrow');
+      await pages.palette.click('rightArrow');
     }
     // checks for the expression containing trigonometric function and clicks the palette button
     else if (trigPalette.includes(triglist[i])) {
