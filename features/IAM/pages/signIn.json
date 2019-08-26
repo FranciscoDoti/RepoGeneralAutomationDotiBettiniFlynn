@@ -1,0 +1,174 @@
+{
+    "webElements": [
+        {
+            "name": "signinlink",
+            "byType": "css",
+            "definition": "button[data-test-id='sign_in_link_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "username",
+            "byType": "id",
+            "definition": "username",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "password",
+            "byType": "id",
+            "definition": "password",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "signOut",
+            "byType": "css",
+            "definition": "[data-test-id='menu_user_sign_out']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "togglerMenu",
+            "byType": "css",
+            "definition": "[data-test-id='user_dropdown_menu_open']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "submit",
+            "byType": "id",
+            "definition": "submitButton",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "signin",
+            "byType": "id",
+            "definition": "signin",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "username-local",
+            "byType": "id",
+            "definition": "div#username > input",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "password-local",
+            "byType": "id",
+            "definition": "div#password > input",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "submit-local",
+            "byType": "id",
+            "definition": "div#submit > input",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "amslink",
+            "byType": "id",
+            "definition": "body > ul > li:nth-child(1) > a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "User Menu Button",
+            "byType": "xpath",
+            "definition": "//button[@id='user_menu']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "Logout Menu",
+            "byType": "xpath",
+            "definition": "//a[.='logout']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "message",
+            "byType": "xpath",
+            "definition": "//*[@id='RegisterForm']/div[3]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "backBtn",
+            "byType": "xpath",
+            "definition": "/html/body/div[2]/main/div/div/div/div/div/div/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "Footer Link",
+            "byType":"xpath",
+            "definition": "//a[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {            
+            "name": "home",
+            "byType":"xpath",
+            "definition": "//*[@id='ServiceCommunityTemplate']/div[4]/div/div[2]/div/div[1]/section/h1/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "Anti-Piracy Form",
+            "byType":"xpath",
+            "definition": "//html[@class='JFEScope']//form[@id='Page']//span['Anti-Piracy Form']",  
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "instructorStore",
+            "byType":"xpath",
+            "definition": "//*[@id='single-search']/div/div[1]/div/div/h1",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "?",
+            "byType":"css",
+            "definition": "[class='help_outlineIcon']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "tool tip content",
+            "byType":"xpath",    
+            "definition": "//*[@id='RegisterForm']/div[1]/div[1]/span[2]/div/span",
+            "frame": "default",
+            "specialInstr": "NA" 
+        }, {
+            "name": "i",
+            "byType":"css",    
+            "definition": "div[tabindex]",
+            "frame": "default",
+            "specialInstr": "NA" 
+        }, {
+            "name": "content tip tool",
+            "byType":"xpath",    
+            "definition": "//*[@id='RegisterForm']/div[2]/div[1]/span[1]/label/div/span",
+            "frame": "default",
+            "specialInstr": "NA"  
+        }, {
+            "name": "id",
+            "byType":"xpath",    
+            "definition": "//*[@id='password']",
+            "frame": "default",
+            "specialInstr": "NA"  
+        }, {
+            "name": "menuUserName",
+            "byType": "css",
+            "definition": "[data-test-id='menu_user_name']",
+            "frame": "default",
+            "specialInstr": "NA"   
+        }, {
+            "name": "Page Title",
+            "byType": "xpath",
+            "definition": "//h1[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"  
+        }, {
+            "name": "embedded",
+            "byType": "xpath",
+            "definition": "//*[@id='microsite-page']/div/div/div/embed",
+            "frame": "default",
+            "specialInstr": "NA" 
+        }, {
+            "name": "reset",
+            "byType": "xpath",
+            "definition": "//*[@id='yiv7721424069']/div/table/tbody/tr/td/center/table[2]/tbody/tr[1]/td/p[2]/a",
+            "frame": "default",
+            "specialInstr": "NA"
+                
+        }
+    ]
+}

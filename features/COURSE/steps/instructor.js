@@ -1,7 +1,5 @@
-const { Given, When, Then } = require('cucumber');
+const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const _ = require('lodash');
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
@@ -97,11 +95,11 @@ When(/^Instructor copy course from the "(.*)" template with the following data$/
    
   
 
-Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userName){
-  let payload = await _.get(users, [this.environment, userName]);
+Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userType){
+  let user = this.users[userType];
   await pages.home.click('signInLocal');
-  await pages.home.populate('username', payload.username);
-  await pages.home.populate('password', payload.password);
+  await pages.home.populate('username', user.username);
+  await pages.home.populate('password', user.password);
   await pages.home.click('signIn');
   await pages.courseList.assertElementExists('courseName', courseName);
 
