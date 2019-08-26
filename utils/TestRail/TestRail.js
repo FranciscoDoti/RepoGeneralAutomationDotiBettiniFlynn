@@ -188,8 +188,96 @@ let resultContent = {
   ]
 }
 
+const uploadResults = async function(){
+  let results, resultFilePath = `${process.cwd()}/reports/cucumber_report.json`;
+  try {
+    results = await JSON.parse(fs.readFileSync(resultFilePath));
+  } catch (ex) {
+    console.log(`Error while parsing results JSON. Error - ${ex.message}. Cannot upload results to TestRail.`);
+  }
+
+  if(results != undefined){
+    dt = new Date()
+    let runName = "Results for UI - Automation on " + (dt.getMonth()+1) + '-' + dt.getDate()+ '-' + dt.getFullYear() + ", " + dt.toISOString().match(/(\d{2}:){2}\d{2}/)[0];
+    for (let i = 0; i < results.length; i++) {
+      let feature = results[i];
+      let projectId = (await getProjectByName(feature.uri.split('/')[1])).id;
+      let suiteId = (await getSuiteByName(projectId, "UI - Automation")).id;
+      let sectionId = (await getSectionByName(projectId, suiteId, feature.name)).id;
+      for (let j = 0; j < feature.elements.length; j++) {
+        let scenario = feature.elements[j];
+        //add result def
+        let resultContent = {
+          "status_id": 12,
+          "comment": "This test has not been tested",
+          "elapsed": "15s",
+          "defects": "TR-7",
+          "version": "1.0 RC1 build 3724",
+          "custom_step_results": []
+        }
+        let steps = resultContent["custom_step_results"];
+        for (let k = 0; k < scenario.steps.length; k++) {
+          let stepDef = scenario.steps[k];
+          let statusId = 0;
+          
+          if (stepDef.keyword != 'After' && stepDef.keyword != 'Before') {
+            
+            stepResult = stepDef.result.status;
+            if(stepResult === 'passed'){
+              stepResult = 1
+            }
+            else if(stepResult === 'failed'){
+              stepResult = 5
+              statusId += 1
+            }
+            else if(stepResult === 'skipped' || stepResult === 'undefined'){//skipped = Unable To Test
+              stepResult = 12
+              statusId += 1
+            }
+            if(statusId > 0){
+              resultContent.status_id = 5
+              resultContent.comment = 'This test failed.'
+            }
+            if(statusId === 0){
+              resultContent.status_id = 1
+              resultContent.comment = 'This test passed.'
+            }
+            let step = {};
+            step["content"] = stepDef.keyword + stepDef.name.replace(/"/g,'');
+            step["expected"] = "Expected Result to be updated.";
+            step["actual"] = "actual result";
+            step["status_id"] = stepResult;
+
+            let duration = stepDef.result.duration;
+            if(isNaN(duration)){
+              resultContent.elapsed = '15s';
+            }else{
+              resultContent.elapsed = await getTimespan(duration);
+            }
+            
+            steps[k] = step;
+          } 
+        }
+        let Case = await getCaseByName(projectId, suiteId, sectionId, feature.elements[j].name);
+        //console.log(Case)    
+        await addTestRun(projectId, suiteId, runName);
+        let run = await getTestRunByName(projectId, runName);
+        //log.debug(`Have recieved run id: ${run.id}`);
+        let test = await getTestByName(run.id, Case.title);
+        //console.log(resultContent)
+        //log.debug(`Have recieved test id: ${test.id}`);
+        await addResult(test.id, resultContent);
+        //log.debug(`Have added results to ${case.title} in ${runName}`);
+        //let result = await getLogForRun(run.id, Case.id);
+        //log.debug(`Have recieved result id: ${result.id}`)
+      }
+    }
+  }
+}
+
 let planContent = {
   "name": "Plan"
 }
 
-uploadCases();
+//uploadCases();
+//uploadResults();
