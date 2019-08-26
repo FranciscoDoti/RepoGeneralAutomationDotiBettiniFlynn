@@ -137,50 +137,35 @@ Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async fun
   await pages.mathModule.assertElementExists('gradeAsExpression');
 });
 
-Then(/^I verify one or more corresponding checkbox\(es\): "(.*)"$/, async function (objects) {
+Then(/^I verify "(.*)" checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab$/, async function (present, objects, contextType) {
+  await pages.raptorAms.click('contextTab', contextType);
+
   const elementList = objects.split(', ');
-
-  // try-catch is a temporary solution until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
-  for (i = 0; i < elementList.length; i++) {
-    try {
-      await pages.mathModule.assertElementExists(elementList[i])
-    } catch (e) { }
-    try {
-      await pages.raptorAms.assertElementExists(elementList[i])
-    } catch (e) { }
-  }
-});
-
-Then(/^I click on the Correct tab, verify one or more corresponding checkbox\(es\) and radio button\(s\): "(.*)"$/, async function (objects) {
-  await pages.raptorAms.click('contextTab', 'correct');
-
-  // try-catch is a temporary solution until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
-  const elementList = objects.split(', ');
-  for (i = 0; i < elementList.length; i++) {
-    try {
-      await pages.mathModule.assertElementExists(elementList[i])
-    } catch (e) { }
-    try {
-      await pages.raptorAms.assertElementExists(elementList[i])
-    } catch (e) { }
+  for (let i = 0; i < elementList.length; i++) {
+    const element = elementList[i]
+    // temporary solution: if element check; until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
+    switch (present) {
+      case 'one or more':
+        if (element === 'mathNumericTolerance' || element === 'mathPolarCoordinate') {
+          await pages.raptorAms.assertElementExists(elementList[i])
+        } else {
+          await pages.mathModule.assertElementExists(elementList[i])
+        }
+        break;
+      case 'there are no':
+        if (element === 'mathNumericTolerance' || element === 'mathPolarCoordinate') {
+          await pages.raptorAms.assertElementDoesNotExist(elementList[i])
+        } else {
+          await pages.mathModule.assertElementDoesNotExist(elementList[i])
+        }
+        break;
+      default:
+        await pages.raptorAms.assertElementExists('mathGradeAs');
+    }
   }
 });
 
 When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async function (gradeAsEval) {
   await pages.raptorAms.click('contextTab', 'question');
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
-});
-
-Then(/^I verify there are no checkbox\(es\) or radio button\(s\): "(.*)"$/, async function (objects) {
-
-  // try-catch is a temporary solution until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
-  const elementList = objects.split(', ');
-  for (i = 0; i < elementList.length; i++) {
-    try {
-      await pages.mathModule.assertElementDoesNotExist(elementList[i])
-    } catch (e) { }
-    try {
-      await pages.raptorAms.assertElementDoesNotExist(elementList[i])
-    } catch (e) { }
-  }
 });
