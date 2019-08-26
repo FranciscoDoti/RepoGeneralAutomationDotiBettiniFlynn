@@ -49,8 +49,8 @@ const buildDriver = function() {
         }
       }
       var safariCapabilities = webdriver.Capabilities.safari();
-      safariCapabilities.set('safariOptions', safariOptions)
-      driver.withCapabilities(safariCapabilities)
+      safariCapabilities.set('safariOptions', safariOptions);
+      driver.withCapabilities(safariCapabilities);
       break;
     case 'ie':
       log.info('IE not implement yet.');
@@ -96,7 +96,12 @@ const visitURL = async function(url){
   await driver.manage().window().maximize();
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
-  return driver.get(url);
+  await driver.get(url);
+  await driver.wait(async function () {
+    await sleep(2000);
+    let response = await driver.executeScript("return document.readyState");
+    return (response == 'complete');
+  }, 120000);
 };
 
 const closeBrowser = async function(){

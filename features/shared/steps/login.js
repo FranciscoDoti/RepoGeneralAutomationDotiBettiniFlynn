@@ -3,14 +3,12 @@ const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const { visitURL } = require(`${process.cwd()}/app/driver`);
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 /* Verifies Sapling login */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['AMS', this.environment]);
-  let user = await _.get(users, [this.environment, userType]);
-
+  let user = this.users[userType];
   await visitURL(url);
   if (this.environment == 'local') {
     await pages.login.populate('username-local', user.username);
@@ -28,7 +26,7 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
 
 Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['AMS', this.environment]);
-  let user = await _.get(users, [this.environment, userType]);
+  let user = this.users[userType];
 
   await visitURL(url);
   if (this.environment == 'local') {
@@ -50,8 +48,7 @@ When(/^I go back to sapling page and logout$/, async function () {
 
 Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['Achieve-CW', this.environment]);
-  let user = await _.get(users, [this.environment, userType]);
-
+  let user = this.users[userType];
   await visitURL(url);
   await pages.login.click('signinlink');
   await pages.login.populate('username', user.username);
@@ -74,7 +71,7 @@ Given(/^navigate to a course having course id "(.*)"$/, async function (courseid
 
 Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['IBISCMS', this.environment]);
-  let user = await _.get(users, [this.environment, userType]);
+  let user = this.users[userType];
 
   await visitURL(url);
   if (this.environment == 'local') {

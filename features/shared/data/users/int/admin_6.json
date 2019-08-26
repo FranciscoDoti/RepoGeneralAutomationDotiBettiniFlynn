@@ -1,0 +1,14 @@
+{
+  "email": "coursewareachieve@gmail.com",
+  "password": "ABCabc@123",
+  "confirm_password": "ABCabc@123",
+  "first_name": "Addy",
+  "last_name": "min",
+  "Security_Question_1": "What high school did you attend?",
+  "Security_Question_1_Answer": "answer",
+  "Security_Question_2": "What is your favorite movie?",
+  "Security_Question_2_Answer": "answer",
+  "Security_Question_3": "What is your favorite color?",
+  "Security_Question_3_Answer": "answer",
+  "institution": "Miami University"
+}
