@@ -9,13 +9,12 @@ Feature: Polar Coordinates for Point eval type
 
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
-        And I set the grade as "Point" type
-        And I input author question "(4, \pi/3)"
-        And I select Polar Coordinate checkbox
-        And I set Item Details name as "PointPolarCoord"
-        Then I save the question
+        And I set the grade as "Expression" type
+        And I input author question "\sinh(x + y)"
+        And I set Item Details name as "TrigExpression2"
+        # Then I save the question
 
         When I simulate student interface
-        And I input the correct "(−4,4π/3)"
+        And I input the correct trigonometric expression "sinh, x, cosh, y, +, cosh, x, sinh, y"
         And I submit answer
         Then the answer is graded correctly
