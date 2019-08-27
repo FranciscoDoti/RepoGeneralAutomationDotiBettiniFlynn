@@ -149,14 +149,14 @@ Then(/^I verify "(.*)" checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab
         if (element === 'mathNumericTolerance' || element === 'mathPolarCoordinate') {
           await pages.raptorAms.assertElementExists(element)
         } else {
-          await pages.mathModule.assertElementExists(elementList[i])
+          await pages.mathModule.assertElementExists(element)
         }
         break;
       case 'there are no':
         if (element === 'mathNumericTolerance' || element === 'mathPolarCoordinate') {
           await pages.raptorAms.assertElementDoesNotExist(element)
         } else {
-          await pages.mathModule.assertElementDoesNotExist(elementList[i])
+          await pages.mathModule.assertElementDoesNotExist(element)
         }
         break;
       default:
