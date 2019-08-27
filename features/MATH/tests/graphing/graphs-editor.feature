@@ -1,5 +1,4 @@
-@math @graph
-@graph-editor
+@math @graph @graph-editor
 Feature:  New graph editor
 
     Background: Login with graphing permission and navigate to Graph tab
