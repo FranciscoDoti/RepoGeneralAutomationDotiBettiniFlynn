@@ -108,7 +108,7 @@ When(/^I input the correct trigonometric expression "(.*)"$/, async function (ex
 
   await pages.raptorAms.click('checkYourWorkAnswerText1');
 
-  for (i = 0; i < triglist.length; i++) {
+  for (let i = 0; i < triglist.length; i++) {
     if (nonPalette.includes(triglist[i])) {
       // if the trigonometric expression contains a nonPalette character, insert the value directly into input box
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
