@@ -30,7 +30,7 @@ let mailOptions = {
     subject: `Cucumber pipeline test result - ${config.result}`, // Subject line
     text: `Please find cucumber report from Jenkins pipeline execution for ${config.branch} branch in ${config.environment} environment attached.`, // plaintext body
     attachments: [{
-        path: reportPath
+        path: config.reportPath
     }],
     auth: {
         user: config.username,
