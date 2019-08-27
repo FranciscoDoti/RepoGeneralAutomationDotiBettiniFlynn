@@ -3,12 +3,12 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const csvtojson = require('csvtojson');
 
-When(/^I enroll the "(.*)" in "(.*)" course with "(.*)" course courseCode$/, async function (userType, courseName, courseCode) {
+When(/^I enroll the "(.*)" in "(.*)" course with "(.*)"$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await pages.createCourse.assertElementExists('courseTitle', courseCode+' '+courseName )
+  await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
   await pages.home.scrollElementIntoView('togglerMenu');
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
