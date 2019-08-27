@@ -34,11 +34,11 @@ Then(/^I verify that "(.*)" details$/, async function (userType, data_table){
   }
 })
 
-When(/^I generate access code for "(.*)"$/, async function (courseName){
+When(/^I generate access code for "(.*)" with "(.*)" course code $/, async function (courseName,courseCode){
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseName', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
+  await pages.createCourse.assertElementExists('courseTitle', courseCode+' '+ courseName )
   await pages.home.click('togglerMenu');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('checkAccount');

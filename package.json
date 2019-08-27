@@ -58,7 +58,13 @@
     "selenium-webdriver": "latest",
     "winston": "latest",
     "testrail-api": "latest",
+<<<<<<< HEAD
     "imap-simple": "latest"
+=======
+    "imap-simple": "latest",
+    "nodemailer": "latest",
+    "xoauth2": "latest"
+>>>>>>> de45e125dd5cedadac15d4e26f07e252ad5a931b
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",

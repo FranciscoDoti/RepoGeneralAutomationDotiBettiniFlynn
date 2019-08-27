@@ -4,11 +4,11 @@ const expect = require('chai').expect;
 const csvtojson = require('csvtojson');
 
 
-When(/^I generate "(.*)" month length access code for "(.*)"$/, async function (number, courseName) {
+When(/^I generate "(.*)" month length access code for "(.*)" with "(.*)" course code$/, async function (number, courseName, courseCode) {
     await pages.courseList.populate('search', courseName);
     await pages.courseList.assertElementExists('courseName', courseName);
     await pages.createCourse.click('courseCard', courseName);
-    await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
+    await pages.createCourse.assertElementExists('courseTitle', coursecode+' '+courseName )
     await pages.home.click('togglerMenu');
     await pages.adminMenu.click('admin');
     await pages.adminMenu.click('checkAccount');
