@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
-const { getDriver } = require(`${process.cwd()}/app/driver`);
+const { getDriver, visitURL } = require(`${process.cwd()}/app/driver`);
 chai.use(require('chai-sorted'));
 
 const visitInvalidURL = async function(url){
@@ -337,8 +337,7 @@ When(/^I input non-existing graphid in the graph editor url$/, async function ()
   let currentUrl = await pages.graphEditor.getCurrentURL();
   let urlNonExistGraphId = currentUrl + 101;
 
-  await visitInvalidURL(urlNonExistGraphId);
-  await pages.graphEditor.click('saveButton');
+  await visitURL(urlNonExistGraphId);
 });
 
 
