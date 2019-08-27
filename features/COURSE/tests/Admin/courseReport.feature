@@ -1,6 +1,6 @@
 Feature: Administrator Tools 
 
-    @Smoke @Skip
+    @Smoke @Skip @localonly
     Scenario: Verify that Admin is able to download course report
 
         Given I login to Achieve-CW as "admin_1"
