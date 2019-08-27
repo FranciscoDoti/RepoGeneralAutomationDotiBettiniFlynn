@@ -4,9 +4,8 @@ const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
 const { visitURL } = require(`${process.cwd()}/app/driver`);
-chai.use(require('chai-sorted'));
 const { Key } = require('selenium-webdriver');
-
+chai.use(require('chai-sorted'));
 
 When(/^I click on the Graphs tab$/, async function () {
   await pages.graphTab.click('tab');
@@ -327,15 +326,13 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
   await pages.graphEditor.acceptAlert();
 });
 
-
 When(/^I input non-existing graphid in the graph editor url$/, async function () {
   await pages.graphEditor.switchToTab('Graphing');
 
   let currentUrl = await pages.graphEditor.getCurrentURL();
   let urlNonExistGraphId = currentUrl + 101;
 
-  await visitURL(urlNonExistGraphId, Key.ENTER);
-  await pages.graphEditor.click('saveButton');
+  await visitURL(urlNonExistGraphId,Key.ENTER);
 });
 
 
