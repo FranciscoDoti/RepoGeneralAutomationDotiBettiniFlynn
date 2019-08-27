@@ -98,8 +98,8 @@ const visitURL = async function(url){
   await driver.setFileDetector(new remote.FileDetector());
   await driver.get(url);
   await driver.wait(async function () {
-    await sleep(2000);
     let response = await driver.executeScript("return document.readyState");
+    await sleep(2000);
     return (response == 'complete');
   }, 120000);
 };
