@@ -26,11 +26,6 @@ let user = this.users[userType];
         await pages.signIn.populate('username', user.username);
         await pages.signIn.populate('password', user.password);
         await pages.signIn.click('signin');
-});
-
-When('I sign out of Achieve', async function () {
-    await pages.login.click('togglerMenu');
-    await pages.login.click('signOut');
 }); 
 
 Then(/^I verify the user login$/, async function (data_table) {

@@ -5,7 +5,7 @@
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
     "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests -f json:reports/cucumber_report.json",
     "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json",
-    "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3642.feature -f json:reports/cucumber_report.json",
+    "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/courseReport.feature -f json:reports/cucumber_report.json",
     "folder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Quantitative/InstructorfolderCP.feature -f json:reports/cucumber_report.json",
     "mp": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3689-mediaProducer.feature -f json:reports/cucumber_report.json",
     "instructorFolder": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/URL.feature -f json:reports/cucumber_report.json",
