@@ -30,19 +30,19 @@ Feature: Adding collaborator to the template
             | type                     | activity                                      |
             | addButtonAssessment      | BR19.2: Bridge: Income Distribution           |     
             | addButtonLearningcurve   | Active and Passive Voice                      |
-            | addReadingButton         |  Appendix F                          |
+    
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | BR19.2: Bridge: Income Distribution           | Assesment         | 'BR19.2: Bridge: Income Distribution' was successfully moved to Assesment.          |
             | Active and Passive Voice                      | Learning Curve    | 'Active and Passive Voice' was successfully moved to Learning Curve.                |
-            |  Appendix F                                   | Reading           | ' Appendix F' was successfully moved to Reading.                                    |
+    
            
         Then I verify the following activities are present in folders
             | activity                                      | folders           |
             | BR19.2: Bridge: Income Distribution           | Assesment         |
             | Active and Passive Voice                      | Learning Curve    |
-            |  Appendix F                                   | Reading           |
+          
 
 
 

@@ -12,10 +12,10 @@
     "ebook": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3690.feature -f json:reports/cucumber_report.json",
     "AC": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/add-collaborator.feature -f json:reports/cucumber_report.json",
     "Media": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/mediaeditor-update-template.feature -f json:reports/cucumber_report.json",
-    "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/manageRoles.feature -f json:reports/cucumber_report.json",
+    "VA": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json",
     "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE -f json:reports/cucumber_report.json",
     "copy": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/common -f json:reports/cucumber_report.json",
-    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/Qualitative/AdminEnrollsStudent.feature",
+    "Adminenrolls": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport/Qualitative/CustomerSupportEnrollsStudent.feature",
     "CC-Q": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/URL.feature -f json:reports/cucumber_report.json",
     "user": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Student/activities.feature -f json:reports/cucumber_report.json --environment int",
     "3691-customersupport": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/PSV-3691-customerSupport.feature -f json:reports/cucumber_report.json --environment int",
@@ -58,13 +58,9 @@
     "selenium-webdriver": "latest",
     "winston": "latest",
     "testrail-api": "latest",
-<<<<<<< HEAD
-    "imap-simple": "latest"
-=======
     "imap-simple": "latest",
     "nodemailer": "latest",
     "xoauth2": "latest"
->>>>>>> de45e125dd5cedadac15d4e26f07e252ad5a931b
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",

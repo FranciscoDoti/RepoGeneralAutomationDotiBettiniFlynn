@@ -25,7 +25,7 @@ Feature: Admin enrolls the student in the course
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Qualitative Course"
+        And I assign "instructor_1" to the "Qualitative Course" course
         
         And I sign out of Achieve
         Given I login to Achieve-CW as "instructor_1"

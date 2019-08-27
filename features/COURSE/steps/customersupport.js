@@ -41,6 +41,7 @@ When(/^I generate access code for "(.*)"$/, async function (courseName){
   await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+ courseName )
   await pages.home.click('togglerMenu');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
   await pages.adminMenu.click('checkAccount');
   await pages.adminMenu.click('createAccesscode');
 })
