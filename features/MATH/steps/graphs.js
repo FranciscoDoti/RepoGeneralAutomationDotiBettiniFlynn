@@ -3,13 +3,9 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
-const { getDriver, visitURL } = require(`${process.cwd()}/app/driver`);
+const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { Key } = require('selenium-webdriver');
 chai.use(require('chai-sorted'));
-
-const visitInvalidURL = async function(url){
-  await getDriver().manage().window().maximize();
-  return getDriver().get(url);
-};
 
 When(/^I click on the Graphs tab$/, async function () {
   await pages.graphTab.click('tab');
@@ -330,14 +326,13 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
   await pages.graphEditor.acceptAlert();
 });
 
-
 When(/^I input non-existing graphid in the graph editor url$/, async function () {
   await pages.graphEditor.switchToTab('Graphing');
 
   let currentUrl = await pages.graphEditor.getCurrentURL();
   let urlNonExistGraphId = currentUrl + 101;
 
-  await visitURL(urlNonExistGraphId);
+  await visitURL(urlNonExistGraphId,Key.ENTER);
 });
 
 

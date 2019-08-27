@@ -97,11 +97,8 @@ const visitURL = async function(url){
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
   await driver.get(url);
-  console.log("before");
   await driver.wait(async function () {
     await sleep(2000);
-    console.log("after");
-
     let response = await driver.executeScript("return document.readyState");
     return (response == 'complete');
   }, 120000);
