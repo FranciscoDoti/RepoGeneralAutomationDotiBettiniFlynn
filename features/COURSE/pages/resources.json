@@ -132,15 +132,13 @@
             "definition": "//a[.='<ReplaceText>']/../../..//button[@data-test-id='three_button_popup']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "threeButtonResources",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']/../../..//button[@data-test-id='three_button_popup']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "threeButtonValidation",
             "byType": "xpath",
             "definition": "//button[@data-test-id='three_button_popup']",
@@ -188,9 +186,7 @@
             "definition": "//button[@class='IwDV']/..//span[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-
-        },
-        {
+        }, {
             "name": "moveToTop",
             "byType": "css",
             "definition": "[data-test-id='move_to_top_button']",
@@ -239,8 +235,7 @@
             "frame": "default",
             "specialInstr": "NA"
 
-        },
-        {
+        }, {
             "name": "urlLink",
             "byType": "css",
             "definition": "[data-test-id='url_link_tab']",
@@ -274,8 +269,7 @@
             "definition": "[data-test-id='move_to_end_button']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        }, {
             "name": "writingPrompt",
             "byType": "css",
             "definition": "[data-test-id='writing_prompt_button']",

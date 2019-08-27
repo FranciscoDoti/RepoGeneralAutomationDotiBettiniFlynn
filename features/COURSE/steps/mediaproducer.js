@@ -1,7 +1,5 @@
 const { Given, When,Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const _ = require('lodash');
 
 When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async function (number, code, data_table) {
   this.data.set('code', code);
@@ -236,13 +234,13 @@ When('I delete the resources from the Template in ebook', async function (data_t
   }
 })
 
-When(/I add "(.*)" as collaborator to "(.*)"$/, async function (user, courseName) {
-  let payload = await _.get(users, [this.environment, user]);
+When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, courseName) {
+  let user = this.users[userType];
   await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
   await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
-  await pages.createCourse.populate('collaboratorsEmail', payload.username);
+  await pages.createCourse.populate('collaboratorsEmail', user.username);
   await pages.createCourse.click('addCollaborators');
   await pages.createCourse.click('closeCollaboratorModal');
 });
