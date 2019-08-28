@@ -147,4 +147,8 @@ for (let i = 0; i < data_table.rows().length; i++) {
 await pages.copyCourse.click('save');
 });
 
+When(/^I click on "(.*)"$/, async function (courseName){
+  await pages.createCourse.click('courseCard', courseName);
+})
+
 

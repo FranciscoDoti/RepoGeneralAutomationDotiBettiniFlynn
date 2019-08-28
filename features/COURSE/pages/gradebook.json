@@ -9,14 +9,14 @@
         {
             "name": "studentAssignmentpoints",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>)']/../../../../../../../td[@data-test-id='student_gradebook_assignment_points_cell']",
+            "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_assignment_points_cell']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "studentPercenOfTotalGrades",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>)']/../../../../../../../td[@data-test-id='student_gradebook_total_grades_cell']",
+            "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_total_grades_cell']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
