@@ -10,16 +10,16 @@ Then('there should be a {string} that includes the text {string} on the {string}
   await pages[page].assertTextIncludes(locator, text);
 });
 
-When('I click on the {string} on the {string} page', async function (locator, page){
+When('I click on the {string} on the {string} page', async function (locator, page) {
   await pages[page].assertElementExists(locator);
   await pages[page].click(locator);
 });
 
-When('I click on the {string} with the text {string} on the {string} page', async function (locator, text, page){
+When('I click on the {string} with the text {string} on the {string} page', async function (locator, text, page) {
   await pages[page].assertElementExists(locator, text);
   await pages[page].click(locator, text);
 });
 
-When('I sleep', async function (){
-  await driver.getDriver().sleep(1000);
+When('I refresh the page', async function () {
+  await driver.getDriver().navigate().refresh();
 });

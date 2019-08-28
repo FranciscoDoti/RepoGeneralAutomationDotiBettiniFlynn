@@ -12,6 +12,12 @@
         "frame": 0,
         "specialInstr": "NA"
     }, {
+        "name": "Student Final Test Report",
+        "byType": "css",
+        "definition": "[class*='student-diploma-report-view__resultSummaryContainer']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
         "name": "Return to Assignment List Button",
         "byType": "id",
         "definition": "student-pretest-report-return-to-lms-button",
@@ -21,6 +27,12 @@
         "name": "Review Practice Test Link",
         "byType": "id",
         "definition": "student-see-what-you-got-wrong-button",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Student Tested Out Message",
+        "byType": "id",
+        "definition": "StudentTestedOutAvailabilityMessage",
         "frame": 0,
         "specialInstr": "NA"
     }]

@@ -17,7 +17,6 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await driver.getDriver().sleep(500);
   await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
-  await driver.getDriver().sleep(500);
   await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', user.username);
