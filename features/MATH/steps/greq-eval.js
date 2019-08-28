@@ -25,7 +25,7 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
 });
 
 When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
-  await ngaPages.raptor.click('Tab', 'correct');
+  await pages.raptorAms.click('contextTab', 'correct');
   await pages.raptorAms.populate('mathGradeAs', eval);
   await pages.raptorAms.click('mathGradeAs');
   await pages.raptorAms.populate('mathEquationField', eqn);
@@ -106,7 +106,7 @@ Then(/^My answer is graded correctly$/, async function () {
 // The following steps are similar to greq-eval.feature but are broken down into simpler steps 
 // Down the road aim to refactor the greq-eval.feature into separate scenarios for each eval and keep js step functions simpler
 When(/^I set the grade as "(.*)" type$/, async function (gradeAsEval) {
-  await ngaPages.raptor.click('Tab', 'correct');
+  await pages.raptorAms.click('contextTab', 'correct');
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
   await pages.raptorAms.click('mathGradeAs');
 });
@@ -123,7 +123,6 @@ When(/^I navigate to AuthorApp clicking on Raptor item on AMS page$/, async func
   await pages.ams.click('raptorNewItem');
   await pages.raptorAms.switchToTab('Raptor Authoring');
   await pages.raptorAms.assertElementExists('menuBarAdd');
-
 });
 
 When(/^I select Math Equation module, click on Question tab$/, async function () {
@@ -138,8 +137,35 @@ Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async fun
   await pages.mathModule.assertElementExists('gradeAsExpression');
 });
 
-Then(/^I verify corresponding check boxes are displayed for Expression evaltype question$/, async function () {
-  await pages.raptorAms.assertElementExists('mathGradeAs');
-  await pages.mathModule.assertElementExists('isList');
-  await pages.mathModule.assertElementExists('gradeToConstant');
+Then(/^I verify "(.*)" checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab$/, async function (present, objects, contextType) {
+  await pages.raptorAms.click('contextTab', contextType);
+
+  const elementList = objects.split(', ');
+  for (let i = 0; i < elementList.length; i++) {
+    const element = elementList[i]
+    // temporary solution: if element check; until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
+    switch (present) {
+      case 'one or more':
+        if (element === 'mathNumericTolerance' || element === 'mathPolarCoordinate') {
+          await pages.raptorAms.assertElementExists(element)
+        } else {
+          await pages.mathModule.assertElementExists(element)
+        }
+        break;
+      case 'there are no':
+        if (element === 'mathNumericTolerance' || element === 'mathPolarCoordinate') {
+          await pages.raptorAms.assertElementDoesNotExist(element)
+        } else {
+          await pages.mathModule.assertElementDoesNotExist(element)
+        }
+        break;
+      default:
+        await pages.raptorAms.assertElementExists('mathGradeAs');
+    }
+  }
+});
+
+When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async function (gradeAsEval) {
+  await pages.raptorAms.click('contextTab', 'question');
+  await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
 });
