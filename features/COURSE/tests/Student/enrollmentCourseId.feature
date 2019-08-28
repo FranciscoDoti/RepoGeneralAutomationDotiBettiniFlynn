@@ -1,3 +1,5 @@
+
+@Smoke @localonly
 Feature: Student enrolls through course Id and access code
 
     @mediaproducer-delete-course
