@@ -109,22 +109,24 @@ When(/^I input the correct trigonometric expression "(.*)"$/, async function (ex
   await pages.raptorAms.click('checkYourWorkAnswerText1');
 
   for (let i = 0; i < triglist.length; i++) {
-    if (nonPalette.includes(triglist[i])) {
+    const item = triglist[i];
+
+    if (nonPalette.includes(item)) {
       // if the trigonometric expression contains a nonPalette character, insert the value directly into input box
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
-      await pages.raptorAms.populate('checkYourWorkAnswerText2', triglist[i]);
+      await pages.raptorAms.populate('checkYourWorkAnswerText2', item);
     }
     // checks for the expression containing basic palette variables and clicks the palette button 
-    else if (basicPalette.includes(triglist[i])) {
+    else if (basicPalette.includes(item)) {
       await pages.palette.click('paletteMenu', 'BASIC');
-      await pages.palette.click('basic',`${triglist[i]}`);
+      await pages.palette.click('basic',`${item}`);
       await pages.palette.click('rightArrow');
     }
     // checks for the expression containing trigonometric function and clicks the palette button
-    else if (trigPalette.includes(triglist[i])) {
+    else if (trigPalette.includes(item)) {
       await pages.palette.click('paletteHeader');
       await pages.palette.click('paletteMenu', 'TRIGONOMETRIC');
-      await pages.palette.click('trigHyperbolic', `${triglist[i]}`);
+      await pages.palette.click('trigHyperbolic', `${item}`);
     }
   }
 });
