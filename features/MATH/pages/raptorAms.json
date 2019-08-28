@@ -148,6 +148,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "contextTab",
+            "byType": "css",
+            "definition": "a[data-test-id = '<ReplaceText>-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "answerLabel",
             "byType": "css",
             "definition": "span[aria-label ='Answer =']",

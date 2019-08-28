@@ -2,7 +2,7 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests/graphing/graphs-editor.feature -f json:reports/cucumber_report.json",
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests -f json:reports/cucumber_report.json --tags @wip",
     "math": "node ./node_modules/cucumber/bin/cucumber-js features/MATH/tests -f json:reports/cucumber_report.json",
     "s": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/MediaProducer/Qualitative/createCourse.feature -f json:reports/cucumber_report.json",
     "PSV-3642": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/courseReport.feature -f json:reports/cucumber_report.json",
@@ -59,8 +59,7 @@
     "winston": "latest",
     "testrail-api": "latest",
     "imap-simple": "latest",
-    "nodemailer": "latest",
-    "xoauth2": "latest"
+    "nodemailer": "latest"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
