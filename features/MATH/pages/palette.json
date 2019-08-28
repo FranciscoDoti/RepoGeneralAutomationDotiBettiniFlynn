@@ -1,95 +1,11 @@
 {
-    "webElements": [{
-        "name": "=",
+    "webElements": [ {
+        "name": "basic",
         "byType": "css",
-        "definition": "button[data-test-id='=']",
+        "definition": "button[data-test-id='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "x",
-        "byType": "css",
-        "definition": "button[data-test-id='x']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "y",
-        "byType": "css",
-        "definition": "button[data-test-id='y']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "z",
-        "byType": "css",
-        "definition": "button[data-test-id='z']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "t",
-        "byType": "css",
-        "definition": "button[data-test-id='t']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "π",
-        "byType": "css",
-        "definition": "button[data-test-id='π']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "∞",
-        "byType": "css",
-        "definition": "button[data-test-id='∞']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "θ",
-        "byType": "css",
-        "definition": "button[data-test-id='θ']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "e",
-        "byType": "css",
-        "definition": "button[data-test-id='e']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "(",
-        "byType": "css",
-        "definition": "button[data-test-id='(']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": ")",
-        "byType": "css",
-        "definition": "button[data-test-id=')']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "[",
-        "byType": "css",
-        "definition": "button[data-test-id='[']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "]",
-        "byType": "css",
-        "definition": "button[data-test-id=']']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "langle",
-        "byType": "css",
-        "definition": "button[data-test-id='langle']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "rangle",
-        "byType": "css",
-        "definition": "button[data-test-id='rangle']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },  {
         "name": "rightArrow",
         "byType": "css",
         "definition": "button[data-test-id='→']",
@@ -99,6 +15,27 @@
         "name": "leftArrow",
         "byType": "css",
         "definition": "button[data-test-id='←']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "paletteHeader",
+        "byType": "css",
+        "definition": ".math-palette-tab-bar[data-test-id='Palette Header']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "paletteMenu",
+        "byType": "css",
+        "definition": ".math-palette-tab-bar > [data-test-id='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "trigHyperbolic",
+        "byType": "css",
+        "definition": "button[data-test-id='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }]
