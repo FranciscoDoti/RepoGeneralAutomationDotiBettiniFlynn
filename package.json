@@ -14,7 +14,9 @@
     "sac-int": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-intermediate.feature -f json:reports/cucumber_report.json",
     "sac-adv": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-advanced.feature -f json:reports/cucumber_report.json",
     "ch": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-AE.feature -f json:reports/cucumber_report.json --environment int",
-    "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int"
+    "ccq": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/create-hatchling-custom-question.feature -f json:reports/cucumber_report.json --environment int",
+    "pf-admin": "node ./node_modules/cucumber/bin/cucumber-js features/PATHFINDER/tests/ --tags '@admin' -f json:reports/cucumber_report.json",
+    "lc": "node ./node_modules/cucumber/bin/cucumber-js features/LC/tests/ --tags '@LearningCurve' -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
