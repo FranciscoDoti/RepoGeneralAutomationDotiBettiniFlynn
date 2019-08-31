@@ -16,6 +16,6 @@ Feature: Polar Coordinates for Point eval type
         Then I save the question
 
         When I simulate student interface
-        And I input the correct "(−4,4π/3)"
+        And I input the answer "(−4,4π/3)"
         And I submit answer
-        Then the answer is graded correctly
+        Then the answer is graded "correct"
