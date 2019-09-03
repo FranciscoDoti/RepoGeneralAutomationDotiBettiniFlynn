@@ -1,3 +1,4 @@
+@IAM
 Feature: Forgot link is redirected to forgot page
 
     Scenario: Verify Forgot? Link is redirecting to forgot password page 

@@ -1,3 +1,4 @@
+@IAM
 Feature: Verify Help info icon information
 
     Scenario: Verify that help info icon tooltip Information is consistent to application behavior

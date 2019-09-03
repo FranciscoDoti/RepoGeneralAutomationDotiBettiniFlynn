@@ -25,7 +25,6 @@ Feature: Verify Graph editor error messages
         And I try to save the previously opened graph editor
         Then I verify window pop up message "Error: Unauthorized"
 
-    @wip
     Scenario: Verify the error message for non-existing graph id by navigating directly to the URL of a graph ID that does not exist.
 
         When I create a new graph with the following details

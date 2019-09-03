@@ -1,7 +1,8 @@
+@IAM
 Feature: Verify that footer link are redirecting to appropriate page
 
+    @wip
     Scenario: Verify that footer link are redirecting to appropriate page
-
         Given I have opened Achieve "Achieve-CW"
         When I click on Forgot link
         
