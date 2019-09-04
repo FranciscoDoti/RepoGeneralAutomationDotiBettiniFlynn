@@ -17,4 +17,4 @@ Feature: Hyperbolic Trigonometric expression
         When I simulate student interface
         And I input the correct trigonometric expression "sinh, x, cosh, y, +, cosh, x, sinh, y"
         And I submit answer
-        Then the answer is graded "correct"
+        Then the answer is graded correct

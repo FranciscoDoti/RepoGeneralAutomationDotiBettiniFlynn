@@ -75,7 +75,7 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
       await pages.palette.click('basic', 'langle');
     } else if (token === '⟩') {
       await pages.palette.click('basic', 'rangle');
-    } else if (nonPalette.includes(token) || (token >= 'a' && token <= 'z')) {
+    } else if (nonPalette.includes(token) || token.match(/[aA-zZ]/)) {
       // checks whether the token is a nonPalette char or a lowercase alphabet
       // if token is a nonPalette character or a lowercase alphabet, insert the value directly into input box
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
@@ -115,14 +115,14 @@ When(/^I input the correct trigonometric expression "(.*)"$/, async function (ex
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
       await pages.raptorAms.populate('checkYourWorkAnswerText2', item);
     }
-    // checks for the expression containing basic palette variables and clicks the palette button 
     else if (basicPalette.includes(item)) {
+      // checks for the expression containing basic palette variables and clicks the palette button 
       await pages.palette.click('paletteMenu', 'BASIC');
       await pages.palette.click('basic', `${item}`);
       await pages.palette.click('rightArrow');
     }
-    // checks for the expression containing trigonometric function and clicks the palette button
     else if (trigPalette.includes(item)) {
+      // checks for the expression containing trigonometric function and clicks the palette button
       await pages.palette.click('paletteHeader');
       await pages.palette.click('paletteMenu', 'TRIGONOMETRIC');
       await pages.palette.click('trigHyperbolic', `${item}`);
@@ -134,18 +134,23 @@ When(/^I submit answer$/, async function () {
   await ngaPages.raptor.click('Check Your Work Submit Button');
 });
 
-Then(/^the answer is graded "(.*)"$/, async function (grade) {
-  if (grade === 'right') {
-    await pages.raptorAms.assertElementExists('contextTab', 'correct');
-    await pages.raptorAms.assertElementExists('correctAnswer');
-  }
-  else if (grade === 'wrong') {
-    await pages.raptorAms.assertElementExists('contextTab', 'default');
-    await pages.raptorAms.assertElementExists('incorrectAnswer');
-    await pages.raptorAms.assertElementExists('incorrectAnswerAlert');
-  }
+Then(/^the answer is graded correct$/, async function () {
+  await pages.raptorAms.assertElementExists('contextTab', 'correct');
+  await pages.raptorAms.assertElementExists('correctAnswer');
 });
 
+Then(/^the answer is graded incorrect with "(.*)" from author$/, async function (authorInput) {
+  await pages.raptorAms.assertElementExists('incorrectAnswer');
+  await pages.raptorAms.assertElementExists('incorrectAnswerAlert');
+
+  if (authorInput === 'feedback') {
+    //checks if incorrect tab is trigerred
+    await pages.raptorAms.assertElementExists('contextTab', 'incorrect');
+  } else if (authorInput === 'no-feedback') {
+    //checks if default tab is trigerred
+    await pages.raptorAms.assertElementExists('contextTab', 'default');
+  }
+});
 
 // The following steps are similar to greq-eval.feature but are broken down into simpler steps 
 // Down the road aim to refactor the greq-eval.feature into separate scenarios for each eval and keep js step functions simpler

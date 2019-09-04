@@ -18,4 +18,4 @@ Feature: Polar Coordinates for Point eval type
         When I simulate student interface
         And I input the answer "(−4,4π/3)"
         And I submit answer
-        Then the answer is graded "correct"
+        Then the answer is graded correct

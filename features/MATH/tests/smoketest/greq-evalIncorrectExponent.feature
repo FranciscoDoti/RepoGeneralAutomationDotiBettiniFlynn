@@ -10,11 +10,11 @@ Feature: Trigger default tab with algebraic exponent expression
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
         And I set the grade as "Expression" type
-        And I input author question "b^{3}/b^{5}"
+        And I input author question "B^{3}/B^{5}"
         And I set Item Details name as "IncorrectPower"
         Then I save the question
 
         When I simulate student interface
-        And I input the answer "b^2"
+        And I input the answer "G^2"
         And I submit answer
-        Then the answer is graded "wrong"
+        Then the answer is graded incorrect with "no-feedback" from author

@@ -16,7 +16,7 @@ Feature: Creating a new AMS raptor item for different Eval types and simulate gr
     When I simulate student interface
     And I input the answer <answerEquation>
     And I submit answer
-    Then the answer is graded "right"
+    Then the answer is graded correct
     Examples:
       | evaltype     | questionEquation               | answerEquation          | enforceEndpoints | upperTolerance | lowerTolerance |
       | "Relation"   | "2x+26=0"                      | "2x+26=0"               | ""               | ""             | ""             |
