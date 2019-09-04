@@ -75,7 +75,7 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
       await pages.palette.click('basic', 'langle');
     } else if (token === '⟩') {
       await pages.palette.click('basic', 'rangle');
-    } else if (nonPalette.includes(token) || (token > 'a' && token < 'z')){
+    } else if (nonPalette.includes(token) || (token >= 'a' && token <= 'z')) {
       // checks whether the token is a nonPalette char or a lowercase alphabet
       // if token is a nonPalette character or a lowercase alphabet, insert the value directly into input box
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
@@ -90,8 +90,7 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
         await pages.palette.click('leftArrow');
       }
       await pages.raptorAms.populate('checkYourWorkAnswerText2', token);
-    }
-    else {
+    } else {
       // if token is a Basic Palette character, click on the page object element
       await pages.palette.click('basic', `${token}`);
     }
@@ -135,12 +134,12 @@ When(/^I submit answer$/, async function () {
   await ngaPages.raptor.click('Check Your Work Submit Button');
 });
 
-Then(/^the answer is graded "(.*)"$/, async function (isCorrect) {
-  if (isCorrect === 'correct') {
+Then(/^the answer is graded "(.*)"$/, async function (grade) {
+  if (grade === 'right') {
     await pages.raptorAms.assertElementExists('contextTab', 'correct');
     await pages.raptorAms.assertElementExists('correctAnswer');
   }
-  else if (isCorrect === 'incorrect') {
+  else if (grade === 'wrong') {
     await pages.raptorAms.assertElementExists('contextTab', 'default');
     await pages.raptorAms.assertElementExists('incorrectAnswer');
     await pages.raptorAms.assertElementExists('incorrectAnswerAlert');
