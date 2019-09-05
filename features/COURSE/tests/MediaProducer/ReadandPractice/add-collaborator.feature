@@ -1,5 +1,5 @@
 @Course @Smoke @Skip
-Feature: Adding collaborator to tRead& Practice template 
+Feature: Adding collaborator to Read& Practice template 
 
     @mediaproducer-delete-course
     Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to Read& Practice template

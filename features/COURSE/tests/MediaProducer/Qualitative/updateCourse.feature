@@ -1,8 +1,8 @@
  @Course @Smoke
- Feature: Update Qaulitative template  
+ Feature: Update Qualitative template  
      
     @mediaproducer-delete-course       
-    Scenario: Verify that Media Producer is able to update Qaulitative template
+    Scenario: Verify that Media Producer is able to update Qualitative template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

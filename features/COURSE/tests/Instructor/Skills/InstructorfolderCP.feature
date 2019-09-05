@@ -57,7 +57,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Skills Course
             | GLOSSARY                                                          |  3             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
-            | activity                                      | folders           | message                                                                             
+            | activity                                      | folders           | message                                                                              |                                                                        
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
             | GLOSSARY                                      | Reading           | 'GLOSSARY' was successfully moved to Reading.                                       |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |

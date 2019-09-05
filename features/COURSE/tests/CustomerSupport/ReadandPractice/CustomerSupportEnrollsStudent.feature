@@ -2,7 +2,7 @@
 Feature: Admin enrolls the student in Read & Practice course 
 
     @mediaproducer-delete-course
-    Scenario: Verify that admin enrolls student in Read & Practicecourse 
+    Scenario: Verify that admin enrolls student in Read & Practice course 
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

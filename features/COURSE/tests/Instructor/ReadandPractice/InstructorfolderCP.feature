@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Instructor adds folder, remove folder and reorders it in Read & Practiec Template
+Feature: Instructor adds folder, remove folder and reorders it in Read & Practice Template
 
     @mediaproducer-delete-course
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources in Read & Practice Template

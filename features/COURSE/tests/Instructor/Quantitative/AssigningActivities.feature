@@ -1,6 +1,6 @@
 
 @Course @Smoke
-Feature: Assigning the activities present in Quantiative course 
+Feature: Assigning the activities present in Quantitative course 
 
     @mediaproducer-delete-course
     Scenario: Verify that Instructor is able to assign the activities in Quantitative course

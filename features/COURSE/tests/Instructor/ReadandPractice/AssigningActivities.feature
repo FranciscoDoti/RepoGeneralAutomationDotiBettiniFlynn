@@ -2,7 +2,7 @@
 Feature: Assigning the activities present in Read & Practice course 
 
     @mediaproducer-delete-course
-    Scenario: Verify that Instructor is able to assign the activities in the course in Read& Practiec Course
+    Scenario: Verify that Instructor is able to assign the activities in the course in Read& Practice Course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

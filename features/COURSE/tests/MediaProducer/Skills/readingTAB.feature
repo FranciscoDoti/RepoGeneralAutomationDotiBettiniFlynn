@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Adding reading activities in reading tab 
+Feature: Adding reading activities in reading tab to Skills Template 
 
     @mediaproducer-delete-course
-    Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab
+    Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab to Skills Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

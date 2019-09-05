@@ -2,7 +2,7 @@
 Feature: Adding Instructor to the Template in Qualitative Course
 
     @mediaproducer-delete-course
-    Scenario:  Verify that customer support is able to add Instructor to Qalitative Course
+    Scenario:  Verify that customer support is able to add Instructor to Qualitative Course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
