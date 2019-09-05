@@ -1,4 +1,4 @@
-# @LearningCurve
+@LearningCurve
 Feature: Learning Curve Read and Practice Assignment
 
 Scenario: Students Takes and Retakes LCRP Assignment 
@@ -59,7 +59,7 @@ Scenario: Students Takes and Retakes LCRP Assignment
         Then I check accessibility on "LCRP Instructor Page" page
         Then I verify the class average for "LCRP"
 
-Scenario: Student Partually Completes Assignment, using hints
+Scenario: Student Partially Completes Assignment, using hints
     Given I start a new assignment as "student1"
     And I log into an assignment in "LCRPUrl" as "student1"
         When I view the student landing page for LCRP

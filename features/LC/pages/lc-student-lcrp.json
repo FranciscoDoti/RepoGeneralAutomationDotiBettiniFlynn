@@ -14,7 +14,7 @@
     },{
       "name": "trends_and_insights",
       "byType": "xpath",
-      "definition": "//button[@data-test-id='studentTrendsAndInsights']",
+      "definition": "//*[@data-test-id='studentTrendsAndInsights']",
       "frame": "default",
       "specialInstr": "NA"
     },{
