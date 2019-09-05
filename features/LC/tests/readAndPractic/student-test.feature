@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Read and Practice Quiz
  Scenario: Question Can Be a Multiple Choice Question Correctly
  Scenario: Question Can Be a Multiple Choice Question Incorrectly
