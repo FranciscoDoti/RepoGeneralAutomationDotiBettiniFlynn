@@ -1,3 +1,4 @@
+@IAM
 Feature: Account is locked with three inavlid account details
 
     Scenario: Verify that after 2 failure attempt to login account is locked for 15 minutes
