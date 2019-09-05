@@ -16,7 +16,8 @@ const config = {
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
-  timeout : defaults.timeout
+  timeout : defaults.timeout,
+  stack: (argv.stack !== "" ? argv.stack : environment)
 };
 
 const buildDriver = function() {  
