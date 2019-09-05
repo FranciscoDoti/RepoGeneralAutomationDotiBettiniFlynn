@@ -49,6 +49,38 @@
             "definition": "[class='PointOrGrade_pointOrPercent_10e ClassTotalRow_pointOrGrade_14u']",
             "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "gradebookSettings",
+            "byType": "css",
+            "definition": "[data-test-id='settings']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "gradeBookCategory",
+            "byType": "xpath",
+            "definition": "//button[.='Add Category']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "categoryName",
+            "byType": "CSS",
+            "definition": "[class='_26EF _3PUX']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "dropLowestGrade",
+            "byType": "CSS",
+            "definition": "[aria-labelledby='drop_label_0']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "save",
+            "byType": "CSS",
+            "definition": "[aria-label='Save']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

@@ -690,6 +690,31 @@
             "frame": "customIframe",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "assignGradebook",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../..//div/button[@data-test-id='assign_assignment_button']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "gradeBookCategory",
+            "byType": "css",
+            "definition": "[data-test-id='edit_assignment_modal_gradebook_category_arrow']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "Category",
+            "byType": "css",
+            "definition": "[data-test-id='gradebook_category_dropdown']",
+            "frame": "customIframe",
+            "specialInstr": "NA"
+
+
         }
     ]
 }

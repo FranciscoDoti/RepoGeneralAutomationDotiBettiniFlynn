@@ -117,6 +117,7 @@ When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
 When('I add URL activity in resource tab', async function (data_table) {
   await pages.resources.click('goToContent');
   for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.populate('searchBar', data_table.hashes()[i].activity);
     await pages.resources.click('addCCButton', data_table.hashes()[i].activity)
   }
 });
