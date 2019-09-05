@@ -1,7 +1,7 @@
 @Course @Smoke
-Feature: Adding activities in Folder Resource Tab
+Feature: Adding activities in Folder Resource Tab to Quantitaive Template
     @mediaproducer-delete-course
-    Scenario: Verify that Media Producer is able to add activities in folder present in resource tab
+    Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Quantitaive Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

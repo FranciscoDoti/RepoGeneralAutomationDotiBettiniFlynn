@@ -1,8 +1,8 @@
 @Course @Smoke @Skip
-Feature: Verify that Admin is able to create URL
+Feature: Verify that Admin is able to create URL in Skill Course
 
     @admin-delete-course
-    Scenario: Verify that Admin is able to create a custom task with URL
+    Scenario: Verify that Admin is able to create a custom task with URL in Skill Course 
 
        Given I login to Achieve-CW as "admin_1"
         When I create template with following data 

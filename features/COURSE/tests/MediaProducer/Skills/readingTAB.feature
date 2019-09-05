@@ -15,8 +15,7 @@ Feature: Adding reading activities in reading tab
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
-            | type                     | activity                                      |
-            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
+            | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         | GLOSSARY                                      |
             | addReadingButton         |  Appendix F                                   |
