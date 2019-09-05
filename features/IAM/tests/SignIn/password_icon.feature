@@ -1,3 +1,4 @@
+@IAM
 Feature: Verify password info Icon
 
     Scenario: Verify that password info icon tooltip Information is consistent to application behavior
