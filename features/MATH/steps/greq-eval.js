@@ -74,7 +74,7 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
       await pages.palette.click('basic', 'langle');
     } else if (token === '⟩') {
       await pages.palette.click('basic', 'rangle');
-    } else if (nonPalette.includes(token) || token.match(/[aA-zZ]/)) {
+    } else if (nonPalette.includes(token) || token.match(/[a-zA-Z]/)) {
       // checks whether the token is a nonPalette char or a lowercase alphabet
       // if token is a nonPalette character or a lowercase alphabet, insert the value directly into input box
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
