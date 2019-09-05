@@ -9,6 +9,7 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseN
   await pages.courseList.click('manageInstructor');
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
+  await pages.courseList.assertElementExists('instructorClose');
   await pages.courseList.click('instructorClose');
   
 });
