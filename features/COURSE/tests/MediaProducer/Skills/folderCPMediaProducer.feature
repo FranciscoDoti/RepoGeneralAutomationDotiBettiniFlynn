@@ -38,7 +38,7 @@ Feature: Adding activities in Folder courseplanner to Skills template
             | activities                                                        | orderNumber    |
             | LCRP1550612138614                                                 |  1             |                                                       
             | LC1551301608988                                                   |  2             |
-            | GLOSSARY                                                          |  43            |      
+            | GLOSSARY                                                          |  3             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |

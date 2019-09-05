@@ -1,5 +1,5 @@
 @Course @Smoke @Skip
-Feature: Verify that media Producer is able to create Custom Task Qaulitative template 
+Feature: Verify that media Producer is able to create Custom Task Qualitative template 
 
     @mediaproducer-delete-course
     Scenario: Verify that media Producer is able to create Custom Task in Qualitative Template

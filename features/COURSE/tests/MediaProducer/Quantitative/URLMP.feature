@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Verify that mediaProducer is able to create URL in Quantitaive Template
+Feature: Verify that mediaProducer is able to create URL in Quantitative Template
 
    @mediaproducer-delete-course
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Quantitaive Template
+    Scenario: Verify that mediaproducer is able to create a custom task with URL in Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

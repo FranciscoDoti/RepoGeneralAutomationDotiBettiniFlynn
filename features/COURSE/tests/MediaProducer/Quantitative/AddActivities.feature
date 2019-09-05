@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Adding activities to Quantitaive Template
+Feature: Adding activities to Quantitative Template
 
     @mediaproducer-delete-course
-    Scenario: Verify that Media Producer is able to add activities to Quantitaive Template
+    Scenario: Verify that Media Producer is able to add activities to Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
