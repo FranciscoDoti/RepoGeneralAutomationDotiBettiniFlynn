@@ -12,7 +12,7 @@ const config = {
     environment: argv.env,
     branch: argv.branch,
     recepients: argv.recepients,
-    result: argv.result
+    subject: argv.subject
 };
 
 let transporter = nodemailer.createTransport({
@@ -27,7 +27,7 @@ let transporter = nodemailer.createTransport({
 let mailOptions = {
     from: config.sender, // sender address
     to: config.recepients, // list of receivers
-    subject: `Cucumber pipeline test result - ${config.result}`, // Subject line
+    subject: `${config.subject}`, // Subject line
     text: `Please find cucumber report from Jenkins pipeline execution for ${config.branch} branch in ${config.environment} environment attached.`, // plaintext body
     attachments: [{
         path: config.reportPath
