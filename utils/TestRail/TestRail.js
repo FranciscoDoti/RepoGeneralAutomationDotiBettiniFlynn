@@ -200,8 +200,7 @@ const uploadResults = async function(){
 
   if(results != undefined){
     dt = new Date();
-    // let runName = "Results: UI - Automation on " + (dt.getMonth()+1) + '-' + dt.getDate()+ '-' + dt.getFullYear() + ", " + dt.toISOString().match(/(\d{2}:){2}\d{2}/)[0];
-    let runName = "Test";
+    let runName = "Results: UI - Automation on " + (dt.getMonth()+1) + '-' + dt.getDate()+ '-' + dt.getFullYear() + ", " + dt.toISOString().match(/(\d{2}:){2}\d{2}/)[0];
     if(config.environment !== '' ||  config.environment !== undefined){
       runName = `${runName} in environment '${config.environment}'`;
     }
