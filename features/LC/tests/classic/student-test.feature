@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Classic Quiz
  Scenario: Question Can Be a Multiple Choice Question Correctly
  Scenario: Question Can Be a Multiple Choice Question Incorrectly

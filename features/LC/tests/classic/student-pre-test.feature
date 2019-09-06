@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Classic Student Pre Test View
  Scenario: All Topics are shown
  Scenario: Opening each Topic displays the eBook

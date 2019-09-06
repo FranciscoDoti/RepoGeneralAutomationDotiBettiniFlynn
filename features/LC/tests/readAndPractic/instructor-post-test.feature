@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Read and Practice Instructor Post Test View
  Scenario: Instructor can change target score after student have started the assignment
  Scenario: Instructor can change target score after student have completed the assignment
