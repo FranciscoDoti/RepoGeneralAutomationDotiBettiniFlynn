@@ -1,7 +1,7 @@
 @math @smoke
-Feature: Hyperbolic Trigonometric expression 
+Feature: Trigger default tab with algebraic exponent expression
 
-    Scenario: Verify an equivalent polar coordinate for Point eval type without transforming the angle by 2π
+    Scenario: Verify default tab is triggered when incorrect algebraic exponent answer is input
 
         Given I login to AMS as "all-permissions-author"
         When I click on the New Raptor item in the AMS page
@@ -10,11 +10,11 @@ Feature: Hyperbolic Trigonometric expression
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
         And I set the grade as "Expression" type
-        And I input author question "\sinh(x + y)"
-        And I set Item Details name as "TrigExpression2"
+        And I input author question "b^{3}/b^{5}"
+        And I set Item Details name as "IncorrectPower"
         Then I save the question
 
         When I simulate student interface
-        And I input the correct trigonometric expression "sinh, x, cosh, y, +, cosh, x, sinh, y"
+        And I input the answer "b^2"
         And I submit answer
-        Then the answer is graded correct
+        Then the answer is graded incorrect with "no-feedback" from author
