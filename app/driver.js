@@ -21,8 +21,6 @@ const config = {
 };
 
 const buildDriver = function() {  
-  console.log(config.environment);
-  console.log(config.stack);
   const driver = new webdriver.Builder();
   log.info(`Launching ${config.browser}`); 
   switch (config.browser.toLowerCase()) {
