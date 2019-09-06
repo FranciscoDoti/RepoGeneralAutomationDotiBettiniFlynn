@@ -1,11 +1,10 @@
 const { When, Then } = require('cucumber');
+const { Key } = require('selenium-webdriver');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { Key } = require('selenium-webdriver');
-const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "∪", "."]
+const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "^", "∪", "."]
 const basicPalette = ["x", "y", "t", "π", "θ", "∞"]
 const trigPalette = ["sin", "cos", "tan", "sec", "csc", "cot", "sinh", "cosh", "tanh", "sech", "csch", "coth"]
-
 
 /* Creating a new AMS raptor item for six Eval types: Relation, Expression, Point, Interval, Vector, Parametric */
 
@@ -60,7 +59,7 @@ When(/^I simulate student interface$/, async function () {
   await pages.raptorAms.click('moreCheckYourWork');
 });
 
-When(/^I input the correct "(.*)"$/, async function (eqn) {
+When(/^I input the answer "(.*)"$/, async function (eqn) {
   // waits for the message box to disappear to execute next line: short cut keys for 'Check your work' mode
   // below line implements using the MacOS short cut keys 'CMD + \' for author student interface
   // replaces clicking the 'Check Your Work' from More menu
@@ -72,13 +71,12 @@ When(/^I input the correct "(.*)"$/, async function (eqn) {
     // for Vectors, insert '⟨' notation before start of the equation
     // for Vectors, insert '⟩' notation after end of the equation
     if (token === '⟨') {
-      await pages.palette.click('basic','langle');
+      await pages.palette.click('basic', 'langle');
     } else if (token === '⟩') {
-      await pages.palette.click('basic','rangle');
-    }
-    // check whether the token is in the palette or not
-    else if (nonPalette.includes(token)) {
-      // if token is a nonPalette character, insert the value directly into input box
+      await pages.palette.click('basic', 'rangle');
+    } else if (nonPalette.includes(token) || token.match(/[a-zA-Z]/)) {
+      // checks whether the token is a nonPalette char or a lowercase alphabet
+      // if token is a nonPalette character or a lowercase alphabet, insert the value directly into input box
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
 
       // if a comma is encountered in the equation, the rightArrow key is sent before the comma
@@ -116,14 +114,14 @@ When(/^I input the correct trigonometric expression "(.*)"$/, async function (ex
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
       await pages.raptorAms.populate('checkYourWorkAnswerText2', item);
     }
-    // checks for the expression containing basic palette variables and clicks the palette button 
     else if (basicPalette.includes(item)) {
+      // checks for the expression containing basic palette variables and clicks the palette button 
       await pages.palette.click('paletteMenu', 'BASIC');
-      await pages.palette.click('basic',`${item}`);
+      await pages.palette.click('basic', `${item}`);
       await pages.palette.click('rightArrow');
     }
-    // checks for the expression containing trigonometric function and clicks the palette button
     else if (trigPalette.includes(item)) {
+      // checks for the expression containing trigonometric function and clicks the palette button
       await pages.palette.click('paletteHeader');
       await pages.palette.click('paletteMenu', 'TRIGONOMETRIC');
       await pages.palette.click('trigHyperbolic', `${item}`);
@@ -135,8 +133,22 @@ When(/^I submit answer$/, async function () {
   await ngaPages.raptor.click('Check Your Work Submit Button');
 });
 
-Then(/^the answer is graded correctly$/, async function () {
+Then(/^the answer is graded correct$/, async function () {
+  await pages.raptorAms.assertElementExists('contextTab', 'correct');
   await pages.raptorAms.assertElementExists('correctAnswer');
+});
+
+Then(/^the answer is graded incorrect with "(.*)" from author$/, async function (authorInput) {
+  await pages.raptorAms.assertElementExists('incorrectAnswer');
+  await pages.raptorAms.assertElementExists('incorrectAnswerAlert');
+
+  if (authorInput === 'feedback') {
+    //checks if incorrect tab is trigerred
+    await pages.raptorAms.assertElementExists('contextTab', 'incorrect');
+  } else if (authorInput === 'no-feedback') {
+    //checks if default tab is trigerred
+    await pages.raptorAms.assertElementExists('contextTab', 'default');
+  }
 });
 
 // The following steps are similar to greq-eval.feature but are broken down into simpler steps 
