@@ -59,7 +59,7 @@
         },{
             "name": "gradeBookCategory",
             "byType": "xpath",
-            "definition": "//button[.='Add Category']",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -78,7 +78,7 @@
         },{
             "name": "save",
             "byType": "CSS",
-            "definition": "[aria-label='Save']",
+            "definition": "[aria-label='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },

@@ -155,12 +155,12 @@ When(/^I click on "(.*)"$/, async function (courseName){
 When(/^I create Gradebook Category for student and assign that to "(.*)" activity$/, async function (activity, data_table) {
   await pages.coursePage.click('navigation','Gradebook');
   await pages.gradebook.click('gradebookSettings')
-  await pages.gradebook.click('gradeBookCategory');
+  await pages.gradebook.click('gradeBookCategory','Add Category');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.gradebook.scrollElementIntoView('categoryName')
     await pages.gradebook.populate('categoryName', data_table.hashes()[i].CategoryName)
     await pages.gradebook.populate('dropLowestGrade', data_table.hashes()[i].DropGrade);
-    await pages.gradebook.click('save');
+    await pages.gradebook.click('save','Save');
   }
   await pages.coursePage.click('navigation','My Course');
   await pages.coursePage.click('tab', 'COURSE PLAN');
