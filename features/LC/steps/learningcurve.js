@@ -53,7 +53,7 @@ Given(/^I log into an assignment in "(.*)" as "(.*)"$/, async function (urlKey, 
       'path': '/',
       'domain': '.mldev.cloud'});
 
-  await getDriver().manage().window().maximize();
+  await getDriver().manage().window().setRect({width: 1440, height: 900});
   await sleep(2000);
 });
 
@@ -371,6 +371,7 @@ Then('I can look at Trends and Insights, as a student', async function () {
   await pages.studentLcrp.populate('trends_and_insights', 'click')
   let student = courses.getStudentInfo(lcInfo.course, testInfo.currentUser);
   let assignments = Object.keys(student);
+  await sleep(3000);
   let assignmentInfo = await pages.studentTnI.getWebElements('topic_summarys')
   assert(assignmentInfo.length === assignments.length, 'The Number of assignments shown does not match.\nExpected: ' + assignments.length + '\nActually: ' + assignmentInfo.length)
   let started = 0;

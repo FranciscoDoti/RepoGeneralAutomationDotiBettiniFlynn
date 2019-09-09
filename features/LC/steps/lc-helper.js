@@ -21,6 +21,7 @@ let instructorView = {
 
 // Returns array of 3 values, 2nd is number of read readings 3rd is total readings.
 const getReadingInfo = async function () {
+  await sleep(3000);
   let readings = await pages.studentLcrp.getAttributeValue('total_readings')
   let regex = /(\d+) of (\d+)/
   return readings.match(regex)
