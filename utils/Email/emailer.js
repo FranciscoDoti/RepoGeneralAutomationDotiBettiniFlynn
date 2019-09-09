@@ -9,10 +9,10 @@ const config = {
     refreshToken: "1/3ayBIUgNJWANUL1-rISK50oaD6VlrWuk4XvzG03kzt9rO_ekPBdfvgDHcXLpFiNh",
     accessToken: "ya29.GltuByf5jWOhzFHv_lbBLQvIahPif5RqTtn_r9TMh7BmFxwaDwn2WJz_zyBGvuVbaGRfElVNYrkqaKDfe9MHic72Mc9W66OeFa-LikboAx0eoZxyq-H1cGT1LbFU1",
     reportPath: `${process.cwd()}/reports/cucumber_report.html`,
-    environment: argv.env || "int",
-    branch: argv.branch || "development",
-    recepients: argv.recepients || "thomas.dsilva@testingconsultancy.com",
-    result: argv.result || "FAILURE"
+    environment: argv.env,
+    branch: argv.branch,
+    recepients: argv.recepients,
+    result: argv.result
 };
 
 let transporter = nodemailer.createTransport({

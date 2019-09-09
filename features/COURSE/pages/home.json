@@ -2,7 +2,7 @@
     "webElements": [{
         "name": "achieveHome",
         "byType": "css",
-        "definition": "[data-test-id='achieve_logo_link']",
+        "definition": "[data-test-id='achieve-logo-link']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

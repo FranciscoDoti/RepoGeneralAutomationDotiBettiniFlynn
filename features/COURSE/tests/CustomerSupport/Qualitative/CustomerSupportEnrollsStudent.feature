@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Admin enrolls the student in the course 
+Feature: CustomerSupport enrolls the student in the coursein Qualitative Course 
 
     @mediaproducer-delete-course
-    Scenario: Verify that admin enrolls student in the course 
+    Scenario: Verify that customerSupport enrolls student in the Qualitative Course
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |

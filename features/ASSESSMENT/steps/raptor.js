@@ -144,7 +144,6 @@ Then('I check FR answers', async function () {
     await pages.raptor.click('Save As Draft');
     await pages.raptor.click('More Button');
     await pages.raptor.click('Check Answer Slider');
-    await pages.freeResponse.assertElementExists('Element Take Mode');
     await pages.freeResponse.populate('Element Take Mode', '123456789012345678901');
     await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');

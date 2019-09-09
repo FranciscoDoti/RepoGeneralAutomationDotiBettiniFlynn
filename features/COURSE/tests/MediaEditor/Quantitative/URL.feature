@@ -1,8 +1,8 @@
 @Course @Smoke @Skip
-Feature: Verify that Media Editor is able to create URL
+Feature: Verify that Media Editor is able to create URL in Quantitative Template
 
     @medieditor-delete-course
-    Scenario: Verify that Media Editor is able to create a custom task with URL
+    Scenario: Verify that Media Editor is able to create a custom task with URL in Quantitative Template
 
        Given I login to Achieve-CW as "media_editor_1"
        When I create template with following data 

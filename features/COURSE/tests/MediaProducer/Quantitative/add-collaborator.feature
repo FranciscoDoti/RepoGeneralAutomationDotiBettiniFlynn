@@ -1,8 +1,8 @@
 @Course @Smoke @Skip
-Feature: Adding collaborator to the template 
+Feature: Adding collaborator to the template in Quantitative Template
 
     @mediaproducer-delete-course
-    Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to the template
+    Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

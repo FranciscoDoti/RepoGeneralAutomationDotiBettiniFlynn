@@ -17,7 +17,7 @@
         {
             "name": "Element Take Mode",
             "byType": "css",
-            "definition": "div[class='rte-content short-essay-content'] > div > div > div > div > div > div",
+            "definition": "div[class='rte-content short-essay-content'] > div > div > div > div > div > div > span",
             "frame": "default",
             "specialInstr": "NA"
         }

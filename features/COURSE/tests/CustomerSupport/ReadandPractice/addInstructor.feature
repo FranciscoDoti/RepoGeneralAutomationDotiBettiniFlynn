@@ -2,7 +2,7 @@
 Feature: Adding Instructor to the Template
 
     @mediaproducer-delete-course
-    Scenario:  Verify that customer support is able to add Instructor to a course
+    Scenario:  Verify that customer support is able to add Instructor to Read& Practice course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

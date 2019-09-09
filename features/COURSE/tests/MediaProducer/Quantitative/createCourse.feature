@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Create course
+Feature: Create course Quantitative Template
 
     @mediaproducer-delete-course
     Scenario:  Create course Template for Quantitative

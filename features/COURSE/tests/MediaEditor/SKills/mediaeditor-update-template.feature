@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Media Editor is able to create a template and update
+Feature: Media Editor is able to create a template and update in SKills Template
 
    @medieditor-delete-course
-    Scenario: Verify that media editor is able to create a template and update it 
+    Scenario: Verify that media editor is able to create a template and update it in Skills Template
 
         Given I login to Achieve-CW as "media_editor_1"
         When I create template with following data 

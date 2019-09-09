@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Assigning the activities present in the course 
+Feature: Assigning the activities present in Qualitative course 
 
     @mediaproducer-delete-course
-    Scenario: Verify that Instructor is able to assign the activities in the course
+    Scenario: Verify that Instructor is able to assign the activities in Qualitative course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

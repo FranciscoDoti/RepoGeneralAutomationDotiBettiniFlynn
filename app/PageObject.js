@@ -217,9 +217,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const scrollElementIntoView = async function (elementName) {
+  const scrollElementIntoView = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
+    elementName = elementName + (replaceText || '');
+
     log.debug(`Scrolling element: ${elementName} into view.`)
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);

@@ -1,3 +1,4 @@
+@IAM
 Feature: Verify that footer link are redirecting to appropriate page
 
     Scenario: Verify that footer link are redirecting to appropriate page

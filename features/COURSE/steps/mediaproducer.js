@@ -36,6 +36,8 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activity);
+    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activity)
+    await pages.resources.scrollElementIntoView(data_table.hashes()[i].type, data_table.hashes()[i].activity);
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activity);
     await pages.resources.click('closeResourceSearchNav');
   }

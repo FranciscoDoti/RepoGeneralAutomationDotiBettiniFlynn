@@ -50,12 +50,13 @@ When(/^I attempt "(.*)" custom made assesment in "(.*)"$/, async function (activ
   await pages.coursePlanner.click('close')
 });
 
+
 Then('I verify the assignmenent grades in gradebook for below assigned activities', async function (data_table) {
   await pages.coursePage.click('navigation','Gradebook');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.gradebook.assertTextIncludes('studentPercent', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
-    await pages.gradebook.assertTextIncludes('studentAssignmentpoints', data_table.hashes()[i].activity, data_table.hashes()[i].points);
-    await pages.gradebook.assertTextIncludes('studentPercenOfTotalGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades)
+    // await pages.gradebook.assertTextIncludes('studentAssignmentpoints', data_table.hashes()[i].activity, data_table.hashes()[i].points);
+    // await pages.gradebook.assertTextIncludes('studentPercenOfTotalGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades)
   }
 });
 
@@ -168,6 +169,8 @@ When('I add the activities to the resource tab', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
+    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities)
+    await pages.resources.scrollElementIntoView(data_table.hashes()[i].type, data_table.hashes()[i].activities);
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
     await pages.resources.click('closeResourceSearchNav');
   }
@@ -180,4 +183,12 @@ When(/^I attempt "(.*)" URL activity$/, async function (activityName){
 
 When(/^I attempt "(.*)" File activity$/, async function(activityName) {
   await pages.overview.click('activityName', activityName);
+});
+
+Then('I verify Total Grades', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.gradebook.assertTextIncludes('TotalPercentage', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
+    await pages.gradebook.assertTextIncludes('TotalPoints', data_table.hashes()[i].activity, data_table.hashes()[i].points);
+    await pages.gradebook.assertTextIncludes('TotalPercentGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades);
+  }
 });
