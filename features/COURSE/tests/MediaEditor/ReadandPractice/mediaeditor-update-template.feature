@@ -2,7 +2,7 @@
 Feature: Media Editor is able to create a template and update in Read & Practice Template
 
    @medieditor-delete-course
-    Scenario: Verify that media editor is able to create a template and update it in Read & Practice Template
+    Scenario: Verify that media editor is able to create a template and update in Read & Practice Template
 
         Given I login to Achieve-CW as "media_editor_1"
        When I create template with following data 
