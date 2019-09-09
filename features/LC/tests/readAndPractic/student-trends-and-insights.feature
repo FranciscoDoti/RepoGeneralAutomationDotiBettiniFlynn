@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Read and Practice Student Trends and Insights View
 
   Scenario: Closing the Trends and Insights brings you back to the student view

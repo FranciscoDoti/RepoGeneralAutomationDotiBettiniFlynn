@@ -11,12 +11,13 @@ const argv = require('minimist')(process.argv.slice(2));
 let driver;
 
 const config = {
-  environment : argv.env || argv.environment || defaults.environment,
+  environment : argv.env || defaults.environment,
   mode : argv.mode || defaults.mode,
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
-  timeout : defaults.timeout
+  timeout : defaults.timeout,
+  stack: argv.stack || defaults.stack || argv.env || defaults.environment
 };
 
 const buildDriver = function() {  

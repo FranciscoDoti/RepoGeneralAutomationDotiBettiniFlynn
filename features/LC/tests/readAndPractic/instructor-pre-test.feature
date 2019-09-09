@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Read and Practice Instructor Pre Test View
 
   Scenario: Instructor can increase target score

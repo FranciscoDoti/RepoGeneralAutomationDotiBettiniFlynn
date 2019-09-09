@@ -227,7 +227,7 @@
         {
             "name": "incorrectAnswerAlert",
             "byType": "css",
-            "definition": "div#primary-content-area > section.red-border",
+            "definition": "section.red-border.content-area",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -235,6 +235,13 @@
             "name": "correctAnswer",
             "byType": "css",
             "definition": "div[aria-label ='Correct Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "incorrectAnswer",
+            "byType": "css",
+            "definition": "div[aria-label ='Incorrect Answer']",
             "frame": "default",
             "specialInstr": "NA"
         }
