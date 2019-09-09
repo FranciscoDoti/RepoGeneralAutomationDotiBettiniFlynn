@@ -43,6 +43,13 @@
             "definition": "[data-test-id='results-bar-message']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "URLVerification",
+            "byType": "css",
+            "definition": "[id='hplogo']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

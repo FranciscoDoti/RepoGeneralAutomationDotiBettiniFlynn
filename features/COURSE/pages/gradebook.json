@@ -49,6 +49,62 @@
             "definition": "[class='PointOrGrade_pointOrPercent_10e ClassTotalRow_pointOrGrade_14u']",
             "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "gradebookSettings",
+            "byType": "css",
+            "definition": "[data-test-id='settings']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "gradeBookCategory",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "categoryName",
+            "byType": "xpath",
+            "definition": "(//div[@class='_26EF _3PUX']/..//input)[3]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "dropLowestGrade",
+            "byType": "xpath",
+            "definition": "//div[@class='_17zI']/..//select",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "save",
+            "byType": "CSS",
+            "definition": "[aria-label='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "TotalPercentage",
+            "byType": "xpath",
+            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_averages_percent_cell']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "TotalPoints",
+            "byType": "xpath",
+            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_assignment_total_cell']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "courseTotal",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../..//div[@data-test-id='course_total']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
     ]
 }

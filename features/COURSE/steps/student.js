@@ -3,6 +3,7 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
 const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
+const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 
 When('I complete the reading activity', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -11,7 +12,8 @@ When('I complete the reading activity', async function (data_table) {
   await pages.coursePlanner.click('close');
 });
 
-Then('I verify the activity status for the following activities', async function (data_table) {
+Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
+  await pages.coursePage.click('tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
   }
@@ -47,6 +49,7 @@ When(/^I attempt "(.*)" custom made assesment in "(.*)"$/, async function (activ
   }
   await pages.coursePlanner.click('close')
 });
+
 
 Then('I verify the assignmenent grades in gradebook for below assigned activities', async function (data_table) {
   await pages.coursePage.click('navigation','Gradebook');
@@ -157,6 +160,35 @@ When(/^I attempt "(.*)" Read and Practice activity$/, async function (activityNa
     await choice.click();
     break;
   }
-
  
+});
+
+When('I add the activities to the resource tab', async function (data_table) {
+  await pages.resources.click('goToContent');
+  await pages.resources.click('closeResourceSearchNav');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('addContent');
+    await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
+    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities)
+    await pages.resources.scrollElementIntoView(data_table.hashes()[i].type, data_table.hashes()[i].activities);
+    await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
+    await pages.resources.click('closeResourceSearchNav');
+  }
+});
+
+When(/^I attempt "(.*)" URL activity$/, async function (activityName){
+  await pages.overview.click('activityName', activityName);
+  await IAMpages.signIn.switchToTab('Macmillan Learning :: ');
+});
+
+When(/^I attempt "(.*)" File activity$/, async function(activityName) {
+  await pages.overview.click('activityName', activityName);
+});
+
+Then('I verify Total Grades', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.gradebook.assertTextIncludes('TotalPercentage', data_table.hashes()[i].activity, data_table.hashes()[i].percentage);
+    await pages.gradebook.assertTextIncludes('TotalPoints', data_table.hashes()[i].activity, data_table.hashes()[i].points);
+    await pages.gradebook.assertTextIncludes('TotalPercentGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades);
+  }
 });
