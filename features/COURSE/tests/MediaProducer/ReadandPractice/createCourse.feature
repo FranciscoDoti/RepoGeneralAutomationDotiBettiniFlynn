@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Create course Read& Practice template
+Feature: Create course Read & Practice template
 
     @mediaproducer-delete-course
     Scenario:  Create course Template for Read & Practice

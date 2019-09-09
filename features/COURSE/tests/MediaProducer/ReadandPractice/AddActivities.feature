@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Adding activities to Read& Practice template
+Feature: Adding activities to Read & Practice template
 
     @mediaproducer-delete-course
-    Scenario: Verify that Media Producer is able to add activities to Read& Practice template
+    Scenario: Verify that Media Producer is able to add activities to Read & Practice template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

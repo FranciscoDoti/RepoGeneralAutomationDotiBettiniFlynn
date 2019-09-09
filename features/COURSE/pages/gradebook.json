@@ -113,48 +113,7 @@
             "frame": "default",
             "specialInstr": "NA"
 
-        },
-        {
-            "name": "TotalPercentGrades",
-            "byType": "xpath",
-            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_of_total_grades_cell']",
-            "frame": "default",
-            "specialInstr": "NA"
-
-        },
-        {
-            "name": "TotalPercentGrades",
-            "byType": "xpath",
-            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_of_total_grades_cell']",
-            "frame": "default",
-            "specialInstr": "NA"
-
-        },
-        {
-            "name": "TotalPercentGrades",
-            "byType": "xpath",
-            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_of_total_grades_cell']",
-            "frame": "default",
-            "specialInstr": "NA"
-
-
-        },
-        {
-            "name": "TotalPercentGrades",
-            "byType": "xpath",
-            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_of_total_grades_cell']",
-            "frame": "default",
-            "specialInstr": "NA"
-
-        },
-        {
-            "name": "TotalPercentGrades",
-            "byType": "xpath",
-            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_of_total_grades_cell']",
-            "frame": "default",
-            "specialInstr": "NA"
-
-
         }
+     
     ]
 }

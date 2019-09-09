@@ -1,6 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
@@ -172,10 +171,3 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
     await pages.coursePlanner.click('assignButton');
   }
 });
-
-Then('as a instructor I verify the grades of the following students', async function (data_table) {
-  for (let i = 0; i < data_table.rows().length; i++) {
-  }
-});
-
-
