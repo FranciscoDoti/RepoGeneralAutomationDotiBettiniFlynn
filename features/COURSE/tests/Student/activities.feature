@@ -4,7 +4,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
     @mediaproducer-delete-course
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199487  | draft         |

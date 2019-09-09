@@ -173,4 +173,9 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
   }
 });
 
+Then('as a instructor I verify the grades of the following students', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+  }
+});
+
 
