@@ -7,7 +7,7 @@ const email = require(`${process.cwd()}/features/COURSE/steps/checkEmail.js`);
 var window = window;
 
 Given('I have opened Achieve "Achieve-CW"', async function () {
-    let url = await _.get(urls, ['Achieve-CW', this.environment]);
+    let url = await _.get(urls, ['Achieve-CW', this.stack]);
         await visitURL(url);
         await pages.signIn.click('signinlink');
 });
@@ -26,11 +26,6 @@ let user = this.users[userType];
         await pages.signIn.populate('username', user.username);
         await pages.signIn.populate('password', user.password);
         await pages.signIn.click('signin');
-});
-
-When('I sign out of Achieve', async function () {
-    await pages.login.click('togglerMenu');
-    await pages.login.click('signOut');
 }); 
 
 Then(/^I verify the user login$/, async function (data_table) {
@@ -78,7 +73,7 @@ Then('I verify the password as following information', async function (dataTable
 });
 
 When(/^I go to my email account "(.*)"$/, async function (userType) {
-    let url = await _.get(urls, ['Yahoo', this.environment]);
+    let url = await _.get(urls, ['Yahoo', this.stack]);
         await visitURL(url);
         await pages.signIn.click('signinlink');
 let user = this.users[userType];

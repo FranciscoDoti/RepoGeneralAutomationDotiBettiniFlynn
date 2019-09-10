@@ -1,8 +1,13 @@
-{
-  "firstName": "Automation",
-  "lastName": "Instructor",
-  "email": "Instructor@auto.test",
-  "userId": "fake_user_1396301957",
-  "userType": "instructor",
-  "admin": false
-}
+ {
+  "username": "instructor@theeasymail.com",
+  "password": "ABCabc@123",
+  "firstName": "instructor",
+  "lastName": "macmillan",
+  "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
+  "sq1_answer": "answer",
+  "sq2": "What is the name of your first school?",
+  "sq2_answer": "answer",
+  "sq3": "What is the name of your pet?",
+  "sq3_answer": "answer",
+  "primarySchool": "macmillan learning"
+ }

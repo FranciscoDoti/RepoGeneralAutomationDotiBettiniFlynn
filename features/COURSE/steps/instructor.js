@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
+
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
@@ -147,4 +148,26 @@ for (let i = 0; i < data_table.rows().length; i++) {
 await pages.copyCourse.click('save');
 });
 
+When(/^I click on "(.*)"$/, async function (courseName){
+  await pages.createCourse.click('courseCard', courseName);
+})
 
+When(/^I create Gradebook Category for student and assign that to "(.*)" activity$/, async function (activity, data_table) {
+  await pages.coursePage.click('navigation','Gradebook');
+  await pages.gradebook.click('gradebookSettings')
+  await pages.gradebook.click('gradeBookCategory','Add Category');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.gradebook.scrollElementIntoView('categoryName')
+    await pages.gradebook.populate('categoryName', data_table.hashes()[i].CategoryName)
+    await pages.gradebook.populate('dropLowestGrade', data_table.hashes()[i].DropGrade);
+    await pages.gradebook.click('save','Save');
+  }
+  await pages.coursePage.click('navigation','My Course');
+  await pages.coursePage.click('tab', 'COURSE PLAN');
+  await pages.coursePlanner.click('assignGradebook', activity);
+  await pages.coursePlanner.click('gradeBookCategory');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('Category', data_table.hashes()[i].GradebookCategory)
+    await pages.coursePlanner.click('assignButton');
+  }
+});

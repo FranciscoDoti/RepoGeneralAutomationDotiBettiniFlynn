@@ -9,6 +9,7 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseN
   await pages.courseList.click('manageInstructor');
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
+  await pages.courseList.assertElementExists('instructorClose');
   await pages.courseList.click('instructorClose');
   
 });
@@ -38,8 +39,9 @@ When(/^I generate access code for "(.*)"$/, async function (courseName){
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseName', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
+  await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+ courseName )
   await pages.home.click('togglerMenu');
+  await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('checkAccount');
   await pages.adminMenu.click('createAccesscode');

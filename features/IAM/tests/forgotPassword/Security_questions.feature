@@ -1,3 +1,4 @@
+@IAM
 Feature: Verify that Security questions are working appropriately 
 
     Scenario: Verify that Security Question & Answer validations are working as expected

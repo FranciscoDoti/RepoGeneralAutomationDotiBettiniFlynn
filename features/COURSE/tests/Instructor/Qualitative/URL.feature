@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Verify that Instructor is able to create URL
+Feature: Verify that Instructor is able to create URL in Qualitative Course
 
    @mediaproducer-delete-course
     Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course

@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Verify that mediaProducer is able to create URL
+Feature: Verify that mediaProducer is able to create URL in Skills template
 
    @mediaproducer-delete-course
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
+    Scenario: Verify that mediaproducer is able to create a custom task with URL in Skills template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

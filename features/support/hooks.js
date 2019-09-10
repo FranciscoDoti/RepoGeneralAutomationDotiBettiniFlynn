@@ -23,7 +23,7 @@ After('@assessmentCreation', async function () {
 
 
 After('@admin-delete-course', async function () {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users['admin_1'];
   await resetBrowser();
 
@@ -48,7 +48,7 @@ After('@admin-delete-course', async function () {
 });
 
 After('@medieditor-delete-course', async function () {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users['media_editor_1'];
   await resetBrowser();
 
@@ -73,7 +73,7 @@ After('@medieditor-delete-course', async function () {
 });
 
 After('@custmersupport-delete-course', async function () {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users['customer_support_1'];
   await resetBrowser();
 
@@ -97,7 +97,7 @@ After('@custmersupport-delete-course', async function () {
   }
 });
 After('@mediaproducer-delete-course', async function () {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users['media_producer_2'];
   await resetBrowser();
   await visitURL(url);
@@ -120,7 +120,7 @@ After('@mediaproducer-delete-course', async function () {
 });
 
 After('@instructor-delete-course', async function () {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users['instructor_1'];
   await resetBrowser();  
   await visitURL(url);

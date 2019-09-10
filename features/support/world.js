@@ -10,6 +10,7 @@ function ThisWorld({ attach }) {
   this.browser = config.browser;
   this.screenshots = config.screenshots;
   this.headless = config.headless;
+  this.stack = config.stack;
   this.users = users();
 
   this.attach = attach;
