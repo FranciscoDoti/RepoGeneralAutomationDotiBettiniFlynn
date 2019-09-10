@@ -1,4 +1,5 @@
 const testRailAPI = require('testrail-api');
+const path = require('path');
 const fs = require('fs');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const argv = require('minimist')(process.argv.slice(2));
@@ -150,44 +151,47 @@ const addResult = async (testId, content) => {
 }
 //End of Test Runs and Results
 
-const uploadCases = async function(){
-  let results, resultFilePath = `${process.cwd()}/reports/cucumber_report.json`;
-  try {
-    results = await JSON.parse(fs.readFileSync(resultFilePath));
-  } catch (ex) {
-    console.log(`Error while parsing results JSON. Error - ${ex.message}. Cannot upload results to TestRail.`);
-  }
+const uploadCases = async function () {
+  for await (let resultFile of files) {
+    let results;
+    try {
+      results = await JSON.parse(fs.readFileSync(path.resolve(resultFile)));
+    } catch (ex) {
+      console.log(`Error while parsing results JSON. Error - ${ex.message}. Cannot upload results from file ${path.resolve(resultFile)} to TestRail.`);
+    }
 
-  if (results != undefined) {
-    for await (let feature of results) {
-      let projectId = (await getProjectByName(feature.uri.split('/')[1])).id;
-      let suiteId = (await addSuite(projectId, "UI - Automation")).id;
-      let sectionId = (await addSection(projectId, suiteId, feature.name)).id;
+    if (results != undefined) {
+      for await (let feature of results) {
+        let projectId = (await getProjectByName(feature.uri.split('/')[1])).id;
+        let suiteId = (await addSuite(projectId, "UI - Automation")).id;
+        let sectionId = (await addSection(projectId, suiteId, feature.name)).id;
 
-      for await (let scenario of feature.elements) {
-        let caseContent = {
-          "title": "",
-          "type_id": 1,
-          "priority_id": 5,
-          "estimate": "2m",
-          "custom_steps_separated": []
-        }
-        caseContent["title"] = scenario.name;
-
-        let steps = caseContent["custom_steps_separated"]; let k = -1;
-        for await (let stepDef of scenario.steps) {
-          if (stepDef.keyword != 'After' && stepDef.keyword != 'Before') {
-            steps[++k] = {};
-            steps[k]["content"] = stepDef.keyword + stepDef.name.replace(/"/g,'');
-            steps[k]["expected"] = "Expected Result to be updated.";
+        for await (let scenario of feature.elements) {
+          let caseContent = {
+            "title": "",
+            "type_id": 1,
+            "priority_id": 5,
+            "estimate": "2m",
+            "custom_steps_separated": []
           }
-        }
+          caseContent["title"] = scenario.name;
 
-        await addCase(projectId, suiteId, sectionId, caseContent);
+          let steps = caseContent["custom_steps_separated"];
+          let k = -1;
+          for await (let stepDef of scenario.steps) {
+            if (stepDef.keyword != 'After' && stepDef.keyword != 'Before') {
+              steps[++k] = {};
+              steps[k]["content"] = stepDef.keyword + stepDef.name.replace(/"/g, '');
+              steps[k]["expected"] = "Expected Result to be updated.";
+            }
+          }
+
+          await addCase(projectId, suiteId, sectionId, caseContent);
+        }
       }
     }
+    return 0;
   }
-  return 0;
 }
 
 const uploadResults = async function(){
