@@ -2,7 +2,7 @@ var reporter = require('cucumber-html-reporter');
 const argv = require('minimist')(process.argv.slice(2));
 
 const reportName = function(){
-    var prefix = argv.JobName || "";
+    var prefix = argv.prefix || "";
     prefix = (prefix !== "") ? prefix + " " : "";
     var date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
     return prefix + "Cucumber Report " + date;
