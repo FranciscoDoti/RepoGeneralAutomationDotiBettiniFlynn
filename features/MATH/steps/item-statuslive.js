@@ -11,15 +11,27 @@ Then(/^I note the item Id and save in a temp file$/, async function () {
 
   // writing item id number into a file
   let num = itemid.split(": ")[1]
-  fs.writeFileSync('features/MATH/resources/raptor-itemId.txt', num);
+  // fs.writeFileSync('features/MATH/resources/raptor-itemId.txt', num);
+  
+  this.data.set('itemId', num);
+  console.log("itemId:", this.data.get('itemId'));
+  await pages.raptorAms.switchToTab('Sapling');
+
 });
 
 When(/^I am on the AMS page and click open a saved raptor item$/, async function () {
   // reading item id number from file
-  let savedItemId = fs.readFileSync('features/MATH/resources/raptor-itemId.txt').toString();
+  // let savedItemId = fs.readFileSync('features/MATH/resources/raptor-itemId.txt').toString();
+
+  let savedItemId = this.data.get('itemId');
+  console.log("savedItemId", savedItemId);
 
   await pages.ams.populate('filterSearch', savedItemId.split(' ')[0]);
-  await pages.ams.click('itemId', savedItemId.split(' ')[0]);
+  // await pages.ams.populate('filterSearch', this.data.get('id').split(' ')[0]);
+
+  await pages.ams.waitForElementVisibility('itemId', savedItemId.split(' ')[0]);
+  await pages.ams.click('itemId', this.data.get('id').split(' ')[0]);
+
 });
 
 When(/^I set the item status to live$/, async function () {
