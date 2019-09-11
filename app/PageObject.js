@@ -336,7 +336,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const genericWaitForElement = async function (elementName, condition) {
+  const genericWaitForElement = async function (elementName, condition, timeout) {
     let WebElementObject = '';
     let WebElementData = {};
 
@@ -347,32 +347,34 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (condition.toLowerCase()) {
         case 'visibility':
-          return (await WebElementObject.waitForVisibility());
+          return (await WebElementObject.waitForVisibility(timeout));
         case 'invisibility':
-          return (await WebElementObject.waitForInvisibility());
+          return (await WebElementObject.waitForInvisibility(timeout));
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during WaitForElement() attempt.`);
     }
   };
   
-  const waitForElementVisibility = async function (elementName, replaceText) {
+  const waitForElementVisibility = async function (elementName, replaceText, timeoutInSeconds) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    if (await genericWaitForElement(elementName, 'visibility')) {
+    timeout = timeoutInSeconds || 120;
+    if (await genericWaitForElement(elementName, 'visibility', timeout)) {
       log.info(`Web Element ${elementName} is visible on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is not visible on page after 120 second wait. FAIL`);
+      assert.fail(`Web Element ${elementName} is not visible on page after ${timeout} second wait. FAIL`);
     };
   };
 
-  const waitForElementInvisibility = async function (elementName, replaceText) {
+  const waitForElementInvisibility = async function (elementName, replaceText, timeoutInSeconds) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    if (await genericWaitForElement(elementName, 'invisibility')) {
+    timeout = timeoutInSeconds || 120;
+    if (await genericWaitForElement(elementName, 'invisibility', timeout)) {
       log.info(`Web Element ${elementName} is not visible on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is visible on page after 120 second wait. FAIL`);
+      assert.fail(`Web Element ${elementName} is visible on page after ${timeout} second wait. FAIL`);
     };
   };
 
