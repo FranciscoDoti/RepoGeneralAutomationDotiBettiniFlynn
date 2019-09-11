@@ -109,10 +109,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Assignment Total                              | 100%        |   10    |   67%                |
         
 
-        Scenario: Verify that instructor is able to edit the grades of student
+    Scenario: Verify that instructor is able to edit the grades of student
 
-            Given I login to Achieve-CW as "instructor_2"
+        Given I login to Achieve-CW as "instructor_2"
 
-            When I edit student grade in "activities Course"
-                | Students   | editGrade |
-                | student_1  |  1        |   
+        When I edit student grade in "activities Course"
+            | Students   | editGrade |
+            | student_1  |  1        | 
+
+        Then I verify the Grades
+            | Students | Course Total  | Google  | Category Total | AutomationAsset2   | Glossary   | Catgory Total |
