@@ -13,6 +13,7 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
+  await pages.coursePage.click('navigation','MY Course');
   await pages.coursePage.click('tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
@@ -164,15 +165,21 @@ When(/^I attempt "(.*)" Read and Practice activity$/, async function (activityNa
 });
 
 When('I add the activities to the resource tab', async function (data_table) {
+  await pages.resources.assertElementExists('goToContent');
+  await sleep(500);
   await pages.resources.click('goToContent');
+  await sleep(500);
   await pages.resources.click('closeResourceSearchNav');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
     await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities)
+    await sleep(500);
     await pages.resources.scrollElementIntoView(data_table.hashes()[i].type, data_table.hashes()[i].activities);
+    await sleep(1000);
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
     await pages.resources.click('closeResourceSearchNav');
+    await sleep(500);
   }
 });
 

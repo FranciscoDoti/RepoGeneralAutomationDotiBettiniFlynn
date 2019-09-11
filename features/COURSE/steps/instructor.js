@@ -171,3 +171,14 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
     await pages.coursePlanner.click('assignButton');
   }
 });
+
+When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Gradebook');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+  await pages.gradebook.click('editTotal',user.firstName)
+  await pages.gradebook.populate('editGrade', data_table.hashes()[i].editGrade);
+  await pages.gradebook.populate('svae', 'Save');
+    }
+});
