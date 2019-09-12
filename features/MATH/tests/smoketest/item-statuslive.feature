@@ -21,5 +21,5 @@ Feature: Update AMS raptor item status to live
 
     Examples:
       | evaltype   | questionEquation | answerEquation | enforceEndpoints | upperTolerance | lowerTolerance |
-      | "" | "2x+26=0"        | "2x+26=0"      | ""               | ""             | ""             |
+      | "Relation" | "2x+26=0"        | "2x+26=0"      | ""               | ""             | ""             |
 
