@@ -1,37 +1,23 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
-const fs = require('fs');
-
 
 /* Scenario 1: User creates and saves a new AMS raptor item and sets the item status to live */
 
 Then(/^I note the item Id and save in a temp file$/, async function () {
   let itemid = await pages.raptorAms.getText('getItemid');
-
-  // writing item id number into a file
   let num = itemid.split(": ")[1]
-  // fs.writeFileSync('features/MATH/resources/raptor-itemId.txt', num);
-  
-  this.data.set('itemId', num);
-  console.log("itemId:", this.data.get('itemId'));
-  await pages.raptorAms.switchToTab('Sapling');
 
+  this.data.set('itemId', num);
+  await pages.raptorAms.switchToTab('Sapling');
 });
 
 When(/^I am on the AMS page and click open a saved raptor item$/, async function () {
-  // reading item id number from file
-  // let savedItemId = fs.readFileSync('features/MATH/resources/raptor-itemId.txt').toString();
-
   let savedItemId = this.data.get('itemId');
-  console.log("savedItemId", savedItemId);
 
   await pages.ams.populate('filterSearch', savedItemId.split(' ')[0]);
-  // await pages.ams.populate('filterSearch', this.data.get('id').split(' ')[0]);
-
-  await pages.ams.waitForElementVisibility('itemId', savedItemId.split(' ')[0]);
-  await pages.ams.click('itemId', this.data.get('id').split(' ')[0]);
-
+  await pages.ams.waitForElementVisibility('itemId', savedItemId.split(' ')[0],90);
+  await pages.ams.click('itemId', savedItemId.split(' ')[0]);
 });
 
 When(/^I set the item status to live$/, async function () {

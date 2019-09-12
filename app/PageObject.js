@@ -359,7 +359,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const waitForElementVisibility = async function (elementName, replaceText, timeoutInSeconds) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    timeout = timeoutInSeconds || 120;
+    let timeout = timeoutInSeconds || 120;
     if (await genericWaitForElement(elementName, 'visibility', timeout)) {
       log.info(`Web Element ${elementName} is visible on page. PASS`);
     } else {
