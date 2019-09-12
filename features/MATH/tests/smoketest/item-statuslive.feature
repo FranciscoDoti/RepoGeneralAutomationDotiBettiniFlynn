@@ -15,14 +15,11 @@ Feature: Update AMS raptor item status to live
     Then I save the question
     And I note the item Id and save in a temp file
 
-  # Scenario: User opens modal window of the saved AMS raptor item and changes the status to live
-
-    # Given I login to AMS as "all-permissions-author"
-    And I am on the AMS page and click open a saved raptor item
+    When I am on the AMS page and click open the raptor item
     And I set the item status to live
     Then I verify the item reflects status update in "columnStatus" element
 
     Examples:
       | evaltype   | questionEquation | answerEquation | enforceEndpoints | upperTolerance | lowerTolerance |
-      | " " | "2x+26=0"        | "2x+26=0"      | ""               | ""             | ""             |
+      | "" | "2x+26=0"        | "2x+26=0"      | ""               | ""             | ""             |
 

@@ -12,7 +12,7 @@ Then(/^I note the item Id and save in a temp file$/, async function () {
   await pages.raptorAms.switchToTab('Sapling');
 });
 
-When(/^I am on the AMS page and click open a saved raptor item$/, async function () {
+When(/^I am on the AMS page and click open the raptor item$/, async function () {
   let savedItemId = this.data.get('itemId');
 
   await pages.ams.populate('filterSearch', savedItemId.split(' ')[0]);
