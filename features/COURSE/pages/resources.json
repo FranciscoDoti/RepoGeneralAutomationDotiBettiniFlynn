@@ -275,6 +275,24 @@
             "definition": "[data-test-id='writing_prompt_button']",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "importStructureSearchBar",
+            "byType": "css",
+            "definition": "[data-test-id='import_structure_search_bar']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "importStructureSelectButton",
+            "byType": "css",
+            "definition": "[data-test-id='import_modal'] div:last-child div:last-child button",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "importContentImportButton",
+            "byType": "css",
+            "definition": "[data-test-id='import_content_modal'] div:nth-child(3) [data-test-id='import_button']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 

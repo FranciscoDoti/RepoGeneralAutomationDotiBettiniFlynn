@@ -102,7 +102,7 @@ Then(/^I verify that "(.*)" is created with following data$/, async function (co
   }
 });
 
-When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
+When(/^I add URL link to "(.*)"$/, async function (data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('addActivity');
@@ -126,3 +126,13 @@ When('I close generate access code', async function (){
   await pages.adminMenu.click('closeExportList');
 });
 
+Then('Then I clone content from other template', async function(data_table) {
+  await pages.coursePage.click('navigation', 'Resources');
+  await pages.resources.click('importStructure');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('importStructureSearchBar');
+    await pages.resources.populate("importStructureSearchBar", data_table.hashes()[i].courseName);
+  }
+  await pages.resources.click('importStructureSelectButton');
+  await pages.resources.click('importContentImportButton');
+})

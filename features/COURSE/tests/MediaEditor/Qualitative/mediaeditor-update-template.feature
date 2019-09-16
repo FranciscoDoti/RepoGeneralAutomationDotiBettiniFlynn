@@ -22,3 +22,7 @@ Feature: Media Editor is able to create a template and update Qualitative Templa
             | courseName            | Qualitative Template      |
             | courseDate            |  E2E 301                  |
             | courseShortId         | Template                  |
+        
+        Then I clone content from other template
+            | field                 | value                     |
+            | courseName            | 8/15 QL Template          |
