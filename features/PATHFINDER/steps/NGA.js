@@ -21,7 +21,6 @@ Then("the user should be taken to a student preview", async function () {
   await pages.NGA.assertElementExists("About Student Preview Modal");
   await pages.NGA.assertElementExists("About Student Preview Modal Cancel Button");
   await pages.NGA.click("About Student Preview Modal Continue Button");
-  // await pages.NGA.assertElementExists("Student Preview Bar");
   await pages.NGA.assertElementExists("Submit All Questions Button");
   await pages.NGA.assertElementExists("Save Answer Button");
 });

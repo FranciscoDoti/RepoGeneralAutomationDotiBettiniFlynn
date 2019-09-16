@@ -12,7 +12,6 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
             | courseName     | PF Automation Student Test |
             | courseCode     | E2E 301                    |
             | templateStatus | Active On Date             |
-            When I assign "pf-instructor" to the "PF Automation Student Test" course
 
     Scenario: Admin adds student to course
         Given I login to Achieve-CW as "pf-admin"
@@ -22,7 +21,7 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
         Given I login to Achieve-CW as "pf-student1"
             When I click on the course card for "PF Automation Student Test"
             When I launch the Pathfinder Assignment "Practice Test for Reading Skills - Engli ..."
-            When I click on the "Take Practice Test Button" on the "studentAssignment" page
+            When I click on the "Start Test Button" on the "studentAssignment" page
             When I complete an NGA assignment with the following answers
             # answer all questions correctly
             |Question  |Answer  |
@@ -50,8 +49,12 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
             When I refresh the page
             # When I click on the "Continue To Results Button" on the "secondaryHeader" page
-                Then there should be a "Student Practice Test Report" that includes the text "Nice! You tested out of every topic!" on the "studentAssignment" page
-            
+                Then there should be a "Practice Test Results Summary" that includes the text "Nice! You tested out of every topic!" on the "studentAssignment" page
+                Then the topic report card for "Topic Sentences and Supporting Details" should have the score "5/5"
+                Then the topic report card for "Vocabulary" should have the score "5/5"
+                Then the topic report card for "Patterns of Organization" should have the score "5/5"
+                Then the topic report card for "Topics and Main Ideas" should have the score "5/5"
+
     Scenario: Student Uses Study Plan
         Given I login to Achieve-CW as "pf-student1"
             When I click on the course card for "PF Automation Student Test"
@@ -61,8 +64,8 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
     Scenario: Student Takes Final Test and Answers Every Question Correctly
         Given I login to Achieve-CW as "pf-student1"
             When I click on the course card for "PF Automation Student Test"
-            When I launch the Pathfinder Assignment "Final Test for Reading Skills - English"
-            When I click on the "Take Practice Test Button" on the "studentAssignment" page
+            When I launch the Pathfinder Assignment "Final Test for Reading Skills - English  ..."
+            When I click on the "Start Test Button" on the "studentAssignment" page
             When I complete an NGA assignment with the following answers
             # answer all questions correctly
             |Question  |Answer |
@@ -90,7 +93,7 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
             When I refresh the page
             # When I click on the "Continue To Results Button" on the "studentAssignment" page
-                Then there should be a "Student Final Test Report" that includes the text "Excellent! You have completed the final test." on the "studentAssignment" page
+                Then there should be a "Final Test Results Summary" that includes the text "Excellent! You have completed the final test." on the "studentAssignment" page
 
     Scenario: Delete courses
         Given I login to Achieve-CW as "pf-producer"

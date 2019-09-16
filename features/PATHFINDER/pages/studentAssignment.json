@@ -1,20 +1,26 @@
 {
     "webElements": [{
-        "name": "Take Practice Test Button",
+        "name": "Start Test Button",
         "byType": "id",
         "definition": "orientation-pretest-button",
         "frame": 0,
         "specialInstr": "NA"
     }, {
-        "name": "Student Practice Test Report",
+        "name": "Practice Test Results Summary",
         "byType": "css",
-        "definition": "[class*='student-pretest-report-view__resultSummaryContainer']",
+        "definition": "[data-test-id='practice-test-results-summary']",
         "frame": 0,
         "specialInstr": "NA"
     }, {
-        "name": "Student Final Test Report",
+        "name": "Final Test Results Summary",
         "byType": "css",
-        "definition": "[class*='student-diploma-report-view__resultSummaryContainer']",
+        "definition": "[data-test-id='final-test-results-summary']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Topic Report",
+        "byType": "css",
+        "definition": "[data-test-id='topic-report-card']",
         "frame": 0,
         "specialInstr": "NA"
     }, {

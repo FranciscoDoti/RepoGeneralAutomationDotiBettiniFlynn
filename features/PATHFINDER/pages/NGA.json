@@ -18,12 +18,6 @@
         "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
-        "name": "Student Preview Bar",
-        "byType": "css",
-        "definition": "[class*='student-activity-view__previewAlert']",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
         "name": "About Student Preview Modal",
         "byType": "id",
         "definition": "student-preview-modal-container",

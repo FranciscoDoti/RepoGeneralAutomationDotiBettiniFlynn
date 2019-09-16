@@ -1,9 +1,11 @@
-const {Given, When, Then } = require('cucumber');
+const { When, Then } = require('cucumber');
 const driver = require(`${process.cwd()}/app/driver.js`);
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 When(/^I launch the Pathfinder Assignment "(.*)"$/, async function (assignment) {
   await driver.getDriver().manage().window().setRect({width: 1440, height: 900});
+  await driver.getDriver().sleep(500);
+  await driver.getDriver().navigate().refresh();
   await pages.coursePage.click('tab', 'COURSE PLAN')
   await pages.coursePlanner.click('activityName', assignment);
 });
