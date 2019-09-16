@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Admin enrolls the student in Read & Practice course 
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that admin enrolls student in Read & Practice course 
 
         Given I login to Achieve-CW as "media_producer_2"

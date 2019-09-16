@@ -73,6 +73,27 @@
             "specialInstr": "NA"
         },
         {
+            "name": "activityCheckbox",
+            "byType": "css",
+            "definition": "[data-test-id='activity_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "addResources",
+            "byType": "css",
+            "definition": "[data-test-id='add_selections_to_resources']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "parentFolder",
+            "byType": "css",
+            "definition": "data-test-id='parent_folder']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "closeResource",
             "byType": "xpath",
             "definition": "//*[@data-test-id='close_resource_search_nav']",

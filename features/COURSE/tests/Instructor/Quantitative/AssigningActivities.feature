@@ -2,7 +2,7 @@
 @Course @Smoke
 Feature: Assigning the activities present in Quantitative course 
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to assign the activities in Quantitative course
 
         Given I login to Achieve-CW as "media_producer_2"

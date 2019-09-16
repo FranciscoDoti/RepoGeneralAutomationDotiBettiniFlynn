@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding activities to Skills template
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Producer is able to add activities to Skills template
 
         Given I login to Achieve-CW as "media_producer_2"

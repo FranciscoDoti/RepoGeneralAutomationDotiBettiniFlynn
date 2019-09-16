@@ -1,6 +1,6 @@
 Feature: Verify that customer Support is able to create access code for Template
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that customer Support is able to create access code for Template
 
          Given I login to Achieve-CW as "media_producer_2"

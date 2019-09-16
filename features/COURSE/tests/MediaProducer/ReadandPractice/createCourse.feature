@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Create course Read & Practice template
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario:  Create course Template for Read & Practice
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -11,6 +11,6 @@ Feature: Create course Read & Practice template
 
 
         Then I verify that "Read & Practice Template Created." message is displayed
-        And I verify that "Read & Practice Template" has created with following "ISBN: 9781464199498" number
+        And I verify that "Read & Practice Template" has created with following "9781464199498" number
 
     
