@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @localonly
 Feature: Verify that paid Access code Creater is able to generate, Check and update access code
 
     @mediaproducer-delete-course

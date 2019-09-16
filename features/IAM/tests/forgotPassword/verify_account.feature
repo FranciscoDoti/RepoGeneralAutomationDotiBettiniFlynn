@@ -1,3 +1,4 @@
+@IAM
 Feature: Message displayed for not registered user
 
     Scenario: Verify that forgot password is showing appropriate message for not registered with macmillan account e-mail address

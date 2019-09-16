@@ -217,9 +217,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   }
 
-  const scrollElementIntoView = async function (elementName) {
+  const scrollElementIntoView = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
+    elementName = elementName + (replaceText || '');
+
     log.debug(`Scrolling element: ${elementName} into view.`)
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);
@@ -267,6 +269,18 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const assertElementExists = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
+    if (await genericAssertElement(elementName, 'displayed')) {
+      log.info(`Web Element ${elementName} is displayed on page. PASS`);
+    } else {
+      assert.fail(`Web Element ${elementName} is not displayed on page.`);
+    };
+  };
+
+  const dragAndDrop = async function (dragElementName, dragReplaceText, dropElementName, dropReplaceText) {
+    await addDynamicElement(dragElementName, dragReplaceText);
+    await addDynamicElement(dropElementName, dropReplaceText);
+    dragElementName = dragElementName + (dragReplaceText || '');
+    dropElementName = dropElementName + (dropReplaceText || '');
     if (await genericAssertElement(elementName, 'displayed')) {
       log.info(`Web Element ${elementName} is displayed on page. PASS`);
     } else {
@@ -322,7 +336,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const genericWaitForElement = async function (elementName, condition) {
+  const genericWaitForElement = async function (elementName, condition, timeout) {
     let WebElementObject = '';
     let WebElementData = {};
 
@@ -333,32 +347,34 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (condition.toLowerCase()) {
         case 'visibility':
-          return (await WebElementObject.waitForVisibility());
+          return (await WebElementObject.waitForVisibility(timeout));
         case 'invisibility':
-          return (await WebElementObject.waitForInvisibility());
+          return (await WebElementObject.waitForInvisibility(timeout));
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during WaitForElement() attempt.`);
     }
   };
   
-  const waitForElementVisibility = async function (elementName, replaceText) {
+  const waitForElementVisibility = async function (elementName, replaceText, timeoutInSeconds) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    if (await genericWaitForElement(elementName, 'visibility')) {
+    let timeout = timeoutInSeconds || 120;
+    if (await genericWaitForElement(elementName, 'visibility', timeout)) {
       log.info(`Web Element ${elementName} is visible on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is not visible on page after 120 second wait. FAIL`);
+      assert.fail(`Web Element ${elementName} is not visible on page after ${timeout} second wait. FAIL`);
     };
   };
 
-  const waitForElementInvisibility = async function (elementName, replaceText) {
+  const waitForElementInvisibility = async function (elementName, replaceText, timeoutInSeconds) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
-    if (await genericWaitForElement(elementName, 'invisibility')) {
+    let timeout = timeoutInSeconds || 120;
+    if (await genericWaitForElement(elementName, 'invisibility', timeout)) {
       log.info(`Web Element ${elementName} is not visible on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is visible on page after 120 second wait. FAIL`);
+      assert.fail(`Web Element ${elementName} is visible on page after ${timeout} second wait. FAIL`);
     };
   };
 
@@ -556,6 +572,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.addDynamicElement=addDynamicElement;
   that.waitForElementVisibility = waitForElementVisibility;
   that.waitForElementInvisibility = waitForElementInvisibility;
+  that.dragAndDrop = dragAndDrop;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }

@@ -11,6 +11,7 @@ When(/^I generate "(.*)" month length access code for "(.*)"$/, async function (
     await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
     await pages.home.click('togglerMenu');
     await pages.adminMenu.click('admin');
+    await pages.adminMenu.click('admin');
     await pages.adminMenu.click('checkAccount');
     await pages.adminMenu.click('generate');
     await pages.adminMenu.click('exportList');

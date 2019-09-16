@@ -1,3 +1,4 @@
+@IAM
 Feature: Existing user can sigin into the account before deployemnet
 
     Scenario: Verify that Existing registered account before deployment can Sign In appropriately

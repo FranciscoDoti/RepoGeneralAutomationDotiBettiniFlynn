@@ -1,15 +1,15 @@
 @Assessment @SAC @Smoke
-Feature: To configure a basic test in SAC
+Feature: To configure an advanced test in SAC
 
   Scenario: Instructor removes previous responses from an assessment
 
     Given I login to IBISCMS as "raptor-instructor"
-    When I reset attempts from student "student_2"
+    When I reset attempts from student "raptor-student"
     Then I logout IBISCMS
 
   Scenario: Student completes an assessment
 
-    Given I login to IBISCMS as "student_2"
+    Given I login to IBISCMS as "raptor-student"
     When I navigate to assessment
     And I answer questions
       | Question | Type |

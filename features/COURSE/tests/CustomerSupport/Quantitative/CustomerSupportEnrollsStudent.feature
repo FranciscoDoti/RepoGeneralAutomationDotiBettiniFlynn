@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Admin enrolls the student in the course 
+Feature: Customer Support Enrolls the student in Quantitative Cousre 
 
     @mediaproducer-delete-course
-    Scenario: Verify that admin enrolls student in the course 
+    Scenario: Verify that admin enrolls student in Quantitative course 
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -49,7 +49,7 @@ Feature: Admin enrolls the student in the course
             | LC1551301608988                                                  | 5      | 
 
         And I sign out of Achieve
-        And I login to Achieve-CW as "admin_1" 
+        And I login to Achieve-CW as "customer_support_1" 
         And I enroll the "student_1" in "Quantitative Course" course
         And I sign out of Achieve
 

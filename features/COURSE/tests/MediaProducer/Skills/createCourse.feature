@@ -1,6 +1,6 @@
 
 @Course @Smoke
-Feature: Create course
+Feature: Create course Skills template
 
     @mediaproducer-delete-course
     Scenario:  Create course Template for Skills

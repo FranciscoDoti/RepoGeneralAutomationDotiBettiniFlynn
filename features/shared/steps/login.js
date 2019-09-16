@@ -7,7 +7,7 @@ const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages
 
 /* Verifies Sapling login */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['AMS', this.environment]);
+  let url = await _.get(urls, ['AMS', this.stack]);
   let user = this.users[userType];
   await visitURL(url);
   if (this.environment == 'local') {
@@ -25,7 +25,7 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
 // And was causing issue with second time user login in a graphing scenario
 
 Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['AMS', this.environment]);
+  let url = await _.get(urls, ['AMS', this.stack]);
   let user = this.users[userType];
 
   await visitURL(url);
@@ -39,7 +39,7 @@ Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
 });
 
 When(/^I go back to sapling page and logout$/, async function () {
-  let url = await _.get(urls, ['IBISCMS', this.environment]);
+  let url = await _.get(urls, ['IBISCMS', this.stack]);
   await mathPages.saplingLearning.switchToTab('Sapling');
   await visitURL(url);
   await mathPages.saplingLearning.click('RaptorAdmin');
@@ -47,7 +47,7 @@ When(/^I go back to sapling page and logout$/, async function () {
 });
 
 Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users[userType];
   await visitURL(url);
   await pages.login.click('signinlink');
@@ -70,7 +70,7 @@ Given(/^navigate to a course having course id "(.*)"$/, async function (courseid
 });
 
 Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['IBISCMS', this.environment]);
+  let url = await _.get(urls, ['IBISCMS', this.stack]);
   let user = this.users[userType];
 
   await visitURL(url);

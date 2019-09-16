@@ -11,12 +11,13 @@ const argv = require('minimist')(process.argv.slice(2));
 let driver;
 
 const config = {
-  environment : argv.env || argv.environment || defaults.environment,
+  environment : argv.env || defaults.environment,
   mode : argv.mode || defaults.mode,
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
-  timeout : defaults.timeout
+  timeout : defaults.timeout,
+  stack: argv.stack || defaults.stack || argv.env || defaults.environment
 };
 
 const buildDriver = function() {  
@@ -97,11 +98,7 @@ const visitURL = async function(url){
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
   await driver.get(url);
-  await driver.wait(async function () {
-    await sleep(2000);
-    let response = await driver.executeScript("return document.readyState");
-    return (response == 'complete');
-  }, 120000);
+  await sleep(2000);
 };
 
 const closeBrowser = async function(){

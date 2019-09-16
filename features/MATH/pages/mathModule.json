@@ -20,6 +20,20 @@
             "definition": ".greq-input[data-test-id='edit-panel-checkbox-grade_to_constant']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "exactTolerance",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='exact-tolerance-radio']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "vectorEnforceForm",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-vector_form']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
