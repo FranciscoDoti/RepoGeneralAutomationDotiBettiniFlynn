@@ -97,4 +97,4 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
     Scenario: Delete courses
         Given I login to Achieve-CW as "pf-producer"
-            When I delete all automation courses
+            When I delete automation courses

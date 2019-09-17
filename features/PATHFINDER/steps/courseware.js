@@ -10,13 +10,13 @@ When(/^I launch the Pathfinder Assignment "(.*)"$/, async function (assignment) 
   await pages.coursePlanner.click('activityName', assignment);
 });
 
-When('I delete all automation courses', async function () {
+When('I delete automation courses', async function () {
   await pages.courseList.populate('search', 'PF Automation');
   await driver.getDriver().sleep(500);
   let elements = await pages.courseList.getWebElements('courseCard');
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
-    await driver.getDriver().sleep(500);
+    await pages.courseList.waitForElementVisibility('deleteCourse');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
   }
