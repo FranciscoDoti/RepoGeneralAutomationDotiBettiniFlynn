@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Instructor adds folder, remove folder and reorders it in Skills Course 
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources in Skills Course
 

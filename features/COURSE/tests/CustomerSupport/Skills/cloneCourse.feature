@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Skills Template
 
-   @custmersupport-delete-course
+    @custmersupport-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Skills Template
     
@@ -29,7 +29,7 @@ Feature: Customer Support attempts all the activities in Skills Template
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |
 
-        And I click on search button and input "Skills Course" to search the course
+        And I search for "Skills Course" in Courses tab
         
         Then I verify that "Skills Course" is created with following data
             | field                 | value                     |

@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Instructor attempts all the activities in Skills Template
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     @instructor-delete-course   
     Scenario: Verify that Instructor is able to copy course from Skills Template

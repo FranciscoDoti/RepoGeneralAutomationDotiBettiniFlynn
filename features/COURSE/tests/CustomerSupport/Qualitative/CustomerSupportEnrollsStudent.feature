@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: CustomerSupport enrolls the student in Qualitative Course 
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that customerSupport enrolls student in Qualitative Course
         Given I login to Achieve-CW as "media_producer_2"

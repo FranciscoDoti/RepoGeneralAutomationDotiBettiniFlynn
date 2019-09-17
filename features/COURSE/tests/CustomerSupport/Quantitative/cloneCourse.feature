@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Quantitative Template
 
-  @custmersupport-delete-course
+    @custmersupport-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Quantitative Template
     
@@ -31,7 +31,7 @@ Feature: Customer Support attempts all the activities in Quantitative Template
             | courseName          | courseCode           |
             | Quantitative Course | E2E 301              |  
 
-        And I click on search button and input "Quantitative Course" to search the course
+        And I search for "Quantitative Course" in Courses tab
         
         Then I verify that "Quantitative Course" is created with following data
             | field                 | value                     |

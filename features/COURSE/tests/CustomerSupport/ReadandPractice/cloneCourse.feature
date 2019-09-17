@@ -29,7 +29,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |
 
-        And I click on search button and input "Read & Practice Course" to search the course
+        And I search for "Read & Practice Course" in Courses tab
         
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |

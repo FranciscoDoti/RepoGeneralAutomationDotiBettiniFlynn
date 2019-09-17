@@ -31,8 +31,8 @@ Feature: Customer Support attempts all the activities in Qualitative Template
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |
 
-        And I click on search button and input "Qualitative Course" to search the course
-        
+        And I search for "Qualitative Course" in Courses tab
+
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
             | courseName            | Qualitative Course        |

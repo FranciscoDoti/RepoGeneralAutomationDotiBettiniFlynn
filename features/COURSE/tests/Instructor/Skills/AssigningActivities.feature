@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Assigning the activities present in Skills course 
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to assign the activities in Skills course
 

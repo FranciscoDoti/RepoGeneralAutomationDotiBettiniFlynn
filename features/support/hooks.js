@@ -122,6 +122,30 @@ After('@mediaproducer-delete-courseTemplate', async function () {
   }
 });
 
+After('@mediaproducer-delete-course', async function () {
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
+  let user = this.users['media_producer_2'];
+  await resetBrowser();
+  await visitURL(url);
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', user.username);
+  await pages.home.populate('password', user.password);
+  await pages.home.click('signIn')
+  let course = this.data.get('code');
+  let courseName = this.data.get('Number');
+  await pages.courseList.click('courseTemplate', 'Courses');
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.assertElementExists('courseNumber', course);
+  let elements = await pages.courseList.getWebElements('courseNumber', course)
+  console.log(elements.length+'no');
+  for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
+    await pages.courseList.click('deleteCourse');
+    await pages.courseList.click('confirmDelete');
+    await pages.home.click('closeAlert');
+  }
+});
+
 After('@instructor-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users['instructor_1'];

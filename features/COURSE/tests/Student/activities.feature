@@ -1,6 +1,7 @@
 @Smoke
 Feature: Student attempts reading, static file, URL, Gradebook category
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
 
