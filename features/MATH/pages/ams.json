@@ -32,7 +32,7 @@
     }, {
         "name": "columnStatus",
         "byType": "css",
-        "definition": "div#item-panel > * td:nth-child(9)",
+        "definition": ".table >* td[data-test-id='status-<ReplaceText>']", 
         "frame": "default",
         "specialInstr": "NA"
     }, {
