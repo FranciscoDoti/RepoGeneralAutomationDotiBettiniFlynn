@@ -18,6 +18,6 @@ Feature: Media Editor is able to create a template and update in Read & Practice
 
         Then I verify that "Read & Practice Template" is created with following data
             | field                 | value                     |
-            | courseName            | Read & Practice Template  |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+            | courseCard            | Read & Practice Template  |
+            | courseStaus           |  Active                   |
+            | ISBNVerfication       | 9781464199498             |

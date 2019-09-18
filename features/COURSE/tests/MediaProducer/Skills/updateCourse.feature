@@ -15,6 +15,6 @@
             
         Then I verify that "Skills Template" is created with following data
             | field                 | value                     |
-            | courseName            | Skills Template           |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+            | courseCard            | Skills Template           |
+            | Status                |  Active                   |
+            | ISBNVerification      |  9781464199498            |

@@ -49,8 +49,9 @@ Feature: Student enrolls through course Id and access code
 
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
-            | courseName            | Qualitative Course        |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Qualitative Course        |
+            | courseStatus          |  Active                   |
+          
 
 
 

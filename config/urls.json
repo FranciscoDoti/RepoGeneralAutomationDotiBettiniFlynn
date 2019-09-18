@@ -12,7 +12,8 @@
         "dev-service": "https://dev-cw-servicesint-courseware-frontend.mldev.cloud/start",
         "uat": "https://dev-achieve-uat-courseware-frontend.mldev.cloud/start",
         "prod":"https://achieve.macmillanlearning.com/start",
-        "pre-prod":"https://int-achieve-preprod-courseware-frontend.mldev.cloud/"
+        "pre-prod":"https://int-achieve-preprod-courseware-frontend.mldev.cloud/",
+        "dev-LC": "https://dev-learning-curve-courseware-frontend.mldev.cloud/"
                
     },
     "AMS":{

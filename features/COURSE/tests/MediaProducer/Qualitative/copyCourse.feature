@@ -27,8 +27,8 @@ Feature: Copy course Qualitative template
 
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
-            | courseName            | Qualitative Course        |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Qualitative Course        |
+            | Status                |  Draft                    |
            
 
 

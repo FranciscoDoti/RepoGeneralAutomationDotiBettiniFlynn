@@ -48,8 +48,8 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And I close the popup message
         And I verify that "Quantitative Instructor Course" is created with following data
             | field                 | value                                |
-            | courseName            | Quantitative Instructor Course       |
-            | courseDate            |  E2E 301                              |
+            | courseCard            | Quantitative Instructor Course       |
+            | Status                |  Drfat                               |
            
         
 

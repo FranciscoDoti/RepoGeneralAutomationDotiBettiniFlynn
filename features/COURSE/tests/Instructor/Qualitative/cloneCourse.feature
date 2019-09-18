@@ -47,8 +47,8 @@ Feature: Instructor attempts all the activities in Qualitative Template
         And I close the popup message
         And I verify that "Qualitative Instructor Course" is created with following data
             | field                 | value                                |
-            | courseName            | Qualitative Instructor Course        |
-            | courseDate            |  E2E 301                             |
+            | courseCard            | Qualitative Instructor Course        |
+            | Status                |  E2E 301                             |
            
         
 

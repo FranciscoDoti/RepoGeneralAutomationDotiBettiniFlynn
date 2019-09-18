@@ -33,7 +33,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |
-            | courseName            | Read & Practice Course    |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Read & Practice Course    |
+            | Status                |  Drfat                    |
            
         

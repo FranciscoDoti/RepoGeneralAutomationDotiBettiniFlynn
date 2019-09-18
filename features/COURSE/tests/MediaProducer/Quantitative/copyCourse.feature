@@ -28,8 +28,8 @@ Feature: Copy course Quantitative Template
 
         Then I verify that "Quantitative Course" is created with following data
             | field                 | value                     |
-            | courseName            | Quantitative Course       |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Quantitative Course       |
+            | Status                |  Draft                    |
            
 
 

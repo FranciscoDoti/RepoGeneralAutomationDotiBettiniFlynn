@@ -4,7 +4,7 @@
   "scripts": {
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Instructor/Qualitative/cloneCourse.feature -f json:reports/cucumber_report.json"
+    "COURSE": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/CustomerSupport -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"

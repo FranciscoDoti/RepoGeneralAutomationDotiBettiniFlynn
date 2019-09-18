@@ -30,7 +30,14 @@
             "definition": "[data-test-id='create_course_status']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        }, 
+        {
+            "name": "Status",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3cOL']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "courseTitle",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']",

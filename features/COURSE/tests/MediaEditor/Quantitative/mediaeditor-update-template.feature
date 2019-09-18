@@ -19,6 +19,6 @@ Feature: Media Editor is able to create a template and update in Quantitative Te
 
         Then I verify that "Quantitative Template" is created with following data
             | field                 | value                     |
-            | courseName            | Quantitative Template     |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+            | courseCard            | Quantitative Template     |
+            | Status                |  Active                   |
+            | ISBNVerification      |  9781464199498            |

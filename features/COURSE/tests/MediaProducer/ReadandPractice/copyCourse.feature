@@ -28,8 +28,9 @@ Feature: Copy course from Read & Practice template
 
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |
-            | courseName            | Read & Practice Course    |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Read & Practice Course    |
+            | Status                |  Draft                    |
+          
            
 
 

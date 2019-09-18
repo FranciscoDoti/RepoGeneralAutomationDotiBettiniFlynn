@@ -339,6 +339,7 @@ When('I create template with following data', async function (data_table){
       if(c.learningObjective != ''){
       await pages.createCourse.assertElementExists('learningObjective');
       await pages.createCourse.populate('learningObjective', c.learningObjective)
+      await pages.createCourse.populate('learningObjective', c.learningObjective)
       }
       await pages.createCourse.assertElementExists('isbnNumber');
       await pages.createCourse.populate('isbnNumber', c.isbnNumber)

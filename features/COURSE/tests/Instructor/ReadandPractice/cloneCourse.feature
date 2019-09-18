@@ -46,8 +46,8 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         And I close the popup message
         And I verify that "Read & Practice Instructor Course" is created with following data
             | field                 | value                                   |
-            | courseName            | Read & Practice Instructor Course       |
-            | courseDate            |  E2E 301                                 |
+            | courseCard            | Read & Practice Instructor Course       |
+            | courseStatus          |  Drfat                                  |
            
         
 
