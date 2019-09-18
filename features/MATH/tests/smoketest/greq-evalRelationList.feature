@@ -1,7 +1,7 @@
 @math @smoke
-Feature: Hyperbolic Trigonometric expression 
+Feature: Realation List 
 
-    Scenario: Verify an equivalent polar coordinate for Point eval type without transforming the angle by 2π
+    Scenario: Verify an Relation list equation for Relation eval type
 
         Given I login to AMS as "all-permissions-author"
         When I click on the New Raptor item in the AMS page
@@ -9,12 +9,13 @@ Feature: Hyperbolic Trigonometric expression
 
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
-        And I set the grade as "Expression" type
-        And I input author question "\sinh(x + y)"
-        And I set Item Details name as "TrigExpression2"
+        And I set the grade as "Relation" type
+        And I input author question "\theta=5,x>0>-3"
+        And I select isList checkbox
+        And I set Item Details name as "Relation-List"
         Then I save the question
 
         When I simulate student interface
-        And I input the correct equation "sinh x cosh y + cosh x sinh y"
+        And I input the correct equation "θ = 5 , x > 0 > − 3"
         And I submit answer
         Then the answer is graded correct
