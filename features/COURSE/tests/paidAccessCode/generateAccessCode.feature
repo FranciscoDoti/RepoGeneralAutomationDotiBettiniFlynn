@@ -1,7 +1,6 @@
 @Course @Smoke @localonly
 Feature: Verify that paid Access code Creater is able to generate, Check and update access code
 
-    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that paid Access code Creater is able to generate, Check and update access code
 

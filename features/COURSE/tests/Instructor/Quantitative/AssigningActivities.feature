@@ -23,6 +23,7 @@ Feature: Assigning the activities present in Quantitative course
             | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName          | courseCode           |
             | Quantitative Course  | E2E 301             |

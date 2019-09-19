@@ -66,6 +66,7 @@ After('@medieditor-delete-course', async function () {
   let elements = await pages.courseList.getWebElements('courseNumber', course);
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
+    await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.assertElementExists('confirmDelete')
     await pages.courseList.click('confirmDelete');
@@ -73,7 +74,7 @@ After('@medieditor-delete-course', async function () {
   }
 });
 
-After('@custmersupport-delete-course', async function () {
+After('@customersupport-delete-course', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users['customer_support_1'];
   await resetBrowser();
@@ -86,7 +87,6 @@ After('@custmersupport-delete-course', async function () {
 
   let course = this.data.get('code');
   let courseName = this.data.get('Number');
-  await pages.courseList.click('courseTemplate', 'Courses');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course);
@@ -133,7 +133,6 @@ After('@mediaproducer-delete-course', async function () {
   await pages.home.click('signIn')
   let course = this.data.get('code');
   let courseName = this.data.get('Number');
-  await pages.courseList.click('courseTemplate', 'Courses');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course)

@@ -18,12 +18,15 @@ Feature: Copy course Qualitative template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  Glossary                                   |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |
+            
+        And I click on "Courses" tab 
 
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |

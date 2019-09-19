@@ -22,6 +22,7 @@ Feature: Instructor attempts all the activities in Skills Template
             | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |

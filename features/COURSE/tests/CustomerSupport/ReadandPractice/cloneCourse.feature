@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Read & Practice Template
 
-    @custmersupport-delete-course
+    @customersupport-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Read & Practice Template
     
@@ -34,6 +34,6 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |
             | courseCard            | Read & Practice Course    |
-            | Status                |  Drfat                    |
+            | Status                |  Draft                    |
            
         

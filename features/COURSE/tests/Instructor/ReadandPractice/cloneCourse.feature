@@ -22,6 +22,7 @@ Feature: Instructor attempts all the activities in Read & Practice Template
             | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
 
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
@@ -47,7 +48,7 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         And I verify that "Read & Practice Instructor Course" is created with following data
             | field                 | value                                   |
             | courseCard            | Read & Practice Instructor Course       |
-            | courseStatus          |  Drfat                                  |
+            | courseStatus          |  Draft                                  |
            
         
 

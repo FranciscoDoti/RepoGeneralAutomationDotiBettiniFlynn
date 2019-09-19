@@ -16,5 +16,5 @@
         Then I verify that "Read & Practice Template" is created with following data
             | field                 | value                     |
             | courseCard            | Read & Practice Template  |
-            | Status                |  Active                   |
+            | TemplateStatus        |  Active                   |
             | ISBNVerification      | 9781464199498             |

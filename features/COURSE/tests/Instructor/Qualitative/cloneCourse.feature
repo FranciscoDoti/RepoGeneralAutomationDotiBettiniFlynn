@@ -23,6 +23,7 @@ Feature: Instructor attempts all the activities in Qualitative Template
             | addReadingButton         | Glossary                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
@@ -48,7 +49,7 @@ Feature: Instructor attempts all the activities in Qualitative Template
         And I verify that "Qualitative Instructor Course" is created with following data
             | field                 | value                                |
             | courseCard            | Qualitative Instructor Course        |
-            | Status                |  E2E 301                             |
+            | Status                |  Draft                               |
            
         
 

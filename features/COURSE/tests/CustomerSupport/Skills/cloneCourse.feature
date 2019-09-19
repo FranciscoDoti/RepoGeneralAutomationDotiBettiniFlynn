@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Skills Template
 
-    @custmersupport-delete-course
+    @customersupport-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Skills Template
     

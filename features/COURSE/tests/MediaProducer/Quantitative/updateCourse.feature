@@ -17,5 +17,5 @@
         Then I verify that "Quantitative Template" is created with following data
             | field                 | value                     |
             | courseCard            | Quantitative Template     |
-            | Status                |  Active                   |
+            | TemplateStatus        |  Active                   |
             | ISBNVerification      |  9781464199498            |

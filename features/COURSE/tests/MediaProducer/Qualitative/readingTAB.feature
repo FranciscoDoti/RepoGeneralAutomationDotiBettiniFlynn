@@ -21,25 +21,25 @@ Feature: Adding reading activities in reading tab to Qualitative template
             | addReadingButton         | Glossary                                      |
             | addReadingButton         |  Analyzing Literary Elements                  |
             | addReadingButton         | Literary Elements                             |
-            | addReadingButton         | Dedication                                    |
+            | addReadingButton         | Glossary                                    |
 
         And I add the activities in ebook
             | activity                                      |                                                      
             | Analyzing Literary Elements                   | 
             | Literary Elements                             |
             | Glossary                                      | 
-            | Dedication                                    | 
+            | Glossary                                    | 
 
         And I reorder the resources on template in ebook
             | actvities                                                         | reorder        |
             |  Analyzing Literary Elements                                      | moveToTop      |                                                     
             | Literary Elements                                                 | movedownButton |
             | Glossary                                                          | moveToEnd      |
-            | Dedication                                                        | moveUpButton   |
+            | Glossary                                                        | moveUpButton   |
 
         Then I verify that resources are reordered in ebook
             | activities                    |   orderNumber   |
-            | Dedication                    |   1             |                                                     
+            | Glossary                    |   1             |                                                     
             |  Analyzing Literary Elements  |   2             |
             | Literary Elements             |   3             |                                                                                         
             | Glossary                      |   4             |                                        
@@ -49,7 +49,7 @@ Feature: Adding reading activities in reading tab to Qualitative template
             | activity                                      | folders               | message                                                                   |
             |  Analyzing Literary Elements                  | Reading Symbols       | 'Analyzing Literary Elements' was successfully moved to Reading Symbols.  |
             | Literary Elements                             | Reading Regression    | 'Literary Elements' was successfully moved to Reading Regression.         |
-            | Dedication                                    | Reading Interval      | 'Dedication' was successfully moved to Reading Interval.                  |
+            | Glossary                                    | Reading Interval      | 'Glossary' was successfully moved to Reading Interval.                  |
             | Glossary                                      | Reading Authors       | 'Glossary' was successfully moved to Reading Authors.                     |
 
         And I verify the activities are added in folders which are present in "E-book"
@@ -57,7 +57,7 @@ Feature: Adding reading activities in reading tab to Qualitative template
             |  Analyzing Literary Elements                  | Reading Symbols       |
             |  Literary Elements                            | Reading Regression    |
             | Glossary                                      | Reading Authors       |
-            |  Dedication                                   | Reading Interval      |
+            |  Glossary                                   | Reading Interval      |
 
         When I delete the resources from the Template in ebook
             | folders               | message                                  |

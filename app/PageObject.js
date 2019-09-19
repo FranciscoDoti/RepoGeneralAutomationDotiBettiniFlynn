@@ -376,9 +376,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const getText = async function (elementName) {
+  const getText = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined) { expectedValue = replaceText };
     try {
-      return await getAttributeValue(elementName);
+      return await getAttributeValue(elementName,replaceText);
     } catch (err) {
       log.error(err.stack);
       throw err;

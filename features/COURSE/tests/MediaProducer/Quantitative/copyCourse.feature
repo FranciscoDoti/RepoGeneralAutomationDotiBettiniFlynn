@@ -22,9 +22,12 @@ Feature: Copy course Quantitative Template
             | addReadingButton        |  Glossary                                   |
 
         And I click on home button to return to coursepage
+
+        And I click on "Course Templates" tab 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName          | courseCode           |
             | Quantitative Course  | E2E 301             |
+        And I click on "Course Templates" tab 
 
         Then I verify that "Quantitative Course" is created with following data
             | field                 | value                     |

@@ -15,12 +15,13 @@ Feature: Customer Support Enrolls the student in Quantitative Cousre
             | Quantitative Template  |   E2E 301     |  Active On Date      | 
 
         And I add the activities in resources to "Quantitative Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | type                    | activity                                      |    
             | addButtonLearningcurve  | LC1551301608988                               |
+            | addReadingButton        | Glossary                                      |
             
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Quantitative Template" template with the following data
              | courseName           | courseCode          |
              | Quantitative Course  | E2E 301             |
@@ -40,13 +41,12 @@ Feature: Customer Support Enrolls the student in Quantitative Cousre
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Quantitative Course" course
-            | activity                                                          | 
-            | Exercise: Misused words 1 (autoscored)                            |                                                        
+            | activity                                                          |                                                         
             | LC1551301608988                                                   |
-
+            | Glossary                                                          |
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
-            | Exercise: Misused words 1 (autoscored)                           | 5      | 
+            | Glossary                                                         | 5      | 
             | LC1551301608988                                                  | 5      | 
 
         And I sign out of Achieve

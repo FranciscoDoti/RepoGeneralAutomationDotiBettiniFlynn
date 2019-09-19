@@ -24,6 +24,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
             | addReadingButton         | Glossary                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName           | courseCode           |
@@ -49,7 +50,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And I verify that "Quantitative Instructor Course" is created with following data
             | field                 | value                                |
             | courseCard            | Quantitative Instructor Course       |
-            | Status                |  Drfat                               |
+            | Status                |  Draft                               |
            
         
 
