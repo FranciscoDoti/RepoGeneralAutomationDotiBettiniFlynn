@@ -47,7 +47,7 @@ const WebElement = function (element) {
     return await my.driver.wait(my.webdriver.until.elementIsDisabled(returnElement), 3000);
   };
 
-  that.waitForVisibility = async function () {
+  that.waitForVisibility = async function (timeoutInSeconds) {
     const definition = await this.getBy();
     const wait = (await my.driver.manage().getTimeouts()).implicit;
     await my.driver.manage().setTimeouts({ implicit: 1000});
@@ -56,13 +56,12 @@ const WebElement = function (element) {
       if (elements.length > 0) {
         return true;
       };
-    }, 120000);
+    }, timeoutInSeconds*1000);
     await my.driver.manage().setTimeouts({ implicit: wait});
     return visibility;
   };
 
-  that.waitForInvisibility = async function () {
-    let counter = 0;
+  that.waitForInvisibility = async function (timeoutInSeconds) {
     const definition = await this.getBy();
     const wait = (await my.driver.manage().getTimeouts()).implicit;
     await my.driver.manage().setTimeouts({ implicit: 1000});
@@ -71,7 +70,7 @@ const WebElement = function (element) {
       if (elements.length <= 0) {
         return true;
       };
-    }, 120000);
+    }, timeoutInSeconds*1000);
     await my.driver.manage().setTimeouts({ implicit: wait});
     return invisibility;
   };

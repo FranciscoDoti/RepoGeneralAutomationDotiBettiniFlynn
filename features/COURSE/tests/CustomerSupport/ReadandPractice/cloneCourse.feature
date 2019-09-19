@@ -23,6 +23,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
+        And I change to Course Template Tab
         And I click on search button and input "Read & Practice Template" to search the course
                 
         And I copy course from the "Read & Practice Template" template with the following data

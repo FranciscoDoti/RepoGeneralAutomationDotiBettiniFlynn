@@ -24,6 +24,7 @@ Feature: Customer Support attempts all the activities in Quantitative Template
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
+        And I change to Course Template Tab
         And I click on search button and input "Quantitative Template" to search the course
                 
         And I copy course from the "Quantitative Template" template with the following data
