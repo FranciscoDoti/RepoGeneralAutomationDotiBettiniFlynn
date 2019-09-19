@@ -1,3 +1,4 @@
+@Course @Smoke
 Feature: Verify that customer Support is able to create access code for Template
 
     @mediaproducer-delete-courseTemplate

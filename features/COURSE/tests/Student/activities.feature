@@ -1,4 +1,4 @@
-@Smoke
+@Smoke @Course
 Feature: Student attempts reading, static file, URL, Gradebook category
 
     @mediaproducer-delete-courseTemplate

@@ -75,7 +75,7 @@
         {
             "name": "activityCheckbox",
             "byType": "css",
-            "definition": "[data-test-id='activity_checkbox']",
+            "definition": "[data-test-id='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
