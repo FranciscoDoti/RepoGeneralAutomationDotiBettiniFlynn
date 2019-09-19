@@ -127,6 +127,18 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "courseTab",
+        "byType": "css",
+        "definition": "nav div[aria-label='Courses']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, { 
+        "name": "courseTemplateTab",
+        "byType": "css",
+        "definition": "nav div[aria-label='Course Templates']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, { 
         "name": "search",
         "byType": "css",
         "definition": "[data-test-id='course_search_input']",
