@@ -10,11 +10,11 @@ Feature: Hyperbolic Trigonometric expression
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
         And I set the grade as "Expression" type
-        And I input author question "\sinh(x + y)"
+        And I input author answer "\sinh(x + y)"
         And I set Item Details name as "TrigExpression2"
         Then I save the question
 
         When I simulate student interface
-        And I input the correct trigonometric expression "sinh, x, cosh, y, +, cosh, x, sinh, y"
+        And I input the correct equation "sinh x cosh y + cosh x sinh y"
         And I submit answer
         Then the answer is graded correct
