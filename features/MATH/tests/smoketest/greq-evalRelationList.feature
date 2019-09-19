@@ -10,7 +10,7 @@ Feature: Realation List
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
         And I set the grade as "Relation" type
-        And I input author question "\theta=5,x>0>-3"
+        And I input author answer "\theta=5,x>0>-3"
         And I select isList checkbox
         And I set Item Details name as "Relation-List"
         Then I save the question

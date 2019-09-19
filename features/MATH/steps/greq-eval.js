@@ -100,12 +100,12 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
 // future work: when I take up refactoring greq-eval.feature I should be able to combine with above step function
 // 'I input the correct answer-equation'
 
-When(/^I input the correct equation "(.*)"$/, async function (expression) {
-  const triglist = expression.split(' ');
+When(/^I input the correct equation "(.*)"$/, async function (equation) {
+  const eqnlist = equation.split(' ');
 
   await pages.raptorAms.click('checkYourWorkAnswerText1');
-  for (let i = 0; i < triglist.length; i++) {
-    const item = triglist[i];
+  for (let i = 0; i < eqnlist.length; i++) {
+    const item = eqnlist[i];
     
     if (nonPalette.includes(item)) {
       // if the trigonometric expression contains a nonPalette character, insert the value directly into input box
@@ -156,7 +156,7 @@ When(/^I set the grade as "(.*)" type$/, async function (gradeAsEval) {
   await pages.raptorAms.click('mathGradeAs');
 });
 
-When(/^I input author question "(.*)"$/, async function (eqnQuestion) {
+When(/^I input author answer "(.*)"$/, async function (eqnQuestion) {
   await pages.raptorAms.populate('mathEquationField', eqnQuestion);
 });
 
