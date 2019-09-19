@@ -3,7 +3,6 @@ const { Key } = require('selenium-webdriver');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "^", "∪", "."]
-const basicPalette = ["x", "y", "t", "π", "θ", "∞"]
 const trigPalette = ["sin", "cos", "tan", "sec", "csc", "cot", "sinh", "cosh", "tanh", "sech", "csch", "coth"]
 
 /* Creating a new AMS raptor item for six Eval types: Relation, Expression, Point, Interval, Vector, Parametric */
@@ -101,36 +100,34 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
 // future work: when I take up refactoring greq-eval.feature I should be able to combine with above step function
 // 'I input the correct answer-equation'
 
-When(/^I input the correct trigonometric expression "(.*)"$/, async function (expression) {
-  const triglist = expression.split(', ');
+When(/^I input the correct equation "(.*)"$/, async function (equation) {
+  const eqnlist = equation.split(' ');
 
   await pages.raptorAms.click('checkYourWorkAnswerText1');
-
-  for (let i = 0; i < triglist.length; i++) {
-    const item = triglist[i];
-
+  for (let i = 0; i < eqnlist.length; i++) {
+    const item = eqnlist[i];
+    
     if (nonPalette.includes(item)) {
       // if the trigonometric expression contains a nonPalette character, insert the value directly into input box
       await pages.raptorAms.populate('checkYourWorkAnswerText2', Key.ENTER);
       await pages.raptorAms.populate('checkYourWorkAnswerText2', item);
-    }
-    else if (basicPalette.includes(item)) {
-      // checks for the expression containing basic palette variables and clicks the palette button 
-      await pages.palette.click('paletteMenu', 'BASIC');
-      await pages.palette.click('basic', `${item}`);
-      await pages.palette.click('rightArrow');
     }
     else if (trigPalette.includes(item)) {
       // checks for the expression containing trigonometric function and clicks the palette button
       await pages.palette.click('paletteHeader');
       await pages.palette.click('paletteMenu', 'TRIGONOMETRIC');
       await pages.palette.click('trigHyperbolic', `${item}`);
+    } else {
+      // checks for the expression containing basic palette variables and clicks the palette button 
+      await pages.palette.click('paletteMenu', 'BASIC');
+      await pages.palette.click('basic', `${item}`);
+      await pages.palette.click('rightArrow');
     }
   }
 });
 
 When(/^I submit answer$/, async function () {
-  await ngaPages.raptor.click('Check Your Work Submit Button');
+  await pages.raptorAms.click('submitAnswer');
 });
 
 Then(/^the answer is graded correct$/, async function () {
@@ -159,7 +156,7 @@ When(/^I set the grade as "(.*)" type$/, async function (gradeAsEval) {
   await pages.raptorAms.click('mathGradeAs');
 });
 
-When(/^I input author question "(.*)"$/, async function (eqnQuestion) {
+When(/^I input author answer "(.*)"$/, async function (eqnQuestion) {
   await pages.raptorAms.populate('mathEquationField', eqnQuestion);
 });
 
@@ -216,4 +213,8 @@ Then(/^I verify "(.*)" checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab
 When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async function (gradeAsEval) {
   await pages.raptorAms.click('contextTab', 'question');
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
+});
+
+When(/^I select isList checkbox$/, async function () {
+  await pages.mathModule.click('isList');
 });
