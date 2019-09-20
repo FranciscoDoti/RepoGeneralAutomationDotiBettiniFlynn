@@ -1,5 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const Pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
 const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
@@ -60,11 +61,11 @@ Then('I verify the assignmenent grades in gradebook for below assigned activitie
   }
 });
 
-When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, courseName){
+When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, courseName){
   await pages.createCourse.getText('courseShortId');
   let user = this.users[userType];
   let text = await pages.createCourse.getText('courseShortId');
-  await Pages.login.click('togglerMenu');
+  await Pages.login.click('togglerMenu');//togglerMenu is marked as undefined
   await Pages.login.click('signOut');
   await Pages.login.click('signinlink');
   await Pages.login.populate('username', user.username);
@@ -73,7 +74,8 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, c
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
-  let courseReport = `${this.downloadLocation}/achieveaccesscode_${courseName}.csv`;
+  let courseReport = `${this.downloadLocation}/achieveaccesscode_${courseName}.csv`;//The Problem
+  console.log(courseReport + "   >>>>>>>>>>>>>>>>>>>>>")//debug
   const data = await csvtojson().fromFile(courseReport);
   await pages.coursePage.populate('accessModelInput', data[0]["Access Code"]);
   await pages.coursePage.click('enter');
