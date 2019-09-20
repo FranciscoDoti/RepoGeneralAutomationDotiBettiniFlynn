@@ -7,7 +7,10 @@ When("I complete an NGA assignment with the following answers", async function (
     await pages.NGA.click('Multiple Choice Button', datatable.hashes()[i].Answer);
     await pages.NGA.click('Next Question Button');
 // wait until next question has loaded
-    await pages.NGA.waitForElementInvisibility('Save Answer Button', 'Saving');
+    let buttonText = await pages.NGA.getText('Save Answer Button');
+    while (buttonText == "Saving") {
+      buttonText = await pages.NGA.getText('Save Answer Button');
+    }
   }
 
   await pages.NGA.click('Submit All Questions Button');
