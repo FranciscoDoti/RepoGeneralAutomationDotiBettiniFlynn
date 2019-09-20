@@ -9,7 +9,7 @@
         }, {
             "name": "courseCard",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../../../div[@data-test-id='course_card']",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -177,7 +177,7 @@
         }, {
             "name": "ISBNVerification",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../a/div[@data-test-id='course_activation_date']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='SibD']",
             "frame": "default",
             "specialInstr": "NA"
         },

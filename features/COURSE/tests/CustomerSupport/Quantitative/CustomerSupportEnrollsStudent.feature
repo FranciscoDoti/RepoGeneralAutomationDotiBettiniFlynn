@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support Enrolls the student in Quantitative Cousre 
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that admin enrolls student in Quantitative course 
 
         Given I login to Achieve-CW as "media_producer_2"

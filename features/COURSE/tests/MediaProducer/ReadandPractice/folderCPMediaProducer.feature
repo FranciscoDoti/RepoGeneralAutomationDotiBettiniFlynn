@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding activities in Folder courseplanner in Read & Practice template
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Producer is able to add folder in courseplanner in Read & Practice template
 
         Given I login to Achieve-CW as "media_producer_2"

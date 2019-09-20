@@ -2,7 +2,7 @@
 Feature: Customer Support attempts all the activities in Qualitative Template
 
     @custmersupport-delete-course
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Qualitative Template
     
         Given I login to Achieve-CW as "media_producer_2"

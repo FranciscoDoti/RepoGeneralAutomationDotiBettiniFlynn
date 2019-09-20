@@ -700,6 +700,19 @@
 
         },
         {
+            "name": "contentCheckbox",
+            "byType": "css",
+            "definition": "[data-test-id='content_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "addToCourse",
+            "byType": "css",
+            "definition": "[title='Add to course']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "gradeBookCategory",
             "byType": "css",
             "definition": "[data-test-id='edit_assignment_modal_gradebook_category_arrow']",
