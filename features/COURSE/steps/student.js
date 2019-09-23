@@ -63,17 +63,6 @@ Then('I verify the assignmenent grades in gradebook for below assigned activitie
 });
 
 When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, courseName){
-<<<<<<< HEAD
-  await pages.createCourse.getText('courseShortId');
-  let user = this.users[userType];
-  let text = await pages.createCourse.getText('courseShortId');
-  await Pages.login.click('togglerMenu');//togglerMenu is marked as undefined
-  await Pages.login.click('signOut');
-  await Pages.login.click('signinlink');
-  await Pages.login.populate('username', user.username);
-  await Pages.login.populate('password', user.password);
-  await Pages.login.click('signin');
-=======
   await pages.createCourse.getText('courseShortId', courseName);
   let user = this.users[userType];
   let text = await pages.createCourse.getText('courseShortId', courseName);
@@ -83,7 +72,6 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, c
   await shared.login.populate('username', user.username);
   await shared.login.populate('password', user.password);
   await shared.login.click('signin');
->>>>>>> 07d44bb963883385d71649003a2f585f51dadf99
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
