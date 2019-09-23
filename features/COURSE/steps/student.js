@@ -74,8 +74,7 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, c
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
-  let courseReport = `${this.downloadLocation}/achieveaccesscode_${courseName}.csv`;//The Problem
-  console.log(courseReport + "   >>>>>>>>>>>>>>>>>>>>>")//debug
+  let courseReport = `${this.downloadLocation}/achieveaccesscode_${courseName}.csv`;
   const data = await csvtojson().fromFile(courseReport);
   await pages.coursePage.populate('accessModelInput', data[0]["Access Code"]);
   await pages.coursePage.click('enter');
