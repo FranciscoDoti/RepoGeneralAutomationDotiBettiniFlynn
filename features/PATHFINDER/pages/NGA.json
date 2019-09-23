@@ -37,8 +37,8 @@
         "spectialInstr": "NA"
     }, {
         "name": "Save Answer Button",
-        "byType": "css",
-        "definition": "[data-test-id='check-answer-button']",
+        "byType": "xpath",
+        "definition": "//button[data-test-id='check-answer-button' and .='<ReplaceText>']",
         "frame": "NGA Frame",
         "spectialInstr": "NA"
     }, {
