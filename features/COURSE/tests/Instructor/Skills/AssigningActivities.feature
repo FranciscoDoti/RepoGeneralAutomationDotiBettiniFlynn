@@ -2,6 +2,7 @@
 Feature: Assigning the activities present in Skills course 
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to assign the activities in Skills course
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -20,6 +21,7 @@ Feature: Assigning the activities present in Skills course
             | addReadingButton        |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |

@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding activities to Qualitative template
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Producer is able to add activities to Qualitative template
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -18,10 +18,10 @@ Feature: Adding activities to Qualitative template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  Glossary                                     |
 
         Then I verify that activties are added
             | activity                                      |
             | Exercise: Misused words 1 (autoscored)        |     
             | LC1551301608988                               |
-            |  Dedication                                   |            
+            |  Glossary                                     |            

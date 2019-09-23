@@ -3,6 +3,7 @@
 Feature: Assigning the activities present in Quantitative course 
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to assign the activities in Quantitative course
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -22,6 +23,7 @@ Feature: Assigning the activities present in Quantitative course
             | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName          | courseCode           |
             | Quantitative Course  | E2E 301             |

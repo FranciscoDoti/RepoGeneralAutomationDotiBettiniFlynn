@@ -11,14 +11,14 @@ Feature: Media Editor is able to create a template and update in SKills Template
 
 
         Then I verify that "Skills Template Created." message is displayed
-        And I verify that "Skills Template" has created with following "ISBN: 9781464199498" number
+        And I verify that "Skills Template" has created with following "9781464199498" ISBN number
 
-       And I activate the "Skills Template" template and add the following data
+       And I update "Skills Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         Then I verify that "Skills Template" is created with following data
             | field                 | value                     |
-            | courseName            | Skills Template           |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+            | courseCard            | Skills Template           |
+            | TemplateStatus        |  Active                   |
+            | ISBNVerification      |  9781464199498            |

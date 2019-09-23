@@ -1,6 +1,6 @@
 @Course @Smoke
 Feature: Adding activities in Folder Resource Tab to Qualitative template
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Qualitative template
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -17,14 +17,14 @@ Feature: Adding activities in Folder Resource Tab to Qualitative template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         |  Dedication                                   |
+            | addReadingButton         |  Glossary                                   |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Dedication                                    | Reading           | 'Dedication' was successfully moved to Reading.                                     |
+            | Glossary                                    | Reading           | 'Glossary' was successfully moved to Reading.                                     |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         When I reorder the resources on template
@@ -46,7 +46,7 @@ Feature: Adding activities in Folder Resource Tab to Qualitative template
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | Dedication                                    | Reading           |
+            | Glossary                                    | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the following resources from the Template

@@ -4,8 +4,10 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.courseList.assertElementExists('courseMenu', courseName); 
   await pages.courseList.click('courseMenu', courseName); 
+  await pages.courseList.click('courseMenu', courseName);
   await pages.courseList.click('manageInstructor');
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
@@ -37,7 +39,7 @@ Then(/^I verify that "(.*)" details$/, async function (userType, data_table){
 
 When(/^I generate access code for "(.*)"$/, async function (courseName){
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
   await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+ courseName )
   await pages.home.click('togglerMenu');
@@ -66,3 +68,9 @@ When('I update the access code', async function (data_table) {
   await pages.adminMenu.click('update');
   }
 });
+
+When(/^I search for "(.*)" in Courses tab$/, async function (courseName){
+  await pages.courseList.click('courseTemplate', 'Courses');
+  await pages.courseList.populate('search', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName)
+})

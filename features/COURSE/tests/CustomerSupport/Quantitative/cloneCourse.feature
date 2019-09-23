@@ -1,8 +1,8 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Quantitative Template
 
-  @custmersupport-delete-course
-    @mediaproducer-delete-course
+    @customersupport-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Quantitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
@@ -16,8 +16,7 @@ Feature: Customer Support attempts all the activities in Quantitative Template
 
 
         And I add the activities in resources to "Quantitative Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | type                    | activity                                      |    
             | addButtonLearningcurve  | LC1551301608988                               |
             | addReadingButton        | Glossary                                    |
             | addButtonReadandpractice | LCRP1550612138614                            |
@@ -25,17 +24,18 @@ Feature: Customer Support attempts all the activities in Quantitative Template
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
+        And I change to Course Template Tab
         And I click on search button and input "Quantitative Template" to search the course
                 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName          | courseCode           |
             | Quantitative Course | E2E 301              |  
 
-        And I click on search button and input "Quantitative Course" to search the course
+        And I search for "Quantitative Course" in Courses tab
         
         Then I verify that "Quantitative Course" is created with following data
             | field                 | value                     |
-            | courseName            | Quantitative Course       |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Quantitative Course       |
+            | Status                |  Draft                    |
            
         

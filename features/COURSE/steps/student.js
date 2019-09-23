@@ -4,6 +4,7 @@ const csvtojson = require('csvtojson');
 const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
 const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
+const shared = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 
 When('I complete the reading activity', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -13,7 +14,6 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
-  await pages.coursePage.click('navigation','MY Course');
   await pages.coursePage.click('tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
@@ -61,16 +61,16 @@ Then('I verify the assignmenent grades in gradebook for below assigned activitie
   }
 });
 
-When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userName, courseName){
-  await pages.createCourse.getText('courseShortId');
+When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, courseName){
+  await pages.createCourse.getText('courseShortId', courseName);
   let user = this.users[userType];
-  let text = await pages.createCourse.getText('courseShortId');
-  await Pages.login.click('togglerMenu');
-  await Pages.login.click('signOut');
-  await Pages.login.click('signinlink');
-  await Pages.login.populate('username', user.username);
-  await Pages.login.populate('password', user.password);
-  await Pages.login.click('signin');
+  let text = await pages.createCourse.getText('courseShortId', courseName);
+  await shared.login.click('togglerMenu');
+  await shared.login.click('signOut');
+  await shared.login.click('signinlink');
+  await shared.login.populate('username', user.username);
+  await shared.login.populate('password', user.password);
+  await shared.login.click('signin');
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
@@ -170,16 +170,11 @@ When('I add the activities to the resource tab', async function (data_table) {
   await pages.resources.click('goToContent');
   await sleep(500);
   await pages.resources.click('closeResourceSearchNav');
+  await pages.resources.click('addContent');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
-    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities)
-    await sleep(500);
-    await pages.resources.scrollElementIntoView(data_table.hashes()[i].type, data_table.hashes()[i].activities);
-    await sleep(1000);
+    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities) 
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
-    await pages.resources.click('closeResourceSearchNav');
-    await sleep(500);
   }
 });
 

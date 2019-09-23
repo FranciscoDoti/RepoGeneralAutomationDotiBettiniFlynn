@@ -9,7 +9,7 @@
         }, {
             "name": "courseCard",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../../../div[@data-test-id='course_card']",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -30,7 +30,21 @@
             "definition": "[data-test-id='create_course_status']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        }, 
+        {
+            "name": "TemplateStatus",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3cOL']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Status",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3mBZ']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "courseTitle",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']",
@@ -177,7 +191,7 @@
         }, {
             "name": "ISBNVerification",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../a/div[@data-test-id='course_activation_date']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='SibD']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -228,8 +242,8 @@
         },
         {
             "name": "courseShortId",
-            "byType": "css",
-            "definition": "[data-test-id='course_short_id']",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3tPK']",
             "frame": "default",
             "specialInstr": "NA"
         },

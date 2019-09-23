@@ -211,6 +211,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "submitAnswer",
+            "byType": "xpath",
+            "definition": "//button[.='Submit Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "checkYourWorkAnswerText1",
             "byType": "css",
             "definition": "span.mq-math-mode",

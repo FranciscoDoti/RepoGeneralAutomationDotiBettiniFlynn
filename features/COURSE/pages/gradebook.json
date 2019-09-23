@@ -115,9 +115,9 @@
 
         },
         {
-            "name": "studentCategoryTotal",
+            "name": "studentcourseTotal",
             "byType": "xpath",
-            "definition": "//*[.='macmillan']/../../../../../../../../..//div[@data-test-id='assignment_grade']",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -139,13 +139,10 @@
         {
             "name": "studentCategoryTotal",
             "byType": "xpath",
-            "definition": "//*[.='macmillan']/../../../../../../../../..//div[@data-test-id='assignment_grade']",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
             "frame": "default",
             "specialInstr": "NA"
-
-
-
-            
+     
 
         }
     ]

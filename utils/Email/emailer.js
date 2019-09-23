@@ -1,18 +1,33 @@
 const nodemailer = require('nodemailer');
 const argv = require('minimist')(process.argv.slice(2));
 
-const config = {
+const emailAttachment = function(){
+    const path = require('path');
+    const fs = require('fs');
+    let attachments = [];
+
+    const directoryPath = `${process.cwd()}/reports/`;
+    fs.readdirSync(directoryPath).forEach(file => {
+        if (path.extname(file) == '.html') {
+            attachments.push({
+                path: directoryPath + file
+            });
+        }
+    });
+    return attachments;
+};
+
+let config = {
     clientId: "701768719333-0f12h7i269l7n2odh5ne80u5mdkth618.apps.googleusercontent.com",
     clientSecret: "ADEpn82HAOHH9_8lqzpwRIXd",
-    sender: "thomas.dsilva.contractor@macmillan.com",
     username: "thomas.dsilva.contractor@macmillan.com",
     refreshToken: "1/3ayBIUgNJWANUL1-rISK50oaD6VlrWuk4XvzG03kzt9rO_ekPBdfvgDHcXLpFiNh",
     accessToken: "ya29.GltuByf5jWOhzFHv_lbBLQvIahPif5RqTtn_r9TMh7BmFxwaDwn2WJz_zyBGvuVbaGRfElVNYrkqaKDfe9MHic72Mc9W66OeFa-LikboAx0eoZxyq-H1cGT1LbFU1",
-    reportPath: `${process.cwd()}/reports/cucumber_report.html`,
-    environment: argv.env,
-    branch: argv.branch,
+    sender: "thomas.dsilva.contractor@macmillan.com",
     recepients: argv.recepients,
-    subject: argv.subject
+    subject: argv.subject,
+    body: `Please find cucumber report from Jenkins pipeline execution for ${argv.branch} branch in ${argv.env} environment attached.`, // plaintext body
+    attachments: emailAttachment()
 };
 
 let transporter = nodemailer.createTransport({
@@ -27,11 +42,9 @@ let transporter = nodemailer.createTransport({
 let mailOptions = {
     from: config.sender, // sender address
     to: config.recepients, // list of receivers
-    subject: `${config.subject}`, // Subject line
-    text: `Please find cucumber report from Jenkins pipeline execution for ${config.branch} branch in ${config.environment} environment attached.`, // plaintext body
-    attachments: [{
-        path: config.reportPath
-    }],
+    subject: config.subject, // Subject line
+    text: config.body,
+    attachments: config.attachments,
     auth: {
         user: config.username,
         refreshToken: config.refreshToken,
@@ -46,3 +59,5 @@ transporter.sendMail(mailOptions, function (error, info) {
     }
     console.log('Message sent: ' + info.response);
 });
+
+transporter.close();

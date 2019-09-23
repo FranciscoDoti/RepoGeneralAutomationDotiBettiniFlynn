@@ -1,9 +1,10 @@
-@Smoke
+@Smoke @Course
 Feature: Student attempts reading, static file, URL, Gradebook category
+
 
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199487  | draft         |
@@ -25,6 +26,8 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
+
         And I copy course from the "activities Template" template with the following data
             | courseName            | courseCode           |
             | activities Course     | E2E 301              |
@@ -46,13 +49,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | Glossary                                  |
+            | Glossary                                    |
             | AutomationAsset2                            |
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | Glossary                                                       | 5      |
+            | Glossary                                                         | 5      |
             | AutomationAsset2                                                 | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
@@ -106,9 +109,10 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I verify Total Grades
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Test Total                                    | 100%        |   5     |   33%                |
-            | Assignment Total                              | 100%        |   10    |   67%                |
+            | Assignments Total                              | 100%        |   10   |   67%               |
         
-
+    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that instructor is able to edit the grades of student
 
         Given I login to Achieve-CW as "instructor_2"
@@ -118,4 +122,5 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | student_1  |  1        | 
 
         Then I verify the Grades
-            | Students | Course Total  | Google  | Category Total | AutomationAsset2   | Glossary   | Catgory Total |
+            | Students  | CourseTotal  | Google  | CategoryTotal | 
+            | student_1 | 73%          | 20%     | 20%           | 

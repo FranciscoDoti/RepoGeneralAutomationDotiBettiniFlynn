@@ -2,6 +2,7 @@
 Feature: Copy course from Read & Practice template
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Copy a course from Read & Practice template
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -21,14 +22,18 @@ Feature: Copy course from Read & Practice template
             | addReadingButton          |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
+
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |
+        And I click on "Course Templates" tab 
 
         Then I verify that "Read & Practice Course" is created with following data
             | field                 | value                     |
-            | courseName            | Read & Practice Course    |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Read & Practice Course    |
+            | Status                |  Draft                    |
+          
            
 
 

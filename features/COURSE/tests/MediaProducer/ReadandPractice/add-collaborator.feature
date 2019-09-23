@@ -1,7 +1,7 @@
 @Course @Smoke @Skip
 Feature: Adding collaborator to Read & Practice template 
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to Read & Practice template
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -27,19 +27,17 @@ Feature: Adding collaborator to Read & Practice template
 
         And I add the activities in resources to "Read & Practice Template" template
             | type                     | activity                                      |   
-            | addButtonLearningcurve   | Active and Passive Voice                      |
+            | addButtonReadandpractice | LCRP1551301608988                             |
             | addReadingButton         |  Appendix F                                   |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
-            | addButtonReadandpractice                      | ReadandParctice   | 'LCRP1550612138614' was successfully moved to addButtonReadandpractice              |                            
-            | Active and Passive Voice                      | Learning Curve    | 'Active and Passive Voice' was successfully moved to Learning Curve.                |
+            | LCRP1551301608988                             | Learning Curve    | 'LCRP1551301608988' was successfully moved to Learning Curve.                       |
             |  Appendix F                                   | Reading           | 'Appendix F' was successfully moved to Reading.                                     |
            
         Then I verify the following activities are present in folders
             | activity                                      | folders           |
-            | LCRP1550612138614                             | ReadandPractice   |
-            | Active and Passive Voice                      | Learning Curve    |
+            | LCRP1551301608988                             | Learning Curve    |
             |  Appendix F                                   | Reading           |
 
 

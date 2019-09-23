@@ -1,4 +1,5 @@
 const testRailAPI = require('testrail-api');
+const path = require('path');
 const fs = require('fs');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const argv = require('minimist')(process.argv.slice(2));
@@ -150,12 +151,12 @@ const addResult = async (testId, content) => {
 }
 //End of Test Runs and Results
 
-const uploadCases = async function(){
+const uploadCases = async function () {
   let results, resultFilePath = `${process.cwd()}/reports/cucumber_report.json`;
   try {
     results = await JSON.parse(fs.readFileSync(resultFilePath));
   } catch (ex) {
-    console.log(`Error while parsing results JSON. Error - ${ex.message}. Cannot upload results to TestRail.`);
+    log.error(`Error while parsing results JSON. Error - ${ex.message}. Cannot upload results to TestRail.`);
   }
 
   if (results != undefined) {
@@ -174,11 +175,12 @@ const uploadCases = async function(){
         }
         caseContent["title"] = scenario.name;
 
-        let steps = caseContent["custom_steps_separated"]; let k = -1;
+        let steps = caseContent["custom_steps_separated"];
+        let k = -1;
         for await (let stepDef of scenario.steps) {
           if (stepDef.keyword != 'After' && stepDef.keyword != 'Before') {
             steps[++k] = {};
-            steps[k]["content"] = stepDef.keyword + stepDef.name.replace(/"/g,'');
+            steps[k]["content"] = stepDef.keyword + stepDef.name.replace(/"/g, '');
             steps[k]["expected"] = "Expected Result to be updated.";
           }
         }

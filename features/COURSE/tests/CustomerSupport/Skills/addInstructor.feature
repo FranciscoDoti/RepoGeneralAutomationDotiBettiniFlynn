@@ -2,6 +2,7 @@
 Feature: Adding Instructor to the Template
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario:  Verify that customer support is able to add Instructor to Skills course
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -20,6 +21,7 @@ Feature: Adding Instructor to the Template
             | addReadingButton        |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |
