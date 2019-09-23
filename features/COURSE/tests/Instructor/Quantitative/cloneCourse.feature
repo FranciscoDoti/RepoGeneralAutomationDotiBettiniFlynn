@@ -48,7 +48,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And I verify that "Quantitative Instructor Course" is created with following data
-            | field                 | value                                |
+            | CourseName            | Status                               |
             | courseCard            | Quantitative Instructor Course       |
             | Status                |  Draft                               |
            

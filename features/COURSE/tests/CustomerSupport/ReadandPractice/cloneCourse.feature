@@ -17,7 +17,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I add the activities in resources to "Read & Practice Template" template
             | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | GLOSSARY                                    |
+            | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I sign out of Achieve
@@ -33,7 +33,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I search for "Read & Practice Course" in Courses tab
         
         Then I verify that "Read & Practice Course" is created with following data
-            | field                 | value                     |
+            | CourseName            | Status                    |
             | courseCard            | Read & Practice Course    |
             | Status                |  Draft                    |
            

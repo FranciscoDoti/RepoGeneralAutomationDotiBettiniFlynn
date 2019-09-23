@@ -29,7 +29,7 @@ Feature: Copy course Qualitative template
         And I click on "Courses" tab 
 
         Then I verify that "Qualitative Course" is created with following data
-            | field                 | value                     |
+            | CourseName            | Status                    |
             | courseCard            | Qualitative Course        |
             | Status                |  Draft                    |
            

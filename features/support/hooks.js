@@ -138,6 +138,7 @@ After('@mediaproducer-delete-course', async function () {
   console.log(elements.length+'no');
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
+    await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
     await pages.home.click('closeAlert');

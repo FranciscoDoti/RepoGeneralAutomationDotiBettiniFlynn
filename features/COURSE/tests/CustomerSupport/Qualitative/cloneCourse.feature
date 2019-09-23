@@ -35,7 +35,7 @@ Feature: Customer Support attempts all the activities in Qualitative Template
         And I search for "Qualitative Course" in Courses tab
 
         Then I verify that "Qualitative Course" is created with following data
-            | field                 | value                     |
+            | CourseName            | Status                    |
             | courseCard            | Qualitative Course        |
             | Status                |  Draft                    |
            

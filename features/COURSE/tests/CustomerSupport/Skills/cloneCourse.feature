@@ -33,7 +33,7 @@ Feature: Customer Support attempts all the activities in Skills Template
         And I search for "Skills Course" in Courses tab
         
         Then I verify that "Skills Course" is created with following data
-            | field                 | value                     |
+            | CourseName            | Status                    |
             | courseCard            | Skills Course             |
             | Status                |  Draft                    |
            

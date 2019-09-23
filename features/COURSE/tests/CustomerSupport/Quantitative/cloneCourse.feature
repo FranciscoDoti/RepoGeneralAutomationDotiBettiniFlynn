@@ -18,7 +18,7 @@ Feature: Customer Support attempts all the activities in Quantitative Template
         And I add the activities in resources to "Quantitative Template" template
             | type                    | activity                                      |    
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        | Glossary                                    |
+            | addReadingButton        | Glossary                                      |
             | addButtonReadandpractice | LCRP1550612138614                            |
 
         And I sign out of Achieve
@@ -34,7 +34,7 @@ Feature: Customer Support attempts all the activities in Quantitative Template
         And I search for "Quantitative Course" in Courses tab
         
         Then I verify that "Quantitative Course" is created with following data
-            | field                 | value                     |
+            | courseName            | Status                    |
             | courseCard            | Quantitative Course       |
             | Status                |  Draft                    |
            

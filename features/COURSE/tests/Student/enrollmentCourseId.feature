@@ -49,7 +49,7 @@ Feature: Student enrolls through course Id and access code
         And I enroll "student_1" in the course using "Qualitative Course"
 
         Then I verify that "Qualitative Course" is created with following data
-            | field                 | value                     |
+            | CourseName            | Status                    |
             | courseCard            | Qualitative Course        |
             | courseStatus          |  Active                   |
           

@@ -14,7 +14,7 @@
             | Skills Template           |   E2E 301     |  Active On Date      |
             
         Then I verify that "Skills Template" is created with following data
-            | field                 | value                     |
+            | CourseName           | Status                    |
             | courseCard            | Skills Template           |
             | TemplateStatus        |  Active                   |
             | ISBNVerification      |  9781464199498            |
