@@ -378,10 +378,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const getText = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) { expectedValue = replaceText };
+  const getText = async function (elementName, replaceText) {
     try {
-      return await getAttributeValue(elementName,replaceText);
+      await addDynamicElement(elementName, replaceText);
+      elementName = elementName + (replaceText || '');
+      return await getAttributeValue(elementName);
     } catch (err) {
       log.error(err.stack);
       throw err;
