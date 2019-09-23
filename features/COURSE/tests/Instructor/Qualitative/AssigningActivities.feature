@@ -2,6 +2,7 @@
 Feature: Assigning the activities present in Qualitative course 
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to assign the activities in Qualitative course
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -22,6 +23,7 @@ Feature: Assigning the activities present in Qualitative course
             | addReadingButton        |  Glossary                                   |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |

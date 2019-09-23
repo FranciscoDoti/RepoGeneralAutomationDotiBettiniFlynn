@@ -2,7 +2,7 @@
     "webElements": [{
         "name": "courseMenu",
         "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>']/../../../../div/div/button[@data-test-id='course_menu_button']",
+        "definition": "//*[.='<ReplaceText>']/../../..//button[@data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -59,13 +59,7 @@
         "definition": "[data-test-id='manage_instructors_modal_close']",
         "frame": "default",
         "specialInstr": "NA"
-    }, {
-        "name": "courseName",
-        "byType": "xpath",
-        "definition": "//a[@data-test-id='course_name' and .='<ReplaceText>']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
+    },{
         "name": "course",
         "byType": "css",
         "definition": "[data-test-id='create_coursecode_input']",
@@ -97,12 +91,6 @@
         "specialInstr": "NA"
     },
     {
-        "name": "courseShortId",
-        "byType": "xpath",
-        "definition": "//span[@data-test-id='course_short_id' and .='<ReplaceText>']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
         "name": "courseNameTime",
         "byType": "xpath",
         "definition": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
@@ -127,6 +115,18 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "courseTab",
+        "byType": "css",
+        "definition": "nav div[aria-label='Courses']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, { 
+        "name": "courseTemplateTab",
+        "byType": "css",
+        "definition": "nav div[aria-label='Course Templates']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, { 
         "name": "search",
         "byType": "css",
         "definition": "[data-test-id='course_search_input']",
@@ -191,10 +191,17 @@
     {
         "name": "courseNumber",
         "byType": "xpath",
-        "definition": "//div[contains(@data-test-id,'course_number_date_time') and contains(text(), '<ReplaceText>')]",
+        "definition": "//span[contains(@class,'_3F-s') and contains(text(), '<ReplaceText>')]",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
+        "name": "courseTemplate",
+        "byType": "css",
+        "definition": "div[aria-label='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+   {
         "name": "courseSearchBtn",
         "byType": "css",
         "definition": "[data-test-id='course_search_input_btn']",

@@ -2,6 +2,7 @@
 Feature: Verify that Instructor is able to create URL in Read & Practice Template 
 
    @mediaproducer-delete-course
+   @mediaproducer-delete-courseTemplate
     Scenario: Verify that mediaproducer is able to create a custom task with URL in Read & Practice Template
 
         Given I login to Achieve-CW as "media_producer_2"

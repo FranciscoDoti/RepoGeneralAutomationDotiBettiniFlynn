@@ -2,6 +2,7 @@
 Feature: Admin enrolls the student in Read & Practice course 
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that admin enrolls student in Read & Practice course 
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -21,6 +22,7 @@ Feature: Admin enrolls the student in Read & Practice course
             
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode          |
             | Read & Practice Course  | E2E 301             |

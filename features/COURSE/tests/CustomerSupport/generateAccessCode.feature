@@ -1,6 +1,8 @@
+@Course @Smoke
 Feature: Verify that customer Support is able to create access code for Template
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that customer Support is able to create access code for Template
 
          Given I login to Achieve-CW as "media_producer_2"
@@ -19,6 +21,7 @@ Feature: Verify that customer Support is able to create access code for Template
             | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName               | courseCode           |
             | Qualitative Course       | E2E 301              |

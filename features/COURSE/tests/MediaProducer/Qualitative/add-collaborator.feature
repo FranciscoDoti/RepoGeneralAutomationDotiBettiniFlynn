@@ -1,7 +1,7 @@
 @Course @Smoke @Skip
 Feature: Adding collaborator to Qualitative template 
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to Qualitative template
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -18,7 +18,7 @@ Feature: Adding collaborator to Qualitative template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Dedication                                   |
+            | addReadingButton        |  Glossary                                     |
        
         And I add "media_editor_1" as collaborator to "Qualitative Template"
         And I sign out of Achieve
@@ -28,20 +28,20 @@ Feature: Adding collaborator to Qualitative template
 
         And I add the activities in resources to "Qualitative Template" template
             | type                     | activity                                      |
-            | addButtonAssessment      | BR19.2: Bridge: Income Distribution           |     
-            | addButtonLearningcurve   | Active and Passive Voice                      |
+            | addReadingButton         | Delirium                                      |     
+            | addButtonReadandpractice   | LCRP1551301608988                           |
     
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
-            | BR19.2: Bridge: Income Distribution           | Assesment         | 'BR19.2: Bridge: Income Distribution' was successfully moved to Assesment.          |
-            | Active and Passive Voice                      | Learning Curve    | 'Active and Passive Voice' was successfully moved to Learning Curve.                |
+            |  Delirium                                     | Reading           | 'Delirium' was successfully moved to Reading.                                       |
+            | LCRP1551301608988                             | Learning Curve    | 'LCRP1551301608988' was successfully moved to Learning Curve.                             |
     
            
         Then I verify the following activities are present in folders
             | activity                                      | folders           |
-            | BR19.2: Bridge: Income Distribution           | Assesment         |
-            | Active and Passive Voice                      | Learning Curve    |
+            | Delirium                                      | Reading           |
+            | LCRP1551301608988                             | Learning Curve    |
           
 
 

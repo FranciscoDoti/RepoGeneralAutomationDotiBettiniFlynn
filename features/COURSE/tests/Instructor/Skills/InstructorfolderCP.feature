@@ -2,6 +2,7 @@
 Feature: Instructor adds folder, remove folder and reorders it in Skills Course 
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources in Skills Course
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -20,6 +21,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Skills Course
             | addButtonReadandpractice  | LCRP1550612138614                             |                         
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |

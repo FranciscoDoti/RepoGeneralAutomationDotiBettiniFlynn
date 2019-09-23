@@ -10,14 +10,14 @@ Feature: Media Editor is able to create a template and update in Read & Practice
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
 
         Then I verify that "Read & Practice Template Created." message is displayed
-        And I verify that "Read & Practice Template" has created with following "ISBN: 9781464199498" number
+        And I verify that "Read & Practice Template" has created with following "9781464199498" ISBN number
 
-       And I activate the "Read & Practice Template" template and add the following data
+       And I update "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
             | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
         Then I verify that "Read & Practice Template" is created with following data
             | field                 | value                     |
-            | courseName            | Read & Practice Template  |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+            | courseCard            | Read & Practice Template  |
+            | TemplateStatus        |  Active                   |
+            | ISBNVerification      | 9781464199498             |

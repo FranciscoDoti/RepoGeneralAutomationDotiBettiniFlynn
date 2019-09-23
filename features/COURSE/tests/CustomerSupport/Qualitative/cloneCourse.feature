@@ -1,8 +1,8 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Qualitative Template
 
-    @custmersupport-delete-course
-    @mediaproducer-delete-course
+    @customersupport-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Qualitative Template
     
         Given I login to Achieve-CW as "media_producer_2"
@@ -19,23 +19,24 @@ Feature: Customer Support attempts all the activities in Qualitative Template
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        | Glossary                                    |
+            | addReadingButton        | Glossary                                      |
             | addButtonReadandpractice | LCRP1550612138614                            |
 
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
+        And I change to Course Template Tab
         And I click on search button and input "Qualitative Template" to search the course
                 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |
 
-        And I click on search button and input "Qualitative Course" to search the course
-        
+        And I search for "Qualitative Course" in Courses tab
+
         Then I verify that "Qualitative Course" is created with following data
             | field                 | value                     |
-            | courseName            | Qualitative Course        |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Qualitative Course        |
+            | Status                |  Draft                    |
            
         

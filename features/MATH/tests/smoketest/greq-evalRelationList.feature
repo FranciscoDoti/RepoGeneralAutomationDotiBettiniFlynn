@@ -1,7 +1,7 @@
 @math @smoke
-Feature: Polar Coordinates for Point eval type
+Feature: Realation List 
 
-    Scenario: Verify an equivalent polar coordinate for Point eval type without transforming the angle by 2π
+    Scenario: Verify an Relation list equation for Relation eval type
 
         Given I login to AMS as "all-permissions-author"
         When I click on the New Raptor item in the AMS page
@@ -9,13 +9,13 @@ Feature: Polar Coordinates for Point eval type
 
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
-        And I set the grade as "Point" type
-        And I input author answer "(4, \pi/3)"
-        And I select Polar Coordinate checkbox
-        And I set Item Details name as "PointPolarCoord"
+        And I set the grade as "Relation" type
+        And I input author answer "\theta=5,x>0>-3"
+        And I select isList checkbox
+        And I set Item Details name as "Relation-List"
         Then I save the question
 
         When I simulate student interface
-        And I input the answer "(−4,4π/3)"
+        And I input the correct equation "θ = 5 , x > 0 > − 3"
         And I submit answer
         Then the answer is graded correct

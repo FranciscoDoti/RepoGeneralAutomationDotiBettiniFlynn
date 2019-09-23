@@ -2,6 +2,7 @@
 Feature: Instructor attempts all the activities in Qualitative Template
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     @instructor-delete-course
     Scenario: Verify that Instructor is able to copy course from Qualitative Template
     
@@ -22,6 +23,7 @@ Feature: Instructor attempts all the activities in Qualitative Template
             | addReadingButton         | Glossary                                    |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
@@ -46,8 +48,8 @@ Feature: Instructor attempts all the activities in Qualitative Template
         And I close the popup message
         And I verify that "Qualitative Instructor Course" is created with following data
             | field                 | value                                |
-            | courseName            | Qualitative Instructor Course        |
-            | courseDate            |  E2E 301                             |
+            | courseCard            | Qualitative Instructor Course        |
+            | Status                |  Draft                               |
            
         
 

@@ -5,6 +5,7 @@ const csvtojson = require('csvtojson');
 const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
 const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
+const shared = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 
 When('I complete the reading activity', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -62,6 +63,7 @@ Then('I verify the assignmenent grades in gradebook for below assigned activitie
 });
 
 When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, courseName){
+<<<<<<< HEAD
   await pages.createCourse.getText('courseShortId');
   let user = this.users[userType];
   let text = await pages.createCourse.getText('courseShortId');
@@ -71,6 +73,17 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, c
   await Pages.login.populate('username', user.username);
   await Pages.login.populate('password', user.password);
   await Pages.login.click('signin');
+=======
+  await pages.createCourse.getText('courseShortId', courseName);
+  let user = this.users[userType];
+  let text = await pages.createCourse.getText('courseShortId', courseName);
+  await shared.login.click('togglerMenu');
+  await shared.login.click('signOut');
+  await shared.login.click('signinlink');
+  await shared.login.populate('username', user.username);
+  await shared.login.populate('password', user.password);
+  await shared.login.click('signin');
+>>>>>>> 07d44bb963883385d71649003a2f585f51dadf99
   await pages.coursePage.click('enroll');
   await pages.coursePage.populate('accessModelInput', text);
   await pages.coursePage.click('enter');
@@ -167,13 +180,11 @@ When(/^I attempt "(.*)" Read and Practice activity$/, async function (activityNa
 When('I add the activities to the resource tab', async function (data_table) {
   await pages.resources.click('goToContent');
   await pages.resources.click('closeResourceSearchNav');
+  await pages.resources.click('addContent');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
-    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities)
-    await pages.resources.scrollElementIntoView(data_table.hashes()[i].type, data_table.hashes()[i].activities);
+    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities) 
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
-    await pages.resources.click('closeResourceSearchNav');
   }
 });
 

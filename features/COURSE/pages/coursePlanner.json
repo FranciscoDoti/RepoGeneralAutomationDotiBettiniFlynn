@@ -553,7 +553,7 @@
         {
             "name": "folderName",
             "byType": "xpath",
-            "definition": "//span[contains(@data-test-id,'folder_name') and contains(text(), '<ReplaceText>')]",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -568,7 +568,7 @@
         {
             "name": "actionButtonResources",
             "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
+            "definition": "//*[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -698,6 +698,19 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "contentCheckbox",
+            "byType": "css",
+            "definition": "[data-test-id='content_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "addToCourse",
+            "byType": "css",
+            "definition": "[title='Add to course']",
+            "frame": "default",
+            "specialInstr": "NA"
         },
         {
             "name": "gradeBookCategory",

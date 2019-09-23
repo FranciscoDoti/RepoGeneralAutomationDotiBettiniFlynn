@@ -2,6 +2,7 @@
 Feature: Instructor attempts all the activities in Skills Template
 
     @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     @instructor-delete-course   
     Scenario: Verify that Instructor is able to copy course from Skills Template
     
@@ -21,6 +22,7 @@ Feature: Instructor attempts all the activities in Skills Template
             | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
@@ -46,8 +48,8 @@ Feature: Instructor attempts all the activities in Skills Template
         And I close the popup message
         And  I verify that "Skills Instructor Course" is created with following data
             | field                 | value                                   |
-            | courseName            | Skills Instructor Course                |
-            | courseDate            |  E2E 301                                |
+            | courseCard            | Skills Instructor Course                |
+            | Status                |  Draft                                  |
            
         
 
