@@ -1,0 +1,9 @@
+{"webElements":[
+    {
+        "name": "easyItemMenu",
+        "byType": "css",
+        "definition": "div.easy-item-menu a.cdl-button",
+        "frame": "default",
+        "specialInstr": "NA"
+    }
+]}

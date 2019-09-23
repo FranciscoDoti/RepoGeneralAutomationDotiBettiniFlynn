@@ -21,3 +21,23 @@ Then('The variable values are displayed as choices', async function () {
       break;
   }
 });
+
+When(/^I add hatchling item as \"([^\"]*)\" with following details$/, async function (multiplechoice) {
+  await pages.ams.click('easyItemMenu');
+});
+
+Then(/^I verify the items were updated in AMS$/, async function () {
+  
+});
+
+And(/^I add answers for Hatchling Multiple Choice module with following details$/, async function () {
+  
+});
+
+And(/^I set feedback for Hatchling Multiple Choice module with following details$/, async function () {
+  
+});
+
+And(/^I set hint and generic feedback with following details and save$/,async function () {
+  
+});
