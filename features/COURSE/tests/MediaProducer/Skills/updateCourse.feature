@@ -1,7 +1,7 @@
  @Course @Smoke
  Feature: Update Skills template  
      
-    @mediaproducer-delete-course       
+    @mediaproducer-delete-courseTemplate       
     Scenario: Verify that Media Producer is able to update Skills template
 
         Given I login to Achieve-CW as "media_producer_2"

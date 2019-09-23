@@ -1,6 +1,6 @@
 @Course @Smoke
 Feature: Adding activities in Folder Resource Tab to Qualitative template
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Qualitative template
 
         Given I login to Achieve-CW as "media_producer_2"

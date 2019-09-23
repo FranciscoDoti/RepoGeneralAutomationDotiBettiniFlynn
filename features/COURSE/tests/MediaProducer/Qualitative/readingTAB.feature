@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding reading activities in reading tab to Qualitative template
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab to Qualitative template
 
         Given I login to Achieve-CW as "media_producer_2"

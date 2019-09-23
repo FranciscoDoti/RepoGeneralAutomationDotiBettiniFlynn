@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Adding Instructor to the Template in Qualitative Course
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario:  Verify that customer support is able to add Instructor to Qualitative Course
 
         Given I login to Achieve-CW as "media_producer_2"

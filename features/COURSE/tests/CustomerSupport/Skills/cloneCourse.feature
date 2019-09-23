@@ -2,7 +2,7 @@
 Feature: Customer Support attempts all the activities in Skills Template
 
    @custmersupport-delete-course
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Skills Template
     
         Given I login to Achieve-CW as "media_producer_2"
@@ -23,6 +23,7 @@ Feature: Customer Support attempts all the activities in Skills Template
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
+        And I change to Course Template Tab
         And I click on search button and input "Skills Template" to search the course
                 
         And I copy course from the "Skills Template" template with the following data
