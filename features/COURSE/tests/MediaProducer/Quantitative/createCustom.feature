@@ -2,7 +2,7 @@
 @Course @Smoke @Skip
 Feature: Verify that media Producer is able to create Custom Task 
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that media Producer is able to create Custom Task in Quantitative Template 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

@@ -9,6 +9,7 @@
         "dev-ob": "https://dev-onboarding-courseware-frontend.mldev.cloud/start",
         "dev-cm1": "https://dev-cw-coursemgmt1-courseware-frontend.mldev.cloud/start",
         "dev-cm2": "https://dev-cw-coursemgmt2-courseware-frontend.mldev.cloud/start",
+        "dev-service": "https://dev-cw-servicesint-courseware-frontend.mldev.cloud/start",
         "uat": "https://dev-achieve-uat-courseware-frontend.mldev.cloud/start",
         "prod":"https://achieve.macmillanlearning.com/start",
         "pre-prod":"https://int-achieve-preprod-courseware-frontend.mldev.cloud/"

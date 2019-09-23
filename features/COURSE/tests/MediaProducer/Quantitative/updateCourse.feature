@@ -1,7 +1,7 @@
 @Course @Smoke
  Feature: Update the Template to Quantitative Template  
      
-    @mediaproducer-delete-course       
+    @mediaproducer-delete-courseTemplate       
     Scenario: Verify that Media Producer is able to update Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
