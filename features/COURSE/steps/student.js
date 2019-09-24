@@ -173,6 +173,8 @@ When('I add the activities to the resource tab', async function (data_table) {
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
     await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities) 
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
+    await pages.resources.click('closeResourceSearchNav');
+    await pages.resources.click('addContent');
   }
 });
 

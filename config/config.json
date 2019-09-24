@@ -5,7 +5,7 @@
     "headless": false,
     "screenshots": "onFail",
     "timeout": 30000,
-    "stack": "dev-cm2",
+    "stack": "dev-cm1",
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
         "mode": "local | docker | browserstack | localgrid | hub",
