@@ -10,7 +10,7 @@
             "name": "Question Title",
             "byType": "css",
             "definition": ".edit-question-title",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
         }, 
         {
@@ -24,7 +24,7 @@
             "name": "Question Prompt",
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-question-prompt']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
         }, 
         {
@@ -108,7 +108,7 @@
             "name": "MCCorrectAnswerTextbox",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-correct-choice']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "noclick"
         },
         {
@@ -122,7 +122,7 @@
             "name": "addAnswerButton",
             "byType": "css",
             "definition": "button[data-test-id='add-answer-choice']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
         },
         {
