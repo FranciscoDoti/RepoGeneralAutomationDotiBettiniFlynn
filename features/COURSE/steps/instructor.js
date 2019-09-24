@@ -102,7 +102,7 @@ Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName,
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn');
-  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
 
 });
 

@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Copy course from Skills template
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Copy a course from Skills template
 
@@ -20,14 +21,16 @@ Feature: Copy course from Skills template
             | addReadingButton        |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |
+        And I click on "Course Templates" tab 
 
         Then I verify that "Skills Course" is created with following data
             | field                 | value                     |
-            | courseName            | Skills Course             |
-            | courseDate            |  E2E 301                  |
+            | courseCard            | Skills Course             |
+            | Status                |  Draft                    |
            
 
 

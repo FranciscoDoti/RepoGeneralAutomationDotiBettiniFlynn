@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Instructor adds folder, remove folder and reorders it in Quantitative Course
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources in Quantitative Course
 
@@ -22,6 +23,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | addButtonReadandpractice  | LCRP1550612138614                             |                         
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName           | courseCode           |
             | Quantitative Course  | E2E 301             |

@@ -15,6 +15,6 @@
             
         Then I verify that "Qualitative Template" is created with following data
             | field                 | value                     |
-            | courseName            | Qualitative Template      |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+            | courseCard            | Qualitative Template      |
+            | TemplateStatus        | Active                    |
+            | ISBNVerification      | 9781464199498             |

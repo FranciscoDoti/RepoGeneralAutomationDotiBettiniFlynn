@@ -1,6 +1,7 @@
 @Smoke @Course
 Feature: Student attempts reading, static file, URL, Gradebook category
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
 
@@ -19,12 +20,14 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         
         And I add the activities to the resource tab
             |  activities       | type              |
-            | Dedication        | addReadingButton  |
-            | AutomationAsset2  | addFileButton     |
+            | Glossary          | addReadingButton  |
             | Google            | addCCButton       |
+            | AutomationAsset2  | addFileButton     |
 
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
+
         And I copy course from the "activities Template" template with the following data
             | courseName            | courseCode           |
             | activities Course     | E2E 301              |
@@ -46,13 +49,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | Dedication                                  |
+            | Glossary                                  |
             | AutomationAsset2                            |
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | Dedication                                                       | 5      |
+            | Glossary                                                       | 5      |
             | AutomationAsset2                                                 | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
@@ -76,25 +79,25 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I complete the reading activity 
             | activity           |
-            | Dedication         |
+            | Glossary         |
 
     
         Then I verify the activity status for the following activities in "COURSE PLAN"
             | activity                                      | status    |
-            | Dedication                                    | Complete  |
+            | Glossary                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
 
         And I verify the activity status for the following activities in "ASSIGNMENTS"
             | activity                                      | status    |
-            | Dedication                                    | Complete  |
+            | Glossary                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
 
         Then I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
-            | Dedication                                    |   100%      | 5       | 50%                  |
-            | Google                                        |   100%      | 5       | 33%                  |
+            | Glossary                                      |   100%      | 5       | 50%                  |
+            | Google                                        |   100%      | 5       | 100%                 |
             | AutomationAsset2                              |   100%      | 5       | 50%                  |
 
         And I verify Total Grades

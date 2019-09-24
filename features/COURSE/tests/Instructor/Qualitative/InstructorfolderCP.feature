@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Instructor adds folder, remove folder and reorders it in Qualitative Course
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources in Qualitative Course
 
@@ -18,10 +19,11 @@ Feature: Instructor adds folder, remove folder and reorders it in Qualitative Co
             | type                      | activity                                      |
             | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Glossary                                   |
+            | addReadingButton          |  Glossary                                     |
             | addButtonReadandpractice  | LCRP1550612138614                             |                         
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |
@@ -45,14 +47,14 @@ Feature: Instructor adds folder, remove folder and reorders it in Qualitative Co
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | Glossary                                                        |
+            | Glossary                                                          |
             | LCRP1550612138614                                                 |
             
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
             | LC1551301608988                                                   | movedownButton |
-            | Glossary                                                        | moveToEnd      |
+            | Glossary                                                          | moveToEnd      |
             | LCRP1550612138614                                                 | moveUpButton   |
 
         Then I verify that resources are reordered in "COURSE PLAN"
@@ -66,14 +68,14 @@ Feature: Instructor adds folder, remove folder and reorders it in Qualitative Co
             | activity                                      | folders           | message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Glossary                                    | Reading           | 'Glossary' was successfully moved to Reading.                              |
+            | Glossary                                      | Reading           | 'Glossary' was successfully moved to Reading.                              |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | Glossary                                    | Reading           |
+            | Glossary                                      | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the resources from the Template in "COURSE PLAN"

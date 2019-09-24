@@ -1,7 +1,7 @@
 @Course @Smoke @Skip
 Feature: Verify that Admin is able to create URL in Quantitative Course
 
-    @admin-delete-course
+    @admin-delete-courseTemplate
     Scenario: Verify that Admin is able to create a custom task with URL in Quantitative Course
 
        Given I login to Achieve-CW as "admin_1"
