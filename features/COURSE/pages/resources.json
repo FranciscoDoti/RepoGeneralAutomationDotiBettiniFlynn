@@ -41,6 +41,12 @@
             "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_assessment']",
             "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "addButtonPathfinder",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_pathfinder']",
+            "frame": "default",
+            "specialInstr": "NA"
         }, {
             "name": "addButtonLearningcurve",
             "byType": "xpath",

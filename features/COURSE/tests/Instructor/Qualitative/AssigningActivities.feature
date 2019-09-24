@@ -52,7 +52,7 @@ Feature: Assigning the activities present in Qualitative course
             | activity                                                         | Points | 
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      |
-            | Glossary                                                       | 5      |
+            | Glossary                                                         | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
