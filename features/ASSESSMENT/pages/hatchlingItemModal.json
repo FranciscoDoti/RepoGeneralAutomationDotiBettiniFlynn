@@ -112,16 +112,16 @@
             "specialInstr": "noclick"
         },
         {
-            "name": "MCInCorrectAnswerTextbox",
-            "byType": "css",
-            "definition": "div[data-test-id='hatchling-incorrect-choice']",
+            "name": "Incorrect Answer",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='hatchling-incorrect-choice']",
             "frame": "aeframe",
             "specialInstr": "noclick"
         },
         {
-            "name": "addAnswerButton",
-            "byType": "css",
-            "definition": "button[data-test-id='add-answer-choice']",
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },

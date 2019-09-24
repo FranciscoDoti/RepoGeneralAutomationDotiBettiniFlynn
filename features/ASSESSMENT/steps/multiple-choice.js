@@ -36,16 +36,31 @@ Then(/^I verify the items were updated in AMS$/, async function () {
 });
 
 When('I add answers for Hatchling Multiple Choice module with following details', async function (datatable) {
+  let ans = datatable.hashes()[0];
+  await pages.hatchlingItem.populate('Correct Answer', ans.Answer);
+  await pages.hatchlingItem.populate('Correct Answer Feedback', ans.Feedback);
+});
+
+When('I add the following incorrect answers and feedback', async function (datatable) {
+  for (let i = 0; i < datatable.rows().length; i++) {
+    await pages.hatchlingItem.click('Button', 'Add Answer');
+
+    let ans = datatable.hashes()[i];
+    let fieldanswer = pages.hatchlingItem.getWebElements('Incorrect Answer');
+    await fieldanswer[i].populate('Incorrect Answer', ans.Answer);
+    let fieldfeedback = pages.hatchlingItem.getWebElements('Incorrect Answer Feedback');
+    await fieldfeedback[i].populate('Incorrect Answer Feedback', ans.Answer);
+  };
+});
+
+When('I add answers for Hatchling Multiple Choice module with following details', async function (datatable) {
   await pages.hatchlingItem.populate('MCCorrectAnswerTextbox', datatable.hashes()[0].CorrectAnswer);
   for(let i=0; i<=3;i++){
     await pages.hatchlingItem.click('addAnswerButton');
   }
     await pages.ams.populate('MCIncorrectAnswerTxtBx1', datatable.hashes()[0].IncorrectAnswer1);
     await pages.ams.populate('MCIncorrectAnswerTxtBx2', datatable.hashes()[0].IncorrectAnswer2);
-    await pages.ams.populate('MCIncorrectAnswerTxtBx3', datatable.hashes()[0].IncorrectAnswer3);
-   
-  
- 
+    await pages.ams.populate('MCIncorrectAnswerTxtBx3', datatable.hashes()[0].IncorrectAnswer3); 
 });
 
 When(/^I set feedback for Hatchling Multiple Choice module with following details$/, async function () {
