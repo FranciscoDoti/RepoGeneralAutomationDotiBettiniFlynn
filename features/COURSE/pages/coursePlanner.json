@@ -88,6 +88,12 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
+            "name": "contentType",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/..//input[@data-test-id='filter_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "addUnitButton",
             "byType": "css",
             "definition": "[data-test-id='add_unit_button']",

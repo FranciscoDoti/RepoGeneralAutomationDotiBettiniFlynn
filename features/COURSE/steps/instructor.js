@@ -171,3 +171,14 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
     await pages.coursePlanner.click('assignButton');
   }
 });
+
+
+When(/^I click "(.*)" content Type and add the activities in "(.*)"$/, async function (contentType, courseName,data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  await pages.coursePlanner.click('contentType',contentType)
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+  }
+
+})
