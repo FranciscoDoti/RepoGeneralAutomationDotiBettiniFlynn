@@ -62,7 +62,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Qualitative Co
             | LCRP1550612138614                                                 |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
             | LC1551301608988                                                   |  3             |
-            | Glossary                                                        |  4             |      
+            | Glossary                                                          |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |

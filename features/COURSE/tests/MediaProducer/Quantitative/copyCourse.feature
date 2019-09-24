@@ -31,8 +31,7 @@ Feature: Copy course Quantitative Template
 
         Then I verify that "Quantitative Course" is created with following data
             | CourseName            | Status                    |
-            | courseCard            | Quantitative Course       |
-            | Status                |  Draft                    |
+            | Quantitative Course   |  Draft                    |
            
 
 

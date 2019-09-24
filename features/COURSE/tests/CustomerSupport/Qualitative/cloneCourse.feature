@@ -36,7 +36,6 @@ Feature: Customer Support attempts all the activities in Qualitative Template
 
         Then I verify that "Qualitative Course" is created with following data
             | CourseName            | Status                    |
-            | courseCard            | Qualitative Course        |
-            | Status                |  Draft                    |
+            | Qualitative Course    |  Draft                    |
            
         

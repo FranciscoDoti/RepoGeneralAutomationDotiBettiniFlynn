@@ -30,9 +30,8 @@ Feature: Copy course from Read & Practice template
         And I click on "Course Templates" tab 
 
         Then I verify that "Read & Practice Course" is created with following data
-            | CourseName            | Status                    |
-            | courseCard            | Read & Practice Course    |
-            | Status                |  Draft                    |
+            | CourseName             | Status                    |
+            | Read & Practice Course |  Draft                    |
           
            
 

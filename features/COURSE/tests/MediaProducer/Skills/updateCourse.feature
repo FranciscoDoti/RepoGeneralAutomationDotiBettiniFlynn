@@ -13,8 +13,6 @@
             | courseName                |  courseCode   |  templateStatus      |
             | Skills Template           |   E2E 301     |  Active On Date      |
             
-        Then I verify that "Skills Template" is created with following data
-            | CourseName           | Status                    |
-            | courseCard            | Skills Template           |
-            | TemplateStatus        |  Active                   |
-            | ISBNVerification      |  9781464199498            |
+        Then I verify that "Skills Template" is activated with following data
+            | CourseName                | Status                    |  ISBN               |
+            | Skills Template           |  Active                   |  9781464199498      |

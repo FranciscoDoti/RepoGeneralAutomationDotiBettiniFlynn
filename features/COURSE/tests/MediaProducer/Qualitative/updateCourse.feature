@@ -13,8 +13,6 @@
             | courseName             |  courseCode   |  templateStatus      |
             | Qualitative Template   |   E2E 301     |  Active On Date      | 
             
-        Then I verify that "Qualitative Template" is created with following data
-            | CourseName            | Status                    |
-            | courseCard            | Qualitative Template      |
-            | TemplateStatus        | Active                    |
-            | ISBNVerification      | 9781464199498             |
+        Then I verify that "Qualitative Template" is activated with following data
+            | CourseName            | Status                    | ISBN                      |
+            | Qualitative Template  | Active                    | 9781464199498             |

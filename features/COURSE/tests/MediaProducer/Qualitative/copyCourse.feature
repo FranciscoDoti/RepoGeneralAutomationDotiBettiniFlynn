@@ -30,8 +30,7 @@ Feature: Copy course Qualitative template
 
         Then I verify that "Qualitative Course" is created with following data
             | CourseName            | Status                    |
-            | courseCard            | Qualitative Course        |
-            | Status                |  Draft                    |
+            | Qualitative Course    |  Draft                    |
            
 
 

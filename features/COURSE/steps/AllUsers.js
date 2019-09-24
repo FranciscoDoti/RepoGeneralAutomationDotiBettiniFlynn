@@ -39,7 +39,19 @@ Then(/^I verify that "(.*)" is created with following data$/, async function (co
   this.data.set('course',courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.createCourse.assertTextIncludes(data_table.hashes()[i].CourseName, data_table.hashes()[i].Status);
+    var c = data_table.hashes()[i];
+    await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
+    await pages.createCourse.assertTextIncludes('Status',c.Status);
+  }
+});
+Then(/^I verify that "(.*)" is activated with following data$/, async function (courseName, data_table){
+  this.data.set('course',courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
+    await pages.createCourse.assertTextIncludes('TemplateStatus',c.Status);
+    await pages.createCourse.assertTextIncludes('ISBNVerification', c.ISBN);
   }
 });
 

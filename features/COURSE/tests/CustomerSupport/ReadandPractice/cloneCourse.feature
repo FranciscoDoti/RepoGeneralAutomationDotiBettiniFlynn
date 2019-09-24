@@ -33,8 +33,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I search for "Read & Practice Course" in Courses tab
         
         Then I verify that "Read & Practice Course" is created with following data
-            | CourseName            | Status                    |
-            | courseCard            | Read & Practice Course    |
-            | Status                |  Draft                    |
+            | CourseName                | Status                    |
+            | Read & Practice Course    |  Draft                    |
            
         

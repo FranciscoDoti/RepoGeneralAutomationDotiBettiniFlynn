@@ -13,8 +13,6 @@
             | courseName                |  courseCode   |  templateStatus      |
             | Read & Practice Template  |   E2E 301     |  Active On Date      | 
             
-        Then I verify that "Read & Practice Template" is created with following data
-            | CourseName            | Status                    |
-            | courseCard            | Read & Practice Template  |
-            | TemplateStatus        |  Active                   |
-            | ISBNVerification      | 9781464199498             |
+        Then I verify that "Read & Practice Template" is activated with following data
+            | CourseName               | Status                 | ISBN                      |
+            | Read & Practice Template |  Active                | 9781464199498             |

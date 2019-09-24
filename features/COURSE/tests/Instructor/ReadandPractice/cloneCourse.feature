@@ -46,9 +46,8 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
         And I verify that "Read & Practice Instructor Course" is created with following data
-            | CourseName            | Status                                  |
-            | courseCard            | Read & Practice Instructor Course       |
-            | courseStatus          |  Draft                                  |
+            | CourseName                              | Status                                  |
+            | Read & Practice Instructor Course       | Draft                                  |
            
         
 
