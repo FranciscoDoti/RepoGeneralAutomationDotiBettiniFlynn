@@ -305,7 +305,13 @@
         }, {
             "name": "importStructureSelectButton",
             "byType": "css",
-            "definition": "[data-test-id='import_modal'] div:last-child div:last-child button",
+            "definition": "//span[.='<ReplaceText>']/../../../button",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "importContentCheckboxContent",
+            "byType": "css",
+            "definition": "input[data-test-id='content_checkbox']",
             "frame": "default",
             "specialInstr": "NA"
         }, {

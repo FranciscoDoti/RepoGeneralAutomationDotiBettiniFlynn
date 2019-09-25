@@ -23,6 +23,8 @@ Feature: Media Editor is able to create a template and update in SKills Template
             | courseDate            |  E2E 301                  |
             | courseShortId         | Template                  |
 
-        Then I clone content from other template
+        When I clone content from "2/26 test" template
             | field                 | value                     |
             | courseName            | 2/26 test                 |
+
+        Then I verify if content was imported successfully

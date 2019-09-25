@@ -36,7 +36,7 @@ When('I delete the courses', async function () {
 });
 Then(/^I verify that "(.*)" is created with following data$/, async function (courseName, data_table) {
   // await pages.courseList.populate('search', courseName);
-  this.data.set('course',courseName);
+  this.data.set('course', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.courseList.assertElementExists(data_table.hashes()[i].field, data_table.hashes()[i].value);
@@ -63,11 +63,11 @@ When('I add URL activity in resource tab', async function (data_table) {
   }
 });
 
-When('I close generate access code', async function (){
+When('I close generate access code', async function () {
   await pages.adminMenu.click('closeExportList');
 });
 
-Then('Then I clone content from other template', async function(data_table) {
+When(/^I clone content from "(.*)" template$/, async function (data_table) {
   await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('importStructure');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -75,5 +75,10 @@ Then('Then I clone content from other template', async function(data_table) {
     await pages.resources.populate("importStructureSearchBar", data_table.hashes()[i].courseName);
   }
   await pages.resources.click('importStructureSelectButton');
+  await pages.resources.click('importContentCheckboxContent');
   await pages.resources.click('importContentImportButton');
-})
+});
+
+Then('I verify if content was imported successfully', async function () {
+  await pages.home.assertElementExists('alert');
+});
