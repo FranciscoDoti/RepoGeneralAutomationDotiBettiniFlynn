@@ -29,7 +29,6 @@ When('I delete the courses', async function () {
 });
 
 When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('tab', 'ASSIGNMENTS')
   await pages.overview.click('activityName', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
