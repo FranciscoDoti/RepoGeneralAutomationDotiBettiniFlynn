@@ -266,21 +266,19 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const assertElementExists = async function (elementName, replaceText) {
+  const checkElementExists = async function (elementName, replaceText) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
     if (await genericAssertElement(elementName, 'displayed')) {
-      log.info(`Web Element ${elementName} is displayed on page. PASS`);
+      log.info(`Web Element ${elementName} is displayed on page.`);
     } else {
-      assert.fail(`Web Element ${elementName} is not displayed on page.`);
+      log.info(`Web Element ${elementName} is not displayed on page.`);
     };
   };
 
-  const dragAndDrop = async function (dragElementName, dragReplaceText, dropElementName, dropReplaceText) {
-    await addDynamicElement(dragElementName, dragReplaceText);
-    await addDynamicElement(dropElementName, dropReplaceText);
-    dragElementName = dragElementName + (dragReplaceText || '');
-    dropElementName = dropElementName + (dropReplaceText || '');
+  const assertElementExists = async function (elementName, replaceText) {
+    await addDynamicElement(elementName, replaceText);
+    elementName = elementName + (replaceText || '');
     if (await genericAssertElement(elementName, 'displayed')) {
       log.info(`Web Element ${elementName} is displayed on page. PASS`);
     } else {
@@ -543,6 +541,18 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
+  const dragAndDrop = async function (dragElementName, dragReplaceText, dropElementName, dropReplaceText) {
+    await addDynamicElement(dragElementName, dragReplaceText);
+    await addDynamicElement(dropElementName, dropReplaceText);
+    dragElementName = dragElementName + (dragReplaceText || '');
+    dropElementName = dropElementName + (dropReplaceText || '');
+    if (await genericAssertElement(elementName, 'displayed')) {
+      log.info(`Web Element ${elementName} is displayed on page. PASS`);
+    } else {
+      assert.fail(`Web Element ${elementName} is not displayed on page.`);
+    };
+  };
+
   that.acceptAlert = acceptAlert;
   that.dismissAlert = dismissAlert;
   that.getAlertText = getAlertText;
@@ -559,6 +569,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
+  that.checkElementExists = checkElementExists;
   that.assertElementExists = assertElementExists;
   that.assertElementDoesNotExist = assertElementDoesNotExist;
   that.getWebElements = getWebElements;
