@@ -94,7 +94,7 @@ Feature: Student compelets Pathfinder Activity
 
     Scenario: Student Takes Final Test and Answers Every Question Correctly
         Given I login to Achieve-CW as "student_1"
-        When I click on the course card for "Pathfinder Course"
+        When I click on "Pathfinder Course"
         And I launch the Pathfinder Assignment "Final Test for Reading Skills - English  ..."
         And I click on the "Start Test Button" on the "studentAssignment" page
         And I complete an NGA assignment with the following answers
@@ -122,3 +122,48 @@ Feature: Student compelets Pathfinder Activity
 
         And I refresh the page
         Then there should be a "Final Test Results Summary" that includes the text "Excellent! You have completed the final test." on the "studentAssignment" page
+
+    Scenario: Student Verify the status of pathfinder activities
+
+        When I login to Achieve-CW as "student_1"
+        And I click on "activities Course"
+        And I click on "My Course" Button
+
+        Then I verify the activity status for the following activities in "COURSE PLAN"
+            | activity                                      | status    |
+            | Glossary                                      | Complete  |
+            | Google                                        | Complete  |
+            | AutomationAsset2                              | Complete  |
+
+        And I verify the activity status for the following activities in "ASSIGNMENTS"
+            | activity                                      | status    |
+            | Glossary                                      | Complete  |
+            | Google                                        | Complete  |
+            | AutomationAsset2                              | Complete  |
+    
+    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that student is able to see Grades in Gradebook 
+
+        When I login to Achieve-CW as "student_1"
+
+        And I click on "activities Course"
+
+        Then I verify the assignmenent grades in gradebook for below assigned activities 
+            | activity                                      | percentage  | points  | PercentOfTotalgrades |
+            | Glossary                                      |   100%      | 5       | 50%                  |
+            | Google                                        |   100%      | 5       | 100%                 |
+            | AutomationAsset2                              |   100%      | 5       | 50%                  |
+
+        And I verify Total Grades
+            | activity                                      | percentage  | points  | PercentOfTotalgrades |
+            | Test Total                                    | 100%        |   5     |   33%                |
+            | Assignments Total                              | 100%        |   10   |   67%               |
+
+            
+
+
+            
+
+
+

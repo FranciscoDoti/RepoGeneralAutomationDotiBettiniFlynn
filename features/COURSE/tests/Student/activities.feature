@@ -100,7 +100,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
     
         # Then I verify the activity status for the following activities in "COURSE PLAN"
         #     | activity                                      | status    |
-        #     | Glossary                                    | Complete  |
+        #     | Glossary                                      | Complete  |
         #     | Google                                        | Complete  |
         #     | AutomationAsset2                              | Complete  |
         #     | Exercise: Misused words 1 (autoscored)        | Complete  |
@@ -108,7 +108,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         # And I verify the activity status for the following activities in "ASSIGNMENTS"
         #     | activity                                      | status    |
-        #     | Glossary                                    | Complete  |
+        #     | Glossary                                      | Complete  |
         #     | Google                                        | Complete  |
         #     | AutomationAsset2                              | Complete  |
         #     | LC1551301608988                               | Complete  |
