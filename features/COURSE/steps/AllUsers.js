@@ -67,13 +67,11 @@ When('I close generate access code', async function () {
   await pages.adminMenu.click('closeExportList');
 });
 
-When(/^I clone content from "(.*)" template$/, async function (data_table) {
+When(/^I clone content from "(.*)" template$/, async function (courseName) {
   await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('importStructure');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.click('importStructureSearchBar');
-    await pages.resources.populate("importStructureSearchBar", data_table.hashes()[i].courseName);
-  }
+  await pages.resources.click('importStructureSearchBar');
+  await pages.resources.populate("importStructureSearchBar", courseName);
   await pages.resources.click('importStructureSelectButton');
   await pages.resources.click('importContentCheckboxContent');
   await pages.resources.click('importContentImportButton');

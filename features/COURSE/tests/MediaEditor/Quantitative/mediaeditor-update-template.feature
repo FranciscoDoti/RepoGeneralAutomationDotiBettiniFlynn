@@ -24,7 +24,5 @@ Feature: Media Editor is able to create a template and update in Quantitative Te
             | courseShortId         | Template                  |
         
         When I clone content from "Quant PSV-2877" template
-            | field                 | value                     |
-            | courseName            | Quant PSV-2877            |
 
         Then I verify if content was imported successfully

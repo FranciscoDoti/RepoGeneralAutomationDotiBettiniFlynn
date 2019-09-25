@@ -23,7 +23,5 @@ Feature: Media Editor is able to create a template and update in Read & Practice
             | courseShortId         | Template                  |
 
         When I clone content from "General Chemistry LO" template
-            | field                 | value                     |
-            | courseName            | General Chemistry LO      |
 
         Then I verify if content was imported successfully
