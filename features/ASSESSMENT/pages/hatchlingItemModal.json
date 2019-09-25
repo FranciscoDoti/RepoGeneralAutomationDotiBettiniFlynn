@@ -112,11 +112,11 @@
         },{
             "name": "Correct Answer Feedback",
             "byType": "xpath",
-            "definition": "//span[text()='Correct Answer Feedback']/../..//div[contains(@class,'rich')]",
+            "definition": "//span[text()='Correct Answer Feedback']/../..//div[@class='rte-content']",
             "frame": "default",
             "specialInstr": "noclick"
         },{
-            "name": "FeedbackCollapsibleHeader",
+            "name": "Collapsible Title",
             "byType": "xpath",
             "definition": "//span[text()='<ReplaceText>']",
             "frame": "default",
@@ -124,7 +124,7 @@
         },{
             "name": "Incorrect Answer",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='hatchling-incorrect-choice']",
+            "definition": "//label[@for='option<ReplaceText>']/../..//div[@class='rte-content' and @data-test-id='hatchling-incorrect-choice']",
             "frame": "default",
             "specialInstr": "noclick"
         },{

@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
+const { sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
@@ -38,20 +39,20 @@ Then(/^I verify the items were updated in AMS$/, async function () {
 When('I add the following correct answer and feedback', async function (datatable) {
   let ans = datatable.hashes()[0];
   await pages.hatchlingItem.populate('Correct Answer', ans.Answer);
-  await pages.hatchlingItem.click('FeedbackCollapsibleHeader','Correct Answer Feedback');
+  await pages.hatchlingItem.click('Collapsible Title','Correct Answer Feedback');
   await pages.hatchlingItem.populate('Correct Answer Feedback', ans.Feedback);
 });
 
 When('I add the following incorrect answers and feedback', async function (datatable) {
   for (let i = 0; i < datatable.rows().length; i++) {
     await pages.hatchlingItem.click('Button', 'Add Answer');
-
     let ans = datatable.hashes()[i];
-    let fieldanswer = pages.hatchlingItem.getWebElements('Incorrect Answer');
-    await fieldanswer[i].populate('Incorrect Answer', ans.Answer);
-    await pages.hatchlingItem.click('FeedbackCollapsibleHeader','Incorrect Answer Feedback');
-    let fieldfeedback = pages.hatchlingItem.getWebElements('Incorrect Answer Feedback');
-    await fieldfeedback[i].populate('Incorrect Answer Feedback', ans.Answer);
+    console.log(ans.Answer);
+    console.log(ans.Feedback);
+    await pages.hatchlingItem.populate('Incorrect Answer', i+1, ans.Answer);
+    // await pages.hatchlingItem.click('Collapsible Title','Incorrect Answer Feedback');
+    // let fieldfeedback = await pages.hatchlingItem.getWebElements('Incorrect Answer Feedback');
+    // await fieldfeedback[i].populate('Incorrect Answer Feedback', ans.Feedback);
   };
 });
 
