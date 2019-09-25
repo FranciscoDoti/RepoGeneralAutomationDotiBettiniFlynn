@@ -103,27 +103,42 @@
             "definition": "input[value=' Yes ']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "MCCorrectAnswerTextbox",
+        },{
+            "name": "Correct Answer",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-correct-choice']",
             "frame": "default",
             "specialInstr": "noclick"
-        },
-        {
+        },{
+            "name": "Correct Answer Feedback",
+            "byType": "xpath",
+            "definition": "//span[text()='Correct Answer Feedback']/../..//div[contains(@class,'rich')]",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },{
+            "name": "FeedbackCollapsibleHeader",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "Incorrect Answer",
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-incorrect-choice']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "noclick"
-        },
-        {
+        },{
+            "name": "Incorrect Answer Feedback",
+            "byType": "xpath",
+            "definition": "//span[text()='Incorrect Answer Feedback']/../..//div[contains(@class,'rich')]",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },{
             "name": "Button",
             "byType": "xpath",
             "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "hatchlingBody",

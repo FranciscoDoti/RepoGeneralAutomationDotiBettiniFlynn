@@ -16,7 +16,7 @@ const config = {
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
-  timeout : defaults.timeout,
+  timeout : defaults.timeout*1000,
   stack: argv.stack || defaults.stack || argv.env || defaults.environment
 };
 
@@ -68,7 +68,7 @@ const buildDriver = function() {
         }
       };
       var chromeCapabilities = webdriver.Capabilities.chrome();
-      chromeCapabilities.set('chromeOptions', chromeOptions)
+      chromeCapabilities.set('goog:chromeOptions', chromeOptions)
       driver.withCapabilities(chromeCapabilities);
       if (config.headless === true) {
         driver.setChromeOptions(new chrome.Options().headless());

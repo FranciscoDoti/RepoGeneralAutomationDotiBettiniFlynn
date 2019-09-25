@@ -12,30 +12,6 @@
             "definition": ".dropdown-content a:nth-child(1)",
             "frame": "default",
             "specialInstr": "NA"
-        },{
-            "name": "MCIncorrectAnswerTxtBx1",
-            "byType": "css",
-            "definition": "div.hatchling-answer-container:nth-child(3) div[data-test-id='hatchling-incorrect-choice']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },{
-            "name": "MCIncorrectAnswerTxtBx2",
-            "byType": "css",
-            "definition": "div.hatchling-answer-container:nth-child(4) div[data-test-id='hatchling-incorrect-choice']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },{
-            "name": "MCIncorrectAnswerTxtBx3",
-            "byType": "css",
-            "definition": "div.hatchling-answer-container:nth-child(5) div[data-test-id='hatchling-incorrect-choice']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },{
-            "name": "CorrectAnswerFeedback",
-            "byType": "xpath",
-            "definition": "//span[text()='Correct Answer Feedback']",
-            "frame": "default",
-            "specialInstr": "NA"
         }
         
         
