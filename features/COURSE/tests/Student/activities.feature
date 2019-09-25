@@ -77,7 +77,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I login to Achieve-CW as "student_1"
 
-        # And I click on "activities Course"
+        And I click on "activities Course"
 
         # And I attempt "Google" URL activity
 
@@ -87,13 +87,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         #     | activity           |
         #     | Glossary           |
 
-         And I attempt "Exercise: Misused words 1 (autoscored)" premade assesment in "Quantitative Course"
-           | Questions   |  PremadeAssesmentKey                                                                                                       |   
-           | 1 Question  |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
-           | 2 Question  |  Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.         | 
-           | 3 Question  |  The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                       |         
-           | 4 Question  |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
-           | 5 Question  |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
+        #  And I attempt "Exercise: Misused words 1 (autoscored)" premade assesment in "Quantitative Course"
+        #    | Questions   |  PremadeAssesmentKey                                                                                                       |   
+        #    | 1 Question  |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
+        #    | 2 Question  |  Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.         | 
+        #    | 3 Question  |  The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                       |         
+        #    | 4 Question  |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
+        #    | 5 Question  |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
         
         And I attempt "LC1551301608988" Learning curve activity
 

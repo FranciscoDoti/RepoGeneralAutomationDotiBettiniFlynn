@@ -88,8 +88,7 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
       let scoreFinal = await pages.overview.getText('score')
       let x = eval(scoreFinal)
       let y = eval(610/600)
-      let z = eval(325/600)
-      let a = eval(300/600)
+      let z = await pages.overview.checkElementExists('midwayLc');
         if(x < y){
          
         let jsonObject = await pages.overview.getText('activityQuestion');
@@ -113,10 +112,10 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
                 await choice.click()
                 break;
               }
+              await pages.overview.assertElementExists('nextQuestion');
+              await pages.overview.click('nextQuestion');
+              break;
             }
-            await pages.overview.assertElementExists('nextQuestion')
-            await pages.overview.click('nextQuestion');
-            break
 
           case 'MC':
           console.log('Entered MC') 
@@ -133,16 +132,22 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
               }
             }
             await pages.overview.click('submitButton');
+            await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
+
             break;
           case 'FB':
           console.log('Entered FB')
             await pages.overview.populate('fillInTheBlank', answerKey.Answer);
             await pages.overview.click('submitButton');
+            await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
             break
         }
-      console.log('there is more'+(x-1) + "more to run")
+
+      }
+      if(z=== true){
+        await pages.overview.click('midwayLc')
 
       }
      if (x >= y){
