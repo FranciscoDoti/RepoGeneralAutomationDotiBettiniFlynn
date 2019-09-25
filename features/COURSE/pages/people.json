@@ -1,0 +1,27 @@
+{
+    "webElements": [{
+        "name": "userFilterTextBox",
+        "byType": "css",
+        "definition": "[data-test-id='user_filter_textbox']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },  {
+        "name": "checkbox",
+        "byType": "css",
+        "definition": "[class='_1UGb']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },  {
+        "name": "dropStudentButton",
+        "byType": "css",
+        "definition": "[data-test-id='drop_student_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "dropStudentsSubmitBtn",
+        "byType": "css",
+        "definition": "[data-test-id='drop_students_submit_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]   
+}
