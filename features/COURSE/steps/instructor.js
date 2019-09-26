@@ -181,7 +181,7 @@ When(/^I drop "(.*)"$/, async function (userType) {
   await pages.people.click('dropStudentsSubmitBtn');
 });
 
-When(/^I verify the Grades of "(.*)"$/, async function (course){
-  await pages.coursePage.click('navigation', 'Gradebook');
-  await pages.gradebook.assertTextIncludes('TotalPercentage', course, '100%');
+When('I navagate to gradebook and verify grades', async function(){
+  await pages.coursePage.click('navigation','Gradebook');
+  await console.log("#####################" + await pages.gradebook.getText('gradebookTableCourseTotal'))
 });
