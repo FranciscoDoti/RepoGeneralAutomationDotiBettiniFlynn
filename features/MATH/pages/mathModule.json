@@ -1,6 +1,13 @@
 {
     "webElements": [
         {
+            "name": "answerField",
+            "byType": "css",
+            "definition": ".graded-equations-equation",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "gradeAsExpression",
             "byType": "css",
             "definition": ".greq-input[data-test-id='eval-type-dropdown'] > option[value='expression']",
