@@ -421,7 +421,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const switchToTab = async function (tabName) {
     try {
       log.debug(`Switching to tab : ${tabName}`);
-      await activateTab(tabName);
+      if(!(await activateTab(tabName))){
+        assert.fail(`${tabName} tab was not found. FAIL`);
+      };
     } catch (err) {
       log.error(err.stack);
       throw err;

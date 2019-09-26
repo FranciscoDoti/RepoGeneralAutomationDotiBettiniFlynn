@@ -118,26 +118,32 @@ const resetBrowser = async function () {
   await switchToTab(tabs[0]);
   log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
   await driver.manage().deleteAllCookies();
-  return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
+  return await driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
 };
 
 const activateTab = async function (tabName) {
-  var tabs = await driver.getAllWindowHandles();
-  for (let index = 0; index < tabs.length; index++) {
-    await switchToTab(tabs[index]);
-    currentTabName = await getTitle();
-    if (currentTabName.includes(tabName)) {
-      break;
+  let startTimer = Date.now();
+  while(Date.now() - startTimer < config.timeout){
+    var tabs = await driver.getAllWindowHandles();
+    for (let index = 0; index < tabs.length; index++) {
+      await switchToTab(tabs[index]);
+      currentTabName = await getTitle();
+      if (currentTabName.includes(tabName)) {
+        break;
+      }
     }
-  }
+    await sleep(5000);
+    await switchToTab(tabs[0]);
+  };
 
   currentTabName = await getTitle();
   if (!currentTabName.includes(tabName)) {
-    log.info(`${tabName} tab was not found.`);
     await switchToTab(tabs[0]);
+    return false;
   } else {
     log.debug(`${currentTabName} tab activated.`);
   }
+  return true;
 };
 
 const switchToTab = async function (tab) {
