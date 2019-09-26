@@ -77,6 +77,6 @@ When(/^I clone content from "(.*)" template$/, async function (courseName) {
   await pages.resources.click('importContentImportButton');
 });
 
-Then('I verify if content was imported successfully', async function () {
-  await pages.home.assertElementExists('alert');
+Then(/^I verify if content was imported successfully with message "(.*)"$/, async function (message) {
+  await pages.home.assertTextIncludes('alert', message);
 });

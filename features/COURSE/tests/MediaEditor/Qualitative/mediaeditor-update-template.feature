@@ -25,4 +25,4 @@ Feature: Media Editor is able to create a template and update Qualitative Templa
         
         When I clone content from "8/15 QL Template" template
         
-        Then I verify if content was imported successfully
+        Then I verify if content was imported successfully with message "Import from 8/15 QL Template was successful.."

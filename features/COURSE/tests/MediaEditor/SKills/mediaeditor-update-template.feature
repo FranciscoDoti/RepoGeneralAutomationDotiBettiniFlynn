@@ -25,4 +25,4 @@ Feature: Media Editor is able to create a template and update in SKills Template
 
         When I clone content from "2/26 test" template
 
-        Then I verify if content was imported successfully
+        Then I verify if content was imported successfully with message "Import from 8/15 QL Template was successful.."

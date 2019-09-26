@@ -24,4 +24,4 @@ Feature: Media Editor is able to create a template and update in Read & Practice
 
         When I clone content from "General Chemistry LO" template
 
-        Then I verify if content was imported successfully
+        Then I verify if content was imported successfully with message "Import from 8/15 QL Template was successful.."
