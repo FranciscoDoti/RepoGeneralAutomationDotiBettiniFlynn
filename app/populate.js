@@ -3,6 +3,7 @@ const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { assert } = require('chai');
+const actions = getDriver().actions({bridge: true});
 
 const populateInput = async function (selector, value, WebElementObject) {
   const type = await selector.getAttribute('type');
@@ -53,6 +54,12 @@ const populateInput = async function (selector, value, WebElementObject) {
 
 const populateSelect = async function (selector, item, WebElementData) {
   const localSpecialInstr = WebElementData.specialInstr || '';
+
+  if(localSpecialInstr.toLowerCase().includes('focus'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
+    await WebElementObject.webElement.focus();
+  }
   
   if (localSpecialInstr.toLowerCase().includes('selectbyvisibletext')) {
     await selector.selectByVisibleText(item);
@@ -86,19 +93,28 @@ const populateTextField = async function (selector, value, WebElementObject) {
     localSpecialInstr = WebElementData.specialInstr;
   }
 
+  if(localSpecialInstr.toLowerCase().includes('focus'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
+    await WebElementObject.webElement.focus();
+  }
+
   if(!localSpecialInstr.toLowerCase().includes('noclick'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.click();
   }
 
+  if(!localSpecialInstr.toLowerCase().includes('noclear'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
+    await selector.clear();
+  }
+
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
-  } else if(!localSpecialInstr.toLowerCase().includes('noclear'))
-  {
-    log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Clearing text.`);
-    await selector.clear();
+    await actions.click(selector).click(selector).click(selector).sendKeys('').perform();
   }
 
   if (value != ''){
@@ -122,7 +138,7 @@ const populateTextField = async function (selector, value, WebElementObject) {
   if (localSpecialInstr.toLowerCase().includes('waitafter2secs')) {
     try {
       log.debug(`Sleeping 2 seconds. Special Instruction is : ${localSpecialInstr}`);
-      sleep(3000);
+      await sleep(3000);
     } catch (e) {
       log.error(e);
     }
@@ -134,6 +150,12 @@ const populateClick = async function (selector, value, WebElementObject) {
   let localSpecialInstr = '';
   if (WebElementData && WebElementData.specialInstr != null) {
     localSpecialInstr = WebElementData.specialInstr;
+  }
+
+  if(localSpecialInstr.toLowerCase().includes('focus'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
+    await WebElementObject.webElement.focus();
   }
 
   if (value.toLowerCase() === 'click') {
@@ -192,9 +214,15 @@ const populateFile = async function (selector, value, WebElementObject) {
     localSpecialInstr = WebElementData.specialInstr;
   }
 
+  if(localSpecialInstr.toLowerCase().includes('focus'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
+    await WebElementObject.webElement.focus();
+  }
+
   if (localSpecialInstr.toLowerCase().includes('makevisible')) {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Running javascript on page.`);
-    getDriver().executeScript("arguments[0].style.height='auto'; arguments[0].style.visibility='visible';", selector);
+    await getDriver().executeScript("arguments[0].style.height='auto'; arguments[0].style.visibility='visible';", selector);
   }
 
   if (!localSpecialInstr.toLowerCase().includes('noclick')) {
@@ -227,7 +255,7 @@ const populateFile = async function (selector, value, WebElementObject) {
   if (localSpecialInstr.toLowerCase().includes('waitafter2secs')) {
     try {
       log.debug(`Sleeping 2 seconds. Special Instruction is : ${localSpecialInstr}`);
-      sleep(3000);
+      await sleep(3000);
     } catch (e) {
       log.error(e);
     }
@@ -235,12 +263,17 @@ const populateFile = async function (selector, value, WebElementObject) {
 };
 
 const populateRichTextField = async function (selector, value, WebElementObject) {
-  const actions = getDriver().actions({bridge: true});
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
   const eleValue = await selector.getAttribute('textContent');
   if (WebElementData && WebElementData.specialInstr != null) {
     localSpecialInstr = WebElementData.specialInstr;
+  }
+
+  if(localSpecialInstr.toLowerCase().includes('focus'))
+  {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
+    await WebElementObject.webElement.focus();
   }
 
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
