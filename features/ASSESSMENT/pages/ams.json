@@ -27,6 +27,13 @@
             "definition": "//i[.='Algolia is Processing']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Item Field",
+            "byType": "xpath",
+            "definition": "//td[contains(@data-test-id,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
