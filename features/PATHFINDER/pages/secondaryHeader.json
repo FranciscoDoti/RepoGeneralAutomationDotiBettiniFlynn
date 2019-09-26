@@ -1,0 +1,9 @@
+{
+    "webElements": [{
+    "name": "Continue to Results Button",
+    "byType": "css",
+    "definition": "[data-test-id='continue-to-results-button']",
+    "frame": 0,
+    "specialInstr": "NA"
+    }]
+}

@@ -50,7 +50,8 @@ Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users[userType];
   await visitURL(url);
-  await pages.login.click('signinlink');
+  await pages.login.waitForElementVisibility('Button','SIGN IN', 10);
+  await pages.login.click('Button','SIGN IN');
   await pages.login.populate('username', user.username);
   await pages.login.populate('password', user.password);
   await pages.login.click('signin');
