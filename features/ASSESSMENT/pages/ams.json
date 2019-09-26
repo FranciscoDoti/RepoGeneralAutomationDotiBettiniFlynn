@@ -1,0 +1,32 @@
+{
+    "webElements": [
+        {
+            "name": "Add Item",
+            "byType": "xpath",
+            "definition": "//a[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Select Checkbox",
+            "byType": "xpath",
+            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "AMS Button",
+            "byType": "xpath",
+            "definition": "//li[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Algolia is Processing",
+            "byType": "xpath",
+            "definition": "//i[.='Algolia is Processing']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

@@ -9,19 +9,14 @@ Feature: To update multiple raptor items in AMS by bulk update
             | Title               | ModuleType        |
             | NGA QA Test MC Item | Multiple Choice   |
             | NGA QA Test MS Item | Multiple Select   |
-            | NGA QA Test UT Item | Ungraded Text     |
-            | NGA QA Test MD Item | Molecular Drawing |
+#            | NGA QA Test UT Item | Ungraded Text     |
+#            | NGA QA Test MD Item | Molecular Drawing |
 
-        And I select the following items in AMS
-            | Title               |
-            | NGA QA Test MC Item |
-            | NGA QA Test MS Item |
-            | NGA QA Test UT Item |
-            | NGA QA Test MD Item |
+        And I select the created items in AMS
 
         And I update the selected items with the following details
             | TopicLevel1 | TopicLevel2 | TopicLevel3          | TopicLevel4 | TopicLevel5                    | TaxonomyLevel1 | TaxonomyLevel2 | Difficulty | Status | Access |
-            | Algebra     | Math Review | CHAPTER 0 All Topics | AllTopics   | Your Questions (uncategorized) | Algebra        | Math Review    | Easy       | Live   | public |
+            | Algebra     | Math Review | CHAPTER 0 All Topics | All Topics  | Your Questions (uncategorized) | Algebra        | Math Review    | Easy       | Live   | public |
 
         Then I verify the items were updated in AMS
             | AuthorMode | Title               | Topic                          | Taxonomy    | Difficulty | ModuleType | Status | Access |
