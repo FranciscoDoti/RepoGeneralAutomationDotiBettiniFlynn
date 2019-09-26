@@ -127,23 +127,15 @@ const activateTab = async function (tabName) {
     var tabs = await driver.getAllWindowHandles();
     for (let index = 0; index < tabs.length; index++) {
       await switchToTab(tabs[index]);
-      currentTabName = await getTitle();
+      let currentTabName = await getTitle();
       if (currentTabName.includes(tabName)) {
-        break;
+        log.debug(`${currentTabName} tab activated.`);
+        return true;
       }
     }
     await sleep(5000);
-    await switchToTab(tabs[0]);
   };
-
-  currentTabName = await getTitle();
-  if (!currentTabName.includes(tabName)) {
-    await switchToTab(tabs[0]);
-    return false;
-  } else {
-    log.debug(`${currentTabName} tab activated.`);
-  }
-  return true;
+  return false;
 };
 
 const switchToTab = async function (tab) {
@@ -156,7 +148,7 @@ const switchToTab = async function (tab) {
 
 const getTitle = async function () {
   try {
-    return driver.getTitle();
+    return await driver.getTitle();
   } catch (err) {
     log.error(err.stack);
   }
@@ -164,7 +156,7 @@ const getTitle = async function () {
 
 const getURL = async function () {
   try {
-    return driver.getCurrentUrl();
+    return await driver.getCurrentUrl();
   } catch (err) {
     log.error(err.stack);
   }
@@ -172,7 +164,7 @@ const getURL = async function () {
 
 const takeScreenshot = async function () {
   try {
-    return driver.takeScreenshot();
+    return await driver.takeScreenshot();
   } catch (err) {
     log.error(err.stack);
   }
