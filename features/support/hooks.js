@@ -157,9 +157,6 @@ After('@instructor-delete-course', async function () {
 
 
 
-
-
-
 //***********           this After always needs to be at the bottom of this file           ***********//
 After(async function (scenario) {
   if (this.screenshots.toLowerCase().includes('onfail')
