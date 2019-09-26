@@ -1,7 +1,7 @@
 {
     "webElements": [
         {
-            "name": "answerField",
+            "name": "answerTextField",
             "byType": "css",
             "definition": ".graded-equations-equation",
             "frame": "default",
