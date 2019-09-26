@@ -109,7 +109,7 @@
         {
             "name": "gradebookTableCourseTotal",
             "byType": "xpath",
-            "definition": "//*[@id='container']/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[2]/div/div[1]/div/div[1]/div[2]/div/div[5]",
+            "definition": "//*[.='<ReplaceText>']/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[2]/div/div[1]/div/div[1]/div[2]/div/div[5]",
             "frame": "default",
             "specialInstr": "NA"
         }

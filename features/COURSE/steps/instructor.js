@@ -181,7 +181,9 @@ When(/^I drop "(.*)"$/, async function (userType) {
   await pages.people.click('dropStudentsSubmitBtn');
 });
 
-When('I navagate to gradebook and verify grades', async function(){
-  await pages.coursePage.click('navigation','Gradebook');
-  await console.log("#####################" + await pages.gradebook.getText('gradebookTableCourseTotal'))
+When(/^I navagate to gradebook and verify grades$/, async function(data_table){
+  await pages.coursePage.click('navigation', 'Gradebook');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.gradebook.assertText('courseTotal', data_table.hashes()[i].activity, data_table.hashes()[i].percent);
+  } 
 });
