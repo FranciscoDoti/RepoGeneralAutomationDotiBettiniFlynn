@@ -35,6 +35,12 @@ const WebElement = function (element) {
     };
   };
 
+  that.focus = async function () {
+    const definition = await this.getBy();
+    const returnElement = await my.driver.findElement(definition);
+    return await getDriver().executeScript('arguments[0].focus();', returnElement);
+  };
+
   that.scrollIntoView = async function () {
     const definition = await this.getBy();
     const returnElement = await my.driver.findElement(definition);
