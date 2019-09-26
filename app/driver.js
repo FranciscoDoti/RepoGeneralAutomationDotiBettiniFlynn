@@ -11,12 +11,13 @@ const argv = require('minimist')(process.argv.slice(2));
 let driver;
 
 const config = {
-  environment : argv.env || argv.environment || defaults.environment,
+  environment : argv.env || defaults.environment,
   mode : argv.mode || defaults.mode,
   browser : argv.browser || defaults.browser,
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
-  timeout : defaults.timeout
+  timeout : defaults.timeout*1000,
+  stack: argv.stack || defaults.stack || argv.env || defaults.environment
 };
 
 const buildDriver = function() {  
@@ -49,8 +50,8 @@ const buildDriver = function() {
         }
       }
       var safariCapabilities = webdriver.Capabilities.safari();
-      safariCapabilities.set('safariOptions', safariOptions)
-      driver.withCapabilities(safariCapabilities)
+      safariCapabilities.set('safariOptions', safariOptions);
+      driver.withCapabilities(safariCapabilities);
       break;
     case 'ie':
       log.info('IE not implement yet.');
@@ -67,7 +68,7 @@ const buildDriver = function() {
         }
       };
       var chromeCapabilities = webdriver.Capabilities.chrome();
-      chromeCapabilities.set('chromeOptions', chromeOptions)
+      chromeCapabilities.set('goog:chromeOptions', chromeOptions)
       driver.withCapabilities(chromeCapabilities);
       if (config.headless === true) {
         driver.setChromeOptions(new chrome.Options().headless());
@@ -96,7 +97,8 @@ const visitURL = async function(url){
   await driver.manage().window().maximize();
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
-  return driver.get(url);
+  await driver.get(url);
+  await sleep(2000);
 };
 
 const closeBrowser = async function(){
@@ -116,26 +118,32 @@ const resetBrowser = async function () {
   await switchToTab(tabs[0]);
   log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
   await driver.manage().deleteAllCookies();
-  return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
+  return await driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
 };
 
 const activateTab = async function (tabName) {
-  var tabs = await driver.getAllWindowHandles();
-  for (let index = 0; index < tabs.length; index++) {
-    await switchToTab(tabs[index]);
-    currentTabName = await getTitle();
-    if (currentTabName.includes(tabName)) {
-      break;
+  let startTimer = Date.now();
+  while(Date.now() - startTimer < config.timeout){
+    var tabs = await driver.getAllWindowHandles();
+    for (let index = 0; index < tabs.length; index++) {
+      await switchToTab(tabs[index]);
+      currentTabName = await getTitle();
+      if (currentTabName.includes(tabName)) {
+        break;
+      }
     }
-  }
+    await sleep(5000);
+    await switchToTab(tabs[0]);
+  };
 
   currentTabName = await getTitle();
   if (!currentTabName.includes(tabName)) {
-    log.info(`${tabName} tab was not found.`);
     await switchToTab(tabs[0]);
+    return false;
   } else {
     log.debug(`${currentTabName} tab activated.`);
   }
+  return true;
 };
 
 const switchToTab = async function (tab) {

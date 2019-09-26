@@ -1,7 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const _ = require('lodash');
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
 let scores = [];
 
 When('I navigate to assignment preview', async function () {
@@ -29,7 +27,7 @@ When(/^I reset attempts from student "(.*)"$/, async function (userType) {
     await pages.sac.click('Student Analysis Tab');
     await pages.sac.click('Edit Student Attempts Button');
 
-    let user = await _.get(users, [this.environment, userType]);
+    let user = this.users[userType];
     let name = user.firstName + " " + user.lastName;
     await pages.sac.click('Student Checkbox', name);
 

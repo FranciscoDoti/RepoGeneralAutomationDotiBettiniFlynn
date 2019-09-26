@@ -690,6 +690,51 @@
             "frame": "customIframe",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "assignGradebook",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']/../../../..//div/button[@data-test-id='assign_assignment_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "contentCheckbox",
+            "byType": "css",
+            "definition": "[data-test-id='content_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "addToCourse",
+            "byType": "css",
+            "definition": "[title='Add to course']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "gradeBookCategory",
+            "byType": "css",
+            "definition": "[data-test-id='edit_assignment_modal_gradebook_category_arrow']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "Category",
+            "byType": "css",
+            "definition": "[data-test-id='gradebook_category_dropdown']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "dateRange",
+            "byType": "css",
+            "definition": "[data-test-id='radio_button_visible_range_student']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+
         }
     ]
 }

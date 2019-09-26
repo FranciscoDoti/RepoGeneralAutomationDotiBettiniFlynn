@@ -1,8 +1,8 @@
-@Course @Smoke
-Feature: Adding collaborator to the template 
+@Course @Smoke @Skip
+Feature: Adding collaborator to Skills template
 
-    @mediaproducer-delete-course
-    Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to the template
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to Skills template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -15,8 +15,7 @@ Feature: Adding collaborator to the template
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | type                    | activity                                      |    
             | addButtonLearningcurve  | LC1551301608988                               |
             | addReadingButton        |  GLOSSARY                                     |
         

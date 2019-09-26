@@ -1,7 +1,5 @@
 const { Given, When,Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
-const _ = require('lodash');
 
 When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async function (number, code, data_table) {
   this.data.set('code', code);
@@ -20,6 +18,8 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 });
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
+  await pages.home.click('closeAlert');
+  await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -38,12 +38,15 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addContent');
     await pages.resources.populate('searchBar', data_table.hashes()[i].activity);
+    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activity)
+    await pages.resources.scrollElementIntoView(data_table.hashes()[i].type, data_table.hashes()[i].activity);
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activity);
     await pages.resources.click('closeResourceSearchNav');
   }
 });
 
 When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
+  await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.click('courseMenu', courseName);
   await pages.copyCourse.click('copyCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -60,10 +63,11 @@ Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
 });
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
+  await pages.home.click('closeAlert');
+  await pages.courseList.click('courseTemplate', 'Course Templates')
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('ISBNVerification', courseName);
   await pages.createCourse.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
-  await pages.home.click('closeAlert');
 });
 
 When(/^I create "(.*)" with ISBN "(.*)" and course code "(.*)"$/, async function (courseName, number, code, data_table) {
@@ -236,13 +240,14 @@ When('I delete the resources from the Template in ebook', async function (data_t
   }
 })
 
-When(/I add "(.*)" as collaborator to "(.*)"$/, async function (user, courseName) {
-  let payload = await _.get(users, [this.environment, user]);
+When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, courseName) {
+  let user = this.users[userType];
   await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
+  await pages.courseList.click('courseTemplate', 'Course Templates')
   await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
-  await pages.createCourse.populate('collaboratorsEmail', payload.username);
+  await pages.createCourse.populate('collaboratorsEmail', user.username);
   await pages.createCourse.click('addCollaborators');
   await pages.createCourse.click('closeCollaboratorModal');
 });

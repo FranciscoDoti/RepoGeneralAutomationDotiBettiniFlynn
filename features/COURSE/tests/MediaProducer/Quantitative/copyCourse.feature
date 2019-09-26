@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Copy course from the Template
+Feature: Copy course Quantitative Template
 
-    @mediaproducer-delete-course
-    Scenario: Copy a course from the Template
+    @mediaproducer-delete-courseTemplate
+    Scenario: Copy a course from Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

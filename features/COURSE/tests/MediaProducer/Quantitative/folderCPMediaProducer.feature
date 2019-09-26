@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Adding activities in Folder courseplanner
+Feature: Adding activities in Folder courseplanner in Quantitative Template
 
-    @mediaproducer-delete-course
-    Scenario: Verify that Media Producer is able to add folder in courseplanner
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that Media Producer is able to add folder in courseplanner in Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

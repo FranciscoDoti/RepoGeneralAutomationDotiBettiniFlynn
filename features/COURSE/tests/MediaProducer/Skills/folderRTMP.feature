@@ -1,7 +1,7 @@
 @Course @Smoke
-Feature: Adding activities in Folder Resource Tab
-    @mediaproducer-delete-course
-    Scenario: Verify that Media Producer is able to add activities in folder present in resource tab
+Feature: Adding activities in Folder Resource Tab to Skills template
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Skills template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -14,15 +14,13 @@ Feature: Adding activities in Folder Resource Tab
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
-            | type                     | activity                                      |
-            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
+            | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         |  GLOSSARY                                     |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I add the following activities to respective folders in resource tab
             | activity                                      | folders           | message                                                                             |
-            | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
             | GLOSSARY                                      | Reading           | 'GLOSSARY' was successfully moved to Reading.                                       |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
@@ -31,7 +29,6 @@ Feature: Adding activities in Folder Resource Tab
             | folders           | reorder        |
             | Reading           | moveToTop      |
             | Learning Curve    | movedownButton |
-            | Assesment         | moveToEnd      |
             | ReadandPractice   | moveUpButton   |
 
         Then I verify that resources are reordered
@@ -39,14 +36,12 @@ Feature: Adding activities in Folder Resource Tab
             | ReadandPractice | 1           |
             | Reading         | 2           |
             | Learning Curve  | 3           |
-            | Assesment       | 4           |
 
 
         And I verify the following activities are present in folders
             | activity                                      | folders           |
-            | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | GLOSSARY                                    | Reading           |
+            | GLOSSARY                                      | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the following resources from the Template

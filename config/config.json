@@ -4,13 +4,14 @@
     "browser": "chrome",
     "headless": false,
     "screenshots": "onFail",
-    "timeout": 30000,
+    "timeout": 30,
+    "stack": "",
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
         "mode": "local | docker | browserstack | localgrid | hub",
         "browser": "chrome | firefox",
         "headless": "true | false",
         "screenshots": "true | onFail | false",
-        "timeout": "Number-In-Milliseconds 30000 to avoid Gateway timeout on remote"
+        "timeout": "Number-in-seconds 30 to avoid Gateway timeout on remote"
     }
 }

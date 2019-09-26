@@ -1,6 +1,8 @@
+
+@Smoke @localonly @Course
 Feature: Student enrolls through course Id and access code
 
-    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
     Scenario: Verify that student is able to enroll in course using Course Id and access code
 
         Given I login to Achieve-CW as "media_producer_2"

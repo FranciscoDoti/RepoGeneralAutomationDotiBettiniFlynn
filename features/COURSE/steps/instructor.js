@@ -1,7 +1,6 @@
-const { Given, When, Then } = require('cucumber');
+const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const _ = require('lodash');
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
+
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
@@ -97,11 +96,11 @@ When(/^Instructor copy course from the "(.*)" template with the following data$/
    
   
 
-Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userName){
-  let payload = await _.get(users, [this.environment, userName]);
+Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userType){
+  let user = this.users[userType];
   await pages.home.click('signInLocal');
-  await pages.home.populate('username', payload.username);
-  await pages.home.populate('password', payload.password);
+  await pages.home.populate('username', user.username);
+  await pages.home.populate('password', user.password);
   await pages.home.click('signIn');
   await pages.courseList.assertElementExists('courseName', courseName);
 
@@ -149,4 +148,26 @@ for (let i = 0; i < data_table.rows().length; i++) {
 await pages.copyCourse.click('save');
 });
 
+When(/^I click on "(.*)"$/, async function (courseName){
+  await pages.createCourse.click('courseCard', courseName);
+})
 
+When(/^I create Gradebook Category for student and assign that to "(.*)" activity$/, async function (activity, data_table) {
+  await pages.coursePage.click('navigation','Gradebook');
+  await pages.gradebook.click('gradebookSettings')
+  await pages.gradebook.click('gradeBookCategory','Add Category');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.gradebook.scrollElementIntoView('categoryName')
+    await pages.gradebook.populate('categoryName', data_table.hashes()[i].CategoryName)
+    await pages.gradebook.populate('dropLowestGrade', data_table.hashes()[i].DropGrade);
+    await pages.gradebook.click('save','Save');
+  }
+  await pages.coursePage.click('navigation','My Course');
+  await pages.coursePage.click('tab', 'COURSE PLAN');
+  await pages.coursePlanner.click('assignGradebook', activity);
+  await pages.coursePlanner.click('gradeBookCategory');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('Category', data_table.hashes()[i].GradebookCategory)
+    await pages.coursePlanner.click('assignButton');
+  }
+});

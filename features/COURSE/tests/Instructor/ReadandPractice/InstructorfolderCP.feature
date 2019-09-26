@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Instructor adds folder, remove folder and reorders it 
+Feature: Instructor adds folder, remove folder and reorders it in Read & Practice Template
 
-    @mediaproducer-delete-course
-    Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources 
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources in Read & Practice Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

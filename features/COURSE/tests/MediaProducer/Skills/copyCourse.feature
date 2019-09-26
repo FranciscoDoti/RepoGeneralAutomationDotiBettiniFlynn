@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Copy course from the Template
+Feature: Copy course from Skills template
 
-    @mediaproducer-delete-course
-    Scenario: Copy a course from the Template
+    @mediaproducer-delete-courseTemplate
+    Scenario: Copy a course from Skills template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -15,8 +15,7 @@ Feature: Copy course from the Template
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | type                    | activity                                      |     
             | addButtonLearningcurve  | LC1551301608988                               |
             | addReadingButton        |  GLOSSARY                                     |
 

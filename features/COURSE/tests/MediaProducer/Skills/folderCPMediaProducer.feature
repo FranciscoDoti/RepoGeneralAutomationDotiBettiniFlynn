@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Adding activities in Folder courseplanner
+Feature: Adding activities in Folder courseplanner to Skills template
 
-    @mediaproducer-delete-course
-    Scenario: Verify that Media Producer is able to add folder in courseplanner
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that Media Producer is able to add folder in courseplanner to Skills template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -15,24 +15,21 @@ Feature: Adding activities in Folder courseplanner
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
-            | type                     | activity                                      |
-            | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
+            | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         |  GLOSSARY                                     |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
 
         And I add the activities in "COURSE PLAN"
-            | activity                                                          | 
-            | Exercise: Misused words 1 (autoscored)                            |                                                        
+            | activity                                                          |                                                         
             | LC1551301608988                                                   |
             | GLOSSARY                                                          |
             | LCRP1550612138614                                                 |
 
 
         And I reorder the resources on template in "COURSE PLAN"
-            | actvities                                                         | reorder        |
-            | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
+            | actvities                                                         | reorder        |                                                    
             | LC1551301608988                                                   | movedownButton |
             | GLOSSARY                                                          | moveToEnd      |
             | LCRP1550612138614                                                 | moveUpButton   |
@@ -40,20 +37,17 @@ Feature: Adding activities in Folder courseplanner
         Then I verify that resources are reordered in "COURSE PLAN"
             | activities                                                        | orderNumber    |
             | LCRP1550612138614                                                 |  1             |                                                       
-            | Exercise: Misused words 1 (autoscored)                            |  2             |
-            | LC1551301608988                                                   |  3             |
-            | GLOSSARY                                                          |  4             |      
+            | LC1551301608988                                                   |  2             |
+            | GLOSSARY                                                          |  3             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | message                                                                             |
-            | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
             | GLOSSARY                                      | Reading           | 'GLOSSARY' was successfully moved to Reading.                                       |
             | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
-            | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
             | GLOSSARY                                      | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
@@ -62,12 +56,10 @@ Feature: Adding activities in Folder courseplanner
             | folders           | message                                 |
             | Reading           | 'Reading' has been removed.             |
             | Learning Curve    | 'Learning Curve' has been removed.      |
-            | Assesment         | 'Assesment' has been removed.           |
             | ReadandPractice   | 'ReadandPractice' has been removed.     |
 
         Then I verify that resources are deleted from Template in "COURSE PLAN"
             | folders           |
             | Reading           |  
             | Learning Curve    |
-            | Assesment         |
             | ReadandPractice   |

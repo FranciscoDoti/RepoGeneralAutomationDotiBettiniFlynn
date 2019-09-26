@@ -1,8 +1,8 @@
-@Course @Smoke
-Feature: Adding collaborator to the template 
+@Course @Smoke @Skip
+Feature: Adding collaborator to Read & Practice template 
 
-    @mediaproducer-delete-course
-    Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to the template
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that media producer is able to add collaborator to template and verify that media editor has access to Read & Practice template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

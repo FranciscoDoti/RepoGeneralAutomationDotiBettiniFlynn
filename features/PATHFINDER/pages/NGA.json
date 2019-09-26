@@ -18,18 +18,6 @@
         "frame": "NGA Frame",
         "specialInstr": "NA"
     }, {
-        "name": "Student Preview Bar",
-        "byType": "css",
-        "definition": "[class*='student-activity-view__previewAlert']",
-        "frame": 0,
-        "specialInstr": "NA"
-    }, {
-        "name": "Submit All Questions Button",
-        "byType": "css",
-        "definition": "[data-test-id='submit-assignment-button']",
-        "frame": "NGA Frame",
-        "specialInstr": "NA"
-    }, {
         "name": "About Student Preview Modal",
         "byType": "id",
         "definition": "student-preview-modal-container",
@@ -49,9 +37,39 @@
         "spectialInstr": "NA"
     }, {
         "name": "Save Answer Button",
-        "byType": "css",
-        "definition": "[data-test-id='check-answer-button']",
+        "byType": "xpath",
+        "definition": "//button[data-test-id='check-answer-button' and .='<ReplaceText>']",
         "frame": "NGA Frame",
         "spectialInstr": "NA"
+    }, {
+        "name": "Multiple Choice Button",
+        "byType": "xpath",
+        "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span",
+        "frame": "NGA Frame",
+        "specialInstr": "NA"
+    }, {
+        "name": "Next Question Button",
+        "byType": "css",
+        "definition": "[data-test-id='nav-item-forward']",
+        "frame": "NGA Frame",
+        "specialInstr": "NA"
+    }, {
+        "name": "Previous Question Button",
+        "byType": "css",
+        "definition": "[data-test-id='nav-item-back']",
+        "frame": "NGA Frame",
+        "specialInstr": "NA"
+    }, {
+        "name": "Submit All Questions Button",
+        "byType": "css",
+        "definition": "[data-test-id='submit-assignment-button']",
+        "frame": "NGA Frame",
+        "specialInstr": "NA"
+    }, {
+        "name": "Submit All Questions Confirmation Button",
+        "byType": "css",
+        "definition": "[data-test-id='submit-all-modal-submit']",
+        "frame": "NGA Frame",
+        "specialInstr": "NA"
     }]
 }

@@ -1,8 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
-const _ = require('lodash');
-const users = require(`${process.cwd()}/features/shared/data/users.json`);
 const csvtojson = require('csvtojson');
 
 
@@ -10,8 +8,9 @@ When(/^I generate "(.*)" month length access code for "(.*)"$/, async function (
     await pages.courseList.populate('search', courseName);
     await pages.courseList.assertElementExists('courseName', courseName);
     await pages.createCourse.click('courseCard', courseName);
-    await pages.createCourse.assertTextIncludes('courseTitle', 'E2E 301: '+courseName )
+    await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
     await pages.home.click('togglerMenu');
+    await pages.adminMenu.click('admin');
     await pages.adminMenu.click('admin');
     await pages.adminMenu.click('checkAccount');
     await pages.adminMenu.click('generate');

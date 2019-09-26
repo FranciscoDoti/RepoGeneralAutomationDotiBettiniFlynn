@@ -31,13 +31,7 @@
             "definition": "[data-test-id='submitAnswerBtn']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "quizComplete",
-            "byType": "css",
-            "definition": "[data-test-id='quizCompleteModal']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },  {
             "name": "nextAssesmentQuestion",
             "byType": "css",
             "definition": "[data-test-id='solution-modal-next-item']",
@@ -47,6 +41,13 @@
             "name": "resultBar",
             "byType": "css",
             "definition": "[data-test-id='results-bar-message']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "URLVerification",
+            "byType": "css",
+            "definition": "[id='hplogo']",
             "frame": "default",
             "specialInstr": "NA"
         }

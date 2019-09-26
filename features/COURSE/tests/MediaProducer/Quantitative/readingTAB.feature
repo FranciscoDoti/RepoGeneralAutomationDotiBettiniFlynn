@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Adding reading activities in reading tab 
+Feature: Adding reading activities in reading tab to Quantitative Template
 
-    @mediaproducer-delete-course
-    Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that media Producer is able to add activities, create folder, reorder and delete content in reading tab to Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 

@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 const { log } = require(`${process.cwd()}/app/logger`);
 
 When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
-  await pages.raptor.click('Correct Context');
+  await pages.raptor.click('Tab', 'correct');
   await pages.multipleChoice.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
   await pages.multipleChoice.click('Answer Radio Button ' + correctAnswer);
 });

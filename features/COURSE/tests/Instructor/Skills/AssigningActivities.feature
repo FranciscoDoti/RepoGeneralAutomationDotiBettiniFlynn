@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Assigning the activities present in the course 
+Feature: Assigning the activities present in Skills course 
 
-    @mediaproducer-delete-course
-    Scenario: Verify that Instructor is able to assign the activities in the course
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that Instructor is able to assign the activities in Skills course
 
         Given I login to Achieve-CW as "media_producer_2"
          When I create template with following data 
@@ -15,8 +15,7 @@ Feature: Assigning the activities present in the course
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I add the activities in resources to "Skills Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | type                    | activity                                      |    
             | addButtonLearningcurve  | LC1551301608988                               |
             | addReadingButton        |  GLOSSARY                                     |
 
@@ -41,21 +40,18 @@ Feature: Assigning the activities present in the course
 
      
         And I add the activities in courseplanner to "Skills Course" course
-            | activity                                                          | 
-            | Exercise: Misused words 1 (autoscored)                            |                                                        
+            | activity                                                          |                                                        
             | LC1551301608988                                                   |
             | GLOSSARY                                                          |
 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
-            | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      |
             | GLOSSARY                                                         | 5      |
 
         Then I verify that activities are assigned
-            | activity                                                         | Status | 
-            | Exercise: Misused words 1 (autoscored)                           | Open   | 
+            | activity                                                         | Status |  
             | LC1551301608988                                                  | Open   |
             | GLOSSARY                                                         | Open   |
 

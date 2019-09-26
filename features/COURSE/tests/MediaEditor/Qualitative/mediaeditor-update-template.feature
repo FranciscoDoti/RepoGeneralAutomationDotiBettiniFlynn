@@ -1,8 +1,8 @@
 @Course @Smoke
-Feature: Media Editor is able to create a template and update
+Feature: Media Editor is able to create a template and update Qualitative Template
 
    @medieditor-delete-course
-    Scenario: Verify that media editor is able to create a template and update it 
+    Scenario: Verify that media editor is able to create a template and update in Qualitative Template
 
         Given I login to Achieve-CW as "media_editor_1"
         When I create template with following data 
@@ -11,7 +11,7 @@ Feature: Media Editor is able to create a template and update
 
 
         Then I verify that "Qualitative Template Created." message is displayed
-        And I verify that "Qualitative Template" has created with following "ISBN: 9781464199498" number
+        And I verify that "Qualitative Template" has created with following "9781464199498" number
 
        And I activate the "Qualitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
