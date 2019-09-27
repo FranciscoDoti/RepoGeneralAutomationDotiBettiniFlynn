@@ -42,6 +42,7 @@ When('I update the selected items with the following details', async function (d
   await pages.ams.click('AMS Button', 'Update');
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
+
     await pages.update.click('Field', 'topic');
     await pages.update.click('Tree Element', item.TopicLevel1);
     await pages.update.click('Tree Element', item.TopicLevel2);
@@ -50,10 +51,9 @@ When('I update the selected items with the following details', async function (d
     await pages.update.click('Tree Element Leaf', item.TopicLevel5);
     await pages.update.click('Button', 'Confirm');
 
-    // await pages.update.click('Field', 'taxonomy');
-    // await pages.update.click('Tree Element', item.TaxonomyLevel1);
-    // await pages.update.click('Tree Element Leaf', item.TaxonomyLevel2);
-    // await pages.update.click('Button', 'Confirm');
+    await pages.update.click('Field', 'taxonomy');
+    await pages.update.click('Tree Element Leaf', item.TaxonomyLevel2);
+    await pages.update.click('Button', 'Confirm');
 
     await pages.update.click('Field', 'difficulty');
     await pages.update.click('Option', item.Difficulty);
@@ -72,24 +72,23 @@ When('I update the selected items with the following details', async function (d
 
 Then('I verify the items were updated in AMS', async function (datatable) {
   await pages.ams.waitForElementInvisibility('Algolia is Processing');
-  while (itemIdList.length > 0) {
+  for (i = 0; i < itemIdList.length; i++) {
     let itemId = itemIdList[0].split('-')[0];
     let moduleType = itemIdList[0].split('-')[1];
     let itemTitle = 'NGA QA Test ' + moduleType + ' Item';
     let item;
-    for (i = 0; i < datatable.rows().length; i++) {
-      if (datatable.hashes()[i].Title == itemTitle) {
-        item = datatable.hashes()[i];
+    for (j = 0; j < datatable.rows().length; j++) {
+      if (datatable.hashes()[j].Title == itemTitle) {
+        item = datatable.hashes()[j];
       }
     }
     await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item.AuthorMode);
     await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
     await pages.ams.assertText('Item Field', 'topic-' + itemId, item.Topic);
-    // await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item.Taxonomy);
+    await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item.Taxonomy);
     await pages.ams.assertText('Item Field', 'difficulty-' + itemId, item.Difficulty);
     await pages.ams.assertText('Item Field', 'status-' + itemId, item.Status);
     await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
     await pages.ams.assertText('Item Field', 'module_type-' + itemId, item.ModuleType);
-    itemIdList.splice(0);
   }
 });

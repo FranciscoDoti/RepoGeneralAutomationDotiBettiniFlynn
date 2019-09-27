@@ -10,7 +10,7 @@ Feature: To update multiple raptor items in AMS by bulk update
             | NGA QA Test MC Item | Multiple Choice   | MC                |
             | NGA QA Test MS Item | Multiple Select   | MS                |
             | NGA QA Test UT Item | Ungraded Text     | UT                |
-            # | NGA QA Test MD Item | Molecular Drawing | MD                |
+            | NGA QA Test MD Item | Molecular Drawing | MD                |
 
         And I select the created items in AMS
 
@@ -23,4 +23,4 @@ Feature: To update multiple raptor items in AMS by bulk update
             | Raptor     | NGA QA Test MC Item | Your Questions (uncategorized) | Math Review | easy       | MC         | live   | public |
             | Raptor     | NGA QA Test MS Item | Your Questions (uncategorized) | Math Review | easy       | MS         | live   | public |
             | Raptor     | NGA QA Test UT Item | Your Questions (uncategorized) | Math Review | easy       |            | live   | public |
-# | Raptor     | NGA QA Test MD Item | Your Questions (uncategorized) | Math Review | easy       | MD         | live   | public |
+            | Raptor     | NGA QA Test MD Item | Your Questions (uncategorized) | Math Review | easy       | MD         | live   | public |
