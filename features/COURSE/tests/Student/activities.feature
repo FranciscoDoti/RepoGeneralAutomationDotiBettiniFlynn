@@ -23,8 +23,6 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Glossary                               | addReadingButton          |
             | AutomationAsset2                       | addFileButton             |
             | Google                                 | addCCButton               |
-            | LC1551301608988                        | addButtonLearningcurve    |
-            | Exercise: Misused words 1 (autoscored) | addButtonAssessment       |
 
 
         And I click on home button to return to coursepage
@@ -53,16 +51,14 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Google                                      |
             | Glossary                                    |
             | AutomationAsset2                            |
-            | LC1551301608988                             | 
-            | Exercise: Misused words 1 (autoscored)      |
+        
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | Glossary                                                       | 5      |
+            | Glossary                                                         | 5      |
             | AutomationAsset2                                                 | 5      |
-            | LC1551301608988                                                  | 5      |
-            | Exercise: Misused words 1 (autoscored)                           | 5      |
+    
 
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
@@ -79,48 +75,36 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I click on "activities Course"
 
-        # And I attempt "Google" URL activity
+        And I attempt "Google" URL activity
 
-        # And I attempt "AutomationAsset2" File activity
+        And I attempt "AutomationAsset2" File activity
 
-        # And I complete the reading activity 
-        #     | activity           |
-        #     | Glossary           |
-
-        #  And I attempt "Exercise: Misused words 1 (autoscored)" premade assesment in "Quantitative Course"
-        #    | Questions   |  PremadeAssesmentKey                                                                                                       |   
-        #    | 1 Question  |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
-        #    | 2 Question  |  Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.         | 
-        #    | 3 Question  |  The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                       |         
-        #    | 4 Question  |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
-        #    | 5 Question  |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
-        
-        And I attempt "LC1551301608988" Learning curve activity
+        And I complete the reading activity 
+            | activity           |
+            | Glossary           |
 
     
-        # Then I verify the activity status for the following activities in "COURSE PLAN"
-        #     | activity                                      | status    |
-        #     | Glossary                                      | Complete  |
-        #     | Google                                        | Complete  |
-        #     | AutomationAsset2                              | Complete  |
-        #     | Exercise: Misused words 1 (autoscored)        | Complete  |
-        #     | LC1551301608988                               | Complete  |
+        Then I verify the activity status for the following activities in "COURSE PLAN"
+            | activity                                      | status    |
+            | Glossary                                      | Complete  |
+            | Google                                        | Complete  |
+            | AutomationAsset2                              | Complete  |
+    
 
-        # And I verify the activity status for the following activities in "ASSIGNMENTS"
-        #     | activity                                      | status    |
-        #     | Glossary                                      | Complete  |
-        #     | Google                                        | Complete  |
-        #     | AutomationAsset2                              | Complete  |
-        #     | LC1551301608988                               | Complete  |
-        #     | Exercise: Misused words 1 (autoscored)        | Complete  |
+        And I verify the activity status for the following activities in "ASSIGNMENTS"
+            | activity                                      | status    |
+            | Glossary                                      | Complete  |
+            | Google                                        | Complete  |
+            | AutomationAsset2                              | Complete  |
 
-        # Then I verify the assignmenent grades in gradebook for below assigned activities 
-        #     | activity                                      | percentage  | points  | PercentOfTotalgrades |
-        #     | Glossary                                    |   100%      | 5       | 50%                  |
-        #     | Google                                        |   100%      | 5       | 33%                  |
-        #     | AutomationAsset2                              |   100%      | 5       | 50%                  |
 
-        # And I verify Total Grades
-        #     | activity                                      | percentage  | points  | PercentOfTotalgrades |
-        #     | Test Total                                    | 100%        |   5     |   33%                |
-        #     | Assignment Total                              | 100%        |   10    |   67%                |
+        Then I verify the assignmenent grades in gradebook for below assigned activities 
+            | activity                                      | percentage  | points  | PercentOfTotalgrades |
+            | Glossary                                      |   100%      | 5       | 50%                  |
+            | Google                                        |   100%      | 5       | 33%                  |
+            | AutomationAsset2                              |   100%      | 5       | 50%                  |
+
+        And I verify Total Grades
+            | activity                                      | percentage  | points  | PercentOfTotalgrades |
+            | Test Total                                    | 100%        |   5     |   33%                |
+            | Assignment Total                              | 100%        |   10    |   67%                |
