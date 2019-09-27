@@ -19,7 +19,7 @@ When('I add the following draft Raptor items in AMS', async function (datatable)
     itemIdList[itemIdIndex++] = id;
     await pages.raptor.click('More Menu');
     await pages.raptor.click('More Item Details');
-    await pages.raptor.populate('Item Details Title', datatable.hashes()[i].Title);
+    await pages.raptor.populate('Item Details Title', item.Title);
     await pages.raptor.click('Item Details Done Button');
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');

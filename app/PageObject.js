@@ -117,7 +117,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       switch (tagName.toLowerCase()) {
         case 'input':
         case 'textarea':
-          await populateInput(webElement, value, actionElement);
+          value == 'click' ? await populateClick(webElement, value, actionElement) : await populateInput(webElement, value, actionElement);
           break;
         case 'a':
         case 'button':
