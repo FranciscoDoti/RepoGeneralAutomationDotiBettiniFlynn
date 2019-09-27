@@ -6,11 +6,11 @@ Feature: To update multiple raptor items in AMS by bulk update
 
         Given I login to AMS as "all-permissions-author"
         When I add the following draft Raptor items in AMS
-            | Title               | ModuleType        | ModuleTypeAcronym |
-            | NGA QA Test MC Item | Multiple Choice   | MC                |
-            | NGA QA Test MS Item | Multiple Select   | MS                |
-            | NGA QA Test UT Item | Ungraded Text     | UT                |
-            | NGA QA Test MD Item | Molecular Drawing | MD                |
+            | Title               | ModuleType        |
+            | NGA QA Test MC Item | Multiple Choice   |
+            | NGA QA Test MS Item | Multiple Select   |
+            | NGA QA Test UT Item | Ungraded Text     |
+            | NGA QA Test MD Item | Molecular Drawing |
 
         And I select the created items in AMS
 

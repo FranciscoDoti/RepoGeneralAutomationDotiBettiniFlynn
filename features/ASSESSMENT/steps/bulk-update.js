@@ -1,6 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-let itemIdIndex = 0;
 let itemIdList = [];
 
 When('I add the following draft Raptor items in AMS', async function (datatable) {
@@ -15,8 +14,7 @@ When('I add the following draft Raptor items in AMS', async function (datatable)
     await pages.raptor.click('Module Pallete', item.ModuleType);
     await pages.raptor.waitForElementVisibility('Content Area');
     await pages.raptor.click('Content Area');
-    let id = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
-    itemIdList[itemIdIndex++] = id + '-' + item.ModuleTypeAcronym;
+    itemIdList[i] = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
     await pages.raptor.click('More Menu');
     await pages.raptor.click('More Item Details');
     await pages.raptor.populate('Item Details Title', item.Title);
@@ -32,7 +30,7 @@ When('I select the created items in AMS', async function () {
   await pages.ams.switchToTab('Sapling Learning Author Management System');
   await pages.ams.waitForElementInvisibility('Algolia is Processing');
   for (let i = 0; i < itemIdList.length; i++) {
-    await pages.ams.click('Select Checkbox', itemIdList[i].split("-")[0]);
+    await pages.ams.click('Select Checkbox', itemIdList[i]);
   }
 });
 
@@ -73,15 +71,8 @@ When('I update the selected items with the following details', async function (d
 Then('I verify the items were updated in AMS', async function (datatable) {
   await pages.ams.waitForElementInvisibility('Algolia is Processing');
   for (i = 0; i < itemIdList.length; i++) {
-    let itemId = itemIdList[0].split('-')[0];
-    let moduleType = itemIdList[0].split('-')[1];
-    let itemTitle = 'NGA QA Test ' + moduleType + ' Item';
-    let item;
-    for (j = 0; j < datatable.rows().length; j++) {
-      if (datatable.hashes()[j].Title == itemTitle) {
-        item = datatable.hashes()[j];
-      }
-    }
+    let itemId = itemIdList[i];
+    let item = datatable.hashes()[i];
     await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item.AuthorMode);
     await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
     await pages.ams.assertText('Item Field', 'topic-' + itemId, item.Topic);
