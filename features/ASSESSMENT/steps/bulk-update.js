@@ -73,13 +73,29 @@ Then('I verify the items were updated in AMS', async function (datatable) {
   for (i = 0; i < itemIdList.length; i++) {
     let itemId = itemIdList[i];
     let item = datatable.hashes()[i];
-    await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item.AuthorMode);
-    await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
-    await pages.ams.assertText('Item Field', 'topic-' + itemId, item.Topic);
-    await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item.Taxonomy);
-    await pages.ams.assertText('Item Field', 'difficulty-' + itemId, item.Difficulty);
-    await pages.ams.assertText('Item Field', 'status-' + itemId, item.Status);
-    await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
-    await pages.ams.assertText('Item Field', 'module_type-' + itemId, item.ModuleType);
+    if (item.AuthorMode !== undefined) {
+      await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item.AuthorMode);
+    }
+    if (item.Title !== undefined) {
+      await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
+    }
+    if (item.Topic !== undefined) {
+      await pages.ams.assertText('Item Field', 'topic-' + itemId, item.Topic);
+    }
+    if (item.Taxonomy !== undefined) {
+      await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item.Taxonomy);
+    }
+    if (item.Difficulty !== undefined) {
+      await pages.ams.assertText('Item Field', 'difficulty-' + itemId, item.Difficulty);
+    }
+    if (item.Status !== undefined) {
+      await pages.ams.assertText('Item Field', 'status-' + itemId, item.Status);
+    }
+    if (item.ModuleType !== undefined) {
+      await pages.ams.assertText('Item Field', 'module_type-' + itemId, item.ModuleType);
+    }
+    if (item.Access !== undefined) {
+      await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
+    }
   }
 });
