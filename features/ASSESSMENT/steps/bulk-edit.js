@@ -60,7 +60,7 @@ Then('I verify the items were updated in AMS', async function(datatable) {
 
     for (let i = 0; i < datatable.rows().length; i++) {
         let item = datatable.hashes()[i];
-        await pages.ams.assertText('Author Mode', item.Title, item["Author Mode"]);
+        await pages.ams.assertText('Author Mode', itemId, item['Author Mode']);
         await pages.ams.assertText('Title', item.Title, item.Title);
         await pages.ams.assertText('Topic', item.Title, item.Topic);
         await pages.ams.assertText('Taxonomy', item.Title, item.Taxonomy);
