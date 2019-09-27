@@ -10,11 +10,10 @@ When('I add the following draft Raptor items in AMS', async function (datatable)
     await pages.ams.click('Add Item', 'Raptor');
     await pages.ams.switchToTab('Raptor Authoring');
     await pages.raptor.click('Add Menu');
-    await pages.raptor.waitForElementVisibility('Module Pallete', item.ModuleType);
-    await pages.raptor.click('Module Pallete', item.ModuleType);
+    await pages.raptor.waitForElementVisibility('Module Pallete', item['Module Type']);
+    await pages.raptor.click('Module Pallete', item['Module Type']);
     await pages.raptor.waitForElementVisibility('Content Area');
     await pages.raptor.click('Content Area');
-    itemIdList[i] = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
     await pages.raptor.click('More Menu');
     await pages.raptor.click('More Item Details');
     await pages.raptor.populate('Item Details Title', item.Title);
@@ -22,6 +21,8 @@ When('I add the following draft Raptor items in AMS', async function (datatable)
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await pages.raptor.waitForElementInvisibility('Message', 'Saving');
+    
+    itemIdList[i] = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
     await pages.ams.closeTab('Raptor Authoring');
   }
 });
@@ -42,15 +43,15 @@ When('I update the selected items with the following details', async function (d
     let item = datatable.hashes()[i];
 
     await pages.update.click('Field', 'topic');
-    await pages.update.click('Tree Element', item.TopicLevel1);
-    await pages.update.click('Tree Element', item.TopicLevel2);
-    await pages.update.click('Tree Element', item.TopicLevel3);
-    await pages.update.click('Tree Element', item.TopicLevel4);
-    await pages.update.click('Tree Element Leaf', item.TopicLevel5);
+    await pages.update.click('Tree Element', item['Topic Level1']);
+    await pages.update.click('Tree Element', item['Topic Level2']);
+    await pages.update.click('Tree Element', item['Topic Level3']);
+    await pages.update.click('Tree Element', item['Topic Level4']);
+    await pages.update.click('Tree Element Leaf', item['Topic Level5']);
     await pages.update.click('Button', 'Confirm');
 
     await pages.update.click('Field', 'taxonomy');
-    await pages.update.click('Tree Element Leaf', item.TaxonomyLevel2);
+    await pages.update.click('Tree Element Leaf', item['Taxonomy Level2']);
     await pages.update.click('Button', 'Confirm');
 
     await pages.update.click('Field', 'difficulty');
@@ -73,8 +74,8 @@ Then('I verify the items were updated in AMS', async function (datatable) {
   for (i = 0; i < itemIdList.length; i++) {
     let itemId = itemIdList[i];
     let item = datatable.hashes()[i];
-    if (item.AuthorMode !== undefined) {
-      await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item.AuthorMode);
+    if (item['Author Mode'] !== undefined) {
+      await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
     }
     if (item.Title !== undefined) {
       await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
@@ -91,8 +92,8 @@ Then('I verify the items were updated in AMS', async function (datatable) {
     if (item.Status !== undefined) {
       await pages.ams.assertText('Item Field', 'status-' + itemId, item.Status);
     }
-    if (item.ModuleType !== undefined) {
-      await pages.ams.assertText('Item Field', 'module_type-' + itemId, item.ModuleType);
+    if (item['Module Type'] !== undefined) {
+      await pages.ams.assertText('Item Field', 'module_type-' + itemId, item['Module Type']);
     }
     if (item.Access !== undefined) {
       await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
