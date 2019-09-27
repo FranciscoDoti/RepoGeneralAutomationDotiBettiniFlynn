@@ -117,7 +117,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       switch (tagName.toLowerCase()) {
         case 'input':
         case 'textarea':
-          await populateInput(webElement, value, actionElement);
+          value == 'click' ? await populateClick(webElement, value, actionElement) : await populateInput(webElement, value, actionElement);
           break;
         case 'a':
         case 'button':
@@ -136,6 +136,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'select':
         case 'p':
           await populateSelect(webElement, value, actionElement);
+          break;
+        case 'option':
+          await populateClick(webElement, value, actionElement);
           break;
         default:
           assert.fail(`ERROR: We tried to populate an unknown tag(${tagName}) of element(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
@@ -421,7 +424,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const switchToTab = async function (tabName) {
     try {
       log.debug(`Switching to tab : ${tabName}`);
-      await activateTab(tabName);
+      if(!(await activateTab(tabName))){
+        assert.fail(`${tabName} tab was not found. FAIL`);
+      };
     } catch (err) {
       log.error(err.stack);
       throw err;

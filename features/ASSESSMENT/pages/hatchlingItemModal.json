@@ -122,6 +122,12 @@
             "frame": "default",
             "specialInstr": "NA"
         },{
+            "name": "Collapsible Incorrect Feedback Title",
+            "byType": "xpath",
+            "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//span[text()='Incorrect Answer Feedback']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "Incorrect Answer",
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../..//div[@class='rte-content' and @data-test-id='hatchling-incorrect-choice']",
@@ -130,13 +136,19 @@
         },{
             "name": "Incorrect Answer Feedback",
             "byType": "xpath",
-            "definition": "//span[text()='Incorrect Answer Feedback']/../..//div[contains(@class,'rich')]",
+            "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//div[contains(@class,'public-DraftEditor-content')]",
             "frame": "default",
             "specialInstr": "noclick"
         },{
             "name": "Button",
             "byType": "xpath",
             "definition": "//button[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },{
+            "name": "Hint and Generic Feedback",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']/../..//div[contains(@class,'public-DraftEditor-content')]",
             "frame": "default",
             "specialInstr": "focus"
         },

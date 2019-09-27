@@ -24,11 +24,23 @@ Then('The variable values are displayed as choices', async function () {
 });
 
 When('I add hatchling item as {string} with following details', async function (string, datatable) {
-  await pages.ams.click('raptorNewEasyItem');
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  var yyyy = today.getFullYear();
+  var hours = today.getHours();
+  var minutes = today.getMinutes();
+  var seconds = today.getSeconds();
+  date = mm + '/' + dd + '/' + yyyy;
+  time = hours+':'+ minutes+':'+seconds;
+  await pages.ams.click('Add Item', 'Easy');
+  // await pages.ams.click('raptorNewEasyItem');
   await pages.ams.click('easyItemMultipleChoice');
   for (let i = 0; i < datatable.rows().length; i++) {
-  await pages.hatchlingItem.populate('Question Title', i + 1, datatable.hashes()[i].QuestionTitle);
+  await pages.hatchlingItem.populate('Question Title', i + 1, datatable.hashes()[i].QuestionTitle+" : "+date+" , "+time);
   await pages.hatchlingItem.populate('Question Prompt', i + 2, datatable.hashes()[i].QuestionPrompt);
+  var QuestionTitle = await pages.hatchlingItem.getText('Question Title', i + 1, datatable.hashes()[i].QuestionTitle+" : "+date+" , "+time);
+  log.info(`Question Title is -----> "${QuestionTitle}". PASS`);
   }
 });
 
@@ -47,15 +59,20 @@ When('I add the following incorrect answers and feedback', async function (datat
   for (let i = 0; i < datatable.rows().length; i++) {
     await pages.hatchlingItem.click('Button', 'Add Answer');
     let ans = datatable.hashes()[i];
-    console.log(ans.Answer);
-    console.log(ans.Feedback);
     await pages.hatchlingItem.populate('Incorrect Answer', i+1, ans.Answer);
-    // await pages.hatchlingItem.click('Collapsible Title','Incorrect Answer Feedback');
-    // let fieldfeedback = await pages.hatchlingItem.getWebElements('Incorrect Answer Feedback');
-    // await fieldfeedback[i].populate('Incorrect Answer Feedback', ans.Feedback);
+    await pages.hatchlingItem.click('Collapsible Incorrect Feedback Title', i+1);
+    await pages.hatchlingItem.populate('Incorrect Answer Feedback', i+1, ans.Feedback);
+    
   };
 });
 
-When(/^I set hint and generic feedback with following details and save$/,async function () {
-  
+When(/^I set hint and generic feedback with following details and save$/,async function (datatable) {
+  let ans = datatable.hashes()[0];
+  await pages.hatchlingItem.click('Collapsible Title', 'Hint');
+  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Hint', ans.Hint);
+  await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
+  await pages.hatchlingItem.click('Collapsible Title', 'Generic Feedback');
+  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
+  await pages.hatchlingItem.click('Button', 'Save');
+
 });
