@@ -25,7 +25,7 @@
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-question-prompt']",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, 
         {
             "name": "ImageButton",
