@@ -1,5 +1,18 @@
 {
-    "webElements": [
+    "webElements": [{
+            "name": "Item ID",
+            "byType": "css",
+            "definition": "div[data-test-id='edit-id']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "New Raptor Item",
+            "byType": "xpath",
+            "definition": "a[@data-test-id='newItemRaptorBtn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
         {
             "name": "addLink",
             "byType": "css",
@@ -263,6 +276,27 @@
             "name": "Algolia is Processing",
             "byType": "xpath",
             "definition": "//i[.='Algolia is Processing']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "UngradedText-EnterText",
+            "byType": "xpath",
+            "definition": "[@data-module-type='static_textfield']span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "UngradedText-EnterText Editor",
+            "byType": "xpath",
+            "definition": "div[@data-test-id='ace-label']",
+            "frame": "default",
+            "specialInstr": "overwrite"
+        },
+        {
+            "name": "Editor Done",
+            "byType": "xpath",
+            "definition": "[@id='close-edit-host']",
             "frame": "default",
             "specialInstr": "NA"
         }

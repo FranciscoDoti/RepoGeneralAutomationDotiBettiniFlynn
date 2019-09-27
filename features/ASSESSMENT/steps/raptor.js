@@ -1,8 +1,9 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+let itemId;
 
-When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
+When(/^I add the "(.*)" module with following details$/, async function(moduleType, dataTable) {
     await mathpages.ams.assertElementExists('raptorNewEasyItem');
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
@@ -15,7 +16,7 @@ When(/^I add the "(.*)" module with following details$/, async function (moduleT
     await pages.raptor.populate('chemicalEquationAnswerInput', rows[1].value);
 });
 
-When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times) {
+When(/^I add the "(.*)" module "(.*)" times$/, async function(moduleType, times) {
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
     let i = 0;
@@ -27,7 +28,37 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
     }
 });
 
-When(/^I add the "(.*)" module$/, async function (moduleType) {
+When('I add the Ungraded text module with following details', async function(dataTable) {
+    await pages.raptor.click('New Raptor Item');
+    await pages.raptor.switchToTab('Raptor Authoring');
+    itemId = (await pages.raptor.getText('Item ID')).split(":")[1];
+    await pages.raptor.click('addLink');
+    await pages.raptor.click('modulePallete', 'Ungraded Text');
+    await pages.raptor.click('contentArea');
+    await pages.raptor.click('UngradedText-EnterText');
+    await pages.raptor.populate('UngradedText-EnterText Editor', " ");
+    await pages.raptor.populate('UngradedText-EnterText Editor', dataTable.hashes()[0].Text);
+    await pages.raptor.click('Editor Done');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Item Details Button');
+    await pages.raptor.populate('itemDetailsTitle', dataTable.hashes()[0].Title);
+    await pages.raptor.click('itemDetailsDoneButton');
+    await pages.raptor.click('More Button');
+    await pages.raptor.click('Save As Draft');
+    await pages.raptor.switchToTab('Sapling Learning Author Management System');
+});
+
+
+When('I Duplicate item the item created', async function(dataTable) {
+
+    await pages.raptor.click('duplicateItemBtn', itemId);
+    await pages.raptor.switchToTab('Sapling Learning Author Management System');
+    //await pages.raptor.checkElementExists ('Algolia is Proccessing');
+    await pages.raptor.waitForElementInvisibility('Algolia is Processing');
+
+});
+
+When(/^I add the "(.*)" module$/, async function(moduleType) {
     await mathpages.ams.assertElementExists('raptorNewEasyItem');
     await mathpages.ams.click('raptorNewItem');
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
@@ -36,7 +67,7 @@ When(/^I add the "(.*)" module$/, async function (moduleType) {
     await pages.raptor.click('contentArea');
 });
 
-Then('I verify item has been created', async function () {
+Then('I verify item has been created', async function() {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1];
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('More Button');
@@ -45,13 +76,13 @@ Then('I verify item has been created', async function () {
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
 });
 
-Then('I verify item has been created with following details', async function (dataTable) {
+Then('I verify item has been created with following details', async function(dataTable) {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1].trim();
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('More Button');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
-    
+
     //code to check element should not be present
     await pages.raptor.waitForElementInvisibility('Algolia is Processing');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
@@ -65,14 +96,14 @@ Then('I verify item has been created with following details', async function (da
     }
 });
 
-When('I configure the following item details', async function (datatable) {
+When('I configure the following item details', async function(datatable) {
     await mathpages.raptorAms.click('menuBarMore');
     await mathpages.raptorAms.click('moreItemDetails');
     await pages.raptor.populate('itemDetailsTitle', datatable.hashes()[0].Title);
     await pages.raptor.click('itemDetailsDoneButton');
 });
 
-When('I add list variables', async function (datatable) {
+When('I add list variables', async function(datatable) {
     await pages.raptor.click('variablesChevron');
     await pages.raptor.click('addListVariableButton');
 
@@ -95,7 +126,7 @@ When('I add list variables', async function (datatable) {
     }
 });
 
-When('I add the following range algos', async function (datatable) {
+When('I add the following range algos', async function(datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         await pages.raptor.click('addRangeAlgoButton');
         await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, '');
@@ -106,7 +137,7 @@ When('I add the following range algos', async function (datatable) {
     }
 });
 
-When('I add the following calculated algos', async function (datatable) {
+When('I add the following calculated algos', async function(datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         await pages.raptor.click('addCalculatedAlgoButton');
         await pages.raptor.populate('calculatedNameTextbox', i * 2 + 1, '');
@@ -115,7 +146,7 @@ When('I add the following calculated algos', async function (datatable) {
     }
 });
 
-When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, position) {
+When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function(value, position) {
     let selectedTabText = await pages.raptor.getText('Active Tab Edit Mode');
     if (selectedTabText !== "correct1") {
         await pages.raptor.click('Tab', 'correct');
@@ -124,13 +155,13 @@ When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, posit
     await pages.numericEntry.populate('Target Value', value);
 });
 
-When('I configure FR module', async function () {
+When('I configure FR module', async function() {
     await pages.raptor.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
     await pages.freeResponse.populate('Min Character Count', '20');
     await pages.freeResponse.populate('Max Character Count', '40');
 });
 
-Then('I check NE answers', async function () {
+Then('I check NE answers', async function() {
     await pages.raptor.click('More Button');
     await pages.raptor.click('Check Answer Slider');
     await pages.numericEntry.populate('Numeric Entry 1', '.0258');
@@ -139,7 +170,7 @@ Then('I check NE answers', async function () {
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
 
-Then('I check FR answers', async function () {
+Then('I check FR answers', async function() {
     await pages.raptor.click('More Button');
     await pages.raptor.click('Save As Draft');
     await pages.raptor.click('More Button');
@@ -148,4 +179,3 @@ Then('I check FR answers', async function () {
     await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
-
