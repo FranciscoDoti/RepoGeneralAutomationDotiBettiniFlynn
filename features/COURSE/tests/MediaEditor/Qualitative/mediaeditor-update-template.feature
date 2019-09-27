@@ -17,12 +17,6 @@ Feature: Media Editor is able to create a template and update Qualitative Templa
             | courseName             |  courseCode   |  templateStatus      |
             | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
-        Then I verify that "Qualitative Template" is created with following data
-            | field                 | value                     |
-            | courseName            | Qualitative Template      |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
-        
-        When I clone content from "8/15 QL Template" template
-        
-        Then I verify if content was imported successfully with message "Import from 8/15 QL Template was successful.."
+        Then I verify that "Qualitative Template" is activated with following data
+            | CourseName            | Status                    | ISBN                      |
+            | Qualitative Template  |  Active                   | 9781464199498             |

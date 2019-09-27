@@ -30,9 +30,8 @@ Feature: Copy course Quantitative Template
         And I click on "Course Templates" tab 
 
         Then I verify that "Quantitative Course" is created with following data
-            | field                 | value                     |
-            | courseCard            | Quantitative Course       |
-            | Status                |  Draft                    |
+            | CourseName            | Status                    |
+            | Quantitative Course   |  Draft                    |
            
 
 

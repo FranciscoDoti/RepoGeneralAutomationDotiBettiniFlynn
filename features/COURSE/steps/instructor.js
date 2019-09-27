@@ -172,18 +172,22 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
   }
 });
 
-When(/^I drop "(.*)"$/, async function (userType) {
-  let user = this.users[userType];
-  await pages.coursePage.click('navigation', 'People');
-  await pages.people.populate('userFilterTextBox', user.username);
-  await pages.people.click('checkbox');
-  await pages.people.click('dropStudentButton');
-  await pages.people.click('dropStudentsSubmitBtn');
+When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Gradebook');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+  await pages.gradebook.click('editTotal',user.firstName)
+  await pages.gradebook.populate('editGrade', data_table.hashes()[i].editGrade);
+  await pages.gradebook.click('save', 'Save');
+    }
 });
 
-When(/^I navagate to gradebook and verify grades$/, async function(data_table){
-  await pages.coursePage.click('navigation', 'Gradebook');
+Then('I verify the Grades', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.gradebook.assertText('courseTotal', data_table.hashes()[i].activity, data_table.hashes()[i].percent);
-  } 
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.gradebook.assertTextIncludes('courseTotal', user.firstName, data_table.hashes()[i].CourseTotal);
+    await pages.gradebook.assertTextIncludes('studentcourseTotal', user.firstName, data_table.hashes()[i].Google);
+    await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
+  }
 });

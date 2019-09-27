@@ -28,9 +28,8 @@ Feature: Copy course from Skills template
         And I click on "Course Templates" tab 
 
         Then I verify that "Skills Course" is created with following data
-            | field                 | value                     |
-            | courseCard            | Skills Course             |
-            | Status                |  Draft                    |
+            | CourseName              | Status                    |
+            | Skills Course           |  Draft                    |
            
 
 

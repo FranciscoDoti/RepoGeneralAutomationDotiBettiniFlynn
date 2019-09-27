@@ -19,7 +19,7 @@ Feature: Student enrolls through course Id and access code
             | type                    | activity                                      |
             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Glossary                                   |
+            | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
         And I click on "Course Templates" tab 
@@ -49,7 +49,7 @@ Feature: Student enrolls through course Id and access code
         And I enroll "student_1" in the course using "Qualitative Course"
 
         Then I verify that "Qualitative Course" is created with following data
-            | field                 | value                     |
+            | CourseName            | Status                    |
             | courseCard            | Qualitative Course        |
             | courseStatus          |  Active                   |
           

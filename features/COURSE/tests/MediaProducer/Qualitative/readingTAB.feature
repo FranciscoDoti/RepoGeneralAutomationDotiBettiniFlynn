@@ -21,25 +21,25 @@ Feature: Adding reading activities in reading tab to Qualitative template
             | addReadingButton         | Glossary                                      |
             | addReadingButton         |  Analyzing Literary Elements                  |
             | addReadingButton         | Literary Elements                             |
-            | addReadingButton         | Glossary                                    |
+            | addReadingButton         | Glossary                                      |
 
         And I add the activities in ebook
             | activity                                      |                                                      
             | Analyzing Literary Elements                   | 
             | Literary Elements                             |
             | Glossary                                      | 
-            | Glossary                                    | 
+            | Glossary                                      | 
 
         And I reorder the resources on template in ebook
             | actvities                                                         | reorder        |
             |  Analyzing Literary Elements                                      | moveToTop      |                                                     
             | Literary Elements                                                 | movedownButton |
             | Glossary                                                          | moveToEnd      |
-            | Glossary                                                        | moveUpButton   |
+            | Glossary                                                          | moveUpButton   |
 
         Then I verify that resources are reordered in ebook
             | activities                    |   orderNumber   |
-            | Glossary                    |   1             |                                                     
+            | Glossary                      |   1             |                                                     
             |  Analyzing Literary Elements  |   2             |
             | Literary Elements             |   3             |                                                                                         
             | Glossary                      |   4             |                                        
@@ -57,7 +57,7 @@ Feature: Adding reading activities in reading tab to Qualitative template
             |  Analyzing Literary Elements                  | Reading Symbols       |
             |  Literary Elements                            | Reading Regression    |
             | Glossary                                      | Reading Authors       |
-            |  Glossary                                   | Reading Interval      |
+            |  Glossary                                     | Reading Interval      |
 
         When I delete the resources from the Template in ebook
             | folders               | message                                  |

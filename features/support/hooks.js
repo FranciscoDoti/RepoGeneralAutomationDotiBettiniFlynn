@@ -58,7 +58,6 @@ After('@medieditor-delete-course', async function () {
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn');
-
   let course = this.data.get('code');
   let courseName = this.data.get('Number');
   await pages.courseList.populate('search', courseName);
@@ -113,8 +112,8 @@ After('@mediaproducer-delete-courseTemplate', async function () {
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course)
-  console.log(elements.length+'no');
   for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
@@ -138,6 +137,7 @@ After('@mediaproducer-delete-course', async function () {
   let elements = await pages.courseList.getWebElements('courseNumber', course)
   console.log(elements.length+'no');
   for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
