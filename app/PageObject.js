@@ -137,6 +137,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;
+        case 'option':
+          await populateClick(webElement, value, actionElement);
+          break;
         default:
           assert.fail(`ERROR: We tried to populate an unknown tag(${tagName}) of element(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
       }
