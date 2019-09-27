@@ -50,16 +50,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | activity                                    | 
             | Google                                      |
             | Glossary                                    |
-            | AutomationAsset2                            |
-        
+            | AutomationAsset2                            |  
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
             | Glossary                                                         | 5      |
             | AutomationAsset2                                                 | 5      |
-    
-
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
             |   Test                |  1        |   Test            |
