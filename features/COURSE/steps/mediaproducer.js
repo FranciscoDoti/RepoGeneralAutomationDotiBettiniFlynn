@@ -360,4 +360,3 @@ When('I reorder the resources on template in ebook', async function (data_table)
   }
   await pages.coursePlanner.click('modalSaveButton');
 });
-

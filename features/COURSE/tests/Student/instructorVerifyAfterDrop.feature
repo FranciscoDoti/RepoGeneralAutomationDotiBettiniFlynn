@@ -25,13 +25,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
           
 
 
-       And I click on home button to return to coursepage
+        And I click on home button to return to coursepage
         And I click on "Course Templates" tab 
-
         And I copy course from the "activities Template" template with the following data
             | courseName            | courseCode           |
             | activities Course     | E2E 301              |
 
+        And I close the popup message
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
 
@@ -63,7 +63,6 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             |   Test                |  1        |   Test            |
 
         Then I verify that "The details of 'Google' have been updated." message is displayed
-        And I close the popup message
         And I sign out of Achieve
 
     Scenario Outline: Students are enrolled and attempts the assignments
@@ -103,45 +102,4 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         | Glossary                                      | 100%      |
         And I sign out of Achieve
 
-    #    Then I verify the activity status for the following activities in "COURSE PLAN"
-    #        | activity                                      | status    |
-    #        | Glossary                                      | Complete  |
-    #        | Google                                        | Complete  |
-    #        | AutomationAsset2                              | Complete  |
-
-    #    And I verify the activity status for the following activities in "ASSIGNMENTS"
-    #        | activity                                      | status    |
-    #        | Glossary                                      | Complete  |
-    #        | Google                                        | Complete  |
-    #        | AutomationAsset2                              | Complete  |
-
-#    Scenario: Verify that student is able to see Grades in Gradebook 
-#
-#        When I login to Achieve-CW as "student_1"
-#
-#        And I click on "activities Course"
-#
-#        Then I verify the assignmenent grades in gradebook for below assigned activities 
-#            | activity                                      | percentage  | points  | PercentOfTotalgrades |
-#            | Glossary                                      |   100%      | 5       | 50%                  |
-#            | Google                                        |   100%      | 5       | 100%                 |
-#            | AutomationAsset2                              |   100%      | 5       | 50%                  |
-#
-#        And I verify Total Grades
-#            | activity                                      | percentage  | points  | PercentOfTotalgrades |
-#            | Test Total                                    | 100%        |   5     |   33%                |
-#            | Assignments Total                              | 100%        |   10   |   67%               |
- #       
- #   @mediaproducer-delete-course
- #   @mediaproducer-delete-courseTemplate
-#    Scenario: Verify that instructor is able to edit the grades of student
-#
-#        Given I login to Achieve-CW as "instructor_2"
-#
-#        When I edit student grade in "activities Course"
-#            | Students   | editGrade |
-#            | student_1  |  1        | 
-#
-#        Then I verify the Grades
-#            | Students  | CourseTotal  | Google  | CategoryTotal | 
-#            | student_1 | 73%          | 20%     | 20%           | 
+   
