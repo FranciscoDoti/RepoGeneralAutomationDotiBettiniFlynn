@@ -18,6 +18,10 @@ Feature: Media Editor is able to create a template and update in Read & Practice
 
         Then I verify that "Read & Practice Template" is created with following data
             | field                 | value                     |
-            | courseCard            | Read & Practice Template  |
-            | TemplateStatus        |  Active                   |
-            | ISBNVerification      | 9781464199498             |
+            | courseName            | Read & Practice Template  |
+            | courseDate            |  E2E 301                  |
+            | courseShortId         | Template                  |
+
+        When I clone content from "General Chemistry LO" template
+
+        Then I verify if content was imported successfully with message "Import from 8/15 QL Template was successful.."

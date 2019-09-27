@@ -19,6 +19,10 @@ Feature: Media Editor is able to create a template and update in SKills Template
 
         Then I verify that "Skills Template" is created with following data
             | field                 | value                     |
-            | courseCard            | Skills Template           |
-            | TemplateStatus        |  Active                   |
-            | ISBNVerification      |  9781464199498            |
+            | courseName            | Skills Template           |
+            | courseDate            |  E2E 301                  |
+            | courseShortId         | Template                  |
+
+        When I clone content from "2/26 test" template
+
+        Then I verify if content was imported successfully with message "Import from 8/15 QL Template was successful.."

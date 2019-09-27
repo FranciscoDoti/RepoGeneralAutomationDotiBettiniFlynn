@@ -19,6 +19,10 @@ Feature: Media Editor is able to create a template and update in Quantitative Te
 
         Then I verify that "Quantitative Template" is created with following data
             | field                 | value                     |
-            | courseCard            | Quantitative Template     |
-            | TemplateStatus        |  Active                   |
-            | ISBNVerification      |  9781464199498            |
+            | courseName            | Quantitative Template     |
+            | courseDate            |  E2E 301                  |
+            | courseShortId         | Template                  |
+        
+        When I clone content from "Quant PSV-2877" template
+
+        Then I verify if content was imported successfully with message "Import from 8/15 QL Template was successful.."

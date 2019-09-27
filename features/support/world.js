@@ -15,7 +15,7 @@ function ThisWorld({ attach }) {
 
   this.attach = attach;
   this.downloadLocation = `${process.cwd()}/reports/downloads`;
-  setDefaultTimeout(2*config.timeout);
+  setDefaultTimeout(10*config.timeout*1000);
 
   this.data = ScenarioData();
 };
