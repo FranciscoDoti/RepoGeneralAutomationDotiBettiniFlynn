@@ -4,18 +4,18 @@ const ScenarioData = function () {
   let that = Object.assign({});
   that.data = new HashTable();
 
-  let storeData = function (key, value) {
-    that.data.setItem(key, value);
+  const storeData = function (key, attribute, value) {
+    that.data.setItem(key, attribute, value);
   };
 
-  let getData = function (key) {
-    return that.data.getItem(key);
+  const getData = function (key, attribute) {
+    return that.data.getItem(key, attribute);
   };
 
-  let saveToFile = function (scenarioFileName) {
+  const saveToFile = function (scenarioFileName) {
     // Implement me!!!
   };
-  let readFromFile = function (scenarioFileName) {
+  const readFromFile = function (scenarioFileName) {
     //Implement me!!!
   };
 

@@ -413,7 +413,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     await addDynamicElement(elementName, replaceText);
     elementName = elementName + (replaceText || '');
     try {
-      log.debug(`Starting click the web element: ${elementName}`);
+      log.info(`Starting click the web element: ${elementName}`);
       await genericPopulateElement(elementName, 'click');
     } catch (err) {
       log.error(err.stack);
@@ -423,7 +423,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
   const switchToTab = async function (tabName) {
     try {
-      log.debug(`Switching to tab : ${tabName}`);
+      log.info(`Switching to tab : ${tabName}`);
       if(!(await activateTab(tabName))){
         assert.fail(`${tabName} tab was not found. FAIL`);
       };

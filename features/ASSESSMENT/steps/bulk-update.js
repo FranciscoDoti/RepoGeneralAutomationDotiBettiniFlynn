@@ -1,8 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-let itemIdList = [];
 
-When('I add the following draft Raptor items in AMS', async function (datatable) {
+When('I create the following draft Raptor items in AMS', async function (datatable) {
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
     await pages.ams.switchToTab('Sapling Learning Author Management System');
@@ -21,17 +20,19 @@ When('I add the following draft Raptor items in AMS', async function (datatable)
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await pages.raptor.waitForElementInvisibility('Message', 'Saving');
-    
-    itemIdList[i] = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
+    let itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
     await pages.ams.closeTab('Raptor Authoring');
+
+    this.data.set(item.Title, "id", itemId);
   }
 });
 
-When('I select the created items in AMS', async function () {
+When('I select the following items on AMS', async function (datatable) {
   await pages.ams.switchToTab('Sapling Learning Author Management System');
   await pages.ams.waitForElementInvisibility('Algolia is Processing');
-  for (let i = 0; i < itemIdList.length; i++) {
-    await pages.ams.click('Select Checkbox', itemIdList[i]);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let item = datatable.hashes()[i];
+    await pages.ams.click('Select Checkbox', this.data.get(item.Title, "id"));
   }
 });
 
@@ -69,11 +70,11 @@ When('I update the selected items with the following details', async function (d
   await pages.ams.click('AMS Button', 'Done');
 });
 
-Then('I verify the items were updated in AMS', async function (datatable) {
+Then('I verify the details of the following items are displayed in AMS', async function (datatable) {
   await pages.ams.waitForElementInvisibility('Algolia is Processing');
-  for (i = 0; i < itemIdList.length; i++) {
-    let itemId = itemIdList[i];
+  for (i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
+    let itemId = this.data.get(item.Title, "id");
     if (item['Author Mode'] !== undefined) {
       await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
     }
