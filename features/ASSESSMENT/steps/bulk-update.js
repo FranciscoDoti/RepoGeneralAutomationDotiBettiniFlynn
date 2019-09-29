@@ -1,5 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When('I create the following draft Raptor items in AMS', async function (datatable) {
   for (let i = 0; i < datatable.rows().length; i++) {
@@ -17,13 +18,9 @@ When('I create the following draft Raptor items in AMS', async function (datatab
     await pages.raptor.click('More Item Details');
     await pages.raptor.populate('Item Details Title', item.Title);
     await pages.raptor.click('Item Details Done Button');
-    await pages.raptor.click('More Menu');
-    await pages.raptor.click('Save As Draft');
-    await pages.raptor.waitForElementInvisibility('Message', 'Saving');
-    let itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
-    await pages.ams.closeTab('Raptor Authoring');
-
+    let itemId = await raptorlib.saveItem();
     this.data.set(item.Title, "id", itemId);
+    await pages.ams.closeTab('Raptor Authoring');
   }
 });
 
