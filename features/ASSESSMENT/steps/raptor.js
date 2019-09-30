@@ -32,12 +32,12 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function(moduleType, times)
 When('I add the Ungraded text module with following details', async function(dataTable) {
     await pages.raptor.click('New Raptor Item');
     await pages.raptor.switchToTab('Raptor Authoring');
-    do {
+    /*do {
         itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
         console.log("ItemId is " + itemId);
     } while (itemId === undefined || itemId === ' ' || itemId === '  ' || itemId === '');
+*/
 
-    this.data.set(dataTable.hashes()[0].Title, "id", itemId);
     await pages.raptor.click('addLink');
     await pages.raptor.click('Module Pallete', 'Ungraded Text');
     await pages.raptor.click('Content Area');
@@ -51,6 +51,9 @@ When('I add the Ungraded text module with following details', async function(dat
     await pages.raptor.click('Item Details Done Button');
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
+    await pages.raptor.waitForElementInvisibility('Message', 'Saving');
+    itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
+    this.data.set(dataTable.hashes()[0].Title, "id", itemId);
     await pages.raptor.switchToTab('Sapling Learning Author Management System');
 });
 

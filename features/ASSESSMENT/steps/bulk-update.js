@@ -1,5 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+const { assert } = require('chai');
 var itemId;
 
 When('I create the following draft Raptor items in AMS', async function(datatable) {
@@ -77,35 +78,36 @@ Then('I verify the details of the following items are displayed in AMS', async f
         let item = datatable.hashes()[i]; // 
         let itemId = this.data.get(item.Title, "id");
 
-        if (itemId !== undefined && itemId !== '') {
-
-
-            if (item['Author Mode'] !== undefined) {
-                await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
-            }
-            if (item.Title !== undefined) {
-                await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
-            }
-            if (item.Topic !== undefined) {
-                await pages.ams.assertText('Item Field', 'topic-' + itemId, item.Topic);
-            }
-            if (item.Taxonomy !== undefined) {
-                await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item.Taxonomy);
-            }
-            if (item.Difficulty !== undefined) {
-                await pages.ams.assertText('Item Field', 'difficulty-' + itemId, item.Difficulty);
-            }
-            if (item.Status !== undefined) {
-                await pages.ams.assertText('Item Field', 'status-' + itemId, item.Status);
-            }
-            if (item['Module Type'] !== undefined) {
-                await pages.ams.assertText('Item Field', 'module_type-' + itemId, item['Module Type']);
-            }
-            if (item.Access !== undefined) {
-                await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
-            }
-        } else {
-            console.log("Item Id is undefined or empty");
+        if (itemId === undefined || itemId === '') {
+            assert.fail(`ERROR: itemId is undefined or empty. Actual value ${itemId}`);
+            return;
         }
+
+        if (item['Author Mode'] !== undefined) {
+            await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
+        }
+        if (item.Title !== undefined) {
+            await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
+        }
+        if (item.Topic !== undefined) {
+            await pages.ams.assertText('Item Field', 'topic-' + itemId, item.Topic);
+        }
+        if (item.Taxonomy !== undefined) {
+            await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item.Taxonomy);
+        }
+        if (item.Difficulty !== undefined) {
+            await pages.ams.assertText('Item Field', 'difficulty-' + itemId, item.Difficulty);
+        }
+        if (item.Status !== undefined) {
+            await pages.ams.assertText('Item Field', 'status-' + itemId, item.Status);
+        }
+        if (item['Module Type'] !== undefined) {
+            await pages.ams.assertText('Item Field', 'module_type-' + itemId, item['Module Type']);
+        }
+        if (item.Access !== undefined) {
+            await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
+        }
+
+
     }
 });
