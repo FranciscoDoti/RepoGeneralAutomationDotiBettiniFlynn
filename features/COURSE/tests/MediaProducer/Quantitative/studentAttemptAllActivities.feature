@@ -15,9 +15,9 @@
 
 #         And I add the activities in resources to "Quantitative Template" template
 #             | type                    | activity                                      |
-#             | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-#             | addButtonLearningcurve  | LC1551301608988                               |
-#             | addReadingButton        |  Glossary                                   |
+#             | addButtonAssessment     | Exercise: Misused words 1 (autoscored) Automated Test       |     
+#             | addButtonLearningcurve  | LC1551301608988 Automated Test                               |
+#             | addReadingButton        |  Glossary Automated Test                                  |
 
 #         And I click on home button to return to coursepage
 #         And I copy course from the "Quantitative Template" template with the following data
@@ -40,9 +40,9 @@
      
 #         And I add the activities in courseplanner to "Quantitative Course" course
 #             | activity                                                          | 
-#             | Exercise: Misused words 1 (autoscored)                            |                                                        
-#             | LC1551301608988                                                   |
-#             | Glossary                                                        |
+#             | Exercise: Misused words 1 (autoscored) Automated Test                           |                                                        
+#             | LC1551301608988 Automated Test                                                   |
+#             | Glossary Automated Test                                                       |
 
 #         # And I create custom made activity in "Quantitative Course" with the following data
 #         #     | activity           | value                                    |
@@ -57,9 +57,9 @@
 #         And I assign the activities in courseplanner
 #             | activity                                                         | Points | 
 #             # | Qual Test                                                      | 5      |
-#             | Exercise: Misused words 1 (autoscored)                           | 5      | 
-#             | LC1551301608988                                                  | 5      | 
-#             | Glossary                                                       | 5      |
+#             | Exercise: Misused words 1 (autoscored) Automated Test                          | 5      | 
+#             | LC1551301608988 Automated Test                                                  | 5      | 
+#             | Glossary Automated Test                                                      | 5      |
  
 
 #         And I sign out of Achieve
@@ -87,23 +87,23 @@
 
 #         When I complete the reading activity 
 #             | activity           |
-#             | Glossary         |
+#             | Glossary Automated Test        |
         
 
 #         Then I verify the activity status for the following activities
 #             | activity                                      | status    |
-#             | Exercise: Misused words 1 (autoscored)        | Complete  |
+#             | Exercise: Misused words 1 (autoscored) Automated Test       | Complete  |
 #             # | Qual Test                                     | Complete  | 
-#             # | LC1551301608988                               | Complete  | 
-#             | Glossary                              | Complete  |
+#             # | LC1551301608988 Automated Test                               | Complete  | 
+#             | Glossary Automated Test                             | Complete  |
 
 
 #         And I verify the assignmenent grades in gradebook for below assigned activities 
 #             | activity                                      | percentage  | points  | PercentOfTotalgrades |
-#             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
+#             | Exercise: Misused words 1 (autoscored) Automated Test       |  100%       | 5       | 1%                   |
 #             # | Qual Test                                     |  100%       | 5       | 1%                   |
-#             # | LC1551301608988                               |  100%       | 5       | 1%                   |
-#             | Glossary                                    |   100%      | 5       | 1%                   | 
+#             # | LC1551301608988 Automated Test                               |  100%       | 5       | 1%                   |
+#             | Glossary Automated Test                                   |   100%      | 5       | 1%                   | 
 
 #         When I sign out of Achieve
 #         And I login to Achieve-CW as "instructor_1"
@@ -111,10 +111,10 @@
 
 #         Then I verify the assignmenent grades in gradebook for below assigned activities 
 #             | activity                                      | percentage  | points  | PercentOfTotalgrades |
-#             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 1%                   |
+#             | Exercise: Misused words 1 (autoscored) Automated Test       |  100%       | 5       | 1%                   |
 #             # | Qual Test                                     |  100%       | 5       | 1%                   |
-#             # | LC1551301608988                               |  100%       | 5       | 1%                   |
-#             | Glossary                                    |   100%      | 5       | 1%                   | 
+#             # | LC1551301608988 Automated Test                               |  100%       | 5       | 1%                   |
+#             | Glossary Automated Test                                   |   100%      | 5       | 1%                   | 
 
 #         When I sign out of Achieve
 #         And I login to Achieve-CW as "admin_1"
@@ -122,7 +122,7 @@
 
 #         Then I verify the assignmenent grades in gradebook for below assigned activities
 #             | activity                                      | percentage  | points  | PercentOfTotalgrades  |
-#             | Exercise: Misused words 1 (autoscored)        |  100%       | 5       | 33%                   |
+#             | Exercise: Misused words 1 (autoscored) Automated Test       |  100%       | 5       | 33%                   |
 #             # | Qual Test                                     |  100%       | 5       | 33%                   |
-#             # | LC1551301608988                               |  100%       | 5       | 33%                   |
-#             | Glossary                                    |   100%      | 5       | 33%                   |   
+#             # | LC1551301608988 Automated Test                               |  100%       | 5       | 33%                   |
+#             | Glossary Automated Test                                   |   100%      | 5       | 33%                   |   
