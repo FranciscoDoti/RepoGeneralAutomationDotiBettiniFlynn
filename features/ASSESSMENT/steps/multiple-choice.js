@@ -32,15 +32,13 @@ When('I add hatchling item as {string} with following details', async function (
   var minutes = today.getMinutes();
   var seconds = today.getSeconds();
   date = mm + '/' + dd + '/' + yyyy;
-  time = hours+':'+ minutes+':'+seconds;
+  time = hours+":"+minutes+":"+seconds;
   await pages.ams.click('Add Item', 'Easy');
-  // await pages.ams.click('raptorNewEasyItem');
   await pages.ams.click('easyItemMultipleChoice');
+  
   for (let i = 0; i < datatable.rows().length; i++) {
-  await pages.hatchlingItem.populate('Question Title', i + 1, datatable.hashes()[i].QuestionTitle+" : "+date+" , "+time);
-  await pages.hatchlingItem.populate('Question Prompt', i + 2, datatable.hashes()[i].QuestionPrompt);
-  var QuestionTitle = await pages.hatchlingItem.getText('Question Title', i + 1, datatable.hashes()[i].QuestionTitle+" : "+date+" , "+time);
-  log.info(`Question Title is -----> "${QuestionTitle}". PASS`);
+  await pages.hatchlingItem.populate('Question Title', datatable.hashes()[i].QuestionTitle+" : "+date+" , "+time);
+  await pages.hatchlingItem.populate('Question Prompt', datatable.hashes()[i].QuestionPrompt); 
   }
 });
 
