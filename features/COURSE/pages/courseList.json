@@ -1,8 +1,8 @@
 {
     "webElements": [{
         "name": "courseMenu",
-        "byType": "xpath",
-        "definition": "//*[.='<ReplaceText>']/../../..//button[@data-test-id='course_menu_button']",
+        "byType": "css",
+        "definition": "[data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
