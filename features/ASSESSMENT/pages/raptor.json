@@ -7,20 +7,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "New Raptor Item",
-            "byType": "xpath",
-            "definition": "//a[@data-test-id='newItemRaptorBtn']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "addLink",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Add Menu",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
