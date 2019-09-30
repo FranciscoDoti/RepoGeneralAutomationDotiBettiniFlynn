@@ -1,9 +1,9 @@
 {
     "webElements": [
         {
-            "name": "signinlink",
-            "byType": "css",
-            "definition": "button[data-test-id='sign_in_link_btn']",
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
