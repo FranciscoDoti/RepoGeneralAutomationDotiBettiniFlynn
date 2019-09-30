@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: CustomerSupport enrolls the student in Qualitative Course 
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that customerSupport enrolls student in Qualitative Course
         Given I login to Achieve-CW as "media_producer_2"
@@ -18,6 +19,7 @@ Feature: CustomerSupport enrolls the student in Qualitative Course
             | addButtonLearningcurve  | LC1551301608988                               |
         
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |

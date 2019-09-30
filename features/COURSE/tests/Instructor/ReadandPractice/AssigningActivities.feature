@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Assigning the activities present in Read & Practice course 
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to assign the activities in the course in Read & Practice Course
 
@@ -20,6 +21,7 @@ Feature: Assigning the activities present in Read & Practice course
             | addReadingButton          |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |

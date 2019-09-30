@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Adding Instructor to the Template
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario:  Verify that customer support is able to add Instructor to Read & Practice course
 
@@ -21,6 +22,7 @@ Feature: Adding Instructor to the Template
             | addReadingButton          |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |

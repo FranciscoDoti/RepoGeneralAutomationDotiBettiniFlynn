@@ -553,7 +553,7 @@
         {
             "name": "folderName",
             "byType": "xpath",
-            "definition": "//span[contains(@data-test-id,'folder_name') and contains(text(), '<ReplaceText>')]",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -568,7 +568,7 @@
         {
             "name": "actionButtonResources",
             "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
+            "definition": "//*[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -731,6 +731,13 @@
             "name": "dateRange",
             "byType": "css",
             "definition": "[data-test-id='radio_button_visible_range_student']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "classCompletion",
+            "byType": "xpath",
+            "definition": "//a[.='AutomationAsset2']/../../../..//div[@data-test-id='completion_percentage_pie']",
             "frame": "default",
             "specialInstr": "NA"
 
