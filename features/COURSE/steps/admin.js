@@ -4,6 +4,8 @@ const expect = require('chai').expect;
 const csvtojson = require('csvtojson');
 const driver = require(`${process.cwd()}/app/driver.js`);
 
+const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
+
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
@@ -16,6 +18,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.home.click('togglerMenu');
   await pages.adminMenu.waitForElementVisibility('admin');
   await pages.adminMenu.assertElementExists('admin');
+  await sleep(500);//added
   await pages.adminMenu.click('admin');
   await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');

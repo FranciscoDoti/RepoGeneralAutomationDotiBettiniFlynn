@@ -183,7 +183,7 @@ When('I add the activities to the resource tab', async function (data_table) {
 
 When(/^I attempt "(.*)" URL activity$/, async function (activityName){
   await pages.overview.click('activityName', activityName);
-  await IAMpages.signIn.switchToTab('Macmillan Learning :: ');
+  await IAMpages.signIn.switchToTab('Macmillan Learning');
 });
 
 When(/^I attempt "(.*)" File activity$/, async function(activityName) {

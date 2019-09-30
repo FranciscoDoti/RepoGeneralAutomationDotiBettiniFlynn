@@ -55,7 +55,7 @@ Then(/^I verify that "(.*)" is activated with following data$/, async function (
   }
 });
 
-When(/^I add URL link to "(.*)"$/, async function (data_table) {
+When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('addActivity');

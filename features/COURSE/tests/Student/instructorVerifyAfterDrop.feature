@@ -49,13 +49,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | Glossary                                   |
+            | GLOSSARY                                   |
             | AutomationAsset2                            |
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | Glossary                                                         | 5      |
+            | GLOSSARY                                                         | 5      |
             | AutomationAsset2                                                 | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
@@ -63,8 +63,9 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             |   Test                |  1        |   Test            |
 
         Then I verify that "The details of 'Google' have been updated." message is displayed
+        And I close the popup message
         And I sign out of Achieve
-
+        
     Scenario Outline: Students are enrolled and attempts the assignments
 
         Given I login to Achieve-CW as "customer_support_1" 
@@ -81,25 +82,25 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I complete the reading activity 
             | activity           |
-            | Glossary           |
+            | GLOSSARY           |
         
         And I sign out of Achieve
 
         Examples:
         |student        |
         |"student_1"    |
-        |"student_2"    |
+        |"student_6"    |
 
     Scenario: Instructor drops student and verifies completion
 
         Given I login to Achieve-CW as "instructor_2" 
         When I click on "activities Course"
-        And I drop "student_2"
+        And I drop "student_6"
         And I navagate to gradebook and verify grades
         | activity                                      | percent   |
         | Google                                        | 100%      |
         | AutomationAsset2                              | 100%      |
-        | Glossary                                      | 100%      |
+        | GLOSSARY                                      | 100%      |
         And I sign out of Achieve
 
    
