@@ -6,9 +6,9 @@ Feature: Student attempts reading, static file, URL, Gradebook category
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
 
         Given I login to Achieve-CW as "media_producer_1"
-        When I create template with following data 
-            | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199486  | draft         |
+        # When I create template with following data 
+        #     | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+        #     | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199486  | draft         |
 
         And I activate the "activities Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
@@ -23,6 +23,8 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Glossary                               | addReadingButton          |
             | AutomationAsset2                       | addFileButton             |
             | Google                                 | addCCButton               |
+            | LC1551301608988                        | addButtonLearningcurve    |
+            | Exercise: Misused words 1 (autoscored) | addButtonAssessment       |
 
 
         And I click on home button to return to coursepage
@@ -50,13 +52,18 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | activity                                    | 
             | Google                                      |
             | Glossary                                    |
-            | AutomationAsset2                            |  
+            | AutomationAsset2                            |
+            | LC1551301608988                             | 
+            | Exercise: Misused words 1 (autoscored)      |  
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
             | Glossary                                                         | 5      |
             | AutomationAsset2                                                 | 5      |
+            | LC1551301608988                                                  | 5      |
+            | Exercise: Misused words 1 (autoscored)                           | 5      |
+
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
             |   Test                |  1        |   Test            |
@@ -69,6 +76,16 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I sign out of Achieve
 
         And I login to Achieve-CW as "student_1"
+        And I attempt "Exercise: Misused words 1 (autoscored)" premade assesment in "Quantitative Course"
+            | Questions   |  PremadeAssesmentKey                                                                                                       |   
+            | 1 Question  |  Because Anne Tyler often writes about family loyalties, her allusions to King Lear are not surprising.                    |  
+            | 2 Question  |  Designers of handheld devices understand that changes in ambient temperatures can damage the tiny circuit boards.         | 
+            | 3 Question  |  The Keweenaw Peninsula is bordered on three sides by Lake Superior.                                                       |         
+            | 4 Question  |  At the cooking school in Tuscany, I learned that rosemary is a perfect complement to lamb.                                |   
+            | 5 Question  |  The person who complained to the human resources manager wishes to remain anonymous.                                      |
+
+        And I attempt "LC1551301608988" Learning curve activity
+       
 
         And I click on "activities Course"
 
