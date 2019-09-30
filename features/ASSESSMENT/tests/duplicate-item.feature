@@ -6,10 +6,12 @@ Feature: As a user, I want to duplicate an existing item
       When I add the Ungraded text module with following details
          | Title                | Text                      |
          | NGA QA Ungraded text | This is an automated test |
-      And I verify the items were updated in AMS
+      And I verify the details of the following items are displayed in AMS
          | Author Mode | Title                | Topic     | Taxonomy      | Difficulty   | Status      | Access | Module Type |
          | Raptor      | NGA QA Ungraded text |           | Question Bank | medium       | in progress | public |             | 
-      And I Duplicate item the item created   
-      Then I verify the items were updated in AMS
+      And I Duplicate item the item with Title
+         | Title                |
+         | NGA QA Ungraded text |
+      Then I verify the details of the following items are displayed in AMS
          | Author Mode | Title                | Topic     | Taxonomy      | Difficulty   | Status      | Access | Module Type |
          | Raptor      | NGA QA Ungraded text |           | Question Bank | medium       | in progress | public |             | 

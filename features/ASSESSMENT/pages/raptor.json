@@ -9,14 +9,14 @@
         {
             "name": "New Raptor Item",
             "byType": "xpath",
-            "definition": "a[@data-test-id='newItemRaptorBtn']",
+            "definition": "//a[@data-test-id='newItemRaptorBtn']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "Item ID",
+            "name": "addLink",
             "byType": "css",
-            "definition": "div[data-test-id='edit-id']",
+            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -292,7 +292,6 @@
             "definition": "//div[@class='cycle-variables-button']",
             "frame": "default",
             "specialInstr": "NA"
-<<<<<<< HEAD
         },
         {
             "name": "Algolia is Processing",
@@ -304,25 +303,30 @@
         {
             "name": "UngradedText-EnterText",
             "byType": "xpath",
-            "definition": "[@data-module-type='static_textfield']span/span",
+            "definition": "//*[@data-module-type='static_textfield']/span/span",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "UngradedText-EnterText Editor",
             "byType": "xpath",
-            "definition": "div[@data-test-id='ace-label']",
+            "definition": "//div[@data-test-id='ace-label']",
             "frame": "default",
             "specialInstr": "overwrite"
         },
         {
             "name": "Editor Done",
             "byType": "xpath",
-            "definition": "[@id='close-edit-host']",
+            "definition": "//*[@id='close-edit-host']",
             "frame": "default",
             "specialInstr": "NA"
-=======
->>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
+        },
+        {
+            "name": "Duplicate Item",
+            "byType": "xpath",
+            "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
