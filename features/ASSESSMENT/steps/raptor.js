@@ -3,31 +3,43 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 let itemId;
 
+<<<<<<< HEAD
 When(/^I add the "(.*)" module with following details$/, async function(moduleType, dataTable) {
     await mathpages.ams.assertElementExists('raptorNewEasyItem');
     await mathpages.ams.click('raptorNewItem');
+=======
+When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
+    await pages.ams.assertElementExists('Add Item', 'Easy');
+    await pages.ams.click('Add Item', 'Raptor');
+>>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
-    await pages.raptor.click('addLink');
-    await pages.raptor.click('modulePallete', moduleType);
-    await pages.raptor.click('contentArea');
+    await pages.raptor.click('Add Menu');
+    await pages.raptor.click('Module Pallete', moduleType);
+    await pages.raptor.click('Content Area');
     var rows = dataTable.hashes();
     await pages.raptor.populate('chemicalEquationPrefix', rows[0].value);
     await pages.raptor.click('Tab', 'correct');
     await pages.raptor.populate('chemicalEquationAnswerInput', rows[1].value);
 });
 
+<<<<<<< HEAD
 When(/^I add the "(.*)" module "(.*)" times$/, async function(moduleType, times) {
     await mathpages.ams.click('raptorNewItem');
+=======
+When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times) {
+    await pages.ams.click('Add Item', 'Raptor');
+>>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
     let i = 0;
     while (i < times) {
-        await pages.raptor.click('addLink');
-        await pages.raptor.click('modulePallete', moduleType);
-        await pages.raptor.click('contentArea');
+        await pages.raptor.click('Add Menu');
+        await pages.raptor.click('Module Pallete', moduleType);
+        await pages.raptor.click('Content Area');
         i++;
     }
 });
 
+<<<<<<< HEAD
 When('I add the Ungraded text module with following details', async function(dataTable) {
     await pages.raptor.click('New Raptor Item');
     await pages.raptor.switchToTab('Raptor Authoring');
@@ -61,16 +73,21 @@ When('I Duplicate item the item created', async function(dataTable) {
 When(/^I add the "(.*)" module$/, async function(moduleType) {
     await mathpages.ams.assertElementExists('raptorNewEasyItem');
     await mathpages.ams.click('raptorNewItem');
+=======
+When(/^I add the "(.*)" module$/, async function (moduleType) {
+    await pages.ams.assertElementExists('Add Item', 'Easy');
+    await pages.ams.click('Add Item', 'Raptor');
+>>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
     await mathpages.raptorAms.switchToTab('Raptor Authoring');
-    await pages.raptor.click('addLink');
-    await pages.raptor.click('modulePallete', moduleType);
-    await pages.raptor.click('contentArea');
+    await pages.raptor.click('Add Menu');
+    await pages.raptor.click('Module Pallete', moduleType);
+    await pages.raptor.click('Content Area');
 });
 
 Then('I verify item has been created', async function() {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1];
     //below two steps need to be added to I add the "(.*)" module
-    await pages.raptor.click('More Button');
+    await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
@@ -79,12 +96,12 @@ Then('I verify item has been created', async function() {
 Then('I verify item has been created with following details', async function(dataTable) {
     let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1].trim();
     //below two steps need to be added to I add the "(.*)" module
-    await pages.raptor.click('More Button');
+    await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
 
     //code to check element should not be present
-    await pages.raptor.waitForElementInvisibility('Algolia is Processing');
+    await pages.ams.waitForElementInvisibility('Algolia is Processing');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
     var rows = dataTable.hashes();
     for (let i = 0; i < dataTable.rows().length; i++) {
@@ -96,11 +113,19 @@ Then('I verify item has been created with following details', async function(dat
     }
 });
 
+<<<<<<< HEAD
 When('I configure the following item details', async function(datatable) {
     await mathpages.raptorAms.click('menuBarMore');
     await mathpages.raptorAms.click('moreItemDetails');
     await pages.raptor.populate('itemDetailsTitle', datatable.hashes()[0].Title);
     await pages.raptor.click('itemDetailsDoneButton');
+=======
+When('I configure the following item details', async function (datatable) {
+    await pages.raptor.click('More Menu');
+    await pages.raptor.click('More Item Details');
+    await pages.raptor.populate('Item Details Title', datatable.hashes()[0].Title);
+    await pages.raptor.click('Item Details Done Button');
+>>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
 });
 
 When('I add list variables', async function(datatable) {
@@ -161,8 +186,13 @@ When('I configure FR module', async function() {
     await pages.freeResponse.populate('Max Character Count', '40');
 });
 
+<<<<<<< HEAD
 Then('I check NE answers', async function() {
     await pages.raptor.click('More Button');
+=======
+Then('I check NE answers', async function () {
+    await pages.raptor.click('More Menu');
+>>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
     await pages.raptor.click('Check Answer Slider');
     await pages.numericEntry.populate('Numeric Entry 1', '.0258');
     await pages.numericEntry.populate('Numeric Entry 2', '-0.0258');
@@ -170,10 +200,15 @@ Then('I check NE answers', async function() {
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
 
+<<<<<<< HEAD
 Then('I check FR answers', async function() {
     await pages.raptor.click('More Button');
+=======
+Then('I check FR answers', async function () {
+    await pages.raptor.click('More Menu');
+>>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
     await pages.raptor.click('Save As Draft');
-    await pages.raptor.click('More Button');
+    await pages.raptor.click('More Menu');
     await pages.raptor.click('Check Answer Slider');
     await pages.freeResponse.populate('Element Take Mode', '123456789012345678901');
     await pages.raptor.click('Check Your Work Submit Button');

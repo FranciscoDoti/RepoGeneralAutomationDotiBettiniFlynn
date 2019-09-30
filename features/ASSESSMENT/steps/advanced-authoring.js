@@ -14,7 +14,7 @@ When('I add the following choices', async function (datatable) {
 
 Then('The rendered values of the variables are displayed as choices in the module', async function () {
   await pages.raptor.click('Cycle Variables Button');
-  await pages.raptor.click('More Button');
+  await pages.raptor.click('More Menu');
   await pages.raptor.click('Save As Draft');
   let text = await pages.multipleSelect.getText('Choice Text 1');
   if (await expect(text.length).to.equal(1)) {

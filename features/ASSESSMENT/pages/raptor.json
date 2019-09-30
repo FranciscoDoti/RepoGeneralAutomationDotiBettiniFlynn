@@ -14,28 +14,35 @@
             "specialInstr": "NA"
         },
         {
-            "name": "addLink",
+            "name": "Item ID",
+            "byType": "css",
+            "definition": "div[data-test-id='edit-id']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Menu",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "modulePallete",
+            "name": "Module Pallete",
             "byType": "xpath",
             "definition": "//div[@data-test-id='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "contentArea",
+            "name": "Content Area",
             "byType": "css",
             "definition": "div[class='content-preview']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "More Button",
+            "name": "More Menu",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY MORE']",
             "frame": "default",
@@ -52,6 +59,20 @@
             "name": "Save As Draft",
             "byType": "css",
             "definition": "li[id='save-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Message",
+            "byType": "xpath",
+            "definition": "//h4[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "More Item Details",
+            "byType": "xpath",
+            "definition": "//div[.='Item Details']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -133,14 +154,14 @@
             "specialInstr": "NA"
         },
         {
-            "name": "itemDetailsTitle",
+            "name": "Item Details Title",
             "byType": "css",
             "definition": "#item-details-container > div > div > div:nth-child(4) > input[type=text]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "itemDetailsDoneButton",
+            "name": "Item Details Done Button",
             "byType": "css",
             "definition": "#authoring-menu-bar > div:nth-child(3) > div > div.cdl-dialog-actions > input",
             "frame": "default",
@@ -271,6 +292,7 @@
             "definition": "//div[@class='cycle-variables-button']",
             "frame": "default",
             "specialInstr": "NA"
+<<<<<<< HEAD
         },
         {
             "name": "Algolia is Processing",
@@ -299,6 +321,8 @@
             "definition": "[@id='close-edit-host']",
             "frame": "default",
             "specialInstr": "NA"
+=======
+>>>>>>> 161e8b72fc6eaf7dba893ce9376cdc2f4d4d5916
         }
     ]
 }
