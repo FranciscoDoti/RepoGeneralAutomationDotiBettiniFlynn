@@ -41,6 +41,7 @@ After('@admin-delete-courseTemplate', async function () {
   let elements = await pages.courseList.getWebElements('courseNumber', course);
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
+    await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.assertElementExists('confirmDelete')
     await pages.courseList.click('confirmDelete');
@@ -90,6 +91,7 @@ After('@customersupport-delete-course', async function () {
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course);
   for (let i = 0; i < elements.length; i++) {
+    await pages.coursePage.click('courseMenu');
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.assertElementExists('confirmDelete')

@@ -16,14 +16,14 @@ Feature: Customer Support attempts all the activities in Skills Template
 
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |    
-            | addButtonLearningcurve   | LC1551301608988 Automated Test                               |
+            | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         | GLOSSARY                                      |
-            | addButtonReadandpractice | LCRP1550612138614 Automated Test                             |
+            | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
-        And I change to Course Template Tab
+       
         And I click on search button and input "Skills Template" to search the course
                 
         And I copy course from the "Skills Template" template with the following data
