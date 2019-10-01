@@ -1,23 +1,15 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { raptorlib, mathlib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When('I create the following draft Raptor items in AMS', async function (datatable) {
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.switchToTab('Sapling Learning Author Management System');
-    await pages.ams.assertElementExists('Add Item', 'Easy');
-    await pages.ams.click('Add Item', 'Raptor');
-    await pages.ams.switchToTab('Raptor Authoring');
-    await pages.raptor.click('Add Menu');
-    await pages.raptor.waitForElementVisibility('Module Pallete', item['Module Type']);
-    await pages.raptor.click('Module Pallete', item['Module Type']);
-    await pages.raptor.waitForElementVisibility('Content Area');
-    await pages.raptor.click('Content Area');
-    await pages.raptor.click('More Menu');
-    await pages.raptor.click('More Item Details');
-    await pages.raptor.populate('Item Details Title', item.Title);
-    await pages.raptor.click('Item Details Done Button');
+
+    await raptorlib.addRaptorItem();
+    await raptorlib.addModule(item['Module Type']);
+    await raptorlib.addItemDetails(item['Title']);
+
     let itemId = await raptorlib.saveItem();
     this.data.set(item.Title, "id", itemId);
     await pages.ams.closeTab('Raptor Authoring');
