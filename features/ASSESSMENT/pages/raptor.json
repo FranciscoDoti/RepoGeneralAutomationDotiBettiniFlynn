@@ -1,5 +1,6 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "Item ID",
             "byType": "css",
             "definition": "div[data-test-id='edit-id']",
