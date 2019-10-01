@@ -1,4 +1,4 @@
-@Course @Smoke @psv-458
+@Course @Smoke
 Feature: Media Editor is able to create a template and update in Quantitative Template
 
    @mediaeditor-delete-course

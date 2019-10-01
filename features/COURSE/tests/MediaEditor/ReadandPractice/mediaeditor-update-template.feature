@@ -1,4 +1,4 @@
-@Course @Smoke @psv-458
+@Course @Smoke
 Feature: Media Editor is able to create a template and update in Read & Practice Template
 
    @mediaeditor-delete-course
