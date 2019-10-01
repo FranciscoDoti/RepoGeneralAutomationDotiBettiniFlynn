@@ -91,12 +91,6 @@
         "specialInstr": "NA"
     },
     {
-        "name": "courseShortId",
-        "byType": "xpath",
-        "definition": "//span[@data-test-id='course_short_id' and .='<ReplaceText>']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
         "name": "courseNameTime",
         "byType": "xpath",
         "definition": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",

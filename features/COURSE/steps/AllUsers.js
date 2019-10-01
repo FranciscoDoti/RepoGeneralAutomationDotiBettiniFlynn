@@ -39,7 +39,19 @@ Then(/^I verify that "(.*)" is created with following data$/, async function (co
   this.data.set('course',courseName);
   //await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.courseList.assertElementExists(data_table.hashes()[i].field, data_table.hashes()[i].value);
+    var c = data_table.hashes()[i];
+    await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
+    await pages.createCourse.assertTextIncludes('Status',c.Status);
+  }
+});
+Then(/^I verify that "(.*)" is activated with following data$/, async function (courseName, data_table){
+  this.data.set('course',courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
+    await pages.createCourse.assertTextIncludes('TemplateStatus',c.Status);
+    await pages.createCourse.assertTextIncludes('ISBNVerification', c.ISBN);
   }
 });
 
@@ -67,6 +79,9 @@ When('I close generate access code', async function () {
   await pages.adminMenu.click('closeExportList');
 });
 
+When(/^I click on "(.*)" tab$/, async function (tab){
+  await pages.courseList.click('courseTemplate', tab);
+})
 When(/^I clone content from "(.*)" template$/, async function (courseName) {
   await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('importStructure');

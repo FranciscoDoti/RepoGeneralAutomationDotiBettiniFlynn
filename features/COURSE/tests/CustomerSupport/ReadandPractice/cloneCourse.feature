@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Read & Practice Template
 
-    @custmersupport-delete-course
+    @customersupport-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Read & Practice Template
     
@@ -17,7 +17,7 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
         And I add the activities in resources to "Read & Practice Template" template
             | type                     | activity                                      |    
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | GLOSSARY                                    |
+            | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
 
         And I sign out of Achieve
@@ -30,11 +30,10 @@ Feature: Customer Support attempts all the activities in Read & Practice Templat
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |
 
-        And I click on search button and input "Read & Practice Course" to search the course
+        And I search for "Read & Practice Course" in Courses tab
         
         Then I verify that "Read & Practice Course" is created with following data
-            | field                 | value                     |
-            | courseName            | Read & Practice Course    |
-            | courseDate            |  E2E 301                  |
+            | CourseName                | Status                    |
+            | Read & Practice Course    |  Draft                    |
            
         

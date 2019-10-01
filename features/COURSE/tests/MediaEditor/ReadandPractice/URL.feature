@@ -9,9 +9,7 @@ Feature: Verify that MediaEditor is able to create URL in Read & Practice Templa
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
 
-        And I click on search button and input "Read & Practice Template" to search the course
-
-        And I activate the "Read & Practice Template" template and add the following data
+        And I update "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
             | Read & Practice Template  |   E2E 301     |  Active On Date      | 
 
