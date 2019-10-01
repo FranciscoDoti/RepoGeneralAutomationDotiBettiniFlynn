@@ -1,8 +1,8 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-global.R_itemId;
-global.testData = {}
+
+
 
 When(/^I add the "(.*)" module with following details$/, async function(moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -30,15 +30,9 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function(moduleType, times)
 });
 
 When('I add the Ungraded text module with following details', async function(dataTable) {
-    await pages.raptor.click('New Raptor Item');
-    await pages.raptor.switchToTab('Raptor Authoring');
-    /*do {
-        itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
-        console.log("ItemId is " + itemId);
-    } while (itemId === undefined || itemId === ' ' || itemId === '  ' || itemId === '');
-*/
-
-    await pages.raptor.click('addLink');
+    await mathpages.ams.click('raptorNewItem');
+    await mathpages.raptorAms.switchToTab('Raptor Authoring');
+    await pages.raptor.click('Add Menu');
     await pages.raptor.click('Module Pallete', 'Ungraded Text');
     await pages.raptor.click('Content Area');
     await pages.raptor.click('UngradedText-EnterText');
@@ -52,7 +46,7 @@ When('I add the Ungraded text module with following details', async function(dat
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await pages.raptor.waitForElementInvisibility('Message', 'Saving');
-    itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
+    let itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
     this.data.set(dataTable.hashes()[0].Title, "id", itemId);
     await pages.raptor.switchToTab('Sapling Learning Author Management System');
 });
@@ -65,8 +59,7 @@ When('I Duplicate item the item with Title', async function(dataTable) {
     let duplicatedItemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
     this.data.set(dataTable.hashes()[0].Title, "id", duplicatedItemId);
     await pages.raptor.switchToTab('Sapling Learning Author Management System');
-    //await pages.raptor.checkElementExists ('Algolia is Proccessing');
-    await pages.raptor.waitForElementInvisibility('Algolia is Processing');
+    await pages.ams.waitForElementInvisibility('Algolia is Processing');
 
 });
 

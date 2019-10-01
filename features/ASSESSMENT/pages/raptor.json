@@ -280,13 +280,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Algolia is Processing",
-            "byType": "xpath",
-            "definition": "//i[.='Algolia is Processing']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "UngradedText-EnterText",
             "byType": "xpath",
             "definition": "//*[@data-module-type='static_textfield']/span/span",

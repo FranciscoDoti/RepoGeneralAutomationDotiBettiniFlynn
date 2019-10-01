@@ -75,7 +75,7 @@ When('I update the selected items with the following details', async function(da
 Then('I verify the details of the following items are displayed in AMS', async function(datatable) {
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
     for (i = 0; i < datatable.rows().length; i++) {
-        let item = datatable.hashes()[i]; // 
+        let item = datatable.hashes()[i];
         let itemId = this.data.get(item.Title, "id");
 
         if (itemId === undefined || itemId === '') {
