@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { raptorlib, mathlib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When('I create the following draft Raptor items in AMS', async function (datatable) {
   for (let i = 0; i < datatable.rows().length; i++) {
