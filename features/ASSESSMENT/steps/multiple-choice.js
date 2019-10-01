@@ -36,10 +36,10 @@ When('I add hatchling item as {string} with following details', async function (
   await pages.ams.click('Add Item', 'Easy');
   await pages.ams.click('easyItemMultipleChoice');
   
-  for (let i = 0; i < datatable.rows().length; i++) {
-  await pages.hatchlingItem.populate('Question Title', datatable.hashes()[i].QuestionTitle+" : "+date+" , "+time);
-  await pages.hatchlingItem.populate('Question Prompt', datatable.hashes()[i].QuestionPrompt); 
-  }
+  
+  // await pages.hatchlingItem.populate('Question Title', datatable.hashes()[0].QuestionTitle+" : "+date+" , "+time);
+  // await pages.hatchlingItem.populate('Question Prompt', datatable.hashes()[0].QuestionPrompt); 
+  
 });
 
 Then(/^I verify the items were updated in AMS$/, async function () {
@@ -48,6 +48,8 @@ Then(/^I verify the items were updated in AMS$/, async function () {
 
 When('I add the following correct answer and feedback', async function (datatable) {
   let ans = datatable.hashes()[0];
+  await pages.ams.click('Add Item', 'Easy');
+  await pages.ams.click('easyItemMultipleChoice');
   await pages.hatchlingItem.populate('Correct Answer', ans.Answer);
   await pages.hatchlingItem.click('Collapsible Title','Correct Answer Feedback');
   await pages.hatchlingItem.populate('Correct Answer Feedback', ans.Feedback);
