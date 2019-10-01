@@ -199,7 +199,9 @@ Then(/^I drop "(.*)"$/, async function (userType) {
   await pages.people.click('checkbox');
   await pages.people.click('dropStudentButton');
   await pages.people.click('dropStudentsSubmitBtn');
+});
 
-  await pages.coursePage.click('navigation','Gradebook');
-  
+When('I navagate to gradebook and verify grades', async function (data_table) {
+  await pages.coursePage.click('navigation','My Course');
+  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].percent)
 });

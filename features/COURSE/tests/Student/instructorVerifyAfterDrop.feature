@@ -99,8 +99,6 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I navagate to gradebook and verify grades
         | activity                                      | percent   |
         | Google                                        | 100%      |
-        | AutomationAsset2                              | 100%      |
-        | GLOSSARY                                      | 100%      |
         And I sign out of Achieve
 
    

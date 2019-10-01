@@ -135,15 +135,18 @@
             "frame": "default",
             "specialInstr": "NA"
 
-        },
-        {
+        },{
             "name": "studentCategoryTotal",
             "byType": "xpath",
             "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
             "frame": "default",
             "specialInstr": "NA"
-     
-
+        },{
+            "name": "checkActivityCompletion",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div/div/div/div[2]/div/div[2]/div[2]/div/nav/div[2]/div/div[2]/div[3]/div[1]/div[3]/div/div/div[2]",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

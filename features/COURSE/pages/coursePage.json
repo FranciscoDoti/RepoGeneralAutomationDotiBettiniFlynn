@@ -90,7 +90,7 @@
         },{
             "name": "finishEnrollement",
             "byType": "css",
-            "definition": "[data-test-id='access_code_modal_finish_enrollment_btn']",
+            "definition": "//*[@id='<ReplaceText>']/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[2]/div/div[1]/div/div[1]/div[2]/div/div[7]",
             "frame": "default",
             "specialInstr": "NA"
         }
