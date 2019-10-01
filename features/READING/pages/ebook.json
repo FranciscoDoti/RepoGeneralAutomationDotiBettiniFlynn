@@ -1,0 +1,27 @@
+{
+    "webElements": [{
+        "name": "Content",
+        "byType": "css",
+        "definition": "[class='sect2']",
+        "frame": "Epub Content Frame",
+        "specialInstr": "NA"
+    }, {
+        "name": "Epub Container Frame",
+        "byType": "css",
+        "definition": "[title*='English as a second language']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Epub Content Frame",
+        "byType": "id",
+        "definition": "epub-content",
+        "frame": "Epub Container Frame",
+        "specialInstr": "NA"
+    }, {
+        "name": "Page Number Input",
+        "byType": "css",
+        "definition": "[aria-label='page number input']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }]
+}
