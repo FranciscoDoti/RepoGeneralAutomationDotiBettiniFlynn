@@ -107,7 +107,5 @@ Then('I verify the details of the following items are displayed in AMS', async f
     if (item.Access !== undefined) {
       await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
     }
-
-
   }
 });
