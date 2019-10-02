@@ -99,19 +99,16 @@ const populateTextField = async function (selector, value, WebElementObject) {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
     await WebElementObject.webElement.focus();
   }
-
   if(!localSpecialInstr.toLowerCase().includes('noclick'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.click();
   }
-
   if(!localSpecialInstr.toLowerCase().includes('noclear'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.clear();
   }
-
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
@@ -276,15 +273,18 @@ const populateRichTextField = async function (selector, value, WebElementObject)
     log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
     await WebElementObject.webElement.focus();
   }
+  if (!localSpecialInstr.toLowerCase().includes('noclick')) {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
+    await selector.click();
+  }
 
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
     await actions.doubleClick(selector).sendKeys(value).perform();
   } else {
-    await actions.click(selector).sendKeys(value).perform();
+    await actions.sendKeys(value).perform();
   }
-  
   log.debug(`Post populate text field value: ${value}`);
 };
 
