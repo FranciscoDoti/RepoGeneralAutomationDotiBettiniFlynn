@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+const { raptorlib, amslib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -28,36 +29,26 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
 });
 
 When('I add the Ungraded text module with following details', async function (dataTable) {
-    await mathpages.ams.click('raptorNewItem');
-    await mathpages.raptorAms.switchToTab('Raptor Authoring');
-    await pages.raptor.click('Add Menu');
-    await pages.raptor.click('Module Pallete', 'Ungraded Text');
-    await pages.raptor.click('Content Area');
+    let item = dataTable.hashes()[0]; // ESTE STATEMENT PODRIA QUEDAR RARO POR LA i    
+    await amslib.addRaptorItem();
+    await raptorlib.addModule('Ungraded Text');
     await pages.raptor.click('UngradedText-EnterText');
     await pages.raptor.populate('UngradedText-EnterText Editor', " ");
     await pages.raptor.populate('UngradedText-EnterText Editor', dataTable.hashes()[0].Text);
     await pages.raptor.click('Editor Done');
-    await pages.raptor.click('More Menu');
-    await pages.raptor.click('More Item Details');
-    await pages.raptor.populate('Item Details Title', dataTable.hashes()[0].Title);
-    await pages.raptor.click('Item Details Done Button');
-    await pages.raptor.click('More Menu');
-    await pages.raptor.click('Save As Draft');
-    await pages.raptor.waitForElementInvisibility('Message', 'Saving');
-    let itemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
-    this.data.set(dataTable.hashes()[0].Title, "id", itemId);
-    await pages.raptor.switchToTab('Sapling Learning Author Management System');
+    await raptorlib.addItemDetails(item);
+    let itemId = await raptorlib.saveItem();
+    this.data.set(item.Title, "id", itemId);
+    await pages.ams.closeTab('Raptor Authoring');
 });
 
 
 When('I Duplicate item the item with Title', async function (dataTable) {
+    let item = dataTable.hashes()[0];
+    let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
+    this.data.set(item.Title, "id", duplicatedItemId);
+    await pages.ams.closeTab('Raptor Authoring');
 
-    await pages.raptor.click('Duplicate Item', this.data.get(dataTable.hashes()[0].Title, 'id'));
-    await pages.raptor.switchToTab('Raptor Authoring');
-    let duplicatedItemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
-    this.data.set(dataTable.hashes()[0].Title, "id", duplicatedItemId);
-    await pages.raptor.switchToTab('Sapling Learning Author Management System');
-    await pages.ams.waitForElementInvisibility('Algolia is Processing');
 
 });
 

@@ -12,7 +12,7 @@ Feature: To update multiple raptor items in AMS by bulk update
             | NGA QA Test UT Item | Ungraded Text     |
             | NGA QA Test MD Item | Molecular Drawing |
 
-        And I select the following items on AMS
+        And I select the following items by title on AMS
             | Title               |
             | NGA QA Test MC Item |
             | NGA QA Test MS Item |
