@@ -102,7 +102,7 @@ Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName,
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn');
-  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
 
 });
 
@@ -169,5 +169,25 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('Category', data_table.hashes()[i].GradebookCategory)
     await pages.coursePlanner.click('assignButton');
+  }
+});
+
+When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Gradebook');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+  await pages.gradebook.click('editTotal',user.firstName)
+  await pages.gradebook.populate('editGrade', data_table.hashes()[i].editGrade);
+  await pages.gradebook.click('save', 'Save');
+    }
+});
+
+Then('I verify the Grades', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.gradebook.assertTextIncludes('courseTotal', user.firstName, data_table.hashes()[i].CourseTotal);
+    await pages.gradebook.assertTextIncludes('studentcourseTotal', user.firstName, data_table.hashes()[i].Google);
+    await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
   }
 });

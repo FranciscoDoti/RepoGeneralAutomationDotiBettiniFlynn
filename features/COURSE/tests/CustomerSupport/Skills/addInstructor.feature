@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Adding Instructor to the Template
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario:  Verify that customer support is able to add Instructor to Skills course
 
@@ -16,10 +17,11 @@ Feature: Adding Instructor to the Template
 
         And I add the activities in resources to "Skills Template" template
             | type                    | activity                                      |    
-            | addButtonLearningcurve  | LC1551301608988                               |
+            | addButtonLearningcurve  | LC1551301608988 Automated Test                               |
             | addReadingButton        |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage
+        And I click on "Course Templates" tab 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |

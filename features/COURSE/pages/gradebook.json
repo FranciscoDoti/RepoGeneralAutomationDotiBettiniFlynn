@@ -77,8 +77,8 @@
             "specialInstr": "NA"
         },{
             "name": "save",
-            "byType": "CSS",
-            "definition": "[aria-label='<ReplaceText>']",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -86,6 +86,14 @@
             "name": "TotalPercentage",
             "byType": "xpath",
             "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_averages_percent_cell']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "TotalPercentGrades",
+            "byType": "xpath",
+            "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_of_total_grades_cell']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -104,6 +112,37 @@
             "definition": "//*[.='<ReplaceText>']/../../../../../../..//div[@data-test-id='course_total']",
             "frame": "default",
             "specialInstr": "NA"
+
+        },
+        {
+            "name": "studentcourseTotal",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "editTotal",
+            "byType": "xpath",
+            "definition": "(//*[.='<ReplaceText>']/../../../../../../../../..//div/button[@class='_3WM4'])[1]",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "editGrade",
+            "byType": "css",
+            "definition": "input[label='__overrideGradeDialog_comment']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "studentCategoryTotal",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
+            "frame": "default",
+            "specialInstr": "NA"
+     
 
         }
     ]

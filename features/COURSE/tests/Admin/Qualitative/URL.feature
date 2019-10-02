@@ -1,7 +1,7 @@
 @Course @Smoke @Skip
 Feature: Verify that Admin is able to create URL
 
-    @admin-delete-course
+    @admin-delete-courseTemplate
     Scenario: Verify that Admin is able to create a custom tsak with URL in Qual course
 
        Given I login to Achieve-CW as "admin_1"

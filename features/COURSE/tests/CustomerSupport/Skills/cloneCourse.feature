@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Skills Template
 
-   @custmersupport-delete-course
+    @customersupport-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Skills Template
     
@@ -16,9 +16,9 @@ Feature: Customer Support attempts all the activities in Skills Template
 
         And I add the activities in resources to "Skills Template" template
             | type                     | activity                                      |    
-            | addButtonLearningcurve   | LC1551301608988                               |
+            | addButtonLearningcurve   | LC1551301608988 Automated Test                               |
             | addReadingButton         | GLOSSARY                                      |
-            | addButtonReadandpractice | LCRP1550612138614                             |
+            | addButtonReadandpractice | LCRP1550612138614 Automated Test                             |
 
         And I sign out of Achieve
         
@@ -30,11 +30,11 @@ Feature: Customer Support attempts all the activities in Skills Template
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |
 
-        And I click on search button and input "Skills Course" to search the course
+        And I search for "Skills Course" in Courses tab
         
         Then I verify that "Skills Course" is created with following data
-            | field                 | value                     |
-            | courseName            | Skills Course             |
-            | courseDate            |  E2E 301                   |
+            | CourseName            | Status                    |
+            | courseCard            | Skills Course             |
+            | Status                |  Draft                    |
            
         

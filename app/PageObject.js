@@ -439,7 +439,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
 
     try {
-      log.debug(`Starting click the web element: ${elementName}`);
+      log.info(`Starting click the web element: ${elementName}`);
       await genericPopulateElement(elementName, 'click');
     } catch (err) {
       log.error(err.stack);
