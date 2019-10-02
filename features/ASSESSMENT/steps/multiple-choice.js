@@ -30,7 +30,7 @@ When('I add Multiple Choice hatchling item with following details', async functi
   await pages.hatchlingItem.assertText('Dialog Title', 'Multiple Choice Question');
   
   let q = datatable.hashes()[0];
-  q.QuestionTitle = item.QuestionTitle + " " + code;
+  q.QuestionTitle = q.QuestionTitle + " " + code;
   await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt); 
 });

@@ -139,13 +139,13 @@
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../..//div[@class='rte-content' and @data-test-id='hatchling-incorrect-choice']",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },{
             "name": "Incorrect Answer Feedback",
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//div[contains(@class,'public-DraftEditor-content')]",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },{
             "name": "Button",
             "byType": "xpath",

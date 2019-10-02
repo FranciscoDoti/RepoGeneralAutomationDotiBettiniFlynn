@@ -4,7 +4,6 @@ const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { assert } = require('chai');
-const actions = getDriver().actions({bridge: true});
 
 const populateInput = async function (selector, value, WebElementObject) {
   const type = await selector.getAttribute('type');
@@ -87,6 +86,8 @@ const populateSelect = async function (selector, item, WebElementData) {
 };
 
 const populateTextField = async function (selector, value, WebElementObject) {
+  const actions = getDriver().actions({bridge: true});
+
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
   const eleValue = await selector.getAttribute('value');
@@ -261,6 +262,8 @@ const populateFile = async function (selector, value, WebElementObject) {
 };
 
 const populateRichTextField = async function (selector, value, WebElementObject) {
+  const actions = getDriver().actions({bridge: true});
+
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
   const eleValue = await selector.getAttribute('textContent');
