@@ -141,13 +141,12 @@ Feature: Student compelets Pathfinder Activity
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
     
-    @mediaproducer-delete-course
-    @mediaproducer-delete-courseTemplate
+   
     Scenario: Verify that student is able to see Grades in Gradebook 
 
         When I login to Achieve-CW as "student_1"
 
-        And I click on "activities Course"
+        And I click on "Pathfinder Course"
 
         Then I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
