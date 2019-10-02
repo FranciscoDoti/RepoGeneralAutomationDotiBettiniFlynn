@@ -82,7 +82,7 @@ Then('I verify item has been created with following details', async function (da
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
-    
+
     //code to check element should not be present
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
