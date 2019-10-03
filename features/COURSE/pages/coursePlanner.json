@@ -739,6 +739,13 @@
             "definition": "[data-test-id='radio_button_visible_range_student']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "classCompletion",
+            "byType": "xpath",
+            "definition": "//a[.='AutomationAsset2']/../../../..//div[@data-test-id='completion_percentage_pie']",
+            "frame": "default",
+            "specialInstr": "NA"
 
 
         }

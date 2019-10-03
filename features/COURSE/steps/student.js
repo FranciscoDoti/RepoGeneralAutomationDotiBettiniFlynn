@@ -66,7 +66,7 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, c
   let text = await pages.createCourse.getText('courseShortId', courseName);
   await shared.login.click('togglerMenu');
   await shared.login.click('signOut');
-  await shared.login.click('signinlink');
+  await IAMpages.signIn.click('signinlink');
   await shared.login.populate('username', user.username);
   await shared.login.populate('password', user.password);
   await shared.login.click('signin');
@@ -176,7 +176,10 @@ When(/^I attempt "(.*)" Read and Practice activity$/, async function (activityNa
 });
 
 When('I add the activities to the resource tab', async function (data_table) {
+  await pages.resources.assertElementExists('goToContent');
+  await sleep(500);
   await pages.resources.click('goToContent');
+  await sleep(500);
   await pages.resources.click('closeResourceSearchNav');
   await pages.resources.click('addContent');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -188,7 +191,7 @@ When('I add the activities to the resource tab', async function (data_table) {
 
 When(/^I attempt "(.*)" URL activity$/, async function (activityName){
   await pages.overview.click('activityName', activityName);
-  await IAMpages.signIn.switchToTab('Macmillan Learning :: ');
+  await IAMpages.signIn.switchToTab('Macmillan Learning Achieve');
 });
 
 When(/^I attempt "(.*)" File activity$/, async function(activityName) {
@@ -202,3 +205,25 @@ Then('I verify Total Grades', async function (data_table){
     await pages.gradebook.assertTextIncludes('TotalPercentGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades);
   }
 });
+
+When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
+  await pages.courseList.populate('search', Course);
+  await pages.coursePage.click('courseMenu');
+  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('deleteCourse');
+  await pages.courseList.click('confirmDelete');
+  await pages.home.click('closeAlert');
+  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.populate('search', courseTemplate);
+  await pages.coursePage.click('courseMenu');
+  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('deleteCourse');
+  await pages.courseList.click('confirmDelete');
+});
+
+Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
+  await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
+  await pages.courseList.click('courseTemplate', 'Courses');
+  await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
+
+})

@@ -1,5 +1,6 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.courseList.populate('search', input);
@@ -23,9 +24,25 @@ When(/^I click on "(.*)" Button$/, async function (tab){
 });
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
+  await pages.courseList.waitForElementVisibility('courseTemplate', 'Course Templates');
   await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.populate('search', CourseName);
   await pages.createCourse.assertElementExists('courseCard', CourseName)
+});
+
+When(/^I activate "(.*)" template and add the following data$/, async function (courseName,data_table){
+  await pages.courseList.waitForElementVisibility('courseMenu', courseName);
+  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.click('courseMenu', courseName)
+  await pages.editCourse.click('editCourse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    await pages.editCourse.populate('courseName', c.courseName)
+    await pages.editCourse.populate('courseCode', c.courseCode)
+    await pages.editCourse.populate('templateStatus', c.templateStatus)
+  }
+  await pages.editCourse.click('save');
+  await pages.home.click('closeAlert');
 });
 
 
@@ -39,10 +56,24 @@ When('I delete the courses', async function () {
 });
 Then(/^I verify that "(.*)" is created with following data$/, async function (courseName, data_table) {
   // await pages.courseList.populate('search', courseName);
+  this.data.set('course', courseName);
+  await sleep(500);
+  await pages.courseList.waitForElementVisibility('courseMenu', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    await pages.createCourse.assertTextIncludes('courseCard',courseName, c.CourseName);
+    await pages.createCourse.assertTextIncludes('Status',courseName, c.Status);
+  }
+});
+Then(/^I verify that "(.*)" is activated with following data$/, async function (courseName, data_table){
   this.data.set('course',courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.createCourse.assertTextIncludes(data_table.hashes()[i].field,courseName, data_table.hashes()[i].value);
+    var c = data_table.hashes()[i];
+    await pages.createCourse.assertTextIncludes('courseCard',courseName, c.CourseName);
+    await pages.createCourse.assertTextIncludes('TemplateStatus',courseName, c.Status);
+    await pages.createCourse.assertTextIncludes('ISBNVerification',courseName, c.ISBN);
   }
 });
 
@@ -66,10 +97,23 @@ When('I add URL activity in resource tab', async function (data_table) {
   }
 });
 
-When('I close generate access code', async function (){
+When('I close generate access code', async function () {
   await pages.adminMenu.click('closeExportList');
 });
 
 When(/^I click on "(.*)" tab$/, async function (tab){
   await pages.courseList.click('courseTemplate', tab);
 })
+When(/^I clone content from "(.*)" template$/, async function (courseName) {
+  await pages.coursePage.click('navigation', 'Resources');
+  await pages.resources.click('importStructure');
+  await pages.resources.click('importStructureSearchBar');
+  await pages.resources.populate("importStructureSearchBar", courseName);
+  await pages.resources.click('importStructureSelectButton');
+  await pages.resources.click('importContentCheckboxContent');
+  await pages.resources.click('importContentImportButton');
+});
+
+Then(/^I verify if content was imported successfully with message "(.*)"$/, async function (message) {
+  await pages.home.assertTextIncludes('alert', message);
+});

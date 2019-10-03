@@ -25,7 +25,7 @@ Feature: Customer Support attempts all the activities in Qualitative Template
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
-        And I change to Course Template Tab
+       
         And I click on search button and input "Qualitative Template" to search the course
                 
         And I copy course from the "Qualitative Template" template with the following data
@@ -35,8 +35,7 @@ Feature: Customer Support attempts all the activities in Qualitative Template
         And I search for "Qualitative Course" in Courses tab
 
         Then I verify that "Qualitative Course" is created with following data
-            | field                 | value                     |
-            | courseCard            | Qualitative Course        |
-            | Status                |  Draft                    |
+            | CourseName            | Status                    |
+            | Qualitative Course    |  Draft                    |
            
         

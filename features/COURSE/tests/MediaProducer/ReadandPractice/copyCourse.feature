@@ -27,12 +27,12 @@ Feature: Copy course from Read & Practice template
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |
-        And I click on "Course Templates" tab 
+       
+        And I click on "Courses" tab 
 
         Then I verify that "Read & Practice Course" is created with following data
-            | field                 | value                     |
-            | courseCard            | Read & Practice Course    |
-            | Status                |  Draft                    |
+            | CourseName             | Status                    |
+            | Read & Practice Course |  Draft                    |
           
            
 

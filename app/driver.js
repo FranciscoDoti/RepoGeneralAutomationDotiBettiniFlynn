@@ -94,7 +94,6 @@ driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
-  await driver.manage().window().maximize();
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
   await driver.get(url);
@@ -118,26 +117,24 @@ const resetBrowser = async function () {
   await switchToTab(tabs[0]);
   log.info(`Clearing cache and cookies. Current URL is ${await driver.getCurrentUrl()}.`);
   await driver.manage().deleteAllCookies();
-  return driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
+  return await driver.executeScript('window.sessionStorage.clear();window.localStorage.clear();');
 };
 
 const activateTab = async function (tabName) {
-  var tabs = await driver.getAllWindowHandles();
-  for (let index = 0; index < tabs.length; index++) {
-    await switchToTab(tabs[index]);
-    currentTabName = await getTitle();
-    if (currentTabName.includes(tabName)) {
-      break;
+  let startTimer = Date.now();
+  while(Date.now() - startTimer < config.timeout){
+    var tabs = await driver.getAllWindowHandles();
+    for (let index = 0; index < tabs.length; index++) {
+      await switchToTab(tabs[index]);
+      let currentTabName = await getTitle();
+      if (currentTabName.includes(tabName)) {
+        log.debug(`${currentTabName} tab activated.`);
+        return true;
+      }
     }
-  }
-
-  currentTabName = await getTitle();
-  if (!currentTabName.includes(tabName)) {
-    log.info(`${tabName} tab was not found.`);
-    await switchToTab(tabs[0]);
-  } else {
-    log.debug(`${currentTabName} tab activated.`);
-  }
+    await sleep(5000);
+  };
+  return false;
 };
 
 const switchToTab = async function (tab) {
@@ -150,7 +147,7 @@ const switchToTab = async function (tab) {
 
 const getTitle = async function () {
   try {
-    return driver.getTitle();
+    return await driver.getTitle();
   } catch (err) {
     log.error(err.stack);
   }
@@ -158,7 +155,7 @@ const getTitle = async function () {
 
 const getURL = async function () {
   try {
-    return driver.getCurrentUrl();
+    return await driver.getCurrentUrl();
   } catch (err) {
     log.error(err.stack);
   }
@@ -166,7 +163,7 @@ const getURL = async function () {
 
 const takeScreenshot = async function () {
   try {
-    return driver.takeScreenshot();
+    return await driver.takeScreenshot();
   } catch (err) {
     log.error(err.stack);
   }

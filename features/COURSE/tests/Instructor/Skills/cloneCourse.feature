@@ -46,10 +46,8 @@ Feature: Instructor attempts all the activities in Skills Template
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
-        And  I verify that "Skills Instructor Course" is created with following data
-            | field                 | value                                   |
-            | courseCard            | Skills Instructor Course                |
-            | Status                |  Draft                                  |
+        And I verify that "Skills Instructor Course" is created
+        
            
         
 

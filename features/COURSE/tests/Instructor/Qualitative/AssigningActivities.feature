@@ -60,5 +60,5 @@ Feature: Assigning the activities present in Qualitative course
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Glossary                                                       | Open   |
+            | Glossary                                                         | Open   |
 

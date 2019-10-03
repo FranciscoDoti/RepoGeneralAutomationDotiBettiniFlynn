@@ -27,12 +27,12 @@ Feature: Copy course Quantitative Template
         And I copy course from the "Quantitative Template" template with the following data
             | courseName          | courseCode           |
             | Quantitative Course  | E2E 301             |
-        And I click on "Course Templates" tab 
+        
+        And I click on "Courses" tab 
 
         Then I verify that "Quantitative Course" is created with following data
-            | field                 | value                     |
-            | courseCard            | Quantitative Course       |
-            | Status                |  Draft                    |
+            | CourseName            | Status                    |
+            | Quantitative Course   |  Draft                    |
            
 
 

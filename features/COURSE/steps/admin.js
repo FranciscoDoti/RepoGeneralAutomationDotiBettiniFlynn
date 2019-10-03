@@ -38,6 +38,8 @@ When('I click on Manage roles', async function () {
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.waitForElementVisibility('manageRoles');
   await pages.adminMenu.assertElementExists('manageRoles');
   await pages.adminMenu.click('manageRoles')
 });
