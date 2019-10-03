@@ -47,7 +47,7 @@
         },{
             "name": "courseTitle",
             "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {

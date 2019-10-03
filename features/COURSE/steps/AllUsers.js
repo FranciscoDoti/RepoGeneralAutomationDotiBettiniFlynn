@@ -1,5 +1,6 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.courseList.populate('search', input);
@@ -20,9 +21,25 @@ When('I click on home button to return to coursepage', async function () {
 });
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
+  await pages.courseList.waitForElementVisibility('courseTemplate', 'Course Templates');
   await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.populate('search', CourseName);
   await pages.createCourse.assertElementExists('courseCard', CourseName)
+});
+
+When(/^I activate "(.*)" template and add the following data$/, async function (courseName,data_table){
+  await pages.courseList.waitForElementVisibility('courseMenu', courseName);
+  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.click('courseMenu', courseName)
+  await pages.editCourse.click('editCourse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    await pages.editCourse.populate('courseName', c.courseName)
+    await pages.editCourse.populate('courseCode', c.courseCode)
+    await pages.editCourse.populate('templateStatus', c.templateStatus)
+  }
+  await pages.editCourse.click('save');
+  await pages.home.click('closeAlert');
 });
 
 
@@ -35,9 +52,11 @@ When('I delete the courses', async function () {
   }
 });
 Then(/^I verify that "(.*)" is created with following data$/, async function (courseName, data_table) {
-  await pages.courseList.populate('search', courseName);
-  this.data.set('course',courseName);
-  //await pages.createCourse.assertElementExists('courseCard', courseName);
+  // await pages.courseList.populate('search', courseName);
+  this.data.set('course', courseName);
+  await sleep(500);
+  await pages.courseList.waitForElementVisibility('courseMenu', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
     await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
@@ -55,7 +74,7 @@ Then(/^I verify that "(.*)" is activated with following data$/, async function (
   }
 });
 
-When(/^I add URL link to "(.*)"$/, async function (data_table) {
+When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('addActivity');

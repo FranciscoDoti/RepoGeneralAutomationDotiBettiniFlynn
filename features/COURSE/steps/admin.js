@@ -17,6 +17,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.adminMenu.waitForElementVisibility('admin');
   await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
   await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', user.username);
@@ -36,6 +37,8 @@ When('I click on Manage roles', async function () {
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.waitForElementVisibility('manageRoles');
   await pages.adminMenu.assertElementExists('manageRoles');
   await pages.adminMenu.click('manageRoles')
 });
@@ -82,4 +85,19 @@ Then('I verify the report is dowloaded with following data', async function (dat
   for (let i = 0; i < datatable.rows().length; i++) {
       expect(data[0]).to.have.property(datatable.hashes()[i].ColumnName);
   }
+});
+
+
+When(/^I click on "(.*)" Tab$/, async function (tabName){
+  await pages.coursePage.click('Tab', tabName)
+});
+
+Then('I verify that following Tab are present', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePage.assertElementExists('Tab', data_table.hashes()[i].Tabs)
+  }
+})
+
+When(/^I click on "(.*)" card$/, async function (courseName){
+  await pages.courseList.click('courseCard')
 });

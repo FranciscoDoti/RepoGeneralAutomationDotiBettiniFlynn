@@ -17,7 +17,7 @@ Feature: Adding Instructor to the Template
 
         And I add the activities in resources to "Skills Template" template
             | type                    | activity                                      |    
-            | addButtonLearningcurve  | LC1551301608988 Automated Test                               |
+            | addButtonLearningcurve  | LC1551301608988                               |
             | addReadingButton        |  GLOSSARY                                     |
 
         And I click on home button to return to coursepage

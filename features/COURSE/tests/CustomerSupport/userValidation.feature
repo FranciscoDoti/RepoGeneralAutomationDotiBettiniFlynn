@@ -8,5 +8,5 @@ Feature: Validating the user
         Then I verify that "student_1" details
             |Details        |  Value                |
             |accountName    | Macmillan Student     |   
-            |studentId      | 0050n0000022vwUAAQ    | 
+            |studentId      | 0053B000002UYzhQAG    | 
 
