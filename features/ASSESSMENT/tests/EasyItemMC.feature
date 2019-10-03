@@ -15,10 +15,10 @@ Feature: Create a MC Hatchling Item from AMS
             | Australia   | Incorrect |
             | India       | Incorrect | 
             | NewZealandd | Incorrect |
-        # And I set hint and generic feedback with following details and save
-        #     | Hint                  | GenericFeedback             |
-        #     | You Know the answers! | You must provide a response |
-        # Then I verify the items were updated in AMS
-        #     | Title                              | Status       | 
-        #     | QA Hatchling MC Test Item from AMS | In Progress  | 
+        And I set hint and generic feedback with following details and save
+            | Hint                  | GenericFeedback             |
+            | You Know the answers! | You must provide a response |
+        Then I verify the items were updated in AMS
+            | Title                              | Status       | 
+            | QA Hatchling MC Test Item from AMS | In Progress  | 
         
