@@ -61,3 +61,7 @@ When(/^I set hint and generic feedback with following details and save$/,async f
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
   await pages.hatchlingItem.click('Button', 'Save');
 });
+Then('I verify the items were updated in AMS', function (dataTable) {
+  
+  
+});
