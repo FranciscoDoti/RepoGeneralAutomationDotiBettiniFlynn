@@ -124,7 +124,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I verify Total Grades
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Test Total                                    | 100%        |   5     |   25%                |
-            | Assignments Total                             | 100%       |   15    |   75%                |
+            | Assignments Total                             | 100%        |   15    |   75%                |
         
 
     Scenario: Verify that instructor is able to edit the grades of student
