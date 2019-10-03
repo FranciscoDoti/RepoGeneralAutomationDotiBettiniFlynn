@@ -6,13 +6,15 @@
             "definition": "//a[contains(.,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "Hatchling Item Option",
             "byType": "xpath",
             "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-       },{
+        },
+        {
             "name": "Select Checkbox",
             "byType": "xpath",
             "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/input",
@@ -37,6 +39,48 @@
             "name": "Item Field",
             "byType": "xpath",
             "definition": "//td[contains(@data-test-id,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Title",
+            "byType": "xpath",
+            "definition": "//div[@id='item-panel']//tbody//td[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Preview",
+            "byType": "xpath",
+            "definition": "//div[@id='item-panel']//tbody//td[text()='<ReplaceText>']/..//span[@title='preview item']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Show Feedback Toggle",
+            "byType": "xpath",
+            "definition": "//label[@class='switch']/div",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Tab",
+            "byType": "xpath",
+            "definition": "//div[@id='raptor-panel']//li[@role='presentation']/a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Solution Feedback",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'raptor-solution')]//div[@data-module-type='static_textfield']/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Side Panel",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'side-panel')]//div[@data-module-type='static_textfield']/span/span",
             "frame": "default",
             "specialInstr": "NA"
         }

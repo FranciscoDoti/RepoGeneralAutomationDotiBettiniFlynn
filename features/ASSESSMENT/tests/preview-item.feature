@@ -21,6 +21,6 @@ Feature: Preview item feature
         Examples:
             | Title                 | ModuleType        |
             | NGA QA Test MC Item   | Multiple Choice   |
-            # | NGA QA Test MS Item   | Multiple Select   |
-            # | NGA QA Test UT Item   | Ungraded Text     |
-            # | NGA QA Test MD Item   | Molecular Drawing |
+            | NGA QA Test MS Item   | Multiple Select   |
+            | NGA QA Test UT Item   | Ungraded Text     |
+            | NGA QA Test MD Item   | Molecular Drawing |

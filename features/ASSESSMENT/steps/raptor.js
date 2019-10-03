@@ -155,10 +155,7 @@ When(/^I add the (.*) draft item in AMS with title (.*)$/, async function(module
     this.data.set('itemTitle', title+timeStamp);
     await pages.ams.assertElementExists('Add Item', 'Easy');
     await pages.ams.click('Add Item', 'Raptor');
-    await driver.sleep(5000);
-    // await pages.raptor.waitForElementVisibility('Raptor Authoring');
     await pages.ams.switchToTab('Raptor Authoring');
-    // await pages.raptor.waitForElementVisibility('Primary Btn', 'PRIMARY ADD MODULE');
     await pages.raptor.click('Primary Menu', 'PRIMARY ADD MODULE');
     await pages.raptor.click('Module Pallete', moduleType);
     await pages.raptor.click('Content Area');
@@ -187,20 +184,20 @@ When('I add the following feedbacks and save the item', async function (datatabl
 
 Then(/^I verify the feedbacks in the following tabs$/, async function(datatable){
     await pages.ams.switchToTab('Sapling Learning Author Management System');
+    await pages.ams.waitForElementInvisibility('Algolia is Processing', 180);
     driver.getDriver().navigate().refresh();
-    await pages.ams.waitForElementInvisibility('Algolia is Processing');
     await pages.ams.assertElementExists('Item Title', this.data.get('itemTitle'));
     await pages.ams.click('Item Preview', this.data.get('itemTitle'));
     await pages.ams.click('Show Feedback Toggle');
     for (let i = 0; i < datatable.rows().length; i++) {
         let itemTabs = datatable.hashes()[i];
-        await pages.ams.click('Feedback Tab', itemTabs.Tabs.toLowerCase());
-        if(itemTabs.Tabs== 'Solution'){
-            await pages.ams.assertElementExists('Solution Feedback', itemTabs.FeedbackText);
+        await pages.ams.click('Feedback Tab', (itemTabs['Tab Name']).toLowerCase());
+        if(itemTabs['Tab Name']== 'Solution'){
+            await pages.ams.assertElementExists('Solution Feedback', itemTabs['Feedback Text']);
         }
         else
         {
-            await pages.ams.assertElementExists('Feedback Side Panel', itemTabs.FeedbackText);
+            await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
         }
       }
 
