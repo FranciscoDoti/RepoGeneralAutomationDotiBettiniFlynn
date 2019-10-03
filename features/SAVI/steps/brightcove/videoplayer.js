@@ -6,9 +6,15 @@ const { log } = require(`${process.cwd()}/app/logger`);
 
 Given('I navigate to an assignment with Brightcove Video Player', async function () {
   visitURL('http://www.saplinglearning.com/ibiscms/mod/flcn/view.php?id=9595874');
+});
+
+Then('I run through sapling', async function () {  
   await pages.saplingLearning.click('studentPreviewButton');
   await pages.saplingLearning.click('clearAttemptsButton');
-  await pages.saplingLearning.switchToTab('Student Assignment');
+//  await pages.saplingLearning.switchToTab('Student Assignment');
+  await sleep(4000);
+  await pages.saplingLearning.switchToTab('Question 1 of 7 - TestRail Brightcove Video')
+  
   // careful about this tab name. it likes to change
   // sometimes the tab is named "Sapling Learning Student Assignment",
   // sometimes the tab is named "Question 1 of x - abcdefg"

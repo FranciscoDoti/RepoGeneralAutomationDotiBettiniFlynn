@@ -4,8 +4,10 @@ Feature: Brightcove Video Player
 
   Background: Login to IBISCMS and navigate to Student Assignment tab
 
-    Given I login to IBISCMS as "kelly.lancaster+savi"
-    Then I navigate to an assignment with Brightcove Video Player
+    Given I navigate to an assignment with Brightcove Video Player
+    Given I login to IBISCMS as "savi-kelly"
+
+    Then I run through sapling
 
   # SAVI -> Brightcove Video -> Test Cases -> Play Video
   Scenario: Play video with bottom bar play button
