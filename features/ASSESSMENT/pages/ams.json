@@ -10,7 +10,7 @@
         {
             "name": "Select Checkbox",
             "byType": "xpath",
-            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span",
+            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/input",
             "frame": "default",
             "specialInstr": "NA"
         },
