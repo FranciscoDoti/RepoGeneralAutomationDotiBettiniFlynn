@@ -29,10 +29,12 @@ When('I add Multiple Choice hatchling item with following details', async functi
   await pages.ams.click('Hatchling Item Option', 'Multiple Choice');
   await pages.hatchlingItem.assertText('Dialog Title', 'Multiple Choice Question');
   
+  
   let q = datatable.hashes()[0];
   q.QuestionTitle = q.QuestionTitle + " " + code;
   await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt); 
+  this.data.set("Question Title",q.questionTitle);
 });
 
 When('I add the following correct answer and feedback', async function (datatable) {
@@ -60,8 +62,9 @@ When(/^I set hint and generic feedback with following details and save$/,async f
   await pages.hatchlingItem.click('Collapsible Title', 'Generic Feedback');
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
   await pages.hatchlingItem.click('Button', 'Save');
-});
-Then('I verify the items were updated in AMS', function (dataTable) {
   
-  
+  let questionTitle = this.data.get("Question Title");
+  let itemId = await pages.hatchlingItem.getText('item id', questionTitle);
+  log.info(`===============> "${itemId}". PASS`);
+
 });

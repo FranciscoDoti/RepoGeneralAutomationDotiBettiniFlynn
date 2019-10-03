@@ -184,6 +184,12 @@
             "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },{
+            "name": "item id",
+            "byType": "xpath",
+            "definition": "//td[text()='<ReplaceText>']/..//a",
+            "frame": "default",
+            "specialInstr": "focus"
         }
     ]
 }
