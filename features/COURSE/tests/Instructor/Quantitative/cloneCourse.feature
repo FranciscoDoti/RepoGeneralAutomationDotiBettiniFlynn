@@ -47,7 +47,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
-        I verify that "Quantitative Instructor Course" is created
+        Then I verify that "Quantitative Instructor Course" is created
            
         
 
