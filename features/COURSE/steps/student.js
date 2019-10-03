@@ -112,6 +112,10 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
                 await choice.click()
                 break;
               }
+              if(z=== true){
+                await pages.overview.click('midwayLc')
+        
+              }
               await pages.overview.assertElementExists('nextQuestion');
               await pages.overview.click('nextQuestion');
               break;
@@ -132,6 +136,10 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
               }
             }
             await pages.overview.click('submitButton');
+            if(z=== true){
+              await pages.overview.click('midwayLc')
+      
+            }
             await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
 
@@ -140,14 +148,13 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
           console.log('Entered FB')
             await pages.overview.populate('fillInTheBlank', answerKey.Answer);
             await pages.overview.click('submitButton');
+            if(z=== true){
+              await pages.overview.click('midwayLc')
+            }
             await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
             break
         }
-
-      }
-      if(z=== true){
-        await pages.overview.click('midwayLc')
 
       }
      if (x >= y){
