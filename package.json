@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "axe-webdriverjs": "latest",
-    "chai": "latest",
-    "chai-sorted": "latest",
+    "chai": "latest", 
     "chromedriver": "latest",
     "csvtojson": "latest",
     "cucumber": "latest",
