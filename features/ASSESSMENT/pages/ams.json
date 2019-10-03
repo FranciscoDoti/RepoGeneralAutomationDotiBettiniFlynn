@@ -17,7 +17,14 @@
         {
             "name": "AMS Button",
             "byType": "xpath",
-            "definition": "//li[contains(.,'<ReplaceText>')]",
+            "definition": "//li[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Confirmation Dialog Button",
+            "byType": "xpath",
+            "definition": "//a[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -32,6 +39,20 @@
             "name": "Item Field",
             "byType": "xpath",
             "definition": "//td[contains(@data-test-id,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Menu Element",
+            "byType": "xpath",
+            "definition": "//li[@role='presentation']/a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item ID",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='edit-item-link-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }

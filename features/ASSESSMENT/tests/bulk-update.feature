@@ -29,3 +29,30 @@ Feature: To update multiple raptor items in AMS by bulk update
             | Raptor     | NGA QA Test MS Item | Your Questions (uncategorized) | Math Review | easy       | MS         | live   | public |
             | Raptor     | NGA QA Test UT Item | Your Questions (uncategorized) | Math Review | easy       |            | live   | public |
             | Raptor     | NGA QA Test MD Item | Your Questions (uncategorized) | Math Review | easy       | MD         | live   | public |
+
+    @BulkUpdateDelete
+    Scenario: Instructor deletes several items at once by bulk update
+
+        Given I login to AMS as "all-permissions-author"
+        When I create the following draft Raptor items in AMS
+            | Title               | Module Type       |
+            | NGA QA Test MC Item | Multiple Choice   |
+            | NGA QA Test MS Item | Multiple Select   |
+            | NGA QA Test UT Item | Ungraded Text     |
+            | NGA QA Test MD Item | Molecular Drawing |
+
+        And I select the following items by title on AMS
+            | Title               |
+            | NGA QA Test MC Item |
+            | NGA QA Test MS Item |
+            | NGA QA Test UT Item |
+            | NGA QA Test MD Item |
+
+        And I delete the selected items
+
+        Then I verify that the following items do not exist in AMS
+            | Title               |
+            | NGA QA Test MC Item |
+            | NGA QA Test MS Item |
+            | NGA QA Test UT Item |
+            | NGA QA Test MD Item |

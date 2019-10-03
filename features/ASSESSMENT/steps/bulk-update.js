@@ -17,16 +17,15 @@ When('I create the following draft Raptor items in AMS', async function (datatab
 });
 
 When('I select the following items by title on AMS', async function (datatable) {
-  await pages.ams.switchToTab('Sapling Learning Author Management System');
   await amslib.waitAlgoliaProcess();
   for (let i = 0; i < datatable.rows().length; i++) {
-      let item = datatable.hashes()[i];
-      await pages.ams.click('Select Checkbox', this.data.get(item.Title, "id"));
+    let item = datatable.hashes()[i];
+    await pages.ams.click('Select Checkbox', this.data.get(item.Title, "id"));
   }
 });
 
 When('I update the selected items with the following details', async function (datatable) {
-  await amslib.update();
+  await amslib.openUpdateModal();
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
 
@@ -37,15 +36,27 @@ When('I update the selected items with the following details', async function (d
     await updatelib.setAccess(item.Access);
     await updatelib.save();
   }
-  await amslib.done();
+  await amslib.updateDone();
+});
+
+When('I delete the selected items', async function () {
+  await amslib.deleteItems();
 });
 
 Then('I verify the details of the following items are displayed in AMS', async function (datatable) {
   await amslib.waitAlgoliaProcess();
-  await pages.ams.switchToTab('Sapling Learning Author Management System');
   for (i = 0; i < datatable.rows().length; i++) {
-      let item = datatable.hashes()[i];
-      let itemId = this.data.get(item.Title, "id");
-      await amslib.verifyItemDetails(item, itemId);
+    let item = datatable.hashes()[i];
+    let itemId = this.data.get(item.Title, "id");
+    await amslib.verifyItemDetails(item, itemId);
+  }
+});
+
+Then('I verify that the following items do not exist in AMS', async function (datatable) {
+  await pages.ams.switchToTab('Sapling Learning Author Management System');
+  await pages.ams.click('Menu Element', 'Deleted Items');
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let item = datatable.hashes()[i];
+    await pages.ams.assertElementExists('Item ID', this.data.get(item.Title, "id"));
   }
 });
