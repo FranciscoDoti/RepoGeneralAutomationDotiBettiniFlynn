@@ -2,13 +2,14 @@ const { Given, When } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
-const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { driver, visitURL } = require(`${process.cwd()}/app/driver`);
 const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 /* Verifies Sapling login */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['AMS', this.stack]);
   let user = this.users[userType];
+  await driver.manage().window().maximize();
   await visitURL(url);
   if (this.environment == 'local') {
     await pages.login.populate('username-local', user.username);
@@ -28,6 +29,7 @@ Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['AMS', this.stack]);
   let user = this.users[userType];
 
+  await driver.manage().window().maximize();
   await visitURL(url);
   if (this.environment == 'local') {
     await pages.login.populate('password-local', user.password);
@@ -49,6 +51,7 @@ When(/^I go back to sapling page and logout$/, async function () {
 Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users[userType];
+  await driver.manage().window().maximize();
   await visitURL(url);
   await pages.login.waitForElementVisibility('Button','SIGN IN', 10);
   await pages.login.click('Button','SIGN IN');
@@ -74,6 +77,7 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['IBISCMS', this.stack]);
   let user = this.users[userType];
 
+  await driver.manage().window().maximize();
   await visitURL(url);
   if (this.environment == 'local') {
     await pages.login.populate('username-local', user.username);

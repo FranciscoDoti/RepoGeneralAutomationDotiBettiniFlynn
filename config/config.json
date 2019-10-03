@@ -1,6 +1,6 @@
 {
     "environment": "int",
-    "mode": "local",
+    "mode": "hub",
     "browser": "chrome",
     "headless": false,
     "screenshots": "onFail",
