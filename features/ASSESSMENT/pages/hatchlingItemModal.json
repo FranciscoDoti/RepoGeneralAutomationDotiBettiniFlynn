@@ -7,10 +7,17 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Dialog Title",
+            "byType": "css",
+            "definition": ".cdl-dialog-header-title",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Question Title",
             "byType": "css",
             "definition": ".edit-question-title",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
         }, 
         {
@@ -24,7 +31,7 @@
             "name": "Question Prompt",
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-question-prompt']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
         }, 
         {
@@ -103,27 +110,54 @@
             "definition": "input[value=' Yes ']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "MCCorrectAnswerTextbox",
+        },{
+            "name": "Correct Answer",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-correct-choice']",
-            "frame": "aeframe",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "MCInCorrectAnswerTextbox",
-            "byType": "css",
-            "definition": "div[data-test-id='hatchling-incorrect-choice']",
-            "frame": "aeframe",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "addAnswerButton",
-            "byType": "css",
-            "definition": "button[data-test-id='add-answer-choice']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "Correct Answer Feedback",
+            "byType": "xpath",
+            "definition": "//span[text()='Correct Answer Feedback']/../..//div[@class='rte-content']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "Collapsible Title",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "Collapsible Incorrect Feedback Title",
+            "byType": "xpath",
+            "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//span[text()='Incorrect Answer Feedback']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "Incorrect Answer",
+            "byType": "xpath",
+            "definition": "//label[@for='option<ReplaceText>']/../..//div[@class='rte-content' and @data-test-id='hatchling-incorrect-choice']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "Incorrect Answer Feedback",
+            "byType": "xpath",
+            "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//div[contains(@class,'public-DraftEditor-content')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },{
+            "name": "Hint and Generic Feedback",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']/../..//div[contains(@class,'public-DraftEditor-content')]",
+            "frame": "default",
+            "specialInstr": "focus"
         },
         {
             "name": "hatchlingBody",
