@@ -176,8 +176,6 @@ When('I add the following feedbacks and save the item', async function (datatabl
         await pages.raptor.click('Answer Tab', (data['Tab Name']).toLowerCase());
         await pages.raptor.click('Feedback Add Button');
         await pages.raptor.click('Feedback Module', 'Ungraded Text');
-        // await pages.raptor.click('Primary Menu', 'PRIMARY ADD MODULE');
-        // await pages.raptor.click('Module Pallete', 'Ungraded Text');
         await pages.raptor.click('Feedback Context Area');
         await pages.raptor.click('Feedback Text');
         await pages.raptor.waitForElementVisibility('Editor Title', 'Static Text');
