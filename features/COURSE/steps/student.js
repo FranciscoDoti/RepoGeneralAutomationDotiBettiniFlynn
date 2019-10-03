@@ -223,6 +223,7 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
+  await pages.home.click('closeAlert');
   await pages.courseList.click('courseTemplate', 'Courses');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
 

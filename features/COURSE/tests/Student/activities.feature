@@ -4,7 +4,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
 
-        Given I login to Achieve-CW as "media_producer_1"
+        Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199486  | draft         |
@@ -98,6 +98,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
+            | Exercise: Misused words 1 (autoscored)        | Complete  |
     
 
         And I verify the activity status for the following activities in "ASSIGNMENTS"
@@ -105,28 +106,30 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
+            | Exercise: Misused words 1 (autoscored)        | Complete  |
 
     Scenario: Verify that student is able to see Grades in Gradebook 
 
-        When I login to Achieve-CW as "student_1"
+        When I login to Achieve-CW as "student_2"
 
         And I click on "activities Course"
 
         Then I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
-            | Glossary                                      |   100%      | 5       | 50%                  |
-            | Google                                        |   100%      | 5       | 33%                  |
-            | AutomationAsset2                              |   100%      | 5       | 50%                  |
+            | Glossary                                      |   100%      | 5       | 33%                  |
+            | Google                                        |   100%      | 5       | 100%                 |
+            | AutomationAsset2                              |   100%      | 5       | 33%                  |
+            | Exercise: Misused words 1 (autoscored)        |   100%      | 5       | 33%                  |
 
         And I verify Total Grades
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
-            | Test Total                                    | 100%        |   5     |   33%                |
-            | Assignments Total                              | 100%        |   10   |   67%               |
+            | Test Total                                    | 100%        |   5     |   25%                |
+            | Assignments Total                             | 100%       |   15    |   75%                |
         
 
     Scenario: Verify that instructor is able to edit the grades of student
 
-        Given I login to Achieve-CW as "instructor_2"
+        Given I login to Achieve-CW as "instructor_1"
 
         When I edit student grade in "activities Course"
             | Students   | editGrade |
@@ -134,7 +137,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         Then I verify the Grades
             | Students  | CourseTotal  | Google  | CategoryTotal | 
-            | student_1 | 73%          | 20%     | 20%           | 
+            | student_1 | 80%          | 20%     | 20%           | 
 
     Scenario: Verify that media producer is able to delete the  courses created
         Given I login to Achieve-CW as "media_producer_2"

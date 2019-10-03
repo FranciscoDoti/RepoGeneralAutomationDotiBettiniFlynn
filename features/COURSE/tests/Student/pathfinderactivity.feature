@@ -157,7 +157,14 @@ Feature: Student compelets Pathfinder Activity
         And I verify Total Grades
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Test Total                                    | 100%        |   5     |   33%                |
-            | Assignments Total                              | 100%        |   10   |   67%               |
+            | Assignments Total                             | 100%        |   10    |   67%                |
+
+    Scenario: Verify that media producer is able to delete the  courses created
+        Given I login to Achieve-CW as "media_producer_2"
+
+         When I delete "Pathfinder Template" and "Pathfinder Course"
+
+         Then I verify that "Pathfinder Template" and "Pathfinder Course" are deleted 
 
             
 
