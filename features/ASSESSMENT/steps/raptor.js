@@ -167,8 +167,6 @@ When('I add the following feedbacks and save the item', async function (datatabl
 
 Then(/^I verify the feedbacks in the following tabs$/, async function(datatable){
     await amslib.waitAlgoliaProcess();
-    // driver.getDriver().navigate().refresh();
-    // console.log(this.data.get("itemId"));
     await amslib.itemAction('preview', this.data.get("itemId"));
     await amslib.showFeedbackToggle();
     await amslib.verifyFeedback(datatable);
