@@ -17,7 +17,10 @@ const config = {
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
   timeout : defaults.timeout*1000,
-  stack: argv.stack || defaults.stack || argv.env || defaults.environment
+  stack: argv.stack || defaults.stack || argv.env || defaults.environment,
+  reportJSON : argv.f.indexOf('json:') > -1 ? (argv.f).split(':')[1] : undefined,
+  capabilities : undefined,
+  datetime : new Date().toISOString()
 };
 
 const buildDriver = function() {  
@@ -90,6 +93,7 @@ const buildDriver = function() {
   }
   return driver.build();
 };
+
 driver = buildDriver();
 
 const visitURL = async function(url){
@@ -178,6 +182,10 @@ const getWebDriver = function () {
   return webdriver;
 };
 
+const getCapabilities = async function () {
+  return (await driver.getCapabilities()).map_;
+};
+
 const onPageLoadedWaitById = async function (elementIdOnNextPage) {
   let by = webdriver.By.id(elementIdOnNextPage);
   log.debug(`Page Loaded - waited on id: ${elementIdOnNextPage}`);
@@ -250,6 +258,7 @@ module.exports = {
   takeScreenshot,
   getDriver,
   getWebDriver,
+  getCapabilities,
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,
   onWaitForWebElementToBeEnabled,
