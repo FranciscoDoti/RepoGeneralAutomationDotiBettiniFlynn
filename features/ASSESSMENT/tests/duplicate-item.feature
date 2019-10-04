@@ -9,7 +9,7 @@ Feature: As a user, I want to duplicate an existing item
       And I verify the details of the following items are displayed in AMS
          | Author Mode | Title                | Topic     | Taxonomy      | Difficulty   | Status      | Access | Module Type |
          | Raptor      | NGA QA Ungraded text |           | Question Bank | medium       | in progress | public |             | 
-      And I Duplicate item the item with Title
+      And I duplicate the item with title
          | Title                |
          | NGA QA Ungraded text |
       Then I verify the details of the following items are displayed in AMS

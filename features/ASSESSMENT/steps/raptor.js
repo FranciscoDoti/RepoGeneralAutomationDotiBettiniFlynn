@@ -43,7 +43,7 @@ When('I add the Ungraded text module with following details', async function (da
 });
 
 
-When('I Duplicate item the item with Title', async function (dataTable) {
+When('I Duplicate the item with title', async function (dataTable) {
     let item = dataTable.hashes()[0];
     let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
     this.data.set(item.Title, "id", duplicatedItemId);
