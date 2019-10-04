@@ -208,5 +208,19 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },
+    {
+        "name": "courseStatus",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3cOL']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "courseName",
+        "byType": "xpath",
+        "definition": "//div[contains(@class,'_1xE4') and contains(text(), '<ReplaceText>')]",
+        "frame": "default",
+        "specialInstr": "NA"
     }]
 }
