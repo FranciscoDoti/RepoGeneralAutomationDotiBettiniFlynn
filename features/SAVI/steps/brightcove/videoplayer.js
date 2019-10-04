@@ -4,20 +4,19 @@ const assert = require('assert');
 const { visitURL, sleep, getDriver } = require(`${process.cwd()}/app/driver`); // allows this file to be moved wherever
 const { log } = require(`${process.cwd()}/app/logger`);
 
-Given('I navigate to an assignment with Brightcove Video Player', async function () {
+Then('I navigate to an assignment with Brightcove Video Player', async function () {
   visitURL('http://www.saplinglearning.com/ibiscms/mod/flcn/view.php?id=9595874');
 });
 
-Then('I run through sapling', async function () {  
+Then('I launch the Student Assignment', async function () {
   await pages.saplingLearning.click('studentPreviewButton');
   await pages.saplingLearning.click('clearAttemptsButton');
-//  await pages.saplingLearning.switchToTab('Student Assignment');
-  await sleep(4000);
-  await pages.saplingLearning.switchToTab('Question 1 of 7 - TestRail Brightcove Video')
-  
-  // careful about this tab name. it likes to change
-  // sometimes the tab is named "Sapling Learning Student Assignment",
-  // sometimes the tab is named "Question 1 of x - abcdefg"
+
+  // switch to the new tab ("Sapling Learning Student Assignment Container") without relying on name
+  var tabs = await getDriver().getAllWindowHandles();
+  await getDriver().switchTo().window(tabs[tabs.length - 1]);
+  var tabName = await getDriver().getTitle();
+  log.info(`switching to tab "${tabName}"`);
 });
 
 Given('I navigate to standalone Brightcove Video Player', async function () {

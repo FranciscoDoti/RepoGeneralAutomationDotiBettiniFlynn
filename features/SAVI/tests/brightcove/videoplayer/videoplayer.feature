@@ -4,10 +4,9 @@ Feature: Brightcove Video Player
 
   Background: Login to IBISCMS and navigate to Student Assignment tab
 
-    Given I navigate to an assignment with Brightcove Video Player
-    Given I login to IBISCMS as "savi-kelly"
-
-    Then I run through sapling
+    Given I login to IBISCMS as "savi.create"
+    Then I navigate to an assignment with Brightcove Video Player
+    Then I launch the Student Assignment
 
   # SAVI -> Brightcove Video -> Test Cases -> Play Video
   Scenario: Play video with bottom bar play button
