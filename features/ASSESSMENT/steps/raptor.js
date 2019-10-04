@@ -29,7 +29,7 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
 });
 
 When('I add the Ungraded text module with following details', async function (dataTable) {
-    let item = dataTable.hashes()[0]; // ESTE STATEMENT PODRIA QUEDAR RARO POR LA i    
+    let item = dataTable.hashes()[0];    
     await amslib.addRaptorItem();
     await raptorlib.addModule('Ungraded Text');
     await pages.raptor.click('UngradedText-EnterText');
