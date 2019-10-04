@@ -283,7 +283,7 @@
         {
             "name": "UngradedText-EnterText",
             "byType": "xpath",
-            "definition": "//*[@data-module-type='static_textfield']/span/span",
+            "definition": "//div[@data-module-type='static_textfield']/span/span",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -297,7 +297,7 @@
         {
             "name": "Editor Done",
             "byType": "xpath",
-            "definition": "//*[@id='close-edit-host']",
+            "definition": "//button[@id='close-edit-host']",
             "frame": "default",
             "specialInstr": "NA"
         },

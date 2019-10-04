@@ -28,34 +28,10 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
     }
 });
 
-When('I add the Ungraded text module with following details', async function (dataTable) {
-    let item = dataTable.hashes()[0];    
-    await amslib.addRaptorItem();
-    await raptorlib.addModule('Ungraded Text');
-    await pages.raptor.click('UngradedText-EnterText');
-    await pages.raptor.populate('UngradedText-EnterText Editor', " ");
-    await pages.raptor.populate('UngradedText-EnterText Editor', dataTable.hashes()[0].Text);
-    await pages.raptor.click('Editor Done');
-    await raptorlib.addItemDetails(item);
-    let itemId = await raptorlib.saveItem();
-    this.data.set(item.Title, "id", itemId);
+When(/^I duplicate the item with title "(.*)"$/, async function (title) {
+    let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(title, 'id'));
+    this.data.set(title, "id", duplicatedItemId);
     await pages.ams.closeTab('Raptor Authoring');
-});
-
-
-When('I Duplicate the item with title', async function (dataTable) {
-    let item = dataTable.hashes()[0];
-    let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
-    this.data.set(item.Title, "id", duplicatedItemId);
-    await pages.ams.closeTab('Raptor Authoring');
-
-
-});
-
-When(/^I add the "(.*)" module$/, async function (moduleType) {
-    await mathpages.ams.assertElementExists('raptorNewEasyItem');
-    await mathpages.ams.click('raptorNewItem');
-
 });
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
