@@ -2,6 +2,7 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver.js`);
+const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -151,54 +152,24 @@ Then('I check FR answers', async function () {
 });
 
 When(/^I add the (.*) draft item in AMS with title (.*)$/, async function(moduleType, title){
-    var timeStamp = new Date().getTime();
-    this.data.set('itemTitle', title+timeStamp);
-    await pages.ams.assertElementExists('Add Item', 'Easy');
-    await pages.ams.click('Add Item', 'Raptor');
-    await pages.ams.switchToTab('Raptor Authoring');
-    await pages.raptor.click('Primary Menu', 'PRIMARY ADD MODULE');
-    await pages.raptor.click('Module Pallete', moduleType);
-    await pages.raptor.click('Content Area');
-    await pages.raptor.click('Primary Menu', 'PRIMARY MORE');
-    await pages.raptor.click('More Option', 'Item Details');
-    await pages.itemDetails.assertElementExists('Item Details Title', 'Item Details');
-    await pages.itemDetails.populate('Item Title', this.data.get('itemTitle'));
-    await pages.itemDetails.click('Item Details Save');
+    await amslib.addRaptorItem();
+    await raptorlib.addModule(moduleType);
+    await raptorlib.addItemDetails(title);
+    let itemId = await raptorlib.saveItem();
+    this.data.set("itemId", itemId);
 });
 
 When('I add the following feedbacks and save the item', async function (datatable) {
-    await pages.raptor.click('Add Choice', 'incorrect');
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let data = datatable.hashes()[i];
-        await pages.raptor.click('Answer Tab', (data['Tab Name']).toLowerCase());
-        await pages.raptor.click('Feedback Add Button');
-        await pages.raptor.click('Feedback Module', 'Ungraded Text');
-        await pages.raptor.click('Feedback Context Area');
-        await pages.raptor.click('Feedback Text');
-        await pages.raptor.waitForElementVisibility('Editor Title', 'Static Text');
-        await pages.raptor.populate('Feedback Textarea', data['Feedback Text']);
-    }
-    await pages.raptor.click('Primary Menu', 'PRIMARY MORE');
-    await pages.raptor.click('More Option', 'Save As Draft');
+    await raptorlib.addIncorrectTab();
+    await froalalib.addFeedback(datatable);
+    await raptorlib.saveItem();
 });
 
 Then(/^I verify the feedbacks in the following tabs$/, async function(datatable){
-    await pages.ams.switchToTab('Sapling Learning Author Management System');
-    await pages.ams.waitForElementInvisibility('Algolia is Processing', 180);
-    driver.getDriver().navigate().refresh();
-    await pages.ams.assertElementExists('Item Title', this.data.get('itemTitle'));
-    await pages.ams.click('Item Preview', this.data.get('itemTitle'));
-    await pages.ams.click('Show Feedback Toggle');
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let itemTabs = datatable.hashes()[i];
-        await pages.ams.click('Feedback Tab', (itemTabs['Tab Name']).toLowerCase());
-        if(itemTabs['Tab Name']== 'Solution'){
-            await pages.ams.assertElementExists('Solution Feedback', itemTabs['Feedback Text']);
-        }
-        else
-        {
-            await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
-        }
-      }
-
+    await amslib.waitAlgoliaProcess();
+    // driver.getDriver().navigate().refresh();
+    // console.log(this.data.get("itemId"));
+    await amslib.itemAction('preview', this.data.get("itemId"));
+    await amslib.showFeedbackToggle();
+    await amslib.verifyFeedback(datatable);
 });

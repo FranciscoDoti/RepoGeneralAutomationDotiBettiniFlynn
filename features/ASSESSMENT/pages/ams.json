@@ -52,7 +52,7 @@
         {
             "name": "Item Preview",
             "byType": "xpath",
-            "definition": "//div[@id='item-panel']//tbody//td[text()='<ReplaceText>']/..//span[@title='preview item']",
+            "definition": "//span[@data-test-id='item-preview-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },

@@ -29,9 +29,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Primary Menu",
+            "name": "More Menu",
             "byType": "css",
-            "definition": "h2[data-test-id='<ReplaceText>']",
+            "definition": "h2[data-test-id='PRIMARY MORE']",
             "frame": "default",
             "specialInstr": "NA"
         },

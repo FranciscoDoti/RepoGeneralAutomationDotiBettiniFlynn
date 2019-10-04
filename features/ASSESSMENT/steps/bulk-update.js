@@ -8,7 +8,7 @@ When('I create the following draft Raptor items in AMS', async function (datatab
 
     await amslib.addRaptorItem();
     await raptorlib.addModule(item['Module Type']);
-    await raptorlib.addItemDetails(item);
+    await raptorlib.addItemDetails(item['Title']);
 
     let itemId = await raptorlib.saveItem();
     this.data.set(item.Title, "id", itemId);
@@ -17,7 +17,6 @@ When('I create the following draft Raptor items in AMS', async function (datatab
 });
 
 When('I select the following items by title on AMS', async function (datatable) {
-  await pages.ams.switchToTab('Sapling Learning Author Management System');
   await amslib.waitAlgoliaProcess();
   for (let i = 0; i < datatable.rows().length; i++) {
       let item = datatable.hashes()[i];

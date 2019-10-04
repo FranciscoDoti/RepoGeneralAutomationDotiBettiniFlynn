@@ -3,7 +3,7 @@ Feature: Preview item feature
 
     Scenario Outline: Preview Item
         Given I login to AMS as "all-permissions-author"
-        When I add the <ModuleType> draft item in AMS with title <Title>
+        When I add the <Module Type> draft item in AMS with title <Title>
         And I add the following feedbacks and save the item
             | Tab Name  | Feedback Text |
             | Question  | Question text |
@@ -19,7 +19,7 @@ Feature: Preview item feature
             | Default Feedback   | Default text   |
 
         Examples:
-            | Title                 | ModuleType        |
+            | Title                 | Module Type        |
             | NGA QA Test MC Item   | Multiple Choice   |
             | NGA QA Test MS Item   | Multiple Select   |
             | NGA QA Test UT Item   | Ungraded Text     |

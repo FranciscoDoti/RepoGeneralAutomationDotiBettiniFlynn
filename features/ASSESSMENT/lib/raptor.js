@@ -9,11 +9,11 @@ const addModule = async function (moduleType) {
     await pages.raptor.click('Content Area');
 };
 
-const addItemDetails = async function (item) {
+const addItemDetails = async function (Title) {
     await pages.raptor.switchToTab('Raptor Authoring');
     await pages.raptor.click('More Menu');
     await pages.raptor.click('More Item Details');
-    await pages.raptor.populate('Item Details Title', item.Title);
+    await pages.raptor.populate('Item Details Title', Title);
     await pages.raptor.click('Item Details Done Button');
 };
 
@@ -25,8 +25,13 @@ const saveItem = async function () {
     return (await pages.raptor.getText('Item ID')).split(":")[1].trim();
 };
 
+const addIncorrectTab = async function(){
+    await pages.raptor.click('Add Choice', 'incorrect');
+}
+
 module.exports = {
     addItemDetails,
     addModule,
-    saveItem
+    saveItem,
+    addIncorrectTab
 };
