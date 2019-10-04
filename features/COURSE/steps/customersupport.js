@@ -61,6 +61,7 @@ When('I update the access code', async function (data_table) {
   await pages.home.click('achieveHome');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
   await pages.adminMenu.click('updateAccessCode');
   await pages.adminMenu.populate('updateAccessCodeInput', text);
   await pages.adminMenu.click('updateAccessCodeSearch');

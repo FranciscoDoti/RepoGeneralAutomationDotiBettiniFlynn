@@ -20,6 +20,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.adminMenu.assertElementExists('admin');
   await sleep(500);//added
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
   await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', user.username);
@@ -39,6 +40,8 @@ When('I click on Manage roles', async function () {
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
   await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.waitForElementVisibility('manageRoles');
   await pages.adminMenu.assertElementExists('manageRoles');
   await pages.adminMenu.click('manageRoles')
 });

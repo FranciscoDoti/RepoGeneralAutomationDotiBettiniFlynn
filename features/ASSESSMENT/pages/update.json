@@ -1,0 +1,39 @@
+{
+    "webElements": [
+        {
+            "name": "Field",
+            "byType": "xpath",
+            "definition": "//*[@data-test-id='details-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "noclear"
+        },
+        {
+            "name": "Tree Element",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Tree Element Leaf",
+            "byType": "xpath",
+            "definition": "//div[@class='info' and text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Option",
+            "byType": "xpath",
+            "definition": "//option[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

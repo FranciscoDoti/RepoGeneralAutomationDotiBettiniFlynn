@@ -111,8 +111,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Test Total                                    | 100%        |   5     |   33%                |
             | Assignments Total                              | 100%        |   10   |   67%               |
         
-    @mediaproducer-delete-course
-    @mediaproducer-delete-courseTemplate
+
     Scenario: Verify that instructor is able to edit the grades of student
 
         Given I login to Achieve-CW as "instructor_2"
@@ -124,3 +123,11 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         Then I verify the Grades
             | Students  | CourseTotal  | Google  | CategoryTotal | 
             | student_1 | 73%          | 20%     | 20%           | 
+
+    Scenario: Verify that media producer is able to delete the  courses created
+        Given I login to Achieve-CW as "media_producer_2"
+
+         When I delete "activities Template" and "activities Course"
+
+         Then I verify that "activities Template" and "activities Course" are deleted 
+        

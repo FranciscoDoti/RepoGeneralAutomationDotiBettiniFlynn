@@ -172,6 +172,12 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
   }
 });
 
+Then(/^I verify that "(.*)" is created$/, async function (courseName){
+  this.data.set('course', courseName);
+    await pages.createCourse.assertTextIncludes('courseCard',courseName,courseName);
+
+});
+
 When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Gradebook');
