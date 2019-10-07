@@ -62,7 +62,7 @@ Then('I verify the deleted items are displayed in Deleted Items screen in AMS', 
   await pages.ams.click('AMS Tab', 'Deleted Items');
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.assertElementExists('Edit Item Link', this.data.get(item.Title, "id"));
+    await pages.ams.assertElementExists('Item ID Link', this.data.get(item.Title, "id"));
   }
 });
 
@@ -71,6 +71,6 @@ Then('I verify the deleted items are not displayed in AMS', async function (data
   await pages.ams.click('AMS Tab', 'Items');
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.assertElementDoesNotExist('Edit Item Link', this.data.get(item.Title, "id"));
+    await pages.ams.assertElementDoesNotExist('Item ID Link', this.data.get(item.Title, "id"));
   }
 });

@@ -50,7 +50,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Edit Item Link",
+            "name": "Item ID Link",
             "byType": "xpath",
             "definition": "//a[@data-test-id='edit-item-link-<ReplaceText>']",
             "frame": "default",
