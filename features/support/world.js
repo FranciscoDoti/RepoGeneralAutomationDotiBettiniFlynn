@@ -36,8 +36,7 @@ setDefinitionFunctionWrapper(function (fn) {
 const users = function () {
   let that = {};
   let folder = `${process.cwd()}/features/shared/data/users/${config.environment}`;
-
-  if (fs.existsSync(folder)) {
+  if (!fs.existsSync(folder)) {
     folder = `${process.cwd()}/features/shared/data/users/dev`;
   }
   let files = fs.readdirSync(folder);
