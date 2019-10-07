@@ -18,7 +18,10 @@ const deleteItems = async function () {
     await pages.ams.click('AMS Button', 'VIEW SELECTED ITEMS');
     await pages.ams.click('AMS Button', 'Select Action');
     await pages.ams.click('AMS Button', 'Delete');
+    let deletedItemsCount = (await pages.ams.getText('Delete Confirmation Message Title')).split(" ")[1];
+    await pages.ams.assertElementExists('Delete Confirmation Message Text');
     await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
+    return deletedItemsCount;
 };
 
 const updateDone = async function () {

@@ -1,6 +1,8 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { raptorlib, amslib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { expect } = require('chai');
+const { log } = require(`${process.cwd()}/app/logger`);
 
 When('I create the following draft Raptor items in AMS', async function (datatable) {
   for (let i = 0; i < datatable.rows().length; i++) {
@@ -40,7 +42,10 @@ When('I update the selected items with the following details', async function (d
 });
 
 When('I delete the selected items', async function () {
-  await amslib.deleteItems();
+  let deletedItemsCount = await amslib.deleteItems();
+  if (await expect(this.data.data.length).to.equal(parseInt(deletedItemsCount, 10))) {
+    log.info(`Expected length is "${this.data.length}". Actual length is "${deletedItemsCount}". PASS`);
+  };
 });
 
 Then('I verify the details of the following items are displayed in AMS', async function (datatable) {
@@ -52,11 +57,20 @@ Then('I verify the details of the following items are displayed in AMS', async f
   }
 });
 
-Then('I verify that the following items do not exist in AMS', async function (datatable) {
+Then('I verify the deleted items are displayed in Deleted Items screen in AMS', async function (datatable) {
   await pages.ams.switchToTab('Sapling Learning Author Management System');
-  await pages.ams.click('Menu Element', 'Deleted Items');
+  await pages.ams.click('AMS Tab', 'Deleted Items');
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.assertElementExists('Item ID', this.data.get(item.Title, "id"));
+    await pages.ams.assertElementExists('Edit Item Link', this.data.get(item.Title, "id"));
+  }
+});
+
+Then('I verify the deleted items are not displayed in AMS', async function (datatable) {
+  await pages.ams.switchToTab('Sapling Learning Author Management System');
+  await pages.ams.click('AMS Tab', 'Items');
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let item = datatable.hashes()[i];
+    await pages.ams.assertElementDoesNotExist('Edit Item Link', this.data.get(item.Title, "id"));
   }
 });
