@@ -44,7 +44,7 @@ When('I update the selected items with the following details', async function (d
 When('I delete the selected items', async function () {
   let deletedItemsCount = await amslib.deleteItems();
   if (await expect(this.data.data.length).to.equal(parseInt(deletedItemsCount, 10))) {
-    log.info(`Expected length is "${this.data.length}". Actual length is "${deletedItemsCount}". PASS`);
+    log.info(`Expected length is "${this.data.data.length}". Actual length is "${deletedItemsCount}". PASS`);
   };
 });
 
