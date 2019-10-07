@@ -18,11 +18,7 @@ Feature: Create a MC Hatchling Item from AMS
         And I set hint and generic feedback with following details and save
             | Hint                  | GenericFeedback             |
             | You Know the answers! | You must provide a response |
-<<<<<<< HEAD
-        Then I verify the items were updated in AMS
-=======
-        Then I verify the details of the following items are displayed in AMS
->>>>>>> c8d17fd7f05b5fb7156d899d7b25d78afcf99e58
-            | Title                              | Status       | 
-            | QA Hatchling MC Test Item from AMS | In Progress  | 
+        # Then I verify the details of the following items are displayed in AMS
+        #     | Title                              | Status       | 
+        #     | QA Hatchling MC Test Item from AMS | In Progress  | 
         
