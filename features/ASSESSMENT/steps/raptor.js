@@ -28,10 +28,15 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
     }
 });
 
-When(/^I duplicate the item with title "(.*)"$/, async function (title) {
-    let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(title, 'id'));
-    this.data.set(title, "id", duplicatedItemId);
-    await pages.ams.closeTab('Raptor Authoring');
+When('I duplicate the following items', async function (dataTable) {
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
+        let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
+        this.data.set(item.Title, "id", duplicatedItemId);
+        await pages.ams.closeTab('Raptor Authoring');
+        await pages.ams.switchToTab('Sapling Learning Author Management System');
+    }
+    
 });
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {

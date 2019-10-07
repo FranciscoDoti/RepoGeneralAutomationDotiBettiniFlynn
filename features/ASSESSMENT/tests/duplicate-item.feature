@@ -10,15 +10,20 @@ Feature: As a user, I want to duplicate an existing item
          | NGA QA Test UT Item | Ungraded Text     |
          | NGA QA Test MD Item | Molecular Drawing |
       And I verify the details of the following items are displayed in AMS
-         | Author Mode | Title                | Topic     | Taxonomy      | Difficulty   | Status      | Access | Module Type |
-         | Raptor      | NGA QA Ungraded text |           | Question Bank | medium       | in progress | public |             | 
-      And I duplicate the item with title
+         | Author Mode | Title               | Topic     | Taxonomy      | Difficulty   | Status      | Access | Module Type |
+         | Raptor      | NGA QA Test MC Item |           | Question Bank | medium       | in progress | public |      MC     | 
+         | Raptor      | NGA QA Test MS Item |           | Question Bank | medium       | in progress | public |      MS     | 
+         | Raptor      | NGA QA Test UT Item |           | Question Bank | medium       | in progress | public |             | 
+         | Raptor      | NGA QA Test MD Item |           | Question Bank | medium       | in progress | public |      MD     | 
+      And I duplicate the following items
          | Title               |
-         | NGA QA Ungraded text|
          | NGA QA Test MC Item |
          | NGA QA Test MS Item |
          | NGA QA Test UT Item |
          | NGA QA Test MD Item |
       Then I verify the details of the following items are displayed in AMS
-         | Author Mode | Title                | Topic     | Taxonomy      | Difficulty   | Status      | Access | Module Type |
-         | Raptor      | NGA QA Ungraded text |           | Question Bank | medium       | in progress | public |             | 
+         | Author Mode | Title               | Topic     | Taxonomy      | Difficulty   | Status      | Access | Module Type |
+         | Raptor      | NGA QA Test MC Item |           | Question Bank | medium       | in progress | public |      MC     | 
+         | Raptor      | NGA QA Test MS Item |           | Question Bank | medium       | in progress | public |      MS     | 
+         | Raptor      | NGA QA Test UT Item |           | Question Bank | medium       | in progress | public |             | 
+         | Raptor      | NGA QA Test MD Item |           | Question Bank | medium       | in progress | public |      MD     |
