@@ -1,7 +1,7 @@
 @Assessment @Smoke
 Feature: As a user, I want to duplicate an existing item
 
-   Scenario:  User creates new AMS raptor items and duplicate its
+   Scenario:  User creates multiple AMS raptor items and duplicates them
       Given I login to AMS as "all-permissions-author"
       When I create the following draft Raptor items in AMS
          | Title               | Module Type       |
