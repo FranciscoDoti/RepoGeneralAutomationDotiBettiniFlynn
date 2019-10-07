@@ -1,5 +1,6 @@
 var reporter = require('cucumber-html-reporter');
 const argv = require('minimist')(process.argv.slice(2));
+const jsonfile = require('jsonfile');
 
 const reportName = function(){
     var prefix = argv.prefix || "";
@@ -14,7 +15,7 @@ var options = {
     output: `${process.cwd()}/reports/${reportName()}.html`,
     reportSuiteAsScenarios: true,
     launchReport: true,
-    metadata: require(`${process.cwd()}/reports/cucumber_report.json`)[0].metadata
+    metadata: jsonfile.readFileSync(`${process.cwd()}/reports/cucumber_report.json`)[0].metadata
 };
 
 reporter.generate(options);

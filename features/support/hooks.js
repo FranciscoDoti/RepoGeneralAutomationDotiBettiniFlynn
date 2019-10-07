@@ -1,7 +1,7 @@
 var { After, AfterAll } = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
-const { closeBrowser, resetBrowser, takeScreenshot, visitURL, getCapabilities, config, sleep } = require(`${process.cwd()}/app/driver`);
+const { closeBrowser, resetBrowser, takeScreenshot, visitURL, config } = require(`${process.cwd()}/app/driver`);
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
@@ -10,34 +10,8 @@ After(async function (scenario) {
 });
 
 AfterAll(async function () {
-    config.capabilities = await getCapabilities();
-    await closeBrowser();   
-    setTimeout(function () {
-        updateMetadataInJSON(`${process.cwd()}/${config.reportJSON}`)
-    }, 2000);
+    await closeBrowser();
 });
-
-const updateMetadataInJSON = function(reportPath){
-    const metadata = {
-        "Browser" : config.capabilities.get('browserName').toUpperCase(),
-        "Browser Version" : config.capabilities.get('browserVersion').toUpperCase(),
-        "Platform" : config.capabilities.get('platformName').toUpperCase(),
-        "Environment" : config.environment.toUpperCase(),
-        "Stack" : config.stack.toUpperCase(),
-        "Executed" : config.mode.toUpperCase(),
-        "Date" : config.datetime.split('T')[0],
-        "Time" : config.datetime.split('T')[1].split('.')[0]
-    }
-
-    const fs = require('fs');
-    let contents = fs.readFileSync(reportPath);
-    let json = JSON.parse(contents);
-    for(let index = 0; index < json.length; index++ ){
-        json[index].metadata = metadata;
-    };
-    contents = JSON.stringify(json);
-    fs.writeFileSync(reportPath, contents);
-};
 
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {

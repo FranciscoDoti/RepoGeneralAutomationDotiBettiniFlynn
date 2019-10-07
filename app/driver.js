@@ -107,6 +107,7 @@ const visitURL = async function(url){
 
 const closeBrowser = async function(){
   log.info(`Closing the browser. Current URL is ${await driver.getCurrentUrl()}.`);
+  config.capabilities = await getCapabilities();
   return driver.quit();
 };
 
@@ -246,6 +247,28 @@ function sleep (ms) {
 // Show Process config files
 process.argv.forEach(function (val, index, array) {
   log.debug(index + ': ' + val);
+});
+
+process.on('exit', function () {
+  const reportPath = `${process.cwd()}/${config.reportJSON}`;
+  const metadata = {
+    "Browser": config.capabilities.get('browserName').toUpperCase(),
+    "Browser Version": config.capabilities.get('browserVersion').toUpperCase(),
+    "Platform": config.capabilities.get('platformName').toUpperCase(),
+    "Environment": config.environment.toUpperCase(),
+    "Stack": config.stack.toUpperCase(),
+    "Executed": config.mode.toUpperCase(),
+    "Date": config.datetime.split('T')[0],
+    "Time": config.datetime.split('T')[1].split('.')[0]
+  }
+  const fs = require('fs');
+  let contents = fs.readFileSync(reportPath);
+  let json = JSON.parse(contents);
+  for (let index = 0; index < json.length; index++) {
+    json[index].metadata = metadata;
+  };
+  contents = JSON.stringify(json);
+  fs.writeFileSync(reportPath, contents);
 });
 
 module.exports = {
