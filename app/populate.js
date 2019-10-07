@@ -4,7 +4,6 @@ const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { assert } = require('chai');
-const actions = getDriver().actions({bridge: true});
 
 const populateInput = async function (selector, value, WebElementObject) {
   const type = await selector.getAttribute('type');
@@ -87,6 +86,8 @@ const populateSelect = async function (selector, item, WebElementData) {
 };
 
 const populateTextField = async function (selector, value, WebElementObject) {
+  const actions = getDriver().actions({bridge: true});
+
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
   const eleValue = await selector.getAttribute('value');
@@ -99,19 +100,16 @@ const populateTextField = async function (selector, value, WebElementObject) {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
     await WebElementObject.webElement.focus();
   }
-
   if(!localSpecialInstr.toLowerCase().includes('noclick'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.click();
   }
-
   if(!localSpecialInstr.toLowerCase().includes('noclear'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.clear();
   }
-
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
@@ -264,6 +262,8 @@ const populateFile = async function (selector, value, WebElementObject) {
 };
 
 const populateRichTextField = async function (selector, value, WebElementObject) {
+  const actions = getDriver().actions({bridge: true});
+
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
   const eleValue = await selector.getAttribute('textContent');
@@ -276,15 +276,18 @@ const populateRichTextField = async function (selector, value, WebElementObject)
     log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
     await WebElementObject.webElement.focus();
   }
+  if (!localSpecialInstr.toLowerCase().includes('noclick')) {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
+    await selector.click();
+  }
 
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
     await actions.doubleClick(selector).sendKeys(value).perform();
   } else {
-    await actions.click(selector).sendKeys(value).perform();
+    await actions.sendKeys(value).perform();
   }
-  
   log.debug(`Post populate text field value: ${value}`);
 };
 

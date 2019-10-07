@@ -48,14 +48,12 @@ Feature: Adding activities in Folder Resource Tab to Skills template
             | folders           | message                                 |
             | Reading           | 'Reading' has been removed.             |
             | Learning Curve    | 'Learning Curve' has been removed.      |
-            | Assesment         | 'Assesment' has been removed.           |
             | ReadandPractice   | 'ReadandPractice' has been removed.     |
 
         Then I verify that the following resources are not present in the Template 
             | folders           |
             | Reading           |  
             | Learning Curve    |
-            | Assesment         |
             | ReadandPractice   |
 
 

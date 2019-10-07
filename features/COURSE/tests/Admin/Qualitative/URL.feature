@@ -1,17 +1,19 @@
 @Course @Smoke @Skip
 Feature: Verify that Admin is able to create URL
 
-    @admin-delete-course
+    @admin-delete-courseTemplate
     Scenario: Verify that Admin is able to create a custom tsak with URL in Qual course
 
        Given I login to Achieve-CW as "admin_1"
        When I create template with following data 
             | courseType  | productModel      | courseName                | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative URL Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |                      
+            | Template    | Qualitative       | Qualitative URL Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
+
+        And I close the popup message                      
 
         And I click on search button and input "Qualitative URL Template" to search the course
 
-        And I activate the "Qualitative URL Template" template and add the following data
+        And I activate "Qualitative URL Template" template and add the following data
             | courseName                    |  courseCode   |  templateStatus      |
             | Qualitative URL Template      |   E2E 301     |  Active On Date      | 
 

@@ -6,7 +6,7 @@ const csvtojson = require('csvtojson');
 
 When(/^I generate "(.*)" month length access code for "(.*)"$/, async function (number, courseName) {
     await pages.courseList.populate('search', courseName);
-    await pages.courseList.assertElementExists('courseName', courseName);
+    await pages.createCourse.assertElementExists('courseCard', courseName);
     await pages.createCourse.click('courseCard', courseName);
     await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
     await pages.home.click('togglerMenu');

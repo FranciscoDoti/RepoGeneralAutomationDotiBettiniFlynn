@@ -23,36 +23,25 @@ Then('The variable values are displayed as choices', async function () {
   }
 });
 
-When('I add hatchling item as {string} with following details', async function (string, datatable) {
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); 
-  var yyyy = today.getFullYear();
-  var hours = today.getHours();
-  var minutes = today.getMinutes();
-  var seconds = today.getSeconds();
-  date = mm + '/' + dd + '/' + yyyy;
-  time = hours+":"+minutes+":"+seconds;
+When('I add Multiple Choice hatchling item with following details', async function (datatable) {
+  let code = Date.now();
   await pages.ams.click('Add Item', 'Easy');
-  await pages.ams.click('easyItemMultipleChoice');
+  await pages.ams.click('Hatchling Item Option', 'Multiple Choice');
+  await pages.hatchlingItem.assertText('Dialog Title', 'Multiple Choice Question');
   
   
-  // await pages.hatchlingItem.populate('Question Title', datatable.hashes()[0].QuestionTitle+" : "+date+" , "+time);
-  // await pages.hatchlingItem.populate('Question Prompt', datatable.hashes()[0].QuestionPrompt); 
-  
-});
-
-Then(/^I verify the items were updated in AMS$/, async function () {
-  
+  let q = datatable.hashes()[0];
+  q.QuestionTitle = q.QuestionTitle + " " + code;
+  await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
+  await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt); 
+  this.data.set("Question Title",q.questionTitle);
 });
 
 When('I add the following correct answer and feedback', async function (datatable) {
-  let ans = datatable.hashes()[0];
-  await pages.ams.click('Add Item', 'Easy');
-  await pages.ams.click('easyItemMultipleChoice');
-  await pages.hatchlingItem.populate('Correct Answer', ans.Answer);
+  let c = datatable.hashes()[0];
+  await pages.hatchlingItem.populate('Correct Answer', c.Answer);
   await pages.hatchlingItem.click('Collapsible Title','Correct Answer Feedback');
-  await pages.hatchlingItem.populate('Correct Answer Feedback', ans.Feedback);
+  await pages.hatchlingItem.populate('Correct Answer Feedback', c.Feedback);
 });
 
 When('I add the following incorrect answers and feedback', async function (datatable) {
@@ -61,8 +50,7 @@ When('I add the following incorrect answers and feedback', async function (datat
     let ans = datatable.hashes()[i];
     await pages.hatchlingItem.populate('Incorrect Answer', i+1, ans.Answer);
     await pages.hatchlingItem.click('Collapsible Incorrect Feedback Title', i+1);
-    await pages.hatchlingItem.populate('Incorrect Answer Feedback', i+1, ans.Feedback);
-    
+    await pages.hatchlingItem.populate('Incorrect Answer Feedback', i+1, ans.Feedback);  
   };
 });
 
@@ -74,5 +62,9 @@ When(/^I set hint and generic feedback with following details and save$/,async f
   await pages.hatchlingItem.click('Collapsible Title', 'Generic Feedback');
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
   await pages.hatchlingItem.click('Button', 'Save');
+  
+  let questionTitle = this.data.get("Question Title");
+  let itemId = await pages.hatchlingItem.getText('item id', questionTitle);
+  log.info(`===============> "${itemId}". PASS`);
 
 });

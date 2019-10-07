@@ -9,9 +9,7 @@ Feature: Verify that Media EDitor is able to create URL Qualitative Template
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
-        And I click on search button and input "Qualitative Template" to search the course
-
-        And I activate the "Qualitative Template" template and add the following data
+        And I update "Qualitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
             | Qualitative Template   |   E2E 301     |  Active On Date      | 
 

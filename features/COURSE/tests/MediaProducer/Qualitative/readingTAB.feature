@@ -19,56 +19,53 @@ Feature: Adding reading activities in reading tab to Qualitative template
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
             | addReadingButton         | Glossary                                      |
-            | addReadingButton         |  Analyzing Literary Elements                  |
+            | addReadingButton         |  Psychopathology                              |
             | addReadingButton         | Literary Elements                             |
-            | addReadingButton         | Dedication                                    |
+
 
         And I add the activities in ebook
             | activity                                      |                                                      
-            | Analyzing Literary Elements                   | 
+            | Psychopathology                               | 
             | Literary Elements                             |
             | Glossary                                      | 
-            | Dedication                                    | 
+          
 
         And I reorder the resources on template in ebook
             | actvities                                                         | reorder        |
-            |  Analyzing Literary Elements                                      | moveToTop      |                                                     
+            |  Psychopathology                                                  | moveToTop      |                                                     
             | Literary Elements                                                 | movedownButton |
             | Glossary                                                          | moveToEnd      |
-            | Dedication                                                        | moveUpButton   |
+
 
         Then I verify that resources are reordered in ebook
-            | activities                    |   orderNumber   |
-            | Dedication                    |   1             |                                                     
-            |  Analyzing Literary Elements  |   2             |
-            | Literary Elements             |   3             |                                                                                         
-            | Glossary                      |   4             |                                        
+            | activities                    |   orderNumber   |                                                    
+            |  Psychopathology              |   1             |
+            | Literary Elements             |   2             |
+            | Glossary                      |   3             |                                                                                                                               
                                                                                     
 
         And I add the activities to respective folders in ebook
-            | activity                                      | folders               | message                                                                   |
-            |  Analyzing Literary Elements                  | Reading Symbols       | 'Analyzing Literary Elements' was successfully moved to Reading Symbols.  |
-            | Literary Elements                             | Reading Regression    | 'Literary Elements' was successfully moved to Reading Regression.         |
-            | Dedication                                    | Reading Interval      | 'Dedication' was successfully moved to Reading Interval.                  |
-            | Glossary                                      | Reading Authors       | 'Glossary' was successfully moved to Reading Authors.                     |
+            | activity                                      | folders               |                                                               
+            | Literary Elements                             | Reading Regression    | 
+            | Glossary                                      | Reading Interval      |
+            | Psychopathology                               | Reading Symbols       |
+           
 
         And I verify the activities are added in folders which are present in "E-book"
-            | activity                                      | folders               |
-            |  Analyzing Literary Elements                  | Reading Symbols       |
-            |  Literary Elements                            | Reading Regression    |
-            | Glossary                                      | Reading Authors       |
-            |  Dedication                                   | Reading Interval      |
+            | activity                                     | folders               |
+            | Psychopathology                              | Reading Symbols       |
+            | Literary Elements                            | Reading Regression    |
+            | Glossary                                     | Reading Interval      |
+         
 
         When I delete the resources from the Template in ebook
             | folders               | message                                  |
-            | Reading Authors       | 'Reading Authors' has been removed.      |
             | Reading Interval      | 'Reading Interval' has been removed.     |
             | Reading Regression    | 'Reading Regression' has been removed.   |
             | Reading Symbols       | 'Reading Symbols' has been removed.      |
 
         Then I verify that resources are deleted from Template in "E-book"
-            | folders                   |
-            | Reading Authors           |  
+            | folders                   |  
             | Reading Interval          |
             | Reading Regression        |
             | Reading Symbols           |

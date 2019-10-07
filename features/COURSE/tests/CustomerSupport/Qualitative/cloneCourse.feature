@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Customer Support attempts all the activities in Qualitative Template
 
-    @custmersupport-delete-course
+    @customersupport-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Customer Support is able to create course from Qualitative Template
     
@@ -25,18 +25,17 @@ Feature: Customer Support attempts all the activities in Qualitative Template
         And I sign out of Achieve
         
         And I login to Achieve-CW as "customer_support_1"
-        And I change to Course Template Tab
+       
         And I click on search button and input "Qualitative Template" to search the course
                 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |
 
-        And I click on search button and input "Qualitative Course" to search the course
-        
+        And I search for "Qualitative Course" in Courses tab
+
         Then I verify that "Qualitative Course" is created with following data
-            | field                 | value                     |
-            | courseName            | Qualitative Course        |
-            | courseDate            |  E2E 301                  |
+            | CourseName            | Status                    |
+            | Qualitative Course    |  Draft                    |
            
         
