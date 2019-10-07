@@ -281,27 +281,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "UngradedText-EnterText",
-            "byType": "xpath",
-            "definition": "//div[@data-module-type='static_textfield']/span/span",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "UngradedText-EnterText Editor",
-            "byType": "xpath",
-            "definition": "//div[@data-test-id='ace-label']",
-            "frame": "default",
-            "specialInstr": "overwrite"
-        },
-        {
-            "name": "Editor Done",
-            "byType": "xpath",
-            "definition": "//button[@id='close-edit-host']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Duplicate Item",
             "byType": "xpath",
             "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",
