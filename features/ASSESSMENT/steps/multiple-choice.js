@@ -2,6 +2,7 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
+const { raptorlib, amslib, updatelib, hatchlinglib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
@@ -25,8 +26,7 @@ Then('The variable values are displayed as choices', async function () {
 
 When('I add Multiple Choice hatchling item with following details', async function (datatable) {
   let code = Date.now();
-  await pages.ams.click('Add Item', 'Easy');
-  await pages.ams.click('Hatchling Item Option', 'Multiple Choice');
+  await hatchlinglib.createHatchlingEasyItem();
   await pages.hatchlingItem.assertText('Dialog Title', 'Multiple Choice Question');
   
   
@@ -40,7 +40,7 @@ When('I add Multiple Choice hatchling item with following details', async functi
 When('I add the following correct answer and feedback', async function (datatable) {
   let c = datatable.hashes()[0];
   await pages.hatchlingItem.populate('Correct Answer', c.Answer);
-  await pages.hatchlingItem.click('Collapsible Title','Correct Answer Feedback');
+  await hatchlinglib.clickCorrectAnsFeedback();
   await pages.hatchlingItem.populate('Correct Answer Feedback', c.Feedback);
 });
 
@@ -56,12 +56,11 @@ When('I add the following incorrect answers and feedback', async function (datat
 
 When(/^I set hint and generic feedback with following details and save$/,async function (datatable) {
   let ans = datatable.hashes()[0];
-  await pages.hatchlingItem.click('Collapsible Title', 'Hint');
+  await hatchlinglib.clickHint();
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Hint', ans.Hint);
-  await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
-  await pages.hatchlingItem.click('Collapsible Title', 'Generic Feedback');
+  await hatchlinglib.clickGenericFeedback();
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
-  await pages.hatchlingItem.click('Button', 'Save');
+  await hatchlinglib.clickSaveEasyItem();
   
   let questionTitle = this.data.get("Question Title");
   let itemId = await pages.hatchlingItem.getText('item id', questionTitle);
