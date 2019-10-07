@@ -33,9 +33,13 @@ setDefinitionFunctionWrapper(function (fn) {
   };
 });
 
-const users = function(){
+const users = function () {
   let that = {};
   let folder = `${process.cwd()}/features/shared/data/users/${config.environment}`;
+
+  if (fs.existsSync(path)) {
+    folder = `${process.cwd()}/features/shared/data/users/dev`;
+  }
   let files = fs.readdirSync(folder);
   files.forEach(file => {
     let filePath = `${folder}/${file}`
