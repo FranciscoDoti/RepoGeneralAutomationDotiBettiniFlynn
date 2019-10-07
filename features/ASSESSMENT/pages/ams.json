@@ -8,13 +8,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Hatchling Item Option",
-            "byType": "xpath",
-            "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Select Checkbox",
             "byType": "xpath",
             "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/input",
@@ -52,7 +45,7 @@
         {
             "name": "Item Preview",
             "byType": "xpath",
-            "definition": "//span[@data-test-id='item-preview-<ReplaceText>']",
+            "definition": "//span[@data-test-id='item-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },

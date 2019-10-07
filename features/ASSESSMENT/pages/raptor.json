@@ -281,13 +281,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Algolia is Processing",
-            "byType": "xpath",
-            "definition": "//i[.='Algolia is Processing']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Answer Tab",
             "byType": "xpath",
             "definition": "//a[contains(@data-test-id,'<ReplaceText>')]",
@@ -337,16 +330,9 @@
             "specialInstr":"overwrite noclick"
         },
         {
-            "name": "Add Choice",
+            "name": "Add Context",
             "byType": "xpath",
             "definition": "//button[@data-test-id='add-<ReplaceText>-context-button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "More Option",
-            "byType": "xpath",
-            "definition": "//h2[@data-test-id='PRIMARY MORE']//li/div[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }

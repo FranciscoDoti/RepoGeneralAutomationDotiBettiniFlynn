@@ -25,13 +25,13 @@ const saveItem = async function () {
     return (await pages.raptor.getText('Item ID')).split(":")[1].trim();
 };
 
-const addIncorrectTab = async function(){
-    await pages.raptor.click('Add Choice', 'incorrect');
+const addContext = async function(contextType){
+    await pages.raptor.click('Add Context', contextType);
 }
 
 module.exports = {
     addItemDetails,
     addModule,
     saveItem,
-    addIncorrectTab
+    addContext
 };

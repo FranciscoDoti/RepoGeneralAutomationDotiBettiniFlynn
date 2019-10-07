@@ -160,7 +160,7 @@ When(/^I add the (.*) draft item in AMS with title (.*)$/, async function(module
 });
 
 When('I add the following feedbacks and save the item', async function (datatable) {
-    await raptorlib.addIncorrectTab();
+    await raptorlib.addContext('incorrect');
     await froalalib.addFeedback(datatable);
     await raptorlib.saveItem();
 });
