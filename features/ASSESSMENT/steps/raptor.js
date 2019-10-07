@@ -53,7 +53,7 @@ Then('I verify item has been created with following details', async function (da
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
-    
+
     //code to check element should not be present
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
@@ -151,10 +151,10 @@ Then('I check FR answers', async function () {
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
 
-When(/^I add the (.*) draft item in AMS with title (.*)$/, async function(moduleType, title){
+When(/^I add the (.*) draft item in AMS with title (.*)$/, async function (moduleType, title) {
     await amslib.addRaptorItem();
     await raptorlib.addModule(moduleType);
-    await raptorlib.addItemDetails(title);
+    await raptorlib.addItemDetails({Title: title});
     let itemId = await raptorlib.saveItem();
     this.data.set("itemId", itemId);
 });
@@ -165,7 +165,7 @@ When('I add the following feedbacks and save the item', async function (datatabl
     await raptorlib.saveItem();
 });
 
-Then(/^I verify the feedbacks in the following tabs$/, async function(datatable){
+Then(/^I verify the feedbacks in the following tabs$/, async function (datatable) {
     await amslib.waitAlgoliaProcess();
     await amslib.itemAction('preview', this.data.get("itemId"));
     await amslib.showFeedbackToggle();

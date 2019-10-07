@@ -8,7 +8,7 @@ When('I create the following draft Raptor items in AMS', async function (datatab
 
     await amslib.addRaptorItem();
     await raptorlib.addModule(item['Module Type']);
-    await raptorlib.addItemDetails(item['Title']);
+    await raptorlib.addItemDetails(item);
 
     let itemId = await raptorlib.saveItem();
     this.data.set(item.Title, "id", itemId);
@@ -19,8 +19,8 @@ When('I create the following draft Raptor items in AMS', async function (datatab
 When('I select the following items by title on AMS', async function (datatable) {
   await amslib.waitAlgoliaProcess();
   for (let i = 0; i < datatable.rows().length; i++) {
-      let item = datatable.hashes()[i];
-      await pages.ams.click('Select Checkbox', this.data.get(item.Title, "id"));
+    let item = datatable.hashes()[i];
+    await pages.ams.click('Select Checkbox', this.data.get(item.Title, "id"));
   }
 });
 
@@ -43,8 +43,8 @@ Then('I verify the details of the following items are displayed in AMS', async f
   await amslib.waitAlgoliaProcess();
   await pages.ams.switchToTab('Sapling Learning Author Management System');
   for (i = 0; i < datatable.rows().length; i++) {
-      let item = datatable.hashes()[i];
-      let itemId = this.data.get(item.Title, "id");
-      await amslib.verifyItemDetails(item, itemId);
+    let item = datatable.hashes()[i];
+    let itemId = this.data.get(item.Title, "id");
+    await amslib.verifyItemDetails(item, itemId);
   }
 });

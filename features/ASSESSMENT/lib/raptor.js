@@ -9,11 +9,11 @@ const addModule = async function (moduleType) {
     await pages.raptor.click('Content Area');
 };
 
-const addItemDetails = async function (Title) {
+const addItemDetails = async function (item) {
     await pages.raptor.switchToTab('Raptor Authoring');
     await pages.raptor.click('More Menu');
     await pages.raptor.click('More Item Details');
-    await pages.raptor.populate('Item Details Title', Title);
+    await pages.raptor.populate('Item Details Title', item.Title);
     await pages.raptor.click('Item Details Done Button');
 };
 
@@ -25,7 +25,7 @@ const saveItem = async function () {
     return (await pages.raptor.getText('Item ID')).split(":")[1].trim();
 };
 
-const addContext = async function(contextType){
+const addContext = async function (contextType) {
     await pages.raptor.click('Add Context', contextType);
 }
 
