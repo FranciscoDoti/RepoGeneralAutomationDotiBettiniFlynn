@@ -6,9 +6,9 @@ Feature: Verify Update User Permissions
         Given I login to AMS as "all-permissions-author"
         When I search for the following user to update his permissions
             | User          |
-            | Kelley.mccool |
+            | Kelley Mccool |
         And I click on UserId and un-check the following permissions checkboxes and save
-            | Permissions Checkboxes         |
+            | PermissionsCheckboxes          |
             | Manage Live Questions          |
             | Manage Users                   |
             | Edit Any Question              |
@@ -17,18 +17,18 @@ Feature: Verify Update User Permissions
             | Create New Questions           |
             | Manage Taxonomies and Bookgroups|
         And I go back to sapling page and logout
-        And I login back to AMS again as "TestUser"
-        And I verify the following tabs are displayed on the top
-            | Tab Name |
+        And I login to AMS as "test-user"
+        Then I verify the following tabs are displayed on the top
+            | TabName  |
             | Items    |
             | Users    |
         And I go back to sapling page and logout
-        And I login to AMS as "all-permissions-author"
+        When I login to AMS as "all-permissions-author"
         And I search for the following user to update his permissions
             | User          |
-            | Kelley.mccool |
+            | Kelley Mccool |
         And I click on UserId and check the following permissions checkboxes and save
-            | Permissions Checkboxes         |
+            | PermissionsCheckboxes         |
             | Manage Live Questions          |
             | Manage Users                   |
             | Edit Any Question              |
@@ -37,9 +37,9 @@ Feature: Verify Update User Permissions
             | Create New Questions           |
             | Manage Taxonomies and Bookgroups| 
         And I go back to sapling page and logout
-        And I login back to AMS again as "TestUser"
-        And I verify the following tabs are displayed on the top
-            | Tab Name      |
+        And I login to AMS as "test-user"
+        Then I verify the following tabs are displayed on the top
+            | TabName      |
             | Items         |
             | Deleted Items |
             | Users         |

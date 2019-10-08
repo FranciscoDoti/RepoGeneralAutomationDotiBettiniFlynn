@@ -128,7 +128,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'ul':
         case 'li':
         case 'th':
-        case 'h2':
+        case 'h2':  
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
@@ -139,6 +139,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;
+        case 'label' :
         case 'option':
           await populateClick(webElement, value, actionElement);
           break;

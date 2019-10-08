@@ -50,11 +50,19 @@ const verifyItemDetails = async function (item, itemId) {
         await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
     }
 };
+const verifyTabs = async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let tab = datatable.hashes()[i];
+        var expectedTab = tab.TabName;
+        await pages.ams.assertText('AMS Tab', tab.TabName, expectedTab);
+      }
+};
 
 module.exports = {
     addRaptorItem,
     done,
     update,
     verifyItemDetails,
-    waitAlgoliaProcess
+    waitAlgoliaProcess,
+    verifyTabs
 };

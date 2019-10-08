@@ -39,6 +39,27 @@
             "definition": "//td[contains(@data-test-id,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "AMS Tab",
+            "byType": "xpath",
+            "definition": "//a[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "User Filter",
+            "byType": "css",
+            "definition": "input[data-test-id='filterTbl']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "User Id",
+            "byType": "css",
+            "definition": "th a",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
