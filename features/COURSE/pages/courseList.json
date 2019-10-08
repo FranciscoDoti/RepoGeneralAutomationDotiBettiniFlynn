@@ -59,7 +59,7 @@
         "definition": "[data-test-id='manage_instructors_modal_close']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "course",
         "byType": "css",
         "definition": "[data-test-id='create_coursecode_input']",
@@ -89,8 +89,7 @@
         "definition": "[data-test-id='course_activation_date']",
         "frame": "default",
         "specialInstr": "NA"
-    },
-    {
+    }, {
         "name": "courseNameTime",
         "byType": "xpath",
         "definition": "//div[@class='gHH9']//a[text()='{}']/../../..//div[@class='_3ndY']",
@@ -174,7 +173,7 @@
         "definition": "[data-test-id='courseMenu_invite_students']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "inviteStudentsButton",
         "byType": "css",
         "definition": "[data-test-id='courseMenu_invite_students']",
@@ -187,11 +186,16 @@
         "definition": "[id='courseEbookLink']",
         "frame": "default",
         "specialInstr": "NA"
-    }, 
-    {
+    }, {
         "name": "courseNumber",
         "byType": "xpath",
         "definition": "//span[contains(@class,'_3F-s') and contains(text(), '<ReplaceText>')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "courseName",
+        "byType": "xpath",
+        "definition": "//div[contains(@class,'_1xE4') and contains(text(), '<ReplaceText>')]",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -200,8 +204,7 @@
         "definition": "div[aria-label='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
-    },
-   {
+    }, {
         "name": "courseSearchBtn",
         "byType": "css",
         "definition": "[data-test-id='course_search_input_btn']",

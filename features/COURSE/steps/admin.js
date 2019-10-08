@@ -3,6 +3,7 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const csvtojson = require('csvtojson');
 const driver = require(`${process.cwd()}/app/driver.js`);
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
@@ -96,8 +97,24 @@ Then('I verify that following Tab are present', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePage.assertElementExists('Tab', data_table.hashes()[i].Tabs)
   }
-})
+});
 
 When(/^I click on "(.*)" card$/, async function (courseName){
   await pages.courseList.click('courseCard')
+});
+
+When(/^I search in "(.*)" template by keyword "(.*)" using "(.*)" search bar in "(.*)" section$/, async function (courseName, activity, searchBar, searchSection){
+  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.waitForElementVisibility('courseName', courseName);
+  await pages.courseList.click('courseName', courseName);
+  await pages.productionPage.waitForElementVisibility('productionButton', 'Production');
+  await pages.productionPage.click('productionButton', 'Production');
+  await pages.productionPage.waitForElementVisibility('productionTab', 'Search');
+  await pages.productionPage.click('productionTab', 'Search');
+  await pages.productionPage.click('showFilter', searchSection);
+  await pages.productionPage.assertElementExists('keywordSearchBar', searchBar);
+  await pages.productionPage.populate('keywordSearchBar', searchBar, activity);
+  await pages.productionPage.click('applySearch');
+  await pages.productionPage.assertElementExists('searchResults', activity);
 });
