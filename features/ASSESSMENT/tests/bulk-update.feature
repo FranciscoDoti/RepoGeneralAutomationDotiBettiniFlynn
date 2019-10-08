@@ -57,9 +57,9 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | NGA QA Test UT Item |
             | NGA QA Test MD Item |
 
-        # And I verify the deleted items are not displayed in AMS
-        #     | Title               |
-        #     | NGA QA Test MC Item |
-        #     | NGA QA Test MS Item |
-        #     | NGA QA Test UT Item |
-        #     | NGA QA Test MD Item |
+        And I verify the deleted items are not displayed in AMS
+            | Title               |
+            | NGA QA Test MC Item |
+            | NGA QA Test MS Item |
+            | NGA QA Test UT Item |
+            | NGA QA Test MD Item |
