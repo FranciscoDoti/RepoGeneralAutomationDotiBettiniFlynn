@@ -101,16 +101,18 @@ Then('I verify that following Tab are present', async function (data_table){
 When(/^I click on "(.*)" card$/, async function (courseName){
   await pages.courseList.click('courseCard')
 });
-
-When(/^I search in "(.*)" template by keyword "(.*)" using "(.*)" search bar in "(.*)" section$/, async function (courseName, activity, searchBar, searchSection){
+When(/^I verify that "(.*)" section exists in the "(.*)" view in "(.*)" course$/, async function (search, production, courseName){
   await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.waitForElementVisibility('courseName', courseName);
   await pages.courseList.click('courseName', courseName);
-  await pages.productionPage.waitForElementVisibility('productionButton', 'Production');
-  await pages.productionPage.click('productionButton', 'Production');
-  await pages.productionPage.waitForElementVisibility('productionTab', 'Search');
-  await pages.productionPage.click('productionTab', 'Search');
+  await pages.productionPage.waitForElementVisibility('productionButton', production);
+  await pages.productionPage.click('productionButton', production);
+  await pages.productionPage.waitForElementVisibility('productionTab', search);
+  await pages.productionPage.click('productionTab', search);
+});
+
+When(/^I search the "(.*)" activity using "(.*)" search bar in "(.*)" section$/, async function (activity, searchBar, searchSection){
   await pages.productionPage.click('showFilter', searchSection);
   await pages.productionPage.assertElementExists('keywordSearchBar', searchBar);
   await pages.productionPage.populate('keywordSearchBar', searchBar, activity);

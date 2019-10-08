@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @psv-4761
 Feature: Verify that Admin is able to search for the content using Keyword search filter
 
     @admin-delete-courseTemplate
@@ -12,4 +12,6 @@ Feature: Verify that Admin is able to search for the content using Keyword searc
        Then I verify that "Skills Keyword Search Template Created." message is displayed
        And I close the popup message
 
-       And I search in "Skills Keyword Search Template" template by keyword "Commas with Yes or No" using "Search by keyword" search bar in "filter-keyword-title" section
+       Then I verify that "Search" section exists in the "Production" view in "Skills Keyword Search Template" course
+       
+       And I search the "Commas with Yes or No" activity using "Search by keyword" search bar in "filter-keyword-title" section
