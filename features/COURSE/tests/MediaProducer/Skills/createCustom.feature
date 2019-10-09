@@ -13,10 +13,6 @@ Feature: Verify that media Producer is able to create Custom Task in Skills temp
             | Skills Template           |   E2E 301     |  Active On Date      |
 
         And I create "WT" Custom Task in "Skills Template" and add it to resources
-            | activity              | value                                    | Scales  | Description      |
-            | nameRubric            | Names                                    | Scale 1 | Enter with A     |
-            | criterion             | Enter Names                              | Scale 2 | Eneter with B    |
-            | criterionDescription  | First Name and Last Name                 | Scale 3 | Eneter with C    |
                                 
         Then I verify that custom content is added to resources
             | activity                         |

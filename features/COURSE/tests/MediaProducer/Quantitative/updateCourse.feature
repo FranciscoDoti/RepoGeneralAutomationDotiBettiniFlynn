@@ -14,8 +14,6 @@
             | Quantitative Template  |   E2E 301     |  Active On Date      | 
 
             
-        Then I verify that "Quantitative Template" is created with following data
-            | field                 | value                     |
-            | courseName            | Quantitative Template     |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+        Then I verify that "Quantitative Template" is activated with following data
+            | CourseName            | Status                    | ISBN                      |
+            | Quantitative Template |  Active                   |  9781464199498            |

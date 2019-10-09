@@ -7,6 +7,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Dialog Title",
+            "byType": "css",
+            "definition": ".cdl-dialog-header-title",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Question Title",
             "byType": "css",
             "definition": ".edit-question-title",
@@ -25,7 +32,7 @@
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-question-prompt']",
             "frame": "default",
-            "specialInstr": "focus"
+            "specialInstr": "NA"
         }, 
         {
             "name": "ImageButton",
@@ -108,13 +115,13 @@
             "byType": "css",
             "definition": "div[data-test-id='hatchling-correct-choice']",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },{
             "name": "Correct Answer Feedback",
             "byType": "xpath",
             "definition": "//span[text()='Correct Answer Feedback']/../..//div[@class='rte-content']",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },{
             "name": "Collapsible Title",
             "byType": "xpath",
@@ -132,13 +139,13 @@
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../..//div[@class='rte-content' and @data-test-id='hatchling-incorrect-choice']",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },{
             "name": "Incorrect Answer Feedback",
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//div[contains(@class,'public-DraftEditor-content')]",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },{
             "name": "Button",
             "byType": "xpath",
@@ -177,6 +184,12 @@
             "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },{
+            "name": "item id",
+            "byType": "xpath",
+            "definition": "//td[text()='<ReplaceText>']/..//a",
+            "frame": "default",
+            "specialInstr": "focus"
         }
     ]
 }

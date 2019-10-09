@@ -7,9 +7,9 @@
             "frame": "default",
             "specialInstr": "NA"
         },{
-            "name": "easyItemMultipleChoice",
-            "byType": "css",
-            "definition": ".dropdown-content a:nth-child(1)",
+            "name": "Hatchling Item Option",
+            "byType": "xpath",
+            "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
        },{
