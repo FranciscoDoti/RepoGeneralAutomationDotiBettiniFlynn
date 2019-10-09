@@ -77,7 +77,7 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Reading 1  |
             | Reading 2  |
 
-        Then I verify that Folders are deeleted in ebook
+        Then I verify that Folders are deleted in ebook
             | Folder     |
             | Reading 1  |
             | Reading 2  |
