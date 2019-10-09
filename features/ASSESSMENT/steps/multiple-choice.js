@@ -29,7 +29,7 @@ When(/^I add \"([^\"]*)\" hatchling item with following details$/, async functio
   await pages.hatchlingItem.assertText('Dialog Title', 'Multiple Choice Question');
   let q = datatable.hashes()[0];
   q.QuestionTitle = q.QuestionTitle + " " + code;
-  // await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
+  await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt); 
   this.data.set("Question Title",q.questionTitle);
 });
