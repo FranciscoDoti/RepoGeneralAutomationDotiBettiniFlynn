@@ -35,7 +35,7 @@ After('@admin-delete-courseTemplate', async function () {
 
   let course = this.data.get('code');
   let courseName = this.data.get('Number');
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course);
@@ -110,7 +110,7 @@ After('@mediaproducer-delete-courseTemplate', async function () {
   await pages.home.click('signIn')
   let course = this.data.get('code');
   let courseName = this.data.get('Number');
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course)
