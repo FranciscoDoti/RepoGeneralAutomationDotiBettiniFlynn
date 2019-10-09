@@ -17,7 +17,14 @@
         {
             "name": "AMS Button",
             "byType": "xpath",
-            "definition": "//li[contains(.,'<ReplaceText>')]",
+            "definition": "//li[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Confirmation Dialog Button",
+            "byType": "xpath",
+            "definition": "//a[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -43,9 +50,23 @@
             "specialInstr": "NA"
         },
         {
+            "name": "AMS Tab",
+            "byType": "xpath",
+            "definition": "//li[@role='presentation']/a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item Action",
             "byType": "xpath",
             "definition": "//span[@data-test-id='item-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item ID Link",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='edit-item-link-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -71,9 +92,23 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Delete Confirmation Message Title",
+            "byType": "css",
+            "definition": "h4[data-test-id='header-text']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Feedback Side Panel",
             "byType": "xpath",
             "definition": "//div[contains(@class,'side-panel')]//div[@data-module-type='static_textfield']/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Confirmation Message Text",
+            "byType": "xpath",
+            "definition": "//div[text()='Are you sure you want to delete these items?']",
             "frame": "default",
             "specialInstr": "NA"
         }

@@ -1,8 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const driver = require(`${process.cwd()}/app/driver.js`);
-const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { raptorlib, amslib, froalalib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -27,6 +26,17 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
         await pages.raptor.click('Content Area');
         i++;
     }
+});
+
+When('I duplicate the following items', async function (dataTable) {
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
+        let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
+        this.data.set(item.Title, "id", duplicatedItemId);
+        await pages.ams.closeTab('Raptor Authoring');
+        await pages.ams.switchToTab('Sapling Learning Author Management System');
+    }
+    
 });
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {

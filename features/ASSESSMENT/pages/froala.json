@@ -13,6 +13,13 @@
             "definition": "//textarea[@class='ace_text-input']",
             "frame": "default",
             "specialInstr": "overwrite noclick"
+        },
+        {
+            "name": "Done",
+            "byType": "xpath",
+            "definition": "//button[@id='close-edit-host']",
+            "frame":"default",
+            "specialInstr":"NA"
         }
     ]
 }
