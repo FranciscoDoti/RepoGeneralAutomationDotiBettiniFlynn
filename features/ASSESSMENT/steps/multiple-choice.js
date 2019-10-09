@@ -23,13 +23,13 @@ Then('The variable values are displayed as choices', async function () {
   }
 });
 
-When('I add Multiple Choice hatchling item with following details', async function (datatable) {
+When(/^I add \"([^\"]*)\" hatchling item with following details$/, async function (moduleType, datatable) {
   let code = Date.now();
-  await hatchlinglib.createHatchlingEasyItem();
+  await hatchlinglib.createHatchlingEasyItem(moduleType);
   await pages.hatchlingItem.assertText('Dialog Title', 'Multiple Choice Question');
   let q = datatable.hashes()[0];
   q.QuestionTitle = q.QuestionTitle + " " + code;
-  await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
+  // await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt); 
   this.data.set("Question Title",q.questionTitle);
 });
@@ -59,8 +59,8 @@ When(/^I set hint and generic feedback with following details and save$/,async f
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
   await hatchlinglib.clickSaveEasyItem();
   
-  let questionTitle = this.data.get("Question Title");
-  let itemId = await pages.hatchlingItem.getText('item id', questionTitle);
-  log.info(`===============> "${itemId}". PASS`);
+  // let questionTitle = this.data.get("Question Title");
+  // let itemId = await pages.hatchlingItem.getText('item id', questionTitle);
+  // log.info(`===============> "${itemId}". PASS`);
 
 });
