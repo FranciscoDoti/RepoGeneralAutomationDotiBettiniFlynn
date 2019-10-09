@@ -3,9 +3,8 @@
  */
 'use strict';
 const { assert, expect } = require('chai');
-const HashTable = require(`${process.cwd()}/app/HashTable`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
-const { loadJSONFile } = require(`${process.cwd()}/app/util`);
+const jsonfile = require('jsonfile');
 const { getDriver, getWebDriver, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
@@ -14,13 +13,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
   that.pageName = pageNameInput;
   that.pageDefinitionFileName = pageNameDirectoryInput + pageNameInput;
-  that.pageElements = new HashTable({}); // a hash of all of the web elements for this page.
+  that.pageElements = new Map(); // a hash of all of the web elements for this page.
 
   that.driver = getDriver();
   that.webdriver = getWebDriver();
 
   const loadPageDefinitionFile = function (fullFileName) {
-    var jsonContent = loadJSONFile(fullFileName);
+    var jsonContent = jsonfile.readFileSync(fullFileName);
 
     for (var i in jsonContent.webElements) {
       var element = jsonContent.webElements[i];
@@ -29,24 +28,24 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const addElement = function (elementName, elements) {
-    that.pageElements.setItem(elementName, elements);
+    that.pageElements.set(elementName, elements);
   }
 
   const getElement = async function (elementName) {
-    return that.pageElements.getItem(elementName);
+    return that.pageElements.get(elementName);
   }
 
   const hasElement = async function (elementName) {
-    return that.pageElements.hasItem(elementName);
+    return that.pageElements.has(elementName);
   }
 
   const addDynamicElement = async function (elementName, additionalDescription) {
     let newElementName = elementName + " " + additionalDescription;
     if (typeof additionalDescription !== 'undefined' && await hasElement(elementName)) {
-      var dynamicElement = JSON.parse(JSON.stringify(await that.pageElements.getItem(elementName)));
+      var dynamicElement = Object.assign({}, await getElement(elementName));
       dynamicElement.name = newElementName;
       dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
-      await addElement(newElementName, dynamicElement);
+      addElement(newElementName, dynamicElement);
       return newElementName;
     }
   }
@@ -154,7 +153,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     if (replaceText !== undefined) {
       elementName = await addDynamicElement(elementName, replaceText);
     }
-
+    
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
@@ -189,7 +188,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       log.error(err.stack);
       throw err;
     }
-  }
+  };
 
   //to be revisited
   const scrollElementIntoView = async function (elementName, replaceText) {
@@ -273,7 +272,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     if (replaceText !== undefined) {
       elementName = await addDynamicElement(elementName, replaceText);
     }
-
     if (await genericAssertElement(elementName, 'disabled')) {
       log.info(`Web Element ${elementName} is disabled. PASS`);
     } else {
@@ -282,7 +280,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   //to be revisited
-  const genericGetAttribute = async function(elementName, attributeName){
+  const genericGetAttribute = async function (elementName, attributeName) {
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
@@ -318,7 +316,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       log.error(err.stack);
       throw err;
     }
-  }
+  };
 
   const getText = async function (elementName, replaceText) {
     if (replaceText !== undefined) {
@@ -437,7 +435,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     if (replaceText !== undefined) {
       elementName = await addDynamicElement(elementName, replaceText);
     }
-
     try {
       log.info(`Starting click the web element: ${elementName}`);
       await genericPopulateElement(elementName, 'click');
