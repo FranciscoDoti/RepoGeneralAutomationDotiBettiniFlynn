@@ -104,4 +104,3 @@ const HashTable = function HashTable (obj) {
   };
 };
 module.exports = HashTable;
-

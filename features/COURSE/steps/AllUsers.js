@@ -21,8 +21,8 @@ When('I click on home button to return to coursepage', async function () {
 });
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
-  await pages.courseList.waitForElementVisibility('courseTemplate', 'Course Templates');
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.waitForElementVisibility('courseTemplate', 'COURSE TEMPLATES');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', CourseName);
   await pages.createCourse.assertElementExists('courseCard', CourseName)
 });
@@ -59,8 +59,8 @@ Then(/^I verify that "(.*)" is created with following data$/, async function (co
   await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
-    await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
-    await pages.createCourse.assertTextIncludes('Status',c.Status);
+    await pages.createCourse.assertTextIncludes('courseCard',courseName, c.CourseName);
+    await pages.createCourse.assertTextIncludes('Status',courseName, c.Status);
   }
 });
 Then(/^I verify that "(.*)" is activated with following data$/, async function (courseName, data_table){
@@ -68,9 +68,9 @@ Then(/^I verify that "(.*)" is activated with following data$/, async function (
   await pages.createCourse.assertElementExists('courseCard', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
-    await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
-    await pages.createCourse.assertTextIncludes('TemplateStatus',c.Status);
-    await pages.createCourse.assertTextIncludes('ISBNVerification', c.ISBN);
+    await pages.createCourse.assertTextIncludes('courseCard',courseName, c.CourseName);
+    await pages.createCourse.assertTextIncludes('TemplateStatus',courseName, c.Status);
+    await pages.createCourse.assertTextIncludes('ISBNVerification',courseName, c.ISBN);
   }
 });
 

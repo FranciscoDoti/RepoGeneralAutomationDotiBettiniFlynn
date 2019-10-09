@@ -123,7 +123,7 @@
     }, { 
         "name": "courseTemplateTab",
         "byType": "css",
-        "definition": "nav div[aria-label='Course Templates']",
+        "definition": "nav div[aria-label='COURSE TEMPLATES']",
         "frame": "default",
         "specialInstr": "NA"
     }, { 
@@ -158,8 +158,8 @@
         "specialInstr": "NA"
     }, {
         "name": "selectDate",
-        "byType": "css",
-        "definition": "[class='_2XMC ' ]",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -191,7 +191,7 @@
     {
         "name": "courseNumber",
         "byType": "xpath",
-        "definition": "//span[contains(@class,'_3F-s') and contains(text(), '<ReplaceText>')]",
+        "definition": "//span[contains(@class,'_1t8a') and contains(text(), '<ReplaceText>')]",
         "frame": "default",
         "specialInstr": "NA"
     }, {

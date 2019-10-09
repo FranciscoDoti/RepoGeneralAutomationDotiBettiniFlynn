@@ -18,7 +18,7 @@ When(/^I activate "(.*)" course with following data$/, async function (courseNam
   await pages.courseList.click('nextMonthButton');
   await pages.courseList.click('nextMonthButton');
   await pages.courseList.click('nextMonthButton');
-  await pages.courseList.click('selectDate');
+  await pages.courseList.click('selectDate', '15');
   await pages.editCourse.click('save');
   await pages.home.click('closeAlert');
 });
@@ -170,6 +170,12 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
     await pages.coursePlanner.populate('Category', data_table.hashes()[i].GradebookCategory)
     await pages.coursePlanner.click('assignButton');
   }
+});
+
+Then(/^I verify that "(.*)" is created$/, async function (courseName){
+  this.data.set('course', courseName);
+    await pages.createCourse.assertTextIncludes('courseCard',courseName,courseName);
+
 });
 
 When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {

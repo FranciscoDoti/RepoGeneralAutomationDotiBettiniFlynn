@@ -41,7 +41,7 @@
         {
             "name": "Status",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3mBZ']",
+            "definition": "//*[.='<ReplaceText>']/../../../../..//div[@class='ReMV']",
             "frame": "default",
             "specialInstr": "NA"
         },{

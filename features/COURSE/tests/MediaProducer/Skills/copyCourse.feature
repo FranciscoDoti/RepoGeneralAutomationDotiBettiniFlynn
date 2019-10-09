@@ -25,7 +25,8 @@ Feature: Copy course from Skills template
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
             | Skills Course       | E2E 301              |
-        And I click on "Course Templates" tab 
+        
+        And I click on "Courses" tab 
 
         Then I verify that "Skills Course" is created with following data
             | CourseName              | Status                    |
