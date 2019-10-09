@@ -39,7 +39,7 @@ Feature: Verify Update User Permissions
         And I go back to sapling page and logout
         And I login to AMS as "test-user"
         Then I verify the following tabs are displayed on the top
-            | TabName      |
+            | TabName       |
             | Items         |
             | Deleted Items |
             | Users         |

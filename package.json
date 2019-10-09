@@ -5,7 +5,8 @@
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "NGA-7738": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/EasyItemMC.feature -f json:reports/cucumber_report.json",
-    "NGA-7874": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/update-user-permission.feature -f json:reports/cucumber_report.json"
+    "NGA-7874": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/update-user-permission.feature -f json:reports/cucumber_report.json",
+    "bulk": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/bulk-update.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"

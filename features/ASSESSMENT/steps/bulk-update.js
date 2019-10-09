@@ -52,7 +52,7 @@ Then('I verify the details of the following items are displayed in AMS', async f
 
 When('I search for the following user to update his permissions', async function (datatable) {
   let username = datatable.hashes()[0];
-  await pages.ams.click('AMS Tab', 'Users');
+  await pages.ams.click('AMS Tab', 'users');
   await pages.ams.populate('User Filter', username.User);
 
 });
@@ -75,7 +75,19 @@ When('I click on UserId and un-check the following permissions checkboxes and sa
 });
 
 Then('I verify the following tabs are displayed on the top', async function (datatable) {
-  await amslib.verifyTabs(datatable);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let tab = datatable.hashes()[i];
+    let expectedTab = tab.TabName;
+    let actualTab = tab.TabName.replace(/\s(.)/g, function (char) {
+      return char.toUpperCase();
+    })
+      .replace(/\s/g, '')
+      .replace(/^(.)/, function (char) {
+        return char.toLowerCase();
+      });
+    console.log("====val===="+actualTab);
+    await pages.ams.assertText('AMS Tab', actualTab+'Btn', expectedTab);
+  }
 });
 
 When('I click on UserId and check the following permissions checkboxes and save', async function (datatable) {
