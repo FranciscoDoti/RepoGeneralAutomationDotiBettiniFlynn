@@ -1,11 +1,11 @@
 {
-    "environment": "dev",
+    "environment": "int",
     "mode": "local",
     "browser": "chrome",
     "headless": false,
     "screenshots": "onFail",
     "timeout": 30,
-    "stack": "dev-cm1",
+    "stack": "",
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
         "mode": "local | docker | browserstack | localgrid | hub",
