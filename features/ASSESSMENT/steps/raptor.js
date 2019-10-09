@@ -173,7 +173,7 @@ When('I add the following feedbacks and save the item', async function (feedback
     await pages.raptor.click('Add Context', 'incorrect');
     for (let i = 0; i < feedbackDetail.rows().length; i++) {
         let data = feedbackDetail.hashes()[i];
-        await raptorlib.selectFeedbackContext(data);
+        await raptorlib.addFeedbackModule(data['Tab Name'], 'Ungraded Text');
         await froalalib.addFeedback(data);
     }
     await raptorlib.saveItem();
