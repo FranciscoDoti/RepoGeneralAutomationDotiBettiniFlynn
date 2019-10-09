@@ -170,7 +170,7 @@ When(/^I add the (.*) draft item in AMS with title (.*)$/, async function (modul
 });
 
 When('I add the following feedbacks and save the item', async function (feedbackDetail) {
-    await raptorlib.addContext('incorrect');
+    await pages.raptor.click('Add Context', 'incorrect');
     for (let i = 0; i < feedbackDetail.rows().length; i++) {
         let data = feedbackDetail.hashes()[i];
         await raptorlib.selectFeedbackContext(data);
@@ -181,7 +181,10 @@ When('I add the following feedbacks and save the item', async function (feedback
 
 Then(/^I verify the feedbacks in the following tabs$/, async function (datatable) {
     await amslib.waitAlgoliaProcess();
-    await amslib.itemAction('preview', this.data.get("itemId"));
-    await amslib.showFeedbackToggle();
-    await amslib.verifyFeedback(datatable);
+    await pages.ams.click('Item Action', 'preview-'+this.data.get("itemId"));  
+    await pages.ams.click('Show Feedback Toggle');
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let itemTabs = datatable.hashes()[i];
+        await amslib.verifyFeedback(itemTabs);
+    }
 });

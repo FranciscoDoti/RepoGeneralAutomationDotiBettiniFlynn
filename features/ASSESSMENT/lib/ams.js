@@ -35,9 +35,7 @@ const waitAlgoliaProcess = async function () {
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
 };
 
-const verifyFeedback = async function(datatable){
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let itemTabs = datatable.hashes()[i];
+const verifyFeedback = async function(itemTabs){
         await pages.ams.click('Feedback Tab', (itemTabs['Tab Name']).toLowerCase());
         if(itemTabs['Tab Name']== 'Solution'){
             await pages.ams.assertElementExists('Solution Feedback', itemTabs['Feedback Text']);
@@ -46,16 +44,8 @@ const verifyFeedback = async function(datatable){
         {
             await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
         }
-      }
 }
 
-const itemAction = async function(action, itemId){
-        await pages.ams.click('Item Action', action+"-"+itemId);    
-}
-
-const showFeedbackToggle = async function(){
-    await pages.ams.click('Show Feedback Toggle');
-}
 
 const verifyItemDetails = async function (item, itemId) {
     if (item['Author Mode'] !== undefined) {
@@ -92,6 +82,4 @@ module.exports = {
     verifyItemDetails,
     waitAlgoliaProcess,
     verifyFeedback,
-    itemAction,
-    showFeedbackToggle
 };

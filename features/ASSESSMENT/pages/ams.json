@@ -43,13 +43,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Item Title",
-            "byType": "xpath",
-            "definition": "//div[@id='item-panel']//tbody//td[text()='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "AMS Tab",
             "byType": "xpath",
             "definition": "//li[@role='presentation']/a[text()='<ReplaceText>']",

@@ -25,10 +25,6 @@ const saveItem = async function () {
     return (await pages.raptor.getText('Item ID')).split(":")[1].trim();
 };
 
-const addContext = async function (contextType) {
-    await pages.raptor.click('Add Context', contextType);
-}
-
 const selectFeedbackContext = async function(data){
         await pages.raptor.click('Answer Tab', (data['Tab Name']).toLowerCase());
         await pages.raptor.click('Feedback Add Button');
@@ -48,7 +44,6 @@ module.exports = {
     addItemDetails,
     addModule,
     saveItem,
-    addContext,
     selectFeedbackContext,
     duplicateItem
 };
