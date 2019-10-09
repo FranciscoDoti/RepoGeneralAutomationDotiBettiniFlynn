@@ -68,7 +68,7 @@ When('I click on UserId and un-check the following permissions checkboxes and sa
     } else {
       await updatelib.cancel();
       break;
-    }
+    } 
   } if (YES) {
     await updatelib.save();
   }
@@ -85,7 +85,6 @@ Then('I verify the following tabs are displayed on the top', async function (dat
       .replace(/^(.)/, function (char) {
         return char.toLowerCase();
       });
-    console.log("====val===="+actualTab);
     await pages.ams.assertText('AMS Tab', actualTab+'Btn', expectedTab);
   }
 });
