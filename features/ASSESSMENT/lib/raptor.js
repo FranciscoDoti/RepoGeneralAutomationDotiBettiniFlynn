@@ -25,6 +25,13 @@ const saveItem = async function () {
     return (await pages.raptor.getText('Item ID')).split(":")[1].trim();
 };
 
+const selectFeedbackContext = async function(data){
+        await pages.raptor.click('Answer Tab', (data['Tab Name']).toLowerCase());
+        await pages.raptor.click('Feedback Add Button');
+        await pages.raptor.click('Feedback Module', 'Ungraded Text');
+        await pages.raptor.click('Feedback Context Area');
+        await pages.raptor.click('Feedback Text');
+}
 const duplicateItem = async function (itemId) {
     await pages.raptor.click('Duplicate Item', itemId);
     await pages.raptor.switchToTab('Raptor Authoring');
@@ -37,5 +44,6 @@ module.exports = {
     addItemDetails,
     addModule,
     saveItem,
+    selectFeedbackContext,
     duplicateItem
 };
