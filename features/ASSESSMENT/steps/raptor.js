@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+const { raptorlib, amslib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -27,6 +28,17 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
     }
 });
 
+When('I duplicate the following items', async function (dataTable) {
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
+        let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
+        this.data.set(item.Title, "id", duplicatedItemId);
+        await pages.ams.closeTab('Raptor Authoring');
+        await pages.ams.switchToTab('Sapling Learning Author Management System');
+    }
+    
+});
+
 When(/^I add the "(.*)" module$/, async function (moduleType) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
     await pages.ams.click('Add Item', 'Raptor');
@@ -51,7 +63,7 @@ Then('I verify item has been created with following details', async function (da
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
-    
+
     //code to check element should not be present
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
@@ -148,4 +160,3 @@ Then('I check FR answers', async function () {
     await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
-
