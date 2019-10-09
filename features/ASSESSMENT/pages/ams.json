@@ -43,7 +43,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Item Preview",
+            "name": "Item Action",
             "byType": "xpath",
             "definition": "//span[@data-test-id='item-<ReplaceText>']",
             "frame": "default",

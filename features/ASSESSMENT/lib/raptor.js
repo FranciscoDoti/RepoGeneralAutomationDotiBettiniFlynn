@@ -29,9 +29,18 @@ const addContext = async function (contextType) {
     await pages.raptor.click('Add Context', contextType);
 }
 
+const selectFeedbackContext = async function(data){
+        await pages.raptor.click('Answer Tab', (data['Tab Name']).toLowerCase());
+        await pages.raptor.click('Feedback Add Button');
+        await pages.raptor.click('Feedback Module', 'Ungraded Text');
+        await pages.raptor.click('Feedback Context Area');
+        await pages.raptor.click('Feedback Text');
+}
+
 module.exports = {
     addItemDetails,
     addModule,
     saveItem,
-    addContext
+    addContext,
+    selectFeedbackContext
 };

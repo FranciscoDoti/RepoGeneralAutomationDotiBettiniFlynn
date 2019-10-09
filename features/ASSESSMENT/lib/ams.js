@@ -39,7 +39,7 @@ const verifyFeedback = async function(datatable){
 }
 
 const itemAction = async function(action, itemId){
-        await pages.ams.click('Item Preview', action+"-"+itemId);    
+        await pages.ams.click('Item Action', action+"-"+itemId);    
 }
 
 const showFeedbackToggle = async function(){

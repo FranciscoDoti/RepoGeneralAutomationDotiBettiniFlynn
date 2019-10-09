@@ -159,9 +159,13 @@ When(/^I add the (.*) draft item in AMS with title (.*)$/, async function (modul
     this.data.set("itemId", itemId);
 });
 
-When('I add the following feedbacks and save the item', async function (datatable) {
+When('I add the following feedbacks and save the item', async function (feedbackDetail) {
     await raptorlib.addContext('incorrect');
-    await froalalib.addFeedback(datatable);
+    for (let i = 0; i < feedbackDetail.rows().length; i++) {
+        let data = feedbackDetail.hashes()[i];
+        await raptorlib.selectFeedbackContext(data);
+        await froalalib.addFeedback(data);
+    }
     await raptorlib.saveItem();
 });
 
