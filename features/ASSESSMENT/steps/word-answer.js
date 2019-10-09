@@ -1,6 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 When('I configure the following grading options', async function (datatable) {
   await pages.raptor.click('Tab', 'correct');

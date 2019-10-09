@@ -279,6 +279,13 @@
             "definition": "//div[@class='cycle-variables-button']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Duplicate Item",
+            "byType": "xpath",
+            "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
