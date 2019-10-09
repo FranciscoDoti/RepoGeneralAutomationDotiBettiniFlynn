@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+const { raptorlib, amslib, froalalib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -27,6 +28,17 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
     }
 });
 
+When('I duplicate the following items', async function (dataTable) {
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
+        let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
+        this.data.set(item.Title, "id", duplicatedItemId);
+        await pages.ams.closeTab('Raptor Authoring');
+        await pages.ams.switchToTab('Sapling Learning Author Management System');
+    }
+    
+});
+
 When(/^I add the "(.*)" module$/, async function (moduleType) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
     await pages.ams.click('Add Item', 'Raptor');
@@ -51,7 +63,7 @@ Then('I verify item has been created with following details', async function (da
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
     await mathpages.raptorAms.switchToTab('Sapling Learning');
-    
+
     //code to check element should not be present
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
@@ -149,3 +161,30 @@ Then('I check FR answers', async function () {
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
 
+When(/^I add the (.*) draft item in AMS with title (.*)$/, async function (moduleType, title) {
+    await amslib.addRaptorItem();
+    await raptorlib.addModule(moduleType);
+    await raptorlib.addItemDetails({Title: title});
+    let itemId = await raptorlib.saveItem();
+    this.data.set("itemId", itemId);
+});
+
+When('I add the following feedbacks and save the item', async function (feedbackDetail) {
+    await pages.raptor.click('Add Context', 'incorrect');
+    for (let i = 0; i < feedbackDetail.rows().length; i++) {
+        let data = feedbackDetail.hashes()[i];
+        await raptorlib.selectFeedbackContext(data);
+        await froalalib.addFeedback(data);
+    }
+    await raptorlib.saveItem();
+});
+
+Then(/^I verify the feedbacks in the following tabs$/, async function (datatable) {
+    await amslib.waitAlgoliaProcess();
+    await pages.ams.click('Item Action', 'preview-'+this.data.get("itemId"));  
+    await pages.ams.click('Show Feedback Toggle');
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let itemTabs = datatable.hashes()[i];
+        await amslib.verifyFeedback(itemTabs);
+    }
+});
