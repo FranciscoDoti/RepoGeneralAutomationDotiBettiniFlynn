@@ -1,4 +1,4 @@
-@Achieve
+@achieve
 @Reading
 Feature: Launch Reading
 
@@ -6,5 +6,5 @@ Feature: Launch Reading
         Given I login to Achieve-CW as "admin_1"
             When I search for "Reading Automation" and click on course card
             When I launch a reading
-            # Then there should be ebook content
-            When I type 42 in the page number input
+            Then there should be ebook content
+            # When I type 42 in the page number input
