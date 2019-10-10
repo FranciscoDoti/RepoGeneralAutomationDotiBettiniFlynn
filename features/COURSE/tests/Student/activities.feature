@@ -94,6 +94,14 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
 
+    Scenario: Verify that student see correct assignments grids
+
+        When I login to Achieve-CW as "student_1"
+
+        Then I see assignments due in the next 7 days on the course Plan tab
+
+        Then I do not see assignments more than 7 days out on the course plan tab
+
     Scenario: Verify that student is able to see Grades in Gradebook 
 
         When I login to Achieve-CW as "student_1"

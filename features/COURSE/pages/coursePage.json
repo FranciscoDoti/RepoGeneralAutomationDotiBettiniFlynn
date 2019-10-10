@@ -93,6 +93,18 @@
             "definition": "[data-test-id='access_code_modal_finish_enrollment_btn']",
             "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "assignmentsDueSevenDays",
+            "byType": "css",
+            "definition": "div[role='presentation']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "dueDateDay",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

@@ -197,3 +197,16 @@ Then('I verify the Grades', async function (data_table){
     await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
   }
 });
+
+Then('I see assignments due in the next 7 days on the course Plan tab', async function () {
+  await pages.coursePage.click('navigation','My Course');
+  await pages.coursePage.click('tab', 'ASSIGNMENTS');
+  await pages.coursePage.assertElementExists('assignmentsDueSevenDays');
+});
+
+Then('I do not see assignments more than 7 days out on the course plan tab', async function () {
+  const dayMore7 = new Date().toLocaleDateString('en-US', { weekday: 'long' }); // this returns today name and we should not found a row with this name in the list.
+  await pages.coursePage.click('navigation','My Course');
+  await pages.coursePage.click('tab', 'ASSIGNMENTS');
+  await pages.coursePage.assertElementDoesNotExist('dueDateDay', dayMore7);
+});
