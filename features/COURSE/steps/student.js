@@ -1,6 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const Pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
 const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
