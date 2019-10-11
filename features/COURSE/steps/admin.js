@@ -119,3 +119,10 @@ for (let i = 0; i < datatable.rows().length; i++) {
   await pages.coursepage.click('placeTab', '2');
   }
 })
+
+Then(/^I verify that activities are added in "(.*)" and not in "(.*)"$/, async function (ebook, courseplan){
+await pages.coursepage.click('Tab', ebook);
+for (let i = 0; i < datatable.rows().length; i++) {
+  await pages.coursepage.click()
+}
+})

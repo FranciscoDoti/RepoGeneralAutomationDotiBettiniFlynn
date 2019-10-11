@@ -24,7 +24,7 @@ Feature: Verify that Admin is able to add activities in Ebook
           | Glossary   |
           | Appendix F |
 
-        And I add the activities in Ebook
+        And I add the activities in "E-book"
             | activities |
             | Glossary   |
             | Appndix F  |
