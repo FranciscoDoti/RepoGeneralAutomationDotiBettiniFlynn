@@ -9,11 +9,7 @@ const clickGenericFeedback = async function () {
   await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
   await pages.hatchlingItem.click('Collapsible Title', 'Generic Feedback');
 }
-const clickSaveEasyItem = async function () {
-    await pages.hatchlingItem.click('Button', 'Save');
-  }
 module.exports = {
     createHatchlingEasyItem,
-    clickGenericFeedback,
-    clickSaveEasyItem
+    clickGenericFeedback
 };

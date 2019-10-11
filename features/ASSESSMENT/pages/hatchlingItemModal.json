@@ -22,18 +22,11 @@
             "specialInstr": "focus"
         },
         {
-            "name": "Populate Question Title",
+            "name": "Question Title Edit",
             "byType": "css",
             "definition": "input[data-test-id='hatchling-item-title']",
             "frame": "default",
             "specialInstr": "focus"
-        },
-        {
-            "name": "title",
-            "byType": "css",
-            "definition": "input[data-test-id='hatchling-item-title']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
         },
         {
             "name": "Question Prompt",
@@ -143,7 +136,7 @@
         {
             "name": "Collapsible Incorrect Feedback Title",
             "byType": "xpath",
-            "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//span[text()='Incorrect Answer Feedback']",
+            "definition": "//label[@for='option<ReplaceText>']/../..//span[text()='Incorrect Answer Feedback']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -202,13 +195,6 @@
             "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        },
-        {
-            "name": "item id",
-            "byType": "xpath",
-            "definition": "//td[text()='<ReplaceText>']/..//a",
-            "frame": "default",
-            "specialInstr": "focus"
         }
     ]
 }

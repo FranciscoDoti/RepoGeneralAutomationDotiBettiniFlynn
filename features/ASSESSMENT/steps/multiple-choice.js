@@ -1,8 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
-const { sleep } = require(`${process.cwd()}/app/driver`);
-const { raptorlib, amslib, updatelib, hatchlinglib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { hatchlinglib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
@@ -30,7 +29,7 @@ When(/^I add \"([^\"]*)\" hatchling item with following details$/, async functio
   let q = datatable.hashes()[0];
   q.QuestionTitle = q.QuestionTitle + " " + code;
   await pages.hatchlingItem.click('Question Title');
-  await pages.hatchlingItem.populate('Populate Question Title', q.QuestionTitle);
+  await pages.hatchlingItem.populate('Question Title Edit', q.QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt);
   this.data.set("Question Title", q.questionTitle);
 });
@@ -58,6 +57,6 @@ When(/^I set hint and generic feedback with following details and save$/, async 
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Hint', ans.Hint);
   await hatchlinglib.clickGenericFeedback();
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
-  await hatchlinglib.clickSaveEasyItem();
+  await pages.hatchlingItem.click('Button', 'Save');
 
 });
