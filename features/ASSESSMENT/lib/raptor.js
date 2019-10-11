@@ -25,12 +25,12 @@ const saveItem = async function () {
     return (await pages.raptor.getText('Item ID')).split(":")[1].trim();
 };
 
-const selectFeedbackContext = async function(data){
-        await pages.raptor.click('Answer Tab', (data['Tab Name']).toLowerCase());
-        await pages.raptor.click('Feedback Add Button');
-        await pages.raptor.click('Feedback Module', 'Ungraded Text');
-        await pages.raptor.click('Feedback Context Area');
-        await pages.raptor.click('Feedback Text');
+const addFeedbackModule = async function (tab, moduleType) {
+    await pages.raptor.click('Answer Tab', tab.toLowerCase());
+    await pages.raptor.click('Feedback Add Button');
+    await pages.raptor.click('Feedback Module', moduleType);
+    await pages.raptor.click('Feedback Context Area');
+    await pages.raptor.click('Feedback Text');
 }
 const duplicateItem = async function (itemId) {
     await pages.raptor.click('Duplicate Item', itemId);
@@ -44,6 +44,6 @@ module.exports = {
     addItemDetails,
     addModule,
     saveItem,
-    selectFeedbackContext,
+    addFeedbackModule,
     duplicateItem
 };
