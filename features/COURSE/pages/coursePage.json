@@ -101,6 +101,14 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "contentType",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@id='filter-keyword-title']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
     ]
 }

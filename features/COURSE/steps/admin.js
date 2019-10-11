@@ -101,3 +101,21 @@ Then('I verify that following Tab are present', async function (data_table){
 When(/^I click on "(.*)" card$/, async function (courseName){
   await pages.courseList.click('courseCard')
 });
+
+When(/^I add activities to "(.*)"$/, async function (tab){
+  await pages.coursePage.click('Tab', 'Search');
+  await pages.coursePage.click('contentType', 'Keyword Search');
+  for (let i = 0; i < datatable.rows().length; i++) {
+  await pages.coursePage.populate('librarySearchInput', data_table.hashes()[i].activities);
+  await pages.coursePage.click('librarySearchInput');
+  await pages.coursePage.click('addResources',data_table.hashes()[i].activities);
+  }
+});
+
+When(/^I add the activities in "(.*)"$/, async function (tab){
+await pages.coursepage.click('Tab', 'Content Library');
+for (let i = 0; i < datatable.rows().length; i++) {
+  await pages.coursepage.click('addButton', data_table.hashes()[i].activities);
+  await pages.coursepage.click('placeTab', '2');
+  }
+})

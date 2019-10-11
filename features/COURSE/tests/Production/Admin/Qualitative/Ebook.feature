@@ -7,9 +7,13 @@ Feature: Verify that Admin is able to add activities in Ebook
             | courseType  | productModel      | courseName                       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Production Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
 
-        And I update "Qualitative Production Template" template and add the following data
-            | courseName                        |  courseCode   |  templateStatus      |
-            | Qualitative Production Template   |   E2E 301     |  Active On Date      | 
+        And I close the popup message                      
+
+        And I click on search button and input "Qualitative URL Template" to search the course
+
+        And I activate "Qualitative URL Template" template and add the following data
+            | courseName                    |  courseCode   |  templateStatus      |
+            | Qualitative URL Template      |   E2E 301     |  Active On Date      | 
         
 
         And I click on "Qualitative Production Template" card
@@ -81,19 +85,3 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Folder     |
             | Reading 1  |
             | Reading 2  |
-
-
-
-            
-
-
-        
-
-        
-
-
-
-
-    
-
-
