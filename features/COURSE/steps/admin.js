@@ -123,6 +123,16 @@ for (let i = 0; i < datatable.rows().length; i++) {
 Then(/^I verify that activities are added in "(.*)" and not in "(.*)"$/, async function (ebook, courseplan){
 await pages.coursepage.click('Tab', ebook);
 for (let i = 0; i < datatable.rows().length; i++) {
-  await pages.coursepage.click()
+  await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
+  await pages.coursepage.click('Tab', 'Course Plan');
+  await pages.eBook.assertElementDoesNotExist('activityVerification', data_table.hashes()[i].activities);
 }
+});
+
+When(/^I add activities in "(.*)"$/, async function (tab){
+  await pages.coursepage.click('Tab', 'Content Library');
+for (let i = 0; i < datatable.rows().length; i++) {
+  await pages.coursepage.click('addButton', data_table.hashes()[i].activities);
+  await pages.coursepage.click('placeTab', '1');
+  }
 })

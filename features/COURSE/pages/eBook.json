@@ -18,6 +18,12 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },{
+        "name": "activityVerification",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
 
     }]
 }

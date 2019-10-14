@@ -20,9 +20,12 @@ Feature: Verify that Admin is able to add activities in Ebook
         And I click on "Production" Tab
 
         And I add activities to "Content Library"
-          | activities |
-          | Glossary   |
-          | Appendix F |
+          | activities            |
+          | Glossary              |
+          | Appendix F            |
+          | Literary Elements     |
+          | Confidence Intervals  |
+          | Psychopathology       |
 
         And I add the activities in "E-book"
             | activities |
@@ -40,15 +43,34 @@ Feature: Verify that Admin is able to add activities in Ebook
 
        When I search for "Qualitative Production Template" and click on course card
 
-       And I add activities in Course plan 
+       And I add activities in "Course Plan" 
+            | activities           |
+            | Literary Elements    |
+            | Confidence Intervals |
+
+        Then I verify that activities are added in CoursePlan and not in eBook
+            | activities                    |
+            | Literary Elements             |
+            | Confidence Intervals          |
+
+    Scenario: Verify that Admin is able to add reading activities both in eBook and Course plan
+        Given I login to Achieve-CW as "admin_1"
+
+        When I search for "Qualitative Production Template" and click on course card
+
+         And I add activities in "Course Plan" and "E-Book"
+            | activities            |
+            | Glossary              |
+            | Appendix F            |
+            | Literary Elements     |
+            | Confidence Intervals  |
+            | Psychopathology       |
+
+        Then I verify that activities are added both in "E-Book" and "Course Plan" 
             | activities |
             | Glossary   |
             | Appndix F  |
 
-        Then I verify that activities are added both in eBook and CoursePlan 
-            | activities |
-            | Glossary   |
-            | Appndix F  |
 
     Scenario: Verify that Admin is able to create Folder, reorder and delete Folder in ebook 
 
