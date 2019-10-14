@@ -10,7 +10,7 @@
         {
             "name": "Select Checkbox",
             "byType": "xpath",
-            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/input",
+            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/label/span",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -60,6 +60,13 @@
             "name": "Item Action",
             "byType": "xpath",
             "definition": "//span[@data-test-id='item-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Action",
+            "byType": "xpath",
+            "definition": "//tr[@data-id='<ReplaceText>']/td/span",
             "frame": "default",
             "specialInstr": "NA"
         },
