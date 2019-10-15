@@ -17,9 +17,13 @@ Feature: Create a Template and click on Production
     
     Secenario: I create an assesment then I add it to the course library and course plan
 
-        Given I click on the "Create" Tab
-        And I add "assesment" to the course library
+        When I click on the "Create"
+        And I create the following assesments
+            | assesmentTitle    | assesmentType     |
+            | TestAssesment     | Test/Quiz         |
+
+        And I add "TestAssesment" to the Course Library
         And I click on "Course Library"
-        And I "assesment" to the course plan
+        And I add "TestAssesment" to the course plan
         And I click on "Course Plan"
-        And I verify that "assesment" exist
+        And I verify that "TestAssesment" exist
