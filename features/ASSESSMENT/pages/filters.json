@@ -1,0 +1,40 @@
+{
+    "webElements": [
+        {
+            "name": "Filter",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='dropdown-toggle']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "mainOption",
+            "byType": "xpath",
+            "definition": "//li[@data-test-id='filter-list-pill'][.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "subOption",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='filter-value'][.='<ReplaceText>']", // FIX THIS XPATH
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "tag",
+            "byType": "xpath",
+            "definition": "//span[@class='filter-text-span'][.='<ReplaceText>']", // FIX THIS XPATH
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "closeTag",
+            "byType": "xpath",
+            "definition": "//span[@class='filter-close-span'][.='<ReplaceText>']", // FIX THIS XPATH
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+
+    ]
+}
