@@ -20,7 +20,7 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
+  await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -66,7 +66,7 @@ Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES')
+  await pages.courseList.click('courseTemplate', 'Course Templates')
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('ISBNVerification', courseName);
   await pages.createCourse.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
@@ -146,15 +146,6 @@ Then('I verify that resources are reordered', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.assertTextIncludes('resourcesReorderVerification', data_table.hashes()[i].orderNumber, data_table.hashes()[i].folders);
   }
-});
-
-When(/^I add the activities in "(.*)"$/, async function (coursePage, data_table) {
-  await pages.coursePage.click('navigation','Browse');
-    for (let i = 0; i < data_table.rows().length; i++) {
-      await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-      await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    }
-
 });
 
 When(/^I add the activities to respective folders in "(.*)"$/, async function (coursePage, data_table) {
@@ -245,7 +236,7 @@ When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, course
   let user = this.users[userType];
   await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES')
+  await pages.courseList.click('courseTemplate', 'Course Templates')
   await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', user.username);

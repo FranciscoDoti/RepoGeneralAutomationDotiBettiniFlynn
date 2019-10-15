@@ -25,5 +25,37 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },
+    {
+        "name": "contentCheckbox",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//div/input[@data-test-id='content_checkbox']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "activitySelected",
+        "byType": "xpath",
+        "definition": "//span[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "Folder",
+        "byType": "xpath",
+        "definition": "//button[@aria-label='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "arrow",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//*[@type='chevron_right']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     }]
 }

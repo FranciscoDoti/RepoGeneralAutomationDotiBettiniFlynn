@@ -9,11 +9,11 @@ Feature: Verify that Admin is able to add activities in Ebook
 
         And I close the popup message                      
 
-        And I click on search button and input "Qualitative URL Template" to search the course
+        And I click on search button and input "Qualitative Production Template" to search the course
 
-        And I activate "Qualitative URL Template" template and add the following data
-            | courseName                    |  courseCode   |  templateStatus      |
-            | Qualitative URL Template      |   E2E 301     |  Active On Date      | 
+        And I activate "Qualitative Production Template" template and add the following data
+            | courseName                           |  courseCode   |  templateStatus      |
+            | Qualitative Production Template      |   E2E 301     |  Active On Date      | 
         
 
         And I click on "Qualitative Production Template" card
@@ -30,18 +30,20 @@ Feature: Verify that Admin is able to add activities in Ebook
         And I add the activities in "E-book"
             | activities |
             | Glossary   |
-            | Appndix F  |
+            | Appendix F |
 
-        Then I verify that activities are added in Ebook and not in course Plan 
+        Then I verify that activities are added in "E-book" and not in "Course Plan"
             | activities |
             | Glossary   |
-            | Appndix F  |
+            | Appendix F |
+    And I sign out of Achieve
 
-    Scenario:  Admin add activities in ebook and courseplan 
+    Scenario:  Admin add activities in courseplan and not in ebook
 
        Given I login to Achieve-CW as "admin_1"
 
        When I search for "Qualitative Production Template" and click on course card
+       And I click on "Production" Tab
 
        And I add activities in "Course Plan" 
             | activities           |
@@ -52,13 +54,23 @@ Feature: Verify that Admin is able to add activities in Ebook
             | activities                    |
             | Literary Elements             |
             | Confidence Intervals          |
+    And I sign out of Achieve
 
     Scenario: Verify that Admin is able to add reading activities both in eBook and Course plan
         Given I login to Achieve-CW as "admin_1"
 
         When I search for "Qualitative Production Template" and click on course card
+        And I click on "Production" Tab
 
-         And I add activities in "Course Plan" and "E-Book"
+         And I add the activities in both "Course Plan" and "E-book"
+            | activities            | tab               |
+            | Glossary              | CoursePlanEbook   |
+            | Appendix F            | CoursePlanEbook   |
+            | Literary Elements     | CoursePlanEbook   |
+            | Confidence Intervals  | CoursePlanEbook   |
+            | Psychopathology       | All               |
+
+        Then I verify that activities are added both in "E-book" and "Course Plan" 
             | activities            |
             | Glossary              |
             | Appendix F            |
@@ -66,44 +78,57 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Confidence Intervals  |
             | Psychopathology       |
 
-        Then I verify that activities are added both in "E-Book" and "Course Plan" 
-            | activities |
-            | Glossary   |
-            | Appndix F  |
-
 
     Scenario: Verify that Admin is able to create Folder, reorder and delete Folder in ebook 
 
         Given I login to Achieve-CW as "admin_1"
 
         When I search for "Qualitative Production Template" and click on course card
+        And I click on "Production" Tab
 
-        And I create folder and add the activities in the folders in ebook 
-            | Folder      | activities  |
-            | Reading 1   |  Glossary   |
-            | Reading 2   | Appndix F   |
+        And I create folder and add the activities to the folder in ebook 
+            | Folder       | activities             | PlaceFolder           |
+            | Reading 1    |  Glossary              | Reading 1 folder      |
+            | Reading 2    | Appendix F             | Reading 2 folder      |
+            | Reading 3    | Literary Elements      | Reading 3 folder      |
+            | Reading 4    | Confidence Intervals   | Reading 4 folder      |
+            | Reading 5    | Psychopathology        | Reading 5 folder      |
 
-        Then I verify that activities are added in the folder in ebook 
-            | Folder      | activities  |
-            | Reading 1   |  Glossary   |
-            | Reading 2   | Appndix F   |
+        Then I verify that activities are added to the folder in ebook 
+            | Folder        | activities             |
+            | Reading 1     |  Glossary              |
+            | Reading 2     | Appendix F             |
+            | Reading 3     | Literary Elements      |
+            | Reading 4     | Confidence Intervals   |
+            | Reading 5     | Psychopathology        |
 
         When I Reorder The folders in ebook
-            | Folder    | Button                |
-            | Reading 1 |  movedownButton       |
-            | Reading 2 | moveToTop             |
+            | Folder    |   Button              |
+            | Reading 1 |   moveToTop           |
+            | Reading 2 |   moveUpButton        |
+            | Reading 3 |   moveUpButton        |
+            | Reading 5 |  movedownButton       |  
 
         Then I verify that Folders are reordered in ebook 
             | Folder                                                            | orderNumber    |
-            | Reading 2                                                         |  1             |                                                       
-            | Reading 1                                                         |  2             |
+            | Reading 1                                                         |  1             |                                                       
+            | Reading 2                                                         |  2             |
+            | Reading 3                                                         |  3             |
+            | Reading 4                                                         |  4             |
+            | Reading 5                                                         |  5             |
 
         When I delete the folder in ebook 
             | Folder     |
             | Reading 1  |
             | Reading 2  |
+            | Reading 3  |
+            | Reading 4  |
+            | Reading 5  |
 
         Then I verify that Folders are deleted in ebook
             | Folder     |
             | Reading 1  |
             | Reading 2  |
+            | Reading 3  |
+            | Reading 4  |
+            | Reading 5  |

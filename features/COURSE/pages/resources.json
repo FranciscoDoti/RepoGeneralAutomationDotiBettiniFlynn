@@ -80,13 +80,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "addResources",
-            "byType": "css",
-            "definition": "[data-test-id='add_selections_to_resources']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "parentFolder",
             "byType": "css",
             "definition": "data-test-id='parent_folder']",
@@ -114,7 +107,7 @@
         }, {
             "name": "addFolder",
             "byType": "css",
-            "definition": "[data-test-id='add_folder_button']",
+            "definition": "[data-test-id='add_folder_btn']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -204,7 +197,7 @@
         }, {
             "name": "reorderResources",
             "byType": "xpath",
-            "definition": "//button[@class='IwDV']/..//span[text()='<ReplaceText>']",
+            "definition": "//*[@class='_3s5l']/..//span[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -245,7 +238,7 @@
         }, {
             "name": "resourcesReorderVerification",
             "byType": "xpath",
-            "definition": "//div[<ReplaceText>]/div[@role='row']//span[@data-test-id='folder_label_name']",
+            "definition": "(//*[@type='chevron_right'])[<ReplaceText]",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -337,7 +330,7 @@
         {
             "name": "placeTab",
             "byType": "xpath",
-            "definition": "//*[@id='simple-menu']/div[3]/ul/li['<ReplaceText>']",
+            "definition": "//*[@id='simple-menu']/div[3]/ul/li[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
         }

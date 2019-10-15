@@ -59,13 +59,6 @@
             "definition": "//*[@id='container']/div/div/div/div[4]/div/article/div[2]/div[2]/button",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "tab",
-            "byType": "xpath",
-            "definition": "//div[@role='button' and .='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-
         },{
             "name": "enroll",
             "byType": "css",
@@ -106,6 +99,20 @@
             "name": "contentType",
             "byType": "xpath",
             "definition": "//*[.='<ReplaceText>']/../../..//div[@id='filter-keyword-title']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "CoursePlanEbook",
+            "byType": "xpath",
+            "definition": "//*[@id='simple-menu']/div[3]/ul/li",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "All",
+            "byType": "xpath",
+            "definition": "//*[@id='simple-menu']/div[3]/ul/li[3]",
             "frame": "default",
             "specialInstr": "NA"
 

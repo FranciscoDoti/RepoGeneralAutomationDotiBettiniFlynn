@@ -202,7 +202,7 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
+  await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.populate('search', courseTemplate);
   await pages.coursePage.click('courseMenu');
   await pages.coursePage.click('courseMenu');
@@ -212,7 +212,7 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
-  await pages.courseList.click('courseTemplate', 'COURSES');
+  await pages.courseList.click('courseTemplate', 'Courss');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
 
 })
