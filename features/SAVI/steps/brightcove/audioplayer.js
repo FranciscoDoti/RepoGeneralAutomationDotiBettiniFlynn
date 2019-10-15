@@ -4,9 +4,6 @@ const { visitURL, sleep } = require(`${process.cwd()}/app/driver`); // allows th
 
 Given('I navigate to an assignment with Brightcove Audio Player', async function () {
   visitURL('http://www.saplinglearning.com/ibiscms/mod/flcn/view.php?id=9246174,');
-  await pages.saplingLearning.click('studentPreviewButton');
-  await pages.saplingLearning.click('clearAttemptsButton');
-  await pages.saplingLearning.switchToTab('Student Assignment');
 });
 
 Given('the audio is playing', async function () {

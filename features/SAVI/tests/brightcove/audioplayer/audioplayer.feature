@@ -4,8 +4,9 @@ Feature: Brightcove Audio Player
 
   Background: Login to IBISCMS and navigate to Student Assignment tab
 
-    Given I login to IBISCMS as "kelly.lancaster+savi"
+    Given I login to IBISCMS as "savi.create"
     Then I navigate to an assignment with Brightcove Audio Player
+    Then I launch the Student Assignment
 
   # SAVI -> Brightcove Audio -> Test Cases -> Play Audio
   Scenario: Play audio with bottom bar play button
