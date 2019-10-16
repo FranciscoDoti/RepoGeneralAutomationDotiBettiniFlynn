@@ -4,24 +4,24 @@ Feature: To verify the correct functionality of ams's item filter
     @Verify3FilterTagsAtSameTime
     Scenario: Select 3 different filters and verify that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
-        When I select various filters from datatable
-             | mainOption           | subOption                                                                   |
-             | Topic                | Your Questions (uncategorized)                                              |
-             | Blooms               | Remembering                                                                 |
-             | Access               | public                                                                      |
-        Then I verify that the following tabs are being displayed
-             | mainOption           | subOption                                                                   |
-             | Topic                | Your Questions (uncategorized)                                              |
-             | Blooms               | Remembering                                                                 |
-             | Access               | public                                                                      |
+        When I apply the following filters
+            | Filter           | Option                            |
+            | Topic            | Your Questions (uncategorized)    |
+            | Blooms           | Remembering                       |
+            | Access           | public                            |
+        Then I verify the following filter tags are displayed
+            | Tag                                   |
+            | Topic: Your Questions (uncategorized) |
+            | Blooms: Remembering                   |
+            | Access: public                        |
 
     @VerifyFilterTags
     Scenario Outline: Select different filters and check that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
-        When I select the filter options <mainOption> and <subOption>
-        Then I verify that the tag is being displayed with label using <mainOption> and <subOption>
+        When I select the filter option <Filter> and <Option>
+        Then I verify that the tag is being displayed with label using <Filter> and <Option>
         Examples:
-            | mainOption           | subOption                                                                   |
+            | Filter               | Option                                                                   |
             | Topic                | Your Questions (uncategorized)                                              |
             | Topic                | End of Chapter Problems                                                     |
             | Topic                | Price Floors                                                                |
