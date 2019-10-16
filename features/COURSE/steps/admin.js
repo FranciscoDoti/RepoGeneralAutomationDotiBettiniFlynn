@@ -96,8 +96,26 @@ Then('I verify that following Tab are present', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePage.assertElementExists('Tab', data_table.hashes()[i].Tabs)
   }
-})
+});
 
 When(/^I click on "(.*)" card$/, async function (courseName){
   await pages.courseList.click('courseCard')
+});
+When(/^I verify that "(.*)" section exists in the "(.*)" view in "(.*)" course$/, async function (search, production, courseName){
+  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.waitForElementVisibility('courseName', courseName);
+  await pages.courseList.click('courseName', courseName);
+  await pages.productionPage.waitForElementVisibility('productionTab', production);
+  await pages.productionPage.click('productionTab', production);
+  await pages.productionPage.waitForElementVisibility('productionTab', search);
+  await pages.productionPage.click('productionTab', search);
+});
+
+When(/^I search the "(.*)" activity using "(.*)" search bar in "(.*)" section$/, async function (activity, searchBar, searchSection){
+  await pages.productionPage.click('showFilter', searchSection);
+  await pages.productionPage.assertElementExists('keywordSearchBar', searchBar);
+  await pages.productionPage.populate('keywordSearchBar', searchBar, activity);
+  await pages.productionPage.click('applySearch');
+  await pages.productionPage.assertElementExists('searchResults', activity);
 });
