@@ -19,6 +19,9 @@ When('I click on resource tab', async function () {
 When('I click on home button to return to coursepage', async function () {
   await pages.home.click('achieveHome');
 });
+When(/^I click on "(.*)" Button$/, async function (tab){
+  await pages.coursePage.click('navigation', tab);
+});
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
   await pages.courseList.waitForElementVisibility('courseTemplate', 'Course Templates');

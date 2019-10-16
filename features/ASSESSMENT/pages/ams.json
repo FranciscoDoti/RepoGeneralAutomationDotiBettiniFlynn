@@ -64,6 +64,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Delete Action",
+            "byType": "xpath",
+            "definition": "//tr[@data-id='<ReplaceText>']/td/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID Link",
             "byType": "xpath",
             "definition": "//a[@data-test-id='edit-item-link-<ReplaceText>']",
