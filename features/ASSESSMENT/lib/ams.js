@@ -24,6 +24,13 @@ const deleteItems = async function () {
     return deletedItemsCount;
 };
 
+const deleteItem = async function (itemId) {
+    await pages.ams.switchToTab('Sapling Learning Author Management System');
+    await pages.ams.click('Delete Action', itemId);
+    await pages.ams.assertElementExists('Delete Confirmation Message Title');
+    await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
+};
+
 const updateDone = async function () {
     await pages.ams.switchToTab('Sapling Learning Author Management System');
     await pages.ams.click('AMS Button', 'Select Action');
@@ -34,6 +41,17 @@ const waitAlgoliaProcess = async function () {
     await pages.ams.switchToTab('Sapling Learning Author Management System');
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
 };
+
+const verifyFeedback = async function (itemTabs) {
+    await pages.ams.click('Feedback Tab', (itemTabs['Tab Name']).toLowerCase());
+    if (itemTabs['Tab Name'] == 'Solution') {
+        await pages.ams.assertElementExists('Solution Feedback', itemTabs['Feedback Text']);
+    }
+    else {
+        await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
+    }
+}
+
 
 const verifyItemDetails = async function (item, itemId) {
     if (item['Author Mode'] !== undefined) {
@@ -64,9 +82,11 @@ const verifyItemDetails = async function (item, itemId) {
 
 module.exports = {
     addRaptorItem,
+    deleteItem,
     deleteItems,
     openUpdateModal,
     updateDone,
     verifyItemDetails,
-    waitAlgoliaProcess
+    waitAlgoliaProcess,
+    verifyFeedback,
 };

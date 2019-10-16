@@ -10,7 +10,14 @@
         {
             "name": "Select Checkbox",
             "byType": "xpath",
-            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span",
+            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/label/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Hatchling Item Option",
+            "byType": "xpath",
+            "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -50,6 +57,20 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Item Action",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='item-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Action",
+            "byType": "xpath",
+            "definition": "//tr[@data-id='<ReplaceText>']/td/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID Link",
             "byType": "xpath",
             "definition": "//a[@data-test-id='edit-item-link-<ReplaceText>']",
@@ -57,9 +78,37 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Show Feedback Toggle",
+            "byType": "xpath",
+            "definition": "//label[@class='switch']/div",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Tab",
+            "byType": "xpath",
+            "definition": "//div[@id='raptor-panel']//li[@role='presentation']/a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Solution Feedback",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'raptor-solution')]//div[@data-module-type='static_textfield']/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Delete Confirmation Message Title",
             "byType": "css",
             "definition": "h4[data-test-id='header-text']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Side Panel",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'side-panel')]//div[@data-module-type='static_textfield']/span/span",
             "frame": "default",
             "specialInstr": "NA"
         },

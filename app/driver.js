@@ -8,6 +8,8 @@ const firefoxdriver = require('geckodriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const defaults = require(`${process.cwd()}/config/config.json`);
 const argv = require('minimist')(process.argv.slice(2));
+const fs = require('fs');
+const jsonfile = require('jsonfile');
 let driver;
 
 const config = {
@@ -261,14 +263,9 @@ process.on('exit', function () {
     "Date": config.datetime.split('T')[0],
     "Time": config.datetime.split('T')[1].split('.')[0]
   }
-  const fs = require('fs');
-  let contents = fs.readFileSync(reportPath);
-  let json = JSON.parse(contents);
-  for (let index = 0; index < json.length; index++) {
-    json[index].metadata = metadata;
-  };
-  contents = JSON.stringify(json);
-  fs.writeFileSync(reportPath, contents);
+  let contents = jsonfile.readFileSync(reportPath);
+  contents[0].metadata = metadata;
+  jsonfile.writeFileSync(reportPath, contents);
 });
 
 module.exports = {

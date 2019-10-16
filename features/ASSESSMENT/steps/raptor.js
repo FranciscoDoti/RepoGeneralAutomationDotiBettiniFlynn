@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const { raptorlib, amslib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { raptorlib, amslib, froalalib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -159,4 +159,32 @@ Then('I check FR answers', async function () {
     await pages.freeResponse.populate('Element Take Mode', '123456789012345678901');
     await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
+});
+
+When(/^I add the (.*) draft item in AMS with title (.*)$/, async function (moduleType, title) {
+    await amslib.addRaptorItem();
+    await raptorlib.addModule(moduleType);
+    await raptorlib.addItemDetails({Title: title});
+    let itemId = await raptorlib.saveItem();
+    this.data.set("itemId", itemId);
+});
+
+When('I add the following feedbacks and save the item', async function (feedbackDetail) {
+    await pages.raptor.click('Add Context', 'incorrect');
+    for (let i = 0; i < feedbackDetail.rows().length; i++) {
+        let data = feedbackDetail.hashes()[i];
+        await raptorlib.addFeedbackModule(data['Tab Name'], 'Ungraded Text');
+        await froalalib.addFeedback(data);
+    }
+    await raptorlib.saveItem();
+});
+
+Then(/^I verify the feedbacks in the following tabs$/, async function (datatable) {
+    await amslib.waitAlgoliaProcess();
+    await pages.ams.click('Item Action', 'preview-'+this.data.get("itemId"));  
+    await pages.ams.click('Show Feedback Toggle');
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let itemTabs = datatable.hashes()[i];
+        await amslib.verifyFeedback(itemTabs);
+    }
 });
