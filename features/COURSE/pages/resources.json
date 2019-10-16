@@ -74,7 +74,7 @@
         }, {
             "name": "addCCButton",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../button[@class='_4_Uf']",
+            "definition": "//*[.='<ReplaceText>']/../..//button/*[@title='Add Activity']",
             "frame": "default",
             "specialInstr": "NA"
         },

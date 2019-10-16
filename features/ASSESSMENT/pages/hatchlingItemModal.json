@@ -1,5 +1,6 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "aeframe",
             "byType": "css",
             "definition": "#aeIframe",
@@ -7,82 +8,89 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Question Title",
+            "name": "Dialog Title",
             "byType": "css",
-            "definition": ".edit-question-title",
-            "frame": "aeframe",
+            "definition": ".cdl-dialog-header-title",
+            "frame": "default",
             "specialInstr": "NA"
-        }, 
+        },
         {
-            "name": "title",
+            "name": "Question Title",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='hatchling-item-title-edit']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Question Title Edit",
             "byType": "css",
             "definition": "input[data-test-id='hatchling-item-title']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        }, 
+            "frame": "default",
+            "specialInstr": "focus"
+        },
         {
             "name": "Question Prompt",
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-question-prompt']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "ImageButton",
             "byType": "css",
             "definition": "div[data-test-id='image-button']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "Image Holder",
             "byType": "xpath",
             "definition": "//input[@accept='image/jpeg, image/png']",
             "frame": "aeframe",
             "specialInstr": "noclick makevisible"
-        }, 
+        },
         {
             "name": "AddImage",
             "byType": "xpath",
             "definition": "//button[text()='Add Image']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "target Value",
             "byType": "css",
             "definition": "#targetValue",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "Measurement",
             "byType": "css",
             "definition": "#units",
             "frame": "aeframe",
             "specialInstr": "NA"
-        },  
+        },
         {
             "name": "Derivation Type",
             "byType": "css",
             "definition": "select[name='derivationType']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "Derivation Amount",
             "byType": "css",
             "definition": "input[id=derivationAmount]",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "Hint",
             "byType": "css",
             "definition": ".collapsible-header",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "HatchlingSave",
             "byType": "css",
@@ -96,7 +104,7 @@
             "definition": "//input[@accept='image/jpeg, image/png']/../img",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "Submit Yes",
             "byType": "css",
@@ -105,46 +113,83 @@
             "specialInstr": "NA"
         },
         {
-            "name": "MCCorrectAnswerTextbox",
+            "name": "Correct Answer",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-correct-choice']",
-            "frame": "aeframe",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "MCInCorrectAnswerTextbox",
-            "byType": "css",
-            "definition": "div[data-test-id='hatchling-incorrect-choice']",
-            "frame": "aeframe",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "addAnswerButton",
-            "byType": "css",
-            "definition": "button[data-test-id='add-answer-choice']",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Correct Answer Feedback",
+            "byType": "xpath",
+            "definition": "//span[text()='Correct Answer Feedback']/../..//div[@class='rte-content']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Collapsible Title",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Collapsible Incorrect Feedback Title",
+            "byType": "xpath",
+            "definition": "//label[@for='option<ReplaceText>']/../..//span[text()='Incorrect Answer Feedback']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Incorrect Answer",
+            "byType": "xpath",
+            "definition": "//label[@for='option<ReplaceText>']/../..//div[@class='rte-content' and @data-test-id='hatchling-incorrect-choice']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Incorrect Answer Feedback",
+            "byType": "xpath",
+            "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//div[contains(@class,'public-DraftEditor-content')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Hint and Generic Feedback",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']/../..//div[contains(@class,'public-DraftEditor-content')]",
+            "frame": "default",
+            "specialInstr": "focus"
         },
         {
             "name": "hatchlingBody",
             "byType": "css",
             "definition": ".hatchling-body",
             "frame": "aeframe",
-            "specialInstr":"NA"
+            "specialInstr": "NA"
         },
         {
             "name": "hatchlingFooter",
             "byType": "css",
             "definition": ".cdl-dialog-actions",
             "frame": "aeframe",
-            "specialInstr":"NA"
-        }, {
+            "specialInstr": "NA"
+        },
+        {
             "name": "NE Question Area",
             "byType": "css",
             "definition": ".notranslate.public-DraftEditor-content",
             "frame": "aeframe",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "HintArea",
             "byType": "xpath",
             "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
