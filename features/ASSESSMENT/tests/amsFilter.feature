@@ -1,6 +1,20 @@
 @Assessment @AMS @Filter @Items
 Feature: To verify the correct functionality of ams's item filter
 
+    @Verify3FilterTagsAtSameTime
+    Scenario: Select 3 different filters and verify that the tags are being displayed
+        Given I login to AMS as "all-permissions-author"
+        When I select various filters from datatable
+             | mainOption           | subOption                                                                   |
+             | Topic                | Your Questions (uncategorized)                                              |
+             | Blooms               | Remembering                                                                 |
+             | Access               | public                                                                      |
+        Then I verify that the following tabs are being displayed
+             | mainOption           | subOption                                                                   |
+             | Topic                | Your Questions (uncategorized)                                              |
+             | Blooms               | Remembering                                                                 |
+             | Access               | public                                                                      |
+
     @VerifyFilterTags
     Scenario Outline: Select different filters and check that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
@@ -56,21 +70,6 @@ Feature: To verify the correct functionality of ams's item filter
             | Access               | public                                                                      |   
             | Access               | private                                                                     |     
             | Learning Objective   | untagged                                                                    |   
-
-
-    @Verify3FilterTagsAtSameTime
-    Scenario: Select 3 different filters and verify that the tags are being displayed
-        Given I login to AMS as "all-permissions-author"
-        When I select various filters from datatable
-             | mainOption           | subOption                                                                   |
-             | Topic                | Your Questions (uncategorized)                                              |
-             | Bloom's              | 1 - Remembering                                                             |
-             | Access               | public                                                                      |
-        Then I verify that the following tabs are being displayed
-             | mainOption           | subOption                                                                   |
-             | Topic                | Your Questions (uncategorized)                                              |
-             | Bloom's              | 1 - Remembering                                                             |
-             | Access               | public                                                                      |
 
 
     @VerifyItemsFiltered

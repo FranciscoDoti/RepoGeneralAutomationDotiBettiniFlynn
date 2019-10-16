@@ -7,8 +7,8 @@ When("I select the filter options {} and {}", async function(mainOption, subOpti
 });
 
 When("I select various filters from datatable", async function(dataTable){
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let item = datatable.hashes()[i];
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
         await filterslib.setFilter(item['mainOption'],item['subOption']);
     }
 });
@@ -18,9 +18,9 @@ Then('I verify that the tag is being displayed with label using {} and {}', asyn
 });
 
 Then('I verify that the following tabs are being displayed', async function(dataTable){
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let item = datatable.hashes()[i];
-        await filterslib.verifyTag(item['subOption']);
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
+        await filterslib.verifyTag(item['mainOption'],item['subOption']);
     }
 })
 
