@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { userlib, updatelib} = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { updatelib} = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When('I search for the following user to update his permissions', async function (datatable) {    
     let username = datatable.hashes()[0];
