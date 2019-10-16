@@ -34,9 +34,6 @@ const setAccess = async function (access) {
 const save = async function () {
     await pages.update.click('Button', 'Save Changes');
 };
-const cancel = async function () {
-    await pages.update.click('Button', 'Cancel');
-};
 
 module.exports = {
     save,
@@ -44,6 +41,5 @@ module.exports = {
     setDifficulty,
     setStatus,
     setTaxonomy,
-    setTopic,
-    cancel
+    setTopic
 };
