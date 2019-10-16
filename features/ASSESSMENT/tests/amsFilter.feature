@@ -5,8 +5,7 @@ Feature: To verify the correct functionality of ams's item filter
     Scenario Outline: Select different filters and check that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
         When I select the filter options <mainOption> and <subOption>
-        Then I verify that the tag is being displayed with label <subOption>
-        And I close the tag with value <subOption>
+        Then I verify that the tag is being displayed with label using <mainOption> and <subOption>
         Examples:
             | mainOption           | subOption                                                                   |
             | Topic                | Your Questions (uncategorized)                                              |
@@ -19,15 +18,15 @@ Feature: To verify the correct functionality of ams's item filter
             | Topic                | Following the Money: The Expanded Circular-Flow Diagram                     |
             | Topic                | Apostrophes                                                                 |
             | Topic                | Run-ons and comma splices                                                   |
-            | Bloom's              | 1 - Remembering                                                             |
-            | Bloom's              | 2 - Understanding                                                           |
-            | Bloom's              | 3 - Applying                                                                |
-            | Bloom's              | 4 - Analyzing                                                               |
-            | Bloom's              | 5 - Evaluating                                                              |
-            | Bloom's              | 6 - Creating                                                                |
-            | Difficulty           | Easy                                                                        |
-            | Difficulty           | Medium                                                                      |
-            | Difficulty           | Hard                                                                        |
+            | Blooms               | Remembering                                                                 |
+            | Blooms               | Understanding                                                               |
+            | Blooms               | Applying                                                                    |
+            | Blooms               | Analyzing                                                                   |
+            | Blooms               | Evaluating                                                                  |
+            | Blooms               | Creating                                                                    |            
+            | Difficulty           | easy                                                                        |
+            | Difficulty           | medium                                                                      |
+            | Difficulty           | hard                                                                        |
             | Taxonomy             | Question Bank                                                               |
             | Taxonomy             | Morris 3e - Biology How Life Works                                          |
             | Taxonomy             | Krugman/Wells 4e - Macroeconomics Test Bank                                 |
@@ -43,8 +42,8 @@ Feature: To verify the correct functionality of ams's item filter
             | Status               | child                                                                       |
             | Status               | deprecated                                                                  |   
             | Status               | in review                                                                   |
-            | Item Type            | Performance                                                                 |
-            | Item Type            | Participation                                                               |                      
+            | Item Type            | performance                                                                 |
+            | Item Type            | participation                                                               |                      
             | Internal Topic Title | Your Questions (uncategorized)                                              |            
             | Internal Topic Title | Questions For Review- duplicate ID 9016                                     |
             | Internal Topic Title | Desmos Dynamic Figures                                                      |
@@ -52,13 +51,12 @@ Feature: To verify the correct functionality of ams's item filter
             | Internal Topic Title | 34.5 Sensory Systems                                                        |  
             | Internal Topic Title | Dimensional Analysis-GenChem                                                |            
             | Internal Topic Title | Following the Money: The Expanded Circular-Flow Diagram_krugmanwellsecon5e  |
-            | Internal Topic Title | Incentives and Institutions_cowentabarrokecon4e                             |
             | Internal Topic Title | 14.3 Small-Scale Mutations                                                  |
             | Internal Topic Title | Intermolecular Forces- duplicate ID 463-GenChem                             |
             | Access               | public                                                                      |   
             | Access               | private                                                                     |     
             | Learning Objective   | untagged                                                                    |   
-            | Learning Objective   | tagged                                                                      |   
+
 
     @Verify3FilterTagsAtSameTime
     Scenario: Select 3 different filters and verify that the tags are being displayed

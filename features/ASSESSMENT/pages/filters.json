@@ -10,31 +10,30 @@
         {
             "name": "mainOption",
             "byType": "xpath",
-            "definition": "//li[@data-test-id='filter-list-pill'][.='<ReplaceText>']",
+            "definition": "//li[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "subOption",
             "byType": "xpath",
-            "definition": "//a[@data-test-id='filter-value'][.='<ReplaceText>']", // FIX THIS XPATH
+            "definition": "//li[@class='filter-pill']/a[contains(.,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "tag",
             "byType": "xpath",
-            "definition": "//span[@class='filter-text-span'][.='<ReplaceText>']", // FIX THIS XPATH
+            "definition": "//div[@class='filter-pill-div']/span[contains(.,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "closeTag",
             "byType": "xpath",
-            "definition": "//span[@class='filter-close-span'][.='<ReplaceText>']", // FIX THIS XPATH
+            "definition": "//div[@class='filter-pill-div']/span[contains(.,'<ReplaceText>')]/span",
             "frame": "default",
             "specialInstr": "NA"
         }
-
     ]
 }

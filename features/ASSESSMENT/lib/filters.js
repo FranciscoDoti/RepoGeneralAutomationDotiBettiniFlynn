@@ -7,11 +7,13 @@ const setFilter = async function(mainOption, subOption){
 };
 
 
-
-
-
-const verifyTab = async function(subOption){
-    await pages.filters.assertText('tag',subOption);
+const verifyTag = async function(mainOption, subOption){
+    if (mainOption!=='Blooms'){
+        await pages.filters.assertText('tag',subOption, mainOption+": "+subOption+" x");
+    }else {
+        await pages.filters.assertText('tag',subOption.toLowerCase(), mainOption+": "+subOption.toLowerCase()+" x");
+    }
+    
 
 }
 
@@ -23,6 +25,6 @@ const closeTag = async function(tagValue){
 
 module.exports = {
     setFilter,
-    verifyTab,
+    verifyTag,
     closeTag
 };

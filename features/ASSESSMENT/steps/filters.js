@@ -13,8 +13,8 @@ When("I select various filters from datatable", async function(dataTable){
     }
 });
 
-Then('I verify that the tag is being displayed with label {}', async function(subOption) {
-    await filterslib.verifyTag(subOption);
+Then('I verify that the tag is being displayed with label using {} and {}', async function(mainOption, subOption) {
+    await filterslib.verifyTag(mainOption, subOption);
 });
 
 Then('I verify that the following tabs are being displayed', async function(dataTable){
@@ -24,8 +24,9 @@ Then('I verify that the following tabs are being displayed', async function(data
     }
 })
 
-Then('Then I verify that the items match with the filter applied in the column {} and value {}', async function(mainOption, subOption)
-    
+Then('Then I verify that the items match with the filter applied in the column {} and value {}', async function(mainOption, subOption){
+    console.log("Pending step")
+}
 );
 
 Then('I close the tag with value {}', async function(tagValue) {
