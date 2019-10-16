@@ -1,21 +1,20 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { updatelib} = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
-When('I search for the following user to update his permissions', async function (datatable) {    
-    let username = datatable.hashes()[0];
+When(/^I search for the user \"([^\"]*)\" to update his permissions$/, async function (username){
     await pages.ams.click('AMS Tab', 'Users');
-    await pages.ams.populate('User Filter', username.User);
+    await pages.ams.populate('User Filter', username);
 });
 
 When('I click on UserId and un-check the following permissions checkboxes and save', async function (datatable) {
     await pages.ams.click('User Id');
     for (let i = 0; i < datatable.rows().length; i++) {
         let checkbox = datatable.hashes()[i];
-        let checkboxStatus = await pages.wordAnswer.getAttributeValue('Grading Option Checkbox', checkbox.PermissionsCheckboxes, 'selected');
+        let checkboxStatus = await pages.ams.getAttributeValue('User Permissions Checkbox', checkbox.Permission, 'selected');
         if (checkboxStatus == true) {
             var YES = true;
-            await pages.wordAnswer.click('Grading Option Checkbox', checkbox.PermissionsCheckboxes);
+            await pages.ams.click('User Permissions Checkbox', checkbox.Permission);
         } else {
             await pages.update.click('Button', 'Cancel');
             break;
@@ -38,10 +37,10 @@ When('I click on UserId and check the following permissions checkboxes and save'
     await pages.ams.click('User Id');
     for (let i = 0; i < datatable.rows().length; i++) {
         let checkbox = datatable.hashes()[i];
-        let checkboxStatus = await pages.wordAnswer.getAttributeValue('Grading Option Checkbox', checkbox.PermissionsCheckboxes, 'selected');
+        let checkboxStatus = await pages.ams.getAttributeValue('User Permissions Checkbox', checkbox.Permission, 'selected');
         if (checkboxStatus == false) {
             var YES = true;
-            await pages.wordAnswer.click('Grading Option Checkbox', checkbox.PermissionsCheckboxes);
+            await pages.ams.click('User Permissions Checkbox', checkbox.Permission);
         } else {
             await pages.update.click('Button', 'Cancel');
             break;
@@ -51,20 +50,4 @@ When('I click on UserId and check the following permissions checkboxes and save'
     }
 });
 
-Then('I verify the deleted items are displayed in Deleted Items screen in AMS', async function (datatable) {
-    await pages.ams.switchToTab('Sapling Learning Author Management System');
-    await pages.ams.click('AMS Tab', 'Deleted Items');
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let item = datatable.hashes()[i];
-        await pages.ams.assertElementExists('Item ID Link', this.data.get(item.Title, "id"));
-    }
-});
 
-Then('I verify the deleted items are not displayed in AMS', async function (datatable) {
-    await pages.ams.switchToTab('Sapling Learning Author Management System');
-    await pages.ams.click('AMS Tab', 'Items');
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let item = datatable.hashes()[i];
-        await pages.ams.assertElementDoesNotExist('Item ID Link', this.data.get(item.Title, "id"));
-    }
-});

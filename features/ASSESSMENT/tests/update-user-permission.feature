@@ -4,11 +4,9 @@ Feature: Verify Update User Permissions
     @UpdateUserPermissions
     Scenario: Verify that user's permission is getting updated through AMS
         Given I login to AMS as "all-permissions-author"
-        When I search for the following user to update his permissions
-            | User          |
-            | Kelley Mccool |
+        When I search for the user "Kelley Mccool" to update his permissions
         And I click on UserId and un-check the following permissions checkboxes and save
-            | PermissionsCheckboxes          |
+            | Permission                     |
             | Manage Live Questions          |
             | Manage Users                   |
             | Edit Any Question              |
@@ -24,11 +22,9 @@ Feature: Verify Update User Permissions
             | Users    |
         And I go back to sapling page and logout
         When I login to AMS as "all-permissions-author"
-        And I search for the following user to update his permissions
-            | User          |
-            | Kelley Mccool |
+        And I search for the user "Kelley Mccool" to update his permissions
         And I click on UserId and check the following permissions checkboxes and save
-            | PermissionsCheckboxes         |
+            | Permission                     |
             | Manage Live Questions          |
             | Manage Users                   |
             | Edit Any Question              |

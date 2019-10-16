@@ -62,7 +62,8 @@
             "definition": "input[data-test-id='filterTbl']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "Item Action",
             "byType": "xpath",
             "definition": "//span[@data-test-id='item-<ReplaceText>']",
@@ -89,7 +90,8 @@
             "definition": "th a",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "Show Feedback Toggle",
             "byType": "xpath",
             "definition": "//label[@class='switch']/div",
@@ -130,6 +132,13 @@
             "definition": "//div[text()='Are you sure you want to delete these items?']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "User Permissions Checkbox",
+            "byType": "xpath",
+            "definition": "//label[contains(text(),'<ReplaceText>')]/input",
+            "frame": "default",
+            "specialInstr": "focus"
         }
     ]
 }
