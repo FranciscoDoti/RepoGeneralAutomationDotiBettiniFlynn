@@ -90,3 +90,13 @@ When('I logout IBISCMS', async function () {
   await pages.login.click('User Menu Button');
   await pages.login.click('Logout Menu');
 });
+
+Given(/^I login to Brightcove Media as "(.*)"$/, async function (userType) {
+  let url = await _.get(urls, ['Brightcove', this.stack]);
+  let user = this.users[userType];
+
+  await visitURL(url);
+    await pages.login.populate('username', user.username);
+    await pages.login.populate('password', user.password);
+    await pages.login.click('submit')
+});

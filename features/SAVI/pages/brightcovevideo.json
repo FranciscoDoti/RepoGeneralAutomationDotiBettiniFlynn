@@ -149,6 +149,30 @@
             "definition": "vjs-current-time-display",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "IconinlineIcon",
+            "byType": "className",
+            "definition": "Icon-inlineIcon-0_41_0-1eq2- Icon-semiTransparent-0_41_0-3VhrN",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "Checkbox",
+            "byType": "className",
+            "definition": "Checkbox-input-0_41_0-1zD1T",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "bc-icon-yes",
+            "byType": "className",
+            "definition": "bc-icon-yes",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "title",
+            "byType": "xpath",
+            "definition": "//*[@id='table']/div[2]/div[1]/div[3]/div/div/a",
+            "frame": "default",
+            "specialInstr": "NA"
         }
 
     ]

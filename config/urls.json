@@ -44,5 +44,8 @@
     },
     "Yahoo":{
         "yahoo":"https://www.yahoo.com"
+    },
+    "Brightcove":{
+        "Brightcove":"https://signin.brightcove.com"
     }
 }
