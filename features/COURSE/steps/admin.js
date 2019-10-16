@@ -3,6 +3,7 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const csvtojson = require('csvtojson');
 const driver = require(`${process.cwd()}/app/driver.js`);
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
@@ -16,9 +17,9 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.home.click('togglerMenu');
   await pages.adminMenu.waitForElementVisibility('admin');
   await pages.adminMenu.assertElementExists('admin');
+  await sleep (500);
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
-  await pages.adminMenu.assertElementExists('manageEnrollments');
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', user.username);
   await pages.adminMenu.click('addUserButton');
