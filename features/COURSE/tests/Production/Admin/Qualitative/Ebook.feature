@@ -2,81 +2,82 @@ Feature: Verify that Admin is able to add activities in Ebook
 
     Scenario: Admin add the activities in ebook tab
 
-       Given I login to Achieve-CW as "admin_1"
-       When I create template with following data 
-            | courseType  | productModel      | courseName                       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Production Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
+    #    Given I login to Achieve-CW as "admin_1"
+    #    When I create template with following data 
+    #         | courseType  | productModel      | courseName                       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+    #         | Template    | Qualitative       | Qualitative Production Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
 
-        And I close the popup message                      
+    #     And I close the popup message                      
 
-        And I click on search button and input "Qualitative Production Template" to search the course
+    #     And I click on search button and input "Qualitative Production Template" to search the course
 
-        And I activate "Qualitative Production Template" template and add the following data
-            | courseName                           |  courseCode   |  templateStatus      |
-            | Qualitative Production Template      |   E2E 301     |  Active On Date      | 
+    #     And I activate "Qualitative Production Template" template and add the following data
+    #         | courseName                           |  courseCode   |  templateStatus      |
+    #         | Qualitative Production Template      |   E2E 301     |  Active On Date      | 
         
 
-        And I click on "Qualitative Production Template" card
-        And I click on "Production" Tab
+    #     And I click on "Qualitative Production Template" card
+    #     And I click on "Production" Tab
 
-        And I add activities to "Content Library"
-          | activities            |
-          | Glossary              |
-          | Appendix F            |
-          | Literary Elements     |
-          | Confidence Intervals  |
-          | Psychopathology       |
+    #     And I add activities to "Content Library"
+    #       | activities            |
+    #       | Glossary              |
+    #       | Appendix F            |
+    #       | Literary Elements     |
+    #       | Confidence Intervals  |
+    #       | Psychopathology       |
 
-        And I add the activities in "E-book"
-            | activities |
-            | Glossary   |
-            | Appendix F |
+    #     And I add the activities in "E-book"
+    #         | activities |
+    #         | Glossary   |
+    #         | Appendix F |
 
-        Then I verify that activities are added in "E-book" and not in "Course Plan"
-            | activities |
-            | Glossary   |
-            | Appendix F |
-    And I sign out of Achieve
+    #     Then I verify that activities are added in "E-book" and not in "Course Plan"
+    #         | activities |
+    #         | Glossary   |
+    #         | Appendix F |
+    # And I sign out of Achieve
 
-    Scenario:  Admin add activities in courseplan and not in ebook
+    # Scenario:  Admin add activities in courseplan and not in ebook
 
-       Given I login to Achieve-CW as "admin_1"
+    #    Given I login to Achieve-CW as "admin_1"
 
-       When I search for "Qualitative Production Template" and click on course card
-       And I click on "Production" Tab
+    #    When I search for "Qualitative Production Template" and click on course card
+    #    And I click on "Production" Tab
 
-       And I add activities in "Course Plan" 
-            | activities           |
-            | Literary Elements    |
-            | Confidence Intervals |
+    #    And I add activities in "Course Plan" 
+    #         | activities           |
+    #         | Literary Elements    |
+    #         | Confidence Intervals |
 
-        Then I verify that activities are added in CoursePlan and not in eBook
-            | activities                    |
-            | Literary Elements             |
-            | Confidence Intervals          |
-    And I sign out of Achieve
+    #     Then I verify that activities are added in CoursePlan and not in eBook
+    #         | activities                    |
+    #         | Literary Elements             |
+    #         | Confidence Intervals          |
+    # And I sign out of Achieve
 
-    Scenario: Verify that Admin is able to add reading activities both in eBook and Course plan
-        Given I login to Achieve-CW as "admin_1"
+    # Scenario: Verify that Admin is able to add reading activities both in eBook and Course plan
+    #     Given I login to Achieve-CW as "admin_1"
 
-        When I search for "Qualitative Production Template" and click on course card
-        And I click on "Production" Tab
+    #     When I search for "Qualitative Production Template" and click on course card
+    #     And I click on "Production" Tab
 
-         And I add the activities in both "Course Plan" and "E-book"
-            | activities            | tab               |
-            | Glossary              | CoursePlanEbook   |
-            | Appendix F            | CoursePlanEbook   |
-            | Literary Elements     | CoursePlanEbook   |
-            | Confidence Intervals  | CoursePlanEbook   |
-            | Psychopathology       | All               |
+    #      And I add the activities in both "Course Plan" and "E-book"
+    #         | activities            | tab               |
+    #         | Glossary              | CoursePlanEbook   |
+    #         | Appendix F            | CoursePlanEbook   |
+    #         | Literary Elements     | CoursePlanEbook   |
+    #         | Confidence Intervals  | CoursePlanEbook   |
+    #         | Psychopathology       | All               |
 
-        Then I verify that activities are added both in "E-book" and "Course Plan" 
-            | activities            |
-            | Glossary              |
-            | Appendix F            |
-            | Literary Elements     |
-            | Confidence Intervals  |
-            | Psychopathology       |
+    #     Then I verify that activities are added both in "E-book" and "Course Plan" 
+    #         | activities            |
+    #         | Glossary              |
+    #         | Appendix F            |
+    #         | Literary Elements     |
+    #         | Confidence Intervals  |
+    #         | Psychopathology       |
+    #     And I sign out of Achieve
 
 
     Scenario: Verify that Admin is able to create Folder, reorder and delete Folder in ebook 

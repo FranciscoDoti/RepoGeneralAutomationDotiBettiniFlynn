@@ -171,7 +171,6 @@ When('I create folder and add the activities to the folder in ebook', async func
     await pages.resources.click('addFolder')
     await pages.resources.populate('folderName', data_table.hashes()[i].Folder);
     await pages.resources.click('addFolderButton');
-    await pages.eBook.scrollElementIntoView('contentCheckbox', data_table.hashes()[i].activities);
     await pages.eBook.click('contentCheckbox', data_table.hashes()[i].activities);
     await pages.eBook.click('activitySelected', 'Move');
     await pages.eBook.click('Folder', data_table.hashes()[i].PlaceFolder);

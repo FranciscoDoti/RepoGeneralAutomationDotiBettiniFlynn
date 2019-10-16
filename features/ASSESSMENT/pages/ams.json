@@ -10,7 +10,14 @@
         {
             "name": "Select Checkbox",
             "byType": "xpath",
-            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/input",
+            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/label/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Hatchling Item Option",
+            "byType": "xpath",
+            "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
