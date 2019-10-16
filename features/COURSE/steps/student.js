@@ -169,7 +169,7 @@ When('I add the activities to the resource tab', async function (data_table) {
   await sleep(500);
   await pages.resources.click('goToContent');
   await sleep(500);
-  await pages.resources.click('closeResourceSearchNav');
+  //await pages.resources.click('closeResourceSearchNav');
   await pages.resources.click('addContent');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
