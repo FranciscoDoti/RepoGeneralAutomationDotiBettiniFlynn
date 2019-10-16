@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Adding Instructor to the Template in Quantitative Course 
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario:  Verify that customer support is able to add Instructor to a Quantitative Course
 
@@ -15,12 +16,12 @@ Feature: Adding Instructor to the Template in Quantitative Course
 
 
         And I add the activities in resources to "Quantitative Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | type                    | activity                                      |     
             | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Glossary                                   |
+            | addReadingButton        |  Glossary                                     |
 
         And I click on home button to return to coursepage
+        And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName          | courseCode           |
             | Quantitative Course | E2E 301              |

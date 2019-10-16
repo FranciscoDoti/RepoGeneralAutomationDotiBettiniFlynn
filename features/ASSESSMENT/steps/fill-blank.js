@@ -19,7 +19,7 @@ When(/^I set correct answer "(.*)" for FB$/, async function (answer) {
 });
 
 Then('I check FB answer', async function () {
-  await pages.raptor.click('More Button');
+  await pages.raptor.click('More Menu');
   await pages.raptor.click('Check Answer Slider');
   await pages.fillBlank.click('DropDown');
   await pages.fillBlank.click('Option', '2');

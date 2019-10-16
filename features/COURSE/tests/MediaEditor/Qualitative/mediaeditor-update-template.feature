@@ -11,14 +11,12 @@ Feature: Media Editor is able to create a template and update Qualitative Templa
 
 
         Then I verify that "Qualitative Template Created." message is displayed
-        And I verify that "Qualitative Template" has created with following "9781464199498" number
+        And I verify that "Qualitative Template" has created with following "9781464199498" ISBN number
 
-       And I activate the "Qualitative Template" template and add the following data
+       When I update "Qualitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
             | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
-        Then I verify that "Qualitative Template" is created with following data
-            | field                 | value                     |
-            | courseName            | Qualitative Template      |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+        Then I verify that "Qualitative Template" is activated with following data
+            | CourseName            | Status                    | ISBN                      |
+            | Qualitative Template  |  Active                   | 9781464199498             |

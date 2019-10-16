@@ -1,28 +1,35 @@
 {
     "webElements": [
         {
-            "name": "addLink",
+            "name": "Item ID",
+            "byType": "css",
+            "definition": "div[data-test-id='edit-id']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Menu",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "modulePallete",
+            "name": "Module Pallete",
             "byType": "xpath",
             "definition": "//div[@data-test-id='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "contentArea",
+            "name": "Content Area",
             "byType": "css",
             "definition": "div[class='content-preview']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "More Button",
+            "name": "More Menu",
             "byType": "css",
             "definition": "h2[data-test-id='PRIMARY MORE']",
             "frame": "default",
@@ -39,6 +46,20 @@
             "name": "Save As Draft",
             "byType": "css",
             "definition": "li[id='save-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Message",
+            "byType": "xpath",
+            "definition": "//h4[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "More Item Details",
+            "byType": "xpath",
+            "definition": "//div[.='Item Details']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -120,14 +141,14 @@
             "specialInstr": "NA"
         },
         {
-            "name": "itemDetailsTitle",
+            "name": "Item Details Title",
             "byType": "css",
             "definition": "#item-details-container > div > div > div:nth-child(4) > input[type=text]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "itemDetailsDoneButton",
+            "name": "Item Details Done Button",
             "byType": "css",
             "definition": "#authoring-menu-bar > div:nth-child(3) > div > div.cdl-dialog-actions > input",
             "frame": "default",
@@ -260,9 +281,51 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Algolia is Processing",
+            "name": "Answer Tab",
             "byType": "xpath",
-            "definition": "//i[.='Algolia is Processing']",
+            "definition": "//a[contains(@data-test-id,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Add Button",
+            "byType": "xpath",
+            "definition": "//div[@id='context-feedback-menu-buttons']/h2[text()='Add']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Module",
+            "byType": "xpath",
+            "definition": "//div[@id='feedback-module-palette']/ul/li/div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Context Area",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Feedback Text",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='static_textfield']",
+            "frame": "default",
+            "specialInstr": "overwrite noclick"
+        },
+        {
+            "name": "Add Context",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='add-<ReplaceText>-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Duplicate Item",
+            "byType": "xpath",
+            "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }

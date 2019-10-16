@@ -1,5 +1,6 @@
 const { Given, When,Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async function (number, code, data_table) {
   this.data.set('code', code);
@@ -19,7 +20,7 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -46,7 +47,8 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
 });
 
 When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.assertElementExists('courseMenu', courseName);
+  await sleep(500);
   await pages.courseList.click('courseMenu', courseName);
   await pages.copyCourse.click('copyCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -64,7 +66,7 @@ Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'Course Templates')
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES')
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('ISBNVerification', courseName);
   await pages.createCourse.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
@@ -227,7 +229,6 @@ When('I add the activities to respective folders in ebook', async function (data
     await pages.coursePlanner.click('actionMoveItemToFolder');
     await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
     await pages.resources.click('placeInFolder');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message);
   }
 });
 
@@ -244,7 +245,7 @@ When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, course
   let user = this.users[userType];
   await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
-  await pages.courseList.click('courseTemplate', 'Course Templates')
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES')
   await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', user.username);
@@ -295,7 +296,7 @@ Then('I verify that custom content is added to resources', async function (data_
   }
 });
 
-When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async function (customName, courseName, data_table) {
+When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async function (customName, courseName) {
   await pages.createCourse.click('courseCard', courseName)
   await pages.coursePage.click('navigation', 'Resources');
   await pages.resources.click('addActivity');
@@ -304,12 +305,6 @@ When(/^I create "(.*)" Custom Task in "(.*)" and add it to resources$/, async fu
   await pages.coursePlanner.click('editTitle');
   await pages.coursePlanner.populate('activityTitle', customName);
   await pages.coursePlanner.click('TitleSave');
-  await pages.coursePlanner.click('customRubric');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
-    await pages.coursePlanner.populate('rubricScale', data_table.hashes()[i].Scales, data_table.hashes()[i].Description)
-  }
-  await pages.coursePlanner.click('customRubricSave');
   await pages.coursePlanner.click('close');
 });
 
@@ -338,6 +333,7 @@ When('I create template with following data', async function (data_table){
       await pages.createCourse.populate('courseCode', c.courseCode)
       if(c.learningObjective != ''){
       await pages.createCourse.assertElementExists('learningObjective');
+      await pages.createCourse.waitForElementVisibility('learningObjective', c.learningObjective)
       await pages.createCourse.populate('learningObjective', c.learningObjective)
       }
       await pages.createCourse.assertElementExists('isbnNumber');

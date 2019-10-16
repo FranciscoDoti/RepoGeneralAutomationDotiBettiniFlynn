@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Assigning the activities present in Qualitative course 
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to assign the activities in Qualitative course
 
@@ -22,6 +23,7 @@ Feature: Assigning the activities present in Qualitative course
             | addReadingButton        |  Glossary                                   |
 
         And I click on home button to return to coursepage
+        And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |
@@ -52,11 +54,11 @@ Feature: Assigning the activities present in Qualitative course
             | activity                                                         | Points | 
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
             | LC1551301608988                                                  | 5      |
-            | Glossary                                                       | 5      |
+            | Glossary                                                         | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Glossary                                                       | Open   |
+            | Glossary                                                         | Open   |
 

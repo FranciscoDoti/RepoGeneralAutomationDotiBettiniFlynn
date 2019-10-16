@@ -1,6 +1,7 @@
 @Course @Smoke
 Feature: Instructor attempts all the activities in Qualitative Template
 
+    @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
     @instructor-delete-course
     Scenario: Verify that Instructor is able to copy course from Qualitative Template
@@ -19,9 +20,10 @@ Feature: Instructor attempts all the activities in Qualitative Template
             | type                     | activity                                      |
             | addButtonAssessment      | Exercise: Misused words 1 (autoscored)        |     
             | addButtonLearningcurve   | LC1551301608988                               |
-            | addReadingButton         | Glossary                                    |
+            | addReadingButton         | Glossary                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
+        And I click on "COURSE TEMPLATES" tab 
 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
@@ -44,10 +46,8 @@ Feature: Instructor attempts all the activities in Qualitative Template
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
-        And I verify that "Qualitative Instructor Course" is created with following data
-            | field                 | value                                |
-            | courseName            | Qualitative Instructor Course        |
-            | courseDate            |  E2E 301                             |
+        And I verify that "Qualitative Instructor Course" is created
+           
            
         
 

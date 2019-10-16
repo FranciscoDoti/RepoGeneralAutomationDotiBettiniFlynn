@@ -8,6 +8,8 @@ const firefoxdriver = require('geckodriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const defaults = require(`${process.cwd()}/config/config.json`);
 const argv = require('minimist')(process.argv.slice(2));
+const fs = require('fs');
+const jsonfile = require('jsonfile');
 let driver;
 
 const config = {
@@ -17,7 +19,10 @@ const config = {
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
   timeout : defaults.timeout*1000,
-  stack: argv.stack || defaults.stack || argv.env || defaults.environment
+  stack: argv.stack || defaults.stack || argv.env || defaults.environment,
+  reportJSON : argv.f.indexOf('json:') > -1 ? (argv.f).split(':')[1] : undefined,
+  capabilities : undefined,
+  datetime : new Date().toISOString()
 };
 
 const buildDriver = function() {  
@@ -90,11 +95,12 @@ const buildDriver = function() {
   }
   return driver.build();
 };
+
 driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
-  await driver.manage().window().maximize();
+  await driver.manage().window().maximize();  
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
   await driver.get(url);
@@ -103,6 +109,7 @@ const visitURL = async function(url){
 
 const closeBrowser = async function(){
   log.info(`Closing the browser. Current URL is ${await driver.getCurrentUrl()}.`);
+  config.capabilities = await getCapabilities();
   return driver.quit();
 };
 
@@ -127,23 +134,15 @@ const activateTab = async function (tabName) {
     var tabs = await driver.getAllWindowHandles();
     for (let index = 0; index < tabs.length; index++) {
       await switchToTab(tabs[index]);
-      currentTabName = await getTitle();
+      let currentTabName = await getTitle();
       if (currentTabName.includes(tabName)) {
-        break;
+        log.debug(`${currentTabName} tab activated.`);
+        return true;
       }
     }
     await sleep(5000);
-    await switchToTab(tabs[0]);
   };
-
-  currentTabName = await getTitle();
-  if (!currentTabName.includes(tabName)) {
-    await switchToTab(tabs[0]);
-    return false;
-  } else {
-    log.debug(`${currentTabName} tab activated.`);
-  }
-  return true;
+  return false;
 };
 
 const switchToTab = async function (tab) {
@@ -156,7 +155,7 @@ const switchToTab = async function (tab) {
 
 const getTitle = async function () {
   try {
-    return driver.getTitle();
+    return await driver.getTitle();
   } catch (err) {
     log.error(err.stack);
   }
@@ -164,7 +163,7 @@ const getTitle = async function () {
 
 const getURL = async function () {
   try {
-    return driver.getCurrentUrl();
+    return await driver.getCurrentUrl();
   } catch (err) {
     log.error(err.stack);
   }
@@ -172,7 +171,7 @@ const getURL = async function () {
 
 const takeScreenshot = async function () {
   try {
-    return driver.takeScreenshot();
+    return await driver.takeScreenshot();
   } catch (err) {
     log.error(err.stack);
   }
@@ -184,6 +183,10 @@ const getDriver = function () {
 
 const getWebDriver = function () {
   return webdriver;
+};
+
+const getCapabilities = async function () {
+  return (await driver.getCapabilities()).map_;
 };
 
 const onPageLoadedWaitById = async function (elementIdOnNextPage) {
@@ -248,6 +251,23 @@ process.argv.forEach(function (val, index, array) {
   log.debug(index + ': ' + val);
 });
 
+process.on('exit', function () {
+  const reportPath = `${process.cwd()}/${config.reportJSON}`;
+  const metadata = {
+    "Browser": config.capabilities.get('browserName').toUpperCase(),
+    "Browser Version": config.capabilities.get('browserVersion').toUpperCase(),
+    "Platform": config.capabilities.get('platformName').toUpperCase(),
+    "Environment": config.environment.toUpperCase(),
+    "Stack": config.stack.toUpperCase(),
+    "Executed": config.mode.toUpperCase(),
+    "Date": config.datetime.split('T')[0],
+    "Time": config.datetime.split('T')[1].split('.')[0]
+  }
+  let contents = jsonfile.readFileSync(reportPath);
+  contents[0].metadata = metadata;
+  jsonfile.writeFileSync(reportPath, contents);
+});
+
 module.exports = {
   closeBrowser,
   resetBrowser,
@@ -258,6 +278,7 @@ module.exports = {
   takeScreenshot,
   getDriver,
   getWebDriver,
+  getCapabilities,
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,
   onWaitForWebElementToBeEnabled,

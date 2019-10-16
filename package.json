@@ -8,8 +8,7 @@
     "brightcovemedia": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/brightcove/brightcovemedia.feature -f json:reports/cucumber_report.json",
     "savi": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/ -f json:reports/cucumber_report.json --environment prod",
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "test": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac-basic.feature -f json:reports/cucumber_report.json"
+    "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'"
   },
   "engines": {
     "node": ">=10"
@@ -20,22 +19,22 @@
     "chai-sorted": "latest",
     "chromedriver": "latest",
     "csvtojson": "latest",
-    "cucumber": "latest",
+    "cucumber": "^5.1.0",
     "cucumber-html-reporter": "latest",
     "dateformat": "latest",
     "eslint": "latest",
     "faker": "latest",
     "geckodriver": "latest",
     "imap": "latest",
+    "imap-simple": "latest",
     "js-datepicker": "^4.6.1",
     "jsonwebtoken": "latest",
     "mailparser": "latest",
+    "nodemailer": "latest",
     "parse-duration": "latest",
     "selenium-webdriver": "latest",
-    "winston": "latest",
     "testrail-api": "latest",
-    "imap-simple": "latest",
-    "nodemailer": "latest"
+    "winston": "latest"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",

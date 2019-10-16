@@ -7,6 +7,6 @@ Feature: Validating the user
         When I check the account of "student_1"
         Then I verify that "student_1" details
             |Details        |  Value                |
-            |accountName    | macmillan student     |   
-            |studentId      | 0050n0000022vwUAAQ    | 
+            |accountName    | Macmillan Student     |   
+            |studentId      | 0053B000002UYzhQAG    | 
 
