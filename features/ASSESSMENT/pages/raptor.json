@@ -281,6 +281,48 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Answer Tab",
+            "byType": "xpath",
+            "definition": "//a[contains(@data-test-id,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Add Button",
+            "byType": "xpath",
+            "definition": "//div[@id='context-feedback-menu-buttons']/h2[text()='Add']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Module",
+            "byType": "xpath",
+            "definition": "//div[@id='feedback-module-palette']/ul/li/div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Context Area",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Feedback Text",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='static_textfield']",
+            "frame": "default",
+            "specialInstr": "overwrite noclick"
+        },
+        {
+            "name": "Add Context",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='add-<ReplaceText>-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Duplicate Item",
             "byType": "xpath",
             "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",

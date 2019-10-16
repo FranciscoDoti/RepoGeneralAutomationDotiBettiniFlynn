@@ -21,8 +21,8 @@ When('I click on home button to return to coursepage', async function () {
 });
 
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
-  await pages.courseList.waitForElementVisibility('courseTemplate', 'Course Templates');
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.waitForElementVisibility('courseTemplate', 'COURSE TEMPLATES');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', CourseName);
   await pages.createCourse.assertElementExists('courseCard', CourseName)
 });
