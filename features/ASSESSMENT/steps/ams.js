@@ -18,7 +18,7 @@ When('I create the following draft Raptor items in AMS', async function (datatab
   }
 });
 
-When('I select the following items by title on AMS', async function (datatable) {
+When('I select the following items by title in AMS', async function (datatable) {
   await amslib.waitAlgoliaProcess();
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
@@ -46,6 +46,15 @@ When('I delete the selected items', async function () {
   if (await expect(this.data.data.length).to.equal(parseInt(deletedItemsCount, 10))) {
     log.info(`Expected length is "${this.data.data.length}". Actual length is "${deletedItemsCount}". PASS`);
   };
+});
+
+When('I delete the following items in AMS', async function (datatable) {
+  await amslib.waitAlgoliaProcess();
+  for (i = 0; i < datatable.rows().length; i++) {
+    let item = datatable.hashes()[i];
+    let itemId = this.data.get(item.Title, "id");
+    await amslib.deleteItem(itemId);
+  }
 });
 
 Then('I verify the details of the following items are displayed in AMS', async function (datatable) {
