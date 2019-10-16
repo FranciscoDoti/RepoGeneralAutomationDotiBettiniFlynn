@@ -1,7 +1,6 @@
 'use strict';
 const { Given, When, Then, After } = require('cucumber');
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const { sleep } = require(`${process.cwd()}/app/driver`);
 var CQBTabQuestionSet = new Set();
 var question_count;

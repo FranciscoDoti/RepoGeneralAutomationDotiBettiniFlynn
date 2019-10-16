@@ -1,0 +1,25 @@
+{
+    "webElements": [
+        {
+            "name": "Item Details Title",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-header-title']/h4",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "Item Title",
+            "byType":"xpath",
+            "definition":"//div[@class='details-top-margin']/input",
+            "frame":"default",
+            "specialInstr":"NA"
+        },
+        {
+            "name": "Item Details Save",
+            "byType":"xpath",
+            "definition":"//div[@class='cdl-dialog-actions']/input[@value='Done']",
+            "frame":"default",
+            "specialInstr":"NA"
+        }
+    ]
+}

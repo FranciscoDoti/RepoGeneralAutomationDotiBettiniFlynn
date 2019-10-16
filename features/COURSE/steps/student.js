@@ -29,7 +29,6 @@ When('I delete the courses', async function () {
 });
 
 When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('tab', 'ASSIGNMENTS')
   await pages.overview.click('activityName', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -89,8 +88,7 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
       let scoreFinal = await pages.overview.getText('score')
       let x = eval(scoreFinal)
       let y = eval(610/600)
-      let z = eval(325/600)
-      let a = eval(300/600)
+      let z = await pages.overview.checkElementExists('midwayLc');
         if(x < y){
          
         let jsonObject = await pages.overview.getText('activityQuestion');
@@ -114,10 +112,14 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
                 await choice.click()
                 break;
               }
+              if(z=== true){
+                await pages.overview.click('midwayLc')
+        
+              }
+              await pages.overview.assertElementExists('nextQuestion');
+              await pages.overview.click('nextQuestion');
+              break;
             }
-            await pages.overview.assertElementExists('nextQuestion')
-            await pages.overview.click('nextQuestion');
-            break
 
           case 'MC':
           console.log('Entered MC') 
@@ -134,16 +136,25 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
               }
             }
             await pages.overview.click('submitButton');
+            if(z=== true){
+              await pages.overview.click('midwayLc')
+      
+            }
+            await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
+
             break;
           case 'FB':
           console.log('Entered FB')
             await pages.overview.populate('fillInTheBlank', answerKey.Answer);
             await pages.overview.click('submitButton');
+            if(z=== true){
+              await pages.overview.click('midwayLc')
+            }
+            await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
             break
         }
-      console.log('there is more'+(x-1) + "more to run")
 
       }
      if (x >= y){
@@ -204,7 +215,7 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseTemplate);
   await pages.coursePage.click('courseMenu');
   await pages.coursePage.click('courseMenu');
@@ -214,7 +225,7 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
-  await pages.courseList.click('courseTemplate', 'Courses');
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
 
 })

@@ -67,7 +67,7 @@ Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'Course Templates')
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES')
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('ISBNVerification', courseName);
   await pages.createCourse.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
@@ -246,7 +246,7 @@ When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, course
   let user = this.users[userType];
   await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
-  await pages.courseList.click('courseTemplate', 'Course Templates')
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES')
   await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', user.username);

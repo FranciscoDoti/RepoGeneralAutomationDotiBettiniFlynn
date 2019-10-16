@@ -1,0 +1,25 @@
+{
+    "webElements": [
+        {
+            "name": "Editor Title",
+            "byType": "xpath",
+            "definition": "//div[@class='header-name']/span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Textarea",
+            "byType": "xpath",
+            "definition": "//textarea[@class='ace_text-input']",
+            "frame": "default",
+            "specialInstr": "overwrite noclick"
+        },
+        {
+            "name": "Done",
+            "byType": "xpath",
+            "definition": "//button[@id='close-edit-host']",
+            "frame":"default",
+            "specialInstr":"NA"
+        }
+    ]
+}
