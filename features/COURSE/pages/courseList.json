@@ -1,8 +1,8 @@
 {
     "webElements": [{
         "name": "courseMenu",
-        "byType": "xpath",
-        "definition": "//*[.='<ReplaceText>']/../../..//button[@data-test-id='course_menu_button']",
+        "byType": "css",
+        "definition": "[data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -189,13 +189,13 @@
     }, {
         "name": "courseNumber",
         "byType": "xpath",
-        "definition": "//span[contains(@class,'_3F-s') and contains(text(), '<ReplaceText>')]",
+        "definition": "//span[contains(text(), '<ReplaceText>')]",
         "frame": "default",
         "specialInstr": "NA"
     }, {
         "name": "courseName",
         "byType": "xpath",
-        "definition": "//div[contains(@class,'_1xE4') and contains(text(), '<ReplaceText>')]",
+        "definition": "//div[contains(text(), '<ReplaceText>')]",
         "frame": "default",
         "specialInstr": "NA"
     }, {

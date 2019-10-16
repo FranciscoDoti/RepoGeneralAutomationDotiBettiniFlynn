@@ -1,14 +1,8 @@
 {
     "webElements": [{
-            "name": "productionButton",
-            "byType": "xpath",
-            "definition": "//span[contains(@class,'_3wnY') and contains(text(), '<ReplaceText>')]",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
             "name": "productionTab",
             "byType": "xpath",
-            "definition": "//span[contains(@class,'_3wnY') and contains(text(), '<ReplaceText>')]",
+            "definition": "//span[contains(text(), '<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
         }, {

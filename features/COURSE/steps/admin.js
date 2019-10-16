@@ -106,8 +106,8 @@ When(/^I verify that "(.*)" section exists in the "(.*)" view in "(.*)" course$/
   await pages.courseList.populate('search', courseName);
   await pages.courseList.waitForElementVisibility('courseName', courseName);
   await pages.courseList.click('courseName', courseName);
-  await pages.productionPage.waitForElementVisibility('productionButton', production);
-  await pages.productionPage.click('productionButton', production);
+  await pages.productionPage.waitForElementVisibility('productionTab', production);
+  await pages.productionPage.click('productionTab', production);
   await pages.productionPage.waitForElementVisibility('productionTab', search);
   await pages.productionPage.click('productionTab', search);
 });
