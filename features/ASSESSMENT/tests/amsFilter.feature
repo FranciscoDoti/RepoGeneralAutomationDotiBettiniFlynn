@@ -69,11 +69,4 @@ Feature: To verify the correct functionality of ams's item filter
             | Internal Topic Title | Intermolecular Forces- duplicate ID 463-GenChem                             |
             | Access               | public                                                                      |   
             | Access               | private                                                                     |     
-            | Learning Objective   | untagged                                                                    |   
-
-
-    @VerifyItemsFiltered
-    Scenario Outline: Select different filters and check that the items filtered match with the filter applied
-        Given I login to AMS as "all-permissions-author"
-        When I select the filter options <mainOption> and <subOption>
-        Then I verify that the items match with the filter applied in the column <mainOption> and value <subOption>
+            | Learning Objective   | untagged                                                                    |

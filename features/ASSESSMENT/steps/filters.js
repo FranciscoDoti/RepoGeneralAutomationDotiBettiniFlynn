@@ -24,11 +24,6 @@ Then('I verify that the following tabs are being displayed', async function(data
     }
 })
 
-Then('Then I verify that the items match with the filter applied in the column {} and value {}', async function(mainOption, subOption){
-    console.log("Pending step")
-}
-);
-
 Then('I close the tag with value {}', async function(tagValue) {
     await filterslib.closeTag(tagValue);
 });
