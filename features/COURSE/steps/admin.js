@@ -99,5 +99,5 @@ Then('I verify that following Tab are present', async function (data_table){
 })
 
 When(/^I click on "(.*)" card$/, async function (courseName){
-  await pages.courseList.click('courseCard')
+  await pages.courseList.click('courseCard', courseName)
 });

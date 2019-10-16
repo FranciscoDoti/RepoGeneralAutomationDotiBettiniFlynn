@@ -15,7 +15,7 @@ Feature: Create a Template and click on Production
         And I click on "PSV-4759 Template" card
         And I click on "Production" Tab
     
-    Secenario: I create an assesment then I add it to the course library and course plan
+    Scenario: I create an assesment then I add it to the course library and course plan
 
         When I click on the "Create"
         And I create the following assesments
