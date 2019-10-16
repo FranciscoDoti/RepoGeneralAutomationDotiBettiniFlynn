@@ -89,17 +89,17 @@ Feature: Verify that Admin is able to add activities in Ebook
 
         And I create folder and add the activities to the folder in ebook 
             | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  Glossary              | Reading 1 folder      |
+            | Reading 1    |  Psychopathology             | Reading 1 folder      |
             | Reading 2    | Appendix F             | Reading 2 folder      |
-            | Reading 3    | Literary Elements      | Reading 3 folder      |
+            | Reading 3    | Glossary      | Reading 3 folder      |
             | Reading 4    | Confidence Intervals   | Reading 4 folder      |
-            | Reading 5    | Psychopathology        | Reading 5 folder      |
+            | Reading 5    | Literary Elements        | Reading 5 folder      |
 
         Then I verify that activities are added to the folder in ebook 
             | Folder        | activities             |
-            | Reading 1     |  Glossary              |
+            | Reading 1     |  Literary Elements             |
             | Reading 2     | Appendix F             |
-            | Reading 3     | Literary Elements      |
+            | Reading 3     | Glossary     |
             | Reading 4     | Confidence Intervals   |
             | Reading 5     | Psychopathology        |
 
