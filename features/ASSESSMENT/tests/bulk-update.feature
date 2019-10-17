@@ -75,7 +75,7 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | NGA QA Test UT Item | Ungraded Text     |
             | NGA QA Test MD Item | Molecular Drawing |
 
-        And I select the following items by title on AMS
+        And I select the following items by title in AMS
             | Title               |
             | NGA QA Test MC Item |
             | NGA QA Test MS Item |
@@ -93,7 +93,7 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | Raptor      | NGA QA Test UT Item | Your Questions (uncategorized) | Math Review | easy       |             | live   | public |
             | Raptor      | NGA QA Test MD Item | Your Questions (uncategorized) | Math Review | easy       | MD          | live   | public |
 
-        And I select the following items by title on AMS
+        And I select the following items by title in AMS
             | Title               |
             | NGA QA Test MC Item |
             | NGA QA Test MS Item |
