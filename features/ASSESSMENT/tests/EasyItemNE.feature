@@ -1,16 +1,16 @@
 @Assessment @Smoke
 Feature: Create a NE Hatchling Item from AMS
 
-    @CreateNEHatchling
+    @Hatchling
     Scenario: Verify that user able to create NE Hatchling Item through AMS
         Given I login to AMS as "all-permissions-author"
         When I add "Numeric Entry" hatchling item with following details
             | QuestionTitle                      | QuestionPrompt             |
             | QA Hatchling NE Test Item from AMS | What is the speed of light |
-        And I add the following values
+        And I add the following values to Hatchling NE module
             | Correct Target Value | Measurement | Acceptance Within |
             | 300000000            | m/s         | 0.5               |
-        And I set the hint with following detail
+        And I set the hint for Hatchling NE module with following detail
             | Hint                  |
             | You Know the answers! |
         And I add the student feedback with the following details and save feedback and save the NE item
