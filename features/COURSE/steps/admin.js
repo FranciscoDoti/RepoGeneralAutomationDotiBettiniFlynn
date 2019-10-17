@@ -5,7 +5,6 @@ const csvtojson = require('csvtojson');
 const driver = require(`${process.cwd()}/app/driver.js`);
 const {sleep } = require(`${process.cwd()}/app/driver`);
 
-const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
