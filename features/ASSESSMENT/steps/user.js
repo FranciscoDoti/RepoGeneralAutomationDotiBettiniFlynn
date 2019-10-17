@@ -11,21 +11,21 @@ When(/^I \"([^\"]*)\" the following permissions checkboxes$/, async function (st
     await pages.ams.click('User Id');
     for (let i = 0; i < datatable.rows().length; i++) {
         let checkbox = datatable.hashes()[i];
-        let checkboxStatus = await pages.ams.getAttributeValue('User Permissions Checkbox', checkbox.Permission, 'selected');
-        if ((!checkboxStatus && status === 'check') || (checkboxStatus && status === 'uncheck')) {
-            var save = true;
+        // let checkboxStatus = await pages.ams.getAttributeValue('User Permissions Checkbox', checkbox.Permission, 'selected');
+        // if ((!checkboxStatus && status === 'check') || (checkboxStatus && status === 'uncheck')) {
+        //     var save = true;
             await pages.ams.populate('User Permissions Checkbox', checkbox.Permission, status);
-        }
+        // }
     }
-    save ? await updatelib.save() : await pages.update.click('Button', 'Cancel');
+    await updatelib.save();
+    // save ? await updatelib.save() : await pages.update.click('Button', 'Cancel');
 });
 
 Then('I verify the following tabs are displayed on the top of the AMS Page', async function (datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         let tab = datatable.hashes()[i];
-        let expectedTab = tab.TabName;
         let actualTab = tab.TabName;
-        await pages.ams.assertText('AMS Tab', actualTab, expectedTab);
+        await pages.ams.assertElementExists('AMS Tab', actualTab);
     }
 });
 
