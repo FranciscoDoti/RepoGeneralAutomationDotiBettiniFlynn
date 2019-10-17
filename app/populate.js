@@ -54,7 +54,7 @@ const populateInput = async function (selector, value, WebElementObject) {
 };
 
 const populateCheckbox = async function (selector, value, WebElementObject) {
-  if(value.toLowerCase() !== 'check' || value.toLowerCase() !== 'uncheck'){
+  if(value.toLowerCase() !== 'check' && value.toLowerCase() !== 'uncheck'){
     assert.fail(`Instruction for populate checkbox must be 'check' or 'uncheck'. Please validate your test step.`);
   };
 
