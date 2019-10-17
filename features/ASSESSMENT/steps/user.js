@@ -2,7 +2,7 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
-When(/^I search for the user \"([^\"]*)\" to update his permissions$/, async function (username){
+When(/^I search for the user \"([^\"]*)\" to update his permissions$/, async function (username) {
     await pages.ams.click('AMS Tab', 'Users');
     await pages.ams.populate('User Filter', username);
 });
@@ -12,16 +12,12 @@ When('I click on UserId and un-check the following permissions checkboxes and sa
     for (let i = 0; i < datatable.rows().length; i++) {
         let checkbox = datatable.hashes()[i];
         let checkboxStatus = await pages.ams.getAttributeValue('User Permissions Checkbox', checkbox.Permission, 'selected');
-        if (checkboxStatus == true) {
-            var YES = true;
-            await pages.ams.click('User Permissions Checkbox', checkbox.Permission);
-        } else {
-            await pages.update.click('Button', 'Cancel');
-            break;
+        if (checkboxStatus) {
+            var save = true;
+            await pages.ams.populate('User Permissions Checkbox', checkbox.Permission, checkbox.Status);
         }
-    } if (YES) {
-        await updatelib.save();
     }
+    save ? await updatelib.save() : await pages.update.click('Button', 'Cancel');
 });
 
 Then('I verify the following tabs are displayed on the top', async function (datatable) {
@@ -38,16 +34,12 @@ When('I click on UserId and check the following permissions checkboxes and save'
     for (let i = 0; i < datatable.rows().length; i++) {
         let checkbox = datatable.hashes()[i];
         let checkboxStatus = await pages.ams.getAttributeValue('User Permissions Checkbox', checkbox.Permission, 'selected');
-        if (checkboxStatus == false) {
-            var YES = true;
-            await pages.ams.click('User Permissions Checkbox', checkbox.Permission);
-        } else {
-            await pages.update.click('Button', 'Cancel');
-            break;
+        if (!checkboxStatus) {
+            var save = true;
+            await pages.ams.populate('User Permissions Checkbox', checkbox.Permission, checkbox.Status);
         }
-    } if (YES) {
-        await updatelib.save();
     }
+    save ? await updatelib.save() : await pages.update.click('Button', 'Cancel');
 });
 
 
