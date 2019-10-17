@@ -7,7 +7,7 @@ When(/^I search for the user \"([^\"]*)\"$/, async function (username) {
     await pages.ams.populate('User Filter', username);
 });
 
-When(/^I \"([^\"]*)\" the following permissions checkboxes and save$/, async function (status, datatable) {
+When(/^I \"([^\"]*)\" the following permissions checkboxes$/, async function (status, datatable) {
     await pages.ams.click('User Id');
     for (let i = 0; i < datatable.rows().length; i++) {
         let checkbox = datatable.hashes()[i];
