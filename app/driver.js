@@ -169,10 +169,23 @@ const getURL = async function () {
 };
 
 const takeScreenshot = async function () {
+  const imagemin = require('imagemin');
+  const imageminJpegtran = require('imagemin-jpegtran');
+  const imageminPngquant = require('imagemin-pngquant');
   try {
-    return await driver.takeScreenshot();
+    // return await driver.takeScreenshot();
+    let image = await driver.takeScreenshot();
+    let image64 = await Buffer.from(image, "base64");
+    let mini = await imagemin.buffer(image64, {
+          plugins: [
+              imageminJpegtran(),
+              imageminPngquant({
+                quality: [0.3, 0.4]
+              })]});
+    return await mini.toString('base64');
   } catch (err) {
     log.error(err.stack);
+    return false;
   }
 };
 
