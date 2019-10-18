@@ -1,4 +1,4 @@
-@Assessment @AMS @Filter @Items
+@Assessment @AMS @FilterItems
 Feature: To verify the correct functionality of ams's item filter
 
     @VerifyItemsFiltered

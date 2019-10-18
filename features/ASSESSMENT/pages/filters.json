@@ -59,7 +59,7 @@
         {
             "name": "Load More",
             "byType": "xpath",
-            "definition": "//button[@class='btn btn-primary btn-block']",
+            "definition": "//button[.='Load More']",
             "frame": "default",
             "specialInstr": "NA"
         }
