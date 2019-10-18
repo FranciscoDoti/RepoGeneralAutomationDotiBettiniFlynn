@@ -139,6 +139,12 @@
             "definition": "//label[contains(text(),'<ReplaceText>')]/input",
             "frame": "default",
             "specialInstr": "focus"
+        },{
+            "name": "searchedUser",
+            "byType": "xpath",
+            "definition": "//td[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
         }
     ]
 }
