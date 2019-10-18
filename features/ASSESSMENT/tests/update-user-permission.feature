@@ -20,7 +20,7 @@ Feature: Verify Update User Permissions
             | TabName  |
             | Items    |
             | Users    |
-        And I verify the following tabs are "NotDisplayed" on the top of the AMS Page
+        And I verify the following tabs are "not displayed" on the top of the AMS Page
             | TabName       |
             | Deleted Items |
             | New User      |
