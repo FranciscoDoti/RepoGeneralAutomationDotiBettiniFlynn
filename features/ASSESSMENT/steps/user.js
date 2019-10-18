@@ -19,12 +19,12 @@ When(/^I \"([^\"]*)\" the following permissions checkboxes$/, async function (st
     await userlib.saveAndContinue();
 });
 
-Then(/^I verify the following tabs are \"([^\"]*)\" on the top of the AMS Page$/, async function (tab, datatable) {
+Then(/^I verify the following tabs are \"([^\"]*)\" on the top of the AMS Page$/, async function (condition, datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         let actualTab = datatable.hashes()[i].TabName;
-        if(tab === 'displayed'){
+        if(condition === 'displayed'){
             await pages.ams.assertElementExists('AMS Tab', actualTab);
-        }else if(tab === 'NotDisplayed'){
+        }else if(condition === 'not displayed'){
             await pages.ams.assertElementDoesNotExist('AMS Tab', actualTab);
         }
         
