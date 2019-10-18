@@ -24,7 +24,6 @@ let pages = {
     itemDetails: new PageObject('itemDetailsPopup.json', stepsPath),
     update: new PageObject('update.json', stepsPath),
     froala: new PageObject('froala.json', stepsPath),
-    ams: new PageObject('ams.json', stepsPath),
     filters: new PageObject('filters.json',stepsPath)
 };
 
