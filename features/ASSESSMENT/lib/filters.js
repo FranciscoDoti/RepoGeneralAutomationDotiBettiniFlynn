@@ -16,9 +16,9 @@ const verifyTag = async function (filter, option) {
   }
 };
 
-const removeFilter = async function (tagValue) {
-  await pages.filters.click('Filter Remove', tagValue);
-  await pages.filters.assertElementDoesNotExist('Filter Tag', tagValue);
+const removeFilter = async function (tagText) {
+  await pages.filters.click('Filter Remove', tagText);
+  await pages.filters.assertElementDoesNotExist('Filter Tag', tagText);
 };
 
 
