@@ -23,7 +23,7 @@
         "byType": "xpath",
         "definition": "//a[.='<ReplaceText>']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "focus"
 
     },
     {
@@ -51,11 +51,19 @@
 
     },
     {
-        "name": "arrow",
+        "name": "arrowUP",
         "byType": "xpath",
         "definition": "//*[.='<ReplaceText>']/../../..//*[@type='chevron_right']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "focus"
+
+    },
+    {
+        "name": "arrowDown",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//*[@type='chevron_down']",
+        "frame": "default",
+        "specialInstr": "focus"
 
     }]
 }

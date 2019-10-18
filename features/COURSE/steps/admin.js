@@ -171,7 +171,8 @@ When('I create folder and add the activities to the folder in ebook', async func
     await pages.resources.click('addFolder')
     await pages.resources.populate('folderName', data_table.hashes()[i].Folder);
     await pages.resources.click('addFolderButton');
-    await pages.eBook.click('contentCheckbox', data_table.hashes()[i].activities);
+    await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].activities,'check');
+    await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].activities,'check');
     await pages.eBook.click('activitySelected', 'Move');
     await pages.eBook.click('Folder', data_table.hashes()[i].PlaceFolder);
     await pages.resources.click('placeInFolder');
@@ -182,16 +183,19 @@ When('I create folder and add the activities to the folder in ebook', async func
 
 Then('I verify that activities are added to the folder in ebook', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.eBook.click('arrow', data_table.hashes()[i].Folder);
+    await pages.eBook.click('arrowUP', data_table.hashes()[i].Folder);
     await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
+    await pages.eBook.click('arrowDown', data_table.hashes()[i].Folder);
   }
 })
 
 When('I Reorder The folders in ebook', async function (data_table){
-  await pages.ebook.click('contentCheckbox', 'Reading 1');
+  await pages.eBook.populate('contentCheckbox', 'Reading 5','check');
+  await pages.eBook.populate('contentCheckbox', 'Reading 5','check');
+  await pages.eBook.click('activitySelected', 'Reorder');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.click('reorderResources', data_table.hashes()[i].folders);
-    await pages.resources.click(data_table.hashes()[i].reorder);
+    await pages.resources.click('reorderResources', data_table.hashes()[i].Folder);
+    await pages.resources.click(data_table.hashes()[i].Button);
   }
   await pages.coursePlanner.click('modalSaveButton');
 })
@@ -204,7 +208,8 @@ Then('I verify that Folders are reordered in ebook', async function (data_table)
 
 When('I delete the folder in ebook', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.eBook.click('contentCheckbox', data_table.hashes()[i].Folder);
+    await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].Folder,'check');
+    await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].Folder,'check');
     await pages.eBook.click('activitySelected', 'Reamove');
     await pages.coursePlanner.click('removeFolderButton')
   }

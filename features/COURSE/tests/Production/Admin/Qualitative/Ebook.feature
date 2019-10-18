@@ -89,26 +89,27 @@ Feature: Verify that Admin is able to add activities in Ebook
 
         And I create folder and add the activities to the folder in ebook 
             | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  Psychopathology             | Reading 1 folder      |
+            | Reading 1    |  Psychopathology       | Reading 1 folder      |
             | Reading 2    | Appendix F             | Reading 2 folder      |
-            | Reading 3    | Glossary      | Reading 3 folder      |
+            | Reading 3    | Glossary               | Reading 3 folder      |
             | Reading 4    | Confidence Intervals   | Reading 4 folder      |
-            | Reading 5    | Literary Elements        | Reading 5 folder      |
+            | Reading 5    | Literary Elements      | Reading 5 folder      |
 
         Then I verify that activities are added to the folder in ebook 
             | Folder        | activities             |
-            | Reading 1     |  Literary Elements             |
+            | Reading 1     | Psychopathology        |
             | Reading 2     | Appendix F             |
-            | Reading 3     | Glossary     |
+            | Reading 3     | Glossary               |
             | Reading 4     | Confidence Intervals   |
-            | Reading 5     | Psychopathology        |
+            | Reading 5     | Literary Elements      |
 
         When I Reorder The folders in ebook
             | Folder    |   Button              |
             | Reading 1 |   moveToTop           |
             | Reading 2 |   moveUpButton        |
+            | Reading 2 |   moveUpButton        |
             | Reading 3 |   moveUpButton        |
-            | Reading 5 |  movedownButton       |  
+            | Reading 5 |  moveToEnd            |  
 
         Then I verify that Folders are reordered in ebook 
             | Folder                                                            | orderNumber    |

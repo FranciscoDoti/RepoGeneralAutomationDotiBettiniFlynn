@@ -203,7 +203,7 @@
         }, {
             "name": "reorderResources",
             "byType": "xpath",
-            "definition": "//*[@class='_3s5l']/..//span[text()='<ReplaceText>']",
+            "definition": "//span[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
