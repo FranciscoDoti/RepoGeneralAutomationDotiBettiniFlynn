@@ -71,17 +71,20 @@ const populateCheckbox = async function (selector, value, WebElementObject) {
     await WebElementObject.webElement.focus();
   }
 
-  if (value == 'check' && isChecked) {
-    log.debug(`Checkbox is already checked.`);
-  } else {
-    await actions.click(selector).perform();
-    log.debug(`Post populate Checkbox: Checked the checkbox.`);
-  }
-  if (value == 'uncheck' && !isChecked) {
-    log.debug(`Checkbox is already unchecked.`);
-  } else {
-    await actions.click(selector).perform();
-    log.debug(`Post populate Checkbox: Un-checked the checkbox.`);
+  if(value == 'check'){
+    if(isChecked){
+      log.debug(`Checkbox is already checked.`);
+    } else {
+      await actions.click(selector).perform();
+      log.debug(`Post populate Checkbox: Checked the checkbox.`);
+    }
+  } else if(value == 'uncheck'){
+    if(isChecked){
+      await actions.click(selector).perform();
+      log.debug(`Post populate Checkbox: Un-checked the checkbox.`);
+    } else {
+      log.debug(`Checkbox is already unchecked.`);
+    }
   }
 };
 
