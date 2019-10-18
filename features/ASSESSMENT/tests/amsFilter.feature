@@ -1,6 +1,17 @@
 @Assessment @AMS @Filter @Items
 Feature: To verify the correct functionality of ams's item filter
 
+    @VerifyItemsFiltered
+    Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
+        Given I login to AMS as "all-permissions-author"
+        When I apply the filter options <Filter> and <Option>
+        Then I verify that the items match with the filter applied with value <Option>
+        Examples:
+            | Filter               | Option                                                                      |
+            | Topic                | Your Questions (uncategorized)                                              |
+            | Topic                | End of Chapter Problems                                                     |
+            | Topic                | Price Floors                                                                |
+
     @Verify3FilterTagsAtSameTime
     Scenario: Apply 3 different filters and verify that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
@@ -71,16 +82,4 @@ Feature: To verify the correct functionality of ams's item filter
             | Access               | public                                                                      |   
             | Access               | private                                                                     |     
             | Learning Objective   | untagged                                                                    |
-
-    @VerifyItemsFiltered
-    Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
-        Given I login to AMS as "all-permissions-author"
-        When I apply the filter options <Filter> and <Option>
-        Then I verify that the items match with the filter applied with value <Option>
-        Examples:
-            | Filter               | Option                                                                      |
-            | Topic                | Your Questions (uncategorized)                                              |
-            | Topic                | End of Chapter Problems                                                     |
-            | Topic                | Price Floors                                                                |
-
     

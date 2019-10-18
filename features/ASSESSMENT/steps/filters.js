@@ -2,8 +2,8 @@ const { When, Then } = require('cucumber');
 const { filterslib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 
-When("I apply the filter options {} and {}", async function(Filter, Option){
-    await filterslib.setFilter(Filter,Option);
+When("I apply the filter options {} and {}", async function(filter, option){
+    await filterslib.setFilter(filter,option);
 });
 
 When("I apply the following filters", async function(dataTable){
@@ -13,8 +13,8 @@ When("I apply the following filters", async function(dataTable){
     }
 });
 
-Then('I verify that the filter tag is being displayed with label using {} and {}', async function(Filter, Option) {
-    await filterslib.verifyTag(Filter, Option);
+Then('I verify that the filter tag is being displayed with label using {} and {}', async function(filter, option) {
+    await filterslib.verifyTag(filter, option);
 });
 
 Then('I verify the following filter tags are displayed', async function(dataTable){
@@ -24,14 +24,14 @@ Then('I verify the following filter tags are displayed', async function(dataTabl
     }
 });
 
-Then('I verify that the items match with the filter applied with value {}', async function(Option){
+Then('I verify that the items match with the filter applied with value {}', async function(option){
     
     var i=1;
-        while (await filterslib.tableWithResults(i)) {
-            await filterslib.verifyRow(i,Option);
+        while ( i<= await filterslib.verifyNumberOfResults()) {
+            await filterslib.verifyRow(i,option);
             if (await filterslib.isMultipleOf(i,200) && i<=999){
-                await pages.filters.scrollElementIntoView('loadMore');
-                await pages.filters.click('loadMore');
+                await pages.filters.scrollElementIntoView('Load More');
+                await pages.filters.click('Load More');
             }
             i++;
        } 

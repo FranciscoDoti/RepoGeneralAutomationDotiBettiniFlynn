@@ -36,28 +36,28 @@
             "specialInstr": "NA"
         },
         {
-            "name": "table",
+            "name": "Search Results Table",
             "byType": "xpath",
             "definition": "//table[@class='table itemlist table-condensed']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "tableBody",
+            "name": "Search Results",
             "byType": "xpath",
             "definition": "//table[@class='table itemlist table-condensed']/<ReplaceText>",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "tableRow",
+            "name": "Search Result",
             "byType": "xpath",
             "definition": "//table[@class='table itemlist table-condensed']/tbody/tr[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "loadMore",
+            "name": "Load More",
             "byType": "xpath",
             "definition": "//button[@class='btn btn-primary btn-block']",
             "frame": "default",
