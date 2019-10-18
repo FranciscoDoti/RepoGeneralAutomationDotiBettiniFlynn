@@ -29,9 +29,37 @@
             "specialInstr": "NA"
         },
         {
-            "name": "closeTag",
+            "name": "Filter Remove",
             "byType": "xpath",
             "definition": "//div[@class='filter-pill-div']/span[contains(.,'<ReplaceText>')]/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "table",
+            "byType": "xpath",
+            "definition": "//table[@class='table itemlist table-condensed']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "tableBody",
+            "byType": "xpath",
+            "definition": "//table[@class='table itemlist table-condensed']/<ReplaceText>",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "tableRow",
+            "byType": "xpath",
+            "definition": "//table[@class='table itemlist table-condensed']/tbody/tr[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "loadMore",
+            "byType": "xpath",
+            "definition": "//button[@class='btn btn-primary btn-block']",
             "frame": "default",
             "specialInstr": "NA"
         }
