@@ -1,54 +1,26 @@
 @Assessment @AMS @Filter @Items
 Feature: To verify the correct functionality of ams's item filter
 
-
-    @VerifyItemsFiltered
-    Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
-        Given I login to AMS as "all-permissions-author"
-        When I apply the filter options <mainOption> and <subOption>
-        Then I verify that the items match with the filter applied with value <subOption>
-        Examples:
-            | mainOption           | subOption                                                                   |
-            | Topic                | Your Questions (uncategorized)                                              |
-            | Topic                | End of Chapter Problems                                                     |
-            | Topic                | Price Floors                                                                |
-
     @Verify3FilterTagsAtSameTime
     Scenario: Apply 3 different filters and verify that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
         When I apply the following filters
-<<<<<<< HEAD
-             | mainOption           | subOption                                                                   |
+             | Filter               | Option                                                                      |
              | Topic                | Your Questions (uncategorized)                                              |
              | Blooms               | Remembering                                                                 |
              | Access               | public                                                                      |
         Then I verify the following filter tags are displayed
-             | mainOption           | subOption                                                                   |
+             | Filter               | Option                                                                      |
              | Topic                | Your Questions (uncategorized)                                              |
              | Blooms               | Remembering                                                                 |
              | Access               | public                                                                      |
-=======
-            | Filter           | Option                            |
-            | Topic            | Your Questions (uncategorized)    |
-            | Blooms           | Remembering                       |
-            | Access           | public                            |
-        Then I verify the following filter tags are displayed
-            | Tag                                   |
-            | Topic: Your Questions (uncategorized) |
-            | Blooms: Remembering                   |
-            | Access: public                        |
->>>>>>> d8d4d9ebd366c80286a41a2cd9d155f1e808dc49
 
     @VerifyFilterTags
     Scenario Outline: Select different filters and check that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
-<<<<<<< HEAD
-        When I apply the filter options <mainOption> and <subOption>
-        Then I verify that the filter tag is being displayed with label using <mainOption> and <subOption>
-=======
-        When I select the filter option <Filter> and <Option>
-        Then I verify that the tag is being displayed with label using <Filter> and <Option>
->>>>>>> d8d4d9ebd366c80286a41a2cd9d155f1e808dc49
+        When I apply the filter options <Filter> and <Option>
+        Then I verify that the filter tag is being displayed with label using <Filter> and <Option>
+        
         Examples:
             | Filter               | Option                                                                   |
             | Topic                | Your Questions (uncategorized)                                              |
@@ -99,3 +71,16 @@ Feature: To verify the correct functionality of ams's item filter
             | Access               | public                                                                      |   
             | Access               | private                                                                     |     
             | Learning Objective   | untagged                                                                    |
+
+    @VerifyItemsFiltered
+    Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
+        Given I login to AMS as "all-permissions-author"
+        When I apply the filter options <Filter> and <Option>
+        Then I verify that the items match with the filter applied with value <Option>
+        Examples:
+            | Filter               | Option                                                                      |
+            | Topic                | Your Questions (uncategorized)                                              |
+            | Topic                | End of Chapter Problems                                                     |
+            | Topic                | Price Floors                                                                |
+
+    
