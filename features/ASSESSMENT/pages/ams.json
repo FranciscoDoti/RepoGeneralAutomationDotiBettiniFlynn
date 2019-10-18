@@ -140,7 +140,7 @@
             "frame": "default",
             "specialInstr": "focus"
         },{
-            "name": "searchedUser",
+            "name": "Search Result Text",
             "byType": "xpath",
             "definition": "//td[.='<ReplaceText>']",
             "frame": "default",

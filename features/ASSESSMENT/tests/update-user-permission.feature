@@ -16,11 +16,11 @@ Feature: Verify Update User Permissions
             | Manage Taxonomies and Bookgroups|
         And I go back to sapling page and logout
         And I login to AMS as "test-user"
-        Then I verify the following tabs are displayed on the top of the AMS Page
+        Then I verify the following tabs are "displayed" on the top of the AMS Page
             | TabName  |
             | Items    |
             | Users    |
-        And I verify the following tabs are not displayed on the top of the AMS Page
+        And I verify the following tabs are "NotDisplayed" on the top of the AMS Page
             | TabName       |
             | Deleted Items |
             | New User      |
@@ -42,7 +42,7 @@ Feature: Verify Update User Permissions
             | Manage Taxonomies and Bookgroups|
         And I go back to sapling page and logout
         And I login to AMS as "test-user"
-        Then I verify the following tabs are displayed on the top of the AMS Page
+        Then I verify the following tabs are "displayed" on the top of the AMS Page
             | TabName       |
             | Items         |
             | Deleted Items |
