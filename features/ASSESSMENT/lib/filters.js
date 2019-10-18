@@ -35,9 +35,7 @@ const verifyRow = async function (index, option) {
 };
 
 const isMultipleOf = async function (i, multipleOf) {
-  var remainder = i % multipleOf;
-  if (remainder == 0) { return true; }
-  else { return false; }
+  return i % multipleOf == 0;
 };
 
 module.exports = {
