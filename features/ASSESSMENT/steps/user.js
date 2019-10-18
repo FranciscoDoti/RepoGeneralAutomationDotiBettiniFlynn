@@ -16,7 +16,7 @@ When(/^I \"([^\"]*)\" the following permissions checkboxes$/, async function (st
         let checkbox = datatable.hashes()[i];
         await pages.ams.populate('User Permissions Checkbox', checkbox.Permission, status);
     }
-    await userlib.SaveAndContinue();
+    await userlib.saveAndContinue();
 });
 
 Then(/^I verify the following tabs are \"([^\"]*)\" on the top of the AMS Page$/, async function (tab, datatable) {

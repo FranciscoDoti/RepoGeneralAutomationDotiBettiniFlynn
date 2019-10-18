@@ -1,6 +1,6 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 
-const SaveAndContinue = async function () {
+const saveAndContinue = async function () {
     if (await pages.update.getAttributeValue('Button', 'Save Changes', 'disabled')) {
         await pages.update.click('Button', 'Cancel');
     } else {
@@ -10,5 +10,5 @@ const SaveAndContinue = async function () {
 };
 
 module.exports = {
-    SaveAndContinue
+    saveAndContinue
 };
