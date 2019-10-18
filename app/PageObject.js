@@ -244,6 +244,18 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  const checkElementExists = async function (elementName, replaceText) {
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    if (await genericAssertElement(elementName, 'displayed')) {
+      log.info(`Web Element ${elementName} is displayed on page.`);
+    } else {
+      log.info(`Web Element ${elementName} is not displayed on page.`);
+    };
+  };
+
   const assertElementExists = async function (elementName, replaceText) {
     if (replaceText !== undefined) {
       elementName = await addDynamicElement(elementName, replaceText);
@@ -599,6 +611,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
+  that.checkElementExists = checkElementExists;
   that.assertElementExists = assertElementExists;
   that.assertElementDoesNotExist = assertElementDoesNotExist;
   that.getWebElements = getWebElements;
