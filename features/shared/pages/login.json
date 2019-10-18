@@ -12,7 +12,7 @@
             "byType": "id",
             "definition": "username",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "overwrite"
         },
         {
             "name": "password",
@@ -40,7 +40,7 @@
             "byType": "id",
             "definition": "submitButton",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "signin",
