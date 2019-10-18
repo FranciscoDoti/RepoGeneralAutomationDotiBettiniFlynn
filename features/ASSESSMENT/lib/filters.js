@@ -8,13 +8,23 @@ const setFilter = async function (filterText, optionText) {
   await pages.filters.click('Option', optionText);
 };
 
-const verifyTag = async function (filter, option) {
-  if (filter !== 'Blooms') {
-    await pages.filters.assertText('Filter Tag', option, filter + ": " + option + " x");
-  } else {
-    await pages.filters.assertText('Filter Tag', option.toLowerCase(), filter + ": " + option.toLowerCase() + " x");
-  }
+const verifyTag = async function (tagValue) {
+  
+  await pages.filters.assertElementExists ('Filter Tag', tagValue);
+
 };
+
+const verifyItemsWithFilterApplied = async function(option) {
+    var i=1;
+    while ( i<= await filterslib.searchResultCount()) {
+        await filterslib.verifyTextInRow(i,option);
+        if ( i%200 == 0  && i<=999){
+            await pages.filters.scrollElementIntoView('Load More');
+            await pages.filters.click('Load More');
+        }
+        i++;
+  } 
+}
 
 const removeFilter = async function (tagText) {
   await pages.filters.click('Filter Remove', tagText);
@@ -22,27 +32,23 @@ const removeFilter = async function (tagText) {
 };
 
 
-const verifyNumberOfResults = async function () {
+const searchResultCount = async function () {
   return await pages.filters.getAttributeValue('Search Results', 'tbody', 'childElementCount');
 
 };
 
-const verifyRow = async function (index, option) {
+const verifyTextInRow = async function (index, option) {
   let rowData = {};
   rowData = await pages.filters.getAttributeValue('Search Result', index, 'textContent');
-  assert.include(rowData, option, "Error. ", option, "+ is not included into row data. Row Data: ", rowData);
-
+  expect(rowData).to.include(option);
 };
 
-const isMultipleOf = async function (i, multipleOf) {
-  return i % multipleOf == 0;
-};
 
 module.exports = {
   setFilter,
   verifyTag,
   removeFilter,
-  verifyNumberOfResults,
-  verifyRow,
-  isMultipleOf
+  searchResultCount,
+  verifyTextInRow,
+  verifyItemsWithFilterApplied
 };
