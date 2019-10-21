@@ -23,7 +23,8 @@ let pages = {
     ams: new PageObject('ams.json', stepsPath),
     itemDetails: new PageObject('itemDetailsPopup.json', stepsPath),
     update: new PageObject('update.json', stepsPath),
-    froala: new PageObject('froala.json', stepsPath)
+    froala: new PageObject('froala.json', stepsPath),
+    filters: new PageObject('filters.json',stepsPath)
 };
 
 module.exports ={
