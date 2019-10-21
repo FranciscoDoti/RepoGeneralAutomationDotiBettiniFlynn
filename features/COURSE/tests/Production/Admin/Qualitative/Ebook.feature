@@ -87,50 +87,51 @@ Feature: Verify that Admin is able to add activities in Ebook
         When I search for "Qualitative Production Template" and click on course card
         And I click on "Production" Tab
 
-        And I create folder and add the activities to the folder in ebook 
-            | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  Psychopathology       | Reading 1 folder      |
-            | Reading 2    | Appendix F             | Reading 2 folder      |
-            | Reading 3    | Glossary               | Reading 3 folder      |
-            | Reading 4    | Confidence Intervals   | Reading 4 folder      |
-            | Reading 5    | Literary Elements      | Reading 5 folder      |
+        # And I create folder and add the activities to the folder in ebook 
+        #     | Folder       | activities             | PlaceFolder           |
+        #     | Reading 1    |  Psychopathology       | Reading 1 folder      |
+        #     | Reading 2    | Appendix F             | Reading 2 folder      |
+        #     | Reading 3    | Glossary               | Reading 3 folder      |
+        #     | Reading 4    | Confidence Intervals   | Reading 4 folder      |
+        #     | Reading 5    | Literary Elements      | Reading 5 folder      |
 
         Then I verify that activities are added to the folder in ebook 
             | Folder        | activities             |
+            # | Reading 5     | Literary Elements      |
             | Reading 1     | Psychopathology        |
             | Reading 2     | Appendix F             |
             | Reading 3     | Glossary               |
             | Reading 4     | Confidence Intervals   |
             | Reading 5     | Literary Elements      |
 
-        When I Reorder The folders in ebook
-            | Folder    |   Button              |
-            | Reading 1 |   moveToTop           |
-            | Reading 2 |   moveUpButton        |
-            | Reading 2 |   moveUpButton        |
-            | Reading 3 |   moveUpButton        |
-            | Reading 5 |  moveToEnd            |  
+        # When I Reorder The folders in ebook
+        #     | Folder    |   Button              |
+        #     | Reading 1 |   moveToTop           |
+        #     | Reading 2 |   moveUpButton        |
+        #     | Reading 2 |   moveUpButton        |
+        #     | Reading 3 |   moveUpButton        |
+        #     | Reading 5 |  moveToEnd            |  
 
-        Then I verify that Folders are reordered in ebook 
-            | Folder                                                            | orderNumber    |
-            | Reading 1                                                         |  1             |                                                       
-            | Reading 2                                                         |  2             |
-            | Reading 3                                                         |  3             |
-            | Reading 4                                                         |  4             |
-            | Reading 5                                                         |  5             |
+        # Then I verify that Folders are reordered in ebook 
+        #     | Folder                                                            | orderNumber    |
+        #     | Reading 1                                                         |  1             |                                                       
+        #     | Reading 2                                                         |  2             |
+        #     | Reading 3                                                         |  3             |
+        #     | Reading 4                                                         |  4             |
+        #     | Reading 5                                                         |  5             |
 
-        When I delete the folder in ebook 
-            | Folder     |
-            | Reading 1  |
-            | Reading 2  |
-            | Reading 3  |
-            | Reading 4  |
-            | Reading 5  |
+        # When I delete the folder in ebook 
+        #     | Folder     |
+        #     | Reading 1  |
+        #     | Reading 2  |
+        #     | Reading 3  |
+        #     | Reading 4  |
+        #     | Reading 5  |
 
-        Then I verify that Folders are deleted in ebook
-            | Folder     |
-            | Reading 1  |
-            | Reading 2  |
-            | Reading 3  |
-            | Reading 4  |
-            | Reading 5  |
+        # Then I verify that Folders are deleted in ebook
+        #     | Folder     |
+        #     | Reading 1  |
+        #     | Reading 2  |
+        #     | Reading 3  |
+        #     | Reading 4  |
+        #     | Reading 5  |

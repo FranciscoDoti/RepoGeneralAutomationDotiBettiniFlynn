@@ -30,7 +30,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
   await pages.courseList.click('courseTemplate', 'Course Templates');
   await pages.courseList.populate('search', courseName);
-  await pages.createCourse.assertElementExists('courseCard', courseName);
+  // await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
 });
 
