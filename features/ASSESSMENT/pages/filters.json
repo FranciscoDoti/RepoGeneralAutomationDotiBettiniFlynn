@@ -24,7 +24,7 @@
         {
             "name": "Filter Tag",
             "byType": "xpath",
-            "definition": "//div[@class='filter-pill-div']/span[contains(.,'<ReplaceText>')]",
+            "definition": "//span[@class='filter-text-span'][contains(translate(.,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'),'BLOOMS: REMEMBERING')]",
             "frame": "default",
             "specialInstr": "NA"
         },
