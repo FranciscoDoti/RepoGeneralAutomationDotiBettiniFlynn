@@ -7,7 +7,7 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseN
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName); 
   await pages.courseList.click('courseMenu', courseName); 
-  //await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.click('courseMenu', courseName);
   await pages.courseList.click('manageInstructor');
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');

@@ -26,7 +26,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
 
         And I click on home button to return to coursepage
-        And I click on "Course Templates" tab 
+        And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "activities Template" template with the following data
             | courseName            | courseCode           |
             | activities Course     | E2E 301              |
@@ -34,6 +34,12 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         #And I close the popup message
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
+
+        When I activate "activities Course" course with following data 
+            | field             | value                        |
+            | courseName        | activities Course            |
+            | courseCode        |  E2E 301                     |
+            | templateStatus    |  Active On Date              |
 
         And I assign "instructor_2" to the "activities Course" course
        

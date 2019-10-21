@@ -55,6 +55,11 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    if(i===0) {
+      await pages.coursePlanner.click('addingContentCheckbox');
+      await pages.coursePlanner.click('addingContentContinue');
+      await pages.home.click('closeAlert');
+    }
   }
 });
 

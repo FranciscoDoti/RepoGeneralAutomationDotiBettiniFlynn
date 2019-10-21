@@ -748,6 +748,18 @@
             "specialInstr": "NA"
 
 
+        },{
+            "name": "addingContentCheckbox",
+            "byType": "xpath",
+            "definition": "//*[@class='ReactModal__Overlay ReactModal__Overlay--after-open _1J4e']/..//input[@type='checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "addingContentContinue",
+            "byType": "xpath",
+            "definition": "/html/body/div[2]/div/div/div[3]/div[2]/div[2]/button",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
