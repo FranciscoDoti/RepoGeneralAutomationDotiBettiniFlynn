@@ -1,7 +1,13 @@
 @Assessment @AMS @FilterItems
 Feature: To verify the correct functionality of ams's item filter
 
-
+    @VerifyLoadMore
+    Scenario: Verify whether items on AMS screen increase on clicking Load More
+        Given I login to AMS as "all-permissions-author"
+        When I apply the following filters
+             | Filter               | Option                                                                      |
+             | Topic                | Your Questions (uncategorized)                                              |
+        Then I verify that clicking on Load More increase items on AMS screen
 
     @VerifyItemsFiltered
     Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
