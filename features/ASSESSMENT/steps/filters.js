@@ -11,9 +11,10 @@ When("I apply the following filters", async function(dataTable){
         let item = dataTable.hashes()[i];
         await filterslib.setFilter(item['Filter'],item['Option']);
     }
-});
+});  
 
 Then('I verify that the filter tag is being displayed with label using {} and {}', async function(filter, option) {
+    
     let tagValue = `${filter}: ${option}`;
     await filterslib.verifyTag(tagValue);
 });

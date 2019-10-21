@@ -8,9 +8,9 @@ const setFilter = async function (filterText, optionText) {
   await pages.filters.click('Option', optionText);
 };
 
-const verifyTag = async function (tagValue) {
+const verifyTag = async function (tagText) {
   
-  await pages.filters.assertElementExists ('Filter Tag', tagValue);
+  assertElementExists('Filter Tag', tagText.toUpperCase())
 
 };
 
