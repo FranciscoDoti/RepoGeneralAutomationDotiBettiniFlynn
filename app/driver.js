@@ -10,6 +10,8 @@ const defaults = require(`${process.cwd()}/config/config.json`);
 const argv = require('minimist')(process.argv.slice(2));
 const fs = require('fs');
 const jsonfile = require('jsonfile');
+const imagemin = require('imagemin');
+const imageminPngquant = require('imagemin-pngquant');
 let driver;
 
 const config = {
@@ -20,7 +22,6 @@ const config = {
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
   timeout : defaults.timeout*1000,
   stack: argv.stack || defaults.stack || argv.env || defaults.environment,
-  reportJSON : argv.f.indexOf('json:') > -1 ? (argv.f).split(':')[1] : undefined,
   capabilities : undefined,
   datetime : new Date().toISOString()
 };
@@ -171,9 +172,16 @@ const getURL = async function () {
 
 const takeScreenshot = async function () {
   try {
-    return await driver.takeScreenshot();
+    return (await imagemin.buffer(Buffer.from(await driver.takeScreenshot(), "base64"), {
+      plugins: [
+        imageminPngquant({
+          quality: [0.1, 0.4]
+        })
+      ]
+    })).toString('base64');
   } catch (err) {
     log.error(err.stack);
+    return false;
   }
 };
 
@@ -252,20 +260,22 @@ process.argv.forEach(function (val, index, array) {
 });
 
 process.on('exit', function () {
-  const reportPath = `${process.cwd()}/${config.reportJSON}`;
-  const metadata = {
-    "Browser": config.capabilities.get('browserName').toUpperCase(),
-    "Browser Version": config.capabilities.get('browserVersion').toUpperCase(),
-    "Platform": config.capabilities.get('platformName').toUpperCase(),
-    "Environment": config.environment.toUpperCase(),
-    "Stack": config.stack.toUpperCase(),
-    "Executed": config.mode.toUpperCase(),
-    "Date": config.datetime.split('T')[0],
-    "Time": config.datetime.split('T')[1].split('.')[0]
+  const reportPath = argv.f !== undefined ? (argv.f.indexOf('json:') > -1 ? (`${process.cwd()}/${(argv.f).split(':')[1]}`) : undefined) : undefined;
+  if (reportPath !== undefined) {
+    const metadata = {
+      "Browser": config.capabilities.get('browserName').toUpperCase(),
+      "Browser Version": config.capabilities.get('browserVersion').toUpperCase(),
+      "Platform": config.capabilities.get('platformName').toUpperCase(),
+      "Environment": config.environment.toUpperCase(),
+      "Stack": config.stack.toUpperCase(),
+      "Executed": config.mode.toUpperCase(),
+      "Date": config.datetime.split('T')[0],
+      "Time": config.datetime.split('T')[1].split('.')[0]
+    }
+    let contents = jsonfile.readFileSync(reportPath);
+    contents[0].metadata = metadata;
+    jsonfile.writeFileSync(reportPath, contents);
   }
-  let contents = jsonfile.readFileSync(reportPath);
-  contents[0].metadata = metadata;
-  jsonfile.writeFileSync(reportPath, contents);
 });
 
 module.exports = {

@@ -20,7 +20,7 @@
             "definition": "//div[@data-test-id='hatchling-item-title-edit']",
             "frame": "default",
             "specialInstr": "focus"
-        },
+        }, 
         {
             "name": "Question Title Edit",
             "byType": "css",

@@ -20,6 +20,8 @@
     "eslint": "latest",
     "faker": "latest",
     "geckodriver": "latest",
+    "imagemin": "^7.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "imap": "latest",
     "imap-simple": "latest",
     "js-datepicker": "^4.6.1",

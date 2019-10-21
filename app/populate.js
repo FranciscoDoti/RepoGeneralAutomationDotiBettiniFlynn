@@ -32,8 +32,9 @@ const populateInput = async function (selector, value, WebElementObject) {
     case 'checkbox':
       if (value.toLowerCase() === 'click') {
         await populateClick(selector, value, WebElementObject);
-      } else {
-        log.debug('Bypassing the checkbox click');
+      }
+      else {
+        await populateCheckbox(selector, value, WebElementObject);
       }
       break;
 
@@ -49,6 +50,41 @@ const populateInput = async function (selector, value, WebElementObject) {
 
     default:
     assert.fail(`ERROR: populateInput() failed because the input type ${type} has not been coded for.`);
+  }
+};
+
+const populateCheckbox = async function (selector, value, WebElementObject) {
+  if(value.toLowerCase() !== 'check' && value.toLowerCase() !== 'uncheck'){
+    assert.fail(`Instruction for populate checkbox must be 'check' or 'uncheck'. Please validate your test step.`);
+  };
+
+  const actions = getDriver().actions({ bridge: true });
+  let localSpecialInstr = '';
+  const WebElementData = WebElementObject.element;
+  const isChecked = await selector.isSelected();
+  if (WebElementData && WebElementData.specialInstr != null) {
+    localSpecialInstr = WebElementData.specialInstr;
+  }
+
+  if (localSpecialInstr.toLowerCase().includes('focus')) {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
+    await WebElementObject.webElement.focus();
+  }
+
+  if(value == 'check'){
+    if(isChecked){
+      log.debug(`Checkbox is already checked.`);
+    } else {
+      await actions.click(selector).perform();
+      log.debug(`Post populate Checkbox: Checked the checkbox.`);
+    }
+  } else if(value == 'uncheck'){
+    if(isChecked){
+      await actions.click(selector).perform();
+      log.debug(`Post populate Checkbox: Un-checked the checkbox.`);
+    } else {
+      log.debug(`Checkbox is already unchecked.`);
+    }
   }
 };
 
