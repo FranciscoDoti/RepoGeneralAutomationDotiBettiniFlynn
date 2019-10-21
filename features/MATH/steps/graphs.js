@@ -344,8 +344,9 @@ When('I create a new graph with the following details', async function (datatabl
     await pages.graphTab.click('newGraphButton');
     await pages.graphEditor.switchToTab('Graphing');
     await pages.graphEditor.populate('graphingTextField', data.GraphingExpression);
-    await pages.graphEditor.click('editTitleButton');
-    await pages.graphEditor.populate('titleTextField', data.Title);
+    // await pages.graphEditor.click('editTitleButton');
+    // await pages.graphEditor.populate('titleTextField', data.Title);
+    await pages.graphEditor.populate('editTitleButton', data.Title);
     await pages.graphEditor.click('saveButton');
     await pages.graphEditor.assertElementExists('isSavedButton');
     await pages.graphEditor.closeTab('Graphing System');
