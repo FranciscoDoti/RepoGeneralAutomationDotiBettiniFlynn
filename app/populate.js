@@ -317,11 +317,6 @@ const populateRichTextField = async function (selector, value, WebElementObject)
     await selector.click();
   }
 
-  if (!localSpecialInstr.toLowerCase().includes('noclick')) {
-    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
-    await selector.click();
-  }
-
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
