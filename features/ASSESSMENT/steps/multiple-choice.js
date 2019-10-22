@@ -27,8 +27,8 @@ When(/^I add \"([^\"]*)\" hatchling item with following details$/, async functio
   let code = Date.now();
   await hatchlinglib.createHatchlingEasyItem(moduleType);
   let q = datatable.hashes()[0];
-  q.QuestionTitle = q.QuestionTitle + " " + code;
-  await pages.hatchlingItem.populate('Question Title', q['Question Title']);
+  q.QuestionTitle = q['Question Title'] + " " + code;
+  await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', q['Question Prompt']);
 });
 
