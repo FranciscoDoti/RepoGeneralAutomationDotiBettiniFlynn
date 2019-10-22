@@ -42,7 +42,7 @@ When('I update the selected items with the following details', async function (d
 });
 
 When('I delete the selected items', async function () {
-  let deletedItemsCount = await amslib.deleteItems();
+  let deletedItemsCount = await amslib.bulkDeleteItems();
   if (await expect(this.data.data.length).to.equal(parseInt(deletedItemsCount, 10))) {
     log.info(`Expected length is "${this.data.data.length}". Actual length is "${deletedItemsCount}". PASS`);
   };
@@ -65,6 +65,7 @@ Then('I verify the details of the following items are displayed in AMS', async f
     await amslib.verifyItemDetails(item, itemId);
   }
 });
+
 Then('I verify the deleted items are displayed in Deleted Items screen in AMS', async function (datatable) {
   await pages.ams.switchToTab('Sapling Learning Author Management System');
   await pages.ams.click('AMS Tab', 'Deleted Items');
