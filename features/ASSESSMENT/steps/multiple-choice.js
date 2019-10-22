@@ -30,7 +30,7 @@ When(/^I add \"([^\"]*)\" hatchling item with following details$/, async functio
   q.QuestionTitle = q.QuestionTitle + " " + code;
   await pages.hatchlingItem.click('Question Title');
   await pages.hatchlingItem.populate('Question Title Edit', q.QuestionTitle);
-  await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt);
+  await hatchlinglib.populateQuestionPrompt(moduleType, q);
   this.data.set("Question Title", q.questionTitle);
 });
 
@@ -53,10 +53,9 @@ When('I add the following incorrect answers and feedback', async function (datat
 
 When(/^I set hint and generic feedback with following details and save$/, async function (datatable) {
   let ans = datatable.hashes()[0];
-  await pages.hatchlingItem.click('Collapsible Title', 'Hint');
-  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Hint', ans.Hint);
+  await hatchlinglib.populateHint(datatable);
   await hatchlinglib.clickGenericFeedback();
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
   await pages.hatchlingItem.click('Button', 'Save');
-
 });
+

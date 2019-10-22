@@ -29,9 +29,15 @@
             "specialInstr": "focus"
         },
         {
-            "name": "Question Prompt",
+            "name": "Question Prompt MC",
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-question-prompt']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "Question Prompt NE",
+            "byType": "xpath",
+            "definition": "//div[@class='DraftEditor-editorContainer']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -60,29 +66,29 @@
             "name": "target Value",
             "byType": "css",
             "definition": "#targetValue",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Measurement",
             "byType": "css",
             "definition": "#units",
-            "frame": "aeframe",
+            "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Derivation Type",
-            "byType": "css",
-            "definition": "select[name='derivationType']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
+            "byType": "xpath",
+            "definition": "//*[@name='derivationType']//option[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
         },
         {
             "name": "Derivation Amount",
             "byType": "css",
             "definition": "input[id=derivationAmount]",
-            "frame": "aeframe",
-            "specialInstr": "NA"
+            "frame": "default",
+            "specialInstr": "focus"
         },
         {
             "name": "Hint",
@@ -188,6 +194,12 @@
             "definition": ".notranslate.public-DraftEditor-content",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },{
+            "name": "NE Student Feedback",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']/../..//div[contains(@class,'public-DraftEditor-content')]",
+            "frame": "default",
+            "specialInstr": "focus"
         },
         {
             "name": "HintArea",
@@ -195,6 +207,12 @@
             "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },{
+            "name": "Created Hatchling Item",
+            "byType": "xpath",
+            "definition": "//td[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
         }
     ]
 }
