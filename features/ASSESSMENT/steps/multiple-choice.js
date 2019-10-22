@@ -28,10 +28,8 @@ When(/^I add \"([^\"]*)\" hatchling item with following details$/, async functio
   await hatchlinglib.createHatchlingEasyItem(moduleType);
   let q = datatable.hashes()[0];
   q.QuestionTitle = q.QuestionTitle + " " + code;
-  await pages.hatchlingItem.click('Question Title');
-  await pages.hatchlingItem.populate('Question Title Edit', q.QuestionTitle);
-  await hatchlinglib.populateQuestionPrompt(moduleType, q);
-  this.data.set("Question Title", q.questionTitle);
+  await pages.hatchlingItem.populate('Question Title', q['Question Title']);
+  await pages.hatchlingItem.populate('Question Prompt', q['Question Prompt']);
 });
 
 When('I add the following correct answer and feedback', async function (datatable) {
@@ -55,7 +53,7 @@ When(/^I set hint and generic feedback with following details and save$/, async 
   let ans = datatable.hashes()[0];
   await hatchlinglib.populateHint(datatable);
   await hatchlinglib.clickGenericFeedback();
-  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
+  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
   await pages.hatchlingItem.click('Button', 'Save');
 });
 

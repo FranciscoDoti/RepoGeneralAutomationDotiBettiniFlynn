@@ -75,7 +75,7 @@
             "byType": "css",
             "definition": "span[data-test-id=chem-eq-prefix-label] textarea",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },
         {
             "name": "Prompt",

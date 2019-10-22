@@ -11,21 +11,21 @@
             "name": "Dialog Title",
             "byType": "css",
             "definition": ".cdl-dialog-header-title",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Question Title",
             "byType": "xpath",
             "definition": "//div[@data-test-id='hatchling-item-title-edit']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "focus"
         },
         {
             "name": "Question Prompt",
             "byType": "xpath",
-            "definition": "//label[.='Question Prompt']/../div/div/div[@class='rte-content']",
-            "frame": "default",
+            "definition": "//div[@data-test-id='hatchling-question-prompt']",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
@@ -53,29 +53,29 @@
             "name": "target Value",
             "byType": "css",
             "definition": "#targetValue",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Measurement",
             "byType": "css",
             "definition": "#units",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Derivation Type",
-            "byType": "xpath",
-            "definition": "//*[@name='derivationType']//option[.='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "focus"
+            "byType": "css",
+            "definition": "select[name='derivationType']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         },
         {
             "name": "Derivation Amount",
             "byType": "css",
             "definition": "input[id=derivationAmount]",
-            "frame": "default",
-            "specialInstr": "focus"
+            "frame": "aeframe",
+            "specialInstr": "NA"
         },
         {
             "name": "Hint",
@@ -102,63 +102,63 @@
             "name": "Submit Yes",
             "byType": "css",
             "definition": "input[value=' Yes ']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Correct Answer",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-correct-choice']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Correct Answer Feedback",
             "byType": "xpath",
             "definition": "//span[text()='Correct Answer Feedback']/../..//div[@class='rte-content']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Collapsible Title",
             "byType": "xpath",
             "definition": "//span[text()='<ReplaceText>']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Collapsible Incorrect Feedback Title",
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../..//span[text()='Incorrect Answer Feedback']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Incorrect Answer",
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../..//div[@class='rte-content' and @data-test-id='hatchling-incorrect-choice']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Incorrect Answer Feedback",
             "byType": "xpath",
             "definition": "//label[@for='option<ReplaceText>']/../../div[2]/div[2]//div[contains(@class,'public-DraftEditor-content')]",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Button",
             "byType": "xpath",
             "definition": "//button[.='<ReplaceText>']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "focus"
         },
         {
             "name": "Hint and Generic Feedback",
             "byType": "xpath",
             "definition": "//span[text()='<ReplaceText>']/../..//div[contains(@class,'public-DraftEditor-content')]",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "focus"
         },
         {
@@ -181,12 +181,6 @@
             "definition": ".notranslate.public-DraftEditor-content",
             "frame": "aeframe",
             "specialInstr": "NA"
-        },{
-            "name": "NE Student Feedback",
-            "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']/../..//div[contains(@class,'public-DraftEditor-content')]",
-            "frame": "default",
-            "specialInstr": "focus"
         },
         {
             "name": "HintArea",
@@ -194,12 +188,6 @@
             "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        },{
-            "name": "Created Hatchling Item",
-            "byType": "xpath",
-            "definition": "//td[.='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "focus"
         }
     ]
 }
