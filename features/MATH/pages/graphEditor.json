@@ -10,7 +10,7 @@
         "byType": "css",
         "definition": "input[data-test-id='graph-title-input']",
         "frame": "default",
-        "specialInstr": "overwrite enterafter"
+        "specialInstr": "overwrite noclear"
     }, {
         "name": "editTitleButton",
         "byType": "css",
@@ -77,6 +77,6 @@
         "byType": "css",
         "definition": "span.dcg-mq-textarea",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "overwrite noclick"
     }]
 }
