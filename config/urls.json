@@ -50,5 +50,8 @@
     },
     "Brightcove":{
         "brightcove":"https://signin.brightcove.com"
+    },
+    "Google":{
+        "google":"https://google.com"
     }
 }

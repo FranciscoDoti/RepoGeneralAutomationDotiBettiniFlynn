@@ -7,6 +7,7 @@
     "savi-bca": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/brightcove/audioplayer -f json:reports/cucumber_report.json",
     "brightcovemedia": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/brightcove/brightcovemedia.feature -f json:reports/cucumber_report.json",
     "savi": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/ -f json:reports/cucumber_report.json --environment prod",
+    "savi-4785": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/brightcove/SAVI-4785.feature -f json:reports/cucumber_report.json",
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'"
   },

@@ -1,0 +1,17 @@
+{
+    "webElements": [{
+            "name": "fakebox-input",
+            "byType": "id",
+            "definition": "fakebox-input",
+            "frame": "default",
+            "specialInstr": "NA"
+    },  {
+            "name": "fakebox-text",
+            "byType": "id",
+            "definition": "fakebox-text",
+            "frame": "default",
+            "specialInstr": "NA"
+    }
+        
+    ]
+}
