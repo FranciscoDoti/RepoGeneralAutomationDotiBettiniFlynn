@@ -230,10 +230,11 @@ Then(/^I verify the AMS Graph tab contains the new row for the graph with the ne
 });
 
 When(/^I make any changes to title "(.*)"$/, async function (updateTitle) {
-  await pages.graphEditor.click('editTitleButton');
+  // await pages.graphEditor.click('editTitleButton');
   
-  await pages.graphEditor.populate('titleTextField', Key.CLEAR);
-  await pages.graphEditor.populate('titleTextField',updateTitle);
+  // await pages.graphEditor.populate('titleTextField', Key.CLEAR);
+  // await pages.graphEditor.populate('titleTextField',updateTitle);
+  await pages.graphEditor.populate('editTitleButton',updateTitle);
 });
 
 Then(/^I verify Save button text changes from Saved to Save$/, async function () {

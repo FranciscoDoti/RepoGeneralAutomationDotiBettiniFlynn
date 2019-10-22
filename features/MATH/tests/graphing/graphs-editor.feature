@@ -73,6 +73,7 @@ Feature:  New graph editor
         And I verify the graph editor "ID" has "a" graph Id number
         And I verify the AMS Graph tab contains the new row for the graph with the new ID
 
+    @workinprogress
     Scenario: Verifies Save button text change when graph is saved and edited
 
         When I click on new Graph button
