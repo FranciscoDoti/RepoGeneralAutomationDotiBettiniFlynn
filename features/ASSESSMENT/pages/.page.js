@@ -9,6 +9,7 @@ let pages = {
     questionBank: new PageObject('questionBank.json', stepsPath),
     customQuestion: new PageObject('customQuestionsTab.json',stepsPath),
     hatchlingItem: new PageObject('hatchlingItemModal.json',stepsPath),
+    hatchlingItemFrame: new PageObject('hatchlingItemFrame.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
     moldraw: new PageObject('moldraw.json',stepsPath),
     multipleSelect: new PageObject('multipleSelect.json',stepsPath),
@@ -23,7 +24,8 @@ let pages = {
     ams: new PageObject('ams.json', stepsPath),
     itemDetails: new PageObject('itemDetailsPopup.json', stepsPath),
     update: new PageObject('update.json', stepsPath),
-    froala: new PageObject('froala.json', stepsPath)
+    froala: new PageObject('froala.json', stepsPath),
+    filters: new PageObject('filters.json',stepsPath)
 };
 
 module.exports ={
