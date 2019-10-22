@@ -6,12 +6,14 @@ Feature: Brightcove Media
 
     Given I login to Brightcove Media as "damien.brockmann"
     Then I navigate to Brightcove Media Player 
-    Then I navigate to IconinLineIcon and check status
+    Then I navigate to download excel 
     Then I test the videoplayer and audioplayer
 
     # SAVI -> Brightcove Video -> Test Cases -> Play Video
   Scenario: Play video with bottom bar play button
     When I click the play button in the bottom bar of the player
+    
+    
     Then the video should begin playing
 
   Scenario: Play video with center video play button

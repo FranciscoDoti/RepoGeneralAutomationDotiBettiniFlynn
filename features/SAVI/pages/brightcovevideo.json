@@ -156,9 +156,9 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "Checkbox",
-            "byType": "className",
-            "definition": "Checkbox-input-0_41_0-1zD1T",
+            "name": "Include current URLs for video renditions",
+            "byType": "xpath",
+            "definition": "/html/body/div[13]/div/div/div/div[2]/div/fieldset[2]/div[1]/label/span",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -171,6 +171,42 @@
             "name": "title",
             "byType": "xpath",
             "definition": "//*[@id='table']/div[2]/div[1]/div[3]/div/div/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "bc-mods-dropdown",
+            "byType": "id",
+            "definition": "bc-mods-dropdown",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "button id",
+            "byType": "id",
+            "definition": "export-video=metadata",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "Export Data",
+            "byType": "xpath",
+            "definition": "/html/body/div[13]/div/div/div/div[3]/div/button[2]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "RadioInput-radioInput",
+            "byType": "className",
+            "definition": "RadioInput-radioInput-0_41_0-39vIA RadioInput-selected-0_41_0-2NK-2",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "1 selected videos",
+            "byType": "xpath",
+            "definition": "/html/body/div[13]/div/div/div/div[2]/div/fieldset[1]/div/div[2]/label/div",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "Download File",
+            "byType": "xpath",
+            "definition": "/html/body/div[13]/div/div/div/div[3]/div/a/span",
             "frame": "default",
             "specialInstr": "NA"
         }
