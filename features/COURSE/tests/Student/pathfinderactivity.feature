@@ -140,11 +140,16 @@ Feature: Student compelets Pathfinder Activity
             | Practice Test for Reading Skills - Engli ...      | Complete  |
             | Complete the Study Plan for Reading Skil ...      | Complete  |
             | Final Test for Reading Skills - English  ...      | Complete  |
+    
+   
+    Scenario: Verify that student is able to see Grades in Gradebook 
 
-            
+        When I login to Achieve-CW as "student_1"
 
+        And I click on "Pathfinder Course"
 
-            
-
-
-
+        Then I verify the assignmenent grades in gradebook for below assigned activities 
+            | activity                                          | percentage  | points  | PercentOfTotalgrades |
+            |  Practice Test for Reading Skills - Engli ...     |   100%      | 5       | 33%                  |
+            | Complete the Study Plan for Reading Skil ...      |   100%      | 5       | 33%                  |
+            | Final Test for Reading Skills - English  ...      |   100%      | 5       | 33%                  |
