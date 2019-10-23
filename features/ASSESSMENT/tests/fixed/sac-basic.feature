@@ -1,4 +1,4 @@
-@Assessment @SAC @Smoke
+@Assessment @SAC @SacBasic @Smoke
 Feature: To configure a basic test in SAC
 
   Scenario: User navigates to an existing assessment
