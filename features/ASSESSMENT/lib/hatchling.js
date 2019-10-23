@@ -9,6 +9,13 @@ const clickGenericFeedback = async function () {
   await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
   await pages.hatchlingItem.click('Collapsible Title', 'Generic Feedback');
 }
+const populateHatchlingNEValues = async function (datatable) {
+  let ans = datatable.hashes()[0];
+  await pages.hatchlingItem.populate('target Value', ans['Correct Target Value']);
+  await pages.hatchlingItem.populate('Measurement', ans.Measurement);
+  await pages.hatchlingItem.click('Derivation Type', 'Number ∓');
+  await pages.hatchlingItem.populate('Derivation Amount', ans['Acceptance Within']);
+}
 const populateHint = async function (datatable) {
   let hint = datatable.hashes()[0];
   await pages.hatchlingItem.click('Collapsible Title', 'Hint');
@@ -25,5 +32,6 @@ module.exports = {
   createHatchlingEasyItem,
   clickGenericFeedback,
   populateHint,
-  populateStudentFeedback
+  populateStudentFeedback,
+  populateHatchlingNEValues
 };
