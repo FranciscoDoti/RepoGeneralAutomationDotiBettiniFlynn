@@ -7,10 +7,10 @@ const createHatchlingEasyItem = async function (moduleType) {
 }
 const populateQuestion = async function (question) {
   let code = Date.now();
-  question.QuestionTitle = question['Question Title'] + " " + code;
-  await pages.hatchlingItem.populate('Question Title', question.QuestionTitle);
+  QuestionTitle = question['Question Title'] + " " + code;
+  await pages.hatchlingItem.populate('Question Title', QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', question['Question Prompt']);
-  this.data.set("Question Title",question.QuestionTitle);
+  return QuestionTitle;
 }
 const clickGenericFeedback = async function () {
   await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
