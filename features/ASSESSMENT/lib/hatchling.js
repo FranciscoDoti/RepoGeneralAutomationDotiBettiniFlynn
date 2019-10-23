@@ -3,11 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 const createHatchlingEasyItem = async function (moduleType) {
   await pages.ams.click('Add Item', 'Easy');
   await pages.ams.click('Hatchling Item Option', moduleType);
-  if (moduleType === 'Multiple Choice') {
-    await pages.hatchlingItem.assertText('Dialog Title', 'Multiple Choice Question');
-  } else if (moduleType === 'Numeric Entry') {
-    await pages.hatchlingItem.assertText('Dialog Title', 'Numeric Entry Question');
-  }
+  await pages.hatchlingItem.assertText('Dialog Title', `${moduleType} Question`);
 }
 const clickGenericFeedback = async function () {
   await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
