@@ -57,6 +57,9 @@ When('I delete the following items in AMS', async function (datatable) {
   }
 });
 
+When('I update items by title with the following details in AMS', async function (datatable) {
+});
+
 Then('I verify the details of the following items are displayed in AMS', async function (datatable) {
   await amslib.waitAlgoliaProcess();
   for (i = 0; i < datatable.rows().length; i++) {
