@@ -3,8 +3,7 @@
   "lockfileVersion": 1,
   "scripts": {
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "NGA-7984": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/numeric-entry-hatchling-item.feature -f json:reports/cucumber_report.json"
+    "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'"
   },
   "engines": {
     "node": ">=10"
