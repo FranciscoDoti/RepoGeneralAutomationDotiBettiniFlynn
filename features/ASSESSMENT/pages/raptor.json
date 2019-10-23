@@ -30,8 +30,8 @@
         },
         {
             "name": "Add Menu",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+            "byType": "xpath",
+            "definition": "//div/h2[@data-test-id='PRIMARY ADD MODULE']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -51,8 +51,8 @@
         },
         {
             "name": "More Menu",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY MORE']",
+            "byType": "xpath",
+            "definition": "//div/h2[@data-test-id='PRIMARY MORE']",
             "frame": "default",
             "specialInstr": "NA"
         },
