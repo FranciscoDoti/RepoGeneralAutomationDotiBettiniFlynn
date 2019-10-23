@@ -8,8 +8,8 @@ Feature: Create a NE Hatchling Item from AMS
             | Question Title                     | Question Prompt             |
             | QA Hatchling NE Test Item from AMS | What is the speed of light  |
         And I add the following values to Hatchling NE module
-            | Correct Target Value | Measurement | Acceptance Within |
-            | 300000000            | m/s         | 0.5               |
+            | Correct Target Value | Measurement | Derivation Type | Acceptance Within |
+            | 300000000            | m/s         | Number ∓        | 0.5               |
         And I set the hint for Hatchling NE module with following detail
             | Hint                  |
             | You Know the answers! |
