@@ -8,6 +8,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Module Chemical Equation",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID",
             "byType": "css",
             "definition": "div[data-test-id='edit-id']",
@@ -78,13 +85,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "chemicalEquationPrefix",
-            "byType": "css",
-            "definition": "span[data-test-id=chem-eq-prefix-label] textarea",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Prompt",
             "byType": "css",
             "definition": "div[data-test-id='ace-label'] > textarea",
@@ -95,13 +95,6 @@
             "name": "Tab",
             "byType": "css",
             "definition": "a[data-test-id='<ReplaceText>-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "chemicalEquationAnswerInput",
-            "byType": "css",
-            "definition": "input[data-test-id=chem-eq-answer-input]",
             "frame": "default",
             "specialInstr": "NA"
         },

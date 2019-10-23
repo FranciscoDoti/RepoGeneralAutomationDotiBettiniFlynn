@@ -1,24 +1,25 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const { raptorlib, amslib, froalalib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
     await pages.ams.click('Add Item', 'Raptor');
-    await mathpages.raptorAms.switchToTab('Raptor Authoring');
+    await pages.raptor.switchToTab('Raptor Authoring');
     await pages.raptor.click('Add Menu');
     await pages.raptor.click('Module Pallete', moduleType);
     await pages.raptor.click('Content Area');
     var rows = dataTable.hashes();
-    await pages.raptor.populate('chemicalEquationPrefix', rows[0].value);
+    await pages.raptor.click("Module Chemical Equation", 1);
+    await pages.chemicalEquation.populate('Prefix', rows[0].value);
     await pages.raptor.click('Tab', 'correct');
-    await pages.raptor.populate('chemicalEquationAnswerInput', rows[1].value);
+    await pages.raptor.click("Module Chemical Equation", 1);
+    await pages.chemicalEquation.populate('Answer Input', rows[1].value);
 });
 
 When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times) {
     await pages.ams.click('Add Item', 'Raptor');
-    await mathpages.raptorAms.switchToTab('Raptor Authoring');
+    await pages.raptor.switchToTab('Raptor Authoring');
     let i = 0;
     while (i < times) {
         await pages.raptor.click('Add Menu');
@@ -42,27 +43,27 @@ When('I duplicate the following items', async function (dataTable) {
 When(/^I add the "(.*)" module$/, async function (moduleType) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
     await pages.ams.click('Add Item', 'Raptor');
-    await mathpages.raptorAms.switchToTab('Raptor Authoring');
+    await pages.raptor.switchToTab('Raptor Authoring');
     await pages.raptor.click('Add Menu');
     await pages.raptor.click('Module Pallete', moduleType);
     await pages.raptor.click('Content Area');
 });
 
 Then('I verify item has been created', async function () {
-    let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1];
+    let itemid = (await pages.raptor.getText('Item ID')).split(":")[1];
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
-    await mathpages.raptorAms.switchToTab('Sapling Learning');
+    await pages.raptor.switchToTab('Sapling Learning');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
 });
 
 Then('I verify item has been created with following details', async function (dataTable) {
-    let itemid = (await mathpages.ams.getText('getItemid')).split(":")[1].trim();
+    let itemid = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
-    await mathpages.raptorAms.switchToTab('Sapling Learning');
+    await pages.raptor.switchToTab('Sapling Learning');
 
     //code to check element should not be present
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
