@@ -10,7 +10,7 @@
         "byType": "css",
         "definition": "input[data-test-id='graph-title-input']",
         "frame": "default",
-        "specialInstr": "overwrite noclear"
+        "specialInstr": "NA"
     }, {
         "name": "editTitleButton",
         "byType": "css",
