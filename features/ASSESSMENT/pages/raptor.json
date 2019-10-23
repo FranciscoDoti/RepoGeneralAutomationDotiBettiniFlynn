@@ -1,6 +1,13 @@
 {
     "webElements": [
         {
+            "name": "Module Multiple Select",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID",
             "byType": "css",
             "definition": "div[data-test-id='edit-id']",

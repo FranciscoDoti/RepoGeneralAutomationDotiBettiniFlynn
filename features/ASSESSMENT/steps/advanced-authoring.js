@@ -4,6 +4,8 @@ const { expect } = require('chai');
 const { log } = require(`${process.cwd()}/app/logger`);
 
 When('I add the following choices', async function (datatable) {
+  await pages.raptor.scrollElementIntoView('Module Multiple Select', 1);
+  await pages.raptor.click('Module Multiple Select', 1);
   for (let i = 0; i < datatable.rows().length; i++) {
     if (i > 1) {
       await pages.multipleSelect.click('Add Choice Button');

@@ -3,7 +3,7 @@
         {
             "name": "Choice Value Textbox",
             "byType": "xpath",
-            "definition": "//*[@id='module-edit-area']/div/div[2]/div/div[5]/div[<ReplaceText>]/div/div/div[2]/div/textarea",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
             "frame": "default",
             "specialInstr": "noclick"
         },
