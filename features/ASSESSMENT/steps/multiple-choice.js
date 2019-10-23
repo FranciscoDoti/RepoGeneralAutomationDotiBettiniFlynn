@@ -24,13 +24,12 @@ Then('The variable values are displayed as choices', async function () {
 });
 
 When(/^I add \"([^\"]*)\" hatchling item with following details$/, async function (moduleType, datatable) {
-  let code = Date.now();
   await hatchlinglib.createHatchlingEasyItem(moduleType);
-  let q = datatable.hashes()[0];
-  q.QuestionTitle = q.QuestionTitle + " " + code;
-  await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
-  await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt);
-  this.data.set("Question Title", q.questionTitle);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let question = datatable.hashes()[i];
+    let questionTitle = await hatchlinglib.populateQuestion(question);
+    this.data.set('Question Title',questionTitle);
+  }
 });
 
 When('I add the following correct answer and feedback', async function (datatable) {
@@ -52,10 +51,12 @@ When('I add the following incorrect answers and feedback', async function (datat
 
 When(/^I set hint and generic feedback with following details and save$/, async function (datatable) {
   let ans = datatable.hashes()[0];
-  await pages.hatchlingItem.click('Collapsible Title', 'Hint');
-  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Hint', ans.Hint);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let hint = datatable.hashes()[i];
+    await hatchlinglib.populateHint(hint);
+  }
   await hatchlinglib.clickGenericFeedback();
-  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
+  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
   await pages.hatchlingItem.click('Button', 'Save');
-
 });
+
