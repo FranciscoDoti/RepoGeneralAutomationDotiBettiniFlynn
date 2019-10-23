@@ -1,5 +1,5 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { expect } = require('chai');
+const { assert, expect } = require('chai');
 
 
 
