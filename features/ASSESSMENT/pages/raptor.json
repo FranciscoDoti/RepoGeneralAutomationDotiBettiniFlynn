@@ -321,6 +321,39 @@
             "definition": "//button[@data-test-id='add-<ReplaceText>-context-button']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "=.=.=.=.=.=": "===========================================================================================",
+            "=.COMMENT.=": "= THE FOLLOWING ELEMENTS ARE IN THIS FILE BECAUSE THEY ARE COMMON TO MORE THAN ONE MODULE =",
+            ".=.=.=.=.=.": "==========================================================================================="
+        },
+        {
+            "name": "Choice Value Textbox",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Add Choice Button",
+            "byType": "css",
+            "definition": "a[data-test-id='add-item-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Text 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Answer Radio Button 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
+            "frame": "default",
+            "specialInstr": ""
         }
     ]
 }

@@ -8,9 +8,9 @@ When(/^I add the following choices in "(.*)" module$/, async function (module, d
   await pages.raptor.click('Module ' + module, 1);
   for (let i = 0; i < datatable.rows().length; i++) {
     if (i > 1) {
-      await pages.multipleSelect.click('Add Choice Button');
+      await pages.raptor.click('Add Choice Button');
     }
-    await pages.multipleSelect.populate('Choice Value Textbox', i + 1, datatable.hashes()[i].Value);
+    await pages.raptor.populate('Choice Value Textbox', i + 1, datatable.hashes()[i].Value);
   }
 });
 
@@ -19,7 +19,7 @@ Then('The rendered values of the variables are displayed as choices in the modul
   await pages.raptor.click('More Menu');
   await pages.raptor.click('Save As Draft');
   await pages.raptor.waitForElementInvisibility('Message', 'Saving');
-  let text = await pages.multipleSelect.getText('Choice Text 1');
+  let text = await pages.raptor.getText('Choice Text 1');
   if (await expect(text.length).to.equal(1)) {
     log.info(`Expected length is "${1}". Actual length is "${text.length}". PASS`);
   };

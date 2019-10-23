@@ -12,8 +12,6 @@ let pages = {
     hatchlingItemFrame: new PageObject('hatchlingItemFrame.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
     moldraw: new PageObject('moldraw.json',stepsPath),
-    multipleSelect: new PageObject('multipleSelect.json',stepsPath),
-    multipleChoice: new PageObject('multipleChoice.json', stepsPath),
     sac: new PageObject('sac.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
     wordAnswer: new PageObject('wordAnswer.json', stepsPath),

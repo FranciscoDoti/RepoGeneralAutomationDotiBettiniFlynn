@@ -24,7 +24,7 @@
         {
             "name": "Instructor Assessment Link",
             "byType": "xpath",
-            "definition": "//span[text()='<ReplaceText>']",
+            "definition": "//ul[contains(@class,'section img-text')]//span[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
