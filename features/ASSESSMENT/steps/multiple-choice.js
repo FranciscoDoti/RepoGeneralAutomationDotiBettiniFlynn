@@ -27,7 +27,8 @@ When(/^I add \"([^\"]*)\" hatchling item with following details$/, async functio
   await hatchlinglib.createHatchlingEasyItem(moduleType);
   for (let i = 0; i < datatable.rows().length; i++) {
     let question = datatable.hashes()[i];
-    await hatchlinglib.populateQuestion(question);
+    let questionTitle = await hatchlinglib.populateQuestion(question);
+    this.data.add('Question Title',questionTitle);
   }
 });
 
