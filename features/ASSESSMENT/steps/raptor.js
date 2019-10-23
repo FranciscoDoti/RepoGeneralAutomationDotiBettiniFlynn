@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const { raptorlib, amslib, froalalib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await pages.ams.assertElementExists('Add Item', 'Easy');
@@ -32,7 +32,7 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
 When('I duplicate the following items', async function (dataTable) {
     for (let i = 0; i < dataTable.rows().length; i++) {
         let item = dataTable.hashes()[i];
-        let duplicatedItemId = await raptorlib.duplicateItem(this.data.get(item.Title, 'id'));
+        let duplicatedItemId = await amslib.duplicateItem(this.data.get(item.Title, 'id'));
         this.data.set(item.Title, "id", duplicatedItemId);
         await pages.ams.closeTab('Raptor Authoring');
         await pages.ams.switchToTab('Sapling Learning Author Management System');
@@ -54,6 +54,7 @@ Then('I verify item has been created', async function () {
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
+    await pages.raptor.waitForElementInvisibility('Message', 'Saving');
     await pages.raptor.switchToTab('Sapling Learning');
     await pages.raptor.assertElementExists('amsItemCreate', itemid.trim());
 });
@@ -63,6 +64,7 @@ Then('I verify item has been created with following details', async function (da
     //below two steps need to be added to I add the "(.*)" module
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
+    await pages.raptor.waitForElementInvisibility('Message', 'Saving');
     await pages.raptor.switchToTab('Sapling Learning');
 
     //code to check element should not be present
@@ -138,7 +140,7 @@ When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, posit
 });
 
 When('I configure FR module', async function () {
-    await pages.raptor.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
+    await pages.freeResponse.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
     await pages.freeResponse.populate('Min Character Count', '20');
     await pages.freeResponse.populate('Max Character Count', '40');
 });
@@ -155,6 +157,7 @@ Then('I check NE answers', async function () {
 Then('I check FR answers', async function () {
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Save As Draft');
+    await pages.raptor.waitForElementInvisibility('Message', 'Saving');
     await pages.raptor.click('More Menu');
     await pages.raptor.click('Check Answer Slider');
     await pages.freeResponse.populate('Element Take Mode', '123456789012345678901');

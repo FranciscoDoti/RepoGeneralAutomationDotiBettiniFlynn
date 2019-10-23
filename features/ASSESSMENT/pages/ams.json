@@ -78,6 +78,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Duplicate Item",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='item-duplicate-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID Link",
             "byType": "xpath",
             "definition": "//a[@data-test-id='edit-item-link-<ReplaceText>']",
@@ -139,7 +146,8 @@
             "definition": "//label[contains(text(),'<ReplaceText>')]/input",
             "frame": "default",
             "specialInstr": "focus"
-        },{
+        },
+        {
             "name": "Search Result Text",
             "byType": "xpath",
             "definition": "//td[.='<ReplaceText>']",

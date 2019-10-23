@@ -11,8 +11,9 @@ When(/^I set the number "(.*)" as the correct answwer$/, async function (correct
 
 Then('The variable values are displayed as choices', async function () {
   await pages.raptor.click('Cycle Variables Button');
-  await pages.raptor.click('More Button');
+  await pages.raptor.click('More Menu');
   await pages.raptor.click('Save As Draft');
+  await pages.raptor.waitForElementInvisibility('Message', 'Saving');
   let text = await pages.multipleSelect.getText('Choice Text 1');
   switch (text) {
     case "oak":

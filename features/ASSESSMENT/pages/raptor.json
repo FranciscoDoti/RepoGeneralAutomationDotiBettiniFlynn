@@ -8,6 +8,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Module Multiple Choice",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='multiple_choice'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Module Chemical Equation",
             "byType": "xpath",
             "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]",
@@ -83,13 +90,6 @@
             "definition": "tr[data-id='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "Prompt",
-            "byType": "css",
-            "definition": "div[data-test-id='ace-label'] > textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
         },
         {
             "name": "Tab",
@@ -319,13 +319,6 @@
             "name": "Add Context",
             "byType": "xpath",
             "definition": "//button[@data-test-id='add-<ReplaceText>-context-button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Duplicate Item",
-            "byType": "xpath",
-            "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }
