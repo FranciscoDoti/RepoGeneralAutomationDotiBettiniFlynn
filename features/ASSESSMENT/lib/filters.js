@@ -43,7 +43,9 @@ const removeFilter = async function (tagText) {
   await pages.filters.assertElementDoesNotExist('Filter Tag', tagText);
 };
 
-
+const verifyThatCountResultHasIncreased = async function() {
+   assert( await searchResultCount() > 200, 'Assertion error.');  
+}; 
 
 
 module.exports = {
@@ -52,5 +54,6 @@ module.exports = {
   removeFilter,
   searchResultCount,
   verifyTextInRow,
-  verifyItemsWithFilterApplied
+  verifyItemsWithFilterApplied,
+  verifyThatCountResultHasIncreased
 };

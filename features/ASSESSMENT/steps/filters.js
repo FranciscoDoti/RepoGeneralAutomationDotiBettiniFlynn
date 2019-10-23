@@ -13,6 +13,10 @@ When("I apply the following filters", async function(dataTable){
     }
 });  
 
+When("I click on Load More", async function(){
+    await pages.filters.click('Load More');
+});
+
 Then('I verify that the filter tag is being displayed with label using {} and {}', async function(filter, option) {
     
     let tagValue = `${filter}: ${option}`;
@@ -34,4 +38,8 @@ Then('I verify that the items match with the filter applied with value {}', asyn
 
 Then('I remove the filter with tag {}', async function(tagValue) {
     await filterslib.removeFilter(tagValue);
+});
+
+Then('I verify that the quantity of items on AMS screen have increased', async function() {
+    await filterslib.verifyThatCountResultHasIncreased(); 
 });

@@ -7,7 +7,8 @@ Feature: To verify the correct functionality of ams's item filter
         When I apply the following filters
              | Filter               | Option                                                                      |
              | Topic                | Your Questions (uncategorized)                                              |
-        Then I verify that clicking on Load More increase items on AMS screen
+            And I click on Load More
+        Then I verify that the quantity of items on AMS screen have increased
 
     @VerifyItemsFiltered
     Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
