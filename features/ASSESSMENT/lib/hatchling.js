@@ -10,6 +10,7 @@ const populateQuestion = async function (question) {
   question.QuestionTitle = question['Question Title'] + " " + code;
   await pages.hatchlingItem.populate('Question Title', question.QuestionTitle);
   await pages.hatchlingItem.populate('Question Prompt', question['Question Prompt']);
+  this.data.set("Question Title",question.QuestionTitle);
 }
 const clickGenericFeedback = async function () {
   await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
