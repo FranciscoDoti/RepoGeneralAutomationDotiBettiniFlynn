@@ -1,7 +1,7 @@
 @Assessment @Smoke
 Feature: Create a NE Hatchling Item from AMS
 
-    @NumericEntry @Hatchling
+    @NumericEntry
     Scenario: Verify that user able to create NE Hatchling Item through AMS
         Given I login to AMS as "all-permissions-author"
         When I add "Numeric Entry" hatchling item with following details

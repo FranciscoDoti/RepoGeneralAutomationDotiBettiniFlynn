@@ -24,12 +24,11 @@ Then('The variable values are displayed as choices', async function () {
 });
 
 When(/^I add \"([^\"]*)\" hatchling item with following details$/, async function (moduleType, datatable) {
-  let code = Date.now();
   await hatchlinglib.createHatchlingEasyItem(moduleType);
-  let q = datatable.hashes()[0];
-  q.QuestionTitle = q['Question Title'] + " " + code;
-  await pages.hatchlingItem.populate('Question Title', q.QuestionTitle);
-  await pages.hatchlingItem.populate('Question Prompt', q['Question Prompt']);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let question = datatable.hashes()[i];
+    await hatchlinglib.populateQuestion(question);
+  }
 });
 
 When('I add the following correct answer and feedback', async function (datatable) {
@@ -51,7 +50,10 @@ When('I add the following incorrect answers and feedback', async function (datat
 
 When(/^I set hint and generic feedback with following details and save$/, async function (datatable) {
   let ans = datatable.hashes()[0];
-  await hatchlinglib.populateHint(datatable);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let hint = datatable.hashes()[i];
+    await hatchlinglib.populateHint(hint);
+  }
   await hatchlinglib.clickGenericFeedback();
   await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
   await pages.hatchlingItem.click('Button', 'Save');
