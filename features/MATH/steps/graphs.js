@@ -230,10 +230,6 @@ Then(/^I verify the AMS Graph tab contains the new row for the graph with the ne
 });
 
 When(/^I make any changes to title "(.*)"$/, async function (updateTitle) {
-  // await pages.graphEditor.click('editTitleButton');
-  
-  // await pages.graphEditor.populate('titleTextField', Key.CLEAR);
-  // await pages.graphEditor.populate('titleTextField',updateTitle);
   await pages.graphEditor.populate('editTitleButton',updateTitle);
 });
 
@@ -347,8 +343,7 @@ When('I create a new graph with the following details', async function (datatabl
     await pages.graphTab.click('newGraphButton');
     await pages.graphEditor.switchToTab('Graphing');
     await pages.graphEditor.populate('graphingTextField', data.GraphingExpression);
-    await pages.graphEditor.click('editTitleButton');
-    await pages.graphEditor.populate('titleTextField', data.Title);
+    await pages.graphEditor.populate('editTitleButton',data.Title);
     await pages.graphEditor.click('saveButton');
     await pages.graphEditor.assertElementExists('isSavedButton');
     await pages.graphEditor.closeTab('Graphing System');
