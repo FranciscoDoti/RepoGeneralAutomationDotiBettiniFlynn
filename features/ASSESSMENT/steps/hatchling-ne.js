@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const { hatchlinglib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When('I add the following values to Hatchling NE module', async function (datatable) {
-    await hatchlinglib.populateHatchlingNEValues(datatable);
+    await hatchlinglib.populateNEValues(datatable);
 });
 
 When('I set the hint for Hatchling NE module with following detail', async function (datatable) {
