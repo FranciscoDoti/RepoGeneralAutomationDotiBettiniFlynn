@@ -31,6 +31,14 @@ const deleteItem = async function (itemId) {
     await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
 };
 
+const duplicateItem = async function (itemId) {
+    await pages.ams.click('Duplicate Item', itemId);
+    await pages.raptor.switchToTab('Raptor Authoring');
+    let duplicatedItemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
+    return duplicatedItemId;
+
+};
+
 const updateDone = async function () {
     await pages.ams.switchToTab('Sapling Learning Author Management System');
     await pages.ams.click('AMS Button', 'Select Action');
@@ -50,8 +58,7 @@ const verifyFeedback = async function (itemTabs) {
     else {
         await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
     }
-}
-
+};
 
 const verifyItemDetails = async function (item, itemId) {
     if (item['Author Mode'] !== undefined) {
@@ -89,4 +96,5 @@ module.exports = {
     verifyItemDetails,
     waitAlgoliaProcess,
     verifyFeedback,
+    duplicateItem
 };
