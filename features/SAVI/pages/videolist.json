@@ -1,8 +1,8 @@
 {
     "webElements": [{
-            "name": "fakebox-input",
+            "name": "fake-input",
             "byType": "id",
-            "definition": "fakebox-input",
+            "definition": "fake-input",
             "frame": "default",
             "specialInstr": "NA"
     },  {
