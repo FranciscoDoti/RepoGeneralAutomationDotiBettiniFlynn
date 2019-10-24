@@ -1,5 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 const { expect } = require('chai');
 const { log } = require(`${process.cwd()}/app/logger`);
 
