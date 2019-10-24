@@ -5,15 +5,14 @@ const { hatchlinglib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index
 
 When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
-  await pages.multipleChoice.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
-  await pages.multipleChoice.click('Answer Radio Button ' + correctAnswer);
+  await pages.raptor.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
+  await pages.raptor.click('Answer Radio Button ' + correctAnswer);
 });
 
 Then('The variable values are displayed as choices', async function () {
   await pages.raptor.click('Cycle Variables Button');
-  await pages.raptor.click('More Button');
-  await pages.raptor.click('Save As Draft');
-  let text = await pages.multipleSelect.getText('Choice Text 1');
+  await raptorlib.saveItem();
+  let text = await pages.raptor.getText('Choice Text 1');
   switch (text) {
     case "oak":
     case "pine":
@@ -28,7 +27,7 @@ When(/^I add \"([^\"]*)\" hatchling item with following details$/, async functio
   for (let i = 0; i < datatable.rows().length; i++) {
     let question = datatable.hashes()[i];
     let questionTitle = await hatchlinglib.populateQuestion(question);
-    this.data.add('Question Title',questionTitle);
+    this.data.set('Question Title',questionTitle);
   }
 });
 
