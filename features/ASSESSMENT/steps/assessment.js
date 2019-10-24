@@ -20,44 +20,58 @@ Given('I create a new assessment with its necessary details', async function (da
 });
 
 
-When(/^I have created "(.*)" random questions$/, async function (count) {
-  question_count = count;
-  await pages.customQuestion.click("CustomQuestionTab");
-  for (let i = 1; i <= question_count; i++) {
-    var item_type = "multiple_choice";
-    await pages.customQuestion.click('createQuestionButton');
-    await pages.assignmentTab.click('HatchlingQuestionType', item_type);
-    var timeStamp = new Date().getTime();
-    var title = item_type + timeStamp;
-    // await pages.hatchlingItemFrame.click('Question Title');
-    await pages.hatchlingItemFrame.populate('Question Title', title);
-    await pages.hatchlingItemFrame.populate('Question Prompt', 'Automated ' + i + ' hatchling question!');
-    await pages.hatchlingItemFrame.click('MCCorrectAnswerTextbox');
-    await pages.hatchlingItemFrame.populate('MCCorrectAnswerTextbox', 'Like');
-    await pages.hatchlingItemFrame.click('hatchlingBody');
-    await pages.hatchlingItemFrame.click('addAnswerButton');
-    await pages.hatchlingItemFrame.populate('MCInCorrectAnswerTextbox', 'Unlike');
-    await pages.hatchlingItemFrame.click('HatchlingSave');
-    await sleep(5000);
-  }
-});
+// When(/^I have created "(.*)" random questions$/, async function (count) {
+//   question_count = count;
+//   await pages.customQuestion.click("CustomQuestionTab");
+//   for (let i = 1; i <= question_count; i++) {
+//     var item_type = "multiple_choice";
+//     await pages.customQuestion.click('createQuestionButton');
+//     await pages.assignmentTab.click('HatchlingQuestionType', item_type);
+//     var timeStamp = new Date().getTime();
+//     var title = item_type + timeStamp;
+//     // await pages.hatchlingItemFrame.click('Question Title');
+//     await pages.hatchlingItemFrame.populate('Question Title', title);
+//     await pages.hatchlingItemFrame.populate('Question Prompt', 'Automated ' + i + ' hatchling question!');
+//     // await pages.hatchlingItemFrame.click('MCCorrectAnswerTextbox');
+//     await pages.hatchlingItemFrame.populate('Correct Answer', 'Like');
+//     // await pages.hatchlingItemFrame.click('hatchlingBody');
+//     await pages.hatchlingItemFrame.click('Button', 'Add Answer');
+//     await pages.hatchlingItemFrame.populate('Incorrect Answer', 1, 'Unlike');
+//     await pages.hatchlingItemFrame.click('HatchlingSave');
+//     await sleep(5000);
+//   }
+// });
 
-When(/^added it to assessment$/, async function () {
-  for (let i = 1; i <= question_count; i++) {
-    await pages.customQuestion.click("Items Checkbox", i);
-    CQBTabQuestionSet.add(await pages.customQuestion.getAttributeValue('Questions Id', i, 'id'))
-  }
-  let actionBarButtonsLabel = await pages.questionBank.getWebElements('QBActionBarButtonsLabel');
-  let actionBarButtons = await pages.questionBank.getWebElements('QBActionBarButtons');
-  for (let i = 0; i < actionBarButtonsLabel.length; i++) {
-    let buttonText = await actionBarButtonsLabel[i].getText();
-    if (buttonText === "Add") {
-      await actionBarButtons[i].click();
-      break;
-    }
-  }
-  await pages.assignmentTab.click('AssignmentTab');
-});
+// When(/^I add \"([^\"]*)\" hatchling item on AE with following details$/, async function (moduleType, datatable) {
+//   let code = Date.now();
+//   await pages.customQuestion.click("CustomQuestionTab");
+//   await pages.customQuestion.click('createQuestionButton');
+//   await pages.assignmentTab.click('HatchlingQuestionType', moduleType);
+
+//   let question = datatable.hashes()[0];
+//   let QuestionTitle = question['Question Title'] + " " + code;
+//   await pages.hatchlingItemFrame.populate('Question Title', QuestionTitle);
+//   await pages.hatchlingItemFrame.populate('Question Prompt', question['Question Prompt']);
+//   return QuestionTitle;
+// }
+// );
+
+// When(/^added it to assessment$/, async function () {
+//   for (let i = 1; i <= question_count; i++) {
+//     await pages.customQuestion.click("Items Checkbox", i);
+//     CQBTabQuestionSet.add(await pages.customQuestion.getAttributeValue('Questions Id', i, 'id'))
+//   }
+//   let actionBarButtonsLabel = await pages.questionBank.getWebElements('QBActionBarButtonsLabel');
+//   let actionBarButtons = await pages.questionBank.getWebElements('QBActionBarButtons');
+//   for (let i = 0; i < actionBarButtonsLabel.length; i++) {
+//     let buttonText = await actionBarButtonsLabel[i].getText();
+//     if (buttonText === "Add") {
+//       await actionBarButtons[i].click();
+//       break;
+//     }
+//   }
+//   await pages.assignmentTab.click('AssignmentTab');
+// });
 
 When(/^added it to new assessment as pool$/, async function () {
   for (let i = 1; i <= question_count; i++) {

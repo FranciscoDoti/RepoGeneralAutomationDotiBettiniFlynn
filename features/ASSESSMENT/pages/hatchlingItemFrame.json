@@ -188,6 +188,13 @@
             "definition": "//span[text()='Hint']/../../div[@class='rich-text-editor full']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "AE Course Page Tabs",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }
