@@ -99,7 +99,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
     Scenario: Instructor drops student and verifies completion
 
-        Given I login to Achieve-CW as "instructor_3" 
+        Given I login to Achieve-CW as "instructor_2" 
         When I click on "activities Course"
         And I drop "student_6"
         And I navagate to gradebook and verify grades
