@@ -1,26 +1,7 @@
-@SAVI @Brightcove
+@SAVI-4785
 
 Feature: Brightcove Audio, Video Player
 
-Scenario: Test Brightcove Video Players
-
-Given I have opened videoplayer
-            |  video                                                                            |                                                      
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5758272834001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5240257271001   | 
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5714430519001   | 
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5755680903001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5240257270001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=3936552724001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5714432916001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=6011256190001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5754262803001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=2805448759001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5755098968001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5757871649001   |
-            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5758375778001   |
-
-            
 Scenario: Test Brightcove audioplayer
 
 Given I have opened audioplayer
@@ -38,3 +19,19 @@ Given I have opened audioplayer
             |  https://savi-cdn.macmillantech.com/audioplayer/index.html?audioId=4367496797001   |
             |  https://savi-cdn.macmillantech.com/audioplayer/index.html?audioId=4367496716001   |
             |  https://savi-cdn.macmillantech.com/audioplayer/index.html?audioId=4367446970001   |
+
+Given I have opened videoplayer
+            |  videoplayer                                                                      |                                                      
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5758272834001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5240257271001   | 
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5714430519001   | 
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5755680903001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5240257270001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=3936552724001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5714432916001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=6011256190001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5754262803001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=2805448759001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5755098968001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5757871649001   |
+            |  https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5758375778001   |

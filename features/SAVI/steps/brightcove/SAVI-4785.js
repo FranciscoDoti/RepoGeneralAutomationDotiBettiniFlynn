@@ -5,15 +5,16 @@ const { visitURL, sleep, } = require(`${process.cwd()}/app/driver.js`);
 const urls = require(`${process.cwd()}/config/urls.json`);
 const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 
-
-Given('I have opened videoplayer', async function (data_table) {
+Given('I opened videoplayer', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++)    {
         await visitURL(data_table.hashes()[i].video);
+    //    await sleep(3000);
     } 
 }); 
 
-Given('I have opened audioplayer', async function (data_table) {
+When('I have opened audioplayer', async function (data_table) {
     for (let i = 0; i < data_table.rows().length; i++)    {
-        await visitURL(data_table.hashes()[i].audio);
+        await visitURL(data_table.hashes()[i].audioplayer);
     } 
 });
+

@@ -1,4 +1,4 @@
-@SAVI @Brightcove
+|@SAVI @Brightcove
 
 Feature: Brightcove Video Player
 
