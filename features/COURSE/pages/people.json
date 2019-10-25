@@ -7,8 +7,8 @@
         "specialInstr": "NA"
     },  {
         "name": "checkbox",
-        "byType": "css",
-        "definition": "[class='_1UGb']",
+        "byType": "xpath",
+        "definition": "/*[class='_10Xc']/..//input[@type='checkbox']",
         "frame": "default",
         "specialInstr": "NA"
     },  {
