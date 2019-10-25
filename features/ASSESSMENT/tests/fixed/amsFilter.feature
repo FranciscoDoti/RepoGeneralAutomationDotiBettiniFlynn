@@ -3,16 +3,17 @@ Feature: To verify the correct functionality of ams's item filter
 
 
     @ChangeFilterAndVerifyChanges @Smoke
-    Scenario: Change the filter and verify whether the AMS items are changing based on filter
+    Scenario Outline: Change the filter and verify whether the AMS items are changing based on filter
         Given I login to AMS as "all-permissions-author"
         When I apply the following filters
             | Filter | Option                  |
             | Topic  | End of Chapter Problems |
-        And I remove the following filter   // TODO: AGREGAR ESTE STEP 
+        And I remove the following filters
             | Filter | Option                  |
             | Topic  | End of Chapter Problems |
         When I apply the filter options <Filter> and <Option>
         Then I verify that the items match with the filter applied with value <Option>
+        
         Examples:
             | Filter | Option                         |
             | Topic  | Your Questions (uncategorized) |
@@ -33,6 +34,7 @@ Feature: To verify the correct functionality of ams's item filter
         Given I login to AMS as "all-permissions-author"
         When I apply the filter options <Filter> and <Option>
         Then I verify that the items match with the filter applied with value <Option>
+        
         Examples:
             | Filter | Option                         |
             | Topic  | Your Questions (uncategorized) |
@@ -54,7 +56,7 @@ Feature: To verify the correct functionality of ams's item filter
             | Access: public                        |
 
 
-    @VerifyFilterTags @Regression // TODO: AGREGAR REGRESSION TAG Y LUEGO AGREGAR SMOKE TAG A TODAS LAS DEMAS FEATURES. LUEGO, CREAR EL PR
+    @VerifyFilterTags @Regression
     Scenario Outline: Select different filters and check that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
         When I apply the filter options <Filter> and <Option>

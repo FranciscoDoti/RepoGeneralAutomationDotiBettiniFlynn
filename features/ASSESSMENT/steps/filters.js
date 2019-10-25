@@ -17,6 +17,13 @@ When("I click on Load More", async function(){
     await pages.filters.click('Load More');
 });
 
+When('I remove the following filters', async function(dataTable){
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
+        await filterslib.removeFilter(item['Option']);
+    }
+});
+
 Then('I verify that the filter tag is being displayed with label using {} and {}', async function(filter, option) {
     
     let tagValue = `${filter}: ${option}`;
