@@ -3,7 +3,7 @@ Feature: To verify the correct functionality of ams's item filter
 
 
 
-    @VerifyItemsFiltered
+    @VerifyItemsFiltered @Smoke
     Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
         Given I login to AMS as "all-permissions-author"
         When I apply the filter options <Filter> and <Option>
@@ -14,7 +14,7 @@ Feature: To verify the correct functionality of ams's item filter
             | Topic                | End of Chapter Problems                                                     |
             | Topic                | Price Floors                                                                |
 
-    @Verify3FilterTagsAtSameTime
+    @Verify3FilterTagsAtSameTime @Smoke
     Scenario: Apply 3 different filters and verify that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
         When I apply the following filters
@@ -29,7 +29,7 @@ Feature: To verify the correct functionality of ams's item filter
              | Access: public                          |            
     
     
-    @VerifyFilterTags
+    @VerifyFilterTags @Regression
     Scenario Outline: Select different filters and check that the tags are being displayed
         Given I login to AMS as "all-permissions-author"
         When I apply the filter options <Filter> and <Option>

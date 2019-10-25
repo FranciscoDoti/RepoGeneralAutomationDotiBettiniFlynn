@@ -1,3 +1,4 @@
+@Assessment @Smoke
 Feature: As an author/ instructor, I should be able to set policies for the assessment
 
 Background: Create an assessment with set of questions

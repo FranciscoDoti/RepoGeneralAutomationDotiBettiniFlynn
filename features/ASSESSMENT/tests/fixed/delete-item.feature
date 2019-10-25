@@ -1,4 +1,4 @@
-@Assessment @AMS
+@Assessment @AMS @Smoke
 Feature: To delete a single raptor item in AMS
 
     @DeleteItem
