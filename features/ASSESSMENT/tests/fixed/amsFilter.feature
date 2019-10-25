@@ -2,6 +2,28 @@
 Feature: To verify the correct functionality of ams's item filter
 
 
+    @MultipleFilters @VerifyChanges @Smoke
+    Scenario: Change the filter. Apply multiple filters and verify  whether the AMS items are changing based on filter
+        Given I login to AMS as "all-permissions-author"
+        When I apply the following filters
+            | Filter | Option                  |
+            | Topic  | End of Chapter Problems |
+        And I remove the following filters
+            | Filter | Option                  |
+            | Topic  | End of Chapter Problems |
+        And I apply the following filters
+            | Filter | Option                         |
+            | Topic  | Your Questions (uncategorized) |
+            | Blooms | Remembering                    |
+            | Access | public                         |
+        Then I verify that items match with the following multiple filters that were applied
+            | Filter | Option                         |
+            | Topic  | Your Questions (uncategorized) |
+            | Blooms | Remembering                    |
+            | Access | public                         |
+            
+        
+
     @ChangeFilterAndVerifyChanges @Smoke
     Scenario Outline: Change the filter and verify whether the AMS items are changing based on filter
         Given I login to AMS as "all-permissions-author"
