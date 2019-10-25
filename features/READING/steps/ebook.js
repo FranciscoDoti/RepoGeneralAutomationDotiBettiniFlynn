@@ -1,37 +1,40 @@
-const { Given, When, Then } = require('cucumber');
+const { Given, When, Then, Before } = require('cucumber');
 const { visitURL } = require(`${process.cwd()}/app/driver`);
 const urls = require(`${process.cwd()}/config/urls.json`);
-const pages = require(`${process.cwd()}/features/READING/pages/.page.js`).pages;
 const _ = require('lodash');
-const driver = require(`${process.cwd()}/app/driver.js`);
+const pages = require(`${process.cwd()}/features/READING/pages/.page.js`).pages;
+let page
 
-Then('there should be ebook content', async function () {
+Before('@GetEnvironment', function () {
   if (this.environment == 'local') {
-    await pages.localEbook.assertElementExists("Epub Content Frame");
+    page = 'localEbook';
   } else {
-    await pages.ebook.assertElementExists("Epub Content Frame");
+    page = 'ebook';
   }
-});
-
-When('I type {int} in the page number input', async function (pageNumber) {
-  if (this.environment == 'local') {
-    await pages.localEbook.populate('Page Number Input', pageNumber);
-  } else {
-    await pages.ebook.populate('Page Number Input', 'pageNumber');
-  }
-});
+})
 
 Given('I open a reading', async function () {
   let url = _.get(urls, ['Reading', this.stack]);
   await visitURL(url);
 });
 
-When('I click on the {string}', async function (locator) {
-  await pages.localEbook.assertElementExists(locator);
-  await pages.localEbook.click(locator);
+Then('there should be ebook content', async function () {
+  await pages[page].assertElementExists("Epub Content Frame");
 });
 
-Then('there should be a {string} with the text {int}', async function (locator, text) {
-  await driver.getDriver().sleep(3000);
-  await pages.localEbook.assertText(locator, text);
+When('I type {int} in the page number input', async function (pageNumber) {
+  await pages[page].populate('Page Number Input', pageNumber);
 });
+
+When('I click on the {string}', async function (locator) {
+  await pages[page].assertElementExists(locator);
+  await pages[page].click(locator);
+});
+
+Then('there should be a {string} with the text {string}', async function (locator, text) {
+  await pages[page].assertText(locator, text);
+});
+
+Then('there should be a {string} that includes the text {string}', async function (locator, text) {
+  await pages[page].assertTextIncludes(locator, text);
+})
