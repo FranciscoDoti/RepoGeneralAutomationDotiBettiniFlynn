@@ -1,0 +1,18 @@
+{
+  "webElements": [
+    {
+      "name": "mainNav",
+      "byType": "css",
+      "definition": "[data-test-id='Gradebook']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "settingsNav",
+      "byType": "css",
+      "definition": "[data-test-id='settings']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}
