@@ -21,6 +21,7 @@ const deleteItems = async function () {
     let deletedItemsCount = (await pages.ams.getText('Delete Confirmation Message Title')).split(" ")[1];
     await pages.ams.assertElementExists('Delete Confirmation Message Text');
     await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
+    await pages.ams.waitForElementInvisibility('Delete Modal');
     return deletedItemsCount;
 };
 
