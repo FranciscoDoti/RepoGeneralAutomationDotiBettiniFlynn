@@ -166,7 +166,7 @@ Then(/^I verify that activities are added both in "(.*)" and "(.*)"$/, async fun
 })
 
 When('I create folder and add the activities to the folder in ebook', async function (data_table){
-  await pages.coursePage.click('Tab', 'E-book');
+  await pages.coursePage.click('navigation', 'E-book');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addFolder')
     await pages.resources.populate('folderName', data_table.hashes()[i].Folder);
