@@ -1,8 +1,8 @@
 @math @smoke
 
-Feature: Floating Points with tolerance 
+Feature: Floating Point with tolerance 
 
-    Scenario: Point should match tolerance even when floating points are used
+    Scenario: Verify Point matches tolerance even when floating points are used
 
         Given I login to AMS as "all-permissions-author"
         When I click on the New Raptor item in the AMS page
@@ -13,7 +13,7 @@ Feature: Floating Points with tolerance
         And I set the grade as "Point" type
         And I input author answer "(1.2,2.0)"
         And I input upper numeric tolerance "0.1" and lower numeric tolerance "0.1"
-        And I set Item Details name as "PointFloatTol"
+        And I set Item Details name as "PointFloatTolerance"
         Then I save the question
 
         When I simulate student interface
