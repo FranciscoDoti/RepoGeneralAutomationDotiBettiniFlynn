@@ -255,3 +255,7 @@ Then('the current timestamp of the media should be updating every second in the 
   const timestamp = await pages.brightcovevideo.getText('timestamp');
   assert(timestamp === '0:01', 'Timestamp has updated to one second');
 });
+Given(/^I load a "(.*)" in the video player$/, async function (videoId) {
+  await visitURL(`https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=${videoId}`);
+  log.info(`loading videoId "${videoId}"`);
+});
