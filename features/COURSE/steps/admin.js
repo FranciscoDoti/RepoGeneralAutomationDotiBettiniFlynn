@@ -28,9 +28,9 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
 });
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
-  // await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
 });
 
@@ -210,7 +210,7 @@ When('I delete the folder in ebook', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].Folder,'check');
     await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].Folder,'check');
-    await pages.eBook.click('activitySelected', 'Reamove');
+    await pages.eBook.click('activitySelected', 'Remove');
     await pages.coursePlanner.click('removeFolderButton')
   }
 });
@@ -219,4 +219,11 @@ Then('I verify that Folders are deleted in ebook', async function(data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
   await pages.eBook.assertElementDoesNotExist('contentCheckbox', data_table.hashes()[i].Folder);
   }
+})
+
+Then(/^I verify that "(.*)" is deleted$/, async function (courseName){
+  await driver.getDriver().navigate().refresh();
+  await pages.courseList.populate('search', courseName);
+  await pages.createCourse.assertElementDoesNotExist('courseCard', courseName)
+
 })

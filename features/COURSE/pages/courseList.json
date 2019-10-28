@@ -117,13 +117,13 @@
     }, {
         "name": "courseTab",
         "byType": "css",
-        "definition": "nav div[aria-label='Courses']",
+        "definition": "nav div[aria-label='COURSE TEMPLATES']",
         "frame": "default",
         "specialInstr": "NA"
     }, { 
         "name": "courseTemplateTab",
         "byType": "css",
-        "definition": "nav div[aria-label='Course Templates']",
+        "definition": "nav div[aria-label='COURSE TEMPLATES']",
         "frame": "default",
         "specialInstr": "NA"
     }, { 

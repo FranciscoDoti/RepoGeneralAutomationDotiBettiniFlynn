@@ -244,7 +244,7 @@
         }, {
             "name": "resourcesReorderVerification",
             "byType": "xpath",
-            "definition": "(//*[@type='chevron_right'])[<ReplaceText]",
+            "definition": "(//div[@class='_2cn5 nYXZ'])[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
 
