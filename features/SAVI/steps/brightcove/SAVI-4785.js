@@ -4,17 +4,20 @@ const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
 const { visitURL, sleep, } = require(`${process.cwd()}/app/driver.js`);
 const urls = require(`${process.cwd()}/config/urls.json`);
 const { PageObject } = require(`${process.cwd()}/app/PageObject`);
+const mathpages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
+const { raptorlib, amslib, froalalib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
-Given('I opened videoplayer', async function (data_table) {
-    for (let i = 0; i < data_table.rows().length; i++)    {
-        await visitURL(data_table.hashes()[i].video);
-    //    await sleep(3000);
-    } 
+Given('I opened videoplayer', async function (video) {
+        await pages.brighcovevideo.populate(video);
+        await visitURL(video)
 }); 
 
-When('I have opened audioplayer', async function (data_table) {
-    for (let i = 0; i < data_table.rows().length; i++)    {
-        await visitURL(data_table.hashes()[i].audioplayer);
-    } 
-});
 
+/*When(/^I add the "(.*)" module$/, async function (moduleType) {
+    await pages.ams.assertElementExists('Add Item', 'Easy');
+    await pages.ams.click('Add Item', 'Raptor');
+    await mathpages.raptorAms.switchToTab('Raptor Authoring');
+    await pages.raptor.click('Add Menu');
+    await pages.raptor.click('Module Pallete', moduleType);
+    await pages.raptor.click('Content Area');
+});*/

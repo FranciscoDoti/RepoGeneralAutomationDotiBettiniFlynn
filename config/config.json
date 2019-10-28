@@ -1,15 +1,15 @@
 {
-    "environment": "savi",
+    "environment": "Savi",
     "mode": "local",
     "browser": "chrome",
     "headless": false,
     "screenshots": "onFail",
     "timeout": 30,
-    "stack": "google",
+    "stack": "brightcove",
     "_examples": {
-        "environment": "local | dev | int | pre-prod | prod",
+        "environment": "local | dev | int | pre-prod | prod | int |dev-courseware | int-ibiscms | ae | prod-ibiscms | yahoo | brightcove | google",
         "mode": "local | docker | browserstack | localgrid | hub",
-        "browser": "chrome | firefox",
+        "browser": "chrome | firefox | safari",
         "headless": "true | false",
         "screenshots": "true | onFail | false",
         "timeout": "Number-in-seconds 30 to avoid Gateway timeout on remote"
