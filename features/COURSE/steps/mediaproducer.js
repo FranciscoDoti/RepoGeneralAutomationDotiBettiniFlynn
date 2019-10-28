@@ -19,7 +19,6 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 });
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
-  await pages.home.click('closeAlert');
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
