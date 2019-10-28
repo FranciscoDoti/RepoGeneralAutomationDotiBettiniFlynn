@@ -13,6 +13,13 @@
       "definition": "[data-test-id='settings']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "menuUserName",
+      "byType": "css",
+      "definition": "[data-test-id='menu_user_name']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }
