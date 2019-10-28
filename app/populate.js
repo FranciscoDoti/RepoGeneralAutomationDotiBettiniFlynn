@@ -202,7 +202,18 @@ const populateClick = async function (selector, value, WebElementObject) {
       await sleep(500);
     }
 
-    await selector.click();
+    try {
+      await selector.click();
+    } catch (ex) {
+      if (ex.name == 'ElementNotInteractableError') {
+        log.debug(`Error name ${ex.name}`);
+        const actions = getDriver().actions({ bridge: true });
+        actions.click(selector).perform();
+      } else {
+        log.debug(`Error name ${ex.name}`);
+        assert.fail(`Exception occurred and caught. ${ex}`);
+      }
+    };
     await sleep(500);
 
     if (WebElementData && WebElementData.waitIdToBeVisibleonNextPage) {
@@ -314,12 +325,7 @@ const populateRichTextField = async function (selector, value, WebElementObject)
   }
   if (!localSpecialInstr.toLowerCase().includes('noclick')) {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
-    await selector.click();
-  }
-
-  if (!localSpecialInstr.toLowerCase().includes('noclick')) {
-    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
-    await selector.click();
+    await actions.click(selector);
   }
 
   if(localSpecialInstr.toLowerCase().includes('overwrite'))

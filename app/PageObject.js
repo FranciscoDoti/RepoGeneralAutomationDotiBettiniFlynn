@@ -195,7 +195,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const scrollElementIntoView = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
-    elementName = elementName + (replaceText ? " " + replaceText : "");
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
 
     log.debug(`Scrolling element: ${elementName} into view.`)
     if (await hasElement(elementName)) {
@@ -319,7 +321,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const getAttributeValue = async function (elementName, replaceText, attributeName) {
     if (attributeName === undefined && replaceText !== undefined) {
       attributeName = replaceText;
-    } else {
+    } else if (replaceText !== undefined && attributeName !== undefined){
       elementName = await addDynamicElement(elementName, replaceText);
     }
 

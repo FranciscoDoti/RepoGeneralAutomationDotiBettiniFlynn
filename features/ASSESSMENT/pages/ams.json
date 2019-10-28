@@ -22,6 +22,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Hatchling Item Option",
+            "byType": "xpath",
+            "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "AMS Button",
             "byType": "xpath",
             "definition": "//li[text()='<ReplaceText>']",
@@ -38,7 +45,7 @@
         {
             "name": "Algolia is Processing",
             "byType": "xpath",
-            "definition": "//i[.='Algolia is Processing']",
+            "definition": "//i[(text()='Algolia is Processing') or (text()='In Algolia Queue to Process')]",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -74,6 +81,13 @@
             "name": "Delete Action",
             "byType": "xpath",
             "definition": "//tr[@data-id='<ReplaceText>']/td/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Duplicate Item",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='item-duplicate-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -139,7 +153,8 @@
             "definition": "//label[contains(text(),'<ReplaceText>')]/input",
             "frame": "default",
             "specialInstr": "focus"
-        },{
+        },
+        {
             "name": "Search Result Text",
             "byType": "xpath",
             "definition": "//td[.='<ReplaceText>']",

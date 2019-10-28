@@ -1,4 +1,4 @@
-@Assessment @SAC @Smoke
+@Assessment @SAC @SacIntermediate @Smoke
 Feature: To configure an intermediate test in SAC
 
   Scenario: Student navigates to an existing assessment
