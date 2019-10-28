@@ -118,3 +118,7 @@ When(/^I clone content from "(.*)" template$/, async function (courseName) {
 Then(/^I verify if content was imported successfully with message "(.*)"$/, async function (message) {
   await pages.home.assertTextIncludes('alert', message);
 });
+
+When('I click on back to course', async function (){
+  await pages.coursePage.click('navigation', 'Back to Course');
+});

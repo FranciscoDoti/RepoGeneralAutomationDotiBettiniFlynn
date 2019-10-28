@@ -90,7 +90,7 @@
         {
             "name": "Tab",
             "byType": "xpath",
-            "definition": "//button[.='<ReplaceText>']",
+            "definition": "//div[@aria-label='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 

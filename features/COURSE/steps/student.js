@@ -14,14 +14,14 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
-  await pages.coursePage.click('tab',Tab);
+  await pages.coursePage.click('Tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
   }
 });
 
 When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.coursePage.click('tab', 'ASSIGNMENTS')
+  await pages.coursePage.click('Tab', 'ASSIGNMENTS')
   await pages.overview.click('activityName', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.studentActivity.click('assesmnetAnswer', data_table.hashes()[i].PremadeAssesmentKey);

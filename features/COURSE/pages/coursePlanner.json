@@ -138,7 +138,7 @@
         }, {
             "name": "customContentButton",
             "byType": "xpath",
-            "definition": "//button[@class='_1tkc' and .='New']",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -621,15 +621,15 @@
         {
             "name": "editTitle",
             "byType": "css",
-            "definition": "[class='ActivityTitle__titleEdit__3jSK4']",
+            "definition": "[aria-labelledby='edit']",
             "frame": "customIframe",
             "specialInstr": "NA"
 
         },
         {
             "name": "activityTitle",
-            "byType": "css",
-            "definition": "[data-id='activity-title-editField']",
+            "byType": "xpath",
+            "definition": "//div[@data-id='activity-title-editField']/..//input[@type='text']",
             "frame": "customIframe",
             "specialInstr": "NA"
 
@@ -747,6 +747,22 @@
             "frame": "default",
             "specialInstr": "NA"
 
+
+        },
+        {
+            "name": "addingContent",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='add_content_confirmation_modal']/..//input[@type='checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "continue",
+            "byType": "css",
+            "definition": "button[data-test-id='modal_add_folder_button']",
+            "frame": "default",
+            "specialInstr": "NA"
 
         }
     ]
