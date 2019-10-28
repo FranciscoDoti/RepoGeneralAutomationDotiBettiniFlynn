@@ -23,7 +23,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', user.username);
   await pages.adminMenu.click('addUserButton');
-  await pages.home.click('closeAlert');
+  await pages.home.click('');
   await pages.adminMenu.click('closeManageRoles');
 });
 
@@ -91,7 +91,7 @@ Then('I verify the report is dowloaded with following data', async function (dat
 
 
 When(/^I click on "(.*)" Tab$/, async function (tabName){
-  await pages.coursePage.click('Tab', tabName)
+  await pages.coursePage.click('navigation', tabName);
 });
 
 Then('I verify that following Tab are present', async function (data_table){
@@ -105,7 +105,7 @@ When(/^I click on "(.*)" card$/, async function (courseName){
 });
 
 When(/^I add activities to "(.*)"$/, async function (tab, data_table){
-  await pages.coursePage.click('Tab', 'Search');
+  await pages.coursePage.click('navigation', 'Search');
   await pages.coursePage.click('contentType', 'Keyword Search');
   for (let i = 0; i < data_table.rows().length; i++) {
   await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
@@ -115,7 +115,7 @@ When(/^I add activities to "(.*)"$/, async function (tab, data_table){
 });
 
 When(/^I add the activities in "(.*)"$/, async function (tab, data_table){
-await pages.coursePage.click('Tab', 'Content Library');
+await pages.coursePage.click('navigation', 'Content Library');
 for (let i = 0; i < data_table.rows().length; i++) {
   await pages.resources.click('addButton', data_table.hashes()[i].activities);
   await pages.resources.click('placeTab', '2');
@@ -124,7 +124,7 @@ for (let i = 0; i < data_table.rows().length; i++) {
 
 Then(/^I verify that activities are added in "(.*)" and not in "(.*)"$/, async function (ebook, courseplan, data_table){
 for (let i = 0; i < data_table.rows().length; i++) {
-  await pages.coursePage.click('Tab', ebook);
+  await pages.coursePage.click('navigation', ebook);
   await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
   await pages.coursePage.click('Tab', courseplan);
   await pages.eBook.assertElementDoesNotExist('activityVerification', data_table.hashes()[i].activities);
@@ -132,7 +132,7 @@ for (let i = 0; i < data_table.rows().length; i++) {
 });
 
 When(/^I add activities in "(.*)"$/, async function (tab, data_table){
-  await pages.coursePage.click('Tab', 'Content Library');
+  await pages.coursePage.click('navigation', 'Content Library');
 for (let i = 0; i < data_table.rows().length; i++) {
   await pages.resources.click('addButton', data_table.hashes()[i].activities);
   await pages.resources.click('placeTab', '1');
@@ -143,13 +143,13 @@ Then('I verify that activities are added in CoursePlan and not in eBook', async 
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePage.click('Tab', 'Course Plan');
     await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
-    await pages.coursePage.click('Tab', 'E-book');
+    await pages.coursePage.click('navigation', 'E-book');
     await pages.eBook.assertElementDoesNotExist('activityVerification', data_table.hashes()[i].activities);
 }
 });
 
 When(/^I add the activities in both "(.*)" and "(.*)"$/, async function (courseplan, ebook, data_table){
-  await pages.coursePage.click('Tab', 'Content Library');
+  await pages.coursePage.click('navigation', 'Content Library');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('addButton', data_table.hashes()[i].activities);
     await pages.coursePage.click(data_table.hashes()[i].tab);
@@ -158,9 +158,9 @@ When(/^I add the activities in both "(.*)" and "(.*)"$/, async function (coursep
 
 Then(/^I verify that activities are added both in "(.*)" and "(.*)"$/, async function (courseplan, ebook, data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePage.click('Tab', courseplan);
+    await pages.coursePage.click('navigation', courseplan);
     await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
-    await pages.coursePage.click('Tab', ebook);
+    await pages.coursePage.click('navigation', ebook);
     await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
 }
 })
