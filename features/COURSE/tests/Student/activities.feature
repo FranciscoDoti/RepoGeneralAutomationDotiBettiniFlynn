@@ -125,24 +125,3 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Test Total                                    | 100%        |   5     |   25%                |
             | Assignments Total                             | 100%        |   15    |   75%                |
-        
-
-    Scenario: Verify that instructor is able to edit the grades of student
-
-        Given I login to Achieve-CW as "instructor_1"
-
-        When I edit student grade in "activities Course"
-            | Students   | editGrade |
-            | student_1  |  1        | 
-
-        Then I verify the Grades
-            | Students  | CourseTotal  | Google  | CategoryTotal | 
-            | student_1 | 80%          | 20%     | 20%           | 
-
-    Scenario: Verify that media producer is able to delete the  courses created
-        Given I login to Achieve-CW as "media_producer_2"
-
-         When I delete "activities Template" and "activities Course"
-
-         Then I verify that "activities Template" and "activities Course" are deleted 
-        
