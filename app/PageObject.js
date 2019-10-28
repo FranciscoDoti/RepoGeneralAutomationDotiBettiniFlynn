@@ -127,7 +127,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'ul':
         case 'li':
         case 'th':
-        case 'h2':
+        case 'h2':  
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
@@ -138,6 +138,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;
+        case 'label' :
         case 'option':
           await populateClick(webElement, value, actionElement);
           break;
@@ -194,7 +195,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const scrollElementIntoView = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
-    elementName = elementName + (replaceText ? " " + replaceText : "");
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
 
     log.debug(`Scrolling element: ${elementName} into view.`)
     if (await hasElement(elementName)) {
@@ -318,7 +321,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const getAttributeValue = async function (elementName, replaceText, attributeName) {
     if (attributeName === undefined && replaceText !== undefined) {
       attributeName = replaceText;
-    } else {
+    } else if (replaceText !== undefined && attributeName !== undefined){
       elementName = await addDynamicElement(elementName, replaceText);
     }
 

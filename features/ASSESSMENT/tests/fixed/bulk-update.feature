@@ -1,4 +1,4 @@
-@Assessment @AMS @BulkUpdate
+@Assessment @AMS @BulkUpdate @Smoke
 Feature: To update and delete multiple raptor items in AMS by bulk update
 
     @BulkUpdateEdit

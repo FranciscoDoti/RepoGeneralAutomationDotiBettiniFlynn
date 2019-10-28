@@ -1,19 +1,18 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
-const { hatchlinglib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { hatchlinglib, raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
-  await pages.multipleChoice.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
-  await pages.multipleChoice.click('Answer Radio Button ' + correctAnswer);
+  await pages.raptor.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
+  await pages.raptor.click('Answer Radio Button ' + correctAnswer);
 });
 
 Then('The variable values are displayed as choices', async function () {
   await pages.raptor.click('Cycle Variables Button');
-  await pages.raptor.click('More Button');
-  await pages.raptor.click('Save As Draft');
-  let text = await pages.multipleSelect.getText('Choice Text 1');
+  await raptorlib.saveItem();
+  let text = await pages.raptor.getText('Choice Text 1');
   switch (text) {
     case "oak":
     case "pine":
@@ -24,14 +23,12 @@ Then('The variable values are displayed as choices', async function () {
 });
 
 When(/^I add \"([^\"]*)\" hatchling item with following details$/, async function (moduleType, datatable) {
-  let code = Date.now();
   await hatchlinglib.createHatchlingEasyItem(moduleType);
-  let q = datatable.hashes()[0];
-  q.QuestionTitle = q.QuestionTitle + " " + code;
-  await pages.hatchlingItem.click('Question Title');
-  await pages.hatchlingItem.populate('Question Title Edit', q.QuestionTitle);
-  await pages.hatchlingItem.populate('Question Prompt', q.QuestionPrompt);
-  this.data.set("Question Title", q.questionTitle);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let question = datatable.hashes()[i];
+    let questionTitle = await hatchlinglib.populateQuestion(question);
+    this.data.set('Question Title',questionTitle);
+  }
 });
 
 When('I add the following correct answer and feedback', async function (datatable) {
@@ -53,10 +50,12 @@ When('I add the following incorrect answers and feedback', async function (datat
 
 When(/^I set hint and generic feedback with following details and save$/, async function (datatable) {
   let ans = datatable.hashes()[0];
-  await pages.hatchlingItem.click('Collapsible Title', 'Hint');
-  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Hint', ans.Hint);
+  for (let i = 0; i < datatable.rows().length; i++) {
+    let hint = datatable.hashes()[i];
+    await hatchlinglib.populateHint(hint);
+  }
   await hatchlinglib.clickGenericFeedback();
-  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans.GenericFeedback);
+  await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
   await pages.hatchlingItem.click('Button', 'Save');
-
 });
+

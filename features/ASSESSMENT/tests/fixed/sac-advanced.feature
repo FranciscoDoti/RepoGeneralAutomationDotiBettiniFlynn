@@ -1,4 +1,4 @@
-@Assessment @SAC @Smoke
+@Assessment @SAC @SacAdvanced @Smoke
 Feature: To configure an advanced test in SAC
 
   Scenario: Instructor removes previous responses from an assessment

@@ -10,6 +10,8 @@ const defaults = require(`${process.cwd()}/config/config.json`);
 const argv = require('minimist')(process.argv.slice(2));
 const fs = require('fs');
 const jsonfile = require('jsonfile');
+const imagemin = require('imagemin');
+const imageminPngquant = require('imagemin-pngquant');
 let driver;
 
 const config = {
@@ -170,9 +172,16 @@ const getURL = async function () {
 
 const takeScreenshot = async function () {
   try {
-    return await driver.takeScreenshot();
+    return (await imagemin.buffer(Buffer.from(await driver.takeScreenshot(), "base64"), {
+      plugins: [
+        imageminPngquant({
+          quality: [0.1, 0.4]
+        })
+      ]
+    })).toString('base64');
   } catch (err) {
     log.error(err.stack);
+    return false;
   }
 };
 
