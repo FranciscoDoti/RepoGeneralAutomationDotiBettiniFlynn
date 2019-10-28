@@ -5,9 +5,9 @@
     "headless": false,
     "screenshots": "onFail",
     "timeout": 30,
-    "stack": "brightcove",
+    "stack": "prod",
     "_examples": {
-        "environment": "local | dev | int | pre-prod | prod | int |dev-courseware | int-ibiscms | ae | prod-ibiscms | yahoo | brightcove | google",
+        "environment": "local | prod ",
         "mode": "local | docker | browserstack | localgrid | hub",
         "browser": "chrome | firefox | safari",
         "headless": "true | false",

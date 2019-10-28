@@ -46,17 +46,7 @@
         "prod": "https://www.saplinglearning.com/ibiscms"
     },
     "Savi":{
-        "yahoo":"https://www.yahoo.com",
-        "brightcove":"https://signin.brightcove.com",
-        "google":"https://google.com",
-        "local":"https://courseware-frontend.local-mml.cloud/start",
-        "int":"https://int-achieve-courseware-frontend.mldev.cloud/start",
-        "dev":"https://dev-achieve-courseware-frontend.mldev.cloud/start",
-        "dev-courseware": "https://dev-courseware-courseware-frontend.mldev.cloud/start",
-        "prod":"https://achieve.macmillanlearning.com/start",
-        "int-ibiscms":"http://int.saplinglearning.me/ibiscms",
-        "ae": "http://ae.saplinglearning.me/ibiscms",
-        "prod-ibiscms": "https://www.saplinglearning.com/ibiscms"
+        "prod": "https://www.saplinglearning.com/ibiscms"
 
     }
 }
