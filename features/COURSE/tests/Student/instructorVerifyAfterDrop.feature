@@ -95,7 +95,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         Examples:
         |student        |
         |"student_1"    |
-        |"student_6"    |
+        |"student_2"    |
 
     Scenario: Instructor drops student and verifies completion
 

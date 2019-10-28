@@ -64,6 +64,7 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
 
 When('I assign the activities in courseplanner', async function (data_table) {
   await pages.coursePage.click('navigation', 'My Course');
+  await pages.home.click('closeAlert');//added
   await pages.coursePage.click('tab', 'COURSE PLAN')
   for (let i = 0; i < data_table.rows().length; i++) {
     let Elements = await pages.coursePlanner.getWebElements('assignAssignmentButton');
