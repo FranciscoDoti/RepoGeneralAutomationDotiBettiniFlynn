@@ -1,7 +1,7 @@
 @Course @Smoke @Skip
 Feature: Verify that MediaEditor is able to create URL in Read & Practice Template
 
-    @medieditor-delete-course
+    @mediaeditor-delete-course
     Scenario: Verify that Admin is able to create a custom task with URL in Read & Practice Template
 
        Given I login to Achieve-CW as "media_editor_1"

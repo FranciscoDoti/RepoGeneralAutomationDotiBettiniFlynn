@@ -21,7 +21,8 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
   await pages.home.click('closeAlert');
   await pages.courseList.click('courseTemplate', 'Course Templates');
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.click('courseMenu');
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
@@ -246,8 +247,9 @@ When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, course
   let user = this.users[userType];
   await pages.home.assertElementExists('achieveHome');
   await pages.home.click('achieveHome');
-  await pages.courseList.click('courseTemplate', 'Course Templates')
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.click('courseMenu');
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', user.username);
   await pages.createCourse.click('addCollaborators');

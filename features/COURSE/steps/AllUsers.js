@@ -64,13 +64,13 @@ Then(/^I verify that "(.*)" is created with following data$/, async function (co
   }
 });
 Then(/^I verify that "(.*)" is activated with following data$/, async function (courseName, data_table){
-  this.data.set('course',courseName);
-  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.waitForElementVisibility('courseMenu', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
-    await pages.createCourse.assertTextIncludes('courseCard',c.CourseName);
-    await pages.createCourse.assertTextIncludes('TemplateStatus',c.Status);
-    await pages.createCourse.assertTextIncludes('ISBNVerification', c.ISBN);
+    await pages.courseList.assertTextIncludes('courseName', c.CourseName)
+    await pages.createCourse.assertTextIncludes('ISBNVerification', c.ISBN)
+    await pages.courseList.assertTextIncludes('courseStatus', c.Status)
   }
 });
 
