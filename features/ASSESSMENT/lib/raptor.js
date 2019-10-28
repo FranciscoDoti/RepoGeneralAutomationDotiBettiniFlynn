@@ -2,6 +2,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 
 const addModule = async function (moduleType) {
     await pages.raptor.switchToTab('Raptor Authoring');
+    await pages.raptor.waitForElementVisibility('Tab','question');
     await pages.raptor.click('Add Menu');
     await pages.raptor.waitForElementVisibility('Module Pallete', moduleType);
     await pages.raptor.click('Module Pallete', moduleType);

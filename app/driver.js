@@ -158,7 +158,7 @@ const closeTabAndSwitch = async function (tabName) {
       await switchToTab(tabs[index]);
       let currentTabName = await getTitle();
       if (currentTabName.includes(tabName)) {
-        driver.close();
+        await closeCurrentTab();
         log.info(`${currentTabName} tab closed.`);
         await switchToTab(tabs[0]);
         log.info(`${await getTitle()} tab activated.`);
@@ -173,6 +173,14 @@ const closeTabAndSwitch = async function (tabName) {
 const switchToTab = async function (tab) {
   try {
     await driver.switchTo().window(tab);
+  } catch (err) {
+    log.error(err.stack);
+  }
+};
+
+const closeCurrentTab = async function () {
+  try {
+    await driver.close();
   } catch (err) {
     log.error(err.stack);
   }
