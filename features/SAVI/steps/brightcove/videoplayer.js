@@ -20,7 +20,7 @@ Then('I launch the Student Assignment', async function () {
 });
 
 Given('I navigate to standalone Brightcove Video Player', async function () {
-  await visitURL('https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5758272834001');
+  await visitURL('https://savi-cdn.macmillantech.com/brightcove/index.html?videoId=5512999206001');
 });
 
 When('I click the play button in the bottom bar of the player', async function () {
