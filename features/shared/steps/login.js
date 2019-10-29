@@ -100,5 +100,5 @@ Given(/^I login to Brightcove Media as "(.*)"$/, async function (userType) {
   await pages.login.assertElementExists('email');
     await pages.login.populate('email', user.username);
     await pages.login.populate('password', user.password);
-    await pages.login.click('submit')
+    await pages.login.click('signinButton')
 });

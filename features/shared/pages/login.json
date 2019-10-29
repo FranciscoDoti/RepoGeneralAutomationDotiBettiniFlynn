@@ -104,6 +104,14 @@
             "definition": "loginForm",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "signinButton",
+            "byType": "id",
+            "definition": "signinButton",
+            "frame": "default",
+            "specialInstr": "NA"
         }
+
     ]
 }
