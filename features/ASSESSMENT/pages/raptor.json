@@ -38,7 +38,7 @@
         {
             "name": "Module Pallete",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "definition": "//*[@class='active-menu']//div[@data-test-id='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -59,14 +59,14 @@
         {
             "name": "Check Your Work Submit Button",
             "byType": "xpath",
-            "definition": "//button[.='Submit Answer']",
+            "definition": "//*[@class='active-menu']//button[.='Submit Answer']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Save As Draft",
-            "byType": "css",
-            "definition": "li[id='save-button']",
+            "byType": "xpath",
+            "definition": "//*[@class='active-menu']//li[@id='save-button']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -80,7 +80,7 @@
         {
             "name": "More Item Details",
             "byType": "xpath",
-            "definition": "//div[.='Item Details']",
+            "definition": "//*[@class='active-menu']//div[.='Item Details']",
             "frame": "default",
             "specialInstr": "NA"
         },

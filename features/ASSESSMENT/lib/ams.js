@@ -11,6 +11,7 @@ const openUpdateModal = async function () {
     await pages.ams.click('AMS Button', 'VIEW SELECTED ITEMS');
     await pages.ams.click('AMS Button', 'Select Action');
     await pages.ams.click('AMS Button', 'Update');
+    await pages.update.assertElementExists('Update Modal');
 };
 
 const deleteItems = async function () {
@@ -50,7 +51,7 @@ const updateDone = async function () {
 
 const waitAlgoliaProcess = async function () {
     await pages.ams.switchToTab('Sapling Learning Author Management System');
-    await pages.ams.waitForElementInvisibility('Algolia is Processing');
+    await pages.ams.waitForElementInvisibility('Algolia is Processing','In Algolia Queue to Process',120);
 };
 
 const verifyFeedback = async function (itemTabs) {

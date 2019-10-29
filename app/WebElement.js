@@ -57,7 +57,7 @@ const WebElement = function (element) {
     const definition = await this.getBy();
     const implicit = (await my.driver.manage().getTimeouts()).implicit;
     await my.driver.manage().setTimeouts({ implicit: 1000});
-    let visibility = false; timer = Date.now();
+    let visibility = false, timer = Date.now();
     while((Date.now()-timer)/1000 < timeoutInSeconds){
       let elements = await my.driver.findElements(definition);
       if (elements.length > 0) { 
@@ -72,7 +72,7 @@ const WebElement = function (element) {
     const definition = await this.getBy();
     const implicit = (await my.driver.manage().getTimeouts()).implicit;
     await my.driver.manage().setTimeouts({ implicit: 1000});
-    let invisibility = false; timer = Date.now();
+    let invisibility = false, timer = Date.now();
     while((Date.now()-timer)/1000 < timeoutInSeconds){
       let elements = await my.driver.findElements(definition);
       if (elements.length < 1) { 

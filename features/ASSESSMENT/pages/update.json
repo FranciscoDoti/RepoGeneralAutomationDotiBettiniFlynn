@@ -13,27 +13,33 @@
             "definition": "//*[@data-test-id='details-<ReplaceText>']",
             "frame": "default",
             "specialInstr": "noclear"
+        },{
+            "name": "Spinner",
+            "byType": "xpath",
+            "definition": "//div[@id='topic-picker-loading-spinner']",
+            "frame": "default",
+            "specialInstr": "noclear"
         },
         {
             "name": "Tree Element",
             "byType": "xpath",
             "definition": "//div[text()=\"<ReplaceText>\"]",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "Tree Element Leaf",
             "byType": "xpath",
             "definition": "//div[@class='info' and text()=\"<ReplaceText>\"]",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "Button",
             "byType": "xpath",
             "definition": "//button[text()='<ReplaceText>']",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "Option",
