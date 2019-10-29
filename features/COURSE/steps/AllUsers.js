@@ -78,25 +78,18 @@ Then(/^I verify that "(.*)" is activated with following data$/, async function (
   }
 });
 
-When(/^I add URL link to "(.*)"$/, async function (courseName, data_table) {
-  await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('navigation', 'Resources');
-  await pages.resources.click('addActivity');
-  await pages.resources.click('createCustomActivity');
+When(/^I add URL link to "(.*)"$/, async function (tabName, data_table) {
+  await pages.coursePage.click('navigation', tabName);
+  await pages.createCourse.click('New');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('urlLink');
     await pages.resources.populate(data_table.hashes()[i].field, data_table.hashes()[i].link)
     await pages.resources.click('addUrlLink');
   }
 });
-
-When('I add URL activity in resource tab', async function (data_table) {
-  await pages.resources.click('goToContent');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.resources.populate('searchBar', data_table.hashes()[i].activity);
-    await pages.resources.click('addCCButton', data_table.hashes()[i].activity)
-  }
-});
+ When('I click on go to your content', async function(){
+   await pages.resources.click('goToContent');
+ });
 
 When('I close generate access code', async function () {
   await pages.adminMenu.click('closeExportList');

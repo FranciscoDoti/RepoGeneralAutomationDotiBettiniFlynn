@@ -253,6 +253,23 @@
             "definition": "[data-test-id='course_name']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        { 
+            "name": "New",
+            "byType": "css",
+            "definition": "[data-test-id='create_custom_content_new_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "customContentAdd",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//*[@data-test-id='add_to_library']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+
+
         }
           
     ]

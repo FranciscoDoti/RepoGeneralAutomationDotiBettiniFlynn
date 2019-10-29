@@ -213,7 +213,7 @@ When(/^I add "(.*)" content first in order to continue adding the rest contentfr
   }
 })
 
-When(/^I create "(.*)" writing activity to the courseplanner$/, async function (writingName){
+When(/^I create "(.*)" writing activity as an instructor$/, async function (writingName){
   await pages.home.click('closeAlert');
   await driver.getDriver().navigate().refresh();
   await pages.coursePage.click('navigation','Browse');

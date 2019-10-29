@@ -2,21 +2,21 @@ Feature: Verify that Admin is able to add activities in Ebook
 
     Scenario: Admin add the activities in ebook tab
 
-       Given I login to Achieve-CW as "admin_1"
+       Given I login to Achieve-CW as "media_producer_2"
        When I create template with following data 
-            | courseType  | productModel      | courseName                       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Production Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
+            | courseType  | productModel      | courseName                 | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills            | Skills Production Template | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
 
         And I close the popup message                      
 
-        And I click on search button and input "Qualitative Production Template" to search the course
+        And I click on search button and input "Skills Production Template" to search the course
 
-        And I activate "Qualitative Production Template" template and add the following data
-            | courseName                           |  courseCode   |  templateStatus      |
-            | Qualitative Production Template      |   E2E 301     |  Active On Date      | 
+        And I activate "Skills Production Template" template and add the following data
+            | courseName                    |  courseCode   |  templateStatus      |
+            | Skills Production Template    |   E2E 301     |  Active On Date      | 
         
 
-        And I click on "Qualitative Production Template" card
+        And I click on "Skills Production Template" card
         And I click on "Production" Tab
 
         And I add activities to "Content Library"
@@ -40,9 +40,9 @@ Feature: Verify that Admin is able to add activities in Ebook
 
     Scenario:  Admin add activities in courseplan and not in ebook
 
-       Given I login to Achieve-CW as "admin_1"
+       Given I login to Achieve-CW as "media_producer_2"
 
-       When I search for "Qualitative Production Template" and click on course card
+       When I search for "Skills Production Template" and click on course card
        And I click on "Production" Tab
 
        And I add activities in "Course Plan" 
@@ -54,12 +54,12 @@ Feature: Verify that Admin is able to add activities in Ebook
             | activities                    |
             | Literary Elements             |
             | Confidence Intervals          |
-    And I sign out of Achieve
+        And I sign out of Achieve
 
     Scenario: Verify that Admin is able to add reading activities both in eBook and Course plan
-        Given I login to Achieve-CW as "admin_1"
+        Given I login to Achieve-CW as "media_producer_2"
 
-        When I search for "Qualitative Production Template" and click on course card
+        When I search for "Skills Production Template" and click on course card
         And I click on "Production" Tab
 
          And I add the activities in both "Course Plan" and "E-book"
@@ -82,12 +82,12 @@ Feature: Verify that Admin is able to add activities in Ebook
 
     Scenario: Verify that Admin is able to create Folder, reorder and delete Folder in ebook 
 
-        Given I login to Achieve-CW as "admin_1"
+        Given I login to Achieve-CW as "media_producer_2"
 
-        When I search for "Qualitative Production Template" and click on course card
+        When I search for "Skills Production Template" and click on course card
         And I click on "Production" Tab
 
-        And I create folder and add the activities to the folder in ebook 
+        And I create folder and add the activities to the folder in "E-book" 
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    |  Psychopathology       | Reading 1 folder      |
             | Reading 2    | Appendix F             | Reading 2 folder      |
@@ -95,7 +95,7 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Reading 4    | Confidence Intervals   | Reading 4 folder      |
             | Reading 5    | Literary Elements      | Reading 5 folder      |
 
-        Then I verify that activities are added to the folder in ebook 
+        Then I verify that activities are added to the folder 
             | Folder        | activities             |
             | Reading 5     | Literary Elements      |
             | Reading 1     | Psychopathology        |
@@ -103,7 +103,7 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Reading 3     | Glossary               |
             | Reading 4     | Confidence Intervals   |
 
-        When I Reorder The folders in ebook
+        When I Reorder The folders
             | Folder    |   Button              |
             | Reading 1 |   moveToTop           |
             | Reading 2 |   moveUpButton        |
@@ -111,7 +111,7 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Reading 3 |   moveUpButton        |
             | Reading 5 |  moveToEnd            |  
 
-        Then I verify that Folders are reordered in ebook 
+        Then I verify that Folders are reordered 
             | Folder                                                            | orderNumber    |
             | Reading 1                                                         |  1             |                                                       
             | Reading 2                                                         |  2             |
@@ -119,7 +119,7 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Reading 4                                                         |  4             |
             | Reading 5                                                         |  5             |
 
-        When I delete the folder in ebook 
+        When I delete the folder 
             | Folder     |
             | Reading 1  |
             | Reading 2  |
@@ -127,7 +127,7 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Reading 4  |
             | Reading 5  |
 
-        Then I verify that Folders are deleted in ebook
+        Then I verify that Folders are deleted
             | Folder     |
             | Reading 1  |
             | Reading 2  |
@@ -137,11 +137,11 @@ Feature: Verify that Admin is able to add activities in Ebook
 
     Scenario: Verify that admin is able to delete the template 
 
-        Given I login to Achieve-CW as "admin_1"
+        Given I login to Achieve-CW as "media_producer_2"
 
-        When I search for "Qualitative Production Template" course
+        When I search for "Skills Production Template" course
 
-        And I delete the "Qualitative Production Template"
+        And I delete the "Skills Production Template"
 
-        Then I verify that "Qualitative Production Template" is deleted
+        Then I verify that "Skills Production Template" is deleted
 

@@ -53,7 +53,7 @@ Feature: Instructor creates writing activity in Skills Production Template
             | LC1551301608988                                                   |
             | LCRP1550612138614                                                 |
 
-        And I create "Skills Assignment" writing activity to the courseplanner
+        And I create "Skills Assignment" writing activity as an instructor
 
         Then I verify that "Skills Assignment" writing activity is added in Browse
 

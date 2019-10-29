@@ -331,7 +331,7 @@
             "byType": "xpath",
             "definition": "//*[.='<ReplaceText>']/../../..//div[@data-test-id='addTo_btn']",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "placeTab",
