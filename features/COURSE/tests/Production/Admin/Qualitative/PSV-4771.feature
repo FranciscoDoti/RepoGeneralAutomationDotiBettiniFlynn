@@ -12,13 +12,7 @@ Feature: Create a Template and click on Production
             | PSV-4759 Template                 |   E2E 301     |  Active On Date      | 
         
 
-        And I click on "PSV-4759 Template" card
-        And I click on "Production" Tab
-    
-    Scenario: I create an assesment then I add it to the course library and course plan
-
-        When I click on the "Create"
-        And I create the following assesments
+        I create Custom Task in "Qualitative Template" and create an assesment
             | assesmentTitle    | assesmentType     |
             | TestAssesment     | Test/Quiz         |
 
