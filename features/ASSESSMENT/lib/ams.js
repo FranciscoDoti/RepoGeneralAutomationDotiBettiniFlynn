@@ -35,9 +35,11 @@ const deleteItem = async function (itemId) {
 const duplicateItem = async function (itemId) {
     await pages.ams.click('Duplicate Item', itemId);
     await pages.raptor.switchToTab('Raptor Authoring');
-    let duplicatedItemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
+    await pages.raptor.waitForElementVisibility('Tab','question');
+    await pages.raptor.assertElementExists('Item ID');
+    let duplicatedItemId = await pages.raptor.getText('Item ID');
+    duplicatedItemId = duplicatedItemId.split(":")[1].trim();
     return duplicatedItemId;
-
 };
 
 const updateDone = async function () {

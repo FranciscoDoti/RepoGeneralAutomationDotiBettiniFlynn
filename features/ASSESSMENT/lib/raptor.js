@@ -16,6 +16,7 @@ const addItemDetails = async function (item) {
     await pages.raptor.click('More Item Details');
     await pages.raptor.populate('Item Details Title', item.Title);
     await pages.raptor.click('Item Details Done Button');
+    await pages.raptor.waitForElementInvisibility('Item Details Done Button');
 };
 
 const saveItem = async function () {

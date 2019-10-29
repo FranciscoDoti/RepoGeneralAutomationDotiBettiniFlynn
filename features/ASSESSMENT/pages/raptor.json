@@ -142,15 +142,15 @@
         },
         {
             "name": "Item Details Title",
-            "byType": "css",
-            "definition": "#item-details-container > div > div > div:nth-child(4) > input[type=text]",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-background hatchling']//div[.='Title: ']/input",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Item Details Done Button",
-            "byType": "css",
-            "definition": "#authoring-menu-bar > div:nth-child(3) > div > div.cdl-dialog-actions > input",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-background hatchling']//input[@value='Done']",
             "frame": "default",
             "specialInstr": "NA"
         },
