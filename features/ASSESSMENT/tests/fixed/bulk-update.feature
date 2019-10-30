@@ -101,12 +101,12 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | BulkUpdateEditTwice Test MD Item |
 
         And I update the selected items with the following details
-            | Topic Level1         | Topic Level2                | Topic Level3           | Topic Level4                     | Topic Level5                 | Taxonomy Level1      | Taxonomy Level2             | Difficulty | Status    | Access  |
-            | Analytical Chemistry | Exploring Chemical Analysis | The Analytical Process | 0-1 The Analytical Chemist's Job | Quantitative vs. Qualitative | Analytical Chemistry | Exploring Chemical Analysis | Hard       | In Review | private |
+            | Topic Level1         | Topic Level2                | Topic Level3           | Topic Level4                             | Topic Level5                 | Taxonomy Level1      | Taxonomy Level2             | Difficulty | Status    | Access  |
+            | Analytical Chemistry | Exploring Chemical Analysis | The Analytical Process | 0-2 General Steps in a Chemical Analysis | The Analytical Process | Analytical Chemistry | Exploring Chemical Analysis | Hard       | In Review | private |
 
         Then I verify the details of the following items are displayed in AMS
             | Author Mode | Title                            | Topic                        | Taxonomy                    | Difficulty | Module Type | Status    | Access  |
-            | Raptor      | BulkUpdateEditTwice Test MC Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       | MC          | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test MS Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       | MS          | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test UT Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       |             | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test MD Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       | MD          | in review | private |
+            | Raptor      | BulkUpdateEditTwice Test MC Item | The Analytical Process | Exploring Chemical Analysis | hard       | MC          | in review | private |
+            | Raptor      | BulkUpdateEditTwice Test MS Item | The Analytical Process | Exploring Chemical Analysis | hard       | MS          | in review | private |
+            | Raptor      | BulkUpdateEditTwice Test UT Item | The Analytical Process | Exploring Chemical Analysis | hard       |             | in review | private |
+            | Raptor      | BulkUpdateEditTwice Test MD Item | The Analytical Process | Exploring Chemical Analysis | hard       | MD          | in review | private |

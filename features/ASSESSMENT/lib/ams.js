@@ -51,7 +51,7 @@ const updateDone = async function () {
 
 const waitAlgoliaProcess = async function () {
     await pages.ams.switchToTab('Sapling Learning Author Management System');
-    await pages.ams.waitForElementInvisibility('Algolia is Processing','In Algolia Queue to Process',120);
+    await pages.ams.waitForElementInvisibility('Algolia is Processing');
 };
 
 const verifyFeedback = async function (itemTabs) {

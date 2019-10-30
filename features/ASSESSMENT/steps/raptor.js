@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 const { assert } =  require('chai');
 
-When(/^ "(.*)" module with following details$/, async function (moduleType, dataTable) {
+When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await amslib.addRaptorItem();
     await raptorlib.addModule(moduleType);
     var rows = dataTable.hashes();

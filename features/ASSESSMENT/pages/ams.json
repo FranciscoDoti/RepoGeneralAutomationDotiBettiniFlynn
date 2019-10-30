@@ -52,7 +52,7 @@
         {
             "name": "Algolia is Processing",
             "byType": "xpath",
-            "definition": "//i[(text()='Algolia is Processing') or (text()='<ReplaceText>')]",
+            "definition": "//i[(text()='Algolia is Processing') or (text()='In Algolia Queue to Process')]",
             "frame": "default",
             "specialInstr": "NA"
         },
