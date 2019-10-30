@@ -1,4 +1,5 @@
-@SAVI @Brightcove
+@SAVI
+@Brightcove
 
 Feature: Brightcove Audio Player
 
