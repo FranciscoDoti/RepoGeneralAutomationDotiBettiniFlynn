@@ -1,19 +1,23 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
 const assert = require('assert');
-const urls = require(`${process.cwd()}/config/urls.json`);
 const { visitURL, sleep, getDriver } = require(`${process.cwd()}/app/driver`); // allows this file to be moved wherever
-const { log } = require(`${process.cwd()}/app/logger`);
-const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 
-Then('I navigate to Brightcove Media Player', async function () {
-    await pages.brightcovevideo.click('bc-mods-dropdown');
+Given('I navigate to Brightcove Media Player', async function () {
     visitURL('https://studio.brightcove.com/products/videocloud/media'); 
+    await sleep(3000);
+});
+
+Then(/^I login to Brightcove Media as "(.*)"$/, async function (userType) {
+    let user = this.users[userType];
+      await pages.login.populate('email', user.username);
+      await pages.login.populate('password', user.password);
+      await pages.login.click('signinButton')
 });
 
 Then('I navigate to download excel', async function () {
     await sleep(3000);
-    await pages.brightcovevideo.click('')
+    await pages.brightcovevideo.click('bc-react-checkbox')
     await pages.brightcovevideo.click('button id');
     await pages.brightcovevideo.click('1 selected videos');
     await pages.brightcovevideo.click('Include current URLs for video renditions');

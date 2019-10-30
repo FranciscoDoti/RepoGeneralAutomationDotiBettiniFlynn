@@ -209,6 +209,12 @@
             "definition": "/html/body/div[13]/div/div/div/div[3]/div/a/span",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "bc-react-checkbox",
+            "byType": "className",
+            "definition": "bc-react-checkbox",
+            "frame": "default",
+            "specialInstr": "NA"
         }
 
     ]
