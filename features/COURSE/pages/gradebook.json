@@ -144,7 +144,7 @@
         },{
             "name": "checkActivityCompletion",
             "byType": "xpath",
-            "definition": "//div [.='<ReplaceText>']/../../../..//div[3]//div[2]",
+            "definition": "//div[.='<ReplaceText>']/../../../..//div[@data-test-id='percentage_complete']",
             "frame": "default",
             "specialInstr": "NA"
         }
