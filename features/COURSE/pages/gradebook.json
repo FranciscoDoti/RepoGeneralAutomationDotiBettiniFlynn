@@ -66,13 +66,13 @@
         },{
             "name": "categoryName",
             "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div[2]/div[2]/ol/li[2]/div[1]/div/input",
+            "definition": "//span [.='Category Name']/..//input",
             "frame": "default",
             "specialInstr": "NA"
         },{
             "name": "dropLowestGrade",
             "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div[2]/div[2]/ol/li[2]/div[2]/select",
+            "definition": "//select ['drop_label_1']",
             "frame": "default",
             "specialInstr": "NA"
         },{
