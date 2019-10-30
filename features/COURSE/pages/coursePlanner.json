@@ -749,17 +749,20 @@
 
 
         },{
-            "name": "addingContentCheckbox",
+            "name": "addingContent",
             "byType": "xpath",
-            "definition": "//*[@class='ReactModal__Overlay ReactModal__Overlay--after-open _1J4e']/..//input[@type='checkbox']",
+            "definition": "//div[@data-test-id='add_content_confirmation_modal']/..//input[@type='checkbox']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
-            "name": "addingContentContinue",
-            "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div[3]/div[2]/div[2]/button",
+
+        },
+        {
+            "name": "continue",
+            "byType": "css",
+            "definition": "button[data-test-id='modal_add_folder_button']",
             "frame": "default",
             "specialInstr": "NA"
+
         }
     ]
 }
