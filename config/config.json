@@ -1,5 +1,5 @@
 {
-    "environment": "Savi",
+    "environment": "savi",
     "mode": "local",
     "browser": "chrome",
     "headless": false,
@@ -7,7 +7,7 @@
     "timeout": 30,
     "stack": "prod",
     "_examples": {
-        "environment": "local | prod ",
+        "environment": "local | prod | dev | int | pre-prod | brightcove",
         "mode": "local | docker | browserstack | localgrid | hub",
         "browser": "chrome | firefox | safari",
         "headless": "true | false",
@@ -15,3 +15,4 @@
         "timeout": "Number-in-seconds 30 to avoid Gateway timeout on remote"
     }
 }
+  
