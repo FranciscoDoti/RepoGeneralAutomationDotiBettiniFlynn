@@ -64,7 +64,7 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
 
 When('I assign the activities in courseplanner', async function (data_table) {
   await pages.coursePage.click('navigation', 'My Course');
-  await pages.home.click('closeAlert');//added
+  await pages.home.click('closeAlert');
   await pages.coursePage.click('tab', 'COURSE PLAN')
   for (let i = 0; i < data_table.rows().length; i++) {
     let Elements = await pages.coursePlanner.getWebElements('assignAssignmentButton');
@@ -209,8 +209,8 @@ Then('I drop', async function (data_table) {
     await pages.coursePage.click('navigation','People');
     await pages.people.populate('searchbox', user.username);
     await pages.people.click('checkbox', user.username);
-    await pages.people.click('DropStudents');
-    await pages.people.click('Yes,Drop');
+    await pages.people.click('button', 'Drop Students');
+    await pages.people.click('button', 'Yes, Drop');
   }
 });
 

@@ -12,15 +12,9 @@
         "frame": "default",
         "specialInstr": "NA"
     },  {
-        "name": "DropStudents",
+        "name": "button",
         "byType": "xpath",
-        "definition": "//button [.='Drop Students']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "Yes,Drop",
-        "byType": "xpath",
-        "definition": "//button [.='Yes, Drop']",
+        "definition": "//button [.='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }]   
