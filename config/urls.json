@@ -46,5 +46,8 @@
     },
     "Yahoo":{
         "yahoo":"https://www.yahoo.com"
+    },
+    "Reading":{
+        "local":"localhost:4000/9781319066840?cfi=6/22&begin=4/2/60&end=4/2/76"
     }
 }

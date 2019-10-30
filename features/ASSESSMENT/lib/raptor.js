@@ -2,6 +2,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 
 const addModule = async function (moduleType) {
     await pages.raptor.switchToTab('Raptor Authoring');
+    await pages.raptor.waitForElementVisibility('Tab','question');
     await pages.raptor.click('Add Menu');
     await pages.raptor.waitForElementVisibility('Module Pallete', moduleType);
     await pages.raptor.click('Module Pallete', moduleType);
@@ -31,19 +32,11 @@ const addFeedbackModule = async function (tab, moduleType) {
     await pages.raptor.click('Feedback Module', moduleType);
     await pages.raptor.click('Feedback Context Area');
     await pages.raptor.click('Feedback Text');
-}
-const duplicateItem = async function (itemId) {
-    await pages.raptor.click('Duplicate Item', itemId);
-    await pages.raptor.switchToTab('Raptor Authoring');
-    let duplicatedItemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
-    return duplicatedItemId;
-
 };
 
 module.exports = {
     addItemDetails,
     addModule,
     saveItem,
-    addFeedbackModule,
-    duplicateItem
+    addFeedbackModule
 };

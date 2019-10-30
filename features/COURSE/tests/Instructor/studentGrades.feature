@@ -1,8 +1,7 @@
-@Smoke @Course
-Feature: Student attempts reading, static file, URL, Gradebook category
+@Course @Smoke
+Feature: Student grades 
 
-
-    Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
+Scenario: Verify that instructor is able to edit the grades of student
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -13,7 +12,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | courseName             |  courseCode   |  templateStatus      |
             | activities Template   |   E2E 301     |  Active On Date      |    
 
-         And I add URL link to "activities Template" 
+        And I add URL link to "activities Template" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
         
@@ -108,20 +107,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | AutomationAsset2                              | Complete  |
             | Exercise: Misused words 1 (autoscored)        | Complete  |
 
-    Scenario: Verify that student is able to see Grades in Gradebook 
+        And I sign out of Achieve
+        And I login to Achieve-CW as "instructor_1"
 
-        When I login to Achieve-CW as "student_2"
+        When I edit student grade in "activities Course"
+            | Students   | editGrade |
+            | student_1  |  1        | 
 
-        And I click on "activities Course"
-
-        Then I verify the assignmenent grades in gradebook for below assigned activities 
-            | activity                                      | percentage  | points  | PercentOfTotalgrades |
-            | Glossary                                      |   100%      | 5       | 33%                  |
-            | Google                                        |   100%      | 5       | 100%                 |
-            | AutomationAsset2                              |   100%      | 5       | 33%                  |
-            | Exercise: Misused words 1 (autoscored)        |   100%      | 5       | 33%                  |
-
-        And I verify Total Grades
-            | activity                                      | percentage  | points  | PercentOfTotalgrades |
-            | Test Total                                    | 100%        |   5     |   25%                |
-            | Assignments Total                             | 100%        |   15    |   75%                |
+        Then I verify the Grades
+            | Students  | CourseTotal  | Google  | CategoryTotal | 
+            | student_1 | 80%          | 20%     | 20%           | 

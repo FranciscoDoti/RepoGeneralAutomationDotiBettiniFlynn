@@ -10,6 +10,6 @@ Feature: To configure a complete authoring raptor item
 
     And I configure the following item details
       | Title                   |
-      | NGA QA Short Essay test |
+      | FreeResponse Short Essay test |
 
     Then I check FR answers

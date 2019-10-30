@@ -21,6 +21,7 @@ const bulkDeleteItems = async function () {
     let deletedItemsCount = (await pages.ams.getText('Delete Confirmation Message Title')).split(" ")[1];
     await pages.ams.assertElementExists('Delete Confirmation Message Text');
     await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
+    await pages.ams.waitForElementInvisibility('Delete Modal');
     return deletedItemsCount;
 };
 
@@ -29,6 +30,14 @@ const deleteItem = async function (itemId) {
     await pages.ams.click('Delete Action', itemId);
     await pages.ams.assertElementExists('Delete Confirmation Message Title');
     await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
+};
+
+const duplicateItem = async function (itemId) {
+    await pages.ams.click('Duplicate Item', itemId);
+    await pages.raptor.switchToTab('Raptor Authoring');
+    let duplicatedItemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
+    return duplicatedItemId;
+
 };
 
 const updateDone = async function () {
@@ -50,8 +59,7 @@ const verifyFeedback = async function (itemTabs) {
     else {
         await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
     }
-}
-
+};
 
 const verifyItemDetails = async function (item, itemId) {
     if (item['Author Mode'] !== undefined) {
@@ -89,4 +97,5 @@ module.exports = {
     verifyItemDetails,
     waitAlgoliaProcess,
     verifyFeedback,
+    duplicateItem
 };

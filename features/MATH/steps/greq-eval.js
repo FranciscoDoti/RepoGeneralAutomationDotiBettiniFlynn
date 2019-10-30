@@ -223,3 +223,10 @@ When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async
 When(/^I select isList checkbox$/, async function () {
   await pages.mathModule.click('isList');
 });
+
+When(/^I input upper numeric tolerance "(.*)" and lower numeric tolerance "(.*)"$/, async function (upperTolerance, lowerTolerance){
+  await pages.raptorAms.click('mathNumericTolerance');
+  await pages.raptorAms.populate('numericUpperTolerance', upperTolerance);
+  await pages.raptorAms.populate('numericLowerTolerance', lowerTolerance);
+});
+
