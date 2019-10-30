@@ -1,6 +1,10 @@
 @Assessment @AMS @FilterItems
 Feature: To verify the correct functionality of ams's item filter
 
+    Scenario: Apply text filter and verify whether the AMS items are changing based on text filter
+        Given I login to AMS as "all-permissions-author"
+        When I apply the following text filter "CEE"
+        Then I verify that the items match with the text filter that was applied
 
     @MultipleFilters @VerifyChanges @Smoke
     Scenario: Change the filter. Apply multiple filters and verify  whether the AMS items are changing based on filter
