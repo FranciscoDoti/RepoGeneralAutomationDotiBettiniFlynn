@@ -144,7 +144,7 @@
         },{
             "name": "checkActivityCompletion",
             "byType": "xpath",
-            "definition": "//*[@id='container']/div/div/div/div[2]/div/div[2]/div[2]/div/nav/div[2]/div/div[2]/div[3]/div[1]/div[3]/div/div/div[2]",
+            "definition": "//div [.='<ReplaceText>']/../../../..//div[3]//div[2]",
             "frame": "default",
             "specialInstr": "NA"
         }

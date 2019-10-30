@@ -101,10 +101,12 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         Given I login to Achieve-CW as "instructor_2" 
         When I click on "activities Course"
-        And I drop "student_6"
+        And I drop
+            |Students    |
+            |student_2  |
         And I navigate to gradebook and verify grades
-        | activity                                      | percent   |
-        | Google                                        | 100%      |
+            | activity                                      | percent   |
+            | Google                                        | 100%      |
         And I sign out of Achieve
 
    

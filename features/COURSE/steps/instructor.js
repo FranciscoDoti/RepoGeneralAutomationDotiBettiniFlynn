@@ -203,16 +203,18 @@ Then('I verify the Grades', async function (data_table){
   }
 });
 
-Then(/^I drop "(.*)"$/, async function (userType) {
-  let user = this.users[userType];
-  await pages.coursePage.click('navigation','People');
-  await pages.people.populate('searchbox', user.username);
-  await pages.people.click('checkbox', user.username);
-  await pages.people.click('DropStudents');
-  await pages.people.click('Yes,Drop');
+Then('I drop', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.coursePage.click('navigation','People');
+    await pages.people.populate('searchbox', user.username);
+    await pages.people.click('checkbox', user.username);
+    await pages.people.click('DropStudents');
+    await pages.people.click('Yes,Drop');
+  }
 });
 
 When('I navigate to gradebook and verify grades', async function (data_table) {
   await pages.coursePage.click('navigation','My Course');
-  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].percent)
+  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
 });
