@@ -13,8 +13,8 @@ Feature: Create a Template and click on Production
         
 
         I create Custom Task in "Qualitative Template" and create an assesment
-            | assesmentTitle    | assesmentType     |
-            | TestAssesment     | Test/Quiz         |
+            | assesmentTitle    | assesmentType     | homeTaxonomy                      |
+            | TestAssesment     | Test/Quiz         | Interactive General Chemistry V1  |
 
         And I add "TestAssesment" to the Course Library
         And I click on "Course Library"
