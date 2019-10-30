@@ -7,20 +7,20 @@
         "specialInstr": "NA"
     },  {
         "name": "checkbox",
-        "byType": "css",
-        "definition": "[type='checkbox']",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/..//input[@type='checkbox']",
         "frame": "default",
         "specialInstr": "NA"
     },  {
-        "name": "dropStudentButton",
-        "byType": "css",
-        "definition": "[data-test-id='drop_student_button']",
+        "name": "DropStudents",
+        "byType": "xpath",
+        "definition": "//button [.='Drop Students']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "dropStudentsSubmitBtn",
-        "byType": "css",
-        "definition": "[data-test-id='drop_students_submit_btn']",
+        "name": "Yes,Drop",
+        "byType": "xpath",
+        "definition": "//button [.='Yes, Drop']",
         "frame": "default",
         "specialInstr": "NA"
     }]   

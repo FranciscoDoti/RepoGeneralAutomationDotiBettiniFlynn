@@ -207,12 +207,12 @@ Then(/^I drop "(.*)"$/, async function (userType) {
   let user = this.users[userType];
   await pages.coursePage.click('navigation','People');
   await pages.people.populate('userFilterTextBox', user.username);
-  await pages.people.click('checkbox');
-  await pages.people.click('dropStudentButton');
-  await pages.people.click('dropStudentsSubmitBtn');
+  await pages.people.click('checkbox', user.username);
+  await pages.people.click('DropStudents');
+  await pages.people.click('Yes,Drop');
 });
 
-When('I navagate to gradebook and verify grades', async function (data_table) {
+When('I navigate to gradebook and verify grades', async function (data_table) {
   await pages.coursePage.click('navigation','My Course');
   await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].percent)
 });
