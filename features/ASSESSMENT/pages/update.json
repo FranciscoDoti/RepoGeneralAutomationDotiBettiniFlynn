@@ -23,23 +23,23 @@
         {
             "name": "Tree Element",
             "byType": "xpath",
-            "definition": "//div[text()=\"<ReplaceText>\"]",
+            "definition": "//div[text()='<ReplaceText>']",
             "frame": "default",
-            "specialInstr": "focus"
+            "specialInstr": "NA"
         },
         {
             "name": "Tree Element Leaf",
             "byType": "xpath",
-            "definition": "//div[@class='info' and text()=\"<ReplaceText>\"]",
+            "definition": "//div[@class='info' and text()='<ReplaceText>']",
             "frame": "default",
-            "specialInstr": "focus"
+            "specialInstr": "NA"
         },
         {
             "name": "Button",
             "byType": "xpath",
             "definition": "//button[text()='<ReplaceText>']",
             "frame": "default",
-            "specialInstr": "focus"
+            "specialInstr": "NA"
         },
         {
             "name": "Option",

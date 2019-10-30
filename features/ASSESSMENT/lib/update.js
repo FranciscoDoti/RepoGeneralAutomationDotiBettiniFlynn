@@ -4,7 +4,7 @@ const setTopic = async function (item) {
     await pages.update.click('Field', 'topic');
     await pages.update.click('Tree Element', item['Topic Level1']);
     await pages.update.click('Tree Element', item['Topic Level2']);
-    // await pages.update.waitForElementInvisibility('Spinner');
+    await pages.update.waitForElementInvisibility('Spinner');
     await pages.update.click('Tree Element', item['Topic Level3']);
     await pages.update.click('Tree Element', item['Topic Level4']);
     await pages.update.click('Tree Element Leaf', item['Topic Level5']);
