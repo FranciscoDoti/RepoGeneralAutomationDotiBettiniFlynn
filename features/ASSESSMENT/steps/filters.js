@@ -13,6 +13,10 @@ When("I apply the following filters", async function(dataTable){
     }
 });  
 
+When(/^I apply the following text filter "(.*)"$/, async function(textFilter){
+    await filterslib.setTextFilter(textFilter);
+});
+
 When("I click on Load More", async function(){
     await pages.filters.click('Load More');
 });
@@ -43,6 +47,11 @@ Then('I verify that the items match with the filter applied with value {}', asyn
 
 });
 
+Then(/^I verify that the items match with the text filter "(.*)" that was applied$/, async function(textFilter){
+    await filterslib.verifyItemsWithFilterApplied(textFilter);
+
+});
+
 Then('I remove the filter with tag {}', async function(tagValue) {
     await filterslib.removeFilter(tagValue);
 });
@@ -50,3 +59,9 @@ Then('I remove the filter with tag {}', async function(tagValue) {
 Then('I verify that the quantity of items on AMS screen have increased', async function() {
     await filterslib.verifyThatCountResultHasIncreased(); 
 });
+
+
+/*
+        
+        Then I verify that the items match with the text filter that was applied
+*/
