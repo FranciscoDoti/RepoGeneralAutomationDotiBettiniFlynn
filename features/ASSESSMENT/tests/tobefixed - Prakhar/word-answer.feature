@@ -7,7 +7,7 @@ Feature: To configure a Word Answer raptor item
     When I add the "Word Answer" module
     And I configure the following item details
       | Title                          |
-      | NGA QA Word Answer Module test |
+      | WordAnswer Module test |
 
     And I configure the following grading options
       | Option        | Value |

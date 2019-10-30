@@ -24,7 +24,7 @@ Feature: To configure a complete authoring raptor item
     |Name   |Equation                |
     |calc1  |???range1???*???num1??? |
 
-    And I add the following choices
+    And I add the following choices in "Multiple Select" module
     |Value         |
     |???num1???    |
     |???string1??? |

@@ -137,7 +137,31 @@ const activateTab = async function (tabName) {
       await switchToTab(tabs[index]);
       let currentTabName = await getTitle();
       if (currentTabName.includes(tabName)) {
-        log.debug(`${currentTabName} tab activated.`);
+        log.info(`${currentTabName} tab activated.`);
+        return true;
+      }
+    }
+    await sleep(5000);
+  };
+  return false;
+};
+
+const closeTabAndSwitch = async function (tabName) {
+  let startTimer = Date.now();
+  while(Date.now() - startTimer < config.timeout){
+    var tabs = await driver.getAllWindowHandles();
+    if(tabs.length < 2){
+      log.error(`There is only 1 tab existing. Script will not closing the ${tabName} tab to avoid issues. Please check your test.`);
+      return false;
+    }
+    for (let index = 0; index < tabs.length; index++) {
+      await switchToTab(tabs[index]);
+      let currentTabName = await getTitle();
+      if (currentTabName.includes(tabName)) {
+        await closeCurrentTab();
+        log.info(`${currentTabName} tab closed.`);
+        await switchToTab(tabs[0]);
+        log.info(`${await getTitle()} tab activated.`);
         return true;
       }
     }
@@ -149,6 +173,14 @@ const activateTab = async function (tabName) {
 const switchToTab = async function (tab) {
   try {
     await driver.switchTo().window(tab);
+  } catch (err) {
+    log.error(err.stack);
+  }
+};
+
+const closeCurrentTab = async function () {
+  try {
+    await driver.close();
   } catch (err) {
     log.error(err.stack);
   }
@@ -285,6 +317,7 @@ module.exports = {
   getURL,
   getTitle,
   activateTab,
+  closeTabAndSwitch,
   takeScreenshot,
   getDriver,
   getWebDriver,

@@ -15,6 +15,8 @@ When('I create the following draft Raptor items in AMS', async function (datatab
     let itemId = await raptorlib.saveItem();
     this.data.set(item.Title, "id", itemId);
     await pages.ams.closeTab('Raptor Authoring');
+    
+    log.debug(`Item Id ${itemId} for module type ${item['Module Type']}`);
   }
 });
 
