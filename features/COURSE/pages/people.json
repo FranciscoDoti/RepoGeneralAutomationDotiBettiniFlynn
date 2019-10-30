@@ -1,6 +1,6 @@
 {
     "webElements": [{
-        "name": "userFilterTextBox",
+        "name": "searchbox",
         "byType": "css",
         "definition": "[data-test-id='user_filter_textbox']",
         "frame": "default",

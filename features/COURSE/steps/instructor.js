@@ -206,7 +206,7 @@ Then('I verify the Grades', async function (data_table){
 Then(/^I drop "(.*)"$/, async function (userType) {
   let user = this.users[userType];
   await pages.coursePage.click('navigation','People');
-  await pages.people.populate('userFilterTextBox', user.username);
+  await pages.people.populate('searchbox', user.username);
   await pages.people.click('checkbox', user.username);
   await pages.people.click('DropStudents');
   await pages.people.click('Yes,Drop');
