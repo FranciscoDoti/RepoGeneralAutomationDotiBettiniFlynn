@@ -72,7 +72,7 @@
         },{
             "name": "dropLowestGrade",
             "byType": "xpath",
-            "definition": "//select ['drop_label_1']",
+            "definition": "//div [.='Drop Lowest Grades']/../../..//select",
             "frame": "default",
             "specialInstr": "NA"
         },{
