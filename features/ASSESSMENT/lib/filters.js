@@ -1,5 +1,5 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { assert, expect } = require('chai');
+const { expect } = require('chai');
 
 
 
@@ -47,7 +47,7 @@ const removeFilter = async function (tagText) {
 };
 
 const verifyThatCountResultHasIncreased = async function() {
-   assert( await searchResultCount() > 200, 'Assertion error.');  
+  expect(await searchResultCount()).to.be.greaterThan(200);
 }; 
 
 
