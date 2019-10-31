@@ -1,10 +1,11 @@
 const { Given, When, Then } = require('cucumber');
 const { RestObject } = require(`${process.cwd()}/app/rest`);
 const { expect } = require('chai');
+const specPath = `${process.cwd()}/features/COURSE/apispecs/lms/course`;
 
 
 Given('I create a course template with as {string} with the following data', async function (user, datatable) {
-    let spec = `${process.cwd()}/features/COURSE/apispecs/lms/course/test-sm-api.json`;
+    let spec = `${specPath}/createcourse.json`;
     let rest = new RestObject(spec);
     
     for(let i = 0; i < datatable.rows().length; i++){

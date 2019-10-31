@@ -20,12 +20,5 @@
       "course_type": "course",
       "course_term": "spring",
       "course_year": "2019"
-    },
-    "response": {
-      "status": 200,
-      "success": "Course Created",
-      "id": "75318bc5-a2bd-4938-9db6-074d7aeaefd6",
-      "short_id": "yq2tvn",
-      "product_model_id": 1
     }
   }
