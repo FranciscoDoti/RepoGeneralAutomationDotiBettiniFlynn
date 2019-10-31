@@ -1,139 +1,147 @@
 const jsonfile = require('jsonfile');
-const rp = require('request-promise-native');
 const { log } = require(`${process.cwd()}/app/logger`);
-const jwt = require('jsonwebtoken');
+const rp = require('request-promise-native');
+var request = Object.assign({}), response, error, spec;
 
-const restObject = function (fullFileName) {
-    let that = Object.assign({}, jsonfile.readFileSync(fullFileName));
-    let response, error;
-    
-    const makeRequest = async function (request) {
-        return (await rp(request).then(function (res) {
-            response = res;
-            log.info(`Request returned response. Status code ${response.statusCode}`);
-            return true;
-        }).catch(function (err) {
-            error = err;
-            log.info(`Request failed. Status code ${error.statusCode}`);
-            return false;
-        }));
-    };
-
-    const buildOptions = function(requestType){
-        log.info(`Constructing request options for request type ${requestType}`);
-        let options = Object.assign({});
-        options.method = requestType;
-        options.uri = that.uri;
-        options.body = that.request;
-        options.json = that.json;
-        options.resolveWithFullResponse = true;
-        options.auth = Object.assign({}, {'bearer': generateJWT()});
-        console.log(options);
-        return options;
-    };
-
-    const requestJSONBody = function(request, body){
-        log.info(`Adding body ${JSON.stringify(body)} to request`);
-        Object.assign(request.body, body);
-        return request;
-    };
-
-    const POST = async function (body) {
-        let request = await buildOptions('POST');
-        request = await requestJSONBody(request, body);
-        let result = await makeRequest(request);
-
-        if(result){
-            return response.statusCode;
-        }else{
-            return error.statusCode;
-        };
-    };
-
-    //build GET, PUT, DELETE, PATCH
-    //handle qs, headers, body, apiauth
-
-    const validate = async function () {
-        // console.log(that.body);
-        // // console.log('done');
-        // console.log(that.err);
-        // // console.log('done');
-    };
-
-    that.POST = POST;
-    that.validate = validate;
-    return that;
+function RestObject(fullFileName) {
+    spec = Object.assign({}, jsonfile.readFileSync(fullFileName));
+    log.debug(`Reading rest specs from file ${fullFileName}`);
 };
 
-module.exports = {
-    restObject
+const send = async function () {
+    return (await rp(request).then(function (res) {
+        response = res;
+        log.info(`Request returned response. Status code ${response.statusCode}`);
+        return true;
+    }).catch(function (err) {
+        error = err;
+        log.info(`Request failed. Status code ${error.statusCode}`);
+        return false;
+    }));
 };
 
-const response = function () {
-    const statusCode = function () {
-
-    };
-
-    const body = function () {
-
-    };
-
-    const headers = function () {
-
-    };
-
-    const responseTime = function () {
-
-    };
+const setRequestOptions = async function (requestType) {
+    log.info(`Constructing request options for request type ${requestType}`);
+    request.method = requestType;
+    request.uri = spec.uri;
+    request.body = spec.request;
+    request.json = spec.json;
+    request.resolveWithFullResponse = true;
 };
 
-const assertions = function () {
-    const responseType = function () {
-
-    };
-
-    const condition = function () {
-
-    };
-
-    const value = function () {
-
-    };
+const setRequestBody = async function (body) {
+    log.info(`Adding body ${JSON.stringify(body)} to request`);
+    Object.assign(request.body, body);
 };
 
-const variables = function () {
-
+const setRequestCookie = async function () {
+    request.jar = cookieJar;
 };
 
-const users = {
-    admin: {
-        sub: '0053B000001YyTMQA0',
-        user_id: '0053B000001YyTMQA0',
-        FirstName: 'Courseware',
-        LastName: 'Admin',
-        Email: 'admin@courseware.com',
-        C_Acct__c: 'C02777',
-        School_or_Institution__c: 'Courseware Team',
-        nickname: 't3grfl7ooo25q5hg6slupbfus',
-        name: 'Courseware Admin',
-        app_metadata: {
-            admin: true,
-            support: false,
-        },
-        user_metadata: {
-            first_name: 'Courseware',
-            last_name: 'Admin',
-            name: 'Courseware Admin',
-            cAccount: 'C02777',
-        },
-        auth0_id: null,
-        LastModifiedDate: '2019-10-15T09:04:33.000+0000',
-        email: 'admin@courseware.com'
+let admin = {
+    "email": "admin@courseware.com",
+    "app_metadata": {
+        "admin": true,
+        "support": false
     }
 };
 
-const generateJWT = function () {
-    return jwt.sign(users.admin, 'secret', {
+const jsonwebtoken = require('jsonwebtoken');
+const achieveJWT = function (user) {
+    return jsonwebtoken.sign(user, 'secret', {
         expiresIn: '1d'
     });
 };
+
+const tough = require('tough-cookie');
+let cookie = new tough.Cookie({
+    key: "id_token",
+    value: achieveJWT(admin),
+    domain: 'mldev.cloud'
+});
+
+var cookieJar = rp.jar();
+cookieJar.setCookie(cookie, 'https://mldev.cloud');
+console.log(cookie);
+
+RestObject.prototype.POST = async function (body) {
+    await setRequestOptions('POST');
+    await setRequestBody(body);
+    await setRequestCookie();
+    let result = await send();
+
+    if (result) {
+        return response.statusCode;
+    } else {
+        return error.statusCode;
+    };
+};
+
+RestObject.prototype.response = async function (body) {
+    return response.body;
+};
+
+RestObject.prototype.error = async function (body) {
+    return error;
+};
+
+module.exports = {
+    RestObject
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const response = function () {
+//     const statusCode = function () {
+
+//     };
+
+//     const body = function () {
+
+//     };
+
+//     const headers = function () {
+
+//     };
+
+//     const responseTime = function () {
+
+//     };
+// };
+
+// const assertions = function () {
+//     const responseType = function () {
+
+//     };
+
+//     const condition = function () {
+
+//     };
+
+//     const value = function () {
+
+//     };
+// };
+
+// const variables = function () {
+
+// };
