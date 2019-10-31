@@ -29,7 +29,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
 });
 
@@ -86,4 +86,19 @@ Then('I verify the report is dowloaded with following data', async function (dat
   for (let i = 0; i < datatable.rows().length; i++) {
       expect(data[0]).to.have.property(datatable.hashes()[i].ColumnName);
   }
+});
+
+
+When(/^I click on "(.*)" Tab$/, async function (tabName){
+  await pages.coursePage.click('Tab', tabName)
+});
+
+Then('I verify that following Tab are present', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePage.assertElementExists('Tab', data_table.hashes()[i].Tabs)
+  }
+})
+
+When(/^I click on "(.*)" card$/, async function (courseName){
+  await pages.courseList.click('courseCard', courseName)
 });

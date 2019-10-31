@@ -5,7 +5,7 @@
 const { assert, expect } = require('chai');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const jsonfile = require('jsonfile');
-const { getDriver, getWebDriver, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
+const { getDriver, getWebDriver, activateTab, closeTabAndSwitch, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
 
@@ -195,7 +195,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const scrollElementIntoView = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
-    elementName = elementName + (replaceText ? " " + replaceText : "");
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
 
     log.debug(`Scrolling element: ${elementName} into view.`)
     if (await hasElement(elementName)) {
@@ -319,7 +321,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const getAttributeValue = async function (elementName, replaceText, attributeName) {
     if (attributeName === undefined && replaceText !== undefined) {
       attributeName = replaceText;
-    } else {
+    } else if (replaceText !== undefined && attributeName !== undefined){
       elementName = await addDynamicElement(elementName, replaceText);
     }
 
@@ -472,8 +474,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const closeTab = async function (tabName) {
     try {
       log.debug(`Closing tab : ${tabName}`);
-      await activateTab(tabName);
-      await getDriver().close();
+      await closeTabAndSwitch(tabName);
     } catch (err) {
       log.error(err.stack);
       throw err;

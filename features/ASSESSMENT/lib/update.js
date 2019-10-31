@@ -33,6 +33,7 @@ const setAccess = async function (access) {
 
 const save = async function () {
     await pages.update.click('Button', 'Save Changes');
+    await pages.update.waitForElementInvisibility('Update Modal');
 };
 
 module.exports = {

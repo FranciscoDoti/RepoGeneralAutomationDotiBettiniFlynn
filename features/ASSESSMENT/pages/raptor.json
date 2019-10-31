@@ -1,6 +1,27 @@
 {
     "webElements": [
         {
+            "name": "Module Multiple Select",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Multiple Choice",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='multiple_choice'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Chemical Equation",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID",
             "byType": "css",
             "definition": "div[data-test-id='edit-id']",
@@ -9,8 +30,8 @@
         },
         {
             "name": "Add Menu",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+            "byType": "xpath",
+            "definition": "//div/h2[@data-test-id='PRIMARY ADD MODULE']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -30,8 +51,8 @@
         },
         {
             "name": "More Menu",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY MORE']",
+            "byType": "xpath",
+            "definition": "//div/h2[@data-test-id='PRIMARY MORE']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -71,30 +92,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "chemicalEquationPrefix",
-            "byType": "css",
-            "definition": "span[data-test-id=chem-eq-prefix-label] textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "Prompt",
-            "byType": "css",
-            "definition": "div[data-test-id='ace-label'] > textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        },
-        {
             "name": "Tab",
             "byType": "css",
             "definition": "a[data-test-id='<ReplaceText>-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "chemicalEquationAnswerInput",
-            "byType": "css",
-            "definition": "input[data-test-id=chem-eq-answer-input]",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -323,11 +323,37 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Duplicate Item",
+            "=.=.=.=.=.=": "===========================================================================================",
+            "=.COMMENT.=": "= THE FOLLOWING ELEMENTS ARE IN THIS FILE BECAUSE THEY ARE COMMON TO MORE THAN ONE MODULE =",
+            ".=.=.=.=.=.": "==========================================================================================="
+        },
+        {
+            "name": "Choice Value Textbox",
             "byType": "xpath",
-            "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Add Choice Button",
+            "byType": "css",
+            "definition": "a[data-test-id='add-item-button']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Text 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Answer Radio Button 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
+            "frame": "default",
+            "specialInstr": ""
         }
     ]
 }

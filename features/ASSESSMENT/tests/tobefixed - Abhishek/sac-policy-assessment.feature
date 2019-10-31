@@ -1,3 +1,4 @@
+@Assessment @Smoke
 Feature: As a student, I have to attempt an assignment with policy
 
 

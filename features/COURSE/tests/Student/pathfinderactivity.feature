@@ -153,18 +153,3 @@ Feature: Student compelets Pathfinder Activity
             |  Practice Test for Reading Skills - Engli ...     |   100%      | 5       | 33%                  |
             | Complete the Study Plan for Reading Skil ...      |   100%      | 5       | 33%                  |
             | Final Test for Reading Skills - English  ...      |   100%      | 5       | 33%                  |
-
-    Scenario: Verify that media producer is able to delete the  courses created
-        Given I login to Achieve-CW as "media_producer_2"
-
-         When I delete "Pathfinder Template" and "Pathfinder Course"
-
-         Then I verify that "Pathfinder Template" and "Pathfinder Course" are deleted 
-
-            
-
-
-            
-
-
-

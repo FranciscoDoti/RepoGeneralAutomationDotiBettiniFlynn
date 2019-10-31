@@ -9,10 +9,9 @@ let pages = {
     questionBank: new PageObject('questionBank.json', stepsPath),
     customQuestion: new PageObject('customQuestionsTab.json',stepsPath),
     hatchlingItem: new PageObject('hatchlingItemModal.json',stepsPath),
+    hatchlingItemFrame: new PageObject('hatchlingItemFrame.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
     moldraw: new PageObject('moldraw.json',stepsPath),
-    multipleSelect: new PageObject('multipleSelect.json',stepsPath),
-    multipleChoice: new PageObject('multipleChoice.json', stepsPath),
     sac: new PageObject('sac.json',stepsPath),
     assignmentTab: new PageObject('assignmentTab.json', stepsPath),
     wordAnswer: new PageObject('wordAnswer.json', stepsPath),
@@ -24,7 +23,8 @@ let pages = {
     itemDetails: new PageObject('itemDetailsPopup.json', stepsPath),
     update: new PageObject('update.json', stepsPath),
     froala: new PageObject('froala.json', stepsPath),
-    filters: new PageObject('filters.json',stepsPath)
+    filters: new PageObject('filters.json',stepsPath),
+    chemicalEquation: new PageObject('chemicalEquation.json',stepsPath)
 };
 
 module.exports ={

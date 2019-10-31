@@ -9,6 +9,9 @@ const setFilter = async function (filterText, optionText) {
   await pages.filters.click('Option', optionText);
 };
 
+const setTextFilter = async function(textFilter){
+  await pages.filters.populate('Text Filter', textFilter);
+};
 const verifyTag = async function (tagText) {
 
   await pages.filters.assertElementExists('Filter Tag', tagText.toUpperCase());
@@ -43,14 +46,18 @@ const removeFilter = async function (tagText) {
   await pages.filters.assertElementDoesNotExist('Filter Tag', tagText);
 };
 
-
+const verifyThatCountResultHasIncreased = async function() {
+  expect(await searchResultCount()).to.be.greaterThan(200);
+}; 
 
 
 module.exports = {
   setFilter,
+  setTextFilter,
   verifyTag,
   removeFilter,
   searchResultCount,
   verifyTextInRow,
-  verifyItemsWithFilterApplied
+  verifyItemsWithFilterApplied,
+  verifyThatCountResultHasIncreased
 };
