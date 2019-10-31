@@ -10,7 +10,7 @@
         {
             "name": "Field",
             "byType": "xpath",
-            "definition": "//*[@data-test-id='details-<ReplaceText>']",
+            "definition": "//div[@class='cdl-dialog-container cdl-scroll']//*[contains(@data-test-id,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "noclear"
         },
