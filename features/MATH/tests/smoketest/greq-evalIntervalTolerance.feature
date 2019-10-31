@@ -13,7 +13,7 @@ Feature: Interval with tolerance and EndPoint not enforced
         And I input author answer "(5,6]"
         And I unselect Enforce Endpoints checkbox
         And I input upper numeric tolerance "0.5" and lower numeric tolerance "0.5"
-        And I set Item Details name as "PointFloatTolerance"
+        And I set Item Details name as "IntervalFloatTolerance"
         Then I save the question
 
         When I simulate student interface
