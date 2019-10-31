@@ -5,7 +5,7 @@
     "headless": false,
     "screenshots": "onFail",
     "timeout": 30,
-    "stack": "dev-cw-coursemgmt3",
+    "stack": "",
     "_examples": {
         "environment": "local | dev | int | pre-prod | prod",
         "mode": "local | docker | browserstack | localgrid | hub",
