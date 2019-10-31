@@ -30,14 +30,14 @@ Feature: Copy course from Skills Production Template
         And I click on home button to return to coursepage
         And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "Skills Production Template" template with the following data
-            | courseName          | courseCode           |
-            | Skills Course       | E2E 301              |
+            | courseName                  | courseCode           |
+            | Skills Production Course    | E2E 301              |
         
         And I click on "COURSES" tab 
 
-        Then I verify that "Skills Course" is created with following data
-            | CourseName              | Status                    |
-            | Skills Course           |  Draft                    |
+        Then I verify that "Skills Production Course" is created with following data
+            | CourseName                        | Status                    |
+            | Skills Production Course          |  Draft                    |
            
 
 

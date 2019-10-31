@@ -265,8 +265,10 @@ When(/^I create Custom Assesment Task in "(.*)" Tab$/, async function (tabName, 
   }
   await pages.coursePlanner.click('resetModel');
   await pages.coursePlanner.click('questionBank');
+  await pages.coursePlanner.click('expandCollapse', 'Expand');
   await pages.coursePlanner.click('checkBoxAssignment');
   await pages.coursePlanner.click('addQuestionButton');
+  await pages.coursePlanner.click('expandCollapse', 'Collapse')
   await pages.coursePlanner.click('close');
 });
 

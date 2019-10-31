@@ -335,25 +335,25 @@
             "byType": "xpath",
             "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "assignmentType",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[1]/select",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "taxonomy",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[2]/div/select",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "resetModel",
             "byType": "css",
             "definition": "[data-test-id='reset-modal-confirm-button']",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "checkBoxAssignment",
             "byType": "css",
@@ -764,6 +764,21 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        }, {
+            "name": "contentCheckbox",
+            "byType": "xpath",
+            "definition": "//input[@data-test-id='content_checkbox']",
+            "frame": "default",
+            "specialInstr": "focus"
+    
+        },{
+            "name": "expandCollapse",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='<ReplaceText>']",
+            "frame": "customAssesmentFrame",
+            "specialInstr": "NA"
+
         }
+
     ]
 }

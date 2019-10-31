@@ -27,4 +27,4 @@ Feature: Adding activities to Skills Production Template
         Then I verify that activties are added in "Content Library"
             | activity                                      |    
             | LC1551301608988                               |
-            |  GLOSSARY                                     |            
+            |  Glossary                                     |            

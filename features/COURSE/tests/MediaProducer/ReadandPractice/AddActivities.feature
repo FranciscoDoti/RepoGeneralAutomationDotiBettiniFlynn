@@ -30,4 +30,4 @@ Feature: Adding activities to Read & Practice template
             | activity                                      |
             | LCRP1550612138614                             |    
             | LC1551301608988                               |
-            |  GLOSSARY                                     |            
+            |  Glossary                                     |            

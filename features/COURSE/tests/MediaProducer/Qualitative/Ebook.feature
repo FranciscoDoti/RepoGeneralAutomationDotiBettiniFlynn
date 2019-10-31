@@ -1,8 +1,8 @@
-Feature: Verify that Admin is able to add activities in Ebook
+Feature: Verify that MediaProducer is able to add activities in Ebook
 
-    Scenario: Admin add the activities in ebook tab
+    Scenario: MediaProducer add the activities, Delete Activites, Create Folder in ebook(Qualitative Template)
 
-       Given I login to Achieve-CW as "admin_1"
+       Given I login to Achieve-CW as "media_producer_2"
        When I create template with following data 
             | courseType  | productModel      | courseName                       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Production Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
@@ -38,9 +38,9 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Appendix F |
     And I sign out of Achieve
 
-    Scenario:  Admin add activities in courseplan and not in ebook
+    Scenario:  MediaProducer add activities in courseplan and not in ebook
 
-       Given I login to Achieve-CW as "admin_1"
+       Given I login to Achieve-CW as "media_producer_2"
 
        When I search for "Qualitative Production Template" and click on course card
        And I click on "Production" Tab
@@ -56,8 +56,8 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Confidence Intervals          |
     And I sign out of Achieve
 
-    Scenario: Verify that Admin is able to add reading activities both in eBook and Course plan
-        Given I login to Achieve-CW as "admin_1"
+    Scenario: Verify that MediaProducer is able to add reading activities both in eBook and Course plan
+        Given I login to Achieve-CW as "media_producer_2"
 
         When I search for "Qualitative Production Template" and click on course card
         And I click on "Production" Tab
@@ -80,9 +80,9 @@ Feature: Verify that Admin is able to add activities in Ebook
         And I sign out of Achieve
 
 
-    Scenario: Verify that Admin is able to create Folder, reorder and delete Folder in ebook 
+    Scenario: Verify that MediaProducer is able to create Folder, reorder and delete Folder in ebook 
 
-        Given I login to Achieve-CW as "admin_1"
+        Given I login to Achieve-CW as "media_producer_2"
 
         When I search for "Qualitative Production Template" and click on course card
         And I click on "Production" Tab
@@ -135,9 +135,9 @@ Feature: Verify that Admin is able to add activities in Ebook
             | Reading 4  |
             | Reading 5  |
 
-    Scenario: Verify that admin is able to delete the template 
+    Scenario: Verify that MediaProducer is able to delete the template 
 
-        Given I login to Achieve-CW as "admin_1"
+        Given I login to Achieve-CW as "media_producer_2"
 
         When I search for "Qualitative Production Template" course
 

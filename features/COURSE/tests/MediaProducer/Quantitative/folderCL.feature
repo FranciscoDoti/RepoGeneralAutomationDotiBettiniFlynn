@@ -1,22 +1,22 @@
 @Course @Smoke
-Feature: Adding activities in Folder COURSE PLAN in Qualitative template
-
+Feature: Adding activities in Folder Resource Tab to Quantitative Template
     @mediaproducer-delete-courseTemplate
-    Scenario: Verify that Media Producer is able to add folder in courseplanner in Qualitative template
+    Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Quantitative Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber    | courseStatus  |
+            | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498 | draft         |   
 
-        And I close the popup message 
-        And I click on search button and input "Qualitative Template" to search the course                     
+         And I close the popup message 
+        And I click on search button and input "Quantitative Template" to search the course     
 
-        And I activate the "Qualitative Template" template and add the following data
+        And I activate the "Quantitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
+            | Quantitative Template  |   E2E 301     |  Active On Date      | 
 
-        And I click on "Qualitative Template" card
+
+        And I click on "Quantitative Template" card
         And I click on "Production" Tab
 
         And I add activities to "Content Library"
@@ -25,21 +25,13 @@ Feature: Adding activities in Folder COURSE PLAN in Qualitative template
             | LCRP1550612138614     |
             | LC1551301608988       |
 
-        And I add activities in "Course Plan" 
-            | activities            |
-            | Glossary              |
-            | LCRP1550612138614     |
-            | LC1551301608988       |
-
-         Then I verify that activties are added in "Course Plan"
+        Then I verify that activties are added in "Content Library"
             | activity                                      |    
             | Glossary                                      |
             | LCRP1550612138614                             |
             | LC1551301608988                               |
-        
-        And I close the popup message
 
-        And I create folder and add the activities to the folder in "Course Plan" 
+        And I create folder and add the activities to the folder in "Content Library" 
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    |  Glossary              | Reading 1 folder      |
             | Reading 2    | LCRP1550612138614      | Reading 2 folder      |
@@ -79,6 +71,4 @@ Feature: Adding activities in Folder COURSE PLAN in Qualitative template
             | Reading 1  |
             | Reading 2  |
             | Reading 3  |
-
-
-       
+           

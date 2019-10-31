@@ -1,11 +1,11 @@
-Feature: Verify that Admin is able to add activities in Ebook
+Feature: Verify that MediaProducer is able to add activities in Ebook
 
-    Scenario: Admin add the activities in ebook tab
+    Scenario: Verify that MediaProducer is abe to add activities, add folder, delete folder in Skills Production Template
 
        Given I login to Achieve-CW as "media_producer_2"
        When I create template with following data 
-            | courseType  | productModel      | courseName                 | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills            | Skills Production Template | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
+           | courseType  | productModel | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills Production Template  |                  | E2E 301      | 9781464199498  | draft         |  
 
         And I close the popup message                      
 

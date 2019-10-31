@@ -34,7 +34,7 @@
         {
             "name": "TemplateStatus",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3cOL']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1UHg']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -191,7 +191,7 @@
         }, {
             "name": "ISBNVerification",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='SibD']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='clDE']",
             "frame": "default",
             "specialInstr": "NA"
         },

@@ -127,7 +127,7 @@ Then(/^I verify that activities are added in "(.*)" and not in "(.*)"$/, async f
 for (let i = 0; i < data_table.rows().length; i++) {
   await pages.coursePage.click('navigation', ebook);
   await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
-  await pages.coursePage.click('Tab', courseplan);
+  await pages.coursePage.click('navigation', courseplan);
   await pages.eBook.assertElementDoesNotExist('activityVerification', data_table.hashes()[i].activities);
 }
 });
@@ -142,7 +142,7 @@ for (let i = 0; i < data_table.rows().length; i++) {
 
 Then('I verify that activities are added in CoursePlan and not in eBook', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePage.click('Tab', 'Course Plan');
+    await pages.coursePage.click('navigation', 'Course Plan');
     await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activities);
     await pages.coursePage.click('navigation', 'E-book');
     await pages.eBook.assertElementDoesNotExist('activityVerification', data_table.hashes()[i].activities);
@@ -191,8 +191,8 @@ Then('I verify that activities are added to the folder', async function (data_ta
 })
 
 When('I Reorder The folders', async function (data_table){
-  await pages.eBook.populate('contentCheckbox', 'Reading 5','check');
-  await pages.eBook.populate('contentCheckbox', 'Reading 5','check');
+  await pages.coursePlanner.populate('contentCheckbox','check');
+  await pages.coursePlanner.populate('contentCheckbox','check');
   await pages.eBook.click('activitySelected', 'Reorder');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('reorderResources', data_table.hashes()[i].Folder);

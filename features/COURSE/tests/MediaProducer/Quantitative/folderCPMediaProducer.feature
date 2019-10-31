@@ -37,6 +37,7 @@ Feature: Adding activities in Folder courseplanner in Quantitative Template
             | Glossary                                      |
             | LCRP1550612138614                             |
             | LC1551301608988                               |
+        And I close the popup message
 
         And I create folder and add the activities to the folder in "Course Plan" 
             | Folder       | activities             | PlaceFolder           |

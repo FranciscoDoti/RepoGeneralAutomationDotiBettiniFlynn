@@ -1,13 +1,13 @@
 @Course @Smoke
-Feature: Verify that mediaProducer is able to create URL in Skills template
+Feature: Verify that mediaProducer is able to create URL in Skills Production Template
 
    @mediaproducer-delete-courseTemplate
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Skills template
+    Scenario: Verify that mediaproducer is able to create a custom task with URL in Skills Production Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Production Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I close the popup message                      
 

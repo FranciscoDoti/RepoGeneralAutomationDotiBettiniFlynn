@@ -1,6 +1,6 @@
-Feature: Verify that Admin is able to add activities in Ebook
+Feature: Verify that MediaProducer is able to add activities in Ebook( Quantitative Template)
 
-    Scenario: Admin add the activities in ebook tab
+    Scenario: Verify that Media Producer is able to add activities, create Folder, delete Folder in Quantitative template
 
        Given I login to Achieve-CW as "media_producer_2"
        When I create template with following data 

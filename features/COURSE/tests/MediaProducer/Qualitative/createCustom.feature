@@ -36,9 +36,3 @@ Feature: Verify that media Producer is able to create Custom Task Qualitative te
         Then I verify that activties are added in "Content Library"
             | activity                                      |    
             | Qual Test                                     |
-
-       
-
-
-
-        
