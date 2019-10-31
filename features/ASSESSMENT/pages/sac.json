@@ -24,7 +24,7 @@
         {
             "name": "Instructor Assessment Link",
             "byType": "xpath",
-            "definition": "//tr[@class='section main sectionSortable'][1]/td/ul/li[1]/a/span/span",
+            "definition": "//ul[contains(@class,'section img-text')]//span[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -36,9 +36,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Student Analysis Tab",
+            "name": "Activity Editor Tab",
             "byType": "xpath",
-            "definition": "//*[@id='navigation-tabs']/a[5]",
+            "definition": "//div[@data-test-id='navigation-tabs']/a[text()='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },

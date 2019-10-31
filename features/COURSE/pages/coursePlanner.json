@@ -88,6 +88,12 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
+            "name": "contentType",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/..//input[@data-test-id='filter_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "addUnitButton",
             "byType": "css",
             "definition": "[data-test-id='add_unit_button']",
@@ -132,7 +138,7 @@
         }, {
             "name": "customContentButton",
             "byType": "xpath",
-            "definition": "//button[@class='_1tkc' and .='New']",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -329,25 +335,25 @@
             "byType": "xpath",
             "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "assignmentType",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[1]/select",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "taxonomy",
             "byType": "xpath",
             "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[2]/div/select",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "resetModel",
             "byType": "css",
             "definition": "[data-test-id='reset-modal-confirm-button']",
             "frame": "customAssesmentFrame",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         }, {
             "name": "checkBoxAssignment",
             "byType": "css",
@@ -615,15 +621,15 @@
         {
             "name": "editTitle",
             "byType": "css",
-            "definition": "[class='ActivityTitle__titleEdit__3jSK4']",
+            "definition": "[aria-labelledby='edit']",
             "frame": "customIframe",
             "specialInstr": "NA"
 
         },
         {
             "name": "activityTitle",
-            "byType": "css",
-            "definition": "[data-id='activity-title-editField']",
+            "byType": "xpath",
+            "definition": "//div[@data-id='activity-title-editField']/..//input[@type='text']",
             "frame": "customIframe",
             "specialInstr": "NA"
 
@@ -742,6 +748,37 @@
             "specialInstr": "NA"
 
 
+        },
+        {
+            "name": "addingContent",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='add_content_confirmation_modal']/..//input[@type='checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "continue",
+            "byType": "css",
+            "definition": "button[data-test-id='modal_add_folder_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "contentCheckbox",
+            "byType": "xpath",
+            "definition": "//input[@data-test-id='content_checkbox']",
+            "frame": "default",
+            "specialInstr": "focus"
+    
+        },{
+            "name": "expandCollapse",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='<ReplaceText>']",
+            "frame": "customAssesmentFrame",
+            "specialInstr": "NA"
+
         }
+
     ]
 }

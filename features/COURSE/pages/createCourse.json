@@ -34,14 +34,14 @@
         {
             "name": "TemplateStatus",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3cOL']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1UHg']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Status",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3mBZ']",
+            "definition": "//*[.='<ReplaceText>']/../../../../..//div[@class='ReMV']",
             "frame": "default",
             "specialInstr": "NA"
         },{
@@ -191,7 +191,7 @@
         }, {
             "name": "ISBNVerification",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='SibD']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='clDE']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -253,6 +253,23 @@
             "definition": "[data-test-id='course_name']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        { 
+            "name": "New",
+            "byType": "css",
+            "definition": "[data-test-id='create_custom_content_new_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "customContentAdd",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//*[@data-test-id='add_to_library']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+
+
         }
           
     ]

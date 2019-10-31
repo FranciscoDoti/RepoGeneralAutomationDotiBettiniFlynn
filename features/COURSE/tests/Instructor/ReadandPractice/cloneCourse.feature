@@ -22,7 +22,7 @@ Feature: Instructor attempts all the activities in Read & Practice Template
             | addReadingButton         | GLOSSARY                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
-        And I click on "Course Templates" tab 
+        And I click on "COURSE TEMPLATES" tab 
 
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
@@ -41,13 +41,11 @@ Feature: Instructor attempts all the activities in Read & Practice Template
         And I create a course "Read & Practice Course" with the following data
             | field             | value                                     |
             | courseName        | Read & Practice Instructor Course         |
-            | courseCode        | E2E 301                                    |
+            | courseCode        | E2E 301                                   |
          
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
-        And I verify that "Read & Practice Instructor Course" is created with following data
-            | CourseName                              | Status                                  |
-            | Read & Practice Instructor Course       | Draft                                  |
+        And I verify that "Read & Practice Instructor Course" is created 
            
         
 

@@ -24,7 +24,7 @@ Feature: Instructor attempts all the activities in Quantitative Template
             | addReadingButton         | Glossary                                      |
             | addButtonReadandpractice | LCRP1550612138614                             |
         And I click on home button to return to coursepage
-        And I click on "Course Templates" tab 
+        And I click on "COURSE TEMPLATES" tab 
 
         And I copy course from the "Quantitative Template" template with the following data
             | courseName           | courseCode           |
@@ -43,13 +43,11 @@ Feature: Instructor attempts all the activities in Quantitative Template
         And I create a course "Quantitative Course" with the following data
             | field             | value                                  |
             | courseName        | Quantitative Instructor Course         |
-            | courseCode        | E2E 301                                 |
+            | courseCode        | E2E 301                                |
 
         Then I verify that "Course Copied." message is displayed
         And I close the popup message
-        And I verify that "Quantitative Instructor Course" is created with following data
-            | CourseName                           | Status                               |
-            | Quantitative Instructor Course       |  Draft                               |
+        Then I verify that "Quantitative Instructor Course" is created
            
         
 

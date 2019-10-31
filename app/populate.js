@@ -1,9 +1,9 @@
+
 const { getDriver, onWaitForElementToBeVisible, onPageLoadedWaitById, onWaitForElementToBeLocated, onWaitForWebElementToBeEnabled, onWaitForWebElementToBeDisabled, onWaitForElementToBeInvisible, sleep } = require('./driver');
 const { By, Key } = require('selenium-webdriver');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { assert } = require('chai');
-const actions = getDriver().actions({bridge: true});
 
 const populateInput = async function (selector, value, WebElementObject) {
   const type = await selector.getAttribute('type');
@@ -32,8 +32,9 @@ const populateInput = async function (selector, value, WebElementObject) {
     case 'checkbox':
       if (value.toLowerCase() === 'click') {
         await populateClick(selector, value, WebElementObject);
-      } else {
-        log.debug('Bypassing the checkbox click');
+      }
+      else {
+        await populateCheckbox(selector, value, WebElementObject);
       }
       break;
 
@@ -49,6 +50,41 @@ const populateInput = async function (selector, value, WebElementObject) {
 
     default:
     assert.fail(`ERROR: populateInput() failed because the input type ${type} has not been coded for.`);
+  }
+};
+
+const populateCheckbox = async function (selector, value, WebElementObject) {
+  if(value.toLowerCase() !== 'check' && value.toLowerCase() !== 'uncheck'){
+    assert.fail(`Instruction for populate checkbox must be 'check' or 'uncheck'. Please validate your test step.`);
+  };
+
+  const actions = getDriver().actions({ bridge: true });
+  let localSpecialInstr = '';
+  const WebElementData = WebElementObject.element;
+  const isChecked = await selector.isSelected();
+  if (WebElementData && WebElementData.specialInstr != null) {
+    localSpecialInstr = WebElementData.specialInstr;
+  }
+
+  if (localSpecialInstr.toLowerCase().includes('focus')) {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
+    await WebElementObject.webElement.focus();
+  }
+
+  if(value == 'check'){
+    if(isChecked){
+      log.debug(`Checkbox is already checked.`);
+    } else {
+      await actions.click(selector).perform();
+      log.debug(`Post populate Checkbox: Checked the checkbox.`);
+    }
+  } else if(value == 'uncheck'){
+    if(isChecked){
+      await actions.click(selector).perform();
+      log.debug(`Post populate Checkbox: Un-checked the checkbox.`);
+    } else {
+      log.debug(`Checkbox is already unchecked.`);
+    }
   }
 };
 
@@ -86,6 +122,8 @@ const populateSelect = async function (selector, item, WebElementData) {
 };
 
 const populateTextField = async function (selector, value, WebElementObject) {
+  const actions = getDriver().actions({bridge: true});
+
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
   const eleValue = await selector.getAttribute('value');
@@ -98,19 +136,16 @@ const populateTextField = async function (selector, value, WebElementObject) {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
     await WebElementObject.webElement.focus();
   }
-
   if(!localSpecialInstr.toLowerCase().includes('noclick'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.click();
   }
-
   if(!localSpecialInstr.toLowerCase().includes('noclear'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
     await selector.clear();
   }
-
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
@@ -167,7 +202,18 @@ const populateClick = async function (selector, value, WebElementObject) {
       await sleep(500);
     }
 
-    await selector.click();
+    try {
+      await selector.click();
+    } catch (ex) {
+      if (ex.name == 'ElementNotInteractableError') {
+        log.debug(`Error name ${ex.name}`);
+        const actions = getDriver().actions({ bridge: true });
+        actions.click(selector).perform();
+      } else {
+        log.debug(`Error name ${ex.name}`);
+        assert.fail(`Exception occurred and caught. ${ex}`);
+      }
+    };
     await sleep(500);
 
     if (WebElementData && WebElementData.waitIdToBeVisibleonNextPage) {
@@ -263,6 +309,8 @@ const populateFile = async function (selector, value, WebElementObject) {
 };
 
 const populateRichTextField = async function (selector, value, WebElementObject) {
+  const actions = getDriver().actions({bridge: true});
+
   let localSpecialInstr = '';
   const WebElementData = WebElementObject.element;
   const eleValue = await selector.getAttribute('textContent');
@@ -275,15 +323,18 @@ const populateRichTextField = async function (selector, value, WebElementObject)
     log.debug(`Special Instruction is : ${localSpecialInstr}. Focussing on element.`);
     await WebElementObject.webElement.focus();
   }
+  if (!localSpecialInstr.toLowerCase().includes('noclick')) {
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
+    await actions.click(selector);
+  }
 
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
   {
     log.debug(`Special Instruction is : ${localSpecialInstr}. Current text is ${eleValue}. Overwriting text.`);
     await actions.doubleClick(selector).sendKeys(value).perform();
   } else {
-    await actions.click(selector).sendKeys(value).perform();
+    await actions.sendKeys(value).perform();
   }
-  
   log.debug(`Post populate text field value: ${value}`);
 };
 

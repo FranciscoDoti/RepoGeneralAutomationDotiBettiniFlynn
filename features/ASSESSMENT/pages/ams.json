@@ -10,21 +10,42 @@
         {
             "name": "Select Checkbox",
             "byType": "xpath",
-            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span",
+            "definition": "//td[contains(.,'<ReplaceText>')]/../th/span[@class='item-checkbox']/span/label/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Hatchling Item Option",
+            "byType": "xpath",
+            "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Hatchling Item Option",
+            "byType": "xpath",
+            "definition": "//div[@class='dropdown-content']/a[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "AMS Button",
             "byType": "xpath",
-            "definition": "//li[contains(.,'<ReplaceText>')]",
+            "definition": "//li[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Confirmation Dialog Button",
+            "byType": "xpath",
+            "definition": "//a[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Algolia is Processing",
             "byType": "xpath",
-            "definition": "//i[.='Algolia is Processing']",
+            "definition": "//i[(text()='Algolia is Processing') or (text()='In Algolia Queue to Process')]",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -34,6 +55,111 @@
             "definition": "//td[contains(@data-test-id,'<ReplaceText>')]",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "AMS Tab",
+            "byType": "xpath",
+            "definition": "//li[@role='presentation']/a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "User Filter",
+            "byType": "css",
+            "definition": "input[data-test-id='filterTbl']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Action",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='item-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Action",
+            "byType": "xpath",
+            "definition": "//tr[@data-id='<ReplaceText>']/td/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Duplicate Item",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='item-duplicate-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item ID Link",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='edit-item-link-<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "User Id",
+            "byType": "css",
+            "definition": "th a",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Show Feedback Toggle",
+            "byType": "xpath",
+            "definition": "//label[@class='switch']/div",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Tab",
+            "byType": "xpath",
+            "definition": "//div[@id='raptor-panel']//li[@role='presentation']/a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Solution Feedback",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'raptor-solution')]//div[@data-module-type='static_textfield']/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Confirmation Message Title",
+            "byType": "css",
+            "definition": "h4[data-test-id='header-text']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Side Panel",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'side-panel')]//div[@data-module-type='static_textfield']/span/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Delete Confirmation Message Text",
+            "byType": "xpath",
+            "definition": "//div[text()='Are you sure you want to delete these items?']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "User Permissions Checkbox",
+            "byType": "xpath",
+            "definition": "//label[contains(text(),'<ReplaceText>')]/input",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Search Result Text",
+            "byType": "xpath",
+            "definition": "//td[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
         }
     ]
 }

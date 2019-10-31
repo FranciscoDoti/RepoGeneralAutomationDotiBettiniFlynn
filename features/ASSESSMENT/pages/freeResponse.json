@@ -1,6 +1,13 @@
 {
     "webElements": [
         {
+            "name": "Prompt",
+            "byType": "css",
+            "definition": "div[data-test-id='ace-label'] > textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
             "name": "Min Character Count",
             "byType": "css",
             "definition": "div[class='min-max-fields'] > input:nth-child(3)",
