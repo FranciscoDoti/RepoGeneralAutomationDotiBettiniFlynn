@@ -1,5 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
+const { log } = require(`${process.cwd()}/app/logger`);
 const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
@@ -162,5 +163,21 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     for (let i = 0; i < datatable.rows().length; i++) {
         let itemTabs = datatable.hashes()[i];
         await amslib.verifyFeedback(itemTabs);
+    }
+});
+
+Then(/^I preview the item created with rendered variable values$/, async function (datatable) {
+    await pages.raptor.click('Tab', 'correct');
+    await pages.raptor.scrollElementIntoView('Answer Radio Button ' + "1");
+    await pages.raptor.click('Answer Radio Button ' + "1");
+    await pages.raptor.click('Cycle Variables Button');
+    await raptorlib.saveItem();
+    let text = await pages.raptor.getText('Choice Text 1');
+    switch (text) {
+        case "oak":
+        case "pine":
+        case "beech":
+            log.info(`Correct value rendered "${text}". PASS`);
+        break;
     }
 });

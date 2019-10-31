@@ -1,7 +1,7 @@
 @Assessment @RenderVariable @Smoke
 Feature: Render variable values while preview an item
 
-    Scenario Outline: Render variable
+    Scenario: Render variable
         Given I login to AMS as "all-permissions-author"
         When I add the "Multiple Choice" module
 
@@ -18,7 +18,10 @@ Feature: Render variable values while preview an item
             | ???trees??? |
             | Trees       |
 
-        And I set the number "1" as the correct answer
-
-        And The variable values are displayed as choices
+        # And I set the number "1" as the correct answer
+        # And The variable values are displayed as choices
         Then I preview the item created with rendered variable values
+            | Choices|
+            | oak    |
+            | pine   |
+            | beech  |

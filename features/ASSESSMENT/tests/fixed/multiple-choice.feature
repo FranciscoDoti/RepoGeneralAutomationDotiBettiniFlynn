@@ -19,6 +19,6 @@ Feature: To configure a multiple choice raptor item
       | ???trees??? |
       | Trees       | 
 
-    And I set the number "1" as the correct answwer
+    And I set the number "1" as the correct answer
 
     Then The variable values are displayed as choices
