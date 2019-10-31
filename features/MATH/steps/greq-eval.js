@@ -1,7 +1,6 @@
 const { When, Then } = require('cucumber');
 const { Key } = require('selenium-webdriver');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "^", "∪", "."]
 const trigPalette = ["sin", "cos", "tan", "sec", "csc", "cot", "sinh", "cosh", "tanh", "sech", "csch", "coth"]
 
@@ -222,6 +221,10 @@ When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async
 
 When(/^I select isList checkbox$/, async function () {
   await pages.mathModule.click('isList');
+});
+
+When(/^I unselect Enforce Endpoints checkbox$/, async function () {
+  await pages.raptorAms.click('mathEnforceEndpoints');
 });
 
 When(/^I input upper numeric tolerance "(.*)" and lower numeric tolerance "(.*)"$/, async function (upperTolerance, lowerTolerance){
