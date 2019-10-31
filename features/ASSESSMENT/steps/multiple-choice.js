@@ -27,7 +27,6 @@ When(/^I add \"([^\"]*)\" hatchling item with following details on \"([^\"]*)\"$
   if (type === 'AMS') {
     await hatchlinglib.createHatchlingEasyItem(moduleType);
   } else if (type === 'AE') {
-    await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-customquestions');
     await pages.hatchlingItemFrame.click('Button', 'Create Question');
     await pages.assignmentTab.click('HatchlingQuestionType', moduleType);
   }
