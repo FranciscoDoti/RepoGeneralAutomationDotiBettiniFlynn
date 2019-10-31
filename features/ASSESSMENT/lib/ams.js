@@ -65,6 +65,7 @@ const verifyFeedback = async function (itemTabs) {
 };
 
 const verifyItemDetails = async function (item, itemId) {
+    await pages.ams.assertElementExists('Data Row', itemId);
     if (item['Author Mode'] !== undefined) {
         await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
     }
