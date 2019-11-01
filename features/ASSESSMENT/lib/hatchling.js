@@ -5,24 +5,24 @@ const createHatchlingEasyItem = async function (moduleType) {
   await pages.ams.click('Hatchling Item Option', moduleType);
   await pages.hatchlingItem.assertText('Dialog Title', `${moduleType} Question`);
 }
-const populateQuestion = async function (question, type) {
+const populateQuestion = async function (question, assessmentType) {
   let code = Date.now();
   QuestionTitle = question['Question Title'] + " " + code;
-  if (type === 'AMS') {
+  if (assessmentType === 'AMS') {
     await pages.hatchlingItem.populate('Question Title', QuestionTitle);
     await pages.hatchlingItem.populate('Question Prompt', question['Question Prompt']);
     return QuestionTitle;
-  } else if (type === 'AE') {
+  } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.populate('Question Title', QuestionTitle);
     await pages.hatchlingItemFrame.populate('Question Prompt', question['Question Prompt']);
     return QuestionTitle;
   }
 }
-const clickGenericFeedback = async function (moduleType) {
-  if (moduleType === 'AMS') {
+const clickGenericFeedback = async function (assessmentType) {
+  if (assessmentType === 'AMS') {
     await pages.hatchlingItem.click('Button', 'Add Generic Feedback');
     await pages.hatchlingItem.click('Collapsible Title', 'Generic Feedback');
-  } else if (moduleType === 'AE') {
+  } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.click('Button', 'Add Generic Feedback');
     await pages.hatchlingItemFrame.click('Collapsible Title', 'Generic Feedback');
   }
@@ -33,11 +33,11 @@ const populateNEvalues = async function (item) {
   await pages.hatchlingItem.click('Derivation Type', item['Derivation Type']);
   await pages.hatchlingItem.populate('Derivation Amount', item['Acceptance Within']);
 }
-const populateHint = async function (moduleType, hint) {
-  if (moduleType === 'AMS') {
+const populateHint = async function (assessmentType, hint) {
+  if (assessmentType === 'AMS') {
     await pages.hatchlingItem.click('Collapsible Title', 'Hint');
     await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Hint', hint.Hint);
-  } else if (moduleType === 'AE') {
+  } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.click('Collapsible Title', 'Hint');
     await pages.hatchlingItemFrame.populate('Hint and Generic Feedback', 'Hint', hint.Hint);
   }

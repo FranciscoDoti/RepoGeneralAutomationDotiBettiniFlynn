@@ -23,27 +23,27 @@ Then('The variable values are displayed as choices', async function () {
   }
 });
 
-When(/^I add \"([^\"]*)\" hatchling item with following details on \"([^\"]*)\"$/, async function (moduleType, type, datatable) {
-  if (type === 'AMS') {
+When(/^I add \"([^\"]*)\" hatchling item with following details on \"([^\"]*)\"$/, async function (moduleType, assessmentType, datatable) {
+  if (assessmentType === 'AMS') {
     await hatchlinglib.createHatchlingEasyItem(moduleType);
-  } else if (type === 'AE') {
+  } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.click('Button', 'Create Question');
     await pages.assignmentTab.click('HatchlingQuestionType', moduleType);
   }
   for (let i = 0; i < datatable.rows().length; i++) {
     let question = datatable.hashes()[i];
-    let questionTitle = await hatchlinglib.populateQuestion(question, type);
+    let questionTitle = await hatchlinglib.populateQuestion(question, assessmentType);
     this.data.set('Question Title', questionTitle);
   }
 });
 
-When(/^I add the following correct answer and feedback on \"([^\"]*)\"$/, async function (moduleType, datatable) {
+When(/^I add the following correct answer and feedback on \"([^\"]*)\"$/, async function (assessmentType, datatable) {
   let c = datatable.hashes()[0];
-  if (moduleType === 'AMS') {
+  if (assessmentType === 'AMS') {
     await pages.hatchlingItem.populate('Correct Answer', c.Answer);
     await pages.hatchlingItem.click('Collapsible Title', 'Correct Answer Feedback');
     await pages.hatchlingItem.populate('Correct Answer Feedback', c.Feedback);
-  } else if (moduleType === 'AE') {
+  } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.populate('Correct Answer', c.Answer);
     await pages.hatchlingItemFrame.click('Collapsible Title', 'Correct Answer Feedback');
     await pages.hatchlingItemFrame.populate('Correct Answer Feedback', c.Feedback);
@@ -51,8 +51,8 @@ When(/^I add the following correct answer and feedback on \"([^\"]*)\"$/, async 
 
 });
 
-When(/^I add the following incorrect answers and feedback on \"([^\"]*)\"$/, async function (moduleType, datatable) {
-  if (moduleType === 'AMS') {
+When(/^I add the following incorrect answers and feedback on \"([^\"]*)\"$/, async function (assessmentType, datatable) {
+  if (assessmentType === 'AMS') {
     for (let i = 0; i < datatable.rows().length; i++) {
       await pages.hatchlingItem.click('Button', 'Add Answer');
       let ans = datatable.hashes()[i];
@@ -60,7 +60,7 @@ When(/^I add the following incorrect answers and feedback on \"([^\"]*)\"$/, asy
       await pages.hatchlingItem.click('Collapsible Incorrect Feedback Title', i + 1);
       await pages.hatchlingItem.populate('Incorrect Answer Feedback', i + 1, ans.Feedback);
     };
-  } else if (moduleType === 'AE') {
+  } else if (assessmentType === 'AE') {
     for (let i = 0; i < datatable.rows().length; i++) {
       await pages.hatchlingItemFrame.click('Button', 'Add Answer');
       let ans = datatable.hashes()[i];
@@ -71,18 +71,18 @@ When(/^I add the following incorrect answers and feedback on \"([^\"]*)\"$/, asy
   }
 });
 
-When(/^I set hint and generic feedback with following details and save on \"([^\"]*)\"$/, async function (moduleType, datatable) {
+When(/^I set hint and generic feedback with following details and save on \"([^\"]*)\"$/, async function (assessmentType, datatable) {
 
   let ans = datatable.hashes()[0];
   for (let i = 0; i < datatable.rows().length; i++) {
     let hint = datatable.hashes()[i];
-    await hatchlinglib.populateHint(moduleType, hint);
+    await hatchlinglib.populateHint(assessmentType, hint);
   }
-  await hatchlinglib.clickGenericFeedback(moduleType);
-  if (moduleType === 'AMS') {
+  await hatchlinglib.clickGenericFeedback(assessmentType);
+  if (assessmentType === 'AMS') {
     await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
     await pages.hatchlingItem.click('Button', 'Save');
-  } else if (moduleType === 'AE') {
+  } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
     await pages.hatchlingItemFrame.click('Button', 'Save');
   }
