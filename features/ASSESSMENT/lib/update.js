@@ -4,17 +4,19 @@ const setTopic = async function (item) {
     await pages.update.click('Field', 'topic');
     await pages.update.click('Tree Element', item['Topic Level 1']);
     await pages.update.click('Tree Element', item['Topic Level 2']);
-    await pages.update.waitForElementVisibility('Tree Element', item['Topic Level 3']);
+    await pages.update.waitForElementInvisibility('Spinner');
     await pages.update.click('Tree Element', item['Topic Level 3']);
     await pages.update.click('Tree Element', item['Topic Level 4']);
     await pages.update.click('Tree Element Leaf', item['Topic Level 5']);
     await pages.update.click('Button', 'Confirm');
+    await pages.update.waitForElementInvisibility('Button', 'Confirm');
 };
 
 const setTaxonomy = async function (item) {
     await pages.update.click('Field', 'taxonomy');
     await pages.update.click('Tree Element Leaf', item['Taxonomy Level 2']);
     await pages.update.click('Button', 'Confirm');
+    await pages.update.waitForElementInvisibility('Button', 'Confirm');
 };
 
 const setDifficulty = async function (difficulty) {
