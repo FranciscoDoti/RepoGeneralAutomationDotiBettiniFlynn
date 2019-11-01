@@ -6,14 +6,14 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
 
         Given I login to AMS as "all-permissions-author"
         When I create the following draft Raptor items in AMS
-            | Title               | Module Type       |
+            | Title                       | Module Type       |
             | BulkUpdateEdit Test MC Item | Multiple Choice   |
             | BulkUpdateEdit Test MS Item | Multiple Select   |
             | BulkUpdateEdit Test UT Item | Ungraded Text     |
             | BulkUpdateEdit Test MD Item | Molecular Drawing |
 
         And I select the following items by title in AMS
-            | Title               |
+            | Title                       |
             | BulkUpdateEdit Test MC Item |
             | BulkUpdateEdit Test MS Item |
             | BulkUpdateEdit Test UT Item |
@@ -24,7 +24,7 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | Algebra      | Math Review  | CHAPTER 0 All Topics | All Topics   | Your Questions (uncategorized) | Algebra         | Math Review     | Easy       | Live   | public |
 
         Then I verify the details of the following items are displayed in AMS
-            | Author Mode | Title               | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
+            | Author Mode | Title                       | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
             | Raptor      | BulkUpdateEdit Test MC Item | Your Questions (uncategorized) | Math Review | easy       | MC          | live   | public |
             | Raptor      | BulkUpdateEdit Test MS Item | Your Questions (uncategorized) | Math Review | easy       | MS          | live   | public |
             | Raptor      | BulkUpdateEdit Test UT Item | Your Questions (uncategorized) | Math Review | easy       |             | live   | public |
@@ -35,14 +35,14 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
 
         Given I login to AMS as "all-permissions-author"
         When I create the following draft Raptor items in AMS
-            | Title               | Module Type       |
+            | Title                         | Module Type       |
             | BulkUpdateDelete Test MC Item | Multiple Choice   |
             | BulkUpdateDelete Test MS Item | Multiple Select   |
             | BulkUpdateDelete Test UT Item | Ungraded Text     |
             | BulkUpdateDelete Test MD Item | Molecular Drawing |
 
         And I select the following items by title in AMS
-            | Title               |
+            | Title                         |
             | BulkUpdateDelete Test MC Item |
             | BulkUpdateDelete Test MS Item |
             | BulkUpdateDelete Test UT Item |
@@ -51,14 +51,14 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
         And I delete the selected items
 
         Then I verify the deleted items are displayed in Deleted Items screen in AMS
-            | Title               |
+            | Title                         |
             | BulkUpdateDelete Test MC Item |
             | BulkUpdateDelete Test MS Item |
             | BulkUpdateDelete Test UT Item |
             | BulkUpdateDelete Test MD Item |
 
         And I verify the deleted items are not displayed in AMS
-            | Title               |
+            | Title                         |
             | BulkUpdateDelete Test MC Item |
             | BulkUpdateDelete Test MS Item |
             | BulkUpdateDelete Test UT Item |
@@ -69,14 +69,14 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
 
         Given I login to AMS as "all-permissions-author"
         When I create the following draft Raptor items in AMS
-            | Title               | Module Type       |
+            | Title                            | Module Type       |
             | BulkUpdateEditTwice Test MC Item | Multiple Choice   |
             | BulkUpdateEditTwice Test MS Item | Multiple Select   |
             | BulkUpdateEditTwice Test UT Item | Ungraded Text     |
             | BulkUpdateEditTwice Test MD Item | Molecular Drawing |
 
         And I select the following items by title in AMS
-            | Title               |
+            | Title                            |
             | BulkUpdateEditTwice Test MC Item |
             | BulkUpdateEditTwice Test MS Item |
             | BulkUpdateEditTwice Test UT Item |
@@ -87,26 +87,26 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | Algebra      | Math Review  | CHAPTER 0 All Topics | All Topics   | Your Questions (uncategorized) | Algebra         | Math Review     | Easy       | Live   | public |
 
         And I verify the details of the following items are displayed in AMS
-            | Author Mode | Title               | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
+            | Author Mode | Title                            | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
             | Raptor      | BulkUpdateEditTwice Test MC Item | Your Questions (uncategorized) | Math Review | easy       | MC          | live   | public |
             | Raptor      | BulkUpdateEditTwice Test MS Item | Your Questions (uncategorized) | Math Review | easy       | MS          | live   | public |
             | Raptor      | BulkUpdateEditTwice Test UT Item | Your Questions (uncategorized) | Math Review | easy       |             | live   | public |
             | Raptor      | BulkUpdateEditTwice Test MD Item | Your Questions (uncategorized) | Math Review | easy       | MD          | live   | public |
 
         And I select the following items by title in AMS
-            | Title               |
+            | Title                            |
             | BulkUpdateEditTwice Test MC Item |
             | BulkUpdateEditTwice Test MS Item |
             | BulkUpdateEditTwice Test UT Item |
             | BulkUpdateEditTwice Test MD Item |
 
         And I update the selected items with the following details
-            | Topic Level1         | Topic Level2                | Topic Level3           | Topic Level4                     | Topic Level5                 | Taxonomy Level1      | Taxonomy Level2             | Difficulty | Status    | Access  |
-            | Analytical Chemistry | Exploring Chemical Analysis | The Analytical Process | 0-1 The Analytical Chemist's Job | Quantitative vs. Qualitative | Analytical Chemistry | Exploring Chemical Analysis | Hard       | In Review | private |
+            | Topic Level1         | Topic Level2                | Topic Level3           | Topic Level4                             | Topic Level5                 | Taxonomy Level1      | Taxonomy Level2             | Difficulty | Status    | Access  |
+            | Analytical Chemistry | Exploring Chemical Analysis | The Analytical Process | 0-2 General Steps in a Chemical Analysis | The Analytical Process | Analytical Chemistry | Exploring Chemical Analysis | Hard       | In Review | private |
 
         Then I verify the details of the following items are displayed in AMS
-            | Author Mode | Title               | Topic                        | Taxonomy                    | Difficulty | Module Type | Status    | Access  |
-            | Raptor      | BulkUpdateEditTwice Test MC Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       | MC          | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test MS Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       | MS          | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test UT Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       |             | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test MD Item | Quantitative vs. Qualitative | Exploring Chemical Analysis | hard       | MD          | in review | private |
+            | Author Mode | Title                            | Topic                        | Taxonomy                    | Difficulty | Module Type | Status    | Access  |
+            | Raptor      | BulkUpdateEditTwice Test MC Item | The Analytical Process | Exploring Chemical Analysis | hard       | MC          | in review | private |
+            | Raptor      | BulkUpdateEditTwice Test MS Item | The Analytical Process | Exploring Chemical Analysis | hard       | MS          | in review | private |
+            | Raptor      | BulkUpdateEditTwice Test UT Item | The Analytical Process | Exploring Chemical Analysis | hard       |             | in review | private |
+            | Raptor      | BulkUpdateEditTwice Test MD Item | The Analytical Process | Exploring Chemical Analysis | hard       | MD          | in review | private |

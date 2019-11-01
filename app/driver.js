@@ -32,7 +32,7 @@ const buildDriver = function() {
   switch (config.browser.toLowerCase()) {
     case 'firefox': 
       var firefoxOptions = {
-        'args':['--start-maximized','--disable-infobars'],
+        'args':['start-maximized','disable-infobars'],
         'prefs':{
           'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
           'download.prompt_for_download':false,
@@ -66,12 +66,13 @@ const buildDriver = function() {
     default:
       chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
       var chromeOptions = {
-        'args': ['--start-maximized', '--disable-infobars'],
+        'args': ['start-maximized','disable-extensions'],
         'prefs': {
           'profile.content_settings.exceptions.automatic_downloads.*.setting': 1,
           'download.prompt_for_download': false,
           'download.default_directory': `${process.cwd()}/reports/downloads`
-        }
+        },
+        'excludeSwitches': ['enable-automation']
       };
       var chromeCapabilities = webdriver.Capabilities.chrome();
       chromeCapabilities.set('goog:chromeOptions', chromeOptions)

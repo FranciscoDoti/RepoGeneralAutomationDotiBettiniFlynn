@@ -167,6 +167,13 @@
             "definition": "//td[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "focus"
+        },
+        {
+            "name": "Data Row",
+            "byType": "xpath",
+            "definition": "//table[@class='table itemlist table-condensed']/tbody/tr[@data-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
