@@ -102,13 +102,11 @@ When(/^added it to new assessment as pool$/, async function () {
 
 Then('I see the item present in the assessment', async function () {
   await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-assignment');
-  // let itemList = await pages.assignmentTab.getWebElements('itemList');
-  var getEntriesArry = CQBTabQuestionSet.values();
+  var addedQuestions = CQBTabQuestionSet.values();
   for (let i = 1; i <= CQBTabQuestionSet.size; i++) {
-    var entry = getEntriesArry.next().value;
+    var entry = addedQuestions.next().value;
     await pages.assignmentTab.assertElementExists('Assessment questions id', entry);
   }
-  // CQBTabQuestionSet.clear();
 });
 
 Then('I see a pool of questions is created in the assessment', async function () {
@@ -119,7 +117,6 @@ Then('I see a pool of questions is created in the assessment', async function ()
     var entry = getEntriesArry.next().value;
     await pages.assignmentTab.assertElementExists('pool questions id', entry);
   }
-  CQBTabQuestionSet.clear();
 });
 
 When(/^I select "(.*)" option for the assessment$/, async function (settings_button) {

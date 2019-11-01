@@ -32,5 +32,4 @@ Scenario: Add multiple random items to a new assignment
     | field           | value           |
     | Assessment Name | QAAssessment    |
     When I have added "2" custom questions to assessment
-    # And added it to assessment
     Then I see the item present in the assessment

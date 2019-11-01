@@ -4,7 +4,7 @@ Feature: Create a NE Hatchling Item from AMS
     @NumericEntry @workinprogress
     Scenario: Verify that user able to create NE Hatchling Item through AMS
         Given I login to AMS as "all-permissions-author"
-        When I add "Numeric Entry" hatchling item with following details
+        When I add "Numeric Entry" hatchling item with following details on "AMS"
             | Question Title                     | Question Prompt             |
             | QA Hatchling NE Test Item from AMS | What is the speed of light  |
         And I add the following values to Hatchling NE module
