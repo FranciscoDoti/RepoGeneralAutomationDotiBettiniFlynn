@@ -224,7 +224,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
-          const implicit = (await my.driver.manage().getTimeouts()).implicit;
+          const implicit = (await getDriver().manage().getTimeouts()).implicit;
           await getDriver().manage().setTimeouts({
             implicit: 5000
           });
