@@ -4,8 +4,20 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const ngaPages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "^", "∪", "."]
 const trigPalette = ["sin", "cos", "tan", "sec", "csc", "cot", "sinh", "cosh", "tanh", "sech", "csch", "coth"]
+const { raptorlib, amslib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 /* Creating a new AMS raptor item for six Eval types: Relation, Expression, Point, Interval, Vector, Parametric */
+
+const addMathModule = async function() {
+  await pages.raptorAms.click('menuBarAdd');
+  await pages.raptorAms.waitForElementVisibility('addMathEquation');
+  await pages.raptorAms.click('addMathEquation');
+  console.log("added");
+  await pages.raptorAms.waitForElementVisibility('questionContent');
+  await pages.raptorAms.click('questionContent');
+  console.log("clicked qs");
+  // await pages.raptorAms.assertElementExists('answerLabel');
+}
 
 When(/^I set Item Details name as "(.*)"$/, async function (name) {
   await pages.raptorAms.click('menuBarMore');
@@ -15,12 +27,23 @@ When(/^I set Item Details name as "(.*)"$/, async function (name) {
 });
 
 When(/^I add Math equation module$/, async function () {
-  await pages.raptorAms.click('menuBarAdd');
-  await pages.raptorAms.click('addMathEquation');
+  // await pages.raptorAms.click('menuBarAdd');
+  // await pages.raptorAms.waitForElementVisibility('addMathEquation');
+
+  // await pages.raptorAms.click('addMathEquation');
+  // console.log("added");
+    await raptorlib.addModule("Math Equation");
+
+
 });
 
 When(/^I click on the Question tab, and add an Answer field$/, async function () {
+  await pages.raptorAms.waitForElementVisibility('questionContent');
   await pages.raptorAms.click('questionContent');
+  await pages.raptorAms.click('questionContent');
+
+  console.log("clicked qs");
+
   await pages.raptorAms.assertElementExists('answerLabel');
 });
 
@@ -223,6 +246,11 @@ When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async
 When(/^I select isList checkbox$/, async function () {
   await pages.mathModule.click('isList');
 });
+
+When(/^I unselect Enforce Endpoints checkbox$/, async function () {
+  await pages.raptorAms.click('mathEnforceEndpoints');
+});
+
 
 When(/^I input upper numeric tolerance "(.*)" and lower numeric tolerance "(.*)"$/, async function (upperTolerance, lowerTolerance){
   await pages.raptorAms.click('mathNumericTolerance');
