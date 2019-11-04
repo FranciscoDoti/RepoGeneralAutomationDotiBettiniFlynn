@@ -32,7 +32,6 @@ When('I update the selected items with the following details', async function (d
   await amslib.openUpdateModal();
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-
     await updatelib.setTopic(item);
     await updatelib.setTaxonomy(item);
     await updatelib.setDifficulty(item.Difficulty);
