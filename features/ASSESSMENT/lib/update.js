@@ -1,7 +1,7 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 
 const setTopic = async function (item) {
-    if (item['Topic Level 1'] == undefined) {
+    if (item['Topic Level 1'] === undefined) {
         return;
     }
     await pages.update.click('Field', 'topic');
@@ -16,12 +16,12 @@ const setTopic = async function (item) {
 };
 
 const setTaxonomy = async function (item) {
-    if (item['Taxonomy Level 1'] == undefined) {
+    if (item['Taxonomy Level 1'] === undefined) {
         return;
     }
     await pages.update.click('Field', 'taxonomy');
     let taxonomyLevel1Expanded = await pages.update.checkElementExists('Tree Element Leaf', item['Taxonomy Level 2']);
-    if (!taxonomyLevel1Expanded) {
+    if (taxonomyLevel1Expanded === false) {
         await pages.update.click('Tree Element', item['Taxonomy Level 1']);
     }
     await pages.update.click('Tree Element Leaf', item['Taxonomy Level 2']);
@@ -30,7 +30,7 @@ const setTaxonomy = async function (item) {
 };
 
 const setDifficulty = async function (difficulty) {
-    if (difficulty == undefined) {
+    if (difficulty === undefined) {
         return;
     }
     await pages.update.click('Field', 'difficulty');
@@ -38,7 +38,7 @@ const setDifficulty = async function (difficulty) {
 };
 
 const setStatus = async function (status) {
-    if (status == undefined) {
+    if (status === undefined) {
         return;
     }
     await pages.update.click('Field', 'status');
@@ -46,7 +46,7 @@ const setStatus = async function (status) {
 };
 
 const setAccess = async function (access) {
-    if (access == undefined) {
+    if (access === undefined) {
         return;
     }
     await pages.update.click('Field', 'scope');
