@@ -271,12 +271,15 @@ Then('I verify that custom activity is present in courseplanner your content sec
   }
 });
 
-When(/^I create Custom Task in "(.*)" and add it to resources$/, async function (courseName, data_table) {
-  await pages.createCourse.click('courseCard', courseName)
-  await pages.coursePage.click('navigation','Resources');
-  await pages.resources.click('addActivity');
-  await pages.resources.click('createCustomActivity');
+When(/^I create Custom Task in "(.*)" and create an assesment$/, async function (courseName, data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('Tab', 'Production')
+  await pages.coursePage.click('Tab', 'Create')
+  await pages.coursePage.click('New');
   await pages.coursePlanner.click('assessmentButton');
+  await pages.coursePage.assertElementExists('ProvideATitle');
+  await pages.coursePage.populate('dropDown','Choose an assignment type');
+  await pages.coursePage.populate('dropDown','Choose a taxonomy');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementExists(data_table.hashes()[i].activity, data_table.hashes()[i].value);
     await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);

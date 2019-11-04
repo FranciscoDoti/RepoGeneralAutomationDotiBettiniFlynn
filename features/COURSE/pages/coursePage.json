@@ -101,6 +101,24 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },{
+            "name": "New",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div/div/div/div[2]/div/div[2]/div[2]/div/div[1]/button",
+            "frame": "default",
+            "specialInstr": "NA"
+        } ,{
+            "name": "ProvideATitle",
+            "byType": "xpath",
+            "definition": "//input[@placeholder='Provide a title']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "dropDown",
+            "byType": "xpath",
+            "definition": "//option[.='<ReplaceText>']/..",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
