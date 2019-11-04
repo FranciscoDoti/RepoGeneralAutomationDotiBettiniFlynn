@@ -12,7 +12,7 @@ Feature: Create a Template and click on Production
             | PSV-4759 Template                 |   E2E 301     |  Active On Date      | 
         
 
-        And I create Custom Task in "Qualitative Template" and create an assesment
+        I create Custom Task in "Qualitative Template" and create an assesment
             | assesmentTitle    | assesmentType     | homeTaxonomy                      |
             | TestAssesment     | Test/Quiz         | Interactive General Chemistry V1  |
 
