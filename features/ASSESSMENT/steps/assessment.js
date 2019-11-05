@@ -15,7 +15,7 @@ Given('I create a new assessment with its necessary details', async function (da
     await pages.createAssessment.populate(rows[i].field, assessment_name);
   }
   await pages.createAssessment.click("saveAndContinue");
-  await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-customquestions');
+  
   this.data.set('assessment_name', assessment_name);
 });
 
@@ -73,9 +73,12 @@ Then(/^I navigate to "(.*)" page$/, async function (title) {
 });
 
 When(/^I have added \"([^\"]*)\" custom questions to assessment$/, async function (question_count) {
+  await pages.hatchlingItemFrame.waitForElementVisibility('AE Course Page Tabs', 'link-to-customquestions');
+  await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-customquestions');
   for (let i = 1; i <= question_count; i++) {
     await pages.customQuestion.click("Items Checkbox", i);
     CQBTabQuestionSet.add(await pages.customQuestion.getAttributeValue('Questions Id', i, 'id'))
     await pages.customQuestion.click('Action Bar Buttons', 'Add');
+    await pages.customQuestion.waitForElementVisibility("Items Added", i)
   }
 });

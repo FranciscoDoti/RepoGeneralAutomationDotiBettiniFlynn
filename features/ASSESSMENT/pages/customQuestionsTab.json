@@ -43,6 +43,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Items Added",
+            "byType": "xpath",
+            "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/div/span",
+            "frame": "aeFrame",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Questions Id",
             "byType": "xpath",
             "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",

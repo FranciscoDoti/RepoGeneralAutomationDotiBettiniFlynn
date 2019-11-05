@@ -27,6 +27,8 @@ When(/^I add \"([^\"]*)\" hatchling item with following details on \"([^\"]*)\"$
   if (assessmentType === 'AMS') {
     await hatchlinglib.createHatchlingEasyItem(moduleType);
   } else if (assessmentType === 'AE') {
+    await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-customquestions');
+    await pages.hatchlingItemFrame.waitForElementVisibility('Button', 'Create Question');
     await pages.hatchlingItemFrame.click('Button', 'Create Question');
     await pages.assignmentTab.click('HatchlingQuestionType', moduleType);
   }
@@ -72,7 +74,6 @@ When(/^I add the following incorrect answers and feedback on \"([^\"]*)\"$/, asy
 });
 
 When(/^I set hint and generic feedback with following details and save on \"([^\"]*)\"$/, async function (assessmentType, datatable) {
-
   let ans = datatable.hashes()[0];
   for (let i = 0; i < datatable.rows().length; i++) {
     let hint = datatable.hashes()[i];
