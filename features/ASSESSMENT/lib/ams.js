@@ -11,6 +11,7 @@ const openUpdateModal = async function () {
     await pages.ams.click('AMS Button', 'VIEW SELECTED ITEMS');
     await pages.ams.click('AMS Button', 'Select Action');
     await pages.ams.click('AMS Button', 'Update');
+    await pages.update.assertElementExists('Update Modal');
 };
 
 const deleteItems = async function () {
@@ -21,7 +22,25 @@ const deleteItems = async function () {
     let deletedItemsCount = (await pages.ams.getText('Delete Confirmation Message Title')).split(" ")[1];
     await pages.ams.assertElementExists('Delete Confirmation Message Text');
     await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
+    await pages.ams.waitForElementInvisibility('Delete Modal');
     return deletedItemsCount;
+};
+
+const deleteItem = async function (itemId) {
+    await pages.ams.switchToTab('Sapling Learning Author Management System');
+    await pages.ams.click('Delete Action', itemId);
+    await pages.ams.assertElementExists('Delete Confirmation Message Title');
+    await pages.ams.click('Delete Confirmation Dialog Button', 'Delete');
+};
+
+const duplicateItem = async function (itemId) {
+    await pages.ams.click('Duplicate Item', itemId);
+    await pages.raptor.switchToTab('Raptor Authoring');
+    await pages.raptor.waitForElementVisibility('Tab','question');
+    await pages.raptor.assertElementExists('Item ID');
+    let duplicatedItemId = await pages.raptor.getText('Item ID');
+    duplicatedItemId = duplicatedItemId.split(":")[1].trim();
+    return duplicatedItemId;
 };
 
 const updateDone = async function () {
@@ -35,19 +54,18 @@ const waitAlgoliaProcess = async function () {
     await pages.ams.waitForElementInvisibility('Algolia is Processing');
 };
 
-const verifyFeedback = async function(itemTabs){
-        await pages.ams.click('Feedback Tab', (itemTabs['Tab Name']).toLowerCase());
-        if(itemTabs['Tab Name']== 'Solution'){
-            await pages.ams.assertElementExists('Solution Feedback', itemTabs['Feedback Text']);
-        }
-        else
-        {
-            await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
-        }
-}
-
+const verifyFeedback = async function (itemTabs) {
+    await pages.ams.click('Feedback Tab', (itemTabs['Tab Name']).toLowerCase());
+    if (itemTabs['Tab Name'] == 'Solution') {
+        await pages.ams.assertElementExists('Solution Feedback', itemTabs['Feedback Text']);
+    }
+    else {
+        await pages.ams.assertElementExists('Feedback Side Panel', itemTabs['Feedback Text']);
+    }
+};
 
 const verifyItemDetails = async function (item, itemId) {
+    await pages.ams.assertElementExists('Data Row', itemId);
     if (item['Author Mode'] !== undefined) {
         await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
     }
@@ -76,10 +94,12 @@ const verifyItemDetails = async function (item, itemId) {
 
 module.exports = {
     addRaptorItem,
+    deleteItem,
     deleteItems,
     openUpdateModal,
     updateDone,
     verifyItemDetails,
     waitAlgoliaProcess,
     verifyFeedback,
+    duplicateItem
 };

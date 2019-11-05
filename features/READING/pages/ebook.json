@@ -1,0 +1,39 @@
+{
+    "webElements": [{
+        "name": "Epub Container Frame",
+        "byType": "css",
+        "definition": "[data-test-id='container-frame']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Epub Content Frame",
+        "byType": "id",
+        "definition": "epub-content",
+        "frame": "Epub Container Frame",
+        "specialInstr": "NA"
+    }, {
+        "name": "Page Number Input",
+        "byType": "css",
+        "definition": "[data-test-id='page-number-input']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "eBook Tab",
+        "byType": "css",
+        "definition": "[data-test-id='ebook-tab']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Notebook Tab",
+        "byType": "css",
+        "definition": "[data-test-id='notebook-tab']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Annotation List",
+        "byType": "css",
+        "definition": "[data-test-id='annotation-list']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }]
+}

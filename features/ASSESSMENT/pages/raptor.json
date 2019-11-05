@@ -1,51 +1,72 @@
 {
     "webElements": [
         {
+            "name": "Module Multiple Select",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Multiple Choice",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='multiple_choice'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Chemical Equation",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID",
-            "byType": "css",
-            "definition": "div[data-test-id='edit-id']",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='edit-id']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Add Menu",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+            "byType": "xpath",
+            "definition": "//h2[@data-test-id='PRIMARY ADD MODULE']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Module Pallete",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "definition": "//*[@class='active-menu']//div[@data-test-id='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Content Area",
-            "byType": "css",
-            "definition": "div[class='content-preview']",
+            "byType": "xpath",
+            "definition": "//div[@class='content-preview']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "More Menu",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY MORE']",
+            "byType": "xpath",
+            "definition": "//h2[@data-test-id='PRIMARY MORE']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Check Your Work Submit Button",
             "byType": "xpath",
-            "definition": "//button[.='Submit Answer']",
+            "definition": "//*[@class='active-menu']//button[.='Submit Answer']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Save As Draft",
-            "byType": "css",
-            "definition": "li[id='save-button']",
+            "byType": "xpath",
+            "definition": "//*[@class='active-menu']//li[@id='save-button']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -59,7 +80,7 @@
         {
             "name": "More Item Details",
             "byType": "xpath",
-            "definition": "//div[.='Item Details']",
+            "definition": "//*[@class='active-menu']//div[.='Item Details']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -71,30 +92,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "chemicalEquationPrefix",
-            "byType": "css",
-            "definition": "span[data-test-id=chem-eq-prefix-label] textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "Prompt",
-            "byType": "css",
-            "definition": "div[data-test-id='ace-label'] > textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        },
-        {
             "name": "Tab",
-            "byType": "css",
-            "definition": "a[data-test-id='<ReplaceText>-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "chemicalEquationAnswerInput",
-            "byType": "css",
-            "definition": "input[data-test-id=chem-eq-answer-input]",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='<ReplaceText>-context']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -121,8 +121,8 @@
         },
         {
             "name": "Check Answer Slider",
-            "byType": "css",
-            "definition": "div[class='slider round']",
+            "byType": "xpath",
+            "definition": "//div[@class='slider round']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -142,15 +142,15 @@
         },
         {
             "name": "Item Details Title",
-            "byType": "css",
-            "definition": "#item-details-container > div > div > div:nth-child(4) > input[type=text]",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-background hatchling']//div[.='Title: ']/input",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Item Details Done Button",
-            "byType": "css",
-            "definition": "#authoring-menu-bar > div:nth-child(3) > div > div.cdl-dialog-actions > input",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-background hatchling']//input[@value='Done']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -323,11 +323,37 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Duplicate Item",
+            "=.=.=.=.=.=": "===========================================================================================",
+            "=.COMMENT.=": "= THE FOLLOWING ELEMENTS ARE IN THIS FILE BECAUSE THEY ARE COMMON TO MORE THAN ONE MODULE =",
+            ".=.=.=.=.=.": "==========================================================================================="
+        },
+        {
+            "name": "Choice Value Textbox",
             "byType": "xpath",
-            "definition": "// span[@data-test-id='item-duplicate-<ReplaceText>']",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Add Choice Button",
+            "byType": "css",
+            "definition": "a[data-test-id='add-item-button']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Text 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Answer Radio Button 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
+            "frame": "default",
+            "specialInstr": ""
         }
     ]
 }

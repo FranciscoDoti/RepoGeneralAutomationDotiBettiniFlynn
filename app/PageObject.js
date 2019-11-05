@@ -5,7 +5,7 @@
 const { assert, expect } = require('chai');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const jsonfile = require('jsonfile');
-const { getDriver, getWebDriver, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
+const { getDriver, getWebDriver, activateTab, closeTabAndSwitch, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
 
@@ -127,7 +127,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'ul':
         case 'li':
         case 'th':
-        case 'h2':
+        case 'h2':  
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
@@ -138,6 +138,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;
+        case 'label' :
         case 'option':
           await populateClick(webElement, value, actionElement);
           break;
@@ -194,7 +195,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const scrollElementIntoView = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
-    elementName = elementName + (replaceText ? " " + replaceText : "");
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
 
     log.debug(`Scrolling element: ${elementName} into view.`)
     if (await hasElement(elementName)) {
@@ -221,12 +224,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
+          const implicit = (await getDriver().manage().getTimeouts()).implicit;
           await getDriver().manage().setTimeouts({
             implicit: 5000
           });
           let retval = !(await WebElementObject.elementDisplayed());
           await getDriver().manage().setTimeouts({
-            implicit: config.timeout
+            implicit: implicit
           });
           return retval;
         case 'visible':
@@ -242,6 +246,18 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during AssertElement() attempt.`);
     }
+  };
+
+  const checkElementExists = async function (elementName, replaceText) {
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    if (await genericAssertElement(elementName, 'displayed')) {
+      log.info(`Web Element ${elementName} is displayed on page.`);
+    } else {
+      log.info(`Web Element ${elementName} is not displayed on page.`);
+    };
   };
 
   const assertElementExists = async function (elementName, replaceText) {
@@ -306,7 +322,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const getAttributeValue = async function (elementName, replaceText, attributeName) {
     if (attributeName === undefined && replaceText !== undefined) {
       attributeName = replaceText;
-    } else {
+    } else if (replaceText !== undefined && attributeName !== undefined){
       elementName = await addDynamicElement(elementName, replaceText);
     }
 
@@ -459,8 +475,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const closeTab = async function (tabName) {
     try {
       log.debug(`Closing tab : ${tabName}`);
-      await activateTab(tabName);
-      await getDriver().close();
+      await closeTabAndSwitch(tabName);
     } catch (err) {
       log.error(err.stack);
       throw err;
@@ -599,6 +614,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
+  that.checkElementExists = checkElementExists;
   that.assertElementExists = assertElementExists;
   that.assertElementDoesNotExist = assertElementDoesNotExist;
   that.getWebElements = getWebElements;
