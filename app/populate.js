@@ -143,7 +143,7 @@ const populateTextField = async function (selector, value, WebElementObject) {
   }
   if(!localSpecialInstr.toLowerCase().includes('noclear'))
   {
-    log.debug(`Special Instruction is : ${localSpecialInstr}. Clicking on element.`);
+    log.debug(`Special Instruction is : ${localSpecialInstr}. Clearing text ${eleValue} in element.`);
     await selector.clear();
   }
   if(localSpecialInstr.toLowerCase().includes('overwrite'))
@@ -208,7 +208,7 @@ const populateClick = async function (selector, value, WebElementObject) {
       if (ex.name == 'ElementNotInteractableError') {
         log.debug(`Error name ${ex.name}`);
         const actions = getDriver().actions({ bridge: true });
-        actions.click(selector).perform();
+        await actions.click(selector).perform();
       } else {
         log.debug(`Error name ${ex.name}`);
         assert.fail(`Exception occurred and caught. ${ex}`);

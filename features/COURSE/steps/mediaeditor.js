@@ -25,7 +25,7 @@ Then(/^I verify that "(.*)" has created with following "(.*)" ISBN number$/, asy
 
 When(/^I update "(.*)" template and add the following data$/, async function (courseName, data_table){
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.waitForElementVisibility('courseMenu', courseName)
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {

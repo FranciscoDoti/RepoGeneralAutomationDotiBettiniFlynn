@@ -11,6 +11,6 @@ Feature: To configure a complete authoring raptor item
 
     And I configure the following item details
       | Title                       |
-      | NGA QA Numeric Entry test   |
+      | Numeric Entry test   |
 
     Then I check NE answers

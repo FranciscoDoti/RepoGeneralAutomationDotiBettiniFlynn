@@ -37,8 +37,8 @@
         },
         {
             "name": "submit",
-            "byType": "id",
-            "definition": "submitButton",
+            "byType": "xpath",
+            "definition": "//input[@value='Log In']",
             "frame": "default",
             "specialInstr": "focus"
         },

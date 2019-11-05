@@ -5,7 +5,7 @@
 const { assert, expect } = require('chai');
 const WebElement = require(`${process.cwd()}/app/WebElement`);
 const jsonfile = require('jsonfile');
-const { getDriver, getWebDriver, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
+const { getDriver, getWebDriver, activateTab, closeTabAndSwitch, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
 
@@ -224,12 +224,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
+          const implicit = (await getDriver().manage().getTimeouts()).implicit;
           await getDriver().manage().setTimeouts({
             implicit: 5000
           });
           let retval = !(await WebElementObject.elementDisplayed());
           await getDriver().manage().setTimeouts({
-            implicit: config.timeout
+            implicit: implicit
           });
           return retval;
         case 'visible':
@@ -474,8 +475,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const closeTab = async function (tabName) {
     try {
       log.debug(`Closing tab : ${tabName}`);
-      await activateTab(tabName);
-      await getDriver().close();
+      await closeTabAndSwitch(tabName);
     } catch (err) {
       log.error(err.stack);
       throw err;
