@@ -8,7 +8,7 @@ Feature: To configure a multiple choice raptor item
 
     And I configure the following item details
       | Title               |
-      | NGA QA Test MC Item |
+      | MultipleChoice Test MC Item |
 
     And I add list variables
       | Type   | Description | Name  | Value1 | Value2 | Value3 |

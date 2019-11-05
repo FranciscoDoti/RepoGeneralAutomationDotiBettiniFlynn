@@ -1,4 +1,4 @@
-@Assessment @PreviewItem
+@Assessment @PreviewItem @Smoke
 Feature: Preview item feature
 
     Scenario Outline: Preview Item
@@ -20,7 +20,7 @@ Feature: Preview item feature
 
         Examples:
             | Title               | Module Type       |
-            | NGA QA Test MC Item | Multiple Choice   |
-            | NGA QA Test MS Item | Multiple Select   |
-            | NGA QA Test UT Item | Ungraded Text     |
-            | NGA QA Test MD Item | Molecular Drawing |
+            | PreviewItem Test MC Item | Multiple Choice   |
+            | PreviewItem Test MS Item | Multiple Select   |
+            | PreviewItem Test UT Item | Ungraded Text     |
+            | PreviewItem Test MD Item | Molecular Drawing |

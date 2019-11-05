@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { assert } =  require('chai');
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await amslib.addRaptorItem();
@@ -24,7 +25,11 @@ When(/^I add the "(.*)" module "(.*)" times$/, async function (moduleType, times
 When('I duplicate the following items', async function (dataTable) {
     for (let i = 0; i < dataTable.rows().length; i++) {
         let item = dataTable.hashes()[i];
-        let duplicatedItemId = await amslib.duplicateItem(this.data.get(item.Title, 'id'));
+        let itemTitle = this.data.get(item.Title, 'id');
+        let duplicatedItemId = await amslib.duplicateItem(itemTitle);
+        if(duplicatedItemId == '' || duplicatedItemId === undefined){
+            assert.fail('Duplicate Item Id is blank.');
+        };
         this.data.set(item.Title, "id", duplicatedItemId);
         await pages.ams.closeTab('Raptor Authoring');
         await pages.ams.switchToTab('Sapling Learning Author Management System');
@@ -141,8 +146,6 @@ When(/^I add the (.*) draft item in AMS with title (.*)$/, async function (modul
     await amslib.addRaptorItem();
     await raptorlib.addModule(moduleType);
     await raptorlib.addItemDetails({ Title: title });
-    let itemId = await raptorlib.saveItem();
-    this.data.set("itemId", itemId);
 });
 
 When('I add the following feedbacks and save the item', async function (feedbackDetail) {
@@ -152,7 +155,9 @@ When('I add the following feedbacks and save the item', async function (feedback
         await raptorlib.addFeedbackModule(data['Tab Name'], 'Ungraded Text');
         await froalalib.addFeedback(data);
     }
-    await raptorlib.saveItem();
+    let itemId = await raptorlib.saveItem();
+    this.data.set("itemId", itemId);
+    await pages.ams.closeTab('Raptor Authoring');
 });
 
 Then(/^I verify the feedbacks in the following tabs$/, async function (datatable) {

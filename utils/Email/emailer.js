@@ -14,6 +14,9 @@ const emailAttachment = function(){
             });
         }
     });
+    attachments.push({
+        path: directoryPath + 'logs/combined.log'
+    });
     return attachments;
 };
 
