@@ -31,6 +31,8 @@ When(/^I add \"([^\"]*)\" hatchling item with following details on \"([^\"]*)\"$
     await pages.hatchlingItemFrame.waitForElementVisibility('Button', 'Create Question');
     await pages.hatchlingItemFrame.click('Button', 'Create Question');
     await pages.assignmentTab.click('HatchlingQuestionType', moduleType);
+  } else if (assessmentType === 'AE assessment tab'){
+    await pages.assignmentTab.click('HatchlingQuestionType',moduleType);
   }
   for (let i = 0; i < datatable.rows().length; i++) {
     let question = datatable.hashes()[i];
@@ -89,11 +91,15 @@ When(/^I set hint and generic feedback with following details and save on \"([^\
   }
   await sleep(2000);
 });
-When('Add the created custom question to assessment and verify it is displayed in assessment', async function () {
+When('Add the created custom question to assessment', async function () {
   let createdQuestionTitle = this.data.get('Question Title');
   await pages.customQuestion.click('Created Custom Question', createdQuestionTitle);
   await pages.customQuestion.click('Action Bar Buttons', 'Add');
   await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-assignment');
-  await pages.customQuestion.assertElementExists('Created Custom Question', createdQuestionTitle);
+  
 });
+Then(/^verify the created item is displayed in assessment$/, async function (){
+  let createdQuestionTitle = this.data.get('Question Title');
+  await pages.customQuestion.assertElementExists('Created Custom Question', createdQuestionTitle);
+})
 

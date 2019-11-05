@@ -24,7 +24,7 @@
         {
             "name": "Question Prompt",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='hatchling-question-prompt']",
+            "definition": "//label[.='Question Prompt']/../div/div/div[@class='rte-content']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
@@ -50,7 +50,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "target Value",
+            "name": "Target Value",
             "byType": "css",
             "definition": "#targetValue",
             "frame": "aeframe",
@@ -62,11 +62,17 @@
             "definition": "#units",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },{
+            "name": "NE Student Feedback",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']/../..//div[contains(@class,'public-DraftEditor-content')]",
+            "frame": "aeframe",
+            "specialInstr": "focus"
         },
         {
             "name": "Derivation Type",
-            "byType": "css",
-            "definition": "select[name='derivationType']",
+            "byType": "xpath",
+            "definition": "//*[@name='derivationType']//option[.='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
