@@ -1,46 +1,49 @@
-const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } = require('cucumber');
-const { config, takeScreenshot } = require(`${process.cwd()}/app/driver`);
-const fs = require('fs');
-const path = require('path');
-const { ScenarioData } = require(`${process.cwd()}/app/ScenarioData`);
+const {setWorldConstructor, setDefaultTimeout} = require('cucumber');
+const seleniumWebdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const config = require('../../config.js');
+var options = new chrome.Options().headless();
+var prefs = new seleniumWebdriver.logging.Preferences();
 
-function ThisWorld({ attach }) {
-  this.environment = config.environment;
-  this.mode = config.mode;
-  this.browser = config.browser;
-  this.screenshots = config.screenshots;
-  this.headless = config.headless;
-  this.stack = config.stack;
-  this.users = users();
+prefs.setLevel(seleniumWebdriver.logging.Type.BROWSER, seleniumWebdriver.logging.Level.ALL);
+options.setLoggingPrefs(prefs);
 
-  this.attach = attach;
-  this.downloadLocation = `${process.cwd()}/reports/downloads`;
-  setDefaultTimeout(10*config.timeout*1000);
+require('chromedriver');
 
-  this.data = ScenarioData();
+function CustomWorld () {
+  var builder;
+
+  if (config.mode === 'local-achieve') {
+    if (JSON.parse(config.headless)) {
+      builder = new seleniumWebdriver.Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(options)
+        .usingServer("http://selenium.local-mml.cloud:4444/wd/hub")
+        .withCapabilities(config.capabilities)
+        .build();
+    } else {
+      builder = new seleniumWebdriver.Builder()
+        .withCapabilities(config.capabilities)
+        .build();
+    }
+  } else if (config.mode === 'local') {
+    builder = new seleniumWebdriver.Builder()
+      .withCapabilities(config.capabilities)
+      .build();
+  } else if (config.mode === 'browserstack') {
+    builder = new seleniumWebdriver.Builder()
+      .usingServer('http://hub-cloud.browserstack.com/wd/hub')
+      .withCapabilities(config.capabilities)
+      .build();
+  } else {
+    builder = new seleniumWebdriver.Builder()
+      .usingServer('http://selenium:4444/wd/hub')
+      .withCapabilities(config.capabilities)
+      .build();
+  }
+
+  this.driver = builder;
+  setDefaultTimeout(config.timeout);
 };
 
-setWorldConstructor(ThisWorld);
-
-setDefinitionFunctionWrapper(function (fn) {
-  return async function () {
-    await fn.apply(this, arguments);
-    try {
-      if (this.screenshots.toLowerCase().includes("true")) {
-        await this.attach(await takeScreenshot(), 'image/png');
-      }
-    } catch (err) {};
-  };
-});
-
-const users = function(){
-  let that = {};
-  let folder = `${process.cwd()}/features/shared/data/users/${config.environment}`;
-  let files = fs.readdirSync(folder);
-  files.forEach(file => {
-    let filePath = `${folder}/${file}`
-    let data = require(filePath);
-    that[`${path.parse(filePath).name}`] = data;
-  });
-  return that;
-};
+setWorldConstructor(CustomWorld);
