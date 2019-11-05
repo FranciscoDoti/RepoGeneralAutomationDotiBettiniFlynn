@@ -8,8 +8,8 @@ Feature: Verify page elements for different eval types
         And I select Math Equation module, click on Question tab
 
         Then I verify default evaltype for GradeAs dropdown is Expression
-        And I verify "one or more" checkbox(es) or radio button(s): "isList, gradeToConstant" on "question" tab
-        And I verify "one or more" checkbox(es) or radio button(s): "isList, gradeToConstant, mathNumericTolerance, exactTolerance" on "correct" tab
+        And I verify "one or more" checkbox(es) or radio button(s): "gradeAsListC, gradeFormType" on "question" tab
+        And I verify "one or more" checkbox(es) or radio button(s): "gradeAsListC, gradeFormType, mathNumericTolerance, exactTolerance" on "correct" tab
 
         When I click on Question tab, select GradeAs dropdown "Point" evaltype
         And I verify "one or more" checkbox(es) or radio button(s): "isList" on "question" tab

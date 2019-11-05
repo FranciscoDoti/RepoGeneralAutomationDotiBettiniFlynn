@@ -25,7 +25,7 @@ When(/^I click on the Question tab, and add an Answer field$/, async function ()
 
 When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
   await pages.raptorAms.click('contextTab', 'correct');
-  await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
   await pages.raptorAms.populate('mathGradeAs', eval);
   await pages.raptorAms.populate('mathEquationField', eqn);
 
@@ -179,7 +179,7 @@ When(/^I select Math Equation module, click on Question tab$/, async function ()
 });
 
 Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async function () {
-  await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
   await pages.raptorAms.assertElementExists('mathGradeAs');
   await pages.mathModule.assertElementExists('gradeAsExpression');
 });
@@ -187,6 +187,8 @@ Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async fun
 Then(/^I verify "(.*)" checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab$/, async function (present, objects, contextType) {
   await pages.raptorAms.click('contextTab', contextType);
   await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
+
 
   const elementList = objects.split(', ');
   for (let i = 0; i < elementList.length; i++) {
