@@ -1,5 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add a dropdown with text "(.*)" and the following options$/, async function (text, datatable) {
   await pages.fillBlank.populate('Text', text);
@@ -19,8 +20,7 @@ When(/^I set correct answer "(.*)" for FB$/, async function (answer) {
 });
 
 Then('I check FB answer', async function () {
-  await pages.raptor.click('More Menu');
-  await pages.raptor.click('Check Answer Slider');
+  await raptorlib.checkAnswerMode();
   await pages.fillBlank.click('DropDown');
   await pages.fillBlank.click('Option', '2');
   await pages.raptor.click('Check Your Work Submit Button');
