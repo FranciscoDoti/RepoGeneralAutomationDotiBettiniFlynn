@@ -1,6 +1,10 @@
-const { When, Then } = require('cucumber');
+const { Before, When, Then } = require('cucumber');
 const driver = require(`${process.cwd()}/app/driver.js`);
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
+
+Before('@SetScreenSize', async function () {
+  await driver.getDriver().manage().window().setRect({width: 1440, height: 900});
+})
 
 Then('there should be a {string} on the {string} page', async function (locator, page) {
   await pages[page].assertElementExists(locator);

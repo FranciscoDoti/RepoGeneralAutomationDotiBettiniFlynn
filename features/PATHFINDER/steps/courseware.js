@@ -3,7 +3,6 @@ const driver = require(`${process.cwd()}/app/driver.js`);
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 When(/^I launch the Pathfinder Assignment "(.*)"$/, async function (assignment) {
-  await driver.getDriver().manage().window().setRect({width: 1440, height: 900});
   await driver.getDriver().sleep(500);
   await driver.getDriver().navigate().refresh();
   await pages.coursePage.click('tab', 'COURSE PLAN')
@@ -23,6 +22,6 @@ When('I delete automation courses', async function () {
 });
 
 When(/^I click on the course card for "(.*)"$/, async function (courseName) {
-  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.courseList.assertElementExists('courseCard', courseName);
   await pages.courseList.click('courseCard', courseName);
 });

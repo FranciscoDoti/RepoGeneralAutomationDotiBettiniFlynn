@@ -9,8 +9,8 @@ const {sleep } = require(`${process.cwd()}/app/driver`);
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
-  await pages.createCourse.assertElementExists('courseCard', courseName);
-  await pages.createCourse.click('courseCard', courseName);
+  await pages.courseList.assertElementExists('courseCard', courseName);
+  await pages.courseList.click('courseCard', courseName);
   await driver.getDriver().navigate().refresh();
   await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
   await pages.home.scrollElementIntoView('togglerMenu');
@@ -18,7 +18,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.home.click('togglerMenu');
   await pages.adminMenu.waitForElementVisibility('admin');
   await pages.adminMenu.assertElementExists('admin');
-  await sleep (500);
+  await sleep(500);
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('manageEnrollments');
@@ -30,8 +30,9 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
-  await pages.createCourse.assertElementExists('courseCard', courseName);
-  await pages.createCourse.click('courseCard', courseName);
+  await sleep(1000);
+  await pages.courseList.assertElementExists('courseCard', courseName);
+  await pages.courseList.click('courseCard', courseName);
 });
 
 When('I click on Manage roles', async function () {
@@ -89,7 +90,6 @@ Then('I verify the report is dowloaded with following data', async function (dat
       expect(data[0]).to.have.property(data_table.hashes()[i].ColumnName);
   }
 });
-
 
 When(/^I click on "(.*)" Tab$/, async function (tabName){
   await pages.coursePage.click('navigation', tabName);
@@ -239,3 +239,9 @@ Then('I verify that Folders are deleted', async function (data_table){
   await pages.eBook.assertElementDoesNotExist('contentCheckbox', data_table.hashes()[i].Folder,'check');
   }
 });
+
+When('I use a pre-built course', async function () {
+  await pages.coursePage.click('navigation', 'Start with a Pre-built Course');
+  await pages.coursePage.click('checkbox');
+  await pages.coursePage.click('navigation', 'Continue to Course Plan')
+})
