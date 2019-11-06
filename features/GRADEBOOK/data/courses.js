@@ -9,7 +9,7 @@ function getCourseData () {
     return courses;
   }
   courses = {};
-  let folder = `${process.cwd()}/features/shared/data/courses/${config.environment}`;
+  let folder = `${process.cwd()}/features/GRADEBOOK/data/courses/${config.environment}`;
   let files = fs.readdirSync(folder);
   files.forEach(file => {
     let filePath = `${folder}/${file}`
