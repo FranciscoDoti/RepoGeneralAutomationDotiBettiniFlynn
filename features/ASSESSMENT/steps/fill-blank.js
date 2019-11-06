@@ -6,7 +6,7 @@ When(/^I add a dropdown with text "(.*)" and the following options$/, async func
   await pages.fillBlank.click('Add DropDown Button');
   for (let i = 0; i < datatable.rows().length; i++) {
     if (i > 0) {
-      await pages.multipleSelect.click('Add Choice Button');
+      await pages.raptor.click('Add Choice Button');
     }
     await pages.fillBlank.populate('Choice Value Text', i + 1, datatable.hashes()[i].Option);
   }

@@ -41,6 +41,12 @@
             "definition": "//a[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_assessment']",
             "frame": "default",
             "specialInstr": "NA"
+        },{
+            "name": "addButtonPathfinder",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../../../button[@data-test-id='add_button_pathfinder']",
+            "frame": "default",
+            "specialInstr": "NA"
         }, {
             "name": "addButtonLearningcurve",
             "byType": "xpath",
@@ -68,7 +74,7 @@
         }, {
             "name": "addCCButton",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../button[@class='_4_Uf']",
+            "definition": "//*[.='<ReplaceText>']/../..//button/*[@title='Add Activity']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -76,13 +82,6 @@
             "name": "activityCheckbox",
             "byType": "css",
             "definition": "[data-test-id='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "addResources",
-            "byType": "css",
-            "definition": "[data-test-id='add_selections_to_resources']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -114,7 +113,7 @@
         }, {
             "name": "addFolder",
             "byType": "css",
-            "definition": "[data-test-id='add_folder_button']",
+            "definition": "[data-test-id='add_folder_btn']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -204,7 +203,7 @@
         }, {
             "name": "reorderResources",
             "byType": "xpath",
-            "definition": "//button[@class='IwDV']/..//span[text()='<ReplaceText>']",
+            "definition": "//span[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -245,7 +244,7 @@
         }, {
             "name": "resourcesReorderVerification",
             "byType": "xpath",
-            "definition": "//div[<ReplaceText>]/div[@role='row']//span[@data-test-id='folder_label_name']",
+            "definition": "(//div[@class='_2cn5 nYXZ'])[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -320,7 +319,28 @@
             "definition": "[data-test-id='import_content_modal'] div:nth-child(3) [data-test-id='import_button']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "addResources",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../..//div/*[@data-test-id='add_to_course_library_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
+            "name": "addButton",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@data-test-id='addTo_btn']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "placeTab",
+            "byType": "xpath",
+            "definition": "//*[@id='simple-menu']/div[3]/ul/li[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
         }
+
     ]
 
 

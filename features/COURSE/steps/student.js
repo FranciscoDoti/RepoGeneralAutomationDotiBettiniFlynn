@@ -14,23 +14,14 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
-  await pages.coursePage.click('tab',Tab);
+  await pages.coursePage.click('Tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
   }
 });
 
-When('I delete the courses', async function () {
-  let elements = await pages.createCourse.getWebElements('courseCard');
-  for (let x = 0; x <= elements.length; x++) {
-    await pages.courseList.click('courseMenu');
-    await pages.main.click('confirmDelete');
-  }
-});
-
 When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('tab', 'ASSIGNMENTS')
+  await pages.coursePage.click('Tab', 'ASSIGNMENTS')
   await pages.overview.click('activityName', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.studentActivity.click('assesmnetAnswer', data_table.hashes()[i].PremadeAssesmentKey);
@@ -67,7 +58,7 @@ When(/^I enroll "(.*)" in the course using "(.*)"$/, async function (userType, c
   let text = await pages.createCourse.getText('courseShortId', courseName);
   await shared.login.click('togglerMenu');
   await shared.login.click('signOut');
-  await shared.login.click('signinlink');
+  await IAMpages.signIn.click('signinlink');
   await shared.login.populate('username', user.username);
   await shared.login.populate('password', user.password);
   await shared.login.click('signin');
@@ -89,8 +80,7 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
       let scoreFinal = await pages.overview.getText('score')
       let x = eval(scoreFinal)
       let y = eval(610/600)
-      let z = eval(325/600)
-      let a = eval(300/600)
+      let z = await pages.overview.checkElementExists('midwayLc');
         if(x < y){
          
         let jsonObject = await pages.overview.getText('activityQuestion');
@@ -114,10 +104,14 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
                 await choice.click()
                 break;
               }
+              if(z=== true){
+                await pages.overview.click('midwayLc')
+        
+              }
+              await pages.overview.assertElementExists('nextQuestion');
+              await pages.overview.click('nextQuestion');
+              break;
             }
-            await pages.overview.assertElementExists('nextQuestion')
-            await pages.overview.click('nextQuestion');
-            break
 
           case 'MC':
           console.log('Entered MC') 
@@ -134,16 +128,25 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
               }
             }
             await pages.overview.click('submitButton');
+            if(z=== true){
+              await pages.overview.click('midwayLc')
+      
+            }
+            await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
+
             break;
           case 'FB':
           console.log('Entered FB')
             await pages.overview.populate('fillInTheBlank', answerKey.Answer);
             await pages.overview.click('submitButton');
+            if(z=== true){
+              await pages.overview.click('midwayLc')
+            }
+            await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
             break
         }
-      console.log('there is more'+(x-1) + "more to run")
 
       }
      if (x >= y){
@@ -180,7 +183,7 @@ When('I add the activities to the resource tab', async function (data_table) {
 
 When(/^I attempt "(.*)" URL activity$/, async function (activityName){
   await pages.overview.click('activityName', activityName);
-  await IAMpages.signIn.switchToTab('Macmillan Learning :: ');
+  await IAMpages.signIn.switchToTab('Macmillan Learning Achieve');
 });
 
 When(/^I attempt "(.*)" File activity$/, async function(activityName) {
@@ -194,3 +197,25 @@ Then('I verify Total Grades', async function (data_table){
     await pages.gradebook.assertTextIncludes('TotalPercentGrades', data_table.hashes()[i].activity, data_table.hashes()[i].PercentOfTotalgrades);
   }
 });
+
+When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
+  await pages.courseList.populate('search', Course);
+  await pages.coursePage.click('courseMenu');
+  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('deleteCourse');
+  await pages.courseList.click('confirmDelete');
+  await pages.home.click('closeAlert');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
+  await pages.courseList.populate('search', courseTemplate);
+  await pages.coursePage.click('courseMenu');
+  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('deleteCourse');
+  await pages.courseList.click('confirmDelete');
+});
+
+Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
+  await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
+  await pages.courseList.click('courseTemplate', 'Courss');
+  await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
+
+})

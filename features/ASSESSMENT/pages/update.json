@@ -1,6 +1,13 @@
 {
     "webElements": [
         {
+            "name": "Update Modal",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-container cdl-scroll']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Field",
             "byType": "xpath",
             "definition": "//*[@data-test-id='details-<ReplaceText>']",
@@ -10,14 +17,14 @@
         {
             "name": "Tree Element",
             "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']",
+            "definition": "//div[text()=\"<ReplaceText>\"]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Tree Element Leaf",
             "byType": "xpath",
-            "definition": "//div[@class='info' and text()='<ReplaceText>']",
+            "definition": "//div[@class='info' and text()=\"<ReplaceText>\"]",
             "frame": "default",
             "specialInstr": "NA"
         },

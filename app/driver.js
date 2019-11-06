@@ -8,6 +8,10 @@ const firefoxdriver = require('geckodriver');
 const { log } =  require(`${process.cwd()}/app/logger`);
 const defaults = require(`${process.cwd()}/config/config.json`);
 const argv = require('minimist')(process.argv.slice(2));
+const fs = require('fs');
+const jsonfile = require('jsonfile');
+const imagemin = require('imagemin');
+const imageminPngquant = require('imagemin-pngquant');
 let driver;
 
 const config = {
@@ -17,7 +21,9 @@ const config = {
   screenshots : argv.screenshots || defaults.screenshots,
   headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
   timeout : defaults.timeout*1000,
-  stack: argv.stack || defaults.stack || argv.env || defaults.environment
+  stack: argv.stack || defaults.stack || argv.env || defaults.environment,
+  capabilities : undefined,
+  datetime : new Date().toISOString()
 };
 
 const buildDriver = function() {  
@@ -90,11 +96,12 @@ const buildDriver = function() {
   }
   return driver.build();
 };
+
 driver = buildDriver();
 
 const visitURL = async function(url){
   log.info(`Loading the url ${url} in the browser.`);
-  await driver.manage().window().maximize();
+  await driver.manage().window().maximize();  
   await driver.manage().setTimeouts({ implicit: config.timeout, pageLoad: config.timeout, script: config.timeout });
   await driver.setFileDetector(new remote.FileDetector());
   await driver.get(url);
@@ -103,6 +110,7 @@ const visitURL = async function(url){
 
 const closeBrowser = async function(){
   log.info(`Closing the browser. Current URL is ${await driver.getCurrentUrl()}.`);
+  config.capabilities = await getCapabilities();
   return driver.quit();
 };
 
@@ -129,7 +137,31 @@ const activateTab = async function (tabName) {
       await switchToTab(tabs[index]);
       let currentTabName = await getTitle();
       if (currentTabName.includes(tabName)) {
-        log.debug(`${currentTabName} tab activated.`);
+        log.info(`${currentTabName} tab activated.`);
+        return true;
+      }
+    }
+    await sleep(5000);
+  };
+  return false;
+};
+
+const closeTabAndSwitch = async function (tabName) {
+  let startTimer = Date.now();
+  while(Date.now() - startTimer < config.timeout){
+    var tabs = await driver.getAllWindowHandles();
+    if(tabs.length < 2){
+      log.error(`There is only 1 tab existing. Script will not closing the ${tabName} tab to avoid issues. Please check your test.`);
+      return false;
+    }
+    for (let index = 0; index < tabs.length; index++) {
+      await switchToTab(tabs[index]);
+      let currentTabName = await getTitle();
+      if (currentTabName.includes(tabName)) {
+        await closeCurrentTab();
+        log.info(`${currentTabName} tab closed.`);
+        await switchToTab(tabs[0]);
+        log.info(`${await getTitle()} tab activated.`);
         return true;
       }
     }
@@ -141,6 +173,14 @@ const activateTab = async function (tabName) {
 const switchToTab = async function (tab) {
   try {
     await driver.switchTo().window(tab);
+  } catch (err) {
+    log.error(err.stack);
+  }
+};
+
+const closeCurrentTab = async function () {
+  try {
+    await driver.close();
   } catch (err) {
     log.error(err.stack);
   }
@@ -164,9 +204,16 @@ const getURL = async function () {
 
 const takeScreenshot = async function () {
   try {
-    return await driver.takeScreenshot();
+    return (await imagemin.buffer(Buffer.from(await driver.takeScreenshot(), "base64"), {
+      plugins: [
+        imageminPngquant({
+          quality: [0.1, 0.4]
+        })
+      ]
+    })).toString('base64');
   } catch (err) {
     log.error(err.stack);
+    return false;
   }
 };
 
@@ -176,6 +223,10 @@ const getDriver = function () {
 
 const getWebDriver = function () {
   return webdriver;
+};
+
+const getCapabilities = async function () {
+  return (await driver.getCapabilities()).map_;
 };
 
 const onPageLoadedWaitById = async function (elementIdOnNextPage) {
@@ -240,6 +291,25 @@ process.argv.forEach(function (val, index, array) {
   log.debug(index + ': ' + val);
 });
 
+process.on('exit', function () {
+  const reportPath = argv.f !== undefined ? (argv.f.indexOf('json:') > -1 ? (`${process.cwd()}/${(argv.f).split(':')[1]}`) : undefined) : undefined;
+  if (reportPath !== undefined) {
+    const metadata = {
+      "Browser": config.capabilities.get('browserName').toUpperCase(),
+      "Browser Version": config.capabilities.get('browserVersion').toUpperCase(),
+      "Platform": config.capabilities.get('platformName').toUpperCase(),
+      "Environment": config.environment.toUpperCase(),
+      "Stack": config.stack.toUpperCase(),
+      "Executed": config.mode.toUpperCase(),
+      "Date": config.datetime.split('T')[0],
+      "Time": config.datetime.split('T')[1].split('.')[0]
+    }
+    let contents = jsonfile.readFileSync(reportPath);
+    contents[0].metadata = metadata;
+    jsonfile.writeFileSync(reportPath, contents);
+  }
+});
+
 module.exports = {
   closeBrowser,
   resetBrowser,
@@ -247,9 +317,11 @@ module.exports = {
   getURL,
   getTitle,
   activateTab,
+  closeTabAndSwitch,
   takeScreenshot,
   getDriver,
   getWebDriver,
+  getCapabilities,
   onPageLoadedWaitById,
   onWaitForElementToBeLocated,
   onWaitForWebElementToBeEnabled,

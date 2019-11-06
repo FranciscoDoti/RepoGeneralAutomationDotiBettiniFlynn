@@ -4,15 +4,16 @@ Feature: Create a Template and click on Production
 
        Given I login to Achieve-CW as "admin_1"
        When I create template with following data 
-            | courseType  | productModel      | courseName                       | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | PSV-4771 Template                | macmillan calculus     | E2E 301      | 9701733199499  | draft         |
+            | courseType  | productModel      | courseName                       | learningObjective      | courseCode   | isbnNumber     | courseStatus    |
+            | Template    | Qualitative       | PSV-4771 Template                | macmillan calculus     | E2E 301      | 9701733199499  | Active On Date  |
 
-        And I update "PSV-4771 Template" template and add the following data
-            | courseName                        |  courseCode   |  templateStatus      |
-            | PSV-4771 Template                 |   E2E 301     |  Active On Date      | 
+        #And I activate "PSV-4771" template and add the following data
+        #    | courseName                        |  courseCode   |  templateStatus      |
+        #    | PSV-4771 Template                 |   E2E 301     |  Active On Date      | 
         
+        And I click on search button and input "PSV-4771" to search the course
 
-        And I create Custom Task in "PSV-4771 Template" and create an assesment
+        And I create "TEST" custom activity in "Create" tab
             | assesmentTitle    | assesmentType     | homeTaxonomy                      |
             | TestAssesment     | Test/Quiz         | Interactive General Chemistry V1  |
 

@@ -16,9 +16,9 @@ Feature: Media Editor has only view access that they are not a collaborator
 
         And I add the activities in resources to "Quantitative Template" template
             | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored) Automated Test       |     
-            | addButtonLearningcurve  | LC1551301608988 Automated Test                               |
-            | addReadingButton        |  Glossary Automated Test                                    |
+            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
+            | addButtonLearningcurve  | LC1551301608988                               |
+            | addReadingButton        |  Glossary                                     |
 
         And I sign out of Achieve
 
