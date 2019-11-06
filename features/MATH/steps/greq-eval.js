@@ -26,18 +26,19 @@ When(/^I set Item Details name as "(.*)"$/, async function (name) {
 });
 
 When(/^I add Math equation module$/, async function () {
-  // await pages.raptorAms.click('menuBarAdd');
-  // await pages.raptorAms.waitForElementVisibility('addMathEquation');
+  await pages.raptorAms.click('menuBarAdd');
+  await pages.raptorAms.assertElementExists('addMathEquation');
+  console.log("before math");
+  await pages.raptorAms.click('addMathEquation');
+    // await raptorlib.addModule("Math Equation");
+    console.log("after math");
 
-  // await pages.raptorAms.click('addMathEquation');
-  // console.log("added");
-    await raptorlib.addModule("Math Equation");
 
 
 });
 
 When(/^I click on the Question tab, and add an Answer field$/, async function () {
-  await pages.raptorAms.waitForElementVisibility('questionContent');
+  await pages.raptorAms.assertElementExists('questionContent');
   await pages.raptorAms.click('questionContent');
   await pages.raptorAms.click('questionContent');
 
