@@ -1,0 +1,25 @@
+{
+  "webElements": [
+    {
+      "name": "mainNav",
+      "byType": "css",
+      "definition": "[data-test-id='Gradebook']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "settingsNav",
+      "byType": "css",
+      "definition": "[data-test-id='settings']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "menuUserName",
+      "byType": "css",
+      "definition": "[data-test-id='menu_user_name']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}
