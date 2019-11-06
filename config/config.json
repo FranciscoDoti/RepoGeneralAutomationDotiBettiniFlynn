@@ -1,5 +1,5 @@
 {
-    "environment": "dev-gb",
+    "environment": "int",
     "mode": "local",
     "browser": "chrome",
     "headless": false,
