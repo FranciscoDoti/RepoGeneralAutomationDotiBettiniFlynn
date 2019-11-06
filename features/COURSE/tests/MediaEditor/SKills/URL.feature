@@ -1,7 +1,7 @@
 @Course @Smoke @Skip
 Feature: Verify that Media Editor is able to create URL in Skills Template
 
-    @medieditor-delete-course
+    @mediaeditor-delete-course
     Scenario: Verify that Media Editor is able to create a custom task with URL in Skills Templete
 
        Given I login to Achieve-CW as "media_editor_1"

@@ -15,7 +15,11 @@ const pages = {
     editCourse: new PageObject('editCourse.json', stepsPath),
     copyCourse: new PageObject('copyCourse.json', stepsPath),
     eBook: new PageObject('eBook.json', stepsPath),
+<<<<<<< HEAD
     people: new PageObject('people.json', stepsPath)
+=======
+    productionPage: new PageObject('productionPage.json', stepsPath)
+>>>>>>> 2c8177e44342cbcdf5869652d59f179831386cb2
 };
 
 module.exports ={

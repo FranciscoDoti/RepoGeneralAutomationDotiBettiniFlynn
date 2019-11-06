@@ -14,22 +14,14 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
-  await pages.coursePage.click('tab',Tab);
+  await pages.coursePage.click('Tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
   }
 });
 
-When('I delete the courses', async function () {
-  let elements = await pages.createCourse.getWebElements('courseCard');
-  for (let x = 0; x <= elements.length; x++) {
-    await pages.courseList.click('courseMenu');
-    await pages.main.click('confirmDelete');
-  }
-});
-
 When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.coursePage.click('tab', 'ASSIGNMENTS')
+  await pages.coursePage.click('Tab', 'ASSIGNMENTS')
   await pages.overview.click('activityName', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.studentActivity.click('assesmnetAnswer', data_table.hashes()[i].PremadeAssesmentKey);
@@ -225,7 +217,7 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
-  await pages.courseList.click('courseTemplate', 'COURSES');
+  await pages.courseList.click('courseTemplate', 'Courss');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
 
 })

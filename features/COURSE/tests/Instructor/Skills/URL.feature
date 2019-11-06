@@ -10,9 +10,13 @@ Feature: Verify that Instructor is able to create URL in Skills Course
            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
-        And I activate the "Skills Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |   
+        And I close the popup message                      
+
+        And I click on search button and input "Skills Production Template" to search the course
+
+        And I activate "Skills Production Template" template and add the following data
+            | courseName                      |  courseCode   |  templateStatus      |
+            | Skills Production Template      |   E2E 301     |  Active On Date      |  
 
         And I copy course from the "Skills Template" template with the following data
             | courseName          | courseCode           |
@@ -38,7 +42,7 @@ Feature: Verify that Instructor is able to create URL in Skills Course
 
         Then I verify that "URL Link Added to "Your Content"" message is displayed
 
-        And I add url link in courseplanner
+        And I add URL in courseplanner
             | activity                                    |
             | Google                                      |
 

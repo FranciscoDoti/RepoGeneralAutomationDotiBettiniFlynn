@@ -1,8 +1,10 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const driver = require(`${process.cwd()}/app/driver.js`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.click('courseMenu');
   await pages.editCourse.click('editCourse');
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -23,7 +25,7 @@ When(/^I activate "(.*)" course with following data$/, async function (courseNam
 });
 
 When(/^I create custom made activity in "(.*)" with the following data$/, async function (courseName, data_table) {
-  await pages.coursePage.click('tab', 'COURSE PLAN');
+  await pages.coursePage.click('Tab', 'COURSE PLAN');
   await pages.coursePlanner.click('customContentButton');
   await pages.coursePlanner.click('newCustom');
   await pages.coursePlanner.click('assessmentButton');
@@ -120,7 +122,7 @@ Then('I verify that activities are assigned', async function (data_table){
 When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, data_table){
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Browse');
-  await pages.coursePage.click('tab', 'MY CONTENT');
+  await pages.coursePage.click('Tab', 'MY CONTENT');
   await pages.coursePlanner.click('customContentButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('urlLink');
@@ -129,7 +131,7 @@ When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, 
   }
 });
 
-When('I add url link in courseplanner', async function (data_table){
+When('I add URL in courseplanner', async function (data_table){
   await pages.resources.click('goToContent');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
@@ -138,7 +140,7 @@ When('I add url link in courseplanner', async function (data_table){
 
 Then('I verify that activties are added in courseplanner', async function (data_table){
   await pages.coursePage.click('navigation', 'My Course');
-  await pages.coursePage.click('tab', 'COURSE PLAN');
+  await pages.coursePage.click('Tab', 'COURSE PLAN');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
   }
@@ -168,7 +170,7 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
     await pages.gradebook.click('save','Save');
   }
   await pages.coursePage.click('navigation','My Course');
-  await pages.coursePage.click('tab', 'COURSE PLAN');
+  await pages.coursePage.click('Tab', 'COURSE PLAN');
   await pages.coursePlanner.click('assignGradebook', activity);
   await pages.coursePlanner.click('gradeBookCategory');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -214,6 +216,8 @@ Then('I do not see assignments more than 7 days out on the course plan tab', asy
   await pages.coursePage.click('navigation','My Course');
   await pages.coursePage.click('tab', 'ASSIGNMENTS');
   await pages.coursePage.assertElementDoesNotExist('dueDateDay', dayMore7);
+});
+
 Then('I drop', async function (data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     let user = this.users[data_table.hashes()[i].Students];
@@ -228,4 +232,40 @@ Then('I drop', async function (data_table) {
 When('I navigate to gradebook and verify grades', async function (data_table) {
   await pages.coursePage.click('navigation','My Course');
   await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
+});
+When(/^I add "(.*)" content first in order to continue adding the rest contentfrom Browse to courseplanner in "(.*)"$/, async function (activity, courseName, data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  await pages.coursePlanner.populate('librarySearchInput', activity);
+  await pages.coursePlanner.click('addAssignmentButton', activity);
+  await pages.coursePlanner.click('addingContent');
+  await pages.coursePlanner.click('continue'); 
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+  }
+})
+
+When(/^I create "(.*)" writing activity as an instructor$/, async function (writingName){
+  await pages.home.click('closeAlert');
+  await driver.getDriver().navigate().refresh();
+  await pages.coursePage.click('navigation','Browse');
+  await pages.coursePage.click('Tab', 'MY CONTENT');
+  await pages.coursePlanner.click('customContentButton', 'New');
+  await pages.resources.click('writingPrompt');
+  await pages.coursePlanner.click('editTitle');
+  await pages.coursePlanner.populate('activityTitle', writingName);
+  await pages.coursePlanner.click('TitleSave');
+  await pages.coursePlanner.click('close');
+})
+
+Then(/^I verify that "(.*)" writing activity is added in Browse$/, async function (activityName){
+  await pages.coursePage.click('Tab', 'MY CONTENT');
+  await pages.coursePlanner.assertElementExists('activityName', activityName);
+});
+
+When('I add custom content courseplanner', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
+  }
 });
