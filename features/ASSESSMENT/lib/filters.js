@@ -1,5 +1,5 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { expect } = require('chai');
+const { assert, expect} = require('chai');
 
 
 
@@ -47,7 +47,8 @@ const removeFilter = async function (tagText) {
 };
 
 const verifyThatCountResultHasIncreased = async function() {
-  expect(await searchResultCount()).to.be.greaterThan(200);
+  let results= await searchResultCount();
+  assert(results>200, 'Current quantity of table results:'+ results);
 }; 
 
 
