@@ -12,7 +12,7 @@ Feature: Verify page elements for different eval types
         And I verify "one or more" dropdown(s) or radio button(s): "gradeAsListC, gradeFormType, mathNumericTolerance, exactTolerance" on "correct" tab
 
         When I click on Question tab, select GradeAs dropdown "Point" evaltype
-        And I verify "one or more" dropdown(s) or radio button(s): "isList" on "question" tab
+        Then I verify "one or more" dropdown(s) or radio button(s): "isList" on "question" tab
         And I verify "one or more" dropdown(s) or radio button(s): "isList, mathPolarCoordinate, mathNumericTolerance, exactTolerance" on "correct" tab
 
         When I click on Question tab, select GradeAs dropdown "Vector" evaltype
