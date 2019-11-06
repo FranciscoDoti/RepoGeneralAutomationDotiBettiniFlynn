@@ -15,6 +15,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "correctSetup",
+            "byType": "css",
+            "definition": ".aqua-button",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "menuBarColumn",
             "byType": "css",
             "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
