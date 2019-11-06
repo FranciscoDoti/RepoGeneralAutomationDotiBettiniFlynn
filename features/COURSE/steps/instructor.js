@@ -1,7 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
-
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
@@ -55,11 +54,17 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    if(i===0) {
+      await pages.coursePlanner.click('addingContent');
+      await pages.coursePlanner.click('continue');
+      await pages.home.click('closeAlert');
+    }
   }
 });
 
 When('I assign the activities in courseplanner', async function (data_table) {
   await pages.coursePage.click('navigation', 'My Course');
+  await pages.home.click('closeAlert');
   await pages.coursePage.click('tab', 'COURSE PLAN')
   for (let i = 0; i < data_table.rows().length; i++) {
     let Elements = await pages.coursePlanner.getWebElements('assignAssignmentButton');
@@ -196,4 +201,20 @@ Then('I verify the Grades', async function (data_table){
     await pages.gradebook.assertTextIncludes('studentcourseTotal', user.firstName, data_table.hashes()[i].Google);
     await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
   }
+});
+
+Then('I drop', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.coursePage.click('navigation','People');
+    await pages.people.populate('searchbox', user.username);
+    await pages.people.click('checkbox', user.username);
+    await pages.people.click('button', 'Drop Students');
+    await pages.people.click('button', 'Yes, Drop');
+  }
+});
+
+When('I navigate to gradebook and verify grades', async function (data_table) {
+  await pages.coursePage.click('navigation','My Course');
+  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
 });

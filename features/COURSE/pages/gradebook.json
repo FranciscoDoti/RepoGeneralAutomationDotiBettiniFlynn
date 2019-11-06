@@ -66,13 +66,13 @@
         },{
             "name": "categoryName",
             "byType": "xpath",
-            "definition": "(//div[@class='_26EF _3PUX']/..//input)[3]",
+            "definition": "//span [.='Category Name']/..//input",
             "frame": "default",
             "specialInstr": "NA"
         },{
             "name": "dropLowestGrade",
             "byType": "xpath",
-            "definition": "//div[@class='_17zI']/..//select",
+            "definition": "//div [.='Drop Lowest Grades']/../../..//select",
             "frame": "default",
             "specialInstr": "NA"
         },{
@@ -135,15 +135,18 @@
             "frame": "default",
             "specialInstr": "NA"
 
-        },
-        {
+        },{
             "name": "studentCategoryTotal",
             "byType": "xpath",
             "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
             "frame": "default",
             "specialInstr": "NA"
-     
-
+        },{
+            "name": "checkActivityCompletion",
+            "byType": "xpath",
+            "definition": "//div[.='<ReplaceText>']/../../../..//div[@data-test-id='percentage_complete']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

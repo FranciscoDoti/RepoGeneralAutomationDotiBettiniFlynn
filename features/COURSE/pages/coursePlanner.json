@@ -748,6 +748,21 @@
             "specialInstr": "NA"
 
 
+        },{
+            "name": "addingContent",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='add_content_confirmation_modal']/..//input[@type='checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "continue",
+            "byType": "css",
+            "definition": "button[data-test-id='modal_add_folder_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
     ]
 }
