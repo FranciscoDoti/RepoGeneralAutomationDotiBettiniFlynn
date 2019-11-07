@@ -1,22 +1,6 @@
 @Assessment @AMS @FilterItems
 Feature: To verify the correct functionality of ams's item filter
 
-    @TextFilter @Smoke
-    Scenario: Apply text filter and verify whether the AMS items are changing based on text filter
-        Given I login to AMS as "all-permissions-author"
-        When I apply the following text filter "CEE"
-        Then I verify that the items match with the text filter "CEE" that was applied
-
-        
-    @VerifyLoadMore @Smoke
-    Scenario: Verify whether items on AMS screen increase on clicking Load More
-        Given I login to AMS as "all-permissions-author"
-        When I apply the following filters
-            | Filter | Option                         |
-            | Topic  | Your Questions (uncategorized) |
-        And I click on Load More
-        Then I verify that the quantity of items on AMS screen have increased
-
     @MultipleFilters @VerifyChanges @Smoke
     Scenario: Change the filter. Apply multiple filters and verify  whether the AMS items are changing based on filter
         Given I login to AMS as "all-permissions-author"
@@ -29,13 +13,28 @@ Feature: To verify the correct functionality of ams's item filter
         And I apply the following filters
             | Filter | Option                         |
             | Topic  | Your Questions (uncategorized) |
-            | Blooms | Remembering                    |
             | Access | public                         |
         Then I verify that items match with the following multiple filters that were applied
             | Filter | Option                         |
             | Topic  | Your Questions (uncategorized) |
-            | Blooms | Remembering                    |
             | Access | public                         |
+
+    @TextFilter @Smoke
+    Scenario: Apply text filter and verify whether the AMS items are changing based on text filter
+        Given I login to AMS as "all-permissions-author"
+        When I apply the following text filter "CEE"
+        Then I verify that the items match with the text filter "CEE" that was applied
+
+
+    @VerifyLoadMore @Smoke
+    Scenario: Verify whether items on AMS screen increase on clicking Load More
+        Given I login to AMS as "all-permissions-author"
+        When I apply the following filters
+            | Filter | Option                         |
+            | Topic  | Your Questions (uncategorized) |
+        And I click on Load More
+        Then I verify that the quantity of items on AMS screen have increased
+
             
         
 

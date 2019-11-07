@@ -47,6 +47,19 @@ Then('I verify that the items match with the filter applied with value {}', asyn
 
 });
 
+Then('I verify that items match with the following multiple filters that were applied', async function(dataTable){
+   let  options= [];
+    
+    for (let i = 0; i < dataTable.rows().length; i++) {
+        let item = dataTable.hashes()[i];
+        options[i]= item.Option;
+    }
+    await filterslib.verifyItemsWithMultipleFilterApplied(options);
+
+});
+
+
+
 Then(/^I verify that the items match with the text filter "(.*)" that was applied$/, async function(textFilter){
     await filterslib.verifyItemsWithFilterApplied(textFilter);
 

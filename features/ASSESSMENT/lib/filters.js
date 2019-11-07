@@ -41,6 +41,21 @@ const verifyItemsWithFilterApplied = async function (option) {
   }
 };
 
+const verifyItemsWithMultipleFilterApplied = async function (options) {
+  let i = 1;
+  while (i <= await searchResultCount()) {
+    for (let j=0; j< options.length;j++){
+      await verifyTextInRow(i, options[j]);
+    }
+  
+    if (i % 200 == 0 && i <= 999) {
+      await pages.filters.scrollElementIntoView('Load More');
+      await pages.filters.click('Load More');
+    }
+    i++;
+  }
+};
+
 const removeFilter = async function (tagText) {
   await pages.filters.click('Filter Remove', tagText);
   await pages.filters.assertElementDoesNotExist('Filter Tag', tagText);
@@ -60,5 +75,6 @@ module.exports = {
   searchResultCount,
   verifyTextInRow,
   verifyItemsWithFilterApplied,
+  verifyItemsWithMultipleFilterApplied,
   verifyThatCountResultHasIncreased
 };
