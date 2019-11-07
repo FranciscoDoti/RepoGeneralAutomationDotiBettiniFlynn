@@ -14,7 +14,7 @@ const openUpdateModal = async function () {
     await pages.update.assertElementExists('Update Modal');
 };
 
-const deleteItems = async function () {
+const bulkDeleteItems = async function () {
     await pages.ams.switchToTab('Sapling Learning Author Management System');
     await pages.ams.click('AMS Button', 'VIEW SELECTED ITEMS');
     await pages.ams.click('AMS Button', 'Select Action');
@@ -95,7 +95,7 @@ const verifyItemDetails = async function (item, itemId) {
 module.exports = {
     addRaptorItem,
     deleteItem,
-    deleteItems,
+    bulkDeleteItems,
     openUpdateModal,
     updateDone,
     verifyItemDetails,

@@ -20,8 +20,8 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | BulkUpdateEdit Test MD Item |
 
         And I update the selected items with the following details
-            | Topic Level1 | Topic Level2 | Topic Level3         | Topic Level4 | Topic Level5                   | Taxonomy Level1 | Taxonomy Level2 | Difficulty | Status | Access |
-            | Algebra      | Math Review  | CHAPTER 0 All Topics | All Topics   | Your Questions (uncategorized) | Algebra         | Math Review     | Easy       | Live   | public |
+            | Topic Level 1 | Topic Level 2 | Topic Level 3        | Topic Level 4 | Topic Level 5                  | Taxonomy Level 1 | Taxonomy Level 2 | Difficulty | Status | Access |
+            | Algebra       | Math Review   | CHAPTER 0 All Topics | All Topics    | Your Questions (uncategorized) | Algebra          | Math Review      | Easy       | Live   | public |
 
         Then I verify the details of the following items are displayed in AMS
             | Author Mode | Title                       | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
@@ -83,8 +83,8 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | BulkUpdateEditTwice Test MD Item |
 
         And I update the selected items with the following details
-            | Topic Level1 | Topic Level2 | Topic Level3         | Topic Level4 | Topic Level5                   | Taxonomy Level1 | Taxonomy Level2 | Difficulty | Status | Access |
-            | Algebra      | Math Review  | CHAPTER 0 All Topics | All Topics   | Your Questions (uncategorized) | Algebra         | Math Review     | Easy       | Live   | public |
+            | Topic Level 1 | Topic Level 2 | Topic Level 3        | Topic Level 4 | Topic Level 5                  | Taxonomy Level 1 | Taxonomy Level 2 | Difficulty | Status | Access |
+            | Algebra       | Math Review   | CHAPTER 0 All Topics | All Topics    | Your Questions (uncategorized) | Algebra          | Math Review      | Easy       | Live   | public |
 
         And I verify the details of the following items are displayed in AMS
             | Author Mode | Title                            | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
@@ -101,11 +101,11 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | BulkUpdateEditTwice Test MD Item |
 
         And I update the selected items with the following details
-            | Topic Level1         | Topic Level2                | Topic Level3           | Topic Level4                             | Topic Level5                 | Taxonomy Level1      | Taxonomy Level2             | Difficulty | Status    | Access  |
+            | Topic Level 1        | Topic Level 2               | Topic Level 3          | Topic Level 4                            | Topic Level 5          | Taxonomy Level 1     | Taxonomy Level 2            | Difficulty | Status    | Access  |
             | Analytical Chemistry | Exploring Chemical Analysis | The Analytical Process | 0-2 General Steps in a Chemical Analysis | The Analytical Process | Analytical Chemistry | Exploring Chemical Analysis | Hard       | In Review | private |
 
         Then I verify the details of the following items are displayed in AMS
-            | Author Mode | Title                            | Topic                        | Taxonomy                    | Difficulty | Module Type | Status    | Access  |
+            | Author Mode | Title                            | Topic                  | Taxonomy                    | Difficulty | Module Type | Status    | Access  |
             | Raptor      | BulkUpdateEditTwice Test MC Item | The Analytical Process | Exploring Chemical Analysis | hard       | MC          | in review | private |
             | Raptor      | BulkUpdateEditTwice Test MS Item | The Analytical Process | Exploring Chemical Analysis | hard       | MS          | in review | private |
             | Raptor      | BulkUpdateEditTwice Test UT Item | The Analytical Process | Exploring Chemical Analysis | hard       |             | in review | private |
