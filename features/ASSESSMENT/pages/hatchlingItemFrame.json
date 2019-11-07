@@ -201,6 +201,13 @@
             "definition": "//a[@data-test-id='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Assessment Title",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }

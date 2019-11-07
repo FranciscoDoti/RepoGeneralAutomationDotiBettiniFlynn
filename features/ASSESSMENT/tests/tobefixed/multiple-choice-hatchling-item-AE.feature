@@ -57,4 +57,4 @@ Feature: Create an MC Hatchling Item on AE and add it to the new Assessment
         And I set hint and generic feedback with following details and save on "AE"
             | Hint                  | Generic Feedback            |
             | You Know the answers! | You must provide a response |
-        And verify the created item is displayed in assessment
+        Then verify the created item is displayed in assessment
