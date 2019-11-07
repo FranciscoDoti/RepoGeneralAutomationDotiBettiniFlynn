@@ -1,5 +1,6 @@
 @Course @Smoke
 Feature: Adding activities in Folder Resource Tab to Qualitative template
+
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Qualitative template
 
@@ -18,9 +19,6 @@ Feature: Adding activities in Folder Resource Tab to Qualitative template
         
         And I click on "Qualitative Template" card
         And I click on "Production" Tab
-        And I activate the "Qualitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
         And I add activities to "Content Library"
             | activities            |

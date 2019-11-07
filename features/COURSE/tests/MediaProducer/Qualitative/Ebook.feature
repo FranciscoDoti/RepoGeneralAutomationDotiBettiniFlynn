@@ -1,5 +1,7 @@
+@Course @Smoke
 Feature: Verify that MediaProducer is able to add activities in Ebook
 
+    @mediaproducer-delete-courseTemplate
     Scenario: MediaProducer add the activities, Delete Activites, Create Folder in ebook(Qualitative Template)
 
        Given I login to Achieve-CW as "media_producer_2"
@@ -25,7 +27,6 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
           | Appendix F            |
           | Literary Elements     |
           | Confidence Intervals  |
-          | Psychopathology       |
 
         And I add the activities in "E-book"
             | activities |
@@ -36,16 +37,8 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
             | activities |
             | Glossary   |
             | Appendix F |
-    And I sign out of Achieve
 
-    Scenario:  MediaProducer add activities in courseplan and not in ebook
-
-       Given I login to Achieve-CW as "media_producer_2"
-
-       When I search for "Qualitative Production Template" and click on course card
-       And I click on "Production" Tab
-
-       And I add activities in "Course Plan" 
+       When I add activities in "Course Plan" 
             | activities           |
             | Literary Elements    |
             | Confidence Intervals |
@@ -54,21 +47,13 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
             | activities                    |
             | Literary Elements             |
             | Confidence Intervals          |
-    And I sign out of Achieve
 
-    Scenario: Verify that MediaProducer is able to add reading activities both in eBook and Course plan
-        Given I login to Achieve-CW as "media_producer_2"
-
-        When I search for "Qualitative Production Template" and click on course card
-        And I click on "Production" Tab
-
-         And I add the activities in both "Course Plan" and "E-book"
+         When I add the activities in both "Course Plan" and "E-book"
             | activities            | tab               |
             | Glossary              | CoursePlanEbook   |
             | Appendix F            | CoursePlanEbook   |
             | Literary Elements     | CoursePlanEbook   |
             | Confidence Intervals  | CoursePlanEbook   |
-            | Psychopathology       | All               |
 
         Then I verify that activities are added both in "E-book" and "Course Plan" 
             | activities            |
@@ -76,32 +61,20 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
             | Appendix F            |
             | Literary Elements     |
             | Confidence Intervals  |
-            | Psychopathology       |
-        And I sign out of Achieve
 
-
-    Scenario: Verify that MediaProducer is able to create Folder, reorder and delete Folder in ebook 
-
-        Given I login to Achieve-CW as "media_producer_2"
-
-        When I search for "Qualitative Production Template" and click on course card
-        And I click on "Production" Tab
-
-        And I create folder and add the activities to the folder in "E-book" 
+        When I create folder and add the activities to the folder in "E-book" 
             | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  Psychopathology       | Reading 1 folder      |
-            | Reading 2    | Appendix F             | Reading 2 folder      |
-            | Reading 3    | Glossary               | Reading 3 folder      |
-            | Reading 4    | Confidence Intervals   | Reading 4 folder      |
-            | Reading 5    | Literary Elements      | Reading 5 folder      |
+            | Reading 1    | Appendix F             | Reading 1 folder      |
+            | Reading 2    | Glossary               | Reading 2 folder      |
+            | Reading 3    | Confidence Intervals   | Reading 3 folder      |
+            | Reading 4    | Literary Elements      | Reading 4 folder      |
 
         Then I verify that activities are added to the folder 
             | Folder        | activities             |
-            | Reading 5     | Literary Elements      |
-            | Reading 1     | Psychopathology        |
-            | Reading 2     | Appendix F             |
-            | Reading 3     | Glossary               |
-            | Reading 4     | Confidence Intervals   |
+            | Reading 4     | Literary Elements      |
+            | Reading 1     | Appendix F             |
+            | Reading 2     | Glossary               |
+            | Reading 3     | Confidence Intervals   |
 
         When I Reorder The folders
             | Folder    |   Button              |
@@ -109,7 +82,7 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
             | Reading 2 |   moveUpButton        |
             | Reading 2 |   moveUpButton        |
             | Reading 3 |   moveUpButton        |
-            | Reading 5 |  moveToEnd            |  
+            | Reading 4 |  moveToEnd            |  
 
         Then I verify that Folders are reordered 
             | Folder                                                            | orderNumber    |
@@ -117,15 +90,14 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
             | Reading 2                                                         |  2             |
             | Reading 3                                                         |  3             |
             | Reading 4                                                         |  4             |
-            | Reading 5                                                         |  5             |
-
+           
         When I delete the folder 
             | Folder     |
             | Reading 1  |
             | Reading 2  |
             | Reading 3  |
             | Reading 4  |
-            | Reading 5  |
+   
 
         Then I verify that Folders are deleted
             | Folder     |
@@ -133,15 +105,4 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
             | Reading 2  |
             | Reading 3  |
             | Reading 4  |
-            | Reading 5  |
-
-    Scenario: Verify that MediaProducer is able to delete the template 
-
-        Given I login to Achieve-CW as "media_producer_2"
-
-        When I search for "Qualitative Production Template" course
-
-        And I delete the "Qualitative Production Template"
-
-        Then I verify that "Qualitative Production Template" is deleted
-
+        

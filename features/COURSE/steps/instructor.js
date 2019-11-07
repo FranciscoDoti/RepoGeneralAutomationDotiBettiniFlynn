@@ -4,8 +4,7 @@ const driver = require(`${process.cwd()}/app/driver.js`);
 
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
-  await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu');
+  await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -57,8 +56,11 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addingContent');
-    await pages.coursePlanner.click('continue'); 
+    if(i===0) {
+      await pages.coursePlanner.click('addingContent');
+      await pages.coursePlanner.click('continue');
+      await pages.home.click('closeAlert');
+    }
   }
 });
 

@@ -24,6 +24,7 @@ Feature: Verify that media Producer is able to create Custom Task Qualitative te
             | assignmentTitle    | Qual Test                                |
             | taxonomy           | Interactive General Chemistry V1         |
             | assignmentType     | Test/Quiz                                |
+        And I click on "Production" Tab
 
         Then I verify that activties are added in "Create"
             | activity                                      |    

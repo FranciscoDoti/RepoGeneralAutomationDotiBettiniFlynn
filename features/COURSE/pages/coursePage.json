@@ -113,14 +113,14 @@
             "byType": "xpath",
             "definition": "//*[@id='simple-menu']/div[3]/ul/li",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
 
         },{
             "name": "All",
             "byType": "xpath",
             "definition": "//*[@id='simple-menu']/div[3]/ul/li[3]",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
 
         }
     ]
