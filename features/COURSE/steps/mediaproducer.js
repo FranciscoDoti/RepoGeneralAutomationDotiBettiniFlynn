@@ -365,9 +365,9 @@ When(/^I create a custom assesment activity$/, async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.createCourse.click('New');
     await pages.coursePlanner.click('assessmentButton');
-    await pages.coursePage.populate('ProvideATitle', data_table.assesmentTitle);
-    await pages.coursePage.populate('dropDown', 'Choose an assignment type', data_table.assesmentType);
-    await pages.coursePage.populate('dropDown', 'Choose a taxonomy', data_table.homeTaxonomy);
+    await pages.coursePlanner.populate('ProvideATitle', data_table.assesmentTitle);
+    await pages.coursePlanner.populate('dropDown', 'Choose an assignment type', data_table.assesmentType);
+    await pages.coursePlanner.populate('dropDown', 'Choose a taxonomy', data_table.homeTaxonomy);
   }
   await pages.coursePlanner.click('TitleSave');
   await pages.coursePlanner.click('close');

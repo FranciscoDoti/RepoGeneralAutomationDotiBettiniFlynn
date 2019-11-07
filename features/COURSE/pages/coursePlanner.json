@@ -778,6 +778,20 @@
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
 
+        },{
+            "name": "ProvideATitle",
+            "byType": "xpath",
+            "definition": "//*[@placeholder='Provide a title']",
+            "frame": "customAssesmentFrame",
+            "specialInstr": "NA"
+
+        },{
+            "name": "dropDown",
+            "byType": "xpath",
+            "definition": "//option[.='<ReplaceText>']/..",
+            "frame": "customAssesmentFrame",
+            "specialInstr": "NA"
+
         }
 
     ]
