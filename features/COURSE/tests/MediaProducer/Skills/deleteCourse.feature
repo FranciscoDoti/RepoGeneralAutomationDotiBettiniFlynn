@@ -11,7 +11,7 @@
             | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |
         And I close the popup message                      
 
-        And I click on search button and input "Qualitative Template" to search the course      
+        And I click on search button and input "Skills Template" to search the course      
 
         And I activate the "Skills Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |

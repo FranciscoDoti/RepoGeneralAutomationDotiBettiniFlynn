@@ -736,8 +736,7 @@
             "specialInstr": "NA"
 
 
-        },
-        {
+        },{
             "name": "addingContent",
             "byType": "xpath",
             "definition": "//div[@data-test-id='add_content_confirmation_modal']/..//input[@type='checkbox']",

@@ -11,9 +11,10 @@ const openUpdateModal = async function () {
     await pages.ams.click('AMS Button', 'VIEW SELECTED ITEMS');
     await pages.ams.click('AMS Button', 'Select Action');
     await pages.ams.click('AMS Button', 'Update');
+    await pages.update.assertElementExists('Update Modal');
 };
 
-const deleteItems = async function () {
+const bulkDeleteItems = async function () {
     await pages.ams.switchToTab('Sapling Learning Author Management System');
     await pages.ams.click('AMS Button', 'VIEW SELECTED ITEMS');
     await pages.ams.click('AMS Button', 'Select Action');
@@ -35,9 +36,11 @@ const deleteItem = async function (itemId) {
 const duplicateItem = async function (itemId) {
     await pages.ams.click('Duplicate Item', itemId);
     await pages.raptor.switchToTab('Raptor Authoring');
-    let duplicatedItemId = (await pages.raptor.getText('Item ID')).split(":")[1].trim();
+    await pages.raptor.waitForElementVisibility('Tab','question');
+    await pages.raptor.assertElementExists('Item ID');
+    let duplicatedItemId = await pages.raptor.getText('Item ID');
+    duplicatedItemId = duplicatedItemId.split(":")[1].trim();
     return duplicatedItemId;
-
 };
 
 const updateDone = async function () {
@@ -62,6 +65,7 @@ const verifyFeedback = async function (itemTabs) {
 };
 
 const verifyItemDetails = async function (item, itemId) {
+    await pages.ams.assertElementExists('Data Row', itemId);
     if (item['Author Mode'] !== undefined) {
         await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
     }
@@ -91,7 +95,7 @@ const verifyItemDetails = async function (item, itemId) {
 module.exports = {
     addRaptorItem,
     deleteItem,
-    deleteItems,
+    bulkDeleteItems,
     openUpdateModal,
     updateDone,
     verifyItemDetails,

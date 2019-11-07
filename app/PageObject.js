@@ -224,12 +224,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
+          const implicit = (await getDriver().manage().getTimeouts()).implicit;
           await getDriver().manage().setTimeouts({
             implicit: 5000
           });
           let retval = !(await WebElementObject.elementDisplayed());
           await getDriver().manage().setTimeouts({
-            implicit: config.timeout
+            implicit: implicit
           });
           return retval;
         case 'visible':
@@ -254,9 +255,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
     if (await genericAssertElement(elementName, 'displayed')) {
       log.info(`Web Element ${elementName} is displayed on page.`);
-    } else {
-      log.info(`Web Element ${elementName} is not displayed on page.`);
-    };
+      return true;
+    }
+    log.info(`Web Element ${elementName} is not displayed on page.`);
+    return false;
   };
 
   const assertElementExists = async function (elementName, replaceText) {
