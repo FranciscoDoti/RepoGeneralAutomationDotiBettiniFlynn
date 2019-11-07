@@ -1,0 +1,50 @@
+{
+    "webElements": [{
+
+        "name": "selectTemplate",
+        "byType": "xpath",
+        "definition": "//span[.='<ReplaceText>']/../../..//button[@aria-label='Select Template']",
+        "frame": "default",
+        "specialInstr": "NA" 
+    },{
+        "name": "createSingleCourse",
+        "byType": "css",
+        "definition": "[data-test-id='create_course_single']",
+        "frame": "default",
+        "specialInstr": "NA" 
+    },{
+        "name": "LeaveorNextButton",
+        "byType": "xpath",
+        "definition": "//button[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "buttonToCreateCourse",
+        "byType": "xpath",
+        "definition": "//button[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+       
+        "name": "courseName",
+        "byType": "id",
+        "definition": "courseName",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+       
+        "name": "courseCode",
+        "byType": "id",
+        "definition": "courseShortName",
+        "frame": "default",
+        "specialInstr": "NA"
+   },{
+       
+        "name": "courseEndDate",
+        "byType": "css",
+        "definition": "[data-test-id='copy_course_end_date']",
+        "frame": "default",
+        "specialInstr": "NA"
+   
+    }]
+}

@@ -1,15 +1,15 @@
 @Course @Smoke
-Feature: Assigning the activities present in Skills course 
+Feature: Instructor attempts all the activities in Skills Template
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
-    Scenario: Verify that Instructor is able to assign the activities in Skills course
-
+    @instructor-delete-course   
+    Scenario: Verify that Instructor is able to copy course from Skills Template
+    
         Given I login to Achieve-CW as "media_producer_2"
-         When I create template with following data 
-            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
-
+        When I create template with following data 
+           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
 
         And I close the popup message                      
 
@@ -46,26 +46,19 @@ Feature: Assigning the activities present in Skills course
             | courseName        | Skills Course                |
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
-
-     
-        And I add the activities in courseplanner to "Skills Course" course
-            | activity                                                          |                                                        
-            | LC1551301608988                                                   |
-            | GLOSSARY                                                          |
         
-        And I close the popup messa
+         When I activate "Skills Course" course with following data 
+            | field             | value               |
+            | courseName        | Skills Course       |
+            | courseCode        |  E2E 301            |
+            | templateStatus    |  Active On Date     |
 
+         And I create a single course from "Skills Template" with following data
+            | field             | value                  |
+            | courseName        | Skills Single Course   |
+            | courseCode        |  E2E 301               |
 
-        And I assign the activities in courseplanner
-            | activity                                                         | Points | 
-            | LC1551301608988                                                  | 5      |
-            | GLOSSARY                                                         | 5      |
+        Then I verify that "Course Created." message is displayed
+        And I verify that "Skills Single Course" is created
 
-        Then I verify that activities are assigned
-            | activity                                                         | Status |  
-            | LC1551301608988                                                  | Open   |
-            | GLOSSARY                                                         | Open   |
-
-        Then I see assignments due in the next 7 days on the course Plan tab
-
-        Then I do not see assignments more than 7 days out on the course plan tab
+        

@@ -176,13 +176,6 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
     await pages.coursePlanner.click('assignButton');
   }
 });
-
-Then(/^I verify that "(.*)" is created$/, async function (courseName){
-  this.data.set('course', courseName);
-    await pages.createCourse.assertTextIncludes('courseCard',courseName,courseName);
-
-});
-
 When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Gradebook');
@@ -254,3 +247,26 @@ When('I navigate to gradebook and verify grades', async function (data_table) {
   await pages.coursePage.click('navigation','My Course');
   await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
 });
+
+When(/^I create a single course from "(.*)" with following data$/, async function (courseName, data_table){
+  await pages.createCourse.click('createNewCourse');
+  await pages.masterSection.click('selectTemplate', courseName);
+  await pages.masterSection.click('createSingleCourse');
+  await pages.masterSection.click('buttonToCreateCourse','Next: Set course info')
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
+  }
+  await pages.masterSection.click('courseEndDate');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('selectDate', '15');
+  await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Course');
+
+})
+
+Then(/^I verify that "(.*)" is created$/, async function(courseName){
+  this.data.set('course', courseName);
+  await pages.courseList.assertElementExists('courseName', courseName);
+})
