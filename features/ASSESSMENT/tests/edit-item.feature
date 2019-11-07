@@ -1,4 +1,4 @@
-@Assessment @AMS @EditItem
+@Assessment @AMS @EditItem @Smoke
 Feature: To create and update a single raptor items in AMS
 
     @EditItemOnce
