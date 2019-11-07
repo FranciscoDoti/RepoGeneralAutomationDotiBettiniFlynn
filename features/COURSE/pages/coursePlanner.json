@@ -735,7 +735,6 @@
             "frame": "default",
             "specialInstr": "NA"
 
-
         },{
             "name": "addingContent",
             "byType": "xpath",
