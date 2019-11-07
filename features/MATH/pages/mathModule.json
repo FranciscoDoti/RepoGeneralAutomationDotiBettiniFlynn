@@ -15,6 +15,20 @@
             "specialInstr": "NA"
         },
         {
+            "name": "gradeAsListC",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='module-options-select']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "gradeFormType",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='grading-form-select']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "isList",
             "byType": "css",
             "definition": ".greq-input[data-test-id='edit-panel-checkbox-is_list']",

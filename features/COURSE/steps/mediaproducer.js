@@ -47,6 +47,7 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
 });
 
 When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
+  await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName);
   await sleep(500);
   await pages.courseList.click('courseMenu', courseName);
@@ -353,4 +354,3 @@ When('I reorder the resources on template in ebook', async function (data_table)
   }
   await pages.coursePlanner.click('modalSaveButton');
 });
-

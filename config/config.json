@@ -7,7 +7,7 @@
     "timeout": 30,
     "stack": "",
     "_examples": {
-        "environment": "local | dev | int | pre-prod | prod",
+        "environment": "local | dev | dev-gb | int | pre-prod | prod",
         "mode": "local | docker | browserstack | localgrid | hub",
         "browser": "chrome | firefox",
         "headless": "true | false",
