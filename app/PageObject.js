@@ -255,9 +255,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
     if (await genericAssertElement(elementName, 'displayed')) {
       log.info(`Web Element ${elementName} is displayed on page.`);
-    } else {
-      log.info(`Web Element ${elementName} is not displayed on page.`);
-    };
+      return true;
+    }
+    log.info(`Web Element ${elementName} is not displayed on page.`);
+    return false;
   };
 
   const assertElementExists = async function (elementName, replaceText) {

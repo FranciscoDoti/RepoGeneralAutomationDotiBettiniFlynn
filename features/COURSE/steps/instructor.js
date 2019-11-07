@@ -3,8 +3,7 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver.js`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
-  await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu');
+  await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -66,8 +65,7 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
 
 When('I assign the activities in courseplanner', async function (data_table) {
   await pages.coursePage.click('navigation', 'My Course');
-  await pages.home.click('closeAlert');
-  await pages.coursePage.click('tab', 'COURSE PLAN')
+  await pages.coursePage.click('Tab', 'COURSE PLAN')
   for (let i = 0; i < data_table.rows().length; i++) {
     let Elements = await pages.coursePlanner.getWebElements('assignAssignmentButton');
     let countlinks = Elements.length;
@@ -204,35 +202,6 @@ Then('I verify the Grades', async function (data_table){
     await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
   }
 });
-
-Then('I see assignments due in the next 7 days on the course Plan tab', async function () {
-  await pages.coursePage.click('navigation','My Course');
-  await pages.coursePage.click('tab', 'ASSIGNMENTS');
-  await pages.coursePage.assertElementExists('assignmentsDueSevenDays');
-});
-
-Then('I do not see assignments more than 7 days out on the course plan tab', async function () {
-  const dayMore7 = new Date().toLocaleDateString('en-US', { weekday: 'long' }); // this returns today name and we should not found a row with this name in the list.
-  await pages.coursePage.click('navigation','My Course');
-  await pages.coursePage.click('tab', 'ASSIGNMENTS');
-  await pages.coursePage.assertElementDoesNotExist('dueDateDay', dayMore7);
-});
-
-Then('I drop', async function (data_table) {
-  for (let i = 0; i < data_table.rows().length; i++) {
-    let user = this.users[data_table.hashes()[i].Students];
-    await pages.coursePage.click('navigation','People');
-    await pages.people.populate('searchbox', user.username);
-    await pages.people.click('checkbox', user.username);
-    await pages.people.click('button', 'Drop Students');
-    await pages.people.click('button', 'Yes, Drop');
-  }
-});
-
-When('I navigate to gradebook and verify grades', async function (data_table) {
-  await pages.coursePage.click('navigation','My Course');
-  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
-});
 When(/^I add "(.*)" content first in order to continue adding the rest contentfrom Browse to courseplanner in "(.*)"$/, async function (activity, courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Browse');
@@ -268,4 +237,20 @@ When('I add custom content courseplanner', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
   }
+});
+
+Then('I drop', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.coursePage.click('navigation','People');
+    await pages.people.populate('searchbox', user.username);
+    await pages.people.click('checkbox', user.username);
+    await pages.people.click('button', 'Drop Students');
+    await pages.people.click('button', 'Yes, Drop');
+  }
+});
+
+When('I navigate to gradebook and verify grades', async function (data_table) {
+  await pages.coursePage.click('navigation','My Course');
+  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
 });

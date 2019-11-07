@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
-const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
+const { getDriver, onWaitForElementToBeInvisible,sleep,driver} = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
 const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const shared = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
@@ -201,23 +201,22 @@ Then('I verify Total Grades', async function (data_table){
 });
 
 When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
-  await pages.courseList.populate('search', Course);
-  await pages.coursePage.click('courseMenu');
-  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('courseMenu', courseTemplate);
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
-  await pages.courseList.populate('search', courseTemplate);
-  await pages.coursePage.click('courseMenu');
-  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('courseTemplate', 'COURSES');
+  await pages.courseList.populate('search', Course);
+  await pages.courseList.click('courseMenu', Course);
+  await pages.courseList.click('courseMenu', Course);
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
 });
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
+  await pages.home.click('closeAlert'); 
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
-  await pages.courseList.click('courseTemplate', 'Courss');
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
 
 })

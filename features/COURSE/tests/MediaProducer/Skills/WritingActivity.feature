@@ -21,6 +21,7 @@ Feature: Instructor creates writing activity in Skills Production Template
         And I click on "Production" Tab
 
         And I create "Skills Writing" custom activity in "Create" tab
+        And I click on "Production" Tab
 
         Then I verify that activties are added in "Create"
             | activity                                      |    
