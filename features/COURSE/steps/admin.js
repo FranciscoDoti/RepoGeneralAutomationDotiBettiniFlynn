@@ -102,7 +102,7 @@ Then('I verify that following Tab are present', async function (data_table){
 });
 
 When(/^I click on "(.*)" card$/, async function (courseName){
-  await pages.createCourse.click('courseCard', courseName)
+  await pages.createCourse.click('courseCardName', courseName)
 });
 
 When(/^I add activities to "(.*)"$/, async function (tab, data_table){

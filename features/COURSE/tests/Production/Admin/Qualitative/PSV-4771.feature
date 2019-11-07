@@ -14,9 +14,9 @@ Feature: Create a Template and click on Production
         And I click on "PSV-4771" card
         And I click on "Production" Tab
 
-        #And I create "TEST" custom activity in "Create" tab
-        #    | assesmentTitle    | assesmentType     | homeTaxonomy                      |
-        #    | TestAssesment     | Test/Quiz         | Interactive General Chemistry V1  |
+        And I create a custom assesment activity
+            | assesmentTitle    | assesmentType     | homeTaxonomy                      |
+            | TestAssesment     | Test/Quiz         | Interactive General Chemistry V1  |
 
         
 

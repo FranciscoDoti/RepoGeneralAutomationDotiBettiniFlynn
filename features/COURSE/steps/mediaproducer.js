@@ -360,3 +360,16 @@ When('I add custom activity to Content Library', async function(data_table){
   }
 })
 
+When(/^I create a custom assesment activity$/, async function (data_table){
+  await pages.coursePage.click('navigation', 'Create');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.createCourse.click('New');
+    await pages.coursePlanner.click('assessmentButton');
+    await pages.coursePage.populate('ProvideATitle', data_table.assesmentTitle);
+    await pages.coursePage.populate('dropDown', 'Choose an assignment type', data_table.assesmentType);
+    await pages.coursePage.populate('dropDown', 'Choose a taxonomy', data_table.homeTaxonomy);
+  }
+  await pages.coursePlanner.click('TitleSave');
+  await pages.coursePlanner.click('close');
+
+});

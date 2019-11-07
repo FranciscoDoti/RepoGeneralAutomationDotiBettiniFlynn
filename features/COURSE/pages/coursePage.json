@@ -131,7 +131,7 @@
         } ,{
             "name": "ProvideATitle",
             "byType": "xpath",
-            "definition": "//input[@placeholder='Provide a title']",
+            "definition": "//*[@placeholder='Provide a title']",
             "frame": "default",
             "specialInstr": "NA"
         },{
