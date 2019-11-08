@@ -1,6 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const {sleep } = require(`${process.cwd()}/app/driver`);
+const driver = require(`${process.cwd()}/app/driver.js`);
 
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
@@ -72,9 +73,9 @@ Then(/^I verify that "(.*)" is activated with following data$/, async function (
   await pages.courseList.waitForElementVisibility('courseMenu', courseName);
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
-    await pages.courseList.assertTextIncludes('courseName', c.CourseName)
-    await pages.createCourse.assertTextIncludes('ISBNVerification', c.ISBN)
-    await pages.courseList.assertTextIncludes('courseStatus', c.Status)
+    await pages.courseList.assertTextIncludes('courseName',courseName, c.CourseName)
+    await pages.createCourse.assertTextIncludes('ISBNVerification',courseName, c.ISBN)
+    await pages.courseList.assertTextIncludes('courseStatus',courseName, c.Status)
   }
 });
 
@@ -115,3 +116,12 @@ Then(/^I verify if content was imported successfully with message "(.*)"$/, asyn
 When('I click on back to course', async function (){
   await pages.coursePage.click('navigation', 'Back to Course');
 });
+
+Then(/^I verify that "(.*)" is deleted$/, async function (courseName){
+  await driver.getDriver().navigate().refresh();
+  await pages.courseList.assertElementDoesNotExist('cousreMenu', courseName)
+});
+
+When('I refresh the browser', async function (){
+  await driver.getDriver().navigate().refresh();
+})

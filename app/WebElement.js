@@ -56,8 +56,8 @@ const WebElement = function (element) {
   that.waitForVisibility = async function (timeoutInSeconds) {
     const definition = await this.getBy();
     const implicit = (await my.driver.manage().getTimeouts()).implicit;
-    await my.driver.manage().setTimeouts({ implicit: 1000});
-    let visibility = false; timer = Date.now();
+    await my.driver.manage().setTimeouts({ implicit: 5000});
+    let visibility = false, timer = Date.now();
     while((Date.now()-timer)/1000 < timeoutInSeconds){
       let elements = await my.driver.findElements(definition);
       if (elements.length > 0) { 
@@ -71,8 +71,8 @@ const WebElement = function (element) {
   that.waitForInvisibility = async function (timeoutInSeconds) {
     const definition = await this.getBy();
     const implicit = (await my.driver.manage().getTimeouts()).implicit;
-    await my.driver.manage().setTimeouts({ implicit: 1000});
-    let invisibility = false; timer = Date.now();
+    await my.driver.manage().setTimeouts({ implicit: 5000});
+    let invisibility = false, timer = Date.now();
     while((Date.now()-timer)/1000 < timeoutInSeconds){
       let elements = await my.driver.findElements(definition);
       if (elements.length < 1) { 

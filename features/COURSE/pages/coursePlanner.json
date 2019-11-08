@@ -202,25 +202,13 @@
             "definition": "[data-test-id='Assignment_due_date_picker']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "AssignmentDate",
-            "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div[2]/div/div[1]/ul/li[1]/div[2]/div[1]/section/div/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div[3]/div[6]",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },{
             "name": "checkBox",
             "byType": "css",
             "definition": "[data-test-id='row_checkbox']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
-            "name": "assignCalender",
-            "byType": "xpath",
-            "definition": "//*[@id='container']/div/div/div/div[4]/div/div/div/div/div[1]/button[1]",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
+        },  {
             "name": "activityStatus",
             "byType": "css",
             "definition": "[data-test-id='assignment_status']",
@@ -333,19 +321,19 @@
         {
             "name": "assignmentTitle",
             "byType": "xpath",
-            "definition": "//*[@id='root']/div/div/div/div/div[2]/h6/div/input",
+            "definition": "//input[@placeholder='Provide a title']",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
         }, {
             "name": "assignmentType",
             "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[1]/select",
+            "definition": "(//select[@type='text'])[1]",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
         }, {
             "name": "taxonomy",
             "byType": "xpath",
-            "definition": "/html/body/div[2]/div/div/div/div/div[2]/h6/div/div[2]/div/select",
+            "definition": "(//select[@type='text'])[2]",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
         }, {
@@ -748,8 +736,7 @@
             "specialInstr": "NA"
 
 
-        },
-        {
+        },{
             "name": "addingContent",
             "byType": "xpath",
             "definition": "//div[@data-test-id='add_content_confirmation_modal']/..//input[@type='checkbox']",

@@ -5,6 +5,7 @@ const csvtojson = require('csvtojson');
 const driver = require(`${process.cwd()}/app/driver.js`);
 const {sleep } = require(`${process.cwd()}/app/driver`);
 
+
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
@@ -102,7 +103,7 @@ Then('I verify that following Tab are present', async function (data_table){
 });
 
 When(/^I click on "(.*)" card$/, async function (courseName){
-  await pages.createCourse.click('courseCardName', courseName)
+  await pages.createCourse.click('courseCard', courseName)
 });
 
 When(/^I add activities to "(.*)"$/, async function (tab, data_table){
@@ -216,7 +217,7 @@ When('I delete the folder', async function (data_table){
   }
 });
 When(/^I verify that "(.*)" section exists in the "(.*)" view in "(.*)" course$/, async function (search, production, courseName){
-  await pages.courseList.click('courseTemplate', 'Course Templates');
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.waitForElementVisibility('courseName', courseName);
   await pages.courseList.click('courseName', courseName);
@@ -232,4 +233,10 @@ When(/^I search the "(.*)" activity using "(.*)" search bar in "(.*)" section$/,
   await pages.productionPage.populate('keywordSearchBar', searchBar, activity);
   await pages.productionPage.click('applySearch');
   await pages.productionPage.assertElementExists('searchResults', activity);
+});
+
+Then('I verify that Folders are deleted', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+  await pages.eBook.assertElementDoesNotExist('contentCheckbox', data_table.hashes()[i].Folder,'check');
+  }
 });

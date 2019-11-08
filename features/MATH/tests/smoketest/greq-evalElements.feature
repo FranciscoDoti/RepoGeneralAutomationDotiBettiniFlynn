@@ -8,13 +8,13 @@ Feature: Verify page elements for different eval types
         And I select Math Equation module, click on Question tab
 
         Then I verify default evaltype for GradeAs dropdown is Expression
-        And I verify "one or more" checkbox(es) or radio button(s): "isList, gradeToConstant" on "question" tab
-        And I verify "one or more" checkbox(es) or radio button(s): "isList, gradeToConstant, mathNumericTolerance, exactTolerance" on "correct" tab
+        And I verify "one or more" dropdown(s) or radio button(s): "gradeAsListC" on "question" tab
+        And I verify "one or more" dropdown(s) or radio button(s): "gradeAsListC, gradeFormType, mathNumericTolerance, exactTolerance" on "correct" tab
 
         When I click on Question tab, select GradeAs dropdown "Point" evaltype
-        And I verify "one or more" checkbox(es) or radio button(s): "isList" on "question" tab
-        And I verify "one or more" checkbox(es) or radio button(s): "isList, mathPolarCoordinate, mathNumericTolerance, exactTolerance" on "correct" tab
+        Then I verify "one or more" dropdown(s) or radio button(s): "isList" on "question" tab
+        And I verify "one or more" dropdown(s) or radio button(s): "isList, mathPolarCoordinate, mathNumericTolerance, exactTolerance" on "correct" tab
 
         When I click on Question tab, select GradeAs dropdown "Vector" evaltype
-        Then I verify "there are no" checkbox(es) or radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance" on "question" tab
-        And I verify "one or more" checkbox(es) or radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance" on "correct" tab
+        Then I verify "there are no" dropdown(s) or radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance" on "question" tab
+        And I verify "one or more" dropdown(s) or radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance" on "correct" tab

@@ -2,10 +2,8 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver.js`);
 
-
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
-  await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu');
+  await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
 
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -57,8 +55,11 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addingContent');
-    await pages.coursePlanner.click('continue'); 
+    if(i===0) {
+      await pages.coursePlanner.click('addingContent');
+      await pages.coursePlanner.click('continue');
+      await pages.home.click('closeAlert');
+    }
   }
 });
 
@@ -236,4 +237,20 @@ When('I add custom content courseplanner', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
   }
+});
+
+Then('I drop', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.coursePage.click('navigation','People');
+    await pages.people.populate('searchbox', user.username);
+    await pages.people.click('checkbox', user.username);
+    await pages.people.click('button', 'Drop Students');
+    await pages.people.click('button', 'Yes, Drop');
+  }
+});
+
+When('I navigate to gradebook and verify grades', async function (data_table) {
+  await pages.coursePage.click('navigation','My Course');
+  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
 });

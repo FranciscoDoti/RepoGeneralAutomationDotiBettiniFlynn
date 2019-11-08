@@ -48,8 +48,9 @@ Feature: Instructor creates writing activity in Skills Production Template
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
-        And I add "Glossary" content first in order to continue adding the rest contentfrom Browse to courseplanner in "Skills Production Course"
-            | activity                                                          |                                                        
+        And I add the activities in courseplanner to "Skills Production Course" course
+            | activity                                                          |
+            |   Glossary                                                        |                                                        
             | LC1551301608988                                                   |
             | LCRP1550612138614                                                 |
 
