@@ -15,3 +15,15 @@ Feature: To create and update a single raptor items in AMS
         Then I verify the details of the following items are displayed in AMS
             | Author Mode | Title               | Topic                          | Taxonomy    | Difficulty | Module Type | Status |
             | Raptor      | NGA QA Test MC Item | Your Questions (uncategorized) | Math Review | easy       | MC          | live   |
+
+    @EditItemDefaultValues
+    Scenario: Instructor creates and updates a single item in AMS and verifies default values
+
+        Given I login to AMS as "all-permissions-author"
+        When I create the following draft Raptor items in AMS
+            | Title               | Module Type     |
+            | NGA QA Test MC Item | Multiple Choice |
+
+        Then I verify the details of the following items are displayed in the Item Details modal
+            | Author Mode | Title               | Taxonomy      | Difficulty | Status      | Item Type   |
+            | author      | NGA QA Test MC Item | Question Bank | medium     | in progress | performance |
