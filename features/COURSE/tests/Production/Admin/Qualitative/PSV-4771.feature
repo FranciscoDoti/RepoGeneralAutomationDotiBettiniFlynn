@@ -15,15 +15,8 @@ Feature: Create a Template and click on Production
         And I click on "Production" Tab
 
         And I create a custom assesment activity
-            | assesmentTitle    | assesmentType     | homeTaxonomy                      |
-            | TestAssesment     | Test/Quiz         | Interactive General Chemistry V1  |
+            | assessmentTitle    | assessmentType     | homeTaxonomy                      |
+            | TestAssessment     | Test/Quiz         | Interactive General Chemistry V1  |
 
-        
-
-        
-
-        #And I add "TestAssesment" to the Course Library
-        #And I click on "Course Library"
-        #And I add "TestAssesment" to the course plan
-        #And I click on "Course Plan"
-        #And I verify that "TestAssesment" exist
+        And I add "TestAssessment" to the Course Library
+        And I add "TestAssessment" to the course plan

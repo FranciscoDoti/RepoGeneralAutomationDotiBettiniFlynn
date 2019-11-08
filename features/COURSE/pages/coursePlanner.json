@@ -792,7 +792,43 @@
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
 
+        }, {
+            "name": "save",
+            "byType": "xpath",
+            "definition": "//*[button='Save']",
+            "frame": "customAssesmentFrame",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "addToLibrary",
+            "byType": "xpath",
+            "definition": "//*[a/.='<ReplaceText>']/../../..//*[button/.='ADD TO LIBRARY']/button",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "coursePlan",
+            "byType": "xpath",
+            "definition": "//*[li='Course Plan']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "activityLink",
+            "byType": "xpath",
+            "definition": "//*[a='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "addToBtn",
+            "byType": "xpath",
+            "definition": "//*[a='<ReplaceText>']/../..//*[span='ADD TO ']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
+
 
     ]
 }
