@@ -199,7 +199,7 @@ const populateClick = async function (selector, value, WebElementObject) {
       const webElementTarget = await WebElement(WebElementData);
       const webElement = await webElementTarget.getWebElement();
       await onWaitForWebElementToBeEnabled(webElement);
-      await sleep(1000);
+      await sleep(500);
     }
 
     try {
