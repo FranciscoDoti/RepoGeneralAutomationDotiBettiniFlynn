@@ -1,5 +1,5 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { expect } = require('chai');
+const { assert, expect} = require('chai');
 
 
 
@@ -41,13 +41,29 @@ const verifyItemsWithFilterApplied = async function (option) {
   }
 };
 
+const verifyItemsWithMultipleFilterApplied = async function (options) {
+  let i = 1;
+  while (i <= await searchResultCount()) {
+    for (let j=0; j< options.length;j++){
+      await verifyTextInRow(i, options[j]);
+    }
+  
+    if (i % 200 == 0 && i <= 999) {
+      await pages.filters.scrollElementIntoView('Load More');
+      await pages.filters.click('Load More');
+    }
+    i++;
+  }
+};
+
 const removeFilter = async function (tagText) {
   await pages.filters.click('Filter Remove', tagText);
   await pages.filters.assertElementDoesNotExist('Filter Tag', tagText);
 };
 
 const verifyThatCountResultHasIncreased = async function() {
-  expect(await searchResultCount()).to.be.greaterThan(200);
+  let results= await searchResultCount();
+  assert(results>200, 'Current quantity of table results:'+ results);
 }; 
 
 
@@ -59,5 +75,6 @@ module.exports = {
   searchResultCount,
   verifyTextInRow,
   verifyItemsWithFilterApplied,
+  verifyItemsWithMultipleFilterApplied,
   verifyThatCountResultHasIncreased
 };

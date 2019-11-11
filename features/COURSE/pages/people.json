@@ -1,0 +1,21 @@
+{
+    "webElements": [{
+        "name": "searchbox",
+        "byType": "css",
+        "definition": "[data-test-id='user_filter_textbox']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },  {
+        "name": "checkbox",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/..//input[@type='checkbox']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },  {
+        "name": "button",
+        "byType": "xpath",
+        "definition": "//button [.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }]   
+}

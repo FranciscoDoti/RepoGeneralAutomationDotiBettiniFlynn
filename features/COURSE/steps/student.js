@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
-const { getDriver, onWaitForElementToBeInvisible,sleep } = require(`${process.cwd()}/app/driver`);
+const { getDriver, onWaitForElementToBeInvisible,sleep,driver} = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
 const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const shared = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
@@ -14,22 +14,14 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
-  await pages.coursePage.click('tab',Tab);
+  await pages.coursePage.click('Tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
   }
 });
 
-When('I delete the courses', async function () {
-  let elements = await pages.createCourse.getWebElements('courseCard');
-  for (let x = 0; x <= elements.length; x++) {
-    await pages.courseList.click('courseMenu');
-    await pages.main.click('confirmDelete');
-  }
-});
-
 When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
-  await pages.coursePage.click('tab', 'ASSIGNMENTS')
+  await pages.coursePage.click('Tab', 'ASSIGNMENTS')
   await pages.overview.click('activityName', activityName);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.studentActivity.click('assesmnetAnswer', data_table.hashes()[i].PremadeAssesmentKey);
@@ -186,6 +178,8 @@ When('I add the activities to the resource tab', async function (data_table) {
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
     await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities) 
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
+    await pages.resources.click('closeResourceSearchNav');
+    await pages.resources.click('addContent');
   }
 });
 
@@ -207,23 +201,36 @@ Then('I verify Total Grades', async function (data_table){
 });
 
 When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
-  await pages.courseList.populate('search', Course);
-  await pages.coursePage.click('courseMenu');
-  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('courseMenu', courseTemplate);
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
   await pages.home.click('closeAlert');
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
-  await pages.courseList.populate('search', courseTemplate);
-  await pages.coursePage.click('courseMenu');
-  await pages.coursePage.click('courseMenu');
+  await pages.courseList.click('courseTemplate', 'COURSES');
+  await pages.courseList.populate('search', Course);
+  await pages.courseList.click('courseMenu', Course);
+  await pages.courseList.click('courseMenu', Course);
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
 });
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
+  await pages.home.click('closeAlert'); 
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
   await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
 
 })
+
+
+Then('I see assignments due in the next 7 days on the course Plan tab', async function () {
+  await pages.coursePage.click('navigation','My Course');
+  await pages.coursePage.click('tab', 'ASSIGNMENTS');
+  await pages.coursePage.assertElementExists('assignmentsDueSevenDays');
+});
+
+Then('I do not see assignments more than 7 days out on the course plan tab', async function () {
+  const dayMore7 = new Date().toLocaleDateString('en-US', { weekday: 'long' }); // this returns today name and we should not found a row with this name in the list.
+  await pages.coursePage.click('navigation','My Course');
+  await pages.coursePage.click('tab', 'ASSIGNMENTS');
+  await pages.coursePage.assertElementDoesNotExist('dueDateDay', dayMore7);
+});
