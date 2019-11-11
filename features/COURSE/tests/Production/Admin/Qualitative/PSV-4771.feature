@@ -2,7 +2,7 @@ Feature: Create a Template and click on Production
 
     Scenario: Admin creates the course template and adds an asssesment in the course plan
 
-       Given I login to Achieve-CW as "media_producer_2"
+       Given I login to Achieve-CW as "admin_2"
 
         When I create template with following data 
             | courseType  | productModel | courseName           | learningObjective     | courseCode   | isbnNumber     | courseStatus  |
