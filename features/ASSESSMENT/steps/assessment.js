@@ -23,7 +23,6 @@ Given('I create a new assessment with its necessary details', async function (da
 When(/^added it to new assessment as pool$/, async function () {
   for (let i = 1; i <= question_count; i++) {
     await pages.customQuestion.click("Items Checkbox", i);
-    // var questionIdElement = await pages.customQuestion.addDynamicElement('CQquestionsId', i);
     CQBTabQuestionSet.add(await pages.customQuestion.getAttributeValue('Questions Id', i, 'id'))
   }
   let actionBarButtonsLabel = await pages.questionBank.getWebElements('QBActionBarButtonsLabel');
@@ -72,7 +71,7 @@ When(/^I have added \"([^\"]*)\" custom questions to assessment$/, async functio
     await pages.customQuestion.waitForElementVisibility("Items Added", i)
   }
 });
-When(/^I have selected \"([^\"]*)\" custom questions$/, async function (question_count) {
+When(/^I have selected \"([^\"]*)\" custom questions and created a pool$/, async function (question_count) {
   await pages.hatchlingItemFrame.waitForElementVisibility('AE Course Page Tabs', 'link-to-customquestions');
   await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-customquestions');
   for (let i = 1; i <= question_count; i++) {

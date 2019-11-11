@@ -1,5 +1,5 @@
 @Assessment @Smoke
-Feature: As an instructor/ admin, i should be able to create pools of questions
+Feature: To verify Pool Items
 
     @CreatePool
     Scenario: Add multiple random items to a new assignment
@@ -8,5 +8,5 @@ Feature: As an instructor/ admin, i should be able to create pools of questions
         And I create a new assessment with its necessary details
             | field           | value        |
             | Assessment Name | QAAssessment |
-        When I have selected "2" custom questions
+        When I have selected "2" custom questions and created a pool
         Then I verify the created pool is displayed in the assessment

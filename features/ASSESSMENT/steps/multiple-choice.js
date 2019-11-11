@@ -1,7 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
-const { sleep } = require(`${process.cwd()}/app/driver`);
 const { hatchlinglib, raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
@@ -89,7 +88,6 @@ When(/^I set hint and generic feedback with following details and save on \"([^\
     await pages.hatchlingItemFrame.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
     await pages.hatchlingItemFrame.click('Button', 'Save');
   }
-  await sleep(2000);
 });
 When('Add the created custom question to assessment', async function () {
   let createdQuestionTitle = this.data.get('Question Title');
