@@ -36,7 +36,7 @@ const deleteItem = async function (itemId) {
 const duplicateItem = async function (itemId) {
     await pages.ams.click('Duplicate Item', itemId);
     await pages.raptor.switchToTab('Raptor Authoring');
-    await pages.raptor.waitForElementVisibility('Tab','question');
+    await pages.raptor.waitForElementVisibility('Tab', 'question');
     await pages.raptor.assertElementExists('Item ID');
     let duplicatedItemId = await pages.raptor.getText('Item ID');
     duplicatedItemId = duplicatedItemId.split(":")[1].trim();
@@ -69,26 +69,26 @@ const verifyItemDetails = async function (item, itemId) {
     if (item['Author Mode'] !== undefined) {
         await pages.ams.assertText('Item Field', 'authoring-tool-' + itemId, item['Author Mode']);
     }
-    if (item.Title !== undefined) {
-        await pages.ams.assertText('Item Field', 'title-' + itemId, item.Title);
+    if (item['Title'] !== undefined) {
+        await pages.ams.assertText('Item Field', 'title-' + itemId, item['Title']);
     }
-    if (item.Topic !== undefined) {
-        await pages.ams.assertText('Item Field', 'topic-' + itemId, item.Topic);
+    if (item['Topic'] !== undefined) {
+        await pages.ams.assertText('Item Field', 'topic-' + itemId, item['Topic']);
     }
-    if (item.Taxonomy !== undefined) {
-        await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item.Taxonomy);
+    if (item['Taxonomy'] !== undefined) {
+        await pages.ams.assertText('Item Field', 'taxonomy-' + itemId, item['Taxonomy']);
     }
-    if (item.Difficulty !== undefined) {
-        await pages.ams.assertText('Item Field', 'difficulty-' + itemId, item.Difficulty);
+    if (item['Difficulty'] !== undefined) {
+        await pages.ams.assertText('Item Field', 'difficulty-' + itemId, item['Difficulty']);
     }
-    if (item.Status !== undefined) {
-        await pages.ams.assertText('Item Field', 'status-' + itemId, item.Status);
+    if (item['Status'] !== undefined) {
+        await pages.ams.assertText('Item Field', 'status-' + itemId, item['Status']);
     }
     if (item['Module Type'] !== undefined) {
         await pages.ams.assertText('Item Field', 'module_type-' + itemId, item['Module Type']);
     }
-    if (item.Access !== undefined) {
-        await pages.ams.assertText('Item Field', 'access_type-' + itemId, item.Access);
+    if (item['Access'] !== undefined) {
+        await pages.ams.assertText('Item Field', 'access_type-' + itemId, item['Access']);
     }
 };
 

@@ -1,4 +1,5 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+const { expect } = require('chai');
 
 const setTopic = async function (item) {
     if (item['Topic Level 1'] === undefined) {
@@ -58,11 +59,41 @@ const save = async function () {
     await pages.update.waitForElementInvisibility('Update Modal');
 };
 
+const verifyItemDetails = async function (item) {
+    if (item['Author Mode'] !== undefined) {
+        let text = await pages.update.getAttributeValue('Field', 'authoring_tool', 'value');
+        expect(text).to.equal(item['Author Mode']);
+    }
+    if (item['Taxonomy'] !== undefined) {
+        let text = await pages.update.getAttributeValue('Field', 'taxonomy', 'value');
+        expect(text).to.equal(item['Taxonomy']);
+    }
+    if (item['Difficulty'] !== undefined) {
+        let text = await pages.update.getAttributeValue('Field', 'difficulty', 'value');
+        expect(text).to.equal(item['Difficulty']);
+    }
+    if (item['Status'] !== undefined) {
+        let text = await pages.update.getAttributeValue('Field', 'status', 'value');
+        expect(text).to.equal(item['Status']);
+    }
+    if (item['Item Type'] !== undefined) {
+        let text = await pages.update.getAttributeValue('Field', 'item_type', 'value');
+        expect(text).to.equal(item['Item Type']);
+    }
+};
+
+const close = async function () {
+    await pages.update.click('Button', 'Cancel');
+    await pages.update.waitForElementInvisibility('Update Modal');
+};
+
 module.exports = {
+    close,
     save,
     setAccess,
     setDifficulty,
     setStatus,
     setTaxonomy,
-    setTopic
+    setTopic,
+    verifyItemDetails
 };
