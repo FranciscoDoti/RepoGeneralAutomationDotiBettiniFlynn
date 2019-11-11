@@ -1,3 +1,4 @@
+@Course @Smoke
 Feature: Instructor creates writing activity in Skills Production Template
 
     @mediaproducer-delete-course
@@ -58,7 +59,7 @@ Feature: Instructor creates writing activity in Skills Production Template
 
         Then I verify that "Skills Assignment" writing activity is added in Browse
 
-        And I add custom content courseplanner
+        When I add custom content courseplanner
             | activity                                    |
             | Skills Assignment                           | 
 

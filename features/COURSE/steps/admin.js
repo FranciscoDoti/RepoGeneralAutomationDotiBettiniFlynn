@@ -24,7 +24,6 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', user.username);
   await pages.adminMenu.click('addUserButton');
-  await pages.home.click('');
   await pages.adminMenu.click('closeManageRoles');
 });
 

@@ -1,16 +1,17 @@
 @Course @Smoke
-Feature: Verify that Instructor is able to create URL in Qualitative Course
- 
-  @mediaproducer-delete-course
-   @mediaproducer-delete-courseTemplate
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
+Feature: Instructor creates Assessment custom task 
+
+    @mediaproducer-delete-course
+    @mediaproducer-delete-courseTemplate
+    Scenario: Verify that Instructor is able to create custom Assessment task in Qualitative Course 
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
-                And I close the popup message                      
+
+        And I close the popup message                      
 
         And I click on search button and input "Qualitative Template" to search the course 
                             
@@ -56,16 +57,19 @@ Feature: Verify that Instructor is able to create URL in Qualitative Course
             | Glossary                                                          | 
         And I close the popup message
 
-        And I add URL link to "Qualitative Course" in coursePlanner
-            | field             | link                         |
-            | addUrlLinkinput   | https://www.google.com       |
+        And I create a custom assessment task with following data
+            | assessmentTitle    | assessmentType     | homeTaxonomy                       |
+            | Qual Test          | Test/Quiz          | Interactive General Chemistry V1   |
 
-        Then I verify that "URL Link Added to "Your Content"" message is displayed
-
-        And I add URL in courseplanner
-            | activity                                    |
-            | Google                                      |
+        Then I verify that custom content task is added in "MY CONTENT" tab 
+            |  activity       |
+            |  Qual Test      |
+        
+        When I add custom content courseplanner
+            | activity  |
+            | Qual Test | 
 
         Then I verify that activties are added in courseplanner
-            | activity                                                            | 
-            | Google                                                              |                                                         
+            | activity  |
+            | Qual Test | 
+

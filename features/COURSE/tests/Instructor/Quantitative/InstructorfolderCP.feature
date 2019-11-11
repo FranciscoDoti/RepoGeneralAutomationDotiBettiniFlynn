@@ -10,22 +10,32 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
 
+
+        And I close the popup message                      
+
+        And I click on search button and input "Quantitative Template" to search the course     
+
         And I activate the "Quantitative Template" template and add the following data
-             | courseName             |  courseCode   |  templateStatus      |
-             | Quantitative Template  |   E2E 301     |  Active On Date      | 
+            | courseName             |  courseCode   |  templateStatus      |
+            | Quantitative Template  |   E2E 301     |  Active On Date      | 
 
 
-        And I add the activities in resources to "Quantitative Template" template
-            | type                      | activity                                      |
-            | addButtonAssessment       | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  Glossary                                   |
-            | addButtonReadandpractice  | LCRP1550612138614                           |                         
+        And I click on "Quantitative Template" card
+        And I click on "Production" Tab
 
+        And I add activities to "Content Library"
+          | activities                             |
+          | Glossary                               |
+          | LCRP1550612138614                      |
+          | LC1551301608988                        |
+          | Exercise: Misused words 1 (autoscored) |
+        
+        And I click on back to course
         And I click on home button to return to coursepage
+
         And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "Quantitative Template" template with the following data
-            | courseName           | courseCode          |
+            | courseName          | courseCode           |
             | Quantitative Course  | E2E 301             |
 
         And I sign out of Achieve
@@ -39,7 +49,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
         When I activate "Quantitative Course" course with following data 
             | field             | value                        |
             | courseName        | Quantitative Course          |
-            | courseCode        |  E2E 301                      |
+            | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Quantitative Course" course
@@ -48,6 +58,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | LC1551301608988                                                   |
             | Glossary                                                          |
             | LCRP1550612138614                                                 |
+        And I close the popup message
             
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |
@@ -64,11 +75,11 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | Glossary                                                          |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
-            | activity                                      | folders           | message                                                                             |
-            | Exercise: Misused words 1 (autoscored)        | Assesment         | 'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
-            | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Glossary                                      | Reading           | 'Glossary' was successfully moved to Reading.                                       |
-            | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
+            | activity                                      | folders           |   folderName                 |  message                                                                             |
+            | Exercise: Misused words 1 (autoscored)        | Assesment         |  Assesment folder            |  'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
+            | LC1551301608988                               | Learning Curve    |  Learning Curve folder       |  'LC1551301608988' was successfully moved to Learning Curve.                         |
+            | Glossary                                      | Reading           |  Reading folder              |  'Glossary' was successfully moved to Reading.                                       |
+            | LCRP1550612138614                             | ReadandPractice   |  ReadandPractice folder      |  'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         Then I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |

@@ -152,17 +152,19 @@ Then('I verify that resources are reordered', async function (data_table) {
 
 When(/^I add the activities to respective folders in "(.*)"$/, async function (coursePage, data_table) {
   await pages.coursePage.click('tab',coursePage);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('addUnit');
-    await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
-    await pages.coursePlanner.click('parentFolder');
-    await pages.coursePlanner.click('addUnitButton');
-    await pages.coursePlanner.click('actionButton', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('actionMoveItemToFolder');
-    await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
-    await pages.resources.click('placeInFolder');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message);
-  }
+    for (let i = 0; i < data_table.rows().length; i++) {
+      await pages.coursePlanner.click('addUnit');
+      await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
+      await pages.coursePlanner.click('parentFolder')
+      await pages.coursePlanner.click('addUnitButton');
+      await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].activity,'check');
+      await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].activity,'check');
+      await pages.eBook.click('activitySelected', 'Move');
+      await pages.eBook.click('Folder', data_table.hashes()[i].folderName);
+      await pages.resources.click('placeInFolder');
+      await pages.home.click('closeAlert');
+  
+    }
 });
 
 When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {

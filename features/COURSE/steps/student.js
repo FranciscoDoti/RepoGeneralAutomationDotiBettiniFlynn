@@ -20,15 +20,9 @@ Then(/^I verify the activity status for the following activities in "(.*)"$/, as
   }
 });
 
-When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
+When(/^I attempt "(.*)" premade assesment in "(.*)"$/, async function (activityName, courseName) {
   await pages.coursePage.click('Tab', 'ASSIGNMENTS')
   await pages.overview.click('activityName', activityName);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.studentActivity.click('assesmnetAnswer', data_table.hashes()[i].PremadeAssesmentKey);
-    await pages.studentActivity.click('saveAnswer');
-    await pages.studentActivity.click('nextAssesmentQuestion');
-  }
-  await pages.coursePlanner.click('close')
 });
 
 When(/^I attempt "(.*)" custom made assesment in "(.*)"$/, async function (activityName, courseName, data_table) {
