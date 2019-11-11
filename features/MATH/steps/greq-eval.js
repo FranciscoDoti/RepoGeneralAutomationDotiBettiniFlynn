@@ -3,20 +3,8 @@ const { Key } = require('selenium-webdriver');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const nonPalette = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "/", ",", "*", "−", "^", "∪", "."]
 const trigPalette = ["sin", "cos", "tan", "sec", "csc", "cot", "sinh", "cosh", "tanh", "sech", "csch", "coth"]
-const { raptorlib, amslib, updatelib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 /* Creating a new AMS raptor item for six Eval types: Relation, Expression, Point, Interval, Vector, Parametric */
-
-const addMathModule = async function() {
-  await pages.raptorAms.click('menuBarAdd');
-  await pages.raptorAms.waitForElementVisibility('addMathEquation');
-  await pages.raptorAms.click('addMathEquation');
-  console.log("added");
-  await pages.raptorAms.waitForElementVisibility('questionContent');
-  await pages.raptorAms.click('questionContent');
-  console.log("clicked qs");
-  // await pages.raptorAms.assertElementExists('answerLabel');
-}
 
 When(/^I set Item Details name as "(.*)"$/, async function (name) {
   await pages.raptorAms.click('menuBarMore');
@@ -28,22 +16,15 @@ When(/^I set Item Details name as "(.*)"$/, async function (name) {
 When(/^I add Math equation module$/, async function () {
   await pages.raptorAms.click('menuBarAdd');
   await pages.raptorAms.assertElementExists('addMathEquation');
-  console.log("before math");
   await pages.raptorAms.click('addMathEquation');
-    // await raptorlib.addModule("Math Equation");
-    console.log("after math");
-
 
 
 });
 
 When(/^I click on the Question tab, and add an Answer field$/, async function () {
-  await pages.raptorAms.assertElementExists('questionContent');
+  await pages.raptorAms.assertElementExists('contextTab', 'correct');
   await pages.raptorAms.click('questionContent');
   await pages.raptorAms.click('questionContent');
-
-  console.log("clicked qs");
-
   await pages.raptorAms.assertElementExists('answerLabel');
 });
 
@@ -193,12 +174,14 @@ When(/^I select Polar Coordinate checkbox$/, async function () {
 When(/^I navigate to AuthorApp clicking on Raptor item on AMS page$/, async function () {
   await pages.ams.click('raptorNewItem');
   await pages.raptorAms.switchToTab('Raptor Authoring');
-  await pages.raptorAms.assertElementExists('menuBarAdd');
+  await pages.raptorAms.assertElementExists('menuBarMore');
 });
 
 When(/^I select Math Equation module, click on Question tab$/, async function () {
   await pages.raptorAms.click('menuBarAdd');
+  await pages.raptorAms.assertElementExists('addMathEquation');
   await pages.raptorAms.click('addMathEquation');
+  await pages.raptorAms.assertElementExists('questionContent');
   await pages.raptorAms.click('questionContent');
   await pages.raptorAms.assertElementExists('answerLabel');
 });
