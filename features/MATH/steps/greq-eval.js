@@ -17,13 +17,10 @@ When(/^I add Math equation module$/, async function () {
   await pages.raptorAms.click('menuBarAdd');
   await pages.raptorAms.assertElementExists('addMathEquation');
   await pages.raptorAms.click('addMathEquation');
-
-
 });
 
 When(/^I click on the Question tab, and add an Answer field$/, async function () {
   await pages.raptorAms.assertElementExists('contextTab', 'correct');
-  await pages.raptorAms.click('questionContent');
   await pages.raptorAms.click('questionContent');
   await pages.raptorAms.assertElementExists('answerLabel');
 });
@@ -179,9 +176,7 @@ When(/^I navigate to AuthorApp clicking on Raptor item on AMS page$/, async func
 
 When(/^I select Math Equation module, click on Question tab$/, async function () {
   await pages.raptorAms.click('menuBarAdd');
-  await pages.raptorAms.assertElementExists('addMathEquation');
   await pages.raptorAms.click('addMathEquation');
-  await pages.raptorAms.assertElementExists('questionContent');
   await pages.raptorAms.click('questionContent');
   await pages.raptorAms.assertElementExists('answerLabel');
 });
