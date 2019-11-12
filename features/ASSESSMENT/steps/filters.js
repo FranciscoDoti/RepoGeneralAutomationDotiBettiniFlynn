@@ -72,9 +72,3 @@ Then('I remove the filter with tag {}', async function(tagValue) {
 Then('I verify that the quantity of items on AMS screen have increased', async function() {
     await filterslib.verifyThatCountResultHasIncreased(); 
 });
-
-
-/*
-        
-        Then I verify that the items match with the text filter that was applied
-*/

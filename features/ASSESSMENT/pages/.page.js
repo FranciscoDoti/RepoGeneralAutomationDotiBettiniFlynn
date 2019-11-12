@@ -24,7 +24,8 @@ let pages = {
     update: new PageObject('update.json', stepsPath),
     froala: new PageObject('froala.json', stepsPath),
     filters: new PageObject('filters.json',stepsPath),
-    chemicalEquation: new PageObject('chemicalEquation.json',stepsPath)
+    chemicalEquation: new PageObject('chemicalEquation.json',stepsPath),
+    deletedItems: new PageObject('deletedItems.json',stepsPath)
 };
 
 module.exports ={
