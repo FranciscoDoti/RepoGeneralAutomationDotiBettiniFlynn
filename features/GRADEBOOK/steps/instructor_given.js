@@ -16,3 +16,8 @@ Given('I click the Gradebook menu link', async function () {
   await pages.gradebook.waitForElementVisibility('mainNav');
   await pages.gradebook.click('mainNav');
 });
+
+Given('I open the settings modal', async function () {
+  await pages.gradebook.waitForElementVisibility('settingsNav');
+  await pages.gradebook.click('settingsNav');
+});

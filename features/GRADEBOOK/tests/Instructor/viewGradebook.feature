@@ -1,5 +1,5 @@
 @Smoke @Gradebook
-Feature: Admin views the Gradebook
+Feature: Instructor views the Gradebook
 
   Scenario: Instructor views the Gradebook
     Given I login to Achieve-CW as "instructor_8"
