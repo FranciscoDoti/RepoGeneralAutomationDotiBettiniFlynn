@@ -31,7 +31,7 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
     await pages.editCourse.populate('templateStatus', c.templateStatus)
   }
   await pages.editCourse.click('save');
-  await pages.home.click('closeAlert');
+  //await pages.home.click('closeAlert');
 });
 
 When(/^I add the activities in resources to "(.*)" template$/, async function (courseName, data_table) {
@@ -364,3 +364,28 @@ When('I add custom activity to Content Library', async function(data_table){
   }
 })
 
+When(/^I create a custom assesment activity$/, async function (data_table){
+  await pages.coursePage.click('navigation', 'Create');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var a = data_table.hashes()[i];
+    await pages.createCourse.click('New');
+    await pages.coursePlanner.click('assessmentButton');
+    await pages.coursePlanner.populate('ProvideATitle', a.assessmentTitle);
+    await pages.coursePlanner.populate('dropDown', 'Choose an assignment type', a.assessmentType);
+    await pages.coursePlanner.populate('dropDown', 'Choose a taxonomy', a.homeTaxonomy);
+    await pages.coursePlanner.click('save');
+  }
+  await pages.coursePlanner.click('close');
+});
+
+When(/^I add "(.*)" to the Course Library$/, async function (activityName){
+  await pages.coursePlanner.click('addToLibrary', activityName);
+  await pages.coursePage.click('navigation', 'Content Library');
+});
+
+When(/^I add "(.*)" to the course plan$/, async function (activityName){
+  await pages.coursePlanner.click('addToBtn', activityName);
+  await pages.coursePlanner.click('coursePlan');
+  await pages.coursePage.click('navigation', 'Course Plan');
+  await pages.coursePlanner.assertElementExists('activityLink', activityName);
+});
