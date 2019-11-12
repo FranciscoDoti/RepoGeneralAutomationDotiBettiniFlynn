@@ -23,6 +23,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Skills Product
           | activities            |
           | Glossary              |
           | LC1551301608988       |
+          |  LCRP1550612138614    | 
         
         And I click on back to course
 
@@ -32,18 +33,6 @@ Feature: Instructor adds folder, remove folder and reorders it in Skills Product
             | courseName                  | courseCode           |
             | Skills Production Course    | E2E 301              |
         And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
-
-        And I assign "instructor_1" to the "Skills Production Course" course
-        
-        And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_1"
-
-        When I activate "Skills Production Course" course with following data 
-            | field             | value                        |
-            | courseName        | Skills Production Course     |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
         And I login to Achieve-CW as "customer_support_1"
 
         And I assign "instructor_1" to the "Skills Production Course" course
@@ -78,9 +67,9 @@ Feature: Instructor adds folder, remove folder and reorders it in Skills Product
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           |   folderName                  | message                                                                             |                                                                        
-            | LC1551301608988                               | Learning Curve    |   Learning Curve              | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | Glossary                                      | Reading           |   Reading                     | 'Glossary' was successfully moved to Reading.                                       |
-            | LCRP1550612138614                             | ReadandPractice   |    ReadandPractice            | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
+            | LC1551301608988                               | Learning Curve    |   Learning Curve folder       | 'LC1551301608988' was successfully moved to Learning Curve.                         |
+            | Glossary                                      | Reading           |   Reading folder              | 'Glossary' was successfully moved to Reading.                                       |
+            | LCRP1550612138614                             | ReadandPractice   |    ReadandPractice folder     | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |

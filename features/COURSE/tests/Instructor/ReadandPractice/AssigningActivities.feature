@@ -49,7 +49,7 @@ Feature: Assigning the activities present in Read & Practice course
             | templateStatus    |  Active On Date              |
 
      
-        And I add the activities in courseplanner to "Read & Practice Course" course
+        And I add activities in "Read & Practice Course" courseplanner tab
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | LC1551301608988                                                   |

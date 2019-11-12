@@ -24,6 +24,7 @@ Feature: Verify that Instructor is able to create URL in Skills Production Cours
           | activities            |
           | Glossary              |
           | LC1551301608988       |
+          | LCRP1550612138614     |
         
         And I click on back to course
 

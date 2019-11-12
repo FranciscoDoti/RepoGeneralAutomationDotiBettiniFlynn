@@ -272,3 +272,13 @@ Then(/^I verify that custom content task is added in "(.*)" tab$/, async functio
     await pages.coursePlanner.assertElementExists('addCustomActivity', data_table.hashes()[i].activity );
   }
 })
+
+When(/^I add activities in "(.*)" courseplanner tab$/, async function (courseName, data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    
+  }
+});
