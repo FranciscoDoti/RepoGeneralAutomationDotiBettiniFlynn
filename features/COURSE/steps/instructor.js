@@ -282,3 +282,38 @@ When(/^I add activities in "(.*)" courseplanner tab$/, async function (courseNam
     
   }
 });
+
+When(/^I create a Master Section from "(.*)" with following data$/, async function (courseName, data_table){
+  await pages.createCourse.click('createNewCourse');
+  await pages.masterSection.click('selectTemplate', courseName);
+  await pages.masterSection.click('createMasterSection');
+  await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
+  }
+  await pages.masterSection.click('courseEndDate');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('selectDate', '15');
+  await pages.masterSection.click('fullAccess');
+  await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Master Section');
+});
+
+Then('I verify that I created a Master Section with following data', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].InstructorName];
+    var c = data_table.hashes()[i];
+    this.data.set('course', c.courseNameMS);
+    await pages.masterSection.assertElementExists('courseNameMS', c.courseNameMS);
+    await pages.masterSection.assertTextIncludes('Status', c.Status);
+    console.log(user.firstName+" "+user.lastName)
+    await pages.masterSection.assertTextIncludes('instructorMS', user.firstName+" "+user.lastName);
+    await pages.masterSection.assertTextIncludes('masterSectionCode', c.MasterCode);
+  }
+});
+
+When('I click on master card', async function (){
+  await pages.masterSection.click('masterCard')
+})
