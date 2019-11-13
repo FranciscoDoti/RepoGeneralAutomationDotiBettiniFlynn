@@ -17,20 +17,28 @@ Feature: Verify that Admin is able to create URL in Skill Course
             | courseName                    |  courseCode   |  templateStatus      |
             | Skills URL Template           |   E2E 301     |  Active On Date      |
 
-        And I add URL link to "Skills URL Template" 
+        And I click on "Skills URL Template" card
+        And I click on "Production" Tab
+
+        And I add URL link to "Create" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 
-        Then I verify that "URL Link Added to "Your Content"" message is displayed
+        Then I verify that "URL Link Added to "Your Content"." message is displayed
 
-        And I add URL activity in resource tab
-            | activity                                    |
-            | Google                                      |
+        When I click on go to your content
 
-        Then I verify that activties are added 
-            | activity                                                            | 
-            | Google                                                              |
+        Then I verify that activties are added in "Create"
+            | activity                                      |    
+            | Google                                        |
 
-        And I verify that custom activity is present in courseplanner your content section
-            | activity                                                            | 
-            | Google                                                              |
+        And I add custom activity to Content Library
+            | activity                                      |    
+            | Google                                        |
+ 
+        Then I verify that activties are added in "Content Library"
+            | activity                                      |    
+            | Google                                        | 
+
+
+       

@@ -61,4 +61,7 @@ Feature: Assigning the activities present in Quantitative course
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
             | LC1551301608988                                                  | Open   |
             | Glossary                                                       | Open   |
+        Then I see assignments due in the next 7 days on the course Plan tab
+
+        Then I do not see assignments more than 7 days out on the course plan tab
 

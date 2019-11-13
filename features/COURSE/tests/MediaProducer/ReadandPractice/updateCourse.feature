@@ -8,6 +8,11 @@
         When I create template with following data 
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |
+        
+        And I close the popup message                      
+
+        And I click on search button and input "Read & Practice Template" to search the course
+
 
         And I activate the "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |

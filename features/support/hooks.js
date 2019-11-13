@@ -4,6 +4,7 @@ const urls = require(`${process.cwd()}/config/urls.json`);
 const { closeBrowser, resetBrowser, takeScreenshot, visitURL, config } = require(`${process.cwd()}/app/driver`);
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const { sleep } = require(`${process.cwd()}/app/driver`);
 
 After(async function (scenario) {
     await resetBrowser();
@@ -40,7 +41,7 @@ After('@admin-delete-courseTemplate', async function () {
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course);
   for (let i = 0; i < elements.length; i++) {
-    await pages.coursePage.click('courseMenu');
+    await sleep(500);
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.assertElementExists('confirmDelete')
@@ -49,29 +50,30 @@ After('@admin-delete-courseTemplate', async function () {
   }
 });
 
-After('@medieditor-delete-course', async function () {
-    let url = await _.get(urls, ['Achieve-CW', this.stack]);
-    let user = this.users['media_editor_1'];
-    await resetBrowser();
+After('@mediaeditor-delete-course', async function () {
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
+  let user = this.users['media_editor_1'];
+  await resetBrowser();
 
-    await visitURL(url);
-    await pages.home.click('signInLocal');
-    await pages.home.populate('username', user.username);
-    await pages.home.populate('password', user.password);
-    await pages.home.click('signIn');
-    let course = this.data.get('code');
-    let courseName = this.data.get('Number');
-    await pages.courseList.populate('search', courseName);
-    await pages.courseList.assertElementExists('courseNumber', course);
-    let elements = await pages.courseList.getWebElements('courseNumber', course);
-    for (let i = 0; i < elements.length; i++) {
-        await pages.coursePage.click('courseMenu');
-        await pages.coursePage.click('courseMenu');
-        await pages.courseList.click('deleteCourse');
-        await pages.courseList.assertElementExists('confirmDelete')
-        await pages.courseList.click('confirmDelete');
-        await pages.home.click('closeAlert');
-    }
+  await visitURL(url);
+  await pages.home.click('signInLocal');
+  await pages.home.populate('username', user.username);
+  await pages.home.populate('password', user.password);
+  await pages.home.click('signIn');
+  let course = this.data.get('code');
+  let courseName = this.data.get('Number');
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.assertElementExists('courseNumber', course);
+  let elements = await pages.courseList.getWebElements('courseNumber', course);
+  for (let i = 0; i < elements.length; i++) {
+    await sleep(500);
+    await pages.coursePage.click('courseMenu');
+    await pages.courseList.click('deleteCourse');
+    await pages.courseList.assertElementExists('confirmDelete');
+    await pages.courseList.click('confirmDelete');
+    await pages.home.click('closeAlert');
+    break;
+  }
 });
 
 After('@customersupport-delete-course', async function () {
@@ -91,7 +93,7 @@ After('@customersupport-delete-course', async function () {
     await pages.courseList.assertElementExists('courseNumber', course);
     let elements = await pages.courseList.getWebElements('courseNumber', course);
     for (let i = 0; i < elements.length; i++) {
-        await pages.coursePage.click('courseMenu');
+        await sleep(500);
         await pages.coursePage.click('courseMenu');
         await pages.courseList.click('deleteCourse');
         await pages.courseList.assertElementExists('confirmDelete')
@@ -115,7 +117,7 @@ After('@mediaproducer-delete-courseTemplate', async function () {
   await pages.courseList.assertElementExists('courseNumber', course);
   let elements = await pages.courseList.getWebElements('courseNumber', course)
   for (let i = 0; i < elements.length; i++) {
-    await pages.coursePage.click('courseMenu');
+    await sleep(500);
     await pages.coursePage.click('courseMenu');
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
@@ -139,7 +141,7 @@ After('@mediaproducer-delete-course', async function () {
     let elements = await pages.courseList.getWebElements('courseNumber', course)
     console.log(elements.length + 'no');
     for (let i = 0; i < elements.length; i++) {
-        await pages.coursePage.click('courseMenu');
+        await sleep(500);
         await pages.coursePage.click('courseMenu');
         await pages.courseList.click('deleteCourse');
         await pages.courseList.click('confirmDelete');

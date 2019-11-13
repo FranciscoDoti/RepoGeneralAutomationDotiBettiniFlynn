@@ -17,15 +17,16 @@ Then(/^I verify that media editor has only view access to "(.*)"$/, async functi
   
 });
 
-Then(/^I verify that "(.*)" has created with following "(.*)" ISBN number$/, async function (courseName, verifyNumber){
+Then(/^I verify that "(.*)" has created with following "(.*)" ISBN number by Media editor$/, async function (courseName, verifyNumber){
+  await pages.home.click('closeAlert');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('ISBNVerification', courseName);
   await pages.createCourse.assertTextIncludes('ISBNVerification', courseName, verifyNumber);
 });
 
-When(/^I update "(.*)" template and add the following data$/, async function (courseName, data_table){
+When(/^I update "(.*)" template and add the following data by Media editor$/, async function (courseName, data_table){
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.waitForElementVisibility('courseMenu', courseName)
+  await pages.courseList.waitForElementVisibility('courseMenu', courseName);
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
