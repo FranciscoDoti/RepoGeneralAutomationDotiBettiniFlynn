@@ -23,7 +23,7 @@ Feature: Instructor attempts all the activities in Skills Production Template
 
         And I add activities to "Content Library"
           | activities            |
-          | Glossary              |
+          | GLOSSARY              |
           | LC1551301608988       |
         
         And I click on back to course

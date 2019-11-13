@@ -22,7 +22,7 @@ Feature: Assigning the activities present in Read & Practice course
 
         And I add activities to "Content Library"
           | activities            |
-          | Glossary              |
+          | GLOSSARY              |
           | LCRP1550612138614     |
           | LC1551301608988       |
           
@@ -53,7 +53,7 @@ Feature: Assigning the activities present in Read & Practice course
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | LC1551301608988                                                   |
-            | Glossary                                                          |
+            | GLOSSARY                                                          |
         
         And I close the popup message
 
@@ -62,13 +62,13 @@ Feature: Assigning the activities present in Read & Practice course
             | activity                                                         | Points | 
             | LCRP1550612138614                                                | 5      | 
             | LC1551301608988                                                  | 5      |
-            | Glossary                                                         | 5      |
+            | GLOSSARY                                                         | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | LCRP1550612138614                                                | Open   | 
             | LC1551301608988                                                  | Open   |
-            | Glossary                                                         | Open   |
+            | GLOSSARY                                                         | Open   |
 
         Then I see assignments due in the next 7 days on the course Plan tab
 

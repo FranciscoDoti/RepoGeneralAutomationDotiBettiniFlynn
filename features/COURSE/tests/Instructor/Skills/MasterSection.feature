@@ -27,7 +27,7 @@ Feature: Instructor creates Master Scetion, creates Custom task and content to i
 
         And I add activities to "Content Library"
           | activities                                 |
-          | Glossary                                   |
+          | GLOSSARY                                   |
           | Exercise: Misused words 1 (autoscored)     |
           | LC1551301608988                            |
           | LCRP1550612138614                          |
