@@ -13,7 +13,7 @@ When(/^I generate "(.*)" month length access code for "(.*)"$/, async function (
     await pages.adminMenu.click('admin');
     await pages.adminMenu.click('admin');
     await pages.adminMenu.click('checkAccount');
-    await pages.adminMenu.click('generate');
+    await pages.adminMenu.click('generate', 'Generate Access Codes');
     await pages.adminMenu.click('exportList');
 });
 
