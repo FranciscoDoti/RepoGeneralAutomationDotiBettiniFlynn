@@ -208,6 +208,13 @@
             "definition": "//div[@data-test-id='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Toast Message",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }
