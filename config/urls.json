@@ -42,7 +42,13 @@
     },
     "IBISCMS":{
         "int":"http://int.saplinglearning.me/ibiscms",
-        "ae": "http://ae.saplinglearning.me/ibiscms"
+        "ae": "http://ae.saplinglearning.me/ibiscms",
+        "local": "http://local.application.me:3080"
+    },
+    "MATH":{
+        "int":"http://int.saplinglearning.me/ibiscms",
+        "ae": "http://ae.saplinglearning.me/ibiscms",
+        "local": "http://local.application.me:3080"
     },
     "Yahoo":{
         "yahoo":"https://www.yahoo.com"
