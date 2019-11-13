@@ -54,15 +54,15 @@
 
     },{
         "name": "masterSectionCode",
-        "byType": "xpath",
-        "definition": "//*[@id='container']/div/div[2]/div/div/nav/div[2]/div/div[1]/div/div[3]",
+        "byType": "css",
+        "definition": "[class='_1Gy_']",
         "frame": "default",
         "specialInstr": "NA"
 
     },{
         "name": "Status",
-        "byType": "xpath",
-        "definition": "//*[@id='container']/div/div[2]/div/div/nav/div[2]/div/div[1]/div/div[1]",
+        "byType": "css",
+        "definition": "[class='_85CI']",
         "frame": "default",
         "specialInstr": "NA"
 
@@ -75,8 +75,8 @@
 
     },{
         "name": "instructorMS",
-        "byType": "xpath",
-        "definition": "//*[@id='container']/div/div[2]/div/div/nav/div[2]/div/div[1]/div/div[5]/div[2]",
+        "byType": "css",
+        "definition": "[class='aRd_']",
         "frame": "default",
         "specialInstr": "NA"
 
@@ -96,8 +96,8 @@
 
     },{
         "name": "masterCard",
-        "byType": "xpath",
-        "definition": "//*[@id='container']/div/div[2]/div/div/nav/div[2]/div/div[1]/div",
+        "byType": "css",
+        "definition": "[class='Wdhw']",
         "frame": "default",
         "specialInstr": "NA"
 
