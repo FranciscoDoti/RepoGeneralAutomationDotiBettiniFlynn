@@ -53,7 +53,7 @@ Feature: Assigning the activities present in Skills course
             | LC1551301608988                                                   |
             | GLOSSARY                                                          |
         
-        And I close the popup messa
+        And I close the popup message
 
 
         And I assign the activities in courseplanner

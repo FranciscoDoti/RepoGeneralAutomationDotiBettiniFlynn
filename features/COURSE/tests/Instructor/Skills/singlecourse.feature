@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Instructor attempts all the activities in Skills Template
+Feature: Single Skills Course
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
