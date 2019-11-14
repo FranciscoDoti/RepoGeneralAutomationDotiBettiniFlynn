@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Instructor attempts all the activities in Read & Practice Template
+Feature: Single Read & Practice Course
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate   

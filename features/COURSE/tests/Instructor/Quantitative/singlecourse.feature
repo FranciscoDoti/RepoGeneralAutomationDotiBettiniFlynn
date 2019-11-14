@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Instructor attempts all the activities in Quantitative Template
+Feature: Single Quantitative Course
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
