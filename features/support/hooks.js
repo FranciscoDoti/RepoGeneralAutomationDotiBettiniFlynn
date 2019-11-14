@@ -162,7 +162,7 @@ After('@instructor-delete-course', async function () {
     await pages.createCourse.assertElementExists('courseCard', course);
     let elements = await pages.createCourse.getWebElements('courseCard', course)
     for (let i = 0; i < elements.length; i++) {
-        await pages.coursePage.click('courseMenu');
+        await pages.courseList.click('courseMenu', course);
         await pages.courseList.click('deleteCourse');
         await pages.courseList.assertElementExists('confirmDelete')
         await pages.courseList.click('confirmDelete');
