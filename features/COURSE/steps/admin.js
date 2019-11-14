@@ -9,8 +9,8 @@ const {sleep } = require(`${process.cwd()}/app/driver`);
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseCard', courseName);
-  await pages.courseList.click('courseCard', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.click('courseCard', courseName);
   await driver.getDriver().navigate().refresh();
   await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+courseName )
   await pages.home.scrollElementIntoView('togglerMenu');
@@ -30,9 +30,8 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
-  await sleep(1000);
-  await pages.courseList.assertElementExists('courseCard', courseName);
-  await pages.courseList.click('courseCard', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.click('courseCard', courseName);
 });
 
 When('I click on Manage roles', async function () {
