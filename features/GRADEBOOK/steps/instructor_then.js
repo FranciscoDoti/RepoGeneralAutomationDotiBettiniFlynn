@@ -18,3 +18,6 @@ Then('I should see percents displayed in the course total', async function () {
 Then('I should see the settings button appear', async function () {
   await pages.gradebook.waitForElementVisibility('settingsNav');
 });
+Then('A new category should appear in the Gradebook', async function () {
+
+});

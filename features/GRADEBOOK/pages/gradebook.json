@@ -15,13 +15,6 @@
       "specialInstr": "NA"
     },
     {
-      "name": "menuUserName",
-      "byType": "css",
-      "definition": "[data-test-id='menu_user_name']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },
-    {
       "name": "percentToggleButton",
       "byType": "css",
       "definition": "[data-test-id='first_toggle_button']",
@@ -45,7 +38,7 @@
     {
       "name": "courseTotal",
       "byType": "css",
-      "definition": "[data-test-id='course_total'",
+      "definition": "[data-test-id='course_total']",
       "frame": "default",
       "specialInstr": "NA"
     }

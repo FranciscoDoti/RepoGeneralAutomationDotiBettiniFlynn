@@ -5,11 +5,12 @@ const pages = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).page
 const { visitURL } = require(`${process.cwd()}/app/driver`);
 
 Given(/^navigate to my course using course "(.*)"$/, async function (course) {
-  await pages.gradebook.waitForElementVisibility('menuUserName')
+  await pages.courses.waitForElementVisibility('createNewCourseButton');
   const courses = getCourseData();
   var currentURL = await pages.gradebook.getCurrentURL();
   var courseURL = currentURL + `/${courses[course].courseId}/mycourse`;
   await visitURL(courseURL);
+  console.log('wait');
 });
 
 Given('I click the Gradebook menu link', async function () {
