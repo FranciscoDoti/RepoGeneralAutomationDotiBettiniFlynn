@@ -33,7 +33,7 @@ Feature: Verify that media Producer is able to create Custom Task
             | activity                                      |    
             | Quant Test                                    |
 
-        And I add custom activity to Content Library
+        When I add custom activity to Content Library
             | activity                                      |    
             | Quant Test                                    |
  

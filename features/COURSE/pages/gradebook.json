@@ -124,7 +124,7 @@
         },{
             "name": "editTotal",
             "byType": "xpath",
-            "definition": "(//*[.='<ReplaceText>']/../../../../../../../../..//div/button[@class='_3WM4'])[1]",
+            "definition": "(//*[.='<ReplaceText>']/../../../../../../../../..//div/button[@class='_3VyP'])[1]",
             "frame": "default",
             "specialInstr": "NA"
 

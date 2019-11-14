@@ -1,10 +1,9 @@
-
 @Course @Smoke
-Feature: Assigning the activities present in Quantitative course 
+Feature: Instructor creates Assessment custom task 
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
-    Scenario: Verify that Instructor is able to assign the activities in Quantitative course
+    Scenario: Verify that Instructor is able to create custom Assessment task in Quantitative Course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -59,20 +58,21 @@ Feature: Assigning the activities present in Quantitative course
             | Glossary                                                          |
 
         And I close the popup message
+        And I create a custom assessment task with following data
+            | assessmentTitle    | assessmentType     | homeTaxonomy                       |
+            | Quant Test         | Test/Quiz          | Interactive General Chemistry V1   |
+
+        Then I verify that custom content task is added in "MY CONTENT" tab 
+            |  activity       |
+            |  Quant Test     |
+        
+        When I add custom content courseplanner
+            | activity   |
+            | Quant Test | 
+
+        Then I verify that activties are added in courseplanner
+            | activity   |
+            | Quant Test | 
 
 
-        And I assign the activities in courseplanner
-            | activity                                                         | Points | 
-            | LCRP1550612138614                                                | 5      | 
-            | LC1551301608988                                                  | 5      |
-            | Glossary                                                         | 5      |
-
-        Then I verify that activities are assigned
-            | activity                                                         | Status | 
-            | LCRP1550612138614                                                | Open   | 
-            | LC1551301608988                                                  | Open   |
-            | Glossary                                                         | Open   |
-        Then I see assignments due in the next 7 days on the course Plan tab
-
-        Then I do not see assignments more than 7 days out on the course plan tab
 

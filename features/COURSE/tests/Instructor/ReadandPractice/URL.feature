@@ -11,9 +11,25 @@ Feature: Verify that Instructor is able to create URL in Read & Practice Templat
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
 
 
+               And I close the popup message                      
+
+        And I click on search button and input "Read & Practice Template" to search the course
         And I activate the "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+            | Read & Practice Template  |   E2E 301     |  Active On Date      |                       
+
+        And I click on "Read & Practice Template" card
+        And I click on "Production" Tab
+
+        And I add activities to "Content Library"
+          | activities            |
+          | Glossary              |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
+          
+        And I click on back to course
+        And I click on home button to return to coursepage
+        And I click on "COURSE TEMPLATES" tab 
 
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
@@ -32,6 +48,15 @@ Feature: Verify that Instructor is able to create URL in Read & Practice Templat
             | courseName        | Read & Practice Course       |
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
+
+     
+        And I add activities in "Read & Practice Course" courseplanner tab
+            | activity                                                          | 
+            | LCRP1550612138614                                                 |                                                        
+            | LC1551301608988                                                   |
+            | Glossary                                                          |
+        
+        And I close the popup message
 
         And I add URL link to "Read & Practice Course" in coursePlanner
             | field             | link                         |

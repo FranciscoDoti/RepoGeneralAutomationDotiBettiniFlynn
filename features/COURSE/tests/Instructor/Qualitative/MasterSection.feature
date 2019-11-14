@@ -1,16 +1,19 @@
 @Course @Smoke
-Feature: Verify that Instructor is able to create URL in Qualitative Course
- 
-  @mediaproducer-delete-course
-   @mediaproducer-delete-courseTemplate
-    Scenario: Verify that mediaproducer is able to create a custom task with URL in Qual course
+Feature: Instructor creates Master Section, creates Custom task and content to it
+
+    @mediaproducer-delete-course
+    @instructor-masterSection-delete-course
+    @mediaproducer-delete-courseTemplate
+
+    Scenario: Verify that Instructor is able to create a Master Section in Qualitative Course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
-                And I close the popup message                      
+
+         And I close the popup message                      
 
         And I click on search button and input "Qualitative Template" to search the course 
                             
@@ -27,6 +30,7 @@ Feature: Verify that Instructor is able to create URL in Qualitative Course
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
           | LC1551301608988                            |
+          | LCRP1550612138614                          |
 
         And I click on back to course
         And I click on home button to return to coursepage
@@ -49,23 +53,11 @@ Feature: Verify that Instructor is able to create URL in Qualitative Course
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
-        And I add the activities in courseplanner to "Qualitative Course" course
-            | activity                                                          | 
-            | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
-            | Glossary                                                          | 
-        And I close the popup message
+        And I create a Master Section from "Qualitative Template" with following data
+            | field             | value                        |
+            | courseName        | Qualitative Master Course    |
+            | courseCode        |  E2E 301                     |
 
-        And I add URL link to "Qualitative Course" in coursePlanner
-            | field             | link                         |
-            | addUrlLinkinput   | https://www.google.com       |
-
-        Then I verify that "URL Link Added to "Your Content"" message is displayed
-
-        And I add URL in courseplanner
-            | activity                                    |
-            | Google                                      |
-
-        Then I verify that activties are added in courseplanner
-            | activity                                                            | 
-            | Google                                                              |                                                         
+        Then I verify that I created a Master Section with following data     
+            | courseNameMS                   | Status                   | InstructorName    | MasterCode |
+            |   Qualitative Master Course    | Draft Master Section     | instructor_1      | E2E 301    |

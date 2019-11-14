@@ -49,26 +49,26 @@ Feature: Assigning the activities present in Read & Practice course
             | templateStatus    |  Active On Date              |
 
      
-        And I add the activities in courseplanner to "Read & Practice Course" course
+        And I add activities in "Read & Practice Course" courseplanner tab
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | LC1551301608988                                                   |
-            | GLOSSARY                                                          |
+            | Glossary                                                          |
         
-        And I close the popup messa
+        And I close the popup message
 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | LCRP1550612138614                                                | 5      | 
             | LC1551301608988                                                  | 5      |
-            | GLOSSARY                                                         | 5      |
+            | Glossary                                                         | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | LCRP1550612138614                                                | Open   | 
             | LC1551301608988                                                  | Open   |
-            | GLOSSARY                                                         | Open   |
+            | Glossary                                                         | Open   |
 
         Then I see assignments due in the next 7 days on the course Plan tab
 
