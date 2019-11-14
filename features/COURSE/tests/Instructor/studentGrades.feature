@@ -38,7 +38,7 @@ Scenario: Verify that instructor is able to edit the grades of student
         
         And I add activities to "Content Library"
           | activities                                   |
-          | Glossary                                     |
+          | GLOSSARY                                     |
           | AutomationAsset2                             |
 
         And I click on back to course
@@ -66,7 +66,7 @@ Scenario: Verify that instructor is able to edit the grades of student
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | Glossary                                    |
+            | GLOSSARY                                    |
             | AutomationAsset2                            |
         
         And I close the popup message  
@@ -74,7 +74,7 @@ Scenario: Verify that instructor is able to edit the grades of student
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | Glossary                                                         | 5      |
+            | GLOSSARY                                                         | 5      |
             | AutomationAsset2                                                 | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
@@ -98,19 +98,19 @@ Scenario: Verify that instructor is able to edit the grades of student
 
         And I complete the reading activity 
             | activity           |
-            | Glossary           |
+            | GLOSSARY           |
 
     
         Then I verify the activity status for the following activities in "COURSE PLAN"
             | activity                                      | status    |
-            | Glossary                                      | Complete  |
+            | GLOSSARY                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
     
 
         And I verify the activity status for the following activities in "ASSIGNMENTS"
             | activity                                      | status    |
-            | Glossary                                      | Complete  |
+            | GLOSSARY                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationAsset2                              | Complete  |
 

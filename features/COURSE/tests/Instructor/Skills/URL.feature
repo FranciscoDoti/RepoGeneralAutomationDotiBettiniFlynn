@@ -22,7 +22,7 @@ Feature: Verify that Instructor is able to create URL in Skills Production Cours
 
         And I add activities to "Content Library"
           | activities            |
-          | Glossary              |
+          | GLOSSARY              |
           | LC1551301608988       |
           | LCRP1550612138614     |
         
@@ -50,7 +50,7 @@ Feature: Verify that Instructor is able to create URL in Skills Production Cours
         And I add the activities in courseplanner to "Skills Production Course" course
             | activity                                                          |                                                        
             | LC1551301608988                                                   |
-            | Glossary                                                          |
+            | GLOSSARY                                                          |
             | LCRP1550612138614                                                 |
 
         And I close the popup message

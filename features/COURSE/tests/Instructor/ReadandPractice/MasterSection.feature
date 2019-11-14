@@ -26,7 +26,7 @@ Feature: Instructor creates Master Section, creates Custom task and content to i
 
         And I add activities to "Content Library"
           | activities                                 |
-          | Glossary                                   |
+          | GLOSSARY                                   |
           | LC1551301608988                            |
           | LCRP1550612138614                          |
 

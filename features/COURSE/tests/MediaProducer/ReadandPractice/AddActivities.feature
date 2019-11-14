@@ -22,7 +22,7 @@ Feature: Adding activities to Read & Practice template
 
         And I add activities to "Content Library"
           | activities            |
-          | Glossary              |
+          | GLOSSARY              |
           | LCRP1550612138614     |
           | LC1551301608988       |
 
@@ -30,4 +30,4 @@ Feature: Adding activities to Read & Practice template
             | activity                                      |
             | LCRP1550612138614                             |    
             | LC1551301608988                               |
-            |  Glossary                                     |            
+            |  GLOSSARY                                     |            

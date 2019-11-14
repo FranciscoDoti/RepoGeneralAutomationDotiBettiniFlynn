@@ -14,4 +14,4 @@ Feature: Verify that Admin is able to search for the content using Keyword searc
 
        Then I verify that "Search" section exists in the "Production" view in "Skills Keyword Search Template" course
        
-       And I search the "Commas with Yes or No" activity using "Search by keyword" search bar in "filter-keyword-title" section
+       And I search the "GLOSSARY" activity using "Search by keyword" search bar in "filter-keyword-title" section
