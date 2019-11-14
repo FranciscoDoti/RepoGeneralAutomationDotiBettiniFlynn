@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Instructor creates Master Scetion, creates Custom task and content to it
+Feature: Instructor creates Master Section, creates Custom task and content to it
 
     @mediaproducer-delete-course
     @instructor-masterSection-delete-course
