@@ -20,6 +20,34 @@
       "definition": "[data-test-id='menu_user_name']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "percentToggleButton",
+      "byType": "css",
+      "definition": "[data-test-id='first_toggle_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "percentsToggleButton",
+      "byType": "css",
+      "definition": "[data-test-id='first_toggle_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "pointsToggleButton",
+      "byType": "css",
+      "definition": "[data-test-id='second_toggle_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "courseTotal",
+      "byType": "css",
+      "definition": "[data-test-id='course_total'",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }
