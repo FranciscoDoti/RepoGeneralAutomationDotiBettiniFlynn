@@ -10,7 +10,6 @@ Given(/^navigate to my course using course "(.*)"$/, async function (course) {
   var currentURL = await pages.gradebook.getCurrentURL();
   var courseURL = currentURL + `/${courses[course].courseId}/mycourse`;
   await visitURL(courseURL);
-  console.log('wait');
 });
 
 Given('I click the Gradebook menu link', async function () {

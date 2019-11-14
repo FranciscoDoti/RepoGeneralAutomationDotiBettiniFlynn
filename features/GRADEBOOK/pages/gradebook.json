@@ -41,6 +41,20 @@
       "definition": "[data-test-id='course_total']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "singleCategory",
+      "byType": "css",
+      "definition": "[data-test-id='gradebook_table_category_cell']:nth-of-type(3)",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "categoryHeaderCells",
+      "byType": "css",
+      "definition": ".ReactVirtualized__Grid.InstructorGradebook_topRightGrid_P6X",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }
