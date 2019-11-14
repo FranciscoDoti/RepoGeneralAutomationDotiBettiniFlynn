@@ -1,4 +1,4 @@
-@Smoke @Gradebook
+@Smoke @Gradebook @GradebookCategories
 Feature: Instructor adds and removes Categories
 
   Scenario: Instructor adds a category Gradebook
