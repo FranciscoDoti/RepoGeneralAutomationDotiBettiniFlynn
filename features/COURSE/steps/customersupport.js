@@ -70,7 +70,7 @@ When('I update the access code', async function (data_table) {
   }
 });
 
-When(/^I search for "(.*)" in Course tab$/, async function (courseName){
+When(/^I search for "(.*)" in Courses tab$/, async function (courseName){
   await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName)

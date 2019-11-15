@@ -10,22 +10,30 @@ Feature: Admin enrolls the student in Read & Practice course
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                     
 
+        
+        And I close the popup message                      
+
+        And I click on search button and input "Read & Practice Template" to search the course
         And I activate the "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+            | Read & Practice Template  |   E2E 301     |  Active On Date      |                       
 
+        And I click on "Read & Practice Template" card
+        And I click on "Production" Tab
 
-        And I add the activities in resources to "Read & Practice Template" template
-            | type                      | activity                                      |
-            | addButtonReadandpractice  | LCRP1550612138614                             |     
-            | addButtonLearningcurve    | LC1551301608988                               |
-            
-
+        And I add activities to "Content Library"
+          | activities            |
+          | GLOSSARY              |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
+          
+        And I click on back to course
         And I click on home button to return to coursepage
         And I click on "COURSE TEMPLATES" tab 
+
         And I copy course from the "Read & Practice Template" template with the following data
-            | courseName              | courseCode          |
-            | Read & Practice Course  | E2E 301             |
+            | courseName              | courseCode           |
+            | Read & Practice Course  | E2E 301              |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -40,16 +48,22 @@ Feature: Admin enrolls the student in Read & Practice course
             | courseName        | Read & Practice Course       |
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
+
      
-        And I add the activities in courseplanner to "Read & Practice Course" course
+        And I add activities in "Read & Practice Course" courseplanner tab
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | LC1551301608988                                                   |
+            | GLOSSARY                                                          |
+        
+        And I close the popup message
+
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | LCRP1550612138614                                                | 5      | 
-            | LC1551301608988                                                  | 5      | 
+            | LC1551301608988                                                  | 5      |
+            | GLOSSARY                                                         | 5      | 
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1" 
