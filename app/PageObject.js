@@ -146,7 +146,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           assert.fail(`ERROR: We tried to populate an unknown tag(${tagName}) of element(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
       }
     } else {
-      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during PopulateElement() attempt.`);
+      assert.fail(`ERROR: WebElement ${elementName} with value ${value} not found in PageElements during PopulateElement() attempt.`);
     }
   };
 
@@ -316,7 +316,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       }
       return returnValue;
     } else {
-      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during GetAttributeValue() attempt.`);
+      assert.fail(`ERROR: WebElement ${elementName} and attribute ${attributeName} not found in PageElements during GetAttributeValue() attempt.`);
     }
   };
 

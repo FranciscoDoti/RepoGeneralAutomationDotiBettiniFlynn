@@ -333,9 +333,13 @@
             "definition": "//*[@id='simple-menu']/div[3]/ul/li[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        { 
+            "name": "customActivityCloseButton",
+            "byType": "css",
+            "definition": "[data-test-id='custom_activity_close_button']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
-
     ]
-
-
 }
