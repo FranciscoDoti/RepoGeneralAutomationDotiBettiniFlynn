@@ -6,13 +6,13 @@ Feature: Interval containing infinity with EndPoint not enforced
         Given I login to AMS as "all-permissions-author"
         When I click on the New Raptor item in the AMS page
         And I navigate to AuthorApp
+        And I set Item Details name as "IntervalwithInfinity"
 
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
         And I set the grade as "Interval" type
         And I input author answer "(-\infinity,7)"
         And I unselect Enforce Endpoints checkbox
-        And I set Item Details name as "IntervalwithInfinity"
         Then I save the question
 
         When I simulate student interface
