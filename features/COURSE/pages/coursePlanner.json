@@ -813,6 +813,34 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        }, {
+            "name": "ISBN",
+            "byType": "xpath",
+            "definition": "//*[@id='filter-isbn-title']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "searchByISBN",
+            "byType": "xpath",
+            "definition": "//*[@placeholder='Search by ISBN']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "filterCheckbox",
+            "byType": "xpath",
+            "definition": "//span[starts-with(.,'<ReplaceText>')]/../../..//input[@data-test-id='filter_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "Apply",
+            "byType": "xpath",
+            "definition": "//*[@data-test-id='add_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
         }
 
 
