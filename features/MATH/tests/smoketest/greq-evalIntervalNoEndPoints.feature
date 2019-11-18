@@ -1,4 +1,4 @@
-@math @smoke
+@math @smoke @greq
 Feature: Interval containing infinity with EndPoint not enforced
 
     Scenario:Interval item do not match [-infinity, 7] to (-infinity,7) when endpoints are not enforced
