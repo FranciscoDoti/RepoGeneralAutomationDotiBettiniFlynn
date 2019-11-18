@@ -8,7 +8,6 @@ Feature: Floating Point with tolerance
         And I navigate to AuthorApp
         And I set Item Details name as "PointFloatTolerance"
 
-
         When I add Math equation module
         And I click on the Question tab, and add an Answer field
         And I set the grade as "Point" type
