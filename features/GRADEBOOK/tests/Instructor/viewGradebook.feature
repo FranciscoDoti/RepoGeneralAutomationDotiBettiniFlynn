@@ -1,4 +1,4 @@
-@Smoke @Gradebook @GradebookViewGradebook
+@Gradebook @Smoke @GradebookSmoke @GradebookViewGradebook
 Feature: Instructor views the Gradebook
 
   Scenario: Instructor views the Gradebook

@@ -20,6 +20,13 @@
       "definition": "[data-test-id='settings-category-list'] li:last-of-type input",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "removeCategory",
+      "byType": "css",
+      "definition": "[data-test-id='settings-remove-category']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }

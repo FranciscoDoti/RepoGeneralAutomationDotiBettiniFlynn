@@ -13,11 +13,20 @@ When('I toggle points', async function () {
   await pages.gradebook.click('pointsToggleButton');
 });
 
-When('I save a new category', async function () {
+When('Instructor saves a new category', async function () {
   await pages.settings.waitForElementVisibility('addCategory');
   await pages.settings.click('addCategory');
   await pages.settings.waitForElementVisibility('newCategoryInput');
   const newCategoryName = getCategoryName();
   await pages.settings.populate('newCategoryInput', newCategoryName);
   await pages.settings.click('saveCategory');
+});
+
+When('Instructor deletes all categories', async function () {
+  await pages.settings.waitForElementVisibility('addCategory');
+  const deleteButtons = await pages.settings.getWebElements('removeCategory');
+  for (const button of deleteButtons) {
+    await button.click();
+  }
+  console.log('break');
 });
