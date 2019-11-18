@@ -8,6 +8,7 @@ const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
@@ -29,6 +30,13 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
+  await pages.courseList.populate('search', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.click('courseCard', courseName);
+});
+
+When(/^I search for the course "(.*)" and click on course card$/, async function (courseName) {
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);

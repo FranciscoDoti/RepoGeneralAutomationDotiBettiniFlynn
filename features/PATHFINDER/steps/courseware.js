@@ -10,9 +10,10 @@ When(/^I launch the Pathfinder Assignment "(.*)"$/, async function (assignment) 
 });
 
 When('I delete automation courses', async function () {
-  await pages.courseList.populate('search', 'PF Automation');
+  await pages.courseList.assertElementExists('courseTemplate', 'COURSES')
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await driver.getDriver().sleep(500);
-  let elements = await pages.courseList.getWebElements('courseCard');
+  let elements = await pages.createCourse.getWebElements('courseCard','PF Automation Student Test');
   for (let i = 0; i < elements.length; i++) {
     await pages.coursePage.click('courseMenu');
     await pages.courseList.waitForElementVisibility('deleteCourse');
@@ -22,6 +23,9 @@ When('I delete automation courses', async function () {
 });
 
 When(/^I click on the course card for "(.*)"$/, async function (courseName) {
-  await pages.courseList.assertElementExists('courseCard', courseName);
-  await pages.courseList.click('courseCard', courseName);
+  await pages.courseList.click('courseTemplate', 'COURSES');
+  // await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.courseList.assertElementExists('studentCourseCard');
+  // await pages.createCourse.click('courseCard', courseName);
+  await pages.courseList.click('studentCourseCard');
 });

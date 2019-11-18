@@ -16,7 +16,7 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
     Scenario: Admin adds student to course
         Given I login to Achieve-CW as "pf-admin"
-            When I search for "PF Automation Student Test" and click on course card
+            When I search for the course "PF Automation Student Test" and click on course card
             When I use a pre-built course
             When I click on home button to return to coursepage
             When I enroll the "pf-student1" in "PF Automation Student Test" course

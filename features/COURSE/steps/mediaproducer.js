@@ -48,10 +48,11 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
 });
 
 When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName);
   await sleep(500);
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.coursePage.click('courseMenu')
   await pages.copyCourse.click('copyCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
