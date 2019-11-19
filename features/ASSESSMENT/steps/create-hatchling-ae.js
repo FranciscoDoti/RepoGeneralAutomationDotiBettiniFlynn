@@ -43,7 +43,6 @@ Then(/^I verify NE hatchling item gets created$/, async function () {
 Then(/^I am creating hatchling item from "(.*)" tab$/, async function (tabName) {
     switch(tabName){
         case 'assessment':
-                await pages.newAssessmentModal.click('assessmentModalButtons', 'link-to-assignment');
                 await pages.assignmentTab.click('CreateMyOwn');
                 break;
         case 'custom question':
