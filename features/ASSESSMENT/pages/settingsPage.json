@@ -22,9 +22,9 @@
         "specialInstr":"NA"
     },
     {
-        "name": "policy options",
+        "name": "Policy Options",
         "byType": "xpath",
-        "definition": "(//div[@class='policy-container']//label/div)[<ReplaceText>]",
+        "definition": "//h4[.='<ReplaceText>']/..//div",
         "frame":"aeFrame",
         "specialInstr":"NA"
     },

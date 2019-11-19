@@ -22,7 +22,7 @@ Feature: Assigning the activities present in Read & Practice course
 
         And I add activities to "Content Library"
           | activities            |
-          | Glossary              |
+          | GLOSSARY              |
           | LCRP1550612138614     |
           | LC1551301608988       |
           
@@ -49,13 +49,13 @@ Feature: Assigning the activities present in Read & Practice course
             | templateStatus    |  Active On Date              |
 
      
-        And I add the activities in courseplanner to "Read & Practice Course" course
+        And I add activities in "Read & Practice Course" courseplanner tab
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | LC1551301608988                                                   |
             | GLOSSARY                                                          |
         
-        And I close the popup messa
+        And I close the popup message
 
 
         And I assign the activities in courseplanner

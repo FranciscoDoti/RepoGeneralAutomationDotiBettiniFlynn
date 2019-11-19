@@ -171,12 +171,6 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "moveItemToFolder",
-            "byType": "xpath",
-            "definition": "//button[@class='_3S0D']/..//span[text()='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        }, {
             "name": "placeInFolder",
             "byType": "css",
             "definition": "[data-test-id='place_in_folder']",

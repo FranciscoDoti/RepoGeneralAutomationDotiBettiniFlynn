@@ -1,3 +1,4 @@
+@Course @Smoke
 Feature: Instructor creates writing activity in Skills Production Template
 
     @mediaproducer-delete-course
@@ -23,7 +24,7 @@ Feature: Instructor creates writing activity in Skills Production Template
 
         And I add activities to "Content Library"
           | activities            |
-          | Glossary              |
+          | GLOSSARY              |
           | LCRP1550612138614     |
           | LC1551301608988       |
           
@@ -50,7 +51,7 @@ Feature: Instructor creates writing activity in Skills Production Template
 
         And I add the activities in courseplanner to "Skills Production Course" course
             | activity                                                          |
-            |   Glossary                                                        |                                                        
+            |   GLOSSARY                                                        |                                                        
             | LC1551301608988                                                   |
             | LCRP1550612138614                                                 |
 
@@ -58,7 +59,7 @@ Feature: Instructor creates writing activity in Skills Production Template
 
         Then I verify that "Skills Assignment" writing activity is added in Browse
 
-        And I add custom content courseplanner
+        When I add custom content courseplanner
             | activity                                    |
             | Skills Assignment                           | 
 

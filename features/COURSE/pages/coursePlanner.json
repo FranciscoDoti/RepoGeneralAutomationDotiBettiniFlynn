@@ -319,21 +319,15 @@
             "specialInstr": "NA"
         },
         {
-            "name": "assignmentTitle",
+            "name": "ProvideATitle",
             "byType": "xpath",
             "definition": "//input[@placeholder='Provide a title']",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
         }, {
-            "name": "assignmentType",
+            "name": "dropDown",
             "byType": "xpath",
-            "definition": "(//select[@type='text'])[1]",
-            "frame": "customAssesmentFrame",
-            "specialInstr": "focus"
-        }, {
-            "name": "taxonomy",
-            "byType": "xpath",
-            "definition": "(//select[@type='text'])[2]",
+            "definition": "//option[.='<ReplaceText>']/..",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
         }, {
@@ -405,7 +399,7 @@
         }, {
             "name": "addCustomActivity",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../..//*[@type='add_to_course']",
+            "definition": "//a[.='<ReplaceText>']/../../../..//*[@data-test-id='my_content_add_to_course_btn']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -474,6 +468,14 @@
             "definition": "[class='_2XMC ']",
             "frame": "default",
             "specialInstr": "NA"
+        },  
+        {
+            "name": "Folder",
+            "byType": "xpath",
+            "definition": "//*[@aria-label='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+    
         },
         {
             "name": "addUnit",
@@ -515,7 +517,7 @@
             "byType": "xpath",
             "definition": "//a[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "actionButtonValidation",
@@ -528,7 +530,7 @@
             "byType": "css",
             "definition": "[data-test-id='action_menu_items_move_item']",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "actionRemoveItem",

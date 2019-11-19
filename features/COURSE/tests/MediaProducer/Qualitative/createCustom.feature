@@ -30,7 +30,7 @@ Feature: Verify that media Producer is able to create Custom Task Qualitative te
             | activity                                      |    
             | Qual Test                                     |
 
-        And I add custom activity to Content Library
+        When I add custom activity to Content Library
             | activity                                      |    
             | Qual Test                                     |
  
