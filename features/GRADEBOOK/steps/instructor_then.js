@@ -3,19 +3,19 @@ const { expect } = require('chai');
 const pages = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const {getCategoryName} = require('../data/test_value_generator');
 
-Then('I should see points displayed in the course total', async function () {
+Then('Points are displayed in the course total', async function () {
   await pages.gradebook.waitForElementVisibility('courseTotal');
   const courseTotal = await pages.gradebook.getWebElements('courseTotal');
   const text = await courseTotal[0].getText()
   expect(text).to.equal('50.00\nOut of 100');
 });
-Then('I should see percents displayed in the course total', async function () {
+Then('Percents are displayed in the course total', async function () {
   await pages.gradebook.waitForElementVisibility('courseTotal');
   const courseTotal = await pages.gradebook.getWebElements('courseTotal');
   const text = await courseTotal[0].getText()
   expect(text).to.equal('50%');
 });
-Then('I should see the settings button appear', async function () {
+Then('The settings button is visible', async function () {
   await pages.gradebook.waitForElementVisibility('settingsNav');
 });
 Then('A new category should appear in the Gradebook', async function () {

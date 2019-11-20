@@ -2,19 +2,15 @@
 Feature: Instructor views the Gradebook
 
   Scenario: Instructor views the Gradebook
-    Given I login to Achieve-CW as "instructor_8"
-    And navigate to my course using course "course_1"
-    And I click the Gradebook menu link
-    Then I should see the settings button appear
+    Given Instructor views the Gradebook for "course_1" as "instructor_8"
+    Then The settings button is visible
 
   Scenario: Instructor toggles percent to points Gradebook
-    Given I login to Achieve-CW as "instructor_8"
-    And navigate to my course using course "course_1"
-    And I click the Gradebook menu link
-    Then I should see percents displayed in the course total
-    When I toggle points
-    Then I should see points displayed in the course total
-    When I toggle percents
-    Then I should see percents displayed in the course total
+    Given Instructor views the Gradebook for "course_1" as "instructor_8"
+    Then Percents are displayed in the course total
+    When Instructor toggle points
+    Then Points are displayed in the course total
+    When Instructor toggle percents
+    Then Percents are displayed in the course total
 
 

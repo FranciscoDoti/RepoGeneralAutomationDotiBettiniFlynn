@@ -3,12 +3,12 @@ const { When } = require('cucumber');
 const pages = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const {getCategoryName} = require('../data/test_value_generator');
 
-When('I toggle percents', async function () {
+When('Instructor toggle percents', async function () {
   await pages.gradebook.waitForElementVisibility('percentsToggleButton');
   await pages.gradebook.click('percentsToggleButton');
 });
 
-When('I toggle points', async function () {
+When('Instructor toggle points', async function () {
   await pages.gradebook.waitForElementVisibility('pointsToggleButton');
   await pages.gradebook.click('pointsToggleButton');
 });
@@ -28,5 +28,9 @@ When('Instructor deletes all categories', async function () {
   for (const button of deleteButtons) {
     await button.click();
   }
-  console.log('break');
+});
+
+When('Instructor opens the settings modal', async function () {
+  await pages.gradebook.waitForElementVisibility('settingsNav');
+  await pages.gradebook.click('settingsNav');
 });
