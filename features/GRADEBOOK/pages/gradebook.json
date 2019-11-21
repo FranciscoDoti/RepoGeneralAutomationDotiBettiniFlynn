@@ -15,27 +15,6 @@
       "specialInstr": "NA"
     },
     {
-      "name": "syncIClicker",
-      "byType": "css",
-      "definition": "[data-test-id='sync_iclicker']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },
-    {
-      "name": "iClickerMenu",
-      "byType": "css",
-      "definition": "[data-test-id='iclicker_menu']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },
-    {
-      "name": "iClickerMenuDisconnect",
-      "byType": "css",
-      "definition": "[data-test-id='iclicker_menu_disconnect']",
-      "frame": "default",
-      "specialInstr": "NA"
-    },
-    {
       "name": "percentToggleButton",
       "byType": "css",
       "definition": "[data-test-id='first_toggle_button']",

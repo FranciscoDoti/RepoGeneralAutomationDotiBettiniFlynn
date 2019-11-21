@@ -5,5 +5,3 @@ Feature: Instructor adds and removes Categories
     Given Instructor views the Gradebook for "iclicker_skills1" as "instructor_8"
     When Instructor connects to iClicker
     Then The new course button should be visible
-
-  Scenario: Instructor disconnects from iClicker
