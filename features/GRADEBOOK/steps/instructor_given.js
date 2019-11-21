@@ -22,6 +22,6 @@ Given(/^navigate to my course using course "(.*)"$/, viewCourse);
 
 Given('Instructor views the Gradebook for {string} as {string}', async function (course, userType) {
   await loginAchieveCw.call(this, userType);
-  await viewCourse.call(this, course);
+  await viewCourse(course);
   await selectGradebookMenu();
 });

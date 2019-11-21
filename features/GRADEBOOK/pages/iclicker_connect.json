@@ -1,0 +1,32 @@
+{
+  "webElements": [
+    {
+      "name": "usernameInput",
+      "byType": "css",
+      "definition": "[data-test-id='reef_modal_email_input']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "passwordInput",
+      "byType": "css",
+      "definition": "[data-test-id='reef_modal_password_input']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "signInButton",
+      "byType": "css",
+      "definition": "[data-test-id='reef_modal_sign_in']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "newCourseButton",
+      "byType": "css",
+      "definition": "[data-test-id='reef_new_course']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}
