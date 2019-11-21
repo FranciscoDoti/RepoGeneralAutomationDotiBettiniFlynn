@@ -6,6 +6,7 @@ const hatchlinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/hatchling
 const userlib = require(`${process.cwd()}/features/ASSESSMENT/lib/user.js`);
 const filterslib = require(`${process.cwd()}/features/ASSESSMENT/lib/filters.js`);
 const deletedItemsLib  = require(`${process.cwd()}/features/ASSESSMENT/lib/deletedItems.js`);
+const moldrawlib = require(`${process.cwd()}/features/ASSESSMENT/lib/moldraw.js`);
 
 module.exports = {
     raptorlib,
@@ -15,5 +16,6 @@ module.exports = {
     hatchlinglib,
     userlib,
     filterslib,
-    deletedItemsLib
+    deletedItemsLib,
+    moldrawlib
 };

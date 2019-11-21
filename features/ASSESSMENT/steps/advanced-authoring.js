@@ -5,8 +5,8 @@ const { expect } = require('chai');
 const { log } = require(`${process.cwd()}/app/logger`);
 
 When(/^I add the following choices in "(.*)" module$/, async function (module, datatable) {
-  await pages.raptor.scrollElementIntoView('Module ' + module, 1);
-  await pages.raptor.click('Module ' + module, 1);
+  await pages.raptor.scrollElementIntoView('Module ' + module + ' Edit', 1);
+  await pages.raptor.click('Module ' + module + ' Edit', 1);
   for (let i = 0; i < datatable.rows().length; i++) {
     if (i > 1) {
       await pages.raptor.click('Add Choice Button');

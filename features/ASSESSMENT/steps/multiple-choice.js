@@ -94,6 +94,7 @@ When(/^I set hint and generic feedback with following details and save on \"([^\
   }
 });
 When('Add the created custom question to assessment', async function () {
+  await pages.hatchlingItemFrame.waitForElementVisibility('Toast Message', 'toast-container');
   let createdQuestionTitle = this.data.get('Question Title');
   await pages.customQuestion.click('Created Custom Question', createdQuestionTitle);
   await pages.customQuestion.click('Action Bar Buttons', 'Add');
