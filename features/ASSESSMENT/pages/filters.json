@@ -69,6 +69,13 @@
             "definition": "//div[@class='input-group search-div']/input[@id='filter-input-id']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Deleted Items",
+            "byType": "xpath",
+            "definition": "//a[.='Deleted Items']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

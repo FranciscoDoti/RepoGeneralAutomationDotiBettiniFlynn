@@ -1,4 +1,4 @@
-@DeletedItemsPage
+@Assessment @Smoke @DeletedItemsPage
 Feature: Tests on DeletedItems Page of AMS
 
     Scenario: Apply multiple column filters and text filter on DeletedItemsPage and verify that items match with the filter applied
