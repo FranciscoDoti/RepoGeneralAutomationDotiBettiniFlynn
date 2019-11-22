@@ -166,10 +166,11 @@ Then('I verify the Grades', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     let user = this.users[data_table.hashes()[i].Students];
     await pages.gradebook.assertTextIncludes('courseTotal', user.firstName, data_table.hashes()[i].CourseTotal);
-    // await pages.gradebook.assertTextIncludes('studentcourseTotal', user.firstName, data_table.hashes()[i].Google);
-    // await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
+    await pages.gradebook.assertTextIncludes('studentcourseTotal', user.firstName, data_table.hashes()[i].Google);
+    await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
   }
 });
+
 When(/^I add "(.*)" content first in order to continue adding the rest contentfrom Browse to courseplanner in "(.*)"$/, async function (activity, courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Browse');

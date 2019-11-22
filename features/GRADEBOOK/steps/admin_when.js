@@ -146,6 +146,44 @@ When('I activate my course', async function () {
   await coursePages.home.click('closeAlert');
 });
 
+When(/^I activate course "(.*)" with the following data$/, async function (courseName, dataTable) {
+  for (let i = 0; i < dataTable.rows().length; i++) {
+    var c = dataTable.hashes()[i];
+    await coursePages.courseList.populate('search', courseName);
+    await sleep(500);
+    await coursePages.courseList.waitForElementVisibility('courseMenu', courseName);
+    await coursePages.courseList.click('courseMenu', courseName);
+    await coursePages.copyCourse.click('copyCourse');
+    await coursePages.copyCourse.populate('courseName', c.courseName)
+    await coursePages.copyCourse.populate('courseCode', c.courseCode)
+    await coursePages.copyCourse.populate('copyCourseStatus', 'Active On Date');
+    await coursePages.masterSection.click('courseEndDate');
+    await coursePages.courseList.click('nextMonthButton');
+    await coursePages.courseList.click('selectDate', '15');
+    await coursePages.copyCourse.click('save');
+    await coursePages.home.click('closeAlert');
+    this.data.set('courseCode', c.courseCode);
+    this.data.set('courseName', c.courseName);
+  }
+});
+
+When(/^I create a Gradebook Category with dropped lowest grade policy$/, async function (dataTable) {
+  for (let i = 0; i < dataTable.rows().length; i++) {
+    const courseName = this.data.get('courseName');
+    await coursePages.courseList.populate('search', courseName);
+    await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
+    await coursePages.createCourse.assertElementExists('courseCard', courseName);
+    await coursePages.createCourse.click('courseCard', courseName);
+    await coursePages.coursePage.click('navigation', 'Gradebook');
+    await coursePages.gradebook.click('gradebookSettings')
+    await coursePages.gradebook.click('gradeBookCategory','Add Category');
+    await coursePages.gradebook.scrollElementIntoView('categoryName')
+    await coursePages.gradebook.populate('categoryName', dataTable.hashes()[i].categoryName)
+    await coursePages.gradebook.populate('dropLowestGrade', dataTable.hashes()[i].dropGrade);
+    await coursePages.gradebook.click('save','Save');
+  }
+});
+
 When('I convert my template into a course', async function () {
   const courseName = this.data.get('courseName');
   const courseCode = this.data.get('courseCode');

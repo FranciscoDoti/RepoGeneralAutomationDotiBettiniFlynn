@@ -386,6 +386,26 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
+  const assertTextDoesNotInclude = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined && replaceText !== undefined) {
+      expectedValue = replaceText;
+    } else {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    try {
+      const actualValue = await genericGetAttribute(elementName);
+      log.info(`Asserting text for "${elementName}" does not exist`);
+      
+      if (await expect(actualValue).to.not.include(expectedValue)) {
+        log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
+      };
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
   const genericWaitForElement = async function (elementName, condition, timeout) {
     let WebElementObject = '';
     let WebElementData = {};
@@ -606,6 +626,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.assertAlertTextIncludes = assertAlertTextIncludes;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
+  that.assertTextDoesNotInclude = assertTextDoesNotInclude;
   that.assertElementDisabled = assertElementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;

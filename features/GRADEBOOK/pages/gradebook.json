@@ -43,9 +43,16 @@
       "specialInstr": "NA"
     },
     {
+      "name": "studentGradebook",
+      "byType": "xpath",
+      "definition": "//*[@id='container']/div/div/div/div[2]/div/div[3]/div[2]/div/div",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
       "name": "courseTotal",
-      "byType": "css",
-      "definition": "[data-test-id='course_total'",
+      "byType": "xpath",
+      "definition": "//*[.='<ReplaceText>']/../../../../../../..//div[@data-test-id='course_total']",
       "frame": "default",
       "specialInstr": "NA"
     },
@@ -176,6 +183,27 @@
       "specialInstr": "NA"
     },
     {
+      "name": "editGradeButton",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='assignment_grade_<ReplaceText>']/div/button",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradeRowCell",
+      "byType": "css",
+      "definition": "[data-test-id='assignment_grade_<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "categoryTotalRowCell",
+      "byType": "css",
+      "definition": "[data-test-id='assignment_grade_total_<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
       "name": "editTotal",
       "byType": "xpath",
       "definition": "(//*[.='<ReplaceText>']/../../../../../../../../..//div/button[@class='_3VyP'])[1]",
@@ -185,7 +213,35 @@
     {
       "name": "editGrade",
       "byType": "css",
-      "definition": "input[label='__overrideGradeDialog_comment']",
+      "definition": "input[data-test-id='grade_edit_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "editGradeComment",
+      "byType": "css",
+      "definition": "textarea[data-test-id='comment_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "cancelGradeOverride",
+      "byType": "css",
+      "definition": "button[data-test-id='cancel_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradeEditGradeOverride",
+      "byType": "css",
+      "definition": "input[data-test-id='grade_edit_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "originalGradeOverride",
+      "byType": "css",
+      "definition": "div[data-test-id='original_grade_override']",
       "frame": "default",
       "specialInstr": "NA"
     },
@@ -200,6 +256,13 @@
       "name": "checkActivityCompletion",
       "byType": "xpath",
       "definition": "//div[.='<ReplaceText>']/../../../..//div[@data-test-id='percentage_complete']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "dropGradeDropdown",
+      "byType": "css",
+      "definition": "[aria-labelledby='drop_label_1']",
       "frame": "default",
       "specialInstr": "NA"
     }

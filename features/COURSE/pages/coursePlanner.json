@@ -409,6 +409,24 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
+            "name": "assignmentModalRosterSearch",
+            "byType": "css",
+            "definition": "[data-test-id='edit_assignment_modal_roster_search_btn']",
+            "frame": "default",
+            "specialInstr": "arrowdownafter enterAfter"
+        }, {
+            "name": "studentSearchBox",
+            "byType": "css",
+            "definition": "[data-test-id='student_search_box']",
+            "frame": "default",
+            "specialInstr": "arrowdownafter enterAfter"
+        }, {
+            "name": "radioButtonAssignStudents",
+            "byType": "css",
+            "definition": "[data-test-id='radio_button_assign_students']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
             "name": "editPoints",
             "byType": "css",
             "definition": "[data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
@@ -715,6 +733,20 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "addExceptionBtn",
+            "byType": "css",
+            "definition": "[data-test-id='add_exception_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "exceptionDatePickerButton",
+            "byType": "css",
+            "definition": "[data-test-id='exception_due_date_picker']",
+            "frame": "default",
+            "specialInstr": "NA"
         },
         {
             "name": "Category",
