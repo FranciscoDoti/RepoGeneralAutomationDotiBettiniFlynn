@@ -1,5 +1,6 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "unitFolderCourse",
             "byType": "xpath",
             "definition": "//a[contains(@data-test-id,'course_name') and contains(text(), 'Add Unit Course')]",
@@ -12,38 +13,43 @@
             "definition": "//a[.='<ReplaceText>']/../..//button[@data-test-id='add_assignment']",
             "frame": "default",
             "specialInstr": "NA"
-
-        },{
+        },
+        {
             "name": "addUnitFolder",
             "byType": "xpath",
             "definition": "//*[@data-test-id='add_unit']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "customQuestions",
             "byType": "css",
             "definition": "[title='Custom Questions']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addAnotherCustomQuestions",
             "byType": "css",
             "definition": "button[data-test-id='add-another-button']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "NEcustomQuestions",
             "byType": "css",
             "definition": "a[data-test-id='numeric-entry-hatchling']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "CreatecustomQuestionsbutton",
             "byType": "css",
             "definition": "button[data-test-id='hatchling-create-update-button']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "editQuestionTitleCQ",
             "byType": "css",
             "definition": "div[data-test-id='hatchling-item-title-edit']",
@@ -56,7 +62,8 @@
             "definition": "input[data-test-id ='hatchling-item-title']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "AnswerPromptCQ",
             "byType": "css",
             "definition": "[class='rte-content']",
@@ -69,79 +76,92 @@
             "definition": "[class='notranslate public-DraftEditor-content']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addUnitModal",
             "byType": "css",
             "definition": "[data-test-id='add_new_unit_modal']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitNameInput",
             "byType": "css",
             "definition": "[data-test-id='add_unit_input']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitFolderButton",
             "byType": "xpath",
             "definition": "//button[contains(@class,'H2o')]",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "contentType",
             "byType": "xpath",
             "definition": "//*[.='<ReplaceText>']/..//input[@data-test-id='filter_checkbox']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "addUnitButton",
             "byType": "css",
             "definition": "[data-test-id='add_unit_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitFolderName",
             "byType": "css",
             "definition": "[data-test-id='folder_name']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitFolderAction",
             "byType": "css",
             "definition": "[data-test-id='action_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "removeFolderAction",
             "byType": "css",
             "definition": "[data-test-id='action_menu_items_remove_item']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "removeFolderModal",
             "byType": "css",
             "definition": "[data-test-id='remove_item_modal']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "removeFolderButton",
             "byType": "css",
             "definition": "[data-test-id='yes_remove_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "emptyAssignmentsView",
             "byType": "xpath",
             "definition": "//div[contains(@class,'Assignments_emptyView')]",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "customContentButton",
             "byType": "xpath",
             "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "libraryTab",
             "byType": "css",
             "definition": "[data-test-id='library_tab']",
@@ -154,157 +174,183 @@
             "definition": "//a[.='<ReplaceText>']/../../../div/*[@type='add_to_course']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "yourContent",
             "byType": "css",
             "definition": "[data-test-id='custom_content_tab']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assignAssignmentButton",
             "byType": "css",
             "definition": "[aria-label='Assign Item']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "pointsInput",
             "byType": "css",
             "definition": "[data-test-id='assignment_detail_points']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assignButton",
             "byType": "css",
             "definition": "[data-test-id='assign_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "courseAssignment",
             "byType": "xpath",
             "definition": "//a[contains (text(), '{}') and contains(@class, '_3UBu _3kCz')]",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "librarySearchInput",
             "byType": "css",
             "definition": "[id='__librarySearchInput']",
             "frame": "default",
             "specialInstr": "enterAfter"
-        }, {
+        },
+        {
             "name": "closeCourseplanner",
             "byType": "xpath",
             "definition": "//button[@class='_1gU6']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "AssignmentDueDatePicker",
             "byType": "css",
             "definition": "[data-test-id='Assignment_due_date_picker']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "checkBox",
             "byType": "css",
             "definition": "[data-test-id='row_checkbox']",
             "frame": "default",
             "specialInstr": "NA"
-        },  {
+        },
+        {
             "name": "activityStatus",
             "byType": "css",
             "definition": "[data-test-id='assignment_status']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "activityValidation",
             "byType": "css",
             "definition": "[data-test-id='activity_list']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "activityGrid",
             "byType": "css",
             "definition": "[role='grid']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assignmentDueDate",
             "byType": "css",
             "definition": "[data-test-id='assignment_detail_due_date']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "librarySideNav",
             "byType": "css",
             "definition": "[data-test-id='library_side_nav']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitActionButton",
             "byType": "xpath",
             "definition": "//*//main[contains(@class, 'listContainer')]/div[2]/div[2]/div/div/div/div[6]/div/button",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitActionMenu",
             "byType": "css",
             "definition": "[data-test-id='action_menu']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitActionItemsReorder",
             "byType": "css",
             "definition": "[data-test-id='action_menu_items_reorder']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "unitReorderModal",
             "byType": "css",
             "definition": "[data-test-id='reorder_modal']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assigmentsListFirst",
             "byType": "xpath",
             "definition": "//*[@id='react-tabs-11']/div/div[2]/div/div[1]/*/button",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assigmentsListSecond",
             "byType": "xpath",
             "definition": "//*[@id='react-tabs-11']/div/div[2]/div/div[2]/*/button",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "modalMoveDownButton",
             "byType": "css",
             "definition": "[data-test-id='move_down_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "modalMoveUpButton",
             "byType": "css",
             "definition": "[data-test-id='move_up_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "modalReorederListSecondLi",
             "byType": "xpath",
             "definition": "//ul[contains(@class, 'reorderList')] /li[2]/button/span",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "modalReorederListThirdLi",
             "byType": "xpath",
             "definition": "//ul[contains(@class, 'reorderList')] /li[3]/button/span",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "modalSaveButton",
             "byType": "css",
             "definition": "[data-test-id='save_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assessmentButton",
             "byType": "css",
             "definition": "[data-test-id='assessment_button']",
@@ -324,176 +370,202 @@
             "definition": "//input[@placeholder='Provide a title']",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
-        }, {
+        },
+        {
             "name": "dropDown",
             "byType": "xpath",
             "definition": "//option[.='<ReplaceText>']/..",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
-        }, {
+        },
+        {
             "name": "resetModel",
             "byType": "css",
             "definition": "[data-test-id='reset-modal-confirm-button']",
             "frame": "customAssesmentFrame",
             "specialInstr": "focus"
-        }, {
+        },
+        {
             "name": "checkBoxAssignment",
             "byType": "css",
             "definition": "[data-test-id='item-checkbox-input-label']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addQuestionButton",
             "byType": "css",
             "definition": "[data-test-id='action-bar-button']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "close",
             "byType": "css",
             "definition": "[data-test-id='back_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "newCustom",
             "byType": "xpath",
             "definition": "//*[text()='New']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "customActivityValidation",
             "byType": "css",
             "definition": "[data-test-id='assignment_type']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "questionBank",
             "byType": "css",
             "definition": "[data-test-id='link-to-questionbank']",
             "frame": 0,
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "writingPromptButton",
             "byType": "css",
             "definition": "[data-test-id='writing_prompt_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "activityEdit",
             "byType": "xpath",
             "definition": "//*[@class='ActivityTitle__editIcon__12gZ6']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "activityWritingTitle",
             "byType": "css",
             "definition": "[data-id='activity-title-editField']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "clickAddPrompt",
             "byType": "css",
             "definition": "[data-id='add-prompt']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addCustomActivity",
             "byType": "xpath",
             "definition": "//a[.='<ReplaceText>']/../../../..//*[@data-test-id='my_content_add_to_course_btn']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "vissibilityButton",
             "byType": "xpath",
             "definition": "//*[text()='Make visible to students for entirety of the course']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assignmentModalRosterSearch",
             "byType": "css",
             "definition": "[data-test-id='edit_assignment_modal_roster_search_btn']",
             "frame": "default",
             "specialInstr": "arrowdownafter enterAfter"
-        }, {
+        },
+        {
             "name": "studentSearchBox",
             "byType": "css",
             "definition": "[data-test-id='student_search_box']",
             "frame": "default",
             "specialInstr": "arrowdownafter enterAfter"
-        }, {
+        },
+        {
             "name": "radioButtonAssignStudents",
             "byType": "css",
             "definition": "[data-test-id='radio_button_assign_students']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "editPoints",
             "byType": "css",
             "definition": "[data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "changeTargetScore",
             "byType": "css",
             "definition": "[data-test-id='editTargetScoreChangeScoreBtn']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "editTargetScore",
             "byType": "css",
             "definition": "[data-test-id='editTargetScoreScore']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "veryShortActivity",
             "byType": "css",
             "definition": "button.btn-cdl-main.EditTargetScoreModal__proceedOkay__2v8Ue",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "activityRp",
             "byType": "id",
             "definition": "(//*[@class='_3UBu _3kCz'])",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "addWritingPrompt",
             "byType": "css",
             "definition": "[data-id='add-prompt']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assignmentPrompt",
             "byType": "xpath",
             "definition": "//*[@id='rdw-wrapper-4479']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "yourContentValidation",
             "byType": "css",
             "definition": "[data-test-id='assignment_type']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "assignmentDueDate",
             "byType": "css",
             "definition": "[data-test-id='assignment_detail_due_date']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "date",
             "byType": "css",
             "definition": "[class='_2XMC ']",
             "frame": "default",
             "specialInstr": "NA"
-        },  
+        },
         {
             "name": "Folder",
             "byType": "xpath",
             "definition": "//*[@aria-label='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-    
         },
         {
             "name": "addUnit",
@@ -543,7 +615,8 @@
             "definition": "//button[@data-test-id='action_button']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },
+        {
             "name": "actionMoveItemToFolder",
             "byType": "css",
             "definition": "[data-test-id='action_menu_items_move_item']",
@@ -570,7 +643,6 @@
             "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "activityName",
@@ -585,14 +657,13 @@
             "definition": "//*[.='<ReplaceText>']/../../../..//button[@data-test-id='action_button']",
             "frame": "default",
             "specialInstr": "NA"
-
-        }, {
+        },
+        {
             "name": "libraryItem",
             "byType": "xpath",
             "definition": "//a[@class='_25Nb' and .='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "reorderValidation",
@@ -600,7 +671,6 @@
             "definition": "(//a[@data-test-id='activity_link'])[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "assignmentStatus",
@@ -608,7 +678,6 @@
             "definition": "//a[.='<ReplaceText>']/../../../..//div[@data-test-id='assignment_status']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "customIframe",
@@ -616,7 +685,6 @@
             "definition": "//*[@id='container']/div/div/div/iframe",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "addPrompt",
@@ -624,7 +692,6 @@
             "definition": "a[data-id='add-prompt']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "editTitle",
@@ -632,7 +699,6 @@
             "definition": "[aria-labelledby='edit']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "activityTitle",
@@ -640,7 +706,6 @@
             "definition": "//div[@data-id='activity-title-editField']/..//input[@type='text']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "TitleSave",
@@ -648,7 +713,6 @@
             "definition": "[data-id='title-save']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "customRubric",
@@ -656,7 +720,6 @@
             "definition": "[data-id='create-rubric']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "nameRubric",
@@ -664,7 +727,6 @@
             "definition": "[data-id='custom-rubric-title-input']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "criterion",
@@ -672,7 +734,6 @@
             "definition": "[data-id='custom-rubric-criterion-name']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "criterionDescription",
@@ -680,7 +741,6 @@
             "definition": "[data-id='custom-rubric-criterion-description']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "rubricScale",
@@ -688,8 +748,7 @@
             "definition": "//*[.='<ReplaceText>']/../../..//input[@data-id='custom-rubric-scale-name']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
-        }, 
+        },
         {
             "name": "scaleDescription",
             "byType": "css",
@@ -703,7 +762,6 @@
             "definition": "[data-id='custom-rubric-save']",
             "frame": "customIframe",
             "specialInstr": "NA"
-
         },
         {
             "name": "assignGradebook",
@@ -711,7 +769,6 @@
             "definition": "//a[.='<ReplaceText>']/../../../..//div/button[@data-test-id='assign_assignment_button']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "contentCheckbox",
@@ -719,7 +776,8 @@
             "definition": "[data-test-id='content_checkbox']",
             "frame": "default",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "addToCourse",
             "byType": "css",
             "definition": "[title='Add to course']",
@@ -732,7 +790,6 @@
             "definition": "[data-test-id='edit_assignment_modal_gradebook_category_arrow']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "addExceptionBtn",
@@ -768,14 +825,13 @@
             "definition": "//a[.='AutomationAsset2']/../../../..//div[@data-test-id='completion_percentage_pie']",
             "frame": "default",
             "specialInstr": "NA"
-
-        },{
+        },
+        {
             "name": "addingContent",
             "byType": "xpath",
             "definition": "//div[@data-test-id='add_content_confirmation_modal']/..//input[@type='checkbox']",
             "frame": "default",
             "specialInstr": "NA"
-
         },
         {
             "name": "continue",
@@ -783,72 +839,69 @@
             "definition": "button[data-test-id='modal_add_folder_button']",
             "frame": "default",
             "specialInstr": "NA"
-
-        }, {
+        },
+        {
             "name": "contentCheckbox",
             "byType": "xpath",
             "definition": "//input[@data-test-id='content_checkbox']",
             "frame": "default",
             "specialInstr": "focus"
-    
-        },{
+        },
+        {
             "name": "expandCollapse",
             "byType": "xpath",
             "definition": "//button[@aria-label='<ReplaceText>']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-
-        },{
+        },
+        {
             "name": "ProvideATitle",
             "byType": "xpath",
             "definition": "//*[@placeholder='Provide a title']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-
-        },{
+        },
+        {
             "name": "dropDown",
             "byType": "xpath",
             "definition": "//option[.='<ReplaceText>']/..",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-
-        }, {
+        },
+        {
             "name": "save",
             "byType": "xpath",
             "definition": "//*[button='Save']",
             "frame": "customAssesmentFrame",
             "specialInstr": "NA"
-
-        }, {
+        },
+        {
             "name": "addToLibrary",
             "byType": "xpath",
             "definition": "//*[a/.='<ReplaceText>']/../../..//*[button/.='ADD TO LIBRARY']/button",
             "frame": "default",
             "specialInstr": "NA"
-
-        }, {
+        },
+        {
             "name": "coursePlan",
             "byType": "xpath",
             "definition": "//*[li='Course Plan']",
             "frame": "default",
             "specialInstr": "NA"
-
-        }, {
+        },
+        {
             "name": "activityLink",
             "byType": "xpath",
             "definition": "//*[a='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-
-        }, {
+        },
+        {
             "name": "addToBtn",
             "byType": "xpath",
             "definition": "//*[a='<ReplaceText>']/../..//*[span='ADD TO ']",
             "frame": "default",
             "specialInstr": "NA"
-
         }
-
-
     ]
 }
