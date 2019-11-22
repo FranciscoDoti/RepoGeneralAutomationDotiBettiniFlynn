@@ -1,5 +1,7 @@
+@Course @Smoke
 Feature: Verify that search filter is correctly displayed
 
+    @admin-delete-courseTemplate
     Scenario: Create a template and verify that the search filter for Author is correctly displayed
 
        Given I login to Achieve-CW as "admin_2"
