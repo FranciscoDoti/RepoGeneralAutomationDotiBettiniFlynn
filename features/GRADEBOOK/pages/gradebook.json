@@ -55,6 +55,13 @@
       "definition": ".ReactVirtualized__Grid.InstructorGradebook_topRightGrid_P6X",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "alertCloseBtn",
+      "byType": "css",
+      "definition": "[data-test-id='alert_close_btn']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }

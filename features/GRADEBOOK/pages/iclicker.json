@@ -69,6 +69,13 @@
       "definition": "[data-test-id='unlink_reef_dialog_submit_btn']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "saveAndLinkCourses",
+      "byType": "css",
+      "definition": "[data-test-id='save-and-link-courses']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }
