@@ -35,13 +35,10 @@ Then('No categories should appear in the Gradebook', async function () {
   const newCategoryName = getCategoryName();
   expect(text).to.contains(newCategoryName);
 });
-Then('The new course button should be visible', async function () {
-  await iclicker.waitForElementVisibility('iClickerMenuDisconnect');
-});
 
 Then('The sync button should be visible', async function () {
   await iclicker.waitForElementVisibility('syncIClicker');
 });
 Then('The iclicker menu should be visible', async function () {
-  await iclicker.waitForElementVisibility('iClickerMenuDisconnect');
+  await iclicker.waitForElementVisibility('iClickerMenu');
 });
