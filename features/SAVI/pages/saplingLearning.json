@@ -1,0 +1,28 @@
+{
+    "webElements": [{
+            "name": "studentPreviewButton",
+            "byType": "id",
+            "definition": "assignment",
+            "frame": 0,
+            "specialInstr": "NA"
+        }, {
+            "name": "clearAttemptsButton",
+            "byType": "xpath",
+            "definition": "//*[@id='content-holder']/div[4]/div/div[3]/input",
+            "frame": 0,
+            "specialInstr": "NA"
+        }, {
+            "name": "mol3dStandaloneLink",
+            "byType": "xpath",
+            "definition": "//*[@id='module-10585346']/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "mol3dStandaloneLinkError",
+            "byType": "xpath",
+            "definition": "//*[@id='module-10596895']/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

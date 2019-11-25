@@ -404,6 +404,14 @@
             "sq3": "Who is your favorite actor, musician, or artist?",
             "sq3_answer": "illustrate",
             "primarySchool": "Test Macmillan"
+        },
+        "kelly.lancaster+savi": {
+            "username": "kelly.lancaster+savi@macmillan.com",
+            "password": "Sapling!"
+        },
+        "savicreate": {
+            "username": "savi.create",
+            "password": "4HWkTstrC2iUFo7"
         }
     },
     "ae": {
@@ -419,7 +427,7 @@
             "lastname": "user2 lastname"
         }
     },
-    
+
     "environment name": {
         "user1": {
             "username": "user1 name",
