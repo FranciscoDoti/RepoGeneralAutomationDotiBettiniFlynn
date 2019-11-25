@@ -48,7 +48,7 @@
     },
     "savi":{
         "local": "http://local.saplinglearning.me:3080",
-        "prod": "https://www.saplinglearning.com/ibiscms",
+        "prod": "http://www.saplinglearning.com/ibiscms/course/view.php?id=77826",
         "brightcove": "https://studio.brightcove.com/products/videocloud/media",
         "google": "https://www.google.com"
     }

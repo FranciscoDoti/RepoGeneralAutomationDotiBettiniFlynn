@@ -86,8 +86,17 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
   };
 });
 
+Given(/^I login to Savi Verification as "(.*)"/, async function (userType) {
+  let url = await _.get(urls, ['savi', this.stack]);
+  let user = this.users[userType];
+
+  await visitURL(url);
+  await pages.login.populate('username', user.username);
+  await pages.login.populate('password', user.password);
+  await pages.login.click('submit')
+});
+
 When('I logout IBISCMS', async function () {
   await pages.login.click('User Menu Button');
   await pages.login.click('Logout Menu');
 });
-
