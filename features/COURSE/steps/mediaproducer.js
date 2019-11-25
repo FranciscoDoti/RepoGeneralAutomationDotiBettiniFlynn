@@ -389,3 +389,14 @@ When(/^I add "(.*)" to the course plan$/, async function (activityName){
   await pages.coursePage.click('navigation', 'Course Plan');
   await pages.coursePlanner.assertElementExists('activityLink', activityName);
 });
+
+When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/, async function (activityName, data_table){
+    await pages.coursePlanner.click(activityName);
+    for (let i = 0; i < data_table.rows().length; i++) {
+      var isbn = data_table.hashes()[i];
+      await pages.coursePlanner.populate('searchByISBN', isbn.ISBN);
+      await pages.coursePlanner.click('filterCheckbox', isbn.ISBN);
+      await pages.coursePlanner.click('Apply')
+      await pages.coursePlanner.click('contentCheckbox');
+    }
+});
