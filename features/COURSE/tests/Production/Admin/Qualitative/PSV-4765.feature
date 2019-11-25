@@ -21,6 +21,6 @@ Feature: Verify that search filter is correctly displayed
         And I click on "PSV-4765" card
         And I click on "Production" Tab
 
-        And I click on "" tab and verify the checkboxes with the following data
-            | Author                |
-            | David G. Myers        |
+        And I click on "Project Title" tab and verify the checkboxes with the following data
+            | projectTitle                                                                  |
+            | Achieve Tead & Practice for Discovering Psychology (Six-Months Online)        |
