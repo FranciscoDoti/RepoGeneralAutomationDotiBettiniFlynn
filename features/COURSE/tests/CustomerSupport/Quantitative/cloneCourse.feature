@@ -46,7 +46,8 @@ Feature: Customer Support attempts all the activities in Quantitative Template
         And I search for "Quantitative Course" in Courses tab
         
         Then I verify that "Quantitative Course" is created with following data
-            | courseName            | Status                    |
+            | CourseName            | Status                    |
             | Quantitative Course   |  Draft                    |
+           
            
         

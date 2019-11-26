@@ -39,6 +39,6 @@ Feature: Adding Instructor to the Template
         And I assign "instructor_1" to the "Skills Production Course" course
         And I sign out of Achieve
 
-        Then I verify that "Skills Course" is assigned to "instructor_1"
+        Then I verify that "Skills Production Course" is assigned to "instructor_1"
 
            

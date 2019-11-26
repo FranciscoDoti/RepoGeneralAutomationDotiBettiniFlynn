@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Admin enrolls the student in Read & Practice course 
+Feature: Customer Support enrolls the student in Read & Practice course 
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate

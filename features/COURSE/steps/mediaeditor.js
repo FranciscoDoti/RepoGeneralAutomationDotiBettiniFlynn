@@ -12,8 +12,7 @@ Then(/^I verify that media editor has only view access to "(.*)"$/, async functi
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.courseList.assertElementDoesNotExist('courseMenu', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await pages.coursePage.click('navigation','Resources');
-  await pages.resources.assertElementDoesNotExist('addFolder')
+  await pages.coursePage.assertElementDoesNotExist('navigation','Resources');
   
 });
 

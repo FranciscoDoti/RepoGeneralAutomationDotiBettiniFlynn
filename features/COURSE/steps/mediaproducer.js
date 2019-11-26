@@ -19,9 +19,8 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 });
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu', courseName);
+  await sleep(500);
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -31,7 +30,6 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
     await pages.editCourse.populate('templateStatus', c.templateStatus)
   }
   await pages.editCourse.click('save');
-  //await pages.home.click('closeAlert');
 });
 
 When(/^I add the activities in resources to "(.*)" template$/, async function (courseName, data_table) {
@@ -242,7 +240,7 @@ When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, course
   await pages.home.click('achieveHome');
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu', courseName);
+  await sleep(500);
   await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', user.username);

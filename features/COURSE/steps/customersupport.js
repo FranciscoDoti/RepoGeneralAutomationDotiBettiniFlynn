@@ -1,13 +1,14 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName); 
+  await sleep(500)
   await pages.courseList.click('courseMenu', courseName); 
-  await pages.courseList.click('courseMenu', courseName);
   await pages.courseList.click('manageInstructor');
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
@@ -21,6 +22,7 @@ When(/^I check the account of "(.*)"$/, async function (userType){
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
+  await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.assertElementExists('checkAccount');
   await pages.adminMenu.click('checkAccount');

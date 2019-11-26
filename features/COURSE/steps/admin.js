@@ -73,7 +73,7 @@ Then(/^I verify the message for each "(.*)"$/, async function (message) {
 
 When('I generate and export course report', async function (){
   await pages.home.click('togglerMenu');
-  await pages.adminMenu.click('admin');
+  await sleep(500);
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('courseReport');
   await pages.adminMenu.click('generateReport')

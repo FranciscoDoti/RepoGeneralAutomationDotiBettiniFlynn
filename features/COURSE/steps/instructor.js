@@ -48,7 +48,7 @@ When('I assign the activities in courseplanner', async function (data_table) {
     while (x >= 0) {
       x--;
       await pages.coursePlanner.click('assignAssignmentButton');
-      await pages.coursePlanner.click('vissibilityButton');
+      await pages.coursePlanner.click('assignToStudents');
       await pages.coursePlanner.populate('pointsInput', data_table.hashes()[i].Points);
       await pages.coursePlanner.click('assignButton');
       await pages.home.click('closeAlert');

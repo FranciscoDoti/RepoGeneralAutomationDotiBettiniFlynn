@@ -40,14 +40,18 @@ Feature: Customer Support attempts all the activities in Skills Production Templ
         And I click on search button and input "Skills Production Template" to search the course
                 
         And I copy course from the "Skills Production Template" template with the following data
-            | courseName          | courseCode           |
-            | Skills Course       | E2E 301              |
+            | courseName                  | courseCode           |
+            | Skills CustomerCourse       | E2E 301              |
 
-        And I search for "Skills Course" in Courses tab
+        And I search for "Skills CustomerCourse" in Courses tab
+
+         Then I verify that "Skills CustomerCourse" is created with following data
+            | CourseName               | Status                    |
+            | Skills CustomerCourse    |  Draft                    |
+           
+
+
         
-        Then I verify that "Skills Course" is created with following data
-            | CourseName            | Status                    |
-            | courseCard            | Skills Course             |
-            | Status                |  Draft                    |
+        
            
         

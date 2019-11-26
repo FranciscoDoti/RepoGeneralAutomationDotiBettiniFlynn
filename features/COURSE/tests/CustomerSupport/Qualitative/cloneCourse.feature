@@ -12,8 +12,7 @@ Feature: Customer Support attempts all the activities in Qualitative Template
 
         And I close the popup message                      
 
-        And I click on search button and input "Qualitative Template" to search the course 
-                            
+        And I click on search button and input "Qualitative Template" to search the course                   
 
         And I activate the "Qualitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
