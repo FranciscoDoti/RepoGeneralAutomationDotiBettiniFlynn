@@ -391,12 +391,19 @@ When(/^I add "(.*)" to the course plan$/, async function (activityName){
 });
 
 When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/, async function (activityName, data_table){
-    await pages.coursePlanner.click(activityName);
+    await pages.coursePlanner.click('activityLink', activityName);
     for (let i = 0; i < data_table.rows().length; i++) {
-      var isbn = data_table.hashes()[i];
-      await pages.coursePlanner.populate('searchByISBN', isbn.ISBN);
-      await pages.coursePlanner.click('filterCheckbox', isbn.ISBN);
+      var s = data_table.hashes()[i];
+      if(activityName === 'ISBN'){
+        await pages.coursePlanner.populate('search','Search by ISBN', s.ISBN);
+        await pages.coursePlanner.click('filterCheckbox', s.ISBN);
+      }
+      else if(activityName == 'Author'){
+        await pages.coursePlanner.populate('search','Search by Author', s.Author);
+        await pages.coursePlanner.click('filterCheckbox', s.Author);
+      }
       await pages.coursePlanner.click('Apply')
       await pages.coursePlanner.click('contentCheckbox');
     }
 });
+
