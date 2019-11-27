@@ -8,7 +8,7 @@ Feature: Verify that search filter is correctly displayed
 
         When I create template with following data 
             | courseType  | productModel | courseName           | learningObjective     | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative  | PSV-4765             | macmillan calculus    | E2E 301      | 9772100299499  | draft         | 
+            | Template    | Quantitative | PSV-4765             | macmillan calculus    | E2E 301      | 9772100299499  | draft         | 
 
         And I close the popup message                      
 
@@ -16,11 +16,11 @@ Feature: Verify that search filter is correctly displayed
 
         And I activate "PSV-4765" template and add the following data
             | courseName                      |  courseCode   |  templateStatus      |
-            | PSV-4766                        |   E2E 301     |  Active On Date      |         
+            | PSV-4765                        |   E2E 301     |  Active On Date      |         
 
         And I click on "PSV-4765" card
         And I click on "Production" Tab
 
         And I click on "Project Title" tab and verify the checkboxes with the following data
             | projectTitle                                                                  |
-            | Achieve Tead & Practice for Discovering Psychology (Six-Months Online)        |
+            | Achieve Read & Practice for Discovering Psychology (Six-Months Online)        |

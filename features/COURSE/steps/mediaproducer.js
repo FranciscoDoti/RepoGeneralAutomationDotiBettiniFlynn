@@ -402,6 +402,10 @@ When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/
         await pages.coursePlanner.populate('search','Search by Author', s.Author);
         await pages.coursePlanner.click('filterCheckbox', s.Author);
       }
+      else if(activityName == 'Project Title'){
+        await pages.coursePlanner.populate('search','Search by Project Title', s.projectTitle);
+        await pages.coursePlanner.click('filterCheckbox', s.projectTitle);
+      }
       await pages.coursePlanner.click('Apply')
       await pages.coursePlanner.click('contentCheckbox');
     }
