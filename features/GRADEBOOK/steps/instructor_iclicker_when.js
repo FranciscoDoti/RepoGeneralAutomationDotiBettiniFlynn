@@ -36,7 +36,7 @@ async function disconnectFromIClicker () {
   await gradebook.click('alertCloseBtn');
 }
 
-When('Instructor opens the settings modal', async function waitForSettings () {
+When('Instructor opens the settings modal', async function () {
   await waitForSettings();
   await gradebook.click('settingsNav');
 })
