@@ -187,7 +187,7 @@ Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async fun
   await pages.mathModule.assertElementExists('gradeAsExpression');
 });
 
-Then(/^I verify "(.*)" dropdown\(s\) or radio button\(s\): "(.*)" on "(.*)" tab$/, async function (present, objects, contextType) {
+Then(/^I verify "(.*)" dropdown\(s\), checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab$/, async function (present, objects, contextType) {
   await pages.raptorAms.click('contextTab', contextType);
   await pages.mathModule.click('answerTextField');
   await pages.raptorAms.click('correctSetup');
