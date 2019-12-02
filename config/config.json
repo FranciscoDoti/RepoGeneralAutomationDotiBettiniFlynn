@@ -1,11 +1,11 @@
 {
-    "environment": "dev-gb",
+    "environment": "dev",
     "mode": "local",
     "browser": "chrome",
     "headless": false,
     "screenshots": "onFail",
     "timeout": 30,
-    "stack": "ml-sdk",
+    "stack": "dev-ml-sdk",
     "_examples": {
         "environment": "local | dev | dev-gb | int | pre-prod | prod",
         "mode": "local | docker | browserstack | localgrid | hub",
