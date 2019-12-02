@@ -1,23 +1,37 @@
 {
     "webElements": [
         {
-            "name": "Module Multiple Select",
+            "name": "Module Multiple Select Edit",
             "byType": "xpath",
-            "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]",
+            "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "Module Multiple Choice",
+            "name": "Module Multiple Choice Edit",
             "byType": "xpath",
-            "definition": "//div[@data-module-type='multiple_choice'][<ReplaceText>]",
+            "definition": "//div[@data-module-type='multiple_choice'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "Module Chemical Equation",
+            "name": "Module Chemical Equation Edit",
             "byType": "xpath",
-            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]",
+            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Chemical Equation Correct Setup",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]/..//div[@class='module-action-bar correct']/div[text()='Correct Setup']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module MolDraw Edit",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='moldraw'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -59,7 +73,7 @@
         {
             "name": "Check Your Work Submit Button",
             "byType": "xpath",
-            "definition": "//*[@class='active-menu']//button[.='Submit Answer']",
+            "definition": "//button[text()='Submit Answer']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -106,14 +120,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "addCorrectContextButton",
-            "byType": "css",
-            "definition": "button[data-test-id='add-correct-context-button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "addIncorrectContextButton",
+            "name": "Add Incorrect Context Button",
             "byType": "css",
             "definition": "button[data-test-id='add-incorrect-context-button']",
             "frame": "default",

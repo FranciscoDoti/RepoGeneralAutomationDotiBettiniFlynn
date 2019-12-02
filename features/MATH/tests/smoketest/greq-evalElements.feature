@@ -1,10 +1,11 @@
-@smoke @math
+@smoke @math @greq
 Feature: Verify page elements for different eval types
 
     Scenario: Verify Expression is default evaltype and verify page elements for each of the evaltype
 
         Given I login to AMS as "all-permissions-author"
         When I navigate to AuthorApp clicking on Raptor item on AMS page
+        And I set Item Details name as "EvalElements"
         And I select Math Equation module, click on Question tab
 
         Then I verify default evaltype for GradeAs dropdown is Expression

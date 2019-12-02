@@ -19,7 +19,7 @@ Feature: Adding Instructor to the Template
             | type                      | activity                                      |
             | addButtonReadandpractice  | LCRP1550612138614                             |     
             | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  GLOSSARY                                     |
+            | addReadingButton          |  Glossary                                     |
 
         And I click on home button to return to coursepage
         And I click on "COURSE TEMPLATES" tab 

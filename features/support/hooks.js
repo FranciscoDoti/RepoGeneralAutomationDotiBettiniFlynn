@@ -162,10 +162,32 @@ After('@instructor-delete-course', async function () {
     await pages.createCourse.assertElementExists('courseCard', course);
     let elements = await pages.createCourse.getWebElements('courseCard', course)
     for (let i = 0; i < elements.length; i++) {
-        await pages.coursePage.click('courseMenu');
+        await pages.courseList.click('courseMenu', course);
         await pages.courseList.click('deleteCourse');
         await pages.courseList.assertElementExists('confirmDelete')
         await pages.courseList.click('confirmDelete');
+        await pages.home.click('closeAlert');
+    }
+});
+
+After('@instructor-masterSection-delete-course', async function () {
+    let url = await _.get(urls, ['Achieve-CW', this.stack]);
+    let user = this.users['instructor_1'];
+    await resetBrowser();
+    await visitURL(url);
+    await pages.home.click('signInLocal');
+    await pages.home.populate('username', user.username);
+    await pages.home.populate('password', user.password);
+    await pages.home.click('signIn')
+    let course = this.data.get('course');
+    await pages.courseList.click('courseTemplate', 'MASTER SECTIONS')
+    await pages.courseList.assertElementExists('courseMenu', course);
+    let elements = await pages.courseList.getWebElements('courseMenu', course)
+    for (let i = 0; i < elements.length; i++) {
+        await pages.courseList.click('courseMenu', course);
+        await pages.masterSection.click('deleteMS');
+        await pages.masterSection.assertElementExists('confirmDeleteMS')
+        await pages.masterSection.click('confirmDeleteMS')   
         await pages.home.click('closeAlert');
     }
 });

@@ -1,0 +1,112 @@
+{
+    "webElements": [{
+
+        "name": "selectTemplate",
+        "byType": "xpath",
+        "definition": "//span[.='<ReplaceText>']/../../..//button[@aria-label='Select Template']",
+        "frame": "default",
+        "specialInstr": "NA" 
+    },{
+        "name": "createSingleCourse",
+        "byType": "css",
+        "definition": "[data-test-id='create_course_single']",
+        "frame": "default",
+        "specialInstr": "NA" 
+    },{
+        "name": "LeaveorNextButton",
+        "byType": "xpath",
+        "definition": "//button[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+        "name": "buttonToCreateCourse",
+        "byType": "xpath",
+        "definition": "//button[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+       
+        "name": "courseName",
+        "byType": "id",
+        "definition": "courseName",
+        "frame": "default",
+        "specialInstr": "NA"
+    },{
+       
+        "name": "courseCode",
+        "byType": "id",
+        "definition": "courseShortName",
+        "frame": "default",
+        "specialInstr": "NA"
+   },{
+       
+        "name": "courseEndDate",
+        "byType": "css",
+        "definition": "[data-test-id='copy_course_end_date']",
+        "frame": "default",
+        "specialInstr": "NA"
+   },{
+        "name": "createMasterSection",
+        "byType": "css",
+        "definition": "[data-test-id='create_master_section']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "masterSectionCode",
+        "byType": "css",
+        "definition": "[class='_1Gy_']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "Status",
+        "byType": "css",
+        "definition": "[class='_85CI']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "courseNameMS",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "instructorMS",
+        "byType": "css",
+        "definition": "[class='aRd_']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "deleteMS",
+        "byType": "css",
+        "definition": "[data-test-id='master_section_delete']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "confirmDeleteMS",
+        "byType": "css",
+        "definition": "[data-test-id='modal_master_section_delete_modal']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "masterCard",
+        "byType": "css",
+        "definition": "[class='Wdhw']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "fullAccess",
+        "byType": "css",
+        "definition": "[data-test-id='select_full_access']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }]
+}

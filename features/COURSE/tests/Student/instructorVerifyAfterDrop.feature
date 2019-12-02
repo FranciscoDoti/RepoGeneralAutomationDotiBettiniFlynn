@@ -21,7 +21,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             |  activities       | type              |
             | Google            | addCCButton       |
             | AutomationAsset2  | addFileButton     |
-            | GLOSSARY          | addReadingButton  |
+            | Glossary          | addReadingButton  |
           
 
 
@@ -55,13 +55,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | GLOSSARY                                   |
+            | Glossary                                   |
             | AutomationAsset2                            |
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | GLOSSARY                                                         | 5      |
+            | Glossary                                                         | 5      |
             | AutomationAsset2                                                 | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
@@ -88,7 +88,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I complete the reading activity 
             | activity           |
-            | GLOSSARY           |
+            | Glossary           |
         
         And I sign out of Achieve
 

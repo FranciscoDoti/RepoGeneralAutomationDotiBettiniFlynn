@@ -31,7 +31,7 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
     await pages.editCourse.populate('templateStatus', c.templateStatus)
   }
   await pages.editCourse.click('save');
-  await pages.home.click('closeAlert');
+  //await pages.home.click('closeAlert');
 });
 
 When(/^I add the activities in resources to "(.*)" template$/, async function (courseName, data_table) {
@@ -152,17 +152,19 @@ Then('I verify that resources are reordered', async function (data_table) {
 
 When(/^I add the activities to respective folders in "(.*)"$/, async function (coursePage, data_table) {
   await pages.coursePage.click('tab',coursePage);
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('addUnit');
-    await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
-    await pages.coursePlanner.click('parentFolder');
-    await pages.coursePlanner.click('addUnitButton');
-    await pages.coursePlanner.click('actionButton', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('actionMoveItemToFolder');
-    await pages.resources.click('moveItemToFolder', data_table.hashes()[i].folders);
-    await pages.resources.click('placeInFolder');
-    await pages.home.assertTextIncludes('alert', data_table.hashes()[i].message);
-  }
+    for (let i = 0; i < data_table.rows().length; i++) {
+      await pages.coursePlanner.click('addUnit');
+      await pages.coursePlanner.populate('addUnitName', data_table.hashes()[i].folders);
+      await pages.coursePlanner.click('parentFolder')
+      await pages.coursePlanner.click('addUnitButton');
+      await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].activity,'check');
+      await pages.eBook.populate('contentCheckbox', data_table.hashes()[i].activity,'check');
+      await pages.eBook.click('activitySelected', 'Move');
+      await pages.eBook.click('Folder', data_table.hashes()[i].folderName);
+      await pages.resources.click('placeInFolder');
+      await pages.home.click('closeAlert');
+  
+    }
 });
 
 When(/^I reorder the resources on template in "(.*)"$/, async function (coursePage, data_table) {
@@ -361,4 +363,51 @@ When('I add custom activity to Content Library', async function(data_table){
   await pages.createCourse.click('customContentAdd',data_table.hashes()[i].activity);
   }
 })
+
+When(/^I create a custom assesment activity$/, async function (data_table){
+  await pages.coursePage.click('navigation', 'Create');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var a = data_table.hashes()[i];
+    await pages.createCourse.click('New');
+    await pages.coursePlanner.click('assessmentButton');
+    await pages.coursePlanner.populate('ProvideATitle', a.assessmentTitle);
+    await pages.coursePlanner.populate('dropDown', 'Choose an assignment type', a.assessmentType);
+    await pages.coursePlanner.populate('dropDown', 'Choose a taxonomy', a.homeTaxonomy);
+    await pages.coursePlanner.click('save');
+  }
+  await pages.coursePlanner.click('close');
+});
+
+When(/^I add "(.*)" to the Course Library$/, async function (activityName){
+  await pages.coursePlanner.click('addToLibrary', activityName);
+  await pages.coursePage.click('navigation', 'Content Library');
+});
+
+When(/^I add "(.*)" to the course plan$/, async function (activityName){
+  await pages.coursePlanner.click('addToBtn', activityName);
+  await pages.coursePlanner.click('coursePlan');
+  await pages.coursePage.click('navigation', 'Course Plan');
+  await pages.coursePlanner.assertElementExists('activityLink', activityName);
+});
+
+When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/, async function (activityName, data_table){
+    await pages.coursePlanner.click('activityLink', activityName);
+    for (let i = 0; i < data_table.rows().length; i++) {
+      var s = data_table.hashes()[i];
+      if(activityName === 'ISBN'){
+        await pages.coursePlanner.populate('search','Search by ISBN', s.ISBN);
+        await pages.coursePlanner.click('filterCheckbox', s.ISBN);
+      }
+      else if(activityName == 'Author'){
+        await pages.coursePlanner.populate('search','Search by Author', s.Author);
+        await pages.coursePlanner.click('filterCheckbox', s.Author);
+      }
+      else if(activityName == 'Project Title'){
+        await pages.coursePlanner.populate('search','Search by Project Title', s.projectTitle);
+        await pages.coursePlanner.click('filterCheckbox', s.projectTitle);
+      }
+      await pages.coursePlanner.click('Apply')
+      await pages.coursePlanner.click('contentCheckbox');
+    }
+});
 

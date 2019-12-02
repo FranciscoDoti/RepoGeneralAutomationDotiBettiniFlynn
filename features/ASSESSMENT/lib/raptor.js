@@ -2,7 +2,7 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 
 const addModule = async function (moduleType) {
     await pages.raptor.switchToTab('Raptor Authoring');
-    await pages.raptor.waitForElementVisibility('Tab','question');
+    await pages.raptor.waitForElementVisibility('Tab', 'question');
     await pages.raptor.click('Add Menu');
     await pages.raptor.click('Module Pallete', moduleType);
     await pages.raptor.click('Content Area');
@@ -34,9 +34,15 @@ const addFeedbackModule = async function (tab, moduleType) {
     await pages.raptor.click('Feedback Text');
 };
 
+const checkAnswerMode = async function () {
+    await pages.raptor.click('More Menu');
+    await pages.raptor.click('Check Answer Slider');
+};
+
 module.exports = {
     addItemDetails,
     addModule,
     saveItem,
-    addFeedbackModule
+    addFeedbackModule,
+    checkAnswerMode
 };
