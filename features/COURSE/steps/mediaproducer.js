@@ -323,10 +323,10 @@ When('I create template with following data', async function (data_table){
       await pages.createCourse.populate('courseName', c.courseName)
       await pages.createCourse.assertElementExists('courseCode');
       await pages.createCourse.populate('courseCode', c.courseCode)
-      if(c.learningObjective != ''){
-      await pages.createCourse.assertElementExists('learningObjective');
-      await pages.createCourse.waitForElementVisibility('learningObjective', c.learningObjective)
-      await pages.createCourse.populate('learningObjective', c.learningObjective)
+      if (c.learningObjective != '') {
+        await pages.createCourse.assertElementExists('learningObjective');
+        await pages.createCourse.waitForElementVisibility('learningObjective', c.learningObjective)
+        await pages.createCourse.populate('learningObjective', c.learningObjective)
       }
       await pages.createCourse.assertElementExists('isbnNumber');
       await pages.createCourse.populate('isbnNumber', c.isbnNumber)

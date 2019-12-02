@@ -22,6 +22,26 @@ After('@assessmentCreation', async function () {
     await asmtpages.hatchlingItem.click('Submit Yes');
 });
 
+After('@admin-delete-course', async function () {
+    let url = await _.get(urls, ['Achieve-CW', this.stack]);
+    let user = this.users['admin_1'];
+    let courseName = this.data.get('courseName');
+    await resetBrowser();
+    await visitURL(url);
+    await pages.home.click('signInLocal');
+    await pages.home.populate('username', user.username);
+    await pages.home.populate('password', user.password);
+    await pages.home.click('signIn');
+    await pages.courseList.populate('search', courseName);
+    let courseElements = await pages.courseList.getWebElements('courseName', courseName);
+    for (let i = 0; i < courseElements.length; i++) {
+        await sleep(1000);
+        await pages.coursePage.click('courseMenu');
+        await pages.courseList.click('deleteCourse');
+        await pages.courseList.click('confirmDelete');
+        await pages.home.click('closeAlert');
+    }
+});
 
 After('@admin-delete-courseTemplate', async function () {
   let url = await _.get(urls, ['Achieve-CW', this.stack]);

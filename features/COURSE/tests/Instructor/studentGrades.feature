@@ -2,7 +2,7 @@
 Feature: Student grades
  
 @mediaproducer-delete-course
- @mediaproducer-delete-courseTemplate
+@mediaproducer-delete-courseTemplate
 Scenario: Verify that instructor is able to edit the grades of student
 
         Given I login to Achieve-CW as "media_producer_2"

@@ -150,6 +150,12 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "previousMonthButton",
+        "byType": "css",
+        "definition": "[aria-label='previous_month_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "nextMonthButton",
         "byType": "css",
         "definition": "[aria-label='next_month_button']",
