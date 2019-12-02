@@ -2,9 +2,10 @@ const { When, Then } = require('cucumber');
 const expect = require('chai').expect;
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
+const { sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I am on the AMS page and search for the item id "(.*)"$/, async function (itemId) {
-  log.debug(`itemId = ${JSON.stringify(itemId)}`);
+  log.debug(`itemId = ${itemId}`);
   await pages.ams.populate('filterSearch', itemId);
   await pages.ams.waitForElementVisibility('itemIdNewWindow', itemId, 10);
   await pages.ams.click('itemIdNewWindow', itemId);
@@ -14,11 +15,10 @@ When(/^I am on the AMS page and search for the item id "(.*)"$/, async function 
 
 When(/^I click Cycle Variables$/, async function () {
   await pages.raptorAms.click('cycleVariables');
-  await pages.raptorAms.assertElementExists('staticTextfield');
 });
 
 Then('I verify the algos are rendered in the text module', async function () {
-  // wait a few sec at first to give it a chance to render
+  await sleep(2000); // give it a chance to render the text
   let text = await pages.raptorAms.getText('staticTextfield');
   log.debug(`text = ${text}`);
   expect(text).not.to.include('???');
