@@ -1,7 +1,7 @@
 {
     "Achieve-CW":{
         "local":"https://courseware-frontend.local-mml.cloud/start",
-        "ml-sdk": "https://courseware-local.mldev.cloud/start",
+        "dev-ml-sdk": "https://courseware-local.mldev.cloud/start",
         "int":"https://int-achieve-courseware-frontend.mldev.cloud/start",
         "dev":"https://dev-achieve-courseware-frontend.mldev.cloud/start",
         "dev-courseware": "https://dev-courseware-courseware-frontend.mldev.cloud/start",
