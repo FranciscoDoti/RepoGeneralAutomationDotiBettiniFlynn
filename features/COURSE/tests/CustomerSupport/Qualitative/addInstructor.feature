@@ -10,7 +10,7 @@ Feature: Adding Instructor to the Template in Qualitative Course
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
 
-                And I close the popup message                      
+        And I close the popup message                      
 
         And I click on search button and input "Qualitative Template" to search the course 
                             

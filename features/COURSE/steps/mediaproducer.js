@@ -387,3 +387,13 @@ When(/^I add "(.*)" to the course plan$/, async function (activityName){
   await pages.coursePage.click('navigation', 'Course Plan');
   await pages.coursePlanner.assertElementExists('activityLink', activityName);
 });
+
+When(/^I add activities by "(.*)" and add to content library$/, async function (tab, data_table){
+  await pages.coursePage.click('navigation', tab);
+  await pages.coursePage.click('contentType', 'Keyword Search');
+  for (let i = 0; i < data_table.rows().length; i++) {
+  await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
+  await pages.coursePlanner.click('librarySearchInput');
+  await pages.resources.click('addResources',data_table.hashes()[i].addContent);
+  }
+});
