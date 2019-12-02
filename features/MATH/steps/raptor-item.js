@@ -1,24 +1,25 @@
 const { When, Then } = require('cucumber');
 const expect = require('chai').expect;
-const { Key } = require('selenium-webdriver');
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const { visitURL } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 
-
-When(/^I am on the AMS page and search for the item ids$/, async function (datatable) {
-  for (let i = 0; i < datatable.rows().length; i++) {
-    let data = datatable.hashes()[i];
-    log.debug(`data = ${JSON.stringify(data)}`);
-
-    await pages.ams.populate('filterSearch', data.itemId);
-    await pages.ams.waitForElementVisibility('itemIdNewWindow', data.itemId, 10);
-    await pages.ams.click('itemIdNewWindow', data.itemId);
-    // await pages.raptorAms.assertAlertIsNotPresent(10);
-    // then close the tab
-  }
+When(/^I am on the AMS page and search for the item id "(.*)"$/, async function (itemId) {
+  log.debug(`itemId = ${JSON.stringify(itemId)}`);
+  await pages.ams.populate('filterSearch', itemId);
+  await pages.ams.waitForElementVisibility('itemIdNewWindow', itemId, 10);
+  await pages.ams.click('itemIdNewWindow', itemId);
+  await pages.raptorAms.switchToTab('Raptor Authoring');
+  await pages.raptorAms.waitForElementVisibility('staticTextfield');
 });
 
-Then(/^I verify no window pop up message is displayed$/, async function () {
-  await pages.raptorAms.assertAlertIsNotPresent(10);
+When(/^I click Cycle Variables$/, async function () {
+  await pages.raptorAms.click('cycleVariables');
+  await pages.raptorAms.assertElementExists('staticTextfield');
+});
+
+Then('I verify the algos are rendered in the text module', async function () {
+  // wait a few sec at first to give it a chance to render
+  let text = await pages.raptorAms.getText('staticTextfield');
+  log.debug(`text = ${text}`);
+  expect(text).not.to.include('???');
 });
