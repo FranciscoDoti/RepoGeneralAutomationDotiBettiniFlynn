@@ -2,7 +2,9 @@ const { When, Then } = require('cucumber');
 const expect = require('chai').expect;
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
-const { sleep } = require(`${process.cwd()}/app/driver`);
+const { sleep, visitURL } = require(`${process.cwd()}/app/driver`);
+const { Key } = require('selenium-webdriver');
+
 
 When(/^I am on the AMS page and search for the item id "(.*)"$/, async function (itemId) {
   log.debug(`itemId = ${itemId}`);
@@ -22,4 +24,21 @@ Then('I verify the algos are rendered in the text module', async function () {
   let text = await pages.raptorAms.getText('staticTextfield');
   log.debug(`text = ${text}`);
   expect(text).not.to.include('???');
+});
+
+When(/^I am on the AMS page and click the first item id$/, async function () {
+  await pages.ams.waitForElementVisibility('firstItemIdNewWindow');
+  await pages.ams.click('firstItemIdNewWindow');
+  await pages.raptorAms.switchToTab('Raptor Authoring');
+});
+
+When(/^I input "(.*)" into the author item url$/, async function (itemId) {
+  log.debug(`itemId = "${itemId}"`);
+  let currentUrl = await pages.raptorAms.getCurrentURL();
+  let newUrl = currentUrl.split("/");
+  newUrl.splice(6,1,itemId);
+  newUrl = newUrl.join("/");
+  log.debug(`newUrl = "${newUrl}"`);
+  await visitURL(newUrl, Key.ENTER);
+  await pages.raptorAms.waitForElementVisibility('staticTextfield');
 });

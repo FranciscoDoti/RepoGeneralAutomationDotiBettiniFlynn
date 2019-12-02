@@ -32,7 +32,7 @@
     }, {
         "name": "columnStatus",
         "byType": "css",
-        "definition": ".table >* td[data-test-id='status-<ReplaceText>']", 
+        "definition": ".table >* td[data-test-id='status-<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -51,6 +51,12 @@
         "name": "itemIdNewWindow",
         "byType": "css",
         "definition": "span[data-test-id='item-new-window-<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "firstItemIdNewWindow",
+        "byType": "css",
+        "definition": "#item-panel > table > tbody > tr:nth-child(1) > th > span.glyphicon.glyphicon-new-window",
         "frame": "default",
         "specialInstr": "NA"
     }, {

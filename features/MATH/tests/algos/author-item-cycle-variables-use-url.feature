@@ -1,11 +1,12 @@
 @math @algo
-Feature: Author loads raptor item and cycles variables
+Feature: Author loads raptor item by URL and cycles variables
 
-  Scenario Outline: Author loads existing Raptor item <itemId> and cycles variables without triggering algo init error
+  Scenario Outline: Author loads existing Raptor item <itemId> using the URL and cycles variables without triggering algo init error
 
     Given I login to AMS as "all-permissions-author"
 
-    When I am on the AMS page and search for the item id <itemId>
+    When I am on the AMS page and click the first item id
+    And I input <itemId> into the author item url
     Then I verify the algos are rendered in the text module
 
     When I click Cycle Variables
@@ -17,8 +18,8 @@ Feature: Author loads raptor item and cycles variables
     | itemId  |
     | "78"    |
     | "91"    |
-    # | "100"   | # both: Web Element itemIdNewWindow 100 is not visible on page after 10 second wait.
-    # | "133"   | # because they're way down on the list of results
+    | "100"   |
+    | "133"   |
     | "364"   |
     | "913"   |
     | "4294"  |
@@ -45,8 +46,8 @@ Feature: Author loads raptor item and cycles variables
     | "14950" |
     | "14977" |
     | "15031" |
-    # | "15218" | # GET /v1/ams/learningObjective/... throws 404 # unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
-    # | "15223" | # GET /v1/ams/learningObjective/... throws 404 # {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
+    | "15218" | # GET /v1/ams/learningObjective/... throws 404 # unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
+    | "15223" | # GET /v1/ams/learningObjective/... throws 404 # {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "15235" |
     | "15247" |
     | "15494" |
@@ -54,42 +55,42 @@ Feature: Author loads raptor item and cycles variables
     | "16069" |
     | "16227" |
     | "16283" |
-    # | "16729" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "16729" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "16731" |
     | "16732" |
-    # | "16734" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "16734" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "16735" |
     | "16746" |
-    # | "16749" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "16749" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "16757" |
-    # | "16763" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16766" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16769" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16772" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
-    # | "16773" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
-    # | "16774" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
-    # | "16776" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16782" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16784" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16785" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16786" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16787" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16789" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16792" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16798" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16804" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16809" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16810" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16811" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16813" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16818" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16823" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16825" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16826" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16830" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16763" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16766" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16769" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16772" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
+    | "16773" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
+    | "16774" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
+    | "16776" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16782" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16784" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16785" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16786" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16787" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16789" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16792" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16798" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16804" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16809" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16810" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16811" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16813" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16818" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16823" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16825" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16826" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16830" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
     | "16859" |
     | "16893" |
-    # | "16895" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (TypeError) (Not string) in 'answer'}
+    | "16895" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (TypeError) (Not string) in 'answer'}
     | "16919" |
     | "16924" |
     | "16934" |
@@ -115,7 +116,7 @@ Feature: Author loads raptor item and cycles variables
     | "16975" |
     | "16976" |
     | "16977" |
-    # | "16981" | # {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
+    | "16981" | # {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
     | "16983" |
     | "16984" |
     | "16985" |
@@ -144,7 +145,7 @@ Feature: Author loads raptor item and cycles variables
     | "17029" |
     | "17033" |
     | "17040" |
-    | "17041" | # failed assertion error: text still contains ???
+    | "17041" |
     | "17042" |
     | "17043" |
     | "17062" |
@@ -160,7 +161,7 @@ Feature: Author loads raptor item and cycles variables
     | "17082" |
     | "17084" |
     | "17088" |
-    # | "17089" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
+    | "17089" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
     | "17092" |
     | "17095" |
     | "17099" |
@@ -199,9 +200,9 @@ Feature: Author loads raptor item and cycles variables
     | "17178" |
     | "17184" |
     | "17188" |
-    # | "17190" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc1'}
-    # | "17191" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: Unable to replace algos}
-    # | "17192" | #  UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error undefined}
+    | "17190" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc1'}
+    | "17191" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: Unable to replace algos}
+    | "17192" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error undefined}
     | "17193" |
     | "17202" |
     | "17206" |
@@ -286,7 +287,7 @@ Feature: Author loads raptor item and cycles variables
     | "17400" |
     | "17403" |
     | "17404" |
-    # | "17406" | # failed assertion error: text still contains ???
+    | "17406" |
     | "17407" |
     | "17409" |
     | "17417" |
@@ -335,7 +336,7 @@ Feature: Author loads raptor item and cycles variables
     | "17521" |
     | "17524" |
     | "17526" |
-    # | "17533" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'Cl2'}
+    | "17533" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'Cl2'}
     | "17535" |
     | "17540" |
     | "17548" |
@@ -458,14 +459,14 @@ Feature: Author loads raptor item and cycles variables
     | "17808" |
     | "17809" |
     | "17810" |
-    # | "17813" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc2'}
+    | "17813" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc2'}
     | "17819" |
     | "17820" |
     | "17828" |
     | "17844" |
     | "17845" |
-    # | "17850" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "17916" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "17850" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "17916" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "18284" |
     | "18294" |
     | "18300" |
@@ -538,11 +539,11 @@ Feature: Author loads raptor item and cycles variables
     | "22352" |
     | "22494" |
     | "22531" |
-    # | "22682" | # AssertionError: Web Element itemIdNewWindow 22682 is not visible on page after 10 second wait. FAIL
+    | "22682" |
     | "22763" |
-    # | "22781" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2B missing from algos list}
+    | "22781" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2B missing from algos list}
     | "22834" |
-    # | "22836" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2A missing from algos list}
+    | "22836" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2A missing from algos list}
     | "22840" |
     | "22851" |
     | "22853" |
@@ -600,7 +601,7 @@ Feature: Author loads raptor item and cycles variables
     | "25530" |
     | "25540" |
     | "25577" |
-    # | "25593" | # # failed assertion error: text still contains ???
+    | "25593" |
     | "25595" |
     | "25614" |
     | "25620" |
@@ -621,7 +622,7 @@ Feature: Author loads raptor item and cycles variables
     | "26166" |
     | "26186" |
     | "26237" |
-    | "26247" | # STOPPED
+    | "26247" |
     | "26258" |
     | "26288" |
     | "26308" |
