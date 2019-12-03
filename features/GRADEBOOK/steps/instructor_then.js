@@ -4,9 +4,6 @@ const { sleep } = require(`${process.cwd()}/app/driver`);
 const { iclicker, gradebook } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { getCategoryName } = require('../data/test_value_generator');
-const { Then } = require('cucumber');
-const { getCategoryName } = require('../data/test_value_generator');
-
 
 Then('Points are displayed in the course total', async function () {
   await gradebook.waitForElementVisibility('courseTotal');
