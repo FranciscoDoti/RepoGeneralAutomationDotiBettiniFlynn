@@ -4,7 +4,7 @@ const driver = require(`${process.cwd()}/app/driver.js`);
 
 When("I complete an NGA assignment with the following answers", async function (datatable) {
   for (let i=0; i < datatable.rows().length; i++){
-    // await driver.getDriver().sleep(1000);
+    await driver.getDriver().sleep(1000);
     await pages.NGA.click('Multiple Choice Button', datatable.hashes()[i].Answer);
     await pages.NGA.click('Next Question Button');
 // wait until next question has loaded

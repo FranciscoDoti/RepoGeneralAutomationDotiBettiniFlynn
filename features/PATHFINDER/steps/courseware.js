@@ -23,9 +23,6 @@ When('I delete automation courses', async function () {
 });
 
 When(/^I click on the course card for "(.*)"$/, async function (courseName) {
-  await pages.courseList.click('courseTemplate', 'COURSES');
-  // await pages.createCourse.assertElementExists('courseCard', courseName);
-  await pages.courseList.assertElementExists('studentCourseCard');
-  // await pages.createCourse.click('courseCard', courseName);
-  await pages.courseList.click('studentCourseCard');
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.click('courseCard', courseName);
 });
