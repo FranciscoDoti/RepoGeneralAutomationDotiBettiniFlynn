@@ -83,7 +83,8 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
       // this is required because the Math component is expecting a comma to signify the end of partial equation
       // also the below logic with 2 right and left key arrows was implemented to disable closing right brackets 
       // that is auto triggered by the app after the expression
-      if (token === ',' && eqn.charAt(i-1) != ')') {
+      // the check for previous character not equal to ')' is introduced as the ')' is part of the author equation and not auto triggered by app. 
+      if (token === ',' && eqn.charAt(i-1) !== ')') {
         await pages.palette.click('rightArrow');
         await pages.palette.click('rightArrow');
         await pages.palette.click('leftArrow');
