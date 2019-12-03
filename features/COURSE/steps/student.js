@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
-const { getDriver, onWaitForElementToBeInvisible,sleep,driver} = require(`${process.cwd()}/app/driver`);
+const { getDriver, onWaitForElementToBeInvisible, sleep, driver } = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
 const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const shared = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
@@ -14,6 +14,7 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
+  await getDriver().navigate().refresh();
   await pages.coursePage.click('Tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
