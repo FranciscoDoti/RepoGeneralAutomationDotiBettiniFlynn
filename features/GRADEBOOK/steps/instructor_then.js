@@ -40,7 +40,6 @@ Then('The iclicker menu should be visible', async function () {
   await iclicker.waitForElementVisibility('iClickerMenu');
 });
 
-
 Then('Points are displayed in the course total', async function () {
   await gradebook.waitForElementVisibility('courseTotal');
   const courseTotal = await gradebook.getWebElements('courseTotal');
@@ -76,7 +75,7 @@ Then('The iclicker menu should be visible', async function () {
   await iclicker.waitForElementVisibility('iClickerMenu');
 });
 
-Then('I verify the grades for students', async function (dataTable){
+Then('I verify the grades for students', async function (dataTable) {
   for (let i = 0; i < dataTable.rows().length; i++) {
     const row = dataTable.hashes()[i].row;
     const column = dataTable.hashes()[i].column;
@@ -90,7 +89,7 @@ Then(/^I verify the grade "(.*)" is not droped for row "(.*)" and column "(.*)"$
   await gradebook.assertTextDoesNotInclude('gradeRowCell', `${row}_${column}`, 'Dropped');
 });
 
-Then('I verify that the grade is dropped', async function (dataTable){
+Then('I verify that the grade is dropped', async function (dataTable) {
   for (let i = 0; i < dataTable.rows().length; i++) {
     const row = dataTable.hashes()[i].row;
     const column = dataTable.hashes()[i].column;
@@ -98,7 +97,7 @@ Then('I verify that the grade is dropped', async function (dataTable){
   }
 });
 
-Then('I verify the category total', async function (dataTable){
+Then('I verify the category total', async function (dataTable) {
   for (let i = 0; i < dataTable.rows().length; i++) {
     const row = dataTable.hashes()[i].row;
     const column = dataTable.hashes()[i].column;
@@ -106,14 +105,14 @@ Then('I verify the category total', async function (dataTable){
   }
 });
 
-Then('I verify the course total', async function (dataTable){
+Then('I verify the course total', async function (dataTable) {
   for (let i = 0; i < dataTable.rows().length; i++) {
     let user = this.users[dataTable.hashes()[i].student];
     await gradebook.assertTextIncludes('courseTotal', user.firstName, dataTable.hashes()[i].courseTotal);
   }
 });
 
-Then('I verify grade override modal has correct data', async function (dataTable){
+Then('I verify grade override modal has correct data', async function (dataTable) {
   await coursePages.coursePage.click('navigation', 'Gradebook');
   for (let i = 0; i < dataTable.rows().length; i++) {
     const row = dataTable.hashes()[i].row;

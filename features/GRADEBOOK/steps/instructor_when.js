@@ -54,14 +54,14 @@ When(/^I assign students to activities in courseplanner$/, async function (dataT
     }
     await coursePages.coursePlanner.click('vissibilityButton');
     await coursePages.coursePlanner.populate('pointsInput', dataTable.hashes()[i].points);
-    
+
     await coursePages.coursePlanner.click('assignButton');
     await coursePages.home.click('closeAlert');
 
     await driver.getDriver().navigate().refresh();
     await coursePages.coursePage.click('Tab', 'COURSE PLAN')
     await coursePages.coursePlanner.click('assignGradebook', activity);
-    
+
     await coursePages.coursePlanner.click('gradeBookCategory');
     await coursePages.coursePlanner.populate('Category', category)
 
@@ -80,7 +80,7 @@ When(/^I assign students to activities in courseplanner$/, async function (dataT
       await coursePages.courseList.click('nextMonthButton');
       await coursePages.courseList.click('selectDate', '15');
     }
-    
+
     await coursePages.coursePlanner.click('assignButton');
     await coursePages.home.click('closeAlert');
   }

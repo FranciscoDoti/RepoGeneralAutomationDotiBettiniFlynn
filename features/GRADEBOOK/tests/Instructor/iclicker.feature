@@ -1,4 +1,4 @@
-@Gradebook @Smoke @GradebookSmoke @GradebookIClicker
+@Gradebook @Smoke @GradebookIClicker
 Feature: Instructor adds and removes Categories
 
   Scenario: Instructor connects to iClicker
