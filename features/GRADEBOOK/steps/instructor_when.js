@@ -1,33 +1,33 @@
 const { When } = require('cucumber');
 
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const pages = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
+const { gradebook, settings } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const {getCategoryName} = require('../data/test_value_generator');
 const driver = require(`${process.cwd()}/app/driver`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
 
 When('Instructor toggle percents', async function () {
-  await pages.gradebook.waitForElementVisibility('percentsToggleButton');
-  await pages.gradebook.click('percentsToggleButton');
+  await gradebook.waitForElementVisibility('percentsToggleButton');
+  await gradebook.click('percentsToggleButton');
 });
 
 When('Instructor toggle points', async function () {
-  await pages.gradebook.waitForElementVisibility('pointsToggleButton');
-  await pages.gradebook.click('pointsToggleButton');
+  await gradebook.waitForElementVisibility('pointsToggleButton');
+  await gradebook.click('pointsToggleButton');
 });
 
 When('Instructor saves a new category', async function () {
-  await pages.settings.waitForElementVisibility('addCategory');
-  await pages.settings.click('addCategory');
-  await pages.settings.waitForElementVisibility('newCategoryInput');
+  await settings.waitForElementVisibility('addCategory');
+  await settings.click('addCategory');
+  await settings.waitForElementVisibility('newCategoryInput');
   const newCategoryName = getCategoryName();
-  await pages.settings.populate('newCategoryInput', newCategoryName);
-  await pages.settings.click('saveCategory');
+  await settings.populate('newCategoryInput', newCategoryName);
+  await settings.click('saveCategory');
 });
 
 When('Instructor deletes all categories', async function () {
-  await pages.settings.waitForElementVisibility('addCategory');
-  const deleteButtons = await pages.settings.getWebElements('removeCategory');
+  await settings.waitForElementVisibility('addCategory');
+  const deleteButtons = await settings.getWebElements('removeCategory');
   for (const button of deleteButtons) {
     await button.click();
   }
@@ -93,10 +93,10 @@ When(/^I edit students grades$/, async function (dataTable) {
     const column = dataTable.hashes()[i].column;
     const grade = dataTable.hashes()[i].grade;
     const feedback = dataTable.hashes()[i].feedback;
-    await pages.gradebook.waitForElementVisibility(`editGradeButton`, `${row}_${column}`)
-    await pages.gradebook.click(`editGradeButton`, `${row}_${column}`)
-    await pages.gradebook.populate('gradeEditGradeOverride', grade);
-    await pages.gradebook.populate('editGradeComment', feedback);
+    await gradebook.waitForElementVisibility(`editGradeButton`, `${row}_${column}`)
+    await gradebook.click(`editGradeButton`, `${row}_${column}`)
+    await gradebook.populate('gradeEditGradeOverride', grade);
+    await gradebook.populate('editGradeComment', feedback);
     await coursePages.gradebook.click('save', 'Save');
     await coursePages.home.click('closeAlert');
   }
@@ -104,16 +104,16 @@ When(/^I edit students grades$/, async function (dataTable) {
 });
 
 When(/^I confirm assigned assignment "(.*)" is in my gradebook$/, async function (assignmentName) {
-  await pages.gradebook.assertTextIncludes('studentGradebook', assignmentName);
+  await gradebook.assertTextIncludes('studentGradebook', assignmentName);
 });
 
 When(/^I confirm unassigned assignment "(.*)" is not in my gradebook$/, async function (assignmentName) {
-  await pages.gradebook.assertTextDoesNotInclude('studentGradebook', assignmentName);
+  await gradebook.assertTextDoesNotInclude('studentGradebook', assignmentName);
 });
 
 When(/^I update category "(.*)" to drop "(.*)" grades$/, async function (categoryName, droppedGrades) {
-  await pages.gradebook.click('settingsNav');
-  await pages.gradebook.waitForElementVisibility('dropGradeDropdown');
-  await pages.gradebook.populate('dropGradeDropdown', droppedGrades);
-  await pages.gradebook.click('save', 'Save');
+  await gradebook.click('settingsNav');
+  await gradebook.waitForElementVisibility('dropGradeDropdown');
+  await gradebook.populate('dropGradeDropdown', droppedGrades);
+  await gradebook.click('save', 'Save');
 });
