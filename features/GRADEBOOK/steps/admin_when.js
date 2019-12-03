@@ -3,7 +3,6 @@ const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).p
 const { sleep } = require(`${process.cwd()}/app/driver`);
 const driver = require(`${process.cwd()}/app/driver`);
 
-
 When(/^I assign "(.*)" to my course$/, async function (userKey) {
   const user = this.users[userKey];
   const courseName = this.data.get('courseName');
@@ -11,8 +10,8 @@ When(/^I assign "(.*)" to my course$/, async function (userKey) {
   await coursePages.courseList.populate('search', courseName);
   await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
   await coursePages.createCourse.assertElementExists('courseCard', courseName);
-  await coursePages.courseList.assertElementExists('courseMenu', courseName); 
-  await coursePages.courseList.click('courseMenu', courseName); 
+  await coursePages.courseList.assertElementExists('courseMenu', courseName);
+  await coursePages.courseList.click('courseMenu', courseName);
   await coursePages.courseList.click('courseMenu', courseName);
   await coursePages.courseList.click('manageInstructor');
   await coursePages.courseList.populate('addInstructor', user.username);
@@ -34,7 +33,7 @@ When(/^I enroll the following students in my course$/, async function (dataTable
   await coursePages.home.click('togglerMenu');
   await coursePages.adminMenu.waitForElementVisibility('admin');
   await coursePages.adminMenu.assertElementExists('admin');
-  await sleep (500);
+  await sleep(500);
   await coursePages.adminMenu.click('admin');
   await coursePages.adminMenu.click('admin');
   await coursePages.adminMenu.click('manageEnrollments');
@@ -42,7 +41,7 @@ When(/^I enroll the following students in my course$/, async function (dataTable
     const user = this.users[dataTable.hashes()[i].student];
     await coursePages.adminMenu.populate('emailInput', user.username);
     await coursePages.adminMenu.click('addUserButton');
-    await sleep (1000);
+    await sleep(1000);
   }
   await coursePages.adminMenu.click('closeManageRoles');
   await coursePages.home.click('achieveHome');
@@ -78,10 +77,10 @@ When(/^I create a Gradebook Category with dropped lowest grade policy$/, async f
     await coursePages.createCourse.click('courseCard', courseName);
     await coursePages.coursePage.click('navigation', 'Gradebook');
     await coursePages.gradebook.click('gradebookSettings')
-    await coursePages.gradebook.click('gradeBookCategory','Add Category');
+    await coursePages.gradebook.click('gradeBookCategory', 'Add Category');
     await coursePages.gradebook.scrollElementIntoView('categoryName')
     await coursePages.gradebook.populate('categoryName', dataTable.hashes()[i].categoryName)
     await coursePages.gradebook.populate('dropLowestGrade', dataTable.hashes()[i].dropGrade);
-    await coursePages.gradebook.click('save','Save');
+    await coursePages.gradebook.click('save', 'Save');
   }
 });
