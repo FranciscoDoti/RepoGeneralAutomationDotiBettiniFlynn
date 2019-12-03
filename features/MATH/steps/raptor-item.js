@@ -27,6 +27,7 @@ Then('I verify the algos are rendered in the text module', async function () {
 });
 
 When(/^I am on the AMS page and click the first item id$/, async function () {
+  await pages.ams.click('authorModeColumn'); // sort so that Raptor Qs appear above Hatchling Qs
   await pages.ams.waitForElementVisibility('firstItemIdNewWindow');
   await pages.ams.click('firstItemIdNewWindow');
   await pages.raptorAms.switchToTab('Raptor Authoring');

@@ -54,6 +54,12 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "authorModeColumn",
+        "byType": "css",
+        "definition": "th[data-id='authoring_tool']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "firstItemIdNewWindow",
         "byType": "css",
         "definition": "#item-panel > table > tbody > tr:nth-child(1) > th > span.glyphicon.glyphicon-new-window",
