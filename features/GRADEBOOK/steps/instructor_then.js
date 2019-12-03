@@ -8,14 +8,14 @@ const { getCategoryName } = require('../data/test_value_generator');
 Then('Points are displayed in the course total', async function () {
   await gradebook.waitForElementVisibility('courseTotal');
   const courseTotal = await gradebook.getWebElements('courseTotal');
-  const text = await courseTotal[0].getText()
+  const text = await courseTotal[0].getText();
   expect(text).to.equal('50.00\nOut of 100');
 });
 
 Then('Percents are displayed in the course total', async function () {
   await gradebook.waitForElementVisibility('courseTotal');
   const courseTotal = await gradebook.getWebElements('courseTotal');
-  const text = await courseTotal[0].getText()
+  const text = await courseTotal[0].getText();
   expect(text).to.equal('50%');
 });
 
@@ -46,13 +46,6 @@ Then('The iclicker menu should be visible', async function () {
 
 Then('The settings button is visible', async function () {
   await gradebook.waitForElementVisibility('settingsNav');
-});
-
-Then('The sync button should be visible', async function () {
-  await iclicker.waitForElementVisibility('syncIClicker');
-});
-Then('The iclicker menu should be visible', async function () {
-  await iclicker.waitForElementVisibility('iClickerMenu');
 });
 
 Then('I verify the grades for students', async function (dataTable) {

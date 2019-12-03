@@ -11,6 +11,12 @@ async function isConnected () {
   return text === 'iClicker';
 }
 
+async function closeAlert () {
+  await gradebook.waitForElementVisibility('alertCloseBtn');
+  await sleep(2000); // Wait for animation
+  await gradebook.click('alertCloseBtn');
+}
+
 async function connectToiClicker () {
   await iclicker.click('syncIClicker');
   await iclicker.waitForElementVisibility('usernameInput');
@@ -21,19 +27,17 @@ async function connectToiClicker () {
   await iclickerCourses.click('iclickerCourse1');
   await iclicker.waitForElementVisibility('saveAndLinkCourses');
   await iclicker.click('saveAndLinkCourses');
-  await gradebook.waitForElementVisibility('alertCloseBtn');
-  await gradebook.click('alertCloseBtn');
+  await closeAlert();
 }
 
 async function disconnectFromIClicker () {
   await iclicker.click('iClickerMenu');
   await iclicker.waitForElementVisibility('iClickerMenuDisconnect');
+  await sleep(2000); // Wait for animation
   await iclicker.click('iClickerMenuDisconnect');
   await iclicker.waitForElementVisibility('confirmDisconnectButton');
-  await sleep(5000);
   await iclicker.click('confirmDisconnectButton');
-  await gradebook.waitForElementVisibility('alertCloseBtn');
-  await gradebook.click('alertCloseBtn');
+  await closeAlert();
 }
 
 When('Instructor opens the settings modal', async function () {
@@ -46,7 +50,7 @@ When('Instructor connects to iClicker', async function () {
   const connected = await isConnected();
   if (connected) {
     await disconnectFromIClicker();
-    await sleep(5000);
+    await sleep(3000);
   }
   await connectToiClicker()
 });
@@ -56,7 +60,7 @@ When('Instructor disconnects to iClicker', async function () {
   const connected = await isConnected();
   if (!connected) {
     await connectToiClicker();
-    await sleep(5000);
+    await sleep(3000);
   }
   await disconnectFromIClicker();
 });
