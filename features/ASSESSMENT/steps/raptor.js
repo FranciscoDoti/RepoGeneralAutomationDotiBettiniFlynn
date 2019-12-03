@@ -7,10 +7,10 @@ When(/^I add the "(.*)" module with following details$/, async function (moduleT
     await amslib.addRaptorItem();
     await raptorlib.addModule(moduleType);
     var rows = dataTable.hashes();
-    await pages.raptor.click("Module Chemical Equation", 1);
+    await pages.raptor.click("Module Chemical Equation Edit", 1);
     await pages.chemicalEquation.populate('Prefix', rows[0].value);
     await pages.raptor.click('Tab', 'correct');
-    await pages.raptor.click("Module Chemical Equation", 1);
+    await pages.raptor.click("Module Chemical Equation Correct Setup", 1);
     await pages.chemicalEquation.populate('Answer Input', rows[1].value);
 });
 
@@ -125,8 +125,8 @@ When('I configure FR module', async function () {
 });
 
 Then('I check NE answers', async function () {
-    await pages.raptor.click('More Menu');
-    await pages.raptor.click('Check Answer Slider');
+    await raptorlib.saveItem();
+    await raptorlib.checkAnswerMode();
     await pages.numericEntry.populate('Numeric Entry 1', '.0258');
     await pages.numericEntry.populate('Numeric Entry 2', '-0.0258');
     await pages.raptor.click('Check Your Work Submit Button');
@@ -135,8 +135,7 @@ Then('I check NE answers', async function () {
 
 Then('I check FR answers', async function () {
     await raptorlib.saveItem();
-    await pages.raptor.click('More Menu');
-    await pages.raptor.click('Check Answer Slider');
+    await raptorlib.checkAnswerMode();
     await pages.freeResponse.populate('Element Take Mode', '123456789012345678901');
     await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');

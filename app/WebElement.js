@@ -64,7 +64,7 @@ const WebElement = function (element) {
         visibility = true; break;
       };
     };
-    await my.driver.manage().setTimeouts({ implicit: implicit});
+    await my.driver.manage().setTimeouts({ implicit: implicit });
     return visibility;
   };
 

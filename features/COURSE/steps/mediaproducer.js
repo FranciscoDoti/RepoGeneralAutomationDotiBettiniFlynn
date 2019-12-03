@@ -321,10 +321,10 @@ When('I create template with following data', async function (data_table){
       await pages.createCourse.populate('courseName', c.courseName)
       await pages.createCourse.assertElementExists('courseCode');
       await pages.createCourse.populate('courseCode', c.courseCode)
-      if(c.learningObjective != ''){
-      await pages.createCourse.assertElementExists('learningObjective');
-      await pages.createCourse.waitForElementVisibility('learningObjective', c.learningObjective)
-      await pages.createCourse.populate('learningObjective', c.learningObjective)
+      if (c.learningObjective != '') {
+        await pages.createCourse.assertElementExists('learningObjective');
+        await pages.createCourse.waitForElementVisibility('learningObjective', c.learningObjective)
+        await pages.createCourse.populate('learningObjective', c.learningObjective)
       }
       await pages.createCourse.assertElementExists('isbnNumber');
       await pages.createCourse.populate('isbnNumber', c.isbnNumber)
@@ -388,6 +388,7 @@ When(/^I add "(.*)" to the course plan$/, async function (activityName){
   await pages.coursePlanner.assertElementExists('activityLink', activityName);
 });
 
+<<<<<<< HEAD
 When(/^I add activities by "(.*)" and add to content library$/, async function (tab, data_table){
   await pages.coursePage.click('navigation', tab);
   await pages.coursePage.click('contentType', 'Keyword Search');
@@ -397,3 +398,26 @@ When(/^I add activities by "(.*)" and add to content library$/, async function (
   await pages.resources.click('addResources',data_table.hashes()[i].addContent);
   }
 });
+=======
+When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/, async function (activityName, data_table){
+    await pages.coursePlanner.click('activityLink', activityName);
+    for (let i = 0; i < data_table.rows().length; i++) {
+      var s = data_table.hashes()[i];
+      if(activityName === 'ISBN'){
+        await pages.coursePlanner.populate('search','Search by ISBN', s.ISBN);
+        await pages.coursePlanner.click('filterCheckbox', s.ISBN);
+      }
+      else if(activityName == 'Author'){
+        await pages.coursePlanner.populate('search','Search by Author', s.Author);
+        await pages.coursePlanner.click('filterCheckbox', s.Author);
+      }
+      else if(activityName == 'Project Title'){
+        await pages.coursePlanner.populate('search','Search by Project Title', s.projectTitle);
+        await pages.coursePlanner.click('filterCheckbox', s.projectTitle);
+      }
+      await pages.coursePlanner.click('Apply')
+      await pages.coursePlanner.click('contentCheckbox');
+    }
+});
+
+>>>>>>> 173cddc21dd91679d20410606042d1f4bd61c7df

@@ -409,6 +409,24 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
+            "name": "assignmentModalRosterSearch",
+            "byType": "css",
+            "definition": "[data-test-id='edit_assignment_modal_roster_search_btn']",
+            "frame": "default",
+            "specialInstr": "arrowdownafter enterAfter"
+        }, {
+            "name": "studentSearchBox",
+            "byType": "css",
+            "definition": "[data-test-id='student_search_box']",
+            "frame": "default",
+            "specialInstr": "arrowdownafter enterAfter"
+        }, {
+            "name": "radioButtonAssignStudents",
+            "byType": "css",
+            "definition": "[data-test-id='radio_button_assign_students']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
             "name": "editPoints",
             "byType": "css",
             "definition": "[data-test-id='targetAndTopicSummaryTargetScoreEditBtn']",
@@ -717,6 +735,20 @@
 
         },
         {
+            "name": "addExceptionBtn",
+            "byType": "css",
+            "definition": "[data-test-id='add_exception_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "exceptionDatePickerButton",
+            "byType": "css",
+            "definition": "[data-test-id='exception_due_date_picker']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Category",
             "byType": "css",
             "definition": "[data-test-id='gradebook_category_dropdown']",
@@ -804,7 +836,7 @@
         }, {
             "name": "activityLink",
             "byType": "xpath",
-            "definition": "//*[a='<ReplaceText>']",
+            "definition": "//*[div='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 
@@ -812,6 +844,34 @@
             "name": "addToBtn",
             "byType": "xpath",
             "definition": "//*[a='<ReplaceText>']/../..//*[span='ADD TO ']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "ISBN",
+            "byType": "xpath",
+            "definition": "//*[@id='filter-isbn-title']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "search",
+            "byType": "xpath",
+            "definition": "//*[@placeholder='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "filterCheckbox",
+            "byType": "xpath",
+            "definition": "//span[starts-with(.,'<ReplaceText>')]/../../..//input[@data-test-id='filter_checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
+            "name": "Apply",
+            "byType": "xpath",
+            "definition": "//*[@data-test-id='add_button']",
             "frame": "default",
             "specialInstr": "NA"
 

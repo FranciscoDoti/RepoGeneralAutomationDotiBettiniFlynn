@@ -14,7 +14,6 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseN
   await pages.courseList.click('addButton');
   await pages.courseList.assertElementExists('instructorClose');
   await pages.courseList.click('instructorClose');
-  
 });
 
 When(/^I check the account of "(.*)"$/, async function (userType){

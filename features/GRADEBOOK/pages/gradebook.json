@@ -20,6 +20,273 @@
       "definition": "[data-test-id='menu_user_name']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "percentToggleButton",
+      "byType": "css",
+      "definition": "[data-test-id='first_toggle_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "percentsToggleButton",
+      "byType": "css",
+      "definition": "[data-test-id='first_toggle_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "pointsToggleButton",
+      "byType": "css",
+      "definition": "[data-test-id='second_toggle_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "studentGradebook",
+      "byType": "xpath",
+      "definition": "//*[@id='container']/div/div/div/div[2]/div/div[3]/div[2]/div/div",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "courseTotal",
+      "byType": "xpath",
+      "definition": "//*[.='<ReplaceText>']/../../../../../../..//div[@data-test-id='course_total']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "studentPercent",
+      "byType": "xpath",
+      "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_percent_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "studentAssignmentpoints",
+      "byType": "xpath",
+      "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_assignment_points_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "studentPercenOfTotalGrades",
+      "byType": "xpath",
+      "definition": "//a[.='<ReplaceText>']/../../../../../../../td[@data-test-id='student_gradebook_total_grades_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "assigmentDateText",
+      "byType": "css",
+      "definition": "[class='Assignments_activityDetailsText_AFA']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "assigmentPointsText",
+      "byType": "css",
+      "definition": "[class='Assignments_activityDetailsText_AFA false Assignments_textBold_CPx']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "assigmentInProgressText",
+      "byType": "css",
+      "definition": "[class='AssignmentHeaderLabelAndTool_inProgress_1z8']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradebookAverageTotal",
+      "byType": "css",
+      "definition": "[data-test-id='course_total']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "singleCategory",
+      "byType": "css",
+      "definition": "[data-test-id='gradebook_table_category_cell']:nth-of-type(3)",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "categoryHeaderCells",
+      "byType": "css",
+      "definition": ".ReactVirtualized__Grid.InstructorGradebook_topRightGrid_P6X",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "alertCloseBtn",
+      "byType": "css",
+      "definition": "[data-test-id='alert_close_btn']",
+      "definition": "[data-test-id='gradebook_table_course_total_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradebookAverageAssigment",
+      "byType": "css",
+      "definition": "[class='PointOrGrade_pointOrPercent_10e ClassTotalRow_pointOrGrade_14u']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradebookSettings",
+      "byType": "css",
+      "definition": "[data-test-id='settings']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradeBookCategory",
+      "byType": "xpath",
+      "definition": "//button[.='<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "categoryName",
+      "byType": "xpath",
+      "definition": "//span [.='Category Name']/..//input",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "dropLowestGrade",
+      "byType": "xpath",
+      "definition": "//div [.='Drop Lowest Grades']/../../..//select",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "save",
+      "byType": "xpath",
+      "definition": "//button[.='<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "totalPercentage",
+      "byType": "xpath",
+      "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_averages_percent_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "totalPercentGrades",
+      "byType": "xpath",
+      "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_of_total_grades_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "totalPoints",
+      "byType": "xpath",
+      "definition": "//td[.='<ReplaceText>']/..//td[@data-test-id='student_gradebook_assignment_total_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "studentCourseTotal",
+      "byType": "xpath",
+      "definition": "//*[.='<ReplaceText>']/../../../../../../..//div[@data-test-id='course_total']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "studentAssignmentGrade",
+      "byType": "xpath",
+      "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "editGradeButton",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='assignment_grade_<ReplaceText>']/div/button",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradeRowCell",
+      "byType": "css",
+      "definition": "[data-test-id='assignment_grade_<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "categoryTotalRowCell",
+      "byType": "css",
+      "definition": "[data-test-id='assignment_grade_total_<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "editTotal",
+      "byType": "xpath",
+      "definition": "(//*[.='<ReplaceText>']/../../../../../../../../..//div/button[@class='_3VyP'])[1]",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "editGrade",
+      "byType": "css",
+      "definition": "input[data-test-id='grade_edit_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "editGradeComment",
+      "byType": "css",
+      "definition": "textarea[data-test-id='comment_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "cancelGradeOverride",
+      "byType": "css",
+      "definition": "button[data-test-id='cancel_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "gradeEditGradeOverride",
+      "byType": "css",
+      "definition": "input[data-test-id='grade_edit_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "originalGradeOverride",
+      "byType": "css",
+      "definition": "div[data-test-id='original_grade_override']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "studentCategoryTotal",
+      "byType": "xpath",
+      "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade_total'][1]",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "checkActivityCompletion",
+      "byType": "xpath",
+      "definition": "//div[.='<ReplaceText>']/../../../..//div[@data-test-id='percentage_complete']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "dropGradeDropdown",
+      "byType": "css",
+      "definition": "[aria-labelledby='drop_label_1']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }
