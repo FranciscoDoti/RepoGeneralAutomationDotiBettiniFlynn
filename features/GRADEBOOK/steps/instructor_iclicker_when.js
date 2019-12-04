@@ -31,13 +31,17 @@ async function connectToiClicker () {
 }
 
 async function disconnectFromIClicker () {
-  await iclicker.click('iClickerMenu');
-  await iclicker.waitForElementVisibility('iClickerMenuDisconnect');
-  await sleep(2000); // Wait for animation
+  await openIClickerMenu();
+  // await sleep(2000); // Wait for animation
   await iclicker.click('iClickerMenuDisconnect');
   await iclicker.waitForElementVisibility('confirmDisconnectButton');
   await iclicker.click('confirmDisconnectButton');
   await closeAlert();
+}
+
+async function openIClickerMenu () {
+  await iclicker.click('iClickerMenu');
+  await iclicker.waitForElementVisibility('iClickerMenuDisconnect');
 }
 
 When('Instructor opens the settings modal', async function () {
@@ -64,3 +68,7 @@ When('Instructor disconnects to iClicker', async function () {
   }
   await disconnectFromIClicker();
 });
+
+module.exports = {
+  openIClickerMenu
+};

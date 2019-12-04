@@ -15,6 +15,13 @@
       "specialInstr": "NA"
     },
     {
+      "name": "manageIClickerMenu",
+      "byType": "css",
+      "definition": "[data-test-id='manage-iclicker-menu']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
       "name": "newIClickerCourse",
       "byType": "css",
       "definition": "[data-test-id='iclicker_new_course_link']",
