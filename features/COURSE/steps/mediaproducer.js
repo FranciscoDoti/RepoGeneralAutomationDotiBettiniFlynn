@@ -388,7 +388,6 @@ When(/^I add "(.*)" to the course plan$/, async function (activityName){
   await pages.coursePlanner.assertElementExists('activityLink', activityName);
 });
 
-<<<<<<< HEAD
 When(/^I add activities by "(.*)" and add to content library$/, async function (tab, data_table){
   await pages.coursePage.click('navigation', tab);
   await pages.coursePage.click('contentType', 'Keyword Search');
@@ -398,7 +397,6 @@ When(/^I add activities by "(.*)" and add to content library$/, async function (
   await pages.resources.click('addResources',data_table.hashes()[i].addContent);
   }
 });
-=======
 When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/, async function (activityName, data_table){
     await pages.coursePlanner.click('activityLink', activityName);
     for (let i = 0; i < data_table.rows().length; i++) {
@@ -420,4 +418,3 @@ When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/
     }
 });
 
->>>>>>> 173cddc21dd91679d20410606042d1f4bd61c7df

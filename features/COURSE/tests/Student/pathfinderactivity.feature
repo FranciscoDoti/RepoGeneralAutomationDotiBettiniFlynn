@@ -3,64 +3,64 @@ Feature: Student compelets Pathfinder Activity
 
     Scenario: Verify that Student Takes Practice Test 
 
-        # Given I login to Achieve-CW as "media_producer_2"
-        # When I create template with following data 
-        #     | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-        #     | Template    | Qualitative       | Pathfinder Template   | macmillan calculus     | E2E 301      | 9781464199496  | draft         |
-        # And I close the popup message 
+        Given I login to Achieve-CW as "media_producer_2"
+        When I create template with following data 
+            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative       | Pathfinder Template   | macmillan calculus     | E2E 301      | 9781464199496  | draft         |
+        And I close the popup message 
 
-        # And I click on search button and input "Pathfinder Template" to search the course                     
+        And I click on search button and input "Pathfinder Template" to search the course                     
 
-        # And I activate the "Pathfinder Template" template and add the following data
-        #     | courseName             |  courseCode   |  templateStatus      |
-        #     | Pathfinder Template    |   E2E 301     |  Active On Date      |
-        # And I click on "Pathfinder Template" card
-        # And I click on "Production" Tab 
+        And I activate the "Pathfinder Template" template and add the following data
+            | courseName             |  courseCode   |  templateStatus      |
+            | Pathfinder Template    |   E2E 301     |  Active On Date      |
+        And I click on "Pathfinder Template" card
+        And I click on "Production" Tab 
 
-        # And I add activities by "Search" and add to content library 
-        #    | activities                                                  | addContent                                       |
-        #    | Practice Test for Reading Skills - English v2               | Practice Test for Reading Skills - Engli ...     |    
-        #    | Complete the Study Plan for Reading Skills - English v2     | Complete the Study Plan for Reading Skil ...     |
-        #    |  Final Test for Reading Skills - English v2                 | Final Test for Reading Skills - English  ...     |
+        And I add activities by "Search" and add to content library 
+           | activities                                                  | addContent                                       |
+           | Practice Test for Reading Skills - English v2               | Practice Test for Reading Skills - Engli ...     |    
+           | Complete the Study Plan for Reading Skills - English v2     | Complete the Study Plan for Reading Skil ...     |
+           |  Final Test for Reading Skills - English v2                 | Final Test for Reading Skills - English  ...     |
 
-        # And I click on back to course
-        # And I click on home button to return to coursepage
-        # And I copy course from the "Pathfinder Template" template with the following data
-        #     | courseName           | courseCode           |
-        #     | Pathfinder Course    | E2E 301              |
+        And I click on back to course
+        And I click on home button to return to coursepage
+        And I copy course from the "Pathfinder Template" template with the following data
+            | courseName           | courseCode           |
+            | Pathfinder Course    | E2E 301              |
 
-        # And I sign out of Achieve
-        # And I login to Achieve-CW as "customer_support_1"
+        And I sign out of Achieve
+        And I login to Achieve-CW as "customer_support_1"
 
-        # And I assign "instructor_1" to the "Pathfinder Course" course
-        # And I sign out of Achieve
-        #  And I login to Achieve-CW as "instructor_1"
+        And I assign "instructor_1" to the "Pathfinder Course" course
+        And I sign out of Achieve
+         And I login to Achieve-CW as "instructor_1"
 
-        # When I activate "Pathfinder Course" course with following data 
-        #     | field             | value                        |
-        #     | courseName        | Pathfinder Course            |
-        #     | courseCode        |  E2E 301                     |
-        #     | templateStatus    |  Active On Date              |
+        When I activate "Pathfinder Course" course with following data 
+            | field             | value                        |
+            | courseName        | Pathfinder Course            |
+            | courseCode        |  E2E 301                     |
+            | templateStatus    |  Active On Date              |
 
 
-        # And I add the activities in courseplanner to "Pathfinder Course" course
-        #     | activity                                                    |
-        #     | Practice Test for Reading Skills - Engli ...                |     
-        #     | Complete the Study Plan for Reading Skil ...                |
-        #     | Final Test for Reading Skills - English  ...                |
+        And I add the activities in courseplanner to "Pathfinder Course" course
+            | activity                                                    |
+            | Practice Test for Reading Skills - Engli ...                |     
+            | Complete the Study Plan for Reading Skil ...                |
+            | Final Test for Reading Skills - English  ...                |
 
-        # And I close the popup message
+        And I close the popup message
 
-        # And I assign the activities in courseplanner
-        #     | activity                                                    | Points |
-        #     | Practice Test for Reading Skills - Engli ...                | 5      |    
-        #     | Complete the Study Plan for Reading Skil ...                | 5      |
-        #     | Final Test for Reading Skills - English  ...                | 5      |
+        And I assign the activities in courseplanner
+            | activity                                                    | Points |
+            | Practice Test for Reading Skills - Engli ...                | 5      |    
+            | Complete the Study Plan for Reading Skil ...                | 5      |
+            | Final Test for Reading Skills - English  ...                | 5      |
 
-        # And I sign out of Achieve
-        # And I login to Achieve-CW as "customer_support_1" 
-        # And I enroll the "student_1" in "Pathfinder Course" course
-        # And I sign out of Achieve
+        And I sign out of Achieve
+        And I login to Achieve-CW as "customer_support_1" 
+        And I enroll the "student_1" in "Pathfinder Course" course
+        And I sign out of Achieve
         And I login to Achieve-CW as "student_1" 
         When I click on "Pathfinder Course"
         And I launch the Pathfinder Assignment "Practice Test for Reading Skills - Engli ..."
