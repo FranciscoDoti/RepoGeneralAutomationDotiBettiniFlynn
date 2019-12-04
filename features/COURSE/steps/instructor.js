@@ -319,3 +319,17 @@ Then('I verify that I created a Master Section with following data', async funct
 When('I click on master card', async function (){
   await pages.masterSection.click('masterCard')
 })
+
+When(/^I add the activities by searching in browse and adding it to courseplanner in "(.*)" course$/, async function(courseName,data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].addContent);
+    if(i===0) {
+      await pages.coursePlanner.click('addingContent');
+      await pages.coursePlanner.click('continue');
+      await pages.home.click('closeAlert');
+    }
+  }
+});

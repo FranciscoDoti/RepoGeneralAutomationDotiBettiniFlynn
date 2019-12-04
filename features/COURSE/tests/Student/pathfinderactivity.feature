@@ -25,6 +25,7 @@ Feature: Student compelets Pathfinder Activity
 
         And I click on back to course
         And I click on home button to return to coursepage
+        And I click on "COURSE TEMPLATES" tab
         And I copy course from the "Pathfinder Template" template with the following data
             | courseName           | courseCode           |
             | Pathfinder Course    | E2E 301              |
@@ -43,11 +44,12 @@ Feature: Student compelets Pathfinder Activity
             | templateStatus    |  Active On Date              |
 
 
-        And I add the activities in courseplanner to "Pathfinder Course" course
-            | activity                                                    |
-            | Practice Test for Reading Skills - Engli ...                |     
-            | Complete the Study Plan for Reading Skil ...                |
-            | Final Test for Reading Skills - English  ...                |
+        And I add the activities by searching in browse and adding it to courseplanner in "Pathfinder Course" course
+           | activities                                                  | addContent                                       |
+           | Practice Test for Reading Skills - English v2               | Practice Test for Reading Skills - Engli ...     |    
+           | Complete the Study Plan for Reading Skills - English v2     | Complete the Study Plan for Reading Skil ...     |
+           |  Final Test for Reading Skills - English v2                 | Final Test for Reading Skills - English  ...     |
+
 
         And I close the popup message
 
