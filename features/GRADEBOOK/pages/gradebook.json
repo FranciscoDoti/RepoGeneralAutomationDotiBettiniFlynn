@@ -123,7 +123,6 @@
       "name": "alertCloseBtn",
       "byType": "css",
       "definition": "[data-test-id='alert_close_btn']",
-      "definition": "[data-test-id='gradebook_table_course_total_cell']",
       "frame": "default",
       "specialInstr": "NA"
     },
