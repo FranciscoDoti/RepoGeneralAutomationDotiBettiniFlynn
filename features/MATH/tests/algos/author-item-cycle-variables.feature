@@ -1,11 +1,12 @@
 @math @algo
-Feature: Author loads raptor item and cycles variables
+Feature: Author loads raptor item by URL and cycles variables
 
   Scenario Outline: Author loads existing Raptor item <itemId> and cycles variables without triggering algo init error
 
     Given I login to AMS as "all-permissions-author"
 
-    When I am on the AMS page and search for the item id <itemId>
+    When I am on the AMS page and click the first item id
+    And I input <itemId> into the author item url
     Then I verify the algos are rendered in the text module
 
     When I click Cycle Variables
@@ -17,8 +18,8 @@ Feature: Author loads raptor item and cycles variables
     | itemId  |
     | "78"    |
     | "91"    |
-    # | "100"   | # both: Web Element itemIdNewWindow 100 is not visible on page after 10 second wait.
-    # | "133"   | # because they're way down on the list of results
+    | "100"   |
+    | "133"   |
     | "364"   |
     | "913"   |
     | "4294"  |
@@ -45,8 +46,8 @@ Feature: Author loads raptor item and cycles variables
     | "14950" |
     | "14977" |
     | "15031" |
-    # | "15218" | # GET /v1/ams/learningObjective/... throws 404 # unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
-    # | "15223" | # GET /v1/ams/learningObjective/... throws 404 # {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
+    | "15218" | # GET /v1/ams/learningObjective/... throws 404 # unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
+    | "15223" | # GET /v1/ams/learningObjective/... throws 404 # {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "15235" |
     | "15247" |
     | "15494" |
@@ -54,42 +55,42 @@ Feature: Author loads raptor item and cycles variables
     | "16069" |
     | "16227" |
     | "16283" |
-    # | "16729" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "16729" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "16731" |
     | "16732" |
-    # | "16734" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "16734" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "16735" |
     | "16746" |
-    # | "16749" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "16749" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "16757" |
-    # | "16763" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16766" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16769" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16772" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
-    # | "16773" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
-    # | "16774" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
-    # | "16776" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16782" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16784" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16785" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16786" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16787" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16789" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16792" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16798" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16804" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16809" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16810" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16811" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16813" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16818" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16823" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16825" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16826" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "16830" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16763" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16766" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16769" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16772" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
+    | "16773" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
+    | "16774" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for nest2b missing from algos list}
+    | "16776" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16782" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16784" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16785" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16786" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16787" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16789" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16792" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16798" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16804" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16809" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16810" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16811" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16813" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16818" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16823" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16825" | # some range algos with 'Specify sig figs' but sigfigs input box blank # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16826" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "16830" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
     | "16859" |
     | "16893" |
-    # | "16895" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (TypeError) (Not string) in 'answer'}
+    | "16895" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (TypeError) (Not string) in 'answer'}
     | "16919" |
     | "16924" |
     | "16934" |
@@ -106,16 +107,16 @@ Feature: Author loads raptor item and cycles variables
     | "16959" |
     | "16960" |
     | "16961" |
-    | "16969" |
+    | "16969" | #AssertionError: Exception occurred and caught. ElementClickInterceptedError: element click intercepted: Element <th data-id="authoring_tool">...</th> is not clickable at point (202, 225). Other element would receive the click: <th data-id="id">...</th>
     | "16970" |
     | "16971" |
-    | "16972" |
+    | "16972" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "16973" |
     | "16974" |
     | "16975" |
     | "16976" |
     | "16977" |
-    # | "16981" | # {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
+    | "16981" | # {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
     | "16983" |
     | "16984" |
     | "16985" |
@@ -150,7 +151,7 @@ Feature: Author loads raptor item and cycles variables
     | "17062" |
     | "17064" |
     | "17065" |
-    | "17066" |
+    | "17066" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17068" |
     | "17076" |
     | "17078" |
@@ -160,7 +161,7 @@ Feature: Author loads raptor item and cycles variables
     | "17082" |
     | "17084" |
     | "17088" |
-    # | "17089" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
+    | "17089" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for 4firmsum missing from algos list}
     | "17092" |
     | "17095" |
     | "17099" |
@@ -171,7 +172,7 @@ Feature: Author loads raptor item and cycles variables
     | "17108" |
     | "17109" |
     | "17110" |
-    | "17111" |
+    | "17111" | #  AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17115" |
     | "17117" |
     | "17118" |
@@ -199,9 +200,9 @@ Feature: Author loads raptor item and cycles variables
     | "17178" |
     | "17184" |
     | "17188" |
-    # | "17190" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc1'}
-    # | "17191" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: Unable to replace algos}
-    # | "17192" | #  UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error undefined}
+    | "17190" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc1'}
+    | "17191" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: Unable to replace algos}
+    | "17192" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error undefined}
     | "17193" |
     | "17202" |
     | "17206" |
@@ -239,7 +240,7 @@ Feature: Author loads raptor item and cycles variables
     | "17263" |
     | "17264" |
     | "17267" |
-    | "17270" |
+    | "17270" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17272" |
     | "17273" |
     | "17274" |
@@ -280,13 +281,13 @@ Feature: Author loads raptor item and cycles variables
     | "17387" |
     | "17388" |
     | "17389" |
-    | "17391" |
+    | "17391" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17392" |
     | "17396" |
     | "17400" |
     | "17403" |
     | "17404" |
-    # | "17406" | # failed assertion error: text still contains ???
+    | "17406" | # failed assertion error: text still contains ???
     | "17407" |
     | "17409" |
     | "17417" |
@@ -297,7 +298,7 @@ Feature: Author loads raptor item and cycles variables
     | "17424" |
     | "17425" |
     | "17426" |
-    | "17428" |
+    | "17428" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17431" |
     | "17432" |
     | "17435" |
@@ -331,11 +332,11 @@ Feature: Author loads raptor item and cycles variables
     | "17516" |
     | "17517" |
     | "17518" |
-    | "17520" |
+    | "17520" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17521" |
     | "17524" |
     | "17526" |
-    # | "17533" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'Cl2'}
+    | "17533" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'Cl2'}
     | "17535" |
     | "17540" |
     | "17548" |
@@ -360,8 +361,8 @@ Feature: Author loads raptor item and cycles variables
     | "17589" |
     | "17590" |
     | "17592" |
-    | "17594" |
-    | "17596" |
+    | "17594" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "17596" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17597" |
     | "17598" |
     | "17599" |
@@ -380,7 +381,7 @@ Feature: Author loads raptor item and cycles variables
     | "17614" |
     | "17616" |
     | "17617" |
-    | "17622" |
+    | "17622" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17623" |
     | "17624" |
     | "17628" |
@@ -391,7 +392,7 @@ Feature: Author loads raptor item and cycles variables
     | "17655" |
     | "17656" |
     | "17663" |
-    | "17666" |
+    | "17666" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17667" |
     | "17669" |
     | "17670" |
@@ -402,7 +403,7 @@ Feature: Author loads raptor item and cycles variables
     | "17682" |
     | "17683" |
     | "17684" |
-    | "17687" |
+    | "17687" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17689" |
     | "17692" |
     | "17693" |
@@ -412,7 +413,7 @@ Feature: Author loads raptor item and cycles variables
     | "17699" |
     | "17701" |
     | "17702" |
-    | "17705" |
+    | "17705" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17706" |
     | "17714" |
     | "17721" |
@@ -450,26 +451,26 @@ Feature: Author loads raptor item and cycles variables
     | "17779" |
     | "17783" |
     | "17789" |
-    | "17790" |
+    | "17790" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17797" |
-    | "17804" |
+    | "17804" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "17806" |
     | "17807" |
     | "17808" |
     | "17809" |
     | "17810" |
-    # | "17813" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc2'}
+    | "17813" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc2'}
     | "17819" |
     | "17820" |
     | "17828" |
     | "17844" |
     | "17845" |
-    # | "17850" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
-    # | "17916" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "17850" | # uses latex \beta in a calc algo # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Cannot read property 'value' of undefined}
+    | "17916" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "18284" |
     | "18294" |
     | "18300" |
-    | "18450" |
+    | "18450" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "18522" |
     | "18796" |
     | "18798" |
@@ -486,7 +487,7 @@ Feature: Author loads raptor item and cycles variables
     | "19518" |
     | "19523" |
     | "19530" |
-    | "19550" |
+    | "19550" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "19597" |
     | "19607" |
     | "19615" |
@@ -494,7 +495,7 @@ Feature: Author loads raptor item and cycles variables
     | "19659" |
     | "19736" |
     | "20031" |
-    | "20086" |
+    | "20086" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "20229" |
     | "20331" |
     | "20377" |
@@ -510,7 +511,7 @@ Feature: Author loads raptor item and cycles variables
     | "21159" |
     | "21299" |
     | "21303" |
-    | "21346" |
+    | "21346" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "21351" |
     | "21404" |
     | "21409" |
@@ -524,7 +525,7 @@ Feature: Author loads raptor item and cycles variables
     | "21613" |
     | "21615" |
     | "21686" |
-    | "21809" |
+    | "21809" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "22025" |
     | "22029" |
     | "22103" |
@@ -538,11 +539,11 @@ Feature: Author loads raptor item and cycles variables
     | "22352" |
     | "22494" |
     | "22531" |
-    # | "22682" | # AssertionError: Web Element itemIdNewWindow 22682 is not visible on page after 10 second wait. FAIL
+    | "22682" |
     | "22763" |
-    # | "22781" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2B missing from algos list}
+    | "22781" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2B missing from algos list}
     | "22834" |
-    # | "22836" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2A missing from algos list}
+    | "22836" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for P2A missing from algos list}
     | "22840" |
     | "22851" |
     | "22853" |
@@ -585,7 +586,7 @@ Feature: Author loads raptor item and cycles variables
     | "24519" |
     | "24919" |
     | "24972" |
-    | "25047" |
+    | "25047" | # AssertionError: Exception occurred and caught. ElementClickInterceptedError: element click intercepted: Element <th data-id="authoring_tool">...</th> is not clickable at point (202, 225). Other element would receive the click: <th data-id="id">...</th>
     | "25240" |
     | "25250" |
     | "25264" |
@@ -600,7 +601,7 @@ Feature: Author loads raptor item and cycles variables
     | "25530" |
     | "25540" |
     | "25577" |
-    # | "25593" | # # failed assertion error: text still contains ???
+    | "25593" | # failed assertion error: text still contains ???
     | "25595" |
     | "25614" |
     | "25620" |
@@ -621,7 +622,7 @@ Feature: Author loads raptor item and cycles variables
     | "26166" |
     | "26186" |
     | "26237" |
-    | "26247" | # STOPPED
+    | "26247" |
     | "26258" |
     | "26288" |
     | "26308" |
@@ -663,8 +664,8 @@ Feature: Author loads raptor item and cycles variables
     | "27768" |
     | "27827" |
     | "28001" |
-    | "28099" |
-    | "28101" |
+    | "28099" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for dT missing from algos list}
+    | "28101" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for dT missing from algos list}
     | "28103" |
     | "28120" |
     | "28133" |
@@ -679,13 +680,13 @@ Feature: Author loads raptor item and cycles variables
     | "28559" |
     | "28566" |
     | "28584" |
-    | "28590" |
+    | "28590" | # failed assertion error: text still contains ???
     | "28640" |
     | "28642" |
-    | "28664" |
+    | "28664" | # failed assertion error: text still contains ???
     | "28702" |
     | "28731" |
-    | "28767" |
+    | "28767" | # failed assertion error: text still contains ???
     | "28772" |
     | "28795" |
     | "28814" |
@@ -699,7 +700,7 @@ Feature: Author loads raptor item and cycles variables
     | "28846" |
     | "28870" |
     | "28982" |
-    | "29004" |
+    | "29004" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for incHeat missing from algos list}
     | "29016" |
     | "29082" |
     | "29341" |
@@ -733,7 +734,7 @@ Feature: Author loads raptor item and cycles variables
     | "32264" |
     | "32560" |
     | "32956" |
-    | "33179" |
+    | "33179" | # failed assertion error: text still contains ???
     | "33561" |
     | "34263" |
     | "34266" |
@@ -744,36 +745,36 @@ Feature: Author loads raptor item and cycles variables
     | "35578" |
     | "35640" |
     | "35766" |
-    | "35819" |
+    | "35819" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for NB missing from algos list}
     | "35975" |
     | "36087" |
     | "36093" |
-    | "36111" |
+    | "36111" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'Esf'}
     | "36121" |
     | "36132" |
     | "36184" |
     | "36238" |
     | "36290" |
-    | "36325" |
-    | "36327" |
+    | "36325" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for Hneg missing from algos list}
+    | "36327" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for Hneg missing from algos list}
     | "36328" |
     | "36334" |
-    | "36435" |
+    | "36435" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'Esf'}
     | "36460" |
     | "36478" |
     | "36700" |
-    | "36702" |
+    | "36702" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for VmL missing from algos list}
     | "36704" |
     | "36726" |
     | "36728" |
     | "36731" |
-    | "36733" |
+    | "36733" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'pH'}
     | "36737" |
     | "37189" |
     | "37191" |
-    | "37193" |
-    | "37196" |
-    | "37219" |
+    | "37193" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc3'}
+    | "37196" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for co missing from algos list}
+    | "37219" | # failed assertion error: text still contains ???
     | "38656" |
     | "38829" |
     | "40195" |
@@ -794,9 +795,9 @@ Feature: Author loads raptor item and cycles variables
     | "46599" |
     | "46786" |
     | "46848" |
-    | "46890" |
+    | "46890" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "46982" |
-    | "47928" |
+    | "47928" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "48822" |
     | "49005" |
     | "49171" |
@@ -836,7 +837,7 @@ Feature: Author loads raptor item and cycles variables
     | "55964" |
     | "56006" |
     | "56015" |
-    | "56032" |
+    | "56032" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "56096" |
     | "56108" |
     | "56112" |
@@ -850,7 +851,7 @@ Feature: Author loads raptor item and cycles variables
     | "56446" |
     | "56450" |
     | "56461" |
-    | "56540" |
+    | "56540" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "56548" |
     | "56578" |
     | "56591" |
@@ -929,12 +930,12 @@ Feature: Author loads raptor item and cycles variables
     | "63917" |
     | "64013" |
     | "64100" |
-    | "64160" |
+    | "64160" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc1'}
     | "64167" |
     | "64204" |
     | "64225" |
     | "64251" |
-    | "64397" |
+    | "64397" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "64417" |
     | "64421" |
     | "64423" |
@@ -970,7 +971,7 @@ Feature: Author loads raptor item and cycles variables
     | "65757" |
     | "65847" |
     | "65894" |
-    | "65957" |
+    | "65957" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "65980" |
     | "66026" |
     | "66102" |
@@ -987,7 +988,7 @@ Feature: Author loads raptor item and cycles variables
     | "67229" |
     | "67305" |
     | "67465" |
-    | "67482" |
+    | "67482" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "67501" |
     | "67551" |
     | "67707" |
@@ -1004,15 +1005,15 @@ Feature: Author loads raptor item and cycles variables
     | "70299" |
     | "70638" |
     | "70790" |
-    | "70792" |
+    | "70792" | # failed assertion error: text still contains ???
     | "70842" |
-    | "70910" |
+    | "70910" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "70958" |
     | "70985" |
     | "71194" |
-    | "71286" |
+    | "71286" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "71460" |
-    | "71484" |
+    | "71484" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "71592" |
     | "71639" |
     | "71647" |
@@ -1023,7 +1024,7 @@ Feature: Author loads raptor item and cycles variables
     | "71742" |
     | "71843" |
     | "71847" |
-    | "71851" |
+    | "71851" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "71854" |
     | "71857" |
     | "72072" |
@@ -1041,10 +1042,10 @@ Feature: Author loads raptor item and cycles variables
     | "74553" |
     | "74614" |
     | "74702" |
-    | "74768" |
+    | "74768" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "74892" |
     | "74894" |
-    | "74906" |
+    | "74906" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "74956" |
     | "74985" |
     | "75016" |
@@ -1068,7 +1069,7 @@ Feature: Author loads raptor item and cycles variables
     | "79209" |
     | "79362" |
     | "80012" |
-    | "80014" |
+    | "80014" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "80016" |
     | "80024" |
     | "80251" |
@@ -1079,7 +1080,7 @@ Feature: Author loads raptor item and cycles variables
     | "81246" |
     | "81250" |
     | "81255" |
-    | "81291" |
+    | "81291" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "81572" |
     | "81584" |
     | "81610" |
@@ -1107,7 +1108,7 @@ Feature: Author loads raptor item and cycles variables
     | "84024" |
     | "84102" |
     | "84115" |
-    | "84118" |
+    | "84118" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "84138" |
     | "84151" |
     | "84157" |
@@ -1122,7 +1123,7 @@ Feature: Author loads raptor item and cycles variables
     | "84705" |
     | "84730" |
     | "84769" |
-    | "84823" |
+    | "84823" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "84853" |
     | "84875" |
     | "84898" |
@@ -1143,8 +1144,8 @@ Feature: Author loads raptor item and cycles variables
     | "86706" |
     | "86710" |
     | "86713" |
-    | "86720" |
-    | "86923" |
+    | "86720" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "86923" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "87104" |
     | "87148" |
     | "87168" |
@@ -1169,7 +1170,7 @@ Feature: Author loads raptor item and cycles variables
     | "88161" |
     | "88196" |
     | "88203" |
-    | "88687" |
+    | "88687" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "88990" |
     | "89282" |
     | "89330" |
@@ -1221,7 +1222,7 @@ Feature: Author loads raptor item and cycles variables
     | "94957" |
     | "94984" |
     | "95087" |
-    | "95642" |
+    | "95642" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (TypeError) (Not string) in 'muNonSI'}
     | "95696" |
     | "95995" |
     | "96605" |
@@ -1232,8 +1233,8 @@ Feature: Author loads raptor item and cycles variables
     | "97179" |
     | "97208" |
     | "97218" |
-    | "97512" |
-    | "97540" |
+    | "97512" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Increment cannot be zero. Please try another number.}
+    | "97540" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'v[mps]'}
     | "97799" |
     | "97824" |
     | "97878" |
@@ -1306,7 +1307,7 @@ Feature: Author loads raptor item and cycles variables
     | "100996" |
     | "100998" |
     | "101000" |
-    | "101009" |
+    | "101009" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "101057" |
     | "101059" |
     | "101071" |
@@ -1320,9 +1321,9 @@ Feature: Author loads raptor item and cycles variables
     | "101246" |
     | "101301" |
     | "101307" |
-    | "101323" |
-    | "101325" |
-    | "101327" |
+    | "101323" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for ppm missing from algos list}
+    | "101325" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for inc3 missing from algos list}
+    | "101327" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "101329" |
     | "101352" |
     | "101391" |
@@ -1339,7 +1340,7 @@ Feature: Author loads raptor item and cycles variables
     | "101832" |
     | "101849" |
     | "101867" |
-    | "101907" |
+    | "101907" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "101924" |
     | "101926" |
     | "101986" |
@@ -1405,11 +1406,11 @@ Feature: Author loads raptor item and cycles variables
     | "103786" |
     | "103818" |
     | "103863" |
-    | "103872" |
+    | "103872" | # failed assertion error: text still contains ???
     | "103910" |
     | "103912" |
     | "103919" |
-    | "103964" |
+    | "103964" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "103974" |
     | "103984" |
     | "103987" |
@@ -1418,7 +1419,7 @@ Feature: Author loads raptor item and cycles variables
     | "104021" |
     | "104028" |
     | "104046" |
-    | "104107" |
+    | "104107" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'inc3'}
     | "104134" |
     | "104151" |
     | "104160" |
@@ -1437,9 +1438,9 @@ Feature: Author loads raptor item and cycles variables
     | "104399" |
     | "104411" |
     | "104413" |
-    | "104415" |
-    | "104432" |
-    | "104482" |
+    | "104415" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "104432" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "104482" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "104484" |
     | "104497" |
     | "104531" |
@@ -1453,7 +1454,7 @@ Feature: Author loads raptor item and cycles variables
     | "105149" |
     | "105238" |
     | "105240" |
-    | "105328" |
+    | "105328" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "105408" |
     | "105509" |
     | "105544" |
@@ -1462,7 +1463,7 @@ Feature: Author loads raptor item and cycles variables
     | "105592" |
     | "105599" |
     | "105603" |
-    | "105613" |
+    | "105613" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "105660" |
     | "105668" |
     | "105679" |
@@ -1473,7 +1474,7 @@ Feature: Author loads raptor item and cycles variables
     | "105816" |
     | "105825" |
     | "105958" |
-    | "105991" |
+    | "105991" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "106052" |
     | "106054" |
     | "106125" |
@@ -1482,7 +1483,7 @@ Feature: Author loads raptor item and cycles variables
     | "106209" |
     | "106224" |
     | "106254" |
-    | "106329" |
+    | "106329" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "106349" |
     | "106352" |
     | "106367" |
@@ -1513,7 +1514,7 @@ Feature: Author loads raptor item and cycles variables
     | "106975" |
     | "107094" |
     | "107105" |
-    | "107181" |
+    | "107181" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'answerw1sigfig'}
     | "107421" |
     | "107446" |
     | "107448" |
@@ -1533,10 +1534,10 @@ Feature: Author loads raptor item and cycles variables
     | "108006" |
     | "108017" |
     | "108141" |
-    | "108217" |
+    | "108217" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "108219" |
-    | "108221" |
-    | "108223" |
+    | "108221" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
+    | "108223" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "108259" |
     | "108354" |
     | "108424" |
@@ -1571,10 +1572,10 @@ Feature: Author loads raptor item and cycles variables
     | "110176" |
     | "110232" |
     | "110235" |
-    | "110245" |
+    | "110245" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Increment cannot be zero. Please try another number.}
     | "110369" |
     | "110395" |
-    | "110399" |
+    | "110399" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "110412" |
     | "110470" |
     | "110480" |
@@ -1656,7 +1657,7 @@ Feature: Author loads raptor item and cycles variables
     | "114705" |
     | "114734" |
     | "114801" |
-    | "114818" |
+    | "114818" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "115006" |
     | "115023" |
     | "115174" |
@@ -1669,7 +1670,7 @@ Feature: Author loads raptor item and cycles variables
     | "115820" |
     | "115859" |
     | "115871" |
-    | "116039" |
+    | "116039" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "116083" |
     | "116108" |
     | "116180" |
@@ -1684,7 +1685,7 @@ Feature: Author loads raptor item and cycles variables
     | "117213" |
     | "117327" |
     | "117387" |
-    | "117459" |
+    | "117459" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "117464" |
     | "117532" |
     | "117570" |
@@ -1726,7 +1727,7 @@ Feature: Author loads raptor item and cycles variables
     | "119567" |
     | "119609" |
     | "119637" |
-    | "119645" |
+    | "119645" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "119654" |
     | "119662" |
     | "119689" |
@@ -1736,7 +1737,7 @@ Feature: Author loads raptor item and cycles variables
     | "119912" |
     | "120215" |
     | "120368" |
-    | "120399" |
+    | "120399" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "120423" |
     | "120627" |
     | "120632" |
@@ -1746,7 +1747,7 @@ Feature: Author loads raptor item and cycles variables
     | "120826" |
     | "120903" |
     | "120911" |
-    | "120951" |
+    | "120951" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "120988" |
     | "121068" |
     | "121073" |
@@ -1875,15 +1876,15 @@ Feature: Author loads raptor item and cycles variables
     | "139784" |
     | "140297" |
     | "140306" |
-    | "140631" |
-    | "140632" |
-    | "140921" |
+    | "140631" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'Tday'}
+    | "140632" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'totEnergyJ'}
+    | "140921" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "141156" |
     | "141191" |
     | "141201" |
     | "141285" |
     | "141427" |
-    | "141520" |
+    | "141520" | # GET /v1/ams/learningObjective/... throws 404 # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Oops, something went wrong when communicating with the server.  [undefined.  Status undefined].  You may need to reload the page.}
     | "141921" |
     | "142063" |
     | "142125" |
@@ -1891,88 +1892,88 @@ Feature: Author loads raptor item and cycles variables
     | "142302" |
     | "142378" |
     | "142469" |
-    | "144706" |
-    | "144738" |
-    | "144795" |
-    | "144831" |
+    | "144706" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p2 missing from algos list}
+    | "144738" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for pb missing from algos list}
+    | "144795" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "144831" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
     | "144859" |
-    | "144878" |
+    | "144878" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for a3 missing from algos list}
     | "144978" |
-    | "144994" |
+    | "144994" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for ans missing from algos list}
     | "144997" |
-    | "144999" |
-    | "145002" |
-    | "145128" |
-    | "145165" |
+    | "144999" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for dd missing from algos list}
+    | "145002" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
+    | "145128" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
+    | "145165" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z2 missing from algos list}
     | "145168" |
     | "145172" |
-    | "145235" |
-    | "145263" |
+    | "145235" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z3 missing from algos list}
+    | "145263" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p missing from algos list}
     | "145270" |
-    | "145346" |
-    | "145350" |
-    | "145355" |
-    | "145362" |
-    | "145415" |
-    | "145418" |
+    | "145346" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z2 missing from algos list}
+    | "145350" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error default error handler triggered: (ValueError) Error resolving 'plose'}
+    | "145355" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for me missing from algos list}
+    | "145362" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "145415" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for stddev2 missing from algos list}
+    | "145418" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for pp missing from algos list}
     | "145420" |
     | "145421" |
-    | "145513" |
-    | "145524" |
-    | "145532" |
-    | "145533" |
+    | "145513" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for x1 missing from algos list}
+    | "145524" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for stddev1 missing from algos list}
+    | "145532" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for r95 missing from algos list}
+    | "145533" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p0 missing from algos list}
     | "145558" |
-    | "150742" |
+    | "150742" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for q3 missing from algos list}
     | "150757" |
-    | "150876" |
+    | "150876" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for t missing from algos list}
     | "150992" |
-    | "150993" |
-    | "150994" |
+    | "150993" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p1 missing from algos list}
+    | "150994" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for mu missing from algos list}
     | "150996" |
-    | "150997" |
+    | "150997" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for mu1 missing from algos list}
     | "150998" |
-    | "150999" |
+    | "150999" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error undefined}
     | "151085" |
-    | "151086" |
+    | "151086" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p2 missing from algos list}
     | "151088" |
     | "151092" |
     | "151093" |
     | "151096" |
-    | "151106" |
+    | "151106" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for ans missing from algos list}
     | "151109" |
     | "151111" |
     | "151113" |
     | "151175" |
     | "151180" |
     | "151319" |
-    | "151320" |
-    | "151321" |
+    | "151320" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p2 missing from algos list}
+    | "151321" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for pb missing from algos list}
     | "151327" |
     | "151332" |
-    | "151340" |
-    | "151346" |
-    | "151352" |
-    | "151353" |
-    | "151364" |
-    | "151366" |
-    | "151367" |
+    | "151340" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for df missing from algos list}
+    | "151346" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for q3 missing from algos list}
+    | "151352" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p missing from algos list}
+    | "151353" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for se missing from algos list}
+    | "151364" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
+    | "151366" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "151367" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for p1 missing from algos list}
     | "151368" |
-    | "151369" |
+    | "151369" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for mu missing from algos list}
     | "151370" |
-    | "151372" |
-    | "151373" |
-    | "151375" |
-    | "151376" |
-    | "151377" |
-    | "151378" |
-    | "151388" |
-    | "151393" |
-    | "151394" |
-    | "151396" |
-    | "151492" |
+    | "151372" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for mu1 missing from algos list}
+    | "151373" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error undefined}
+    | "151375" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for chi2 missing from algos list}
+    | "151376" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for na3 missing from algos list}
+    | "151377" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for ch2 missing from algos list}
+    | "151378" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
+    | "151388" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
+    | "151393" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
+    | "151394" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
+    | "151396" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for chi2 missing from algos list}
+    | "151492" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for dd missing from algos list}
     | "151510" |
-    | "151633" |
-    | "151636" |
+    | "151633" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
+    | "151636" | # UnexpectedAlertOpenError: unexpected alert open: {Alert text : Algo init error Dependency for z missing from algos list}
     | "151686" |
     | "154989" |
     | "155207" |
@@ -1985,7 +1986,7 @@ Feature: Author loads raptor item and cycles variables
     | "155763" |
     | "157132" |
     | "157171" |
-    | "157204" |
+    | "157204" | # AssertionError: Web Element staticTextfield is not visible on page after 120 second wait. FAIL
     | "157690" |
     | "158191" |
     | "158564" |
@@ -1996,7 +1997,7 @@ Feature: Author loads raptor item and cycles variables
     | "159970" |
     | "159980" |
     | "159990" |
-    | "159999" |
+    | "159999" | # STARTED
     | "160010" |
     | "160022" |
     | "160029" |
@@ -2496,7 +2497,7 @@ Feature: Author loads raptor item and cycles variables
     | "301136" |
     | "301245" |
     | "301291" |
-    | "301350" |
+    | "301350" | # STOPPED - 54 failed from this batch
     | "301660" |
     | "302145" |
     | "302254" |
@@ -9996,7 +9997,7 @@ Feature: Author loads raptor item and cycles variables
     | "2094462" |
     | "2094502" |
     | "2094671" |
-    | "2094956" |
+    | "2094956" | # STARTED - 223 F, 778 P from this batch
     | "2094959" |
     | "2095340" |
     | "2095485" |
@@ -10996,7 +10997,7 @@ Feature: Author loads raptor item and cycles variables
     | "2285050" |
     | "2285056" |
     | "2285071" |
-    | "2285073" |
+    | "2285073" | # STOPPED
     | "2285075" |
     | "2285082" |
     | "2285084" |
@@ -12996,8 +12997,8 @@ Feature: Author loads raptor item and cycles variables
     | "2356073" |
     | "2356080" |
     | "2356091" |
-    | "2356093" |
-    | "2356116" |
+    | "2356093" | # STARTED: 117 F, 384 P from this block
+    | "2356116" | # OK
     | "2356130" |
     | "2356141" |
     | "2356145" |
@@ -13496,8 +13497,8 @@ Feature: Author loads raptor item and cycles variables
     | "2410736" |
     | "2410743" |
     | "2410748" |
-    | "2410762" |
-    | "2410816" |
+    | "2410762" | # STOPPED
+    | "2410816" | # OK
     | "2410820" |
     | "2410825" |
     | "2410830" |
@@ -13654,632 +13655,632 @@ Feature: Author loads raptor item and cycles variables
     | "2428841" |
     | "2428856" |
     | "2429408" |
-    | "2429545" |
-    | "2429565" |
-    | "2429574" |
-    | "2429582" |
-    | "2429599" |
-    | "2429627" |
-    | "2429699" |
-    | "2429719" |
-    | "2429823" |
-    | "2429840" |
-    | "2429859" |
-    | "2429892" |
-    | "2429918" |
-    | "2429945" |
-    | "2429952" |
-    | "2429974" |
-    | "2429976" |
-    | "2430114" |
-    | "2430274" |
-    | "2430347" |
-    | "2430639" |
-    | "2430717" |
-    | "2434426" |
-    | "2434464" |
-    | "2434478" |
-    | "2434483" |
-    | "2434511" |
-    | "2435114" |
-    | "2435245" |
-    | "2435568" |
-    | "2436940" |
-    | "2436991" |
-    | "2437019" |
-    | "2437194" |
-    | "2437279" |
-    | "2437348" |
-    | "2437368" |
-    | "2437387" |
-    | "2437432" |
-    | "2438675" |
-    | "2438735" |
-    | "2438824" |
-    | "2438873" |
-    | "2438886" |
-    | "2438958" |
-    | "2439012" |
-    | "2439023" |
-    | "2439059" |
-    | "2439101" |
-    | "2439132" |
-    | "2439254" |
-    | "2439272" |
-    | "2439286" |
-    | "2439292" |
-    | "2439302" |
-    | "2439338" |
-    | "2439354" |
-    | "2439373" |
-    | "2439422" |
-    | "2439605" |
-    | "2440797" |
-    | "2440809" |
-    | "2441378" |
-    | "2441460" |
-    | "2441484" |
-    | "2441506" |
-    | "2441518" |
-    | "2441525" |
-    | "2441543" |
-    | "2441558" |
-    | "2441563" |
-    | "2441604" |
-    | "2441626" |
-    | "2441665" |
-    | "2441669" |
-    | "2441681" |
-    | "2441764" |
-    | "2441860" |
-    | "2441960" |
-    | "2441980" |
-    | "2442044" |
-    | "2442091" |
-    | "2442097" |
-    | "2442182" |
-    | "2442193" |
-    | "2442199" |
-    | "2442233" |
-    | "2442272" |
-    | "2442274" |
-    | "2442417" |
-    | "2442464" |
-    | "2442492" |
-    | "2442540" |
-    | "2442558" |
-    | "2442562" |
-    | "2442614" |
-    | "2442667" |
-    | "2443492" |
-    | "2443518" |
-    | "2443527" |
-    | "2443613" |
-    | "2443632" |
-    | "2443669" |
-    | "2443688" |
-    | "2443696" |
-    | "2443718" |
-    | "2443782" |
-    | "2443812" |
-    | "2443841" |
-    | "2443878" |
-    | "2443956" |
-    | "2444036" |
-    | "2444168" |
-    | "2444234" |
-    | "2444275" |
-    | "2444293" |
-    | "2444315" |
-    | "2444317" |
-    | "2444337" |
-    | "2444342" |
-    | "2444482" |
-    | "2444496" |
-    | "2444501" |
-    | "2444508" |
-    | "2444542" |
-    | "2444872" |
-    | "2444980" |
-    | "2445089" |
-    | "2445940" |
-    | "2446084" |
-    | "2446092" |
-    | "2446101" |
-    | "2446129" |
-    | "2446134" |
-    | "2446149" |
-    | "2446167" |
-    | "2446274" |
-    | "2446309" |
-    | "2446641" |
-    | "2446689" |
-    | "2446748" |
-    | "2446885" |
-    | "2447014" |
-    | "2447408" |
-    | "2447500" |
-    | "2447502" |
-    | "2447824" |
-    | "2447855" |
-    | "2447930" |
-    | "2447966" |
-    | "2448000" |
-    | "2448041" |
-    | "2448178" |
-    | "2448228" |
-    | "2448263" |
-    | "2448284" |
-    | "2448298" |
-    | "2448323" |
-    | "2448338" |
-    | "2448387" |
-    | "2448544" |
-    | "2448548" |
-    | "2448551" |
-    | "2448557" |
-    | "2448796" |
-    | "2449577" |
-    | "2449622" |
-    | "2449872" |
-    | "2449893" |
-    | "2449929" |
-    | "2449948" |
-    | "2449958" |
-    | "2449995" |
-    | "2450048" |
-    | "2450137" |
-    | "2450254" |
-    | "2450264" |
-    | "2450301" |
-    | "2450325" |
-    | "2450387" |
-    | "2450452" |
-    | "2450486" |
-    | "2450518" |
-    | "2450553" |
-    | "2450585" |
-    | "2450642" |
-    | "2450712" |
-    | "2450752" |
-    | "2450763" |
-    | "2451082" |
-    | "2451619" |
-    | "2452012" |
-    | "2452411" |
-    | "2452794" |
-    | "2452810" |
-    | "2452833" |
-    | "2452986" |
-    | "2452994" |
-    | "2453082" |
-    | "2453166" |
-    | "2453442" |
-    | "2453582" |
-    | "2453695" |
-    | "2453768" |
-    | "2453771" |
-    | "2453777" |
-    | "2453824" |
-    | "2453873" |
-    | "2454625" |
-    | "2454649" |
-    | "2454658" |
-    | "2454780" |
-    | "2454826" |
-    | "2454865" |
-    | "2454875" |
-    | "2454904" |
-    | "2455025" |
-    | "2455049" |
-    | "2455059" |
-    | "2455284" |
-    | "2455325" |
-    | "2455458" |
-    | "2455483" |
-    | "2455519" |
-    | "2455532" |
-    | "2455673" |
-    | "2455769" |
-    | "2455859" |
-    | "2455882" |
-    | "2455912" |
-    | "2455950" |
-    | "2456855" |
-    | "2457098" |
-    | "2457117" |
-    | "2457146" |
-    | "2457167" |
-    | "2457227" |
-    | "2457244" |
-    | "2457329" |
-    | "2458228" |
-    | "2458743" |
-    | "2458904" |
-    | "2458919" |
-    | "2458940" |
-    | "2458958" |
-    | "2458976" |
-    | "2459008" |
-    | "2459061" |
-    | "2459099" |
-    | "2459145" |
-    | "2459199" |
-    | "2459261" |
-    | "2459350" |
-    | "2459379" |
-    | "2459492" |
-    | "2459526" |
-    | "2459542" |
-    | "2459576" |
-    | "2459982" |
-    | "2460227" |
-    | "2460370" |
-    | "2460378" |
-    | "2460393" |
-    | "2460433" |
-    | "2460453" |
-    | "2460470" |
-    | "2460479" |
-    | "2460492" |
-    | "2460501" |
-    | "2460511" |
-    | "2460520" |
-    | "2460531" |
-    | "2460550" |
-    | "2460756" |
-    | "2460803" |
-    | "2460829" |
-    | "2460882" |
-    | "2460974" |
-    | "2461006" |
-    | "2461029" |
-    | "2461065" |
-    | "2461096" |
-    | "2461591" |
-    | "2461890" |
-    | "2461896" |
-    | "2461899" |
-    | "2461964" |
-    | "2462043" |
-    | "2462097" |
-    | "2462513" |
-    | "2462605" |
-    | "2462646" |
-    | "2462658" |
-    | "2462663" |
-    | "2462669" |
-    | "2462786" |
-    | "2462793" |
-    | "2462796" |
-    | "2462800" |
-    | "2462804" |
-    | "2462813" |
-    | "2462824" |
-    | "2463388" |
-    | "2463585" |
-    | "2463604" |
-    | "2463615" |
-    | "2463629" |
-    | "2463631" |
-    | "2463640" |
-    | "2463652" |
-    | "2463660" |
-    | "2463665" |
-    | "2463692" |
-    | "2463697" |
-    | "2463713" |
-    | "2463727" |
-    | "2463754" |
-    | "2463785" |
-    | "2463809" |
-    | "2463932" |
-    | "2464362" |
-    | "2464594" |
-    | "2464757" |
-    | "2464846" |
-    | "2465330" |
-    | "2465346" |
-    | "2465359" |
-    | "2465388" |
-    | "2465392" |
-    | "2465396" |
-    | "2465413" |
-    | "2465419" |
-    | "2465429" |
-    | "2465469" |
-    | "2465478" |
-    | "2465564" |
-    | "2466113" |
-    | "2466230" |
-    | "2466497" |
-    | "2466758" |
-    | "2466759" |
-    | "2466760" |
-    | "2466761" |
-    | "2467563" |
-    | "2467624" |
-    | "2467997" |
-    | "2468101" |
-    | "2468122" |
-    | "2468244" |
-    | "2468290" |
-    | "2468554" |
-    | "2469553" |
-    | "2469617" |
-    | "2470153" |
-    | "2470443" |
-    | "2471272" |
-    | "2471764" |
-    | "2472310" |
-    | "2472340" |
-    | "2472361" |
-    | "2472419" |
-    | "2472460" |
-    | "2472475" |
-    | "2472500" |
-    | "2472846" |
-    | "2473081" |
-    | "2475646" |
-    | "2475650" |
-    | "2475660" |
-    | "2475670" |
-    | "2475713" |
-    | "2475726" |
-    | "2475756" |
-    | "2475809" |
-    | "2476524" |
-    | "2476827" |
-    | "2477130" |
-    | "2477132" |
-    | "2477142" |
-    | "2477414" |
-    | "2477453" |
-    | "2477467" |
-    | "2477747" |
-    | "2477757" |
-    | "2478022" |
-    | "2478226" |
-    | "2478313" |
-    | "2478610" |
-    | "2478635" |
-    | "2478978" |
-    | "2479247" |
-    | "2479276" |
-    | "2479302" |
-    | "2479372" |
-    | "2479449" |
-    | "2479573" |
-    | "2479713" |
-    | "2479733" |
-    | "2479750" |
-    | "2479798" |
-    | "2479923" |
-    | "2480130" |
-    | "2480852" |
-    | "2481085" |
-    | "2481191" |
-    | "2481435" |
-    | "2482681" |
-    | "2482880" |
-    | "2483099" |
-    | "2483674" |
-    | "2483916" |
-    | "2483937" |
-    | "2483980" |
-    | "2484167" |
-    | "2484281" |
-    | "2485425" |
-    | "2485494" |
-    | "2485537" |
-    | "2485605" |
-    | "2485677" |
-    | "2485699" |
-    | "2485746" |
-    | "2486545" |
-    | "2486556" |
-    | "2487651" |
-    | "2487661" |
-    | "2487675" |
-    | "2487705" |
-    | "2487771" |
-    | "2487909" |
-    | "2487916" |
-    | "2487942" |
-    | "2487955" |
-    | "2487996" |
-    | "2488024" |
-    | "2488081" |
-    | "2488283" |
-    | "2488301" |
-    | "2488315" |
-    | "2488384" |
-    | "2488417" |
-    | "2488611" |
-    | "2488615" |
-    | "2488626" |
-    | "2488644" |
-    | "2488668" |
-    | "2488684" |
-    | "2488727" |
-    | "2488748" |
-    | "2488795" |
-    | "2488835" |
-    | "2488862" |
-    | "2488879" |
-    | "2488937" |
-    | "2489107" |
-    | "2489223" |
-    | "2489267" |
-    | "2489317" |
-    | "2489353" |
-    | "2489404" |
-    | "2489539" |
-    | "2489549" |
-    | "2489658" |
-    | "2489661" |
-    | "2489827" |
-    | "2489981" |
-    | "2490190" |
-    | "2490221" |
-    | "2490303" |
-    | "2490360" |
-    | "2490584" |
-    | "2490771" |
-    | "2490939" |
-    | "2492177" |
-    | "2492342" |
-    | "2492356" |
-    | "2492514" |
-    | "2492662" |
-    | "2492806" |
-    | "2492851" |
-    | "2493789" |
-    | "2493828" |
-    | "2493989" |
-    | "2494018" |
-    | "2494100" |
-    | "2494347" |
-    | "2494713" |
-    | "2494852" |
-    | "2494920" |
-    | "2495606" |
-    | "2496501" |
-    | "2497438" |
-    | "2497560" |
-    | "2498741" |
-    | "2498751" |
-    | "2498763" |
-    | "2498783" |
-    | "2498792" |
-    | "2498802" |
-    | "2498818" |
-    | "2498850" |
-    | "2498906" |
-    | "2498948" |
-    | "2499249" |
-    | "2499296" |
-    | "2499333" |
-    | "2499357" |
-    | "2499414" |
-    | "2499509" |
-    | "2499552" |
-    | "2500290" |
-    | "2500312" |
-    | "2500350" |
-    | "2500364" |
-    | "2500380" |
-    | "2500383" |
-    | "2500398" |
-    | "2500436" |
-    | "2500453" |
-    | "2500468" |
-    | "2500478" |
-    | "2500490" |
-    | "2500574" |
-    | "2500596" |
-    | "2500633" |
-    | "2500650" |
-    | "2500677" |
-    | "2500936" |
-    | "2519123" |
-    | "2519206" |
-    | "2521780" |
-    | "2523079" |
-    | "2523083" |
-    | "2523085" |
-    | "2523090" |
-    | "2523113" |
-    | "2523117" |
-    | "2524720" |
-    | "2525442" |
-    | "2526962" |
-    | "2526987" |
-    | "2527007" |
-    | "2527011" |
-    | "2527042" |
-    | "2527091" |
-    | "2527270" |
-    | "2527321" |
-    | "2527393" |
-    | "2528097" |
-    | "2528449" |
-    | "2528460" |
-    | "2528468" |
-    | "2528481" |
-    | "2528613" |
-    | "2529299" |
-    | "2529448" |
-    | "2529466" |
-    | "2530357" |
-    | "2535192" |
-    | "2535209" |
-    | "2550328" |
-    | "2550898" |
-    | "2551165" |
-    | "2551965" |
-    | "2552065" |
-    | "2555866" |
-    | "2555868" |
-    | "2555877" |
-    | "2555897" |
-    | "2555903" |
-    | "2555915" |
-    | "2555917" |
-    | "2555938" |
-    | "2555967" |
-    | "2555971" |
-    | "2555979" |
-    | "2555983" |
-    | "2555985" |
-    | "2556027" |
-    | "2556029" |
-    | "2556031" |
-    | "2556033" |
-    | "2556046" |
-    | "2556048" |
-    | "2558652" |
-    | "2558710" |
-    | "2558883" |
-    | "2559785" |
-    | "2560305" |
-    | "2560776" |
-    | "2560810" |
-    | "2560925" |
-    | "2561126" |
-    | "2561193" |
-    | "2561217" |
-    | "2561219" |
-    | "2564047" |
-    | "2564356" |
-    | "2564505" |
-    | "2565372" |
-    | "2565663" |
-    | "2566069" |
-    | "2566074" |
-    | "2566100" |
-    | "2566211" |
-    | "2566302" |
-    | "2566469" |
-    | "2566489" |
-    | "2566794" |
-    | "2566810" |
-    | "2566997" |
-    | "2567413" |
-    | "2567432" |
-    | "2567443" |
-    | "2567461" |
-    | "2567489" |
-    | "2579282" |
-    | "2579344" |
-    | "2579416" |
-    | "2581300" |
-    | "2581331" |
-    | "2581853" |
-    | "2581915" |
-    | "2582110" |
-    | "2582116" |
-    | "2582119" |
-    | "2582219" |
-    | "2583438" |
-    | "2584054" |
+    # | "2429545" | # int is out of sync from here down
+    # | "2429565" |
+    # | "2429574" |
+    # | "2429582" |
+    # | "2429599" |
+    # | "2429627" |
+    # | "2429699" |
+    # | "2429719" |
+    # | "2429823" |
+    # | "2429840" |
+    # | "2429859" |
+    # | "2429892" |
+    # | "2429918" |
+    # | "2429945" |
+    # | "2429952" |
+    # | "2429974" |
+    # | "2429976" |
+    # | "2430114" |
+    # | "2430274" |
+    # | "2430347" |
+    # | "2430639" |
+    # | "2430717" |
+    # | "2434426" |
+    # | "2434464" |
+    # | "2434478" |
+    # | "2434483" |
+    # | "2434511" |
+    # | "2435114" |
+    # | "2435245" |
+    # | "2435568" |
+    # | "2436940" |
+    # | "2436991" |
+    # | "2437019" |
+    # | "2437194" |
+    # | "2437279" |
+    # | "2437348" |
+    # | "2437368" |
+    # | "2437387" |
+    # | "2437432" |
+    # | "2438675" |
+    # | "2438735" |
+    # | "2438824" |
+    # | "2438873" |
+    # | "2438886" |
+    # | "2438958" |
+    # | "2439012" |
+    # | "2439023" |
+    # | "2439059" |
+    # | "2439101" |
+    # | "2439132" |
+    # | "2439254" |
+    # | "2439272" |
+    # | "2439286" |
+    # | "2439292" |
+    # | "2439302" |
+    # | "2439338" |
+    # | "2439354" |
+    # | "2439373" |
+    # | "2439422" |
+    # | "2439605" |
+    # | "2440797" |
+    # | "2440809" |
+    # | "2441378" |
+    # | "2441460" |
+    # | "2441484" |
+    # | "2441506" |
+    # | "2441518" |
+    # | "2441525" |
+    # | "2441543" |
+    # | "2441558" |
+    # | "2441563" |
+    # | "2441604" |
+    # | "2441626" |
+    # | "2441665" |
+    # | "2441669" |
+    # | "2441681" |
+    # | "2441764" |
+    # | "2441860" |
+    # | "2441960" |
+    # | "2441980" |
+    # | "2442044" |
+    # | "2442091" |
+    # | "2442097" |
+    # | "2442182" |
+    # | "2442193" |
+    # | "2442199" |
+    # | "2442233" |
+    # | "2442272" |
+    # | "2442274" |
+    # | "2442417" |
+    # | "2442464" |
+    # | "2442492" |
+    # | "2442540" |
+    # | "2442558" |
+    # | "2442562" |
+    # | "2442614" |
+    # | "2442667" |
+    # | "2443492" |
+    # | "2443518" |
+    # | "2443527" |
+    # | "2443613" |
+    # | "2443632" |
+    # | "2443669" |
+    # | "2443688" |
+    # | "2443696" |
+    # | "2443718" |
+    # | "2443782" |
+    # | "2443812" |
+    # | "2443841" |
+    # | "2443878" |
+    # | "2443956" |
+    # | "2444036" |
+    # | "2444168" |
+    # | "2444234" |
+    # | "2444275" |
+    # | "2444293" |
+    # | "2444315" |
+    # | "2444317" |
+    # | "2444337" |
+    # | "2444342" |
+    # | "2444482" |
+    # | "2444496" |
+    # | "2444501" |
+    # | "2444508" |
+    # | "2444542" |
+    # | "2444872" | # 404 not found on int (from here down)
+    # | "2444980" |
+    # | "2445089" |
+    # | "2445940" |
+    # | "2446084" |
+    # | "2446092" |
+    # | "2446101" |
+    # | "2446129" |
+    # | "2446134" |
+    # | "2446149" |
+    # | "2446167" |
+    # | "2446274" |
+    # | "2446309" |
+    # | "2446641" |
+    # | "2446689" |
+    # | "2446748" |
+    # | "2446885" |
+    # | "2447014" |
+    # | "2447408" |
+    # | "2447500" |
+    # | "2447502" |
+    # | "2447824" |
+    # | "2447855" |
+    # | "2447930" |
+    # | "2447966" |
+    # | "2448000" |
+    # | "2448041" |
+    # | "2448178" |
+    # | "2448228" |
+    # | "2448263" |
+    # | "2448284" |
+    # | "2448298" |
+    # | "2448323" |
+    # | "2448338" |
+    # | "2448387" |
+    # | "2448544" |
+    # | "2448548" |
+    # | "2448551" |
+    # | "2448557" |
+    # | "2448796" |
+    # | "2449577" |
+    # | "2449622" |
+    # | "2449872" |
+    # | "2449893" |
+    # | "2449929" |
+    # | "2449948" |
+    # | "2449958" |
+    # | "2449995" |
+    # | "2450048" |
+    # | "2450137" |
+    # | "2450254" |
+    # | "2450264" |
+    # | "2450301" |
+    # | "2450325" |
+    # | "2450387" |
+    # | "2450452" |
+    # | "2450486" |
+    # | "2450518" |
+    # | "2450553" |
+    # | "2450585" |
+    # | "2450642" |
+    # | "2450712" |
+    # | "2450752" |
+    # | "2450763" |
+    # | "2451082" |
+    # | "2451619" |
+    # | "2452012" |
+    # | "2452411" |
+    # | "2452794" |
+    # | "2452810" |
+    # | "2452833" |
+    # | "2452986" |
+    # | "2452994" |
+    # | "2453082" |
+    # | "2453166" |
+    # | "2453442" |
+    # | "2453582" |
+    # | "2453695" |
+    # | "2453768" |
+    # | "2453771" |
+    # | "2453777" |
+    # | "2453824" |
+    # | "2453873" |
+    # | "2454625" |
+    # | "2454649" |
+    # | "2454658" |
+    # | "2454780" |
+    # | "2454826" |
+    # | "2454865" |
+    # | "2454875" |
+    # | "2454904" |
+    # | "2455025" |
+    # | "2455049" |
+    # | "2455059" |
+    # | "2455284" |
+    # | "2455325" |
+    # | "2455458" |
+    # | "2455483" |
+    # | "2455519" |
+    # | "2455532" |
+    # | "2455673" |
+    # | "2455769" |
+    # | "2455859" |
+    # | "2455882" |
+    # | "2455912" |
+    # | "2455950" |
+    # | "2456855" |
+    # | "2457098" |
+    # | "2457117" |
+    # | "2457146" |
+    # | "2457167" |
+    # | "2457227" |
+    # | "2457244" |
+    # | "2457329" |
+    # | "2458228" |
+    # | "2458743" |
+    # | "2458904" |
+    # | "2458919" |
+    # | "2458940" |
+    # | "2458958" |
+    # | "2458976" |
+    # | "2459008" |
+    # | "2459061" |
+    # | "2459099" |
+    # | "2459145" |
+    # | "2459199" |
+    # | "2459261" |
+    # | "2459350" |
+    # | "2459379" |
+    # | "2459492" |
+    # | "2459526" |
+    # | "2459542" |
+    # | "2459576" |
+    # | "2459982" |
+    # | "2460227" |
+    # | "2460370" |
+    # | "2460378" |
+    # | "2460393" |
+    # | "2460433" |
+    # | "2460453" |
+    # | "2460470" |
+    # | "2460479" |
+    # | "2460492" |
+    # | "2460501" |
+    # | "2460511" |
+    # | "2460520" |
+    # | "2460531" |
+    # | "2460550" |
+    # | "2460756" |
+    # | "2460803" |
+    # | "2460829" |
+    # | "2460882" |
+    # | "2460974" |
+    # | "2461006" |
+    # | "2461029" |
+    # | "2461065" |
+    # | "2461096" |
+    # | "2461591" |
+    # | "2461890" |
+    # | "2461896" |
+    # | "2461899" |
+    # | "2461964" |
+    # | "2462043" |
+    # | "2462097" |
+    # | "2462513" |
+    # | "2462605" |
+    # | "2462646" |
+    # | "2462658" |
+    # | "2462663" |
+    # | "2462669" |
+    # | "2462786" |
+    # | "2462793" |
+    # | "2462796" |
+    # | "2462800" |
+    # | "2462804" |
+    # | "2462813" |
+    # | "2462824" |
+    # | "2463388" |
+    # | "2463585" |
+    # | "2463604" |
+    # | "2463615" |
+    # | "2463629" |
+    # | "2463631" |
+    # | "2463640" |
+    # | "2463652" |
+    # | "2463660" |
+    # | "2463665" |
+    # | "2463692" |
+    # | "2463697" |
+    # | "2463713" |
+    # | "2463727" |
+    # | "2463754" |
+    # | "2463785" |
+    # | "2463809" |
+    # | "2463932" |
+    # | "2464362" |
+    # | "2464594" |
+    # | "2464757" |
+    # | "2464846" |
+    # | "2465330" |
+    # | "2465346" |
+    # | "2465359" |
+    # | "2465388" |
+    # | "2465392" |
+    # | "2465396" |
+    # | "2465413" |
+    # | "2465419" |
+    # | "2465429" |
+    # | "2465469" |
+    # | "2465478" |
+    # | "2465564" |
+    # | "2466113" |
+    # | "2466230" |
+    # | "2466497" |
+    # | "2466758" |
+    # | "2466759" |
+    # | "2466760" |
+    # | "2466761" |
+    # | "2467563" |
+    # | "2467624" |
+    # | "2467997" |
+    # | "2468101" |
+    # | "2468122" |
+    # | "2468244" |
+    # | "2468290" |
+    # | "2468554" |
+    # | "2469553" |
+    # | "2469617" |
+    # | "2470153" |
+    # | "2470443" |
+    # | "2471272" |
+    # | "2471764" |
+    # | "2472310" |
+    # | "2472340" |
+    # | "2472361" |
+    # | "2472419" |
+    # | "2472460" |
+    # | "2472475" |
+    # | "2472500" |
+    # | "2472846" |
+    # | "2473081" |
+    # | "2475646" |
+    # | "2475650" |
+    # | "2475660" |
+    # | "2475670" |
+    # | "2475713" |
+    # | "2475726" |
+    # | "2475756" |
+    # | "2475809" |
+    # | "2476524" |
+    # | "2476827" |
+    # | "2477130" |
+    # | "2477132" |
+    # | "2477142" |
+    # | "2477414" |
+    # | "2477453" |
+    # | "2477467" |
+    # | "2477747" |
+    # | "2477757" |
+    # | "2478022" |
+    # | "2478226" |
+    # | "2478313" |
+    # | "2478610" |
+    # | "2478635" |
+    # | "2478978" |
+    # | "2479247" |
+    # | "2479276" |
+    # | "2479302" |
+    # | "2479372" |
+    # | "2479449" |
+    # | "2479573" |
+    # | "2479713" |
+    # | "2479733" |
+    # | "2479750" |
+    # | "2479798" |
+    # | "2479923" |
+    # | "2480130" |
+    # | "2480852" |
+    # | "2481085" |
+    # | "2481191" |
+    # | "2481435" |
+    # | "2482681" |
+    # | "2482880" |
+    # | "2483099" |
+    # | "2483674" |
+    # | "2483916" |
+    # | "2483937" |
+    # | "2483980" |
+    # | "2484167" |
+    # | "2484281" |
+    # | "2485425" |
+    # | "2485494" |
+    # | "2485537" |
+    # | "2485605" |
+    # | "2485677" |
+    # | "2485699" |
+    # | "2485746" |
+    # | "2486545" |
+    # | "2486556" |
+    # | "2487651" |
+    # | "2487661" |
+    # | "2487675" |
+    # | "2487705" |
+    # | "2487771" |
+    # | "2487909" |
+    # | "2487916" |
+    # | "2487942" |
+    # | "2487955" |
+    # | "2487996" |
+    # | "2488024" |
+    # | "2488081" |
+    # | "2488283" |
+    # | "2488301" |
+    # | "2488315" |
+    # | "2488384" |
+    # | "2488417" |
+    # | "2488611" |
+    # | "2488615" |
+    # | "2488626" |
+    # | "2488644" |
+    # | "2488668" |
+    # | "2488684" |
+    # | "2488727" |
+    # | "2488748" |
+    # | "2488795" |
+    # | "2488835" |
+    # | "2488862" |
+    # | "2488879" |
+    # | "2488937" |
+    # | "2489107" |
+    # | "2489223" |
+    # | "2489267" |
+    # | "2489317" |
+    # | "2489353" |
+    # | "2489404" |
+    # | "2489539" |
+    # | "2489549" |
+    # | "2489658" |
+    # | "2489661" |
+    # | "2489827" |
+    # | "2489981" |
+    # | "2490190" |
+    # | "2490221" |
+    # | "2490303" |
+    # | "2490360" |
+    # | "2490584" |
+    # | "2490771" |
+    # | "2490939" |
+    # | "2492177" |
+    # | "2492342" |
+    # | "2492356" |
+    # | "2492514" |
+    # | "2492662" |
+    # | "2492806" |
+    # | "2492851" |
+    # | "2493789" |
+    # | "2493828" |
+    # | "2493989" |
+    # | "2494018" |
+    # | "2494100" |
+    # | "2494347" |
+    # | "2494713" |
+    # | "2494852" |
+    # | "2494920" |
+    # | "2495606" |
+    # | "2496501" |
+    # | "2497438" |
+    # | "2497560" |
+    # | "2498741" |
+    # | "2498751" |
+    # | "2498763" |
+    # | "2498783" |
+    # | "2498792" |
+    # | "2498802" |
+    # | "2498818" |
+    # | "2498850" |
+    # | "2498906" |
+    # | "2498948" |
+    # | "2499249" |
+    # | "2499296" |
+    # | "2499333" |
+    # | "2499357" |
+    # | "2499414" |
+    # | "2499509" |
+    # | "2499552" |
+    # | "2500290" |
+    # | "2500312" |
+    # | "2500350" |
+    # | "2500364" |
+    # | "2500380" |
+    # | "2500383" |
+    # | "2500398" |
+    # | "2500436" |
+    # | "2500453" |
+    # | "2500468" |
+    # | "2500478" |
+    # | "2500490" |
+    # | "2500574" |
+    # | "2500596" |
+    # | "2500633" |
+    # | "2500650" |
+    # | "2500677" |
+    # | "2500936" |
+    # | "2519123" |
+    # | "2519206" |
+    # | "2521780" |
+    # | "2523079" |
+    # | "2523083" |
+    # | "2523085" |
+    # | "2523090" |
+    # | "2523113" |
+    # | "2523117" |
+    # | "2524720" |
+    # | "2525442" |
+    # | "2526962" |
+    # | "2526987" |
+    # | "2527007" |
+    # | "2527011" |
+    # | "2527042" |
+    # | "2527091" |
+    # | "2527270" |
+    # | "2527321" |
+    # | "2527393" |
+    # | "2528097" |
+    # | "2528449" |
+    # | "2528460" |
+    # | "2528468" |
+    # | "2528481" |
+    # | "2528613" |
+    # | "2529299" |
+    # | "2529448" |
+    # | "2529466" |
+    # | "2530357" |
+    # | "2535192" |
+    # | "2535209" |
+    # | "2550328" |
+    # | "2550898" |
+    # | "2551165" |
+    # | "2551965" |
+    # | "2552065" |
+    # | "2555866" |
+    # | "2555868" |
+    # | "2555877" |
+    # | "2555897" |
+    # | "2555903" |
+    # | "2555915" |
+    # | "2555917" |
+    # | "2555938" |
+    # | "2555967" |
+    # | "2555971" |
+    # | "2555979" |
+    # | "2555983" |
+    # | "2555985" |
+    # | "2556027" |
+    # | "2556029" |
+    # | "2556031" |
+    # | "2556033" |
+    # | "2556046" |
+    # | "2556048" |
+    # | "2558652" |
+    # | "2558710" |
+    # | "2558883" |
+    # | "2559785" |
+    # | "2560305" |
+    # | "2560776" |
+    # | "2560810" |
+    # | "2560925" |
+    # | "2561126" |
+    # | "2561193" |
+    # | "2561217" |
+    # | "2561219" |
+    # | "2564047" |
+    # | "2564356" |
+    # | "2564505" |
+    # | "2565372" |
+    # | "2565663" |
+    # | "2566069" |
+    # | "2566074" |
+    # | "2566100" |
+    # | "2566211" |
+    # | "2566302" |
+    # | "2566469" |
+    # | "2566489" |
+    # | "2566794" |
+    # | "2566810" |
+    # | "2566997" |
+    # | "2567413" |
+    # | "2567432" |
+    # | "2567443" |
+    # | "2567461" |
+    # | "2567489" |
+    # | "2579282" |
+    # | "2579344" |
+    # | "2579416" |
+    # | "2581300" |
+    # | "2581331" |
+    # | "2581853" |
+    # | "2581915" |
+    # | "2582110" |
+    # | "2582116" |
+    # | "2582119" |
+    # | "2582219" |
+    # | "2583438" |
+    # | "2584054" |
