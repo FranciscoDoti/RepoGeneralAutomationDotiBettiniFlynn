@@ -4,15 +4,23 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 let filters = [];
 let textFilter;
 
+
+When("Clear filter buffer", async function(){
+    filters = [];
+    textFilter= undefined;
+});
+
 When("I apply the filter options {} and {}", async function(filter, option){
     await filterslib.setFilter(filter,option);
 });
 
 When('I click on Deleted Items', async function(){
+    
     await pages.filters.click('Deleted Items');
 });
 
 When("I apply the following filters", async function(dataTable){
+    filters= [];
     for (let i = 0; i < dataTable.rows().length; i++) {
         let item = dataTable.hashes()[i];
         await filters.push(item);
@@ -34,6 +42,7 @@ When('I remove the following filters', async function(dataTable){
     for (let i = 0; i < dataTable.rows().length; i++) {
         let item = dataTable.hashes()[i];
         await filterslib.removeFilter(item['Option']);
+        
     }
 });
 
@@ -51,32 +60,18 @@ Then('I verify the following filter tags are displayed', async function(dataTabl
     }
 });
 
-Then('I verify that the items match with the filter applied with value {}', async function(option){
-    await filterslib.verifyItemsWithFiltersApplied(option);
+Then('I verify that the items match with the filter applied with value {}', async function(filter, option){
+    
+     
+    await filters.push(item);
+    
+    await filterslib.verifyItemsWithFiltersApplied(filters,textFilter);
 
 });
 
 Then('I verify that the items match with the filters applied', async function () {
     await filterslib.verifyItemswithFiltersApplied(filters, textFilter);
 
-
-});
-
-Then('I verify that items match with the following multiple filters that were applied', async function(dataTable){
-   let  options= [];
-    
-    for (let i = 0; i < dataTable.rows().length; i++) {
-        let item = dataTable.hashes()[i];
-        options[i]= item.Option;
-    }
-    await filterslib.verifyItemsWithFiltersApplied(options);
-
-});
-
-
-
-Then(/^I verify that the items match with the text filter "(.*)" that was applied$/, async function(textFilter){
-    await filterslib.verifyItemsWithFilterApplied(textFilter);
 
 });
 

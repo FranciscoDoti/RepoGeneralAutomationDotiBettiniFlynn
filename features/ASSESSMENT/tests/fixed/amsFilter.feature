@@ -1,44 +1,21 @@
 @Assessment @AMS @FilterItems
 Feature: To verify the correct functionality of ams's item filter
 
-    @MultipleFilters @VerifyChanges @Smoke
-    Scenario: Change the filter. Apply multiple filters and verify  whether the AMS items are changing based on filter
+    Background: Clear the filter buffer
+        Given Clear filter buffer
+
+    @VerifyItemsFiltered @Smoke @Outline
+    Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
         Given I login to AMS as "all-permissions-author"
-        When I apply the following filters
-            | Filter | Option                  |
-            | Topic  | End of Chapter Problems |
-        And I remove the following filters
-            | Filter | Option                  |
-            | Topic  | End of Chapter Problems |
-        And I apply the following filters
-            | Filter | Option                         |
-            | Topic  | Your Questions (uncategorized) |
-            | Access | public                         |
-        Then I verify that items match with the following multiple filters that were applied
-            | Filter | Option                         |
-            | Topic  | Your Questions (uncategorized) |
-            | Access | public                         |
-
-    @TextFilter @Smoke
-    Scenario: Apply text filter and verify whether the AMS items are changing based on text filter
-        Given I login to AMS as "all-permissions-author"
-        When I apply the following text filter "CEE"
-        Then I verify that the items match with the text filter "CEE" that was applied
-
-
-    @VerifyLoadMore @Smoke
-    Scenario: Verify whether items on AMS screen increase on clicking Load More
-        Given I login to AMS as "all-permissions-author"
-        When I apply the following filters
-            | Filter | Option                         |
-            | Topic  | Your Questions (uncategorized) |
-        And I click on Load More
-        Then I verify that the quantity of items on AMS screen have increased
-
-            
+        When I apply the filter options <Filter> and <Option>
+        Then I verify that the items match with the filter applied with value <Option>
         
+        Examples:
+            | Filter | Option                         |
+            | Topic  | Your Questions (uncategorized) |
+            | Topic  | End of Chapter Problems        |
 
-    @ChangeFilterAndVerifyChanges @Smoke
+    @ChangeFilterAndVerifyChanges @Smoke @Outline
     Scenario Outline: Change the filter and verify whether the AMS items are changing based on filter
         Given I login to AMS as "all-permissions-author"
         When I apply the following filters
@@ -54,20 +31,37 @@ Feature: To verify the correct functionality of ams's item filter
             | Filter | Option                         |
             | Topic  | Your Questions (uncategorized) |
 
-
-
-
-    @VerifyItemsFiltered @Smoke
-    Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
+    @MultipleFilters @VerifyChanges @Smoke
+    Scenario: Change the filter. Apply multiple filters and verify  whether the AMS items are changing based on filter
         Given I login to AMS as "all-permissions-author"
-        When I apply the filter options <Filter> and <Option>
-        Then I verify that the items match with the filter applied with value <Option>
-        
-        Examples:
+        When I apply the following filters
+            | Filter | Option                  |
+            | Topic  | End of Chapter Problems |
+        And I remove the following filters
+            | Filter | Option                  |
+            | Topic  | End of Chapter Problems |
+        And I apply the following filters
             | Filter | Option                         |
             | Topic  | Your Questions (uncategorized) |
-            | Topic  | End of Chapter Problems        |
-            | Topic  | Price Floors                   |
+            | Access | public                         |
+        Then I verify that the items match with the filters applied
+
+    @TextFilter @Smoke
+    Scenario: Apply text filter and verify whether the AMS items are changing based on text filter
+        Given I login to AMS as "all-permissions-author"
+        When I apply the following text filter "CEE"
+        Then I verify that the items match with the filters applied
+
+
+    @VerifyLoadMore @Smoke
+    Scenario: Verify whether items on AMS screen increase on clicking Load More
+        Given I login to AMS as "all-permissions-author"
+        When I apply the following filters
+            | Filter | Option                         |
+            | Topic  | Your Questions (uncategorized) |
+        And I click on Load More
+        Then I verify that the quantity of items on AMS screen have increased
+
 
     @Verify3FilterTagsAtSameTime @Smoke
     Scenario: Apply 3 different filters and verify that the tags are being displayed
@@ -94,7 +88,6 @@ Feature: To verify the correct functionality of ams's item filter
             | Filter               | Option                                                                     |
             | Topic                | Your Questions (uncategorized)                                             |
             | Topic                | End of Chapter Problems                                                    |
-            | Topic                | Price Floors                                                               |
             | Topic                | Calculating GDP                                                            |
             | Topic                | Commas                                                                     |
             | Topic                | Calculating Real GDP                                                       |
