@@ -4,6 +4,7 @@ const { sleep } = require(`${process.cwd()}/app/driver`);
 const { iclicker, gradebook } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { getCategoryName } = require('../data/test_value_generator');
+const { openIClickerMenu } = require('./instructor_iclicker_when')
 
 Then('Points are displayed in the course total', async function () {
   await gradebook.waitForElementVisibility('gradebookAverageTotal');
@@ -96,4 +97,12 @@ Then('I verify grade override modal has correct data', async function (dataTable
     await gradebook.click('cancelGradeOverride');
   }
   await sleep(2000);
+});
+
+Then('The manage iClicker button should be displayed', async function () {
+  await openIClickerMenu();
+  await iclicker.click('manageIClickerMenu');
+  await iclicker.switchToTab('iClicker Cloud');
+  const URL = await iclicker.getCurrentURL();
+  expect(URL).to.contains('reef-education.com')
 });
