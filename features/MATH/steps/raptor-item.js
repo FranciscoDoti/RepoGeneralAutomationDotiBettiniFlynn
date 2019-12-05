@@ -33,11 +33,12 @@ When(/^I am on the AMS page and click the first item id$/, async function () {
   await pages.raptorAms.switchToTab('Raptor Authoring');
 });
 
-When(/^I input "(.*)" into the author item url$/, async function (itemId) {
-  log.debug(`itemId = "${itemId}"`);
+When(/^I input "(.*)" with status "(.*)" into the author item url$/, async function (itemId, status) {
+  log.debug(`itemId = "${itemId}", status = "${status}"`);
   let currentUrl = await pages.raptorAms.getCurrentURL();
   let newUrl = currentUrl.split("/");
   newUrl.splice(6,1,itemId);
+  newUrl.splice(7,1,status);
   newUrl = newUrl.join("/");
   log.debug(`newUrl = "${newUrl}"`);
   await visitURL(newUrl, Key.ENTER);
