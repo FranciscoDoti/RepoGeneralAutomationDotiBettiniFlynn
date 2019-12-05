@@ -8,38 +8,40 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         When I create template with following data 
             | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199432  | draft         |
+        And I close the popup message                      
+
+        And I click on search button and input "activities Template" to search the course     
 
         And I activate the "activities Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
-            | activities Template   |   E2E 301     |  Active On Date      |    
+            | activities Template    |   E2E 301     |  Active On Date      | 
 
-        And I add URL link to "activities Template" 
+
+        And I click on "activities Template" card
+        And I click on "Production" Tab
+        And I add URL link to "Create" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
-        
-        And I add the activities to the resource tab
-            |  activities       | type              |
-            | Google            | addCCButton       |
-            | AutomationAsset2  | addFileButton     |
-            | Glossary          | addReadingButton  |
+        And I click on go to your content
+        And I add custom activity to Content Library
+            | activity                                      |    
+            | Google                                        |
+        And I add activities to "Content Library"
+          | activities                         |
+          | GLOSSARY                           |
+          | AutomationEpub-201910171217        |
           
-
-
+        
+        And I click on back to course
         And I click on home button to return to coursepage
+
         And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "activities Template" template with the following data
-            | courseName            | courseCode           |
-            | activities Course     | E2E 301              |
+            | courseName           | courseCode           |
+            | activities Course    | E2E 301             |
 
-        #And I close the popup message
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
-
-        When I activate "activities Course" course with following data 
-            | field             | value                        |
-            | courseName        | activities Course            |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
 
         And I assign "instructor_2" to the "activities Course" course
        
@@ -55,14 +57,15 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | Glossary                                   |
-            | AutomationAsset2                            |
+            | GLOSSARY                                    |
+            | AutomationEpub-201910171217                 |
+        And I close the popup message 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | Glossary                                                         | 5      |
-            | AutomationAsset2                                                 | 5      |
+            | GLOSSARY                                                         | 5      |
+            | AutomationEpub-201910171217                                      | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
@@ -84,11 +87,11 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I attempt "Google" URL activity
 
-        And I attempt "AutomationAsset2" File activity
+        And I attempt "AutomationEpub-201910171217" File activity
 
         And I complete the reading activity 
             | activity           |
-            | Glossary           |
+            | GLOSSARY           |
         
         And I sign out of Achieve
 
@@ -108,5 +111,12 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | activity                                      | percent   |
             | Google                                        | 100%      |
         And I sign out of Achieve
+
+    Scenario: I delete the course and Template
+
+        Given I login to Achieve-CW as "media_producer_2"
+        And I click on "COURSE TEMPLATES" tab  
+        And I delete "activities Template" and "activities Course"
+
 
    
