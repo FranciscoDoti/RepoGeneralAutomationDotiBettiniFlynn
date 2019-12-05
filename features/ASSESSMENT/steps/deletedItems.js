@@ -13,7 +13,7 @@ When('I apply the following filters on DeletedItems page', async function (dataT
 });
 
 When('I click on Deleted Items', async function(){
-    await pages.deletedItems.click('Deleted Items');
+    await pages.filters.click('Deleted Items');
 });
 
 When(/^I apply the following text filter "(.*)" on DeletedItems page$/, async function (text) {

@@ -4,17 +4,17 @@ const { assert, expect} = require('chai');
 
 
 const setFilter = async function (mainOption, subOption) {
-  await pages.deletedItems.click('Filters');
-  await pages.deletedItems.click('Filter', mainOption);
-  await pages.deletedItems.click('Option', subOption);
+  await pages.filters.click('Filters');
+  await pages.filters.click('Filter', mainOption);
+  await pages.filters.click('Option', subOption);
 };
 
 const setTextFilter = async function(textFilter){
-  await pages.deletedItems.populate('Text Filter', textFilter);
+  await pages.filters.populate('Text Filter', textFilter);
 };
 
 const searchResultCount = async function () {
-    return await pages.deletedItems.getAttributeValue('Search Results', 'tbody', 'childElementCount'); 
+    return await pages.filters.getAttributeValue('Search Results', 'tbody', 'childElementCount'); 
   
   };
   const verifyItemInRow = async function(rowNumber, filters, textFilter){
@@ -42,8 +42,8 @@ const verifyItemswithFiltersApplied = async function(filters,textFilter){
     while (i <= await searchResultCount()) {  
         await verifyItemInRow(i, filters, textFilter);     
       if (i % 200 == 0 && i <= 999) {
-        await pages.deletedItems.scrollElementIntoView('Load More');
-        await pages.deletedItems.click('Load More');
+        await pages.filters.scrollElementIntoView('Load More');
+        await pages.filters.click('Load More');
       }
       i++;
     }

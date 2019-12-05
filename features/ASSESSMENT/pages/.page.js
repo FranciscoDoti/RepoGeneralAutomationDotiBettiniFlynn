@@ -25,7 +25,6 @@ let pages = {
     froala: new PageObject('froala.json', stepsPath),
     filters: new PageObject('filters.json',stepsPath),
     chemicalEquation: new PageObject('chemicalEquation.json',stepsPath),
-    deletedItems: new PageObject('filters.json',stepsPath)
 };
 
 module.exports ={

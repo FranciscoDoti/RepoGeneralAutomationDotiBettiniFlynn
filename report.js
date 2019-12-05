@@ -6,7 +6,7 @@ const reportName = function(){
     var prefix = argv.prefix || "";
     prefix = (prefix !== "") ? prefix + " " : "";
     var date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-    return prefix + "Cucumber Report ";
+    return prefix + "Cucumber Report " + date;
 };
 
 var options = {
