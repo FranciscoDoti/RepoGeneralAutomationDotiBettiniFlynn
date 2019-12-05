@@ -1,19 +1,28 @@
 const { When, Then } = require('cucumber');
 const { filterslib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+let filters = [];
+let textFilter;
 
 When("I apply the filter options {} and {}", async function(filter, option){
     await filterslib.setFilter(filter,option);
 });
 
+When('I click on Deleted Items', async function(){
+    await pages.filters.click('Deleted Items');
+});
+
 When("I apply the following filters", async function(dataTable){
     for (let i = 0; i < dataTable.rows().length; i++) {
         let item = dataTable.hashes()[i];
-        await filterslib.setFilter(item['Filter'],item['Option']);
+        await filters.push(item);
+        await filterslib.setFilter(item['Filter'], item['Option']);      
     }
-});  
+});
 
-When(/^I apply the following text filter "(.*)"$/, async function(textFilter){
+
+When(/^I apply the following text filter "(.*)"$/, async function(text){
+    textFilter = text;
     await filterslib.setTextFilter(textFilter);
 });
 
@@ -43,7 +52,13 @@ Then('I verify the following filter tags are displayed', async function(dataTabl
 });
 
 Then('I verify that the items match with the filter applied with value {}', async function(option){
-    await filterslib.verifyItemsWithFilterApplied(option);
+    await filterslib.verifyItemsWithFiltersApplied(option);
+
+});
+
+Then('I verify that the items match with the filters applied', async function () {
+    await filterslib.verifyItemswithFiltersApplied(filters, textFilter);
+
 
 });
 
@@ -54,7 +69,7 @@ Then('I verify that items match with the following multiple filters that were ap
         let item = dataTable.hashes()[i];
         options[i]= item.Option;
     }
-    await filterslib.verifyItemsWithMultipleFilterApplied(options);
+    await filterslib.verifyItemsWithFiltersApplied(options);
 
 });
 
