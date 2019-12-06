@@ -58,8 +58,8 @@
         },
         {
             "name": "Content Area",
-            "byType": "xpath",
-            "definition": "//div[@class='content-preview']",
+            "byType": "id",
+            "definition": "primary-content-area",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -330,6 +330,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Editor Panel Done Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//button[text()='Done']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "=.=.=.=.=.=": "===========================================================================================",
             "=.COMMENT.=": "= THE FOLLOWING ELEMENTS ARE IN THIS FILE BECAUSE THEY ARE COMMON TO MORE THAN ONE MODULE =",
             ".=.=.=.=.=.": "==========================================================================================="
@@ -349,26 +356,18 @@
             "specialInstr": "NA"
         },
         {
-            "name": "pathFinderFrame",
-            "byType": "id",
-            "definition": "activity-iframe",
-            "frame": "default",
-            "specialInstr": "NA"
-
-        },
-        {
-            "name": "Choice Text 1",
+            "name": "Choice Text",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
-            "frame": "pathFinderFrame",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span/label/div/span",
+            "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Answer Radio Button 1",
             "byType": "xpath",
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
-            "frame": "pathFinderFrame",
-            "specialInstr": ""
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

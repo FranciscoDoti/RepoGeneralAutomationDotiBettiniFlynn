@@ -13,7 +13,7 @@ When(/^I set the number "(.*)" as the correct answwer$/, async function (correct
 Then('The variable values are displayed as choices', async function () {
   await pages.raptor.click('Cycle Variables Button');
   await raptorlib.saveItem();
-  let text = await pages.raptor.getText('Choice Text 1');
+  let text = await pages.raptor.getText('Choice Text', 1);
   switch (text) {
     case "oak":
     case "pine":
