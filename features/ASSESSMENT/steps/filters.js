@@ -60,13 +60,16 @@ Then('I verify the following filter tags are displayed', async function(dataTabl
     }
 });
 
-Then('I verify that the items match with the filter applied with value {}', async function(filter, option){
+Then('I verify that the items match with the filter applied with filter {} and {}', async function(filter, option){
     
      
-    await filters.push(item);
-    
-    await filterslib.verifyItemsWithFiltersApplied(filters,textFilter);
+    let filters= [];
+    let item ={ "Filter": `${filter}`, 
+                "Option": `${option}`
+            };
 
+    filters.push(item);
+    await filterslib.verifyItemswithFiltersApplied(filters, textFilter);
 });
 
 Then('I verify that the items match with the filters applied', async function () {

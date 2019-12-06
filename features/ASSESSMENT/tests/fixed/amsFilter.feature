@@ -8,7 +8,7 @@ Feature: To verify the correct functionality of ams's item filter
     Scenario Outline: Apply different filters and check that the items filtered match with the filter applied
         Given I login to AMS as "all-permissions-author"
         When I apply the filter options <Filter> and <Option>
-        Then I verify that the items match with the filter applied with value <Option>
+        Then I verify that the items match with the filter applied with filter <Filter> and <Option>
         
         Examples:
             | Filter | Option                         |
@@ -25,7 +25,7 @@ Feature: To verify the correct functionality of ams's item filter
             | Filter | Option                  |
             | Topic  | End of Chapter Problems |
         When I apply the filter options <Filter> and <Option>
-        Then I verify that the items match with the filter applied with value <Option>
+        Then I verify that the items match with the filter applied with filter <Filter> and <Option>
         
         Examples:
             | Filter | Option                         |
@@ -88,13 +88,6 @@ Feature: To verify the correct functionality of ams's item filter
             | Filter               | Option                                                                     |
             | Topic                | Your Questions (uncategorized)                                             |
             | Topic                | End of Chapter Problems                                                    |
-            | Topic                | Calculating GDP                                                            |
-            | Topic                | Commas                                                                     |
-            | Topic                | Calculating Real GDP                                                       |
-            | Topic                | Subject-verb agreement                                                     |
-            | Topic                | Following the Money: The Expanded Circular-Flow Diagram                    |
-            | Topic                | Apostrophes                                                                |
-            | Topic                | Run-ons and comma splices                                                  |
             | Blooms               | Remembering                                                                |
             | Blooms               | Understanding                                                              |
             | Blooms               | Applying                                                                   |
@@ -122,14 +115,6 @@ Feature: To verify the correct functionality of ams's item filter
             | Item Type            | performance                                                                |
             | Item Type            | participation                                                              |
             | Internal Topic Title | Your Questions (uncategorized)                                             |
-            | Internal Topic Title | Questions For Review- duplicate ID 9016                                    |
-            | Internal Topic Title | Desmos Dynamic Figures                                                     |
-            | Internal Topic Title | Tax Revenues_cowentabarrokecon4e                                           |
-            | Internal Topic Title | 34.5 Sensory Systems                                                       |
-            | Internal Topic Title | Dimensional Analysis-GenChem                                               |
-            | Internal Topic Title | Following the Money: The Expanded Circular-Flow Diagram_krugmanwellsecon5e |
-            | Internal Topic Title | 14.3 Small-Scale Mutations                                                 |
-            | Internal Topic Title | Intermolecular Forces- duplicate ID 463-GenChem                            |
             | Access               | public                                                                     |
             | Access               | private                                                                    |
             | Learning Objective   | untagged                                                                   |
