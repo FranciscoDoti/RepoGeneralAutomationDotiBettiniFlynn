@@ -226,6 +226,28 @@
         "specialInstr": "NA"
     },
     {
+        "name": "gracePeriod",
+        "byType": "css",
+        "definition": "[data-test-id='access_code_modal_start_gp_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "checkBox",
+        "byType": "css",
+        "definition": "[type='checkbox']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "courseName",
+        "byType": "xpath",
+        "definition": "//div[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
         "name": "courseName",
         "byType": "xpath",
         "definition": "//div[contains(@class,'_3XTJ') and contains(text(), '<ReplaceText>')]",
