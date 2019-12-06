@@ -32,7 +32,7 @@
     }, {
         "name": "columnStatus",
         "byType": "css",
-        "definition": ".table >* td[data-test-id='status-<ReplaceText>']", 
+        "definition": ".table >* td[data-test-id='status-<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -41,15 +41,31 @@
         "definition": "filter-input-id",
         "frame": "default",
         "specialInstr": "NA"
-    }, 
-    {
+    }, {
         "name": "itemId",
         "byType": "css",
         "definition": "a[data-test-id='edit-item-link-<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
-    },
-    {
+    }, {
+        "name": "itemIdNewWindow",
+        "byType": "css",
+        "definition": "span[data-test-id='item-new-window-<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "authorModeColumn",
+        "byType": "css",
+        "definition": "th[data-id='authoring_tool']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "firstItemIdNewWindow",
+        "byType": "css",
+        "definition": "#item-panel > table > tbody > tr:nth-child(1) > th > span.glyphicon.glyphicon-new-window",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "graphTab",
         "byType": "css",
         "definition": "a[data-test-id='graphsBtn']",
