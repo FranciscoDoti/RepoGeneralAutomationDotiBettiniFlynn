@@ -349,25 +349,17 @@
             "specialInstr": "NA"
         },
         {
-            "name": "pathFinderFrame",
-            "byType": "id",
-            "definition": "activity-iframe",
-            "frame": "default",
-            "specialInstr": "NA"
-
-        },
-        {
-            "name": "Choice Text 1",
+            "name": "Choice Text",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
-            "frame": "pathFinderFrame",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span/label/div/span",
+            "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Answer Radio Button 1",
             "byType": "xpath",
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
-            "frame": "pathFinderFrame",
+            "frame": "default",
             "specialInstr": ""
         }
     ]
