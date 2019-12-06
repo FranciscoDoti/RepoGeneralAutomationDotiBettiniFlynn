@@ -229,3 +229,25 @@ Then('I do not see assignments more than 7 days out on the course plan tab', asy
   await pages.coursePage.click('tab', 'ASSIGNMENTS');
   await pages.coursePage.assertElementDoesNotExist('dueDateDay', dayMore7);
 });
+
+When(/^I enroll "(.*)" in "(.*)" using Grace Period$/, async function (userType, courseName){
+  await pages.createCourse.getText('courseShortId', courseName);
+  let user = this.users[userType];
+  let text = await pages.createCourse.getText('courseShortId', courseName);
+  await shared.login.click('togglerMenu');
+  await shared.login.click('signOut');
+  await IAMpages.signIn.click('signinlink');
+  await shared.login.populate('username', user.username);
+  await shared.login.populate('password', user.password);
+  await shared.login.click('signin');
+  await pages.coursePage.click('enroll');
+  await pages.coursePage.populate('accessModelInput', text);
+  await pages.coursePage.click('enter');
+  await pages.courseList.click('gracePeriod');
+  await pages.courseList.populate('checkBox', 'check');
+  await pages.coursePage.click('finishEnrollement');
+});
+
+Then(/^I verify that student is enrolled in "(.*)"$/, async function(courseName){
+  await pages.courseList.assertElementExists('courseName', courseName)
+});

@@ -1,10 +1,10 @@
 
 @Smoke @localonly @Course
-Feature: Student enrolls through course Id and access code
+Feature: Student Enrolls in the course using Grace Period
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
-    Scenario: Verify that student is able to enroll in course using Course Id and access code
+    Scenario:Verify that Student can enroll in the course using Grace Period
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -41,12 +41,6 @@ Feature: Student enrolls through course Id and access code
         And I assign "instructor_1" to the "Qualitative Course" course
         And I sign out of Achieve
 
-        When I login to Achieve-CW as "paid_access"
-
-        And I generate "1" month length access code for "Qualitative Template"
-        And I close generate access code
-        
-        And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
         When I activate "Qualitative Course" course with following data 
@@ -55,9 +49,11 @@ Feature: Student enrolls through course Id and access code
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
-        And I enroll "student_1" in the course using "Qualitative Course"
+        And I enroll "student_1" in "Qualitative Course" using Grace Period
+        And I click on home button to return to coursepage
 
-       Then I verify that student is enrolled in "Qualitative Course"
+        Then I verify that student is enrolled in "Qualitative Course"
+
 
           
 
