@@ -1,0 +1,13 @@
+{
+  "username": "test.macmillan@yahoo.com",
+  "password": "ABCabc@123",
+  "firstName": "macmillan",
+  "lastName": "student",
+  "sq1": "What is the first and last name of your first boyfriend or girlfriend?",
+  "sq1_answer": "test",
+  "sq2": "What is your favorite movie?",
+  "sq2_answer": "test",
+  "sq3": "What is your favorite color?",
+  "sq3_answer": "test",
+  "primarySchool": "Macmillan Learning"
+}
