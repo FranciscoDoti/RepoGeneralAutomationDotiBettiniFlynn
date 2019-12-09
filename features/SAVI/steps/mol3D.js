@@ -4,7 +4,7 @@ const { visitURL, sleep, getDriver } = require(`${process.cwd()}/app/driver`);
 const { expect } = require('chai');
 const { log } = require(`${process.cwd()}/app/logger`);
 
-When('I open the Mol3d assessment', async function () {
+When('I click the link to Mol3d assessment', async function () {
   await visitURL('http://www.saplinglearning.com/ibiscms/mod/flcn/view.php?id=9246108');
   await pages.saplingLearning.click('studentPreviewButton');
   await pages.saplingLearning.click('clearAttemptsButton');
@@ -19,10 +19,6 @@ When('I open the Mol3d assessment', async function () {
 When('I click the link to Mol3d standalone', async function () {
   await pages.saplingLearning.click('mol3dStandaloneLink');
   await sleep(5000);
-});
-
-When('I return to the Savi Verification page', async function () {
-  await visitURL('http://www.saplinglearning.com/ibiscms/course/view.php?id=77826');
 });
 
 Then('the Mol3d applet loads without errors', async function () {
@@ -49,6 +45,7 @@ Then('the Mol3d applet loads without errors', async function () {
   console.log(errors.length)
   if (await expect(errors.length).to.equal(0)) {
     log.info(`${errors.length} errors found in Jmol console. PASS`);
+    await sleep(5000);
   }
 });
 
@@ -105,5 +102,29 @@ Then('the Mol3d applet reports {int} errors', async function (numErrors) {
   }
   if (await expect(errors.length).to.equal(numErrors)) {
     log.info(`${numErrors} errors expected in Jmol console. ${errors.length} errors found. PASS`);
+  //  await sleep(5000);
   }
 });
+
+When('I click the link to Mol3d standalone using Pubchem smile identifier', async function () {
+  await pages.saplingLearning.click('mol3dSmile');
+  await sleep(5000);
+});
+
+When('I click the link to Mol3d standalone using Pubchem name identifier', async function () {
+  await pages.saplingLearning.click('mol3dWater');
+  await sleep(5000);
+});
+
+When('I click the link to Mol3d standalone using NIH Cactus identifier', async function () {
+  await pages.saplingLearning.click('mol3dCactus');
+  await sleep(5000);
+});
+
+When('I click the link to Mol3d standalone using RCSB Protein in Data Bank identifier', async function () {
+  await pages.saplingLearning.click('mol3dProtein');
+  await sleep(5000);
+});
+
+
+

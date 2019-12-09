@@ -18,6 +18,30 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
+            "name": "mol3dSmile",
+            "byType": "xpath",
+            "definition": "//*[@id='module-10631949']/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "mol3dWater",
+            "byType": "xpath",
+            "definition": "//*[@id='module-10634425']/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "mol3dCactus",
+            "byType": "xpath",
+            "definition": "//*[@id='module-10634426']/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "mol3dProtein",
+            "byType": "xpath",
+            "definition": "//*[@id='module-10634427']/a",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
             "name": "mol3dStandaloneLinkError",
             "byType": "xpath",
             "definition": "//*[@id='module-10596895']/a",
