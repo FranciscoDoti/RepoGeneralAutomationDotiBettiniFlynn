@@ -1,12 +1,14 @@
+@Course @Smoke
 Feature: Verify that search filter is correctly displayed
 
+    @admin-delete-courseTemplate
     Scenario: Create a template and verify that the search filter for Author is correctly displayed
 
        Given I login to Achieve-CW as "admin_2"
 
         When I create template with following data 
-            | courseType  | productModel | courseName           | learningObjective     | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative  | PSV-4766             | macmillan calculus    | E2E 301      | 9772100299499  | draft         | 
+            | courseType  | productModel    | courseName           | learningObjective     | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative  | PSV-4766             | macmillan calculus    | E2E 301      | 9772100299499  | draft         | 
 
         And I close the popup message                      
 

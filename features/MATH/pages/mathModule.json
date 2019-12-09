@@ -36,6 +36,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "isImaginary",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-is_imaginary']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "gradeToConstant",
             "byType": "css",
             "definition": ".greq-input[data-test-id='edit-panel-checkbox-grade_to_constant']",

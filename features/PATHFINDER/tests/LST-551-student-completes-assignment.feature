@@ -1,8 +1,9 @@
+@SetScreenSize
 @Pathfinder
 @student
 Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
-    Scenario: Producer copies course and assigns instructor role to pf-instructor
+    Scenario: Producer copies course
         Given I login to Achieve-CW as "pf-producer"
             When I copy course from the "Pathfinder Producer Template" template with the following data
             | courseName                 | courseCode |
@@ -15,6 +16,9 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
 
     Scenario: Admin adds student to course
         Given I login to Achieve-CW as "pf-admin"
+            When I search for the course "PF Automation Student Test" and click on course card
+            When I use a pre-built course
+            When I click on home button to return to coursepage
             When I enroll the "pf-student1" in "PF Automation Student Test" course
 
     Scenario: Student Takes Practice Test
@@ -45,7 +49,7 @@ Feature: Student Completes A Pathfinder Activity And Gets Every Question Correct
             | 18       | 4      |
             | 19       | 3      |
             | 20       | 1      |
-                Then there should be a "Continue to Results Button" on the "secondaryHeader" page
+                # Then there should be a "Continue to Results Button" on the "secondaryHeader" page
 
             When I refresh the page
             # When I click on the "Continue To Results Button" on the "secondaryHeader" page

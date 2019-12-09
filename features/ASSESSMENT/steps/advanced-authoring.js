@@ -13,13 +13,13 @@ When(/^I add the following choices in "(.*)" module$/, async function (module, d
     }
     await pages.raptor.populate('Choice Value Textbox', i + 1, datatable.hashes()[i].Value);
   }
-  console.log();
+  await pages.raptor.click('Editor Panel Done Button');
 });
 
 Then('The rendered values of the variables are displayed as choices in the module', async function () {
   await pages.raptor.click('Cycle Variables Button');
   await raptorlib.saveItem();
-  let text = await pages.raptor.getText('Choice Text 1');
+  let text = await pages.raptor.getText('Choice Text', 1);
   if (await expect(text.length).to.equal(1)) {
     log.info(`Expected length is "${1}". Actual length is "${text.length}". PASS`);
   };

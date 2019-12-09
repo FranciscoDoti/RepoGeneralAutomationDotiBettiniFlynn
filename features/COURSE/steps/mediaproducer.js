@@ -19,9 +19,7 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 });
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
-  await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu', courseName);
+  await sleep(500);
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -31,7 +29,6 @@ When(/^I activate the "(.*)" template and add the following data$/, async functi
     await pages.editCourse.populate('templateStatus', c.templateStatus)
   }
   await pages.editCourse.click('save');
-  //await pages.home.click('closeAlert');
 });
 
 When(/^I add the activities in resources to "(.*)" template$/, async function (courseName, data_table) {
@@ -48,10 +45,11 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
 });
 
 When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName);
   await sleep(500);
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.coursePage.click('courseMenu')
   await pages.copyCourse.click('copyCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
@@ -242,7 +240,7 @@ When(/I add "(.*)" as collaborator to "(.*)"$/, async function (userType, course
   await pages.home.click('achieveHome');
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.click('courseMenu', courseName);
+  await sleep(500);
   await pages.courseList.click('courseMenu', courseName);
   await pages.createCourse.click('shareTemplate');
   await pages.createCourse.populate('collaboratorsEmail', user.username);
@@ -323,10 +321,10 @@ When('I create template with following data', async function (data_table){
       await pages.createCourse.populate('courseName', c.courseName)
       await pages.createCourse.assertElementExists('courseCode');
       await pages.createCourse.populate('courseCode', c.courseCode)
-      if(c.learningObjective != ''){
-      await pages.createCourse.assertElementExists('learningObjective');
-      await pages.createCourse.waitForElementVisibility('learningObjective', c.learningObjective)
-      await pages.createCourse.populate('learningObjective', c.learningObjective)
+      if (c.learningObjective != '') {
+        await pages.createCourse.assertElementExists('learningObjective');
+        await pages.createCourse.waitForElementVisibility('learningObjective', c.learningObjective)
+        await pages.createCourse.populate('learningObjective', c.learningObjective)
       }
       await pages.createCourse.assertElementExists('isbnNumber');
       await pages.createCourse.populate('isbnNumber', c.isbnNumber)
@@ -390,13 +388,33 @@ When(/^I add "(.*)" to the course plan$/, async function (activityName){
   await pages.coursePlanner.assertElementExists('activityLink', activityName);
 });
 
+When(/^I add activities by "(.*)" and add to content library$/, async function (tab, data_table){
+  await pages.coursePage.click('navigation', tab);
+  await pages.coursePage.click('contentType', 'Keyword Search');
+  for (let i = 0; i < data_table.rows().length; i++) {
+  await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
+  await pages.coursePlanner.click('librarySearchInput');
+  await pages.resources.click('addResources',data_table.hashes()[i].addContent);
+  }
+});
 When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/, async function (activityName, data_table){
-    await pages.coursePlanner.click(activityName);
+    await pages.coursePlanner.click('activityLink', activityName);
     for (let i = 0; i < data_table.rows().length; i++) {
-      var isbn = data_table.hashes()[i];
-      await pages.coursePlanner.populate('searchByISBN', isbn.ISBN);
-      await pages.coursePlanner.click('filterCheckbox', isbn.ISBN);
+      var s = data_table.hashes()[i];
+      if(activityName === 'ISBN'){
+        await pages.coursePlanner.populate('search','Search by ISBN', s.ISBN);
+        await pages.coursePlanner.click('filterCheckbox', s.ISBN);
+      }
+      else if(activityName == 'Author'){
+        await pages.coursePlanner.populate('search','Search by Author', s.Author);
+        await pages.coursePlanner.click('filterCheckbox', s.Author);
+      }
+      else if(activityName == 'Project Title'){
+        await pages.coursePlanner.populate('search','Search by Project Title', s.projectTitle);
+        await pages.coursePlanner.click('filterCheckbox', s.projectTitle);
+      }
       await pages.coursePlanner.click('Apply')
       await pages.coursePlanner.click('contentCheckbox');
     }
 });
+

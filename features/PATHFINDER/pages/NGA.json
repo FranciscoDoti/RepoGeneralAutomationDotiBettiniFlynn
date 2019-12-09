@@ -38,7 +38,7 @@
     }, {
         "name": "Save Answer Button",
         "byType": "xpath",
-        "definition": "//button[data-test-id='check-answer-button' and .='<ReplaceText>']",
+        "definition": "//*[@data-test-id='check-answer-button' and .='<ReplaceText>']",
         "frame": "NGA Frame",
         "spectialInstr": "NA"
     }, {
