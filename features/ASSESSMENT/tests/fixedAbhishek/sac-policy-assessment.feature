@@ -1,6 +1,20 @@
 @Assessment @Smoke
 Feature: To Verify assignment with grading policy
 
+    @setGradingPolicy @TimedPolicy
+    Scenario: Set Assessment with a new policy with time limit
+        Given I login to IBISCMS as "all-permissions-author"
+        And navigate to a course having course id "79848"
+        And I create a new assessment with its necessary details
+            | field           | value             |
+            | Assessment Name | QAAssessmentTimed |
+        When I have added "2" custom questions to assessment  
+        And I create a new grading Setting
+        And I set the grading setting name as "TimedPolicy" 
+        And I set a time limit to the policy with hours "1" and minutes "5" 
+        And I click on save on grading settins page
+        Then I see the policy "TimedPolicy" mentioned with the assessment title
+        
     @setGradingPolicy
     Scenario: Set Assessment grading policy
         Given I login to IBISCMS as "all-permissions-author"
@@ -32,3 +46,4 @@ Feature: To Verify assignment with grading policy
             | Question | Grade     |
             | 1        | Incorrect |
             | 2        | Incorrect |
+

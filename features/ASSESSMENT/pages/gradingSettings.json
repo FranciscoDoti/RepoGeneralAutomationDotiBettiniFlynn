@@ -1,0 +1,39 @@
+{
+    "webElements": [
+        {
+            "name": "Template Name",
+            "byType": "xpath",
+            "definition": "//input[@name='title']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Time Limit Checkbox",
+            "byType": "xpath",
+            "definition": "//label[@data-test-id='time-limit-checkbox-label']/span[@class='square']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Time Limit - Hours",
+            "byType": "xpath",
+            "definition": "//input[@data-time-type='hours']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Time Limit - Minutes",
+            "byType": "xpath",
+            "definition": "//input[@data-time-type='minutes']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Save Button",
+            "byType": "xpath",
+            "definition": "//button[.='Save']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}
