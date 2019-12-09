@@ -25,17 +25,16 @@ Then('The settings button is visible', async function () {
 });
 
 Then('A new category should appear in the Gradebook', async function () {
-  await gradebook.waitForElementVisibility('singleCategory');
   const newCategoryName = getCategoryName();
-  await gradebook.assertElementExists('categoryHeaderCells', newCategoryName);
+  await gradebook.waitForElementVisibility('categoryHeader', newCategoryName);
 });
 
 Then('No categories should appear in the Gradebook', async function () {
-  await gradebook.waitForElementVisibility('singleCategory');
-  const cells = await gradebook.getWebElements('categoryHeaderCells');
-  const text = await cells[0].getText();
-  const newCategoryName = getCategoryName();
-  expect(text).to.contains(newCategoryName);
+  await gradebook.waitForElementVisibility('allCategoryHeaders');
+  await sleep(2000);
+  const cells = await gradebook.getWebElements('allCategoryHeaders');
+  const headerCount = cells.length;
+  expect(headerCount).to.equal(1);
 });
 
 Then('The sync button should be visible', async function () {

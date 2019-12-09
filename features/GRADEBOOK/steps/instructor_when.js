@@ -1,8 +1,7 @@
 const { When } = require('cucumber');
 
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const { gradebook, settings } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
-const {getCategoryName} = require('../data/test_value_generator');
+const { gradebook } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
 
@@ -14,23 +13,6 @@ When('Instructor toggle percents', async function () {
 When('Instructor toggle points', async function () {
   await gradebook.waitForElementVisibility('pointsToggleButton');
   await gradebook.click('pointsToggleButton');
-});
-
-When('Instructor saves a new category', async function () {
-  await settings.waitForElementVisibility('addCategory');
-  await settings.click('addCategory');
-  await settings.waitForElementVisibility('newCategoryInput');
-  const newCategoryName = getCategoryName();
-  await settings.populate('newCategoryInput', newCategoryName);
-  await settings.click('saveCategory');
-});
-
-When('Instructor deletes all categories', async function () {
-  await settings.waitForElementVisibility('addCategory');
-  const deleteButtons = await settings.getWebElements('removeCategory');
-  for (const button of deleteButtons) {
-    await button.click();
-  }
 });
 
 When(/^I assign students to activities in courseplanner$/, async function (dataTable) {
