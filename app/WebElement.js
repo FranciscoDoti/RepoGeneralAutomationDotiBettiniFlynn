@@ -35,6 +35,12 @@ const WebElement = function (element) {
     };
   };
 
+  that.focus = async function () {
+    const definition = await this.getBy();
+    const returnElement = await my.driver.findElement(definition);
+    return await getDriver().executeScript('arguments[0].focus();', returnElement);
+  };
+
   that.scrollIntoView = async function () {
     const definition = await this.getBy();
     const returnElement = await my.driver.findElement(definition);
@@ -47,32 +53,33 @@ const WebElement = function (element) {
     return await my.driver.wait(my.webdriver.until.elementIsDisabled(returnElement), 3000);
   };
 
-  that.waitForVisibility = async function () {
+  that.waitForVisibility = async function (timeoutInSeconds) {
     const definition = await this.getBy();
-    const wait = (await my.driver.manage().getTimeouts()).implicit;
-    await my.driver.manage().setTimeouts({ implicit: 1000});
-    let visibility = await my.driver.wait(async function () {
+    const implicit = (await my.driver.manage().getTimeouts()).implicit;
+    await my.driver.manage().setTimeouts({ implicit: 5000});
+    let visibility = false, timer = Date.now();
+    while((Date.now()-timer)/1000 < timeoutInSeconds){
       let elements = await my.driver.findElements(definition);
-      if (elements.length > 0) {
-        return true;
+      if (elements.length > 0) { 
+        visibility = true; break;
       };
-    }, 120000);
-    await my.driver.manage().setTimeouts({ implicit: wait});
+    };
+    await my.driver.manage().setTimeouts({ implicit: implicit });
     return visibility;
   };
 
-  that.waitForInvisibility = async function () {
-    let counter = 0;
+  that.waitForInvisibility = async function (timeoutInSeconds) {
     const definition = await this.getBy();
-    const wait = (await my.driver.manage().getTimeouts()).implicit;
-    await my.driver.manage().setTimeouts({ implicit: 1000});
-    let invisibility = await my.driver.wait(async function () {
+    const implicit = (await my.driver.manage().getTimeouts()).implicit;
+    await my.driver.manage().setTimeouts({ implicit: 5000});
+    let invisibility = false, timer = Date.now();
+    while((Date.now()-timer)/1000 < timeoutInSeconds){
       let elements = await my.driver.findElements(definition);
-      if (elements.length <= 0) {
-        return true;
+      if (elements.length < 1) { 
+        invisibility = true; break;
       };
-    }, 120000);
-    await my.driver.manage().setTimeouts({ implicit: wait});
+    };
+    await my.driver.manage().setTimeouts({ implicit: implicit});
     return invisibility;
   };
 

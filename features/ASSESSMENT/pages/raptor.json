@@ -1,44 +1,100 @@
 {
     "webElements": [
         {
-            "name": "addLink",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "modulePallete",
+            "name": "Module Multiple Select Edit",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "contentArea",
-            "byType": "css",
-            "definition": "div[class='content-preview']",
+            "name": "Module Multiple Choice Edit",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='multiple_choice'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "More Button",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY MORE']",
+            "name": "Module Chemical Equation Edit",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Chemical Equation Correct Setup",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='chemical_equation'][<ReplaceText>]/..//div[@class='module-action-bar correct']/div[text()='Correct Setup']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module MolDraw Edit",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='moldraw'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item ID",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='edit-id']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Menu",
+            "byType": "xpath",
+            "definition": "//h2[@data-test-id='PRIMARY ADD MODULE']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Pallete",
+            "byType": "xpath",
+            "definition": "//*[@class='active-menu']//div[@data-test-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Content Area",
+            "byType": "id",
+            "definition": "primary-content-area",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "More Menu",
+            "byType": "xpath",
+            "definition": "//h2[@data-test-id='PRIMARY MORE']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Check Your Work Submit Button",
             "byType": "xpath",
-            "definition": "//button[.='Submit Answer']",
+            "definition": "//button[text()='Submit Answer']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Save As Draft",
-            "byType": "css",
-            "definition": "li[id='save-button']",
+            "byType": "xpath",
+            "definition": "//*[@class='active-menu']//li[@id='save-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Message",
+            "byType": "xpath",
+            "definition": "//h4[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "More Item Details",
+            "byType": "xpath",
+            "definition": "//*[@class='active-menu']//div[.='Item Details']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -50,30 +106,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "chemicalEquationPrefix",
-            "byType": "css",
-            "definition": "span[data-test-id=chem-eq-prefix-label] textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "Prompt",
-            "byType": "css",
-            "definition": "div[data-test-id='ace-label'] > textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        },
-        {
             "name": "Tab",
-            "byType": "css",
-            "definition": "a[data-test-id='<ReplaceText>-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "chemicalEquationAnswerInput",
-            "byType": "css",
-            "definition": "input[data-test-id=chem-eq-answer-input]",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='<ReplaceText>-context']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -85,14 +120,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "addCorrectContextButton",
-            "byType": "css",
-            "definition": "button[data-test-id='add-correct-context-button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "addIncorrectContextButton",
+            "name": "Add Incorrect Context Button",
             "byType": "css",
             "definition": "button[data-test-id='add-incorrect-context-button']",
             "frame": "default",
@@ -100,8 +128,8 @@
         },
         {
             "name": "Check Answer Slider",
-            "byType": "css",
-            "definition": "div[class='slider round']",
+            "byType": "xpath",
+            "definition": "//div[@class='slider round']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -120,16 +148,16 @@
             "specialInstr": "NA"
         },
         {
-            "name": "itemDetailsTitle",
-            "byType": "css",
-            "definition": "#item-details-container > div > div > div:nth-child(4) > input[type=text]",
+            "name": "Item Details Title",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-background hatchling']//div[.='Title: ']/input",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "itemDetailsDoneButton",
-            "byType": "css",
-            "definition": "#authoring-menu-bar > div:nth-child(3) > div > div.cdl-dialog-actions > input",
+            "name": "Item Details Done Button",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-background hatchling']//input[@value='Done']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -260,9 +288,84 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Algolia is Processing",
+            "name": "Answer Tab",
             "byType": "xpath",
-            "definition": "//i[.='Algolia is Processing']",
+            "definition": "//a[contains(@data-test-id,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Add Button",
+            "byType": "xpath",
+            "definition": "//div[@id='context-feedback-menu-buttons']/h2[text()='Add']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Module",
+            "byType": "xpath",
+            "definition": "//div[@id='feedback-module-palette']/ul/li/div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Context Area",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Feedback Text",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='static_textfield']",
+            "frame": "default",
+            "specialInstr": "overwrite noclick"
+        },
+        {
+            "name": "Add Context",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='add-<ReplaceText>-context-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Editor Panel Done Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//button[text()='Done']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "=.=.=.=.=.=": "===========================================================================================",
+            "=.COMMENT.=": "= THE FOLLOWING ELEMENTS ARE IN THIS FILE BECAUSE THEY ARE COMMON TO MORE THAN ONE MODULE =",
+            ".=.=.=.=.=.": "==========================================================================================="
+        },
+        {
+            "name": "Choice Value Textbox",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Add Choice Button",
+            "byType": "css",
+            "definition": "a[data-test-id='add-item-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Text",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span/label/div/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Answer Radio Button 1",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
             "frame": "default",
             "specialInstr": "NA"
         }

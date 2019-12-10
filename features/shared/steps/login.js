@@ -7,10 +7,10 @@ const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages
 
 /* Verifies Sapling login */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['AMS', this.environment]);
+  let url = await _.get(urls, ['AMS', this.stack]);
   let user = this.users[userType];
   await visitURL(url);
-  if (this.environment == 'local') {
+  if (this.environment === 'local') {
     await pages.login.populate('username-local', user.username);
     await pages.login.populate('password-local', user.password);
     await pages.login.click('submit-local')
@@ -21,15 +21,15 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
   };
 });
 
-// This step function was required as browser was retaining the username 
+// This step function was required as browser was retaining the username
 // And was causing issue with second time user login in a graphing scenario
 
 Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['AMS', this.environment]);
+  let url = await _.get(urls, ['AMS', this.stack]);
   let user = this.users[userType];
 
   await visitURL(url);
-  if (this.environment == 'local') {
+  if (this.environment === 'local') {
     await pages.login.populate('password-local', user.password);
     await pages.login.click('submit-local')
   } else {
@@ -39,22 +39,24 @@ Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
 });
 
 When(/^I go back to sapling page and logout$/, async function () {
-  let url = await _.get(urls, ['IBISCMS', this.environment]);
+  let url = await _.get(urls, ['IBISCMS', this.stack]);
   await mathPages.saplingLearning.switchToTab('Sapling');
   await visitURL(url);
   await mathPages.saplingLearning.click('RaptorAdmin');
   await mathPages.saplingLearning.click('logout');
 });
 
-Given(/^I login to Achieve-CW as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['Achieve-CW', this.environment]);
+async function loginAchieveCw (userType) {
+  let url = await _.get(urls, ['Achieve-CW', this.stack]);
   let user = this.users[userType];
   await visitURL(url);
-  await pages.login.click('signinlink');
+  await pages.login.waitForElementVisibility('Button', 'SIGN IN', 10);
+  await pages.login.click('Button', 'SIGN IN');
   await pages.login.populate('username', user.username);
   await pages.login.populate('password', user.password);
   await pages.login.click('signin');
-});
+};
+Given(/^I login to Achieve-CW as "(.*)"/, loginAchieveCw);
 
 When('I sign out of Achieve', async function () {
   await pages.login.scrollElementIntoView('togglerMenu');
@@ -65,16 +67,16 @@ When('I sign out of Achieve', async function () {
 
 Given(/^navigate to a course having course id "(.*)"$/, async function (courseid) {
   var currentURL = await pages.login.getCurrentURL();
-  var courseURL = currentURL + "course/view.php?id=" + courseid;
+  var courseURL = currentURL + 'course/view.php?id=' + courseid;
   await visitURL(courseURL);
 });
 
 Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['IBISCMS', this.environment]);
+  let url = await _.get(urls, ['IBISCMS', this.stack]);
   let user = this.users[userType];
 
   await visitURL(url);
-  if (this.environment == 'local') {
+  if (this.environment === 'local') {
     await pages.login.populate('username-local', user.username);
     await pages.login.populate('password-local', user.password);
     await pages.login.click('submit-local')
@@ -89,3 +91,7 @@ When('I logout IBISCMS', async function () {
   await pages.login.click('User Menu Button');
   await pages.login.click('Logout Menu');
 });
+
+module.exports = {
+  loginAchieveCw
+};

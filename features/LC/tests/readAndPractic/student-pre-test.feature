@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Read and Practice Student Pre Test View
  Scenario: All Topics and Ebooks are displayed
  Scenario: Ebooks can be opened and closed

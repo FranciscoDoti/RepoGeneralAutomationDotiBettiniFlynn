@@ -4,7 +4,7 @@ let scores = [];
 
 When('I navigate to assignment preview', async function () {
     await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
-    await pages.sac.click('Instructor Assessment Link');
+    await pages.sac.click('Instructor Assessment Link', 'All Mods');
     await pages.sac.click('Assignment Preview Button');
     await pages.sac.click('Keep Attempts Button');
 });
@@ -22,9 +22,9 @@ Then('The assignment preview is opened in a new tab', async function () {
 
 When(/^I reset attempts from student "(.*)"$/, async function (userType) {
     await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
-    await pages.sac.click('Instructor Assessment Link');
-    await pages.sac.assertElementExists('Student Analysis Tab');
-    await pages.sac.click('Student Analysis Tab');
+    await pages.sac.click('Instructor Assessment Link', 'All Mods');
+    await pages.sac.assertElementExists('Activity Editor Tab', 'Responses');
+    await pages.sac.click('Activity Editor Tab', 'Responses');
     await pages.sac.click('Edit Student Attempts Button');
 
     let user = this.users[userType];
@@ -66,7 +66,7 @@ When('I answer questions', async function (datatable) {
                     option++;
                 }
                 await pages.sac.click('View Solution Button');
-                scores[i] = score + "/100";
+                scores[i] = score + "%";
                 break;
             case "DD":
                 await pages.sac.click('Check Answer Button');
@@ -77,7 +77,7 @@ When('I answer questions', async function (datatable) {
                 }
                 await pages.sac.click('Give Up Button');
                 await pages.sac.click('Confirm Give Up Button');
-                scores[i] = "0/100";
+                scores[i] = "0%";
                 break;
         }
     }

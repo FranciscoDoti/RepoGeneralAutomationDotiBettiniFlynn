@@ -1,0 +1,11 @@
+{
+  "webElements": [
+    {
+      "name": "iclickerCourse1",
+      "byType": "css",
+      "definition": "[data-test-id='radio_button_javascript_for_java_developers'] span",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}

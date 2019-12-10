@@ -1,0 +1,45 @@
+{
+    "webElements": [{
+        "name": "Start Test Button",
+        "byType": "id",
+        "definition": "orientation-pretest-button",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Practice Test Results Summary",
+        "byType": "css",
+        "definition": "[data-test-id='practice-test-results-summary']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Final Test Results Summary",
+        "byType": "css",
+        "definition": "[data-test-id='final-test-results-summary']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Topic Report",
+        "byType": "css",
+        "definition": "[data-test-id='topic-report-card']",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Return to Assignment List Button",
+        "byType": "id",
+        "definition": "student-pretest-report-return-to-lms-button",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Review Practice Test Link",
+        "byType": "id",
+        "definition": "student-see-what-you-got-wrong-button",
+        "frame": 0,
+        "specialInstr": "NA"
+    }, {
+        "name": "Student Tested Out Message",
+        "byType": "id",
+        "definition": "StudentTestedOutAvailabilityMessage",
+        "frame": 0,
+        "specialInstr": "NA"
+    }]
+}

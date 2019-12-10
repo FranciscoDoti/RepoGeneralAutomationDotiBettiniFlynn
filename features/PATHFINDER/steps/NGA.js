@@ -1,24 +1,35 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
+const driver = require(`${process.cwd()}/app/driver.js`);
 
-Then(/^there should be a "(.*)" in NGA$/, async function (locator) {
-  await pages.NGA.assertElementExists(locator);
-})
+When("I complete an NGA assignment with the following answers", async function (datatable) {
+  for (let i=0; i < datatable.rows().length; i++){
+    await driver.getDriver().sleep(1000);
+    await pages.NGA.click('Multiple Choice Button', datatable.hashes()[i].Answer);
+    await pages.NGA.click('Next Question Button');
+// wait until next question has loaded
+    await pages.NGA.waitForElementInvisibility('Save Answer Button', 'Saving');
+  }
 
-When(/^I click on the "(.*)" in NGA$/, async function (locator) {
-  await pages.NGA.click(locator);
-})
+  await pages.NGA.click('Submit All Questions Button');
+  await pages.NGA.click('Submit All Questions Confirmation Button');
+});
 
 Then("the user should be taken to a student preview", async function () {
+  await driver.getDriver().sleep(2000);
   await pages.NGA.assertElementExists("About Student Preview Modal");
+  await driver.getDriver().sleep(2000);
   await pages.NGA.assertElementExists("About Student Preview Modal Cancel Button");
   await pages.NGA.click("About Student Preview Modal Continue Button");
-  await pages.NGA.assertElementExists("Student Preview Bar");
+  await driver.getDriver().sleep(2000);
   await pages.NGA.assertElementExists("Submit All Questions Button");
-  await pages.NGA.assertElementExists("Save Answer Button");
-})
+  await driver.getDriver().sleep(2000);
+  await pages.NGA.assertElementExists("Save Answer Button", "Save Answer");
+});
 
 Then("the user should be taken to the activity editor", async function () {
+  await driver.getDriver().sleep(2000);
   await pages.NGA.assertElementExists("Assignment Preview Button");
+  await driver.getDriver().sleep(2000);
   await pages.NGA.assertElementExists("Grading Settings Button");
-})
+});

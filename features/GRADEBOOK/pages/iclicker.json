@@ -1,0 +1,88 @@
+{
+  "webElements": [
+    {
+      "name": "syncIClicker",
+      "byType": "css",
+      "definition": "[data-test-id='sync_iclicker']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "iClickerMenu",
+      "byType": "css",
+      "definition": "[data-test-id='iclicker_menu']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "manageIClickerMenu",
+      "byType": "css",
+      "definition": "[data-test-id='manage-iclicker-menu']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "newIClickerCourse",
+      "byType": "css",
+      "definition": "[data-test-id='iclicker_new_course_link']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "iClickerMenuText",
+      "byType": "css",
+      "definition": "[data-test-id='iclicker-menu-text']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "iClickerMenuDisconnect",
+      "byType": "css",
+      "definition": "[data-test-id='iclicker_menu_disconnect']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "usernameInput",
+      "byType": "css",
+      "definition": "[data-test-id='reef_modal_email_input']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "passwordInput",
+      "byType": "css",
+      "definition": "[data-test-id='reef_modal_password_input']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "signInButton",
+      "byType": "css",
+      "definition": "[data-test-id='reef_modal_sign_in']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "newCourseButton",
+      "byType": "css",
+      "definition": "[data-test-id='reef_new_course']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "confirmDisconnectButton",
+      "byType": "css",
+      "definition": "[data-test-id='unlink_reef_dialog_submit_btn']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "saveAndLinkCourses",
+      "byType": "css",
+      "definition": "[data-test-id='save-and-link-courses']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}

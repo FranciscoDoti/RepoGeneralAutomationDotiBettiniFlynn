@@ -1,0 +1,52 @@
+{
+    "webElements": [
+        {
+            "name": "Update Modal",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-container cdl-scroll']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Field",
+            "byType": "xpath",
+            "definition": "//div[@class='cdl-dialog-container cdl-scroll']//*[contains(@data-test-id,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "noclear"
+        },{
+            "name": "Spinner",
+            "byType": "xpath",
+            "definition": "//div[@id='topic-picker-loading-spinner']",
+            "frame": "default",
+            "specialInstr": "noclear"
+        },
+        {
+            "name": "Tree Element",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Tree Element Leaf",
+            "byType": "xpath",
+            "definition": "//div[@class='info' and text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Option",
+            "byType": "xpath",
+            "definition": "//option[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

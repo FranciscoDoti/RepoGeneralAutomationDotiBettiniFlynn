@@ -1,9 +1,30 @@
 {
     "webElements": [
         {
+            "name": "answerTextField",
+            "byType": "css",
+            "definition": ".graded-equations-equation",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "gradeAsExpression",
             "byType": "css",
             "definition": ".greq-input[data-test-id='eval-type-dropdown'] > option[value='expression']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "gradeAsListC",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='module-options-select']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "gradeFormType",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='grading-form-select']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -15,9 +36,30 @@
             "specialInstr": "NA"
         },
         {
+            "name": "isImaginary",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-is_imaginary']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "gradeToConstant",
             "byType": "css",
             "definition": ".greq-input[data-test-id='edit-panel-checkbox-grade_to_constant']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "exactTolerance",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='exact-tolerance-radio']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "vectorEnforceForm",
+            "byType": "css",
+            "definition": ".greq-input[data-test-id='edit-panel-checkbox-vector_form']",
             "frame": "default",
             "specialInstr": "NA"
         }

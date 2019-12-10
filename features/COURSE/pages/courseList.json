@@ -2,7 +2,7 @@
     "webElements": [{
         "name": "courseMenu",
         "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>']/../../../../div/div/button[@data-test-id='course_menu_button']",
+        "definition": "//*[.='<ReplaceText>']/../../..//button[@data-test-id='course_menu_button']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -60,12 +60,6 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
-        "name": "courseName",
-        "byType": "xpath",
-        "definition": "//a[@data-test-id='course_name' and .='<ReplaceText>']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
         "name": "course",
         "byType": "css",
         "definition": "[data-test-id='create_coursecode_input']",
@@ -95,13 +89,6 @@
         "definition": "[data-test-id='course_activation_date']",
         "frame": "default",
         "specialInstr": "NA"
-    },
-    {
-        "name": "courseShortId",
-        "byType": "xpath",
-        "definition": "//span[@data-test-id='course_short_id' and .='<ReplaceText>']",
-        "frame": "default",
-        "specialInstr": "NA"
     }, {
         "name": "courseNameTime",
         "byType": "xpath",
@@ -125,8 +112,20 @@
         "byType": "css",
         "definition": "[data-test-id='manage_instructors_modal_add_btn']",
         "frame": "default",
-        "specialInstr": "NA"
+        "specialInstr": "focus"
     }, {
+        "name": "courseTab",
+        "byType": "css",
+        "definition": "nav div[aria-label='COURSE TEMPLATES']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, { 
+        "name": "courseTemplateTab",
+        "byType": "css",
+        "definition": "nav div[aria-label='COURSE TEMPLATES']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, { 
         "name": "search",
         "byType": "css",
         "definition": "[data-test-id='course_search_input']",
@@ -151,6 +150,12 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "previousMonthButton",
+        "byType": "css",
+        "definition": "[aria-label='previous_month_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "nextMonthButton",
         "byType": "css",
         "definition": "[aria-label='next_month_button']",
@@ -158,8 +163,8 @@
         "specialInstr": "NA"
     }, {
         "name": "selectDate",
-        "byType": "css",
-        "definition": "[class='_2XMC ' ]",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -174,7 +179,7 @@
         "definition": "[data-test-id='courseMenu_invite_students']",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
         "name": "inviteStudentsButton",
         "byType": "css",
         "definition": "[data-test-id='courseMenu_invite_students']",
@@ -187,19 +192,66 @@
         "definition": "[id='courseEbookLink']",
         "frame": "default",
         "specialInstr": "NA"
-    }, 
-    {
+    }, {
         "name": "courseNumber",
         "byType": "xpath",
-        "definition": "//div[contains(@data-test-id,'course_number_date_time') and contains(text(), '<ReplaceText>')]",
+        "definition": "//span[contains(text(), '<ReplaceText>')]",
         "frame": "default",
         "specialInstr": "NA"
-    },{
+    }, {
+        "name": "courseName",
+        "byType": "xpath",
+        "definition": "//div[contains(text(), '<ReplaceText>')]",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
+        "name": "courseTemplate",
+        "byType": "css",
+        "definition": "div[aria-label='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "courseSearchBtn",
         "byType": "css",
         "definition": "[data-test-id='course_search_input_btn']",
         "frame": "default",
         "specialInstr": "NA"
 
+    },
+    {
+        "name": "courseStatus",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1UHg']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "gracePeriod",
+        "byType": "css",
+        "definition": "[data-test-id='access_code_modal_start_gp_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "checkBox",
+        "byType": "css",
+        "definition": "[type='checkbox']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "courseName",
+        "byType": "xpath",
+        "definition": "//div[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "courseName",
+        "byType": "xpath",
+        "definition": "//div[contains(@class,'_3XTJ') and contains(text(), '<ReplaceText>')]",
+        "frame": "default",
+        "specialInstr": "NA"
     }]
 }

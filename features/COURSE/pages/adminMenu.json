@@ -281,8 +281,8 @@
         },
         {
             "name": "generate",
-            "byType": "css",
-            "definition": "[class='_1tkc Otv4']",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 

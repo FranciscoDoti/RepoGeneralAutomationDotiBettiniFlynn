@@ -15,6 +15,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "correctSetup",
+            "byType": "css",
+            "definition": ".aqua-button",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "menuBarColumn",
             "byType": "css",
             "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
@@ -148,6 +155,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "contextTab",
+            "byType": "css",
+            "definition": "a[data-test-id = '<ReplaceText>-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "answerLabel",
             "byType": "css",
             "definition": "span[aria-label ='Answer =']",
@@ -204,6 +218,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "submitAnswer",
+            "byType": "xpath",
+            "definition": "//button[.='Submit Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "checkYourWorkAnswerText1",
             "byType": "css",
             "definition": "span.mq-math-mode",
@@ -220,7 +241,7 @@
         {
             "name": "incorrectAnswerAlert",
             "byType": "css",
-            "definition": "div#primary-content-area > section.red-border",
+            "definition": "section.red-border.content-area",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -228,6 +249,27 @@
             "name": "correctAnswer",
             "byType": "css",
             "definition": "div[aria-label ='Correct Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "incorrectAnswer",
+            "byType": "css",
+            "definition": "div[aria-label ='Incorrect Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "cycleVariables",
+            "byType": "id",
+            "definition": "regenerate-algos",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "staticTextfield",
+            "byType": "css",
+            "definition": "div[data-module-type='static_textfield']",
             "frame": "default",
             "specialInstr": "NA"
         }

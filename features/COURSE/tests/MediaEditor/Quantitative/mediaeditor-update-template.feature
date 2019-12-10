@@ -1,24 +1,23 @@
 @Course @Smoke
-Feature: Media Editor is able to create a template and update
+Feature: Media Editor is able to create a template and update in Quantitative Template
 
-   @medieditor-delete-course
-    Scenario: Verify that media editor is able to create a template and update it 
+   @mediaeditor-delete-course
+    Scenario: Verify that media editor is able to create a template and update in Quantitative Template
 
         Given I login to Achieve-CW as "media_editor_1"
-            When I create template with following data 
-                | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-                | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
+        When I create template with following data 
+            | courseType  | productModel       | courseName                        | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Quantitative       | Automation Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
 
-        Then I verify that "Quantitative Template Created." message is displayed
-        And I verify that "Quantitative Template" has created with following "ISBN: 9781464199498" number
+        Then I verify that "Automation Quantitative Template Created." message is displayed
+        When I search for "Automation Quantitative Template" course
+        Then I verify that "Automation Quantitative Template" has created with following "9781464199498" ISBN number by Media editor
 
-       And I activate the "Quantitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Quantitative Template  |   E2E 301     |  Active On Date      | 
+        When I activate the "Automation Quantitative Template" template and add the following data
+            | courseName                       |  courseCode   |  templateStatus      |
+            |Automation Quantitative Template  |   E2E 301     |  Active On Date      |
 
 
-        Then I verify that "Quantitative Template" is created with following data
-            | field                 | value                     |
-            | courseName            | Quantitative Template     |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+        Then I verify that "Automation Quantitative Template" is activated with following data
+            | CourseName                           | Status                    | ISBN                      |
+            | Automation Quantitative Template     |  Active                   |  9781464199498            |

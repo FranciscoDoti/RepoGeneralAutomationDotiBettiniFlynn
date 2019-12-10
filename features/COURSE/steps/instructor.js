@@ -1,7 +1,9 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const driver = require(`${process.cwd()}/app/driver.js`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
 
@@ -17,36 +19,11 @@ When(/^I activate "(.*)" course with following data$/, async function (courseNam
   await pages.courseList.click('nextMonthButton');
   await pages.courseList.click('nextMonthButton');
   await pages.courseList.click('nextMonthButton');
-  await pages.courseList.click('selectDate');
+  await pages.courseList.click('selectDate', '15');
   await pages.editCourse.click('save');
   await pages.home.click('closeAlert');
 });
 
-When(/^I create custom made activity in "(.*)" with the following data$/, async function (courseName, data_table) {
-  await pages.coursePage.click('tab', 'COURSE PLAN');
-  await pages.coursePlanner.click('customContentButton');
-  await pages.coursePlanner.click('newCustom');
-  await pages.coursePlanner.click('assessmentButton');
-  for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.populate(data_table.hashes()[i].activity, data_table.hashes()[i].value);
-  }
-  await pages.coursePlanner.click('resetModel');
-  await pages.coursePlanner.click('questionBank');
-  await pages.coursePlanner.click('customQuestions');
-  await pages.coursePlanner.click('addAnotherCustomQuestions');
-  await pages.coursePlanner.click('NEcustomQuestions');
-  await pages.coursePlanner.click('editQuestionTitleCQ')
-  await pages.coursePlanner.assertElementExists('QuestionTitleCQ')
-  await pages.coursePlanner.populate('QuestionTitleCQ', 'MC');
-  await pages.coursePlanner.click('AnswerPromptCQ');
-  await pages.coursePlanner.populate('enterAnswerCQ', '1')
-  await pages.coursePlanner.assertElementExists('CreatecustomQuestionsbutton')
-  await pages.coursePlanner.click('CreatecustomQuestionsbutton')
-  await pages.coursePlanner.assertElementExists('checkBoxAssignment')
-  await pages.coursePlanner.click('checkBoxAssignment');
-  await pages.coursePlanner.click('addAssignmentButton');
-  await pages.coursePlanner.click('close')
-});
 
 When(/^I add the activities in courseplanner to "(.*)" course$/, async function (courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
@@ -54,12 +31,17 @@ When(/^I add the activities in courseplanner to "(.*)" course$/, async function 
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    if(i===0) {
+      await pages.coursePlanner.click('addingContent');
+      await pages.coursePlanner.click('continue');
+      await pages.home.click('closeAlert');
+    }
   }
 });
 
 When('I assign the activities in courseplanner', async function (data_table) {
   await pages.coursePage.click('navigation', 'My Course');
-  await pages.coursePage.click('tab', 'COURSE PLAN')
+  await pages.coursePage.click('Tab', 'COURSE PLAN')
   for (let i = 0; i < data_table.rows().length; i++) {
     let Elements = await pages.coursePlanner.getWebElements('assignAssignmentButton');
     let countlinks = Elements.length;
@@ -67,7 +49,7 @@ When('I assign the activities in courseplanner', async function (data_table) {
     while (x >= 0) {
       x--;
       await pages.coursePlanner.click('assignAssignmentButton');
-      await pages.coursePlanner.click('vissibilityButton');
+      await pages.coursePlanner.click('assignToStudents');
       await pages.coursePlanner.populate('pointsInput', data_table.hashes()[i].Points);
       await pages.coursePlanner.click('assignButton');
       await pages.home.click('closeAlert');
@@ -101,7 +83,7 @@ Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName,
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn');
-  await pages.courseList.assertElementExists('courseName', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
 
 });
 
@@ -112,10 +94,9 @@ Then('I verify that activities are assigned', async function (data_table){
 });
 
 When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, data_table){
-  await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Browse');
-  await pages.coursePage.click('tab', 'MY CONTENT');
-  await pages.coursePlanner.click('customContentButton');
+  await pages.coursePage.click('Tab', 'MY CONTENT');
+  await pages.coursePlanner.click('customContentButton','New');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('urlLink');
     await pages.resources.populate(data_table.hashes()[i].field, data_table.hashes()[i].link)
@@ -123,7 +104,7 @@ When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, 
   }
 });
 
-When('I add url link in courseplanner', async function (data_table){
+When('I add URL in courseplanner', async function (data_table){
   await pages.resources.click('goToContent');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
@@ -132,7 +113,7 @@ When('I add url link in courseplanner', async function (data_table){
 
 Then('I verify that activties are added in courseplanner', async function (data_table){
   await pages.coursePage.click('navigation', 'My Course');
-  await pages.coursePage.click('tab', 'COURSE PLAN');
+  await pages.coursePage.click('Tab', 'COURSE PLAN');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.assertElementExists('activityName', data_table.hashes()[i].activity)
   }
@@ -147,4 +128,209 @@ for (let i = 0; i < data_table.rows().length; i++) {
 await pages.copyCourse.click('save');
 });
 
+When(/^I click on "(.*)"$/, async function (courseName){
+  await pages.createCourse.click('courseCard', courseName);
+})
 
+When(/^I create Gradebook Category for student and assign that to "(.*)" activity$/, async function (activity, data_table) {
+  await pages.coursePage.click('navigation','Gradebook');
+  await pages.gradebook.click('gradebookSettings')
+  await pages.gradebook.click('gradeBookCategory','Add Category');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.gradebook.scrollElementIntoView('categoryName')
+    await pages.gradebook.populate('categoryName', data_table.hashes()[i].CategoryName)
+    await pages.gradebook.populate('dropLowestGrade', data_table.hashes()[i].DropGrade);
+    await pages.gradebook.click('save','Save');
+  }
+  await pages.coursePage.click('navigation','My Course');
+  await pages.coursePage.click('Tab', 'COURSE PLAN');
+  await pages.coursePlanner.click('assignGradebook', activity);
+  await pages.coursePlanner.click('gradeBookCategory');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('Category', data_table.hashes()[i].GradebookCategory)
+    await pages.coursePlanner.click('assignButton');
+  }
+});
+
+When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Gradebook');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+  await pages.gradebook.click('editTotal',user.firstName)
+  await pages.gradebook.populate('editGrade', data_table.hashes()[i].editGrade);
+  await pages.gradebook.click('save', 'Save');
+    }
+});
+
+Then('I verify the Grades', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.gradebook.assertTextIncludes('courseTotal', user.firstName, data_table.hashes()[i].CourseTotal);
+    await pages.gradebook.assertTextIncludes('studentcourseTotal', user.firstName, data_table.hashes()[i].Google);
+    await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
+  }
+});
+
+When(/^I add "(.*)" content first in order to continue adding the rest contentfrom Browse to courseplanner in "(.*)"$/, async function (activity, courseName, data_table) {
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  await pages.coursePlanner.populate('librarySearchInput', activity);
+  await pages.coursePlanner.click('addAssignmentButton', activity);
+  await pages.coursePlanner.click('addingContent');
+  await pages.coursePlanner.click('continue'); 
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+  }
+})
+
+When(/^I create "(.*)" writing activity as an instructor$/, async function (writingName){
+  await pages.home.click('closeAlert');
+  await driver.getDriver().navigate().refresh();
+  await pages.coursePage.click('navigation','Browse');
+  await pages.coursePage.click('Tab', 'MY CONTENT');
+  await pages.coursePlanner.click('customContentButton', 'New');
+  await pages.resources.click('writingPrompt');
+  await pages.coursePlanner.click('editTitle');
+  await pages.coursePlanner.populate('activityTitle', writingName);
+  await pages.coursePlanner.click('TitleSave');
+  await pages.coursePlanner.click('close');
+})
+
+Then(/^I verify that "(.*)" writing activity is added in Browse$/, async function (activityName){
+  await pages.coursePage.click('Tab', 'MY CONTENT');
+  await pages.coursePlanner.assertElementExists('activityName', activityName);
+});
+
+When('I add custom content courseplanner', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
+  }
+});
+
+Then('I drop', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].Students];
+    await pages.coursePage.click('navigation','People');
+    await pages.people.populate('searchbox', user.username);
+    await pages.people.click('checkbox', user.username);
+    await pages.people.click('button', 'Drop Students');
+    await pages.people.click('button', 'Yes, Drop');
+  }
+});
+
+When('I navigate to gradebook and verify grades', async function (data_table) {
+  await pages.coursePage.click('navigation','My Course');
+  await pages.gradebook.assertText('checkActivityCompletion', data_table.hashes()[0].activity, data_table.hashes()[0].percent)
+});
+
+When(/^I create a single course from "(.*)" with following data$/, async function (courseName, data_table){
+  await pages.createCourse.click('createNewCourse');
+  await pages.masterSection.click('selectTemplate', courseName);
+  await pages.masterSection.click('createSingleCourse');
+  await pages.masterSection.click('buttonToCreateCourse','Next: Set course info')
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
+  }
+  await pages.masterSection.click('courseEndDate');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('selectDate', '15');
+  await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Course');
+
+})
+
+Then(/^I verify that "(.*)" is created$/, async function(courseName){
+  this.data.set('course', courseName);
+  await pages.courseList.assertElementExists('courseName', courseName);
+})
+
+When('I create a custom assessment task with following data', async function (data_table){
+  await pages.coursePage.click('navigation','Browse');
+  await pages.coursePage.click('Tab', 'MY CONTENT');
+  await pages.coursePlanner.click('customContentButton', 'New');
+  await pages.coursePlanner.click('assessmentButton');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var a = data_table.hashes()[i];
+    await pages.coursePlanner.populate('ProvideATitle', a.assessmentTitle);
+    await pages.coursePlanner.populate('dropDown', 'Choose an assignment type', a.assessmentType);
+    await pages.coursePlanner.populate('dropDown', 'Choose a taxonomy', a.homeTaxonomy);
+  
+  }
+  await pages.coursePlanner.click('resetModel');
+  await pages.coursePlanner.click('questionBank');
+  await pages.coursePlanner.click('expandCollapse', 'Expand');
+  await pages.coursePlanner.click('checkBoxAssignment');
+  await pages.coursePlanner.click('addQuestionButton');
+  await pages.coursePlanner.click('expandCollapse', 'Collapse')
+  await pages.coursePlanner.click('close');
+});
+
+Then(/^I verify that custom content task is added in "(.*)" tab$/, async function (tabName, data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePage.click('Tab', tabName);
+    await pages.coursePlanner.assertElementExists('addCustomActivity', data_table.hashes()[i].activity );
+  }
+})
+
+When(/^I add activities in "(.*)" courseplanner tab$/, async function (courseName, data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
+    
+  }
+});
+
+When(/^I create a Master Section from "(.*)" with following data$/, async function (courseName, data_table){
+  await pages.createCourse.click('createNewCourse');
+  await pages.masterSection.click('selectTemplate', courseName);
+  await pages.masterSection.click('createMasterSection');
+  await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
+  }
+  await pages.masterSection.click('courseEndDate');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('selectDate', '15');
+  await pages.masterSection.click('fullAccess');
+  await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Master Section');
+});
+
+Then('I verify that I created a Master Section with following data', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    let user = this.users[data_table.hashes()[i].InstructorName];
+    var c = data_table.hashes()[i];
+    this.data.set('course', c.courseNameMS);
+    await pages.masterSection.assertElementExists('courseNameMS', c.courseNameMS);
+    await pages.masterSection.assertTextIncludes('Status', c.Status);
+    console.log(user.firstName+" "+user.lastName)
+    await pages.masterSection.assertTextIncludes('instructorMS', user.firstName+" "+user.lastName);
+    await pages.masterSection.assertTextIncludes('masterSectionCode', c.MasterCode);
+  }
+});
+
+When('I click on master card', async function (){
+  await pages.masterSection.click('masterCard')
+})
+
+When(/^I add the activities by searching in browse and adding it to courseplanner in "(.*)" course$/, async function(courseName,data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].addContent);
+    if(i===0) {
+      await pages.coursePlanner.click('addingContent');
+      await pages.coursePlanner.click('continue');
+      await pages.home.click('closeAlert');
+    }
+  }
+});

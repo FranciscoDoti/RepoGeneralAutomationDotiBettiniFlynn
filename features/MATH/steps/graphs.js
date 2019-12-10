@@ -4,9 +4,8 @@ const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
 const { visitURL } = require(`${process.cwd()}/app/driver`);
-chai.use(require('chai-sorted'));
 const { Key } = require('selenium-webdriver');
-
+chai.use(require('chai-sorted'));
 
 When(/^I click on the Graphs tab$/, async function () {
   await pages.graphTab.click('tab');
@@ -231,8 +230,7 @@ Then(/^I verify the AMS Graph tab contains the new row for the graph with the ne
 });
 
 When(/^I make any changes to title "(.*)"$/, async function (updateTitle) {
-  await pages.graphEditor.click('editTitleButton');
-  await pages.graphEditor.populate('titleTextField', updateTitle);
+  await pages.graphEditor.populate('editTitleButton',updateTitle);
 });
 
 Then(/^I verify Save button text changes from Saved to Save$/, async function () {
@@ -327,15 +325,13 @@ Then(/^I verify window pop up message "(.*)"$/, async function (popupText) {
   await pages.graphEditor.acceptAlert();
 });
 
-
 When(/^I input non-existing graphid in the graph editor url$/, async function () {
   await pages.graphEditor.switchToTab('Graphing');
 
   let currentUrl = await pages.graphEditor.getCurrentURL();
   let urlNonExistGraphId = currentUrl + 101;
 
-  await visitURL(urlNonExistGraphId, Key.ENTER);
-  await pages.graphEditor.click('saveButton');
+  await visitURL(urlNonExistGraphId,Key.ENTER);
 });
 
 
@@ -347,8 +343,7 @@ When('I create a new graph with the following details', async function (datatabl
     await pages.graphTab.click('newGraphButton');
     await pages.graphEditor.switchToTab('Graphing');
     await pages.graphEditor.populate('graphingTextField', data.GraphingExpression);
-    await pages.graphEditor.click('editTitleButton');
-    await pages.graphEditor.populate('titleTextField', data.Title);
+    await pages.graphEditor.populate('editTitleButton',data.Title);
     await pages.graphEditor.click('saveButton');
     await pages.graphEditor.assertElementExists('isSavedButton');
     await pages.graphEditor.closeTab('Graphing System');

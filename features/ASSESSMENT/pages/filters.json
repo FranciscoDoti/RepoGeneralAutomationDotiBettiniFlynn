@@ -1,0 +1,81 @@
+{
+    "webElements": [
+        {
+            "name": "Filters",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='dropdown-toggle']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Filter",
+            "byType": "xpath",
+            "definition": "//li[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Option",
+            "byType": "xpath",
+            "definition": "//li[@class='filter-pill']/a[contains(.,'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Filter Tag",
+            "byType": "xpath",
+            "definition": "//span[@class='filter-text-span'][contains(translate(.,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'),'<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Filter Remove",
+            "byType": "xpath",
+            "definition": "//div[@class='filter-pill-div']/span[contains(.,'<ReplaceText>')]/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Search Results Table",
+            "byType": "xpath",
+            "definition": "//table[@class='table itemlist table-condensed']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Search Results",
+            "byType": "xpath",
+            "definition": "//table[@class='table itemlist table-condensed']/<ReplaceText>",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Search Result",
+            "byType": "xpath",
+            "definition": "//table[@class='table itemlist table-condensed']/tbody/tr[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Load More",
+            "byType": "xpath",
+            "definition": "//button[.='Load More']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Text Filter",
+            "byType": "xpath",
+            "definition": "//div[@class='input-group search-div']/input[@id='filter-input-id']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Deleted Items",
+            "byType": "xpath",
+            "definition": "//a[.='Deleted Items']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

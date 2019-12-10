@@ -1,3 +1,4 @@
+@Skip
 Feature: Learning Curve Classic Instructor Pre Test View
  Scenario: Instructor can increase target score
  Scenario: Instructor can decrease target score

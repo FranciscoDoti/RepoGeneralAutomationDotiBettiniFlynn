@@ -1,20 +1,21 @@
  @Course @Smoke
- Feature: Update the Template   
+ Feature: Update Skills Production Template  
      
-    @mediaproducer-delete-course       
-    Scenario: Verify that Media Producer is able to update the template
+    @mediaproducer-delete-courseTemplate       
+    Scenario: Verify that Media Producer is able to update Skills Production Template
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
-            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+            | courseType  | productModel | courseName                   |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Skills       | Skills Production Template  |                   | E2E 301      | 9781464199498  | draft         |                      
 
-        And I activate the "Skills Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |
+        And I close the popup message                      
+
+        And I click on search button and input "Skills Production Template" to search the course
+        And I activate the "Skills Production Template" template and add the following data
+            | courseName                    |  courseCode   |  templateStatus      |
+            | Skills Production Template    |   E2E 301     |  Active On Date      |
             
-        Then I verify that "Skills Template" is created with following data
-            | field                 | value                     |
-            | courseName            | Skills Template           |
-            | courseDate            |  E2E 301                  |
-            | courseShortId         | Template                  |
+        Then I verify that "Skills Production Template" is activated with following data
+            | CourseName                    | Status                    |  ISBN               |
+            | Skills Production Template    |  Active                   |  9781464199498      |

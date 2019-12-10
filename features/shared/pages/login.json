@@ -1,9 +1,9 @@
 {
     "webElements": [
         {
-            "name": "signinlink",
-            "byType": "css",
-            "definition": "button[data-test-id='sign_in_link_btn']",
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -12,7 +12,7 @@
             "byType": "id",
             "definition": "username",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "overwrite"
         },
         {
             "name": "password",
@@ -37,10 +37,10 @@
         },
         {
             "name": "submit",
-            "byType": "id",
-            "definition": "submitButton",
+            "byType": "xpath",
+            "definition": "//input[@value='Log In']",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "signin",

@@ -9,7 +9,7 @@
         }, {
             "name": "courseCard",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../../../div[@data-test-id='course_card']",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -30,10 +30,24 @@
             "definition": "[data-test-id='create_course_status']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        }, 
+        {
+            "name": "TemplateStatus",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1UHg']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Status",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../../../..//div[@class='ReMV']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },{
             "name": "courseTitle",
             "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -177,7 +191,7 @@
         }, {
             "name": "ISBNVerification",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../a/div[@data-test-id='course_activation_date']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='clDE']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -228,8 +242,8 @@
         },
         {
             "name": "courseShortId",
-            "byType": "css",
-            "definition": "[data-test-id='course_short_id']",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1_XC']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -237,6 +251,28 @@
             "name": "courseCardName",
             "byType": "css",
             "definition": "[data-test-id='course_name']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        { 
+            "name": "New",
+            "byType": "css",
+            "definition": "[data-test-id='create_custom_content_new_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "customContentAdd",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//*[@data-test-id='add_to_library']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "createNewCourse",
+            "byType": "css",
+            "definition": "[data-test-id='create_a_new_course_button']",
             "frame": "default",
             "specialInstr": "NA"
         }

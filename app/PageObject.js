@@ -3,10 +3,9 @@
  */
 'use strict';
 const { assert, expect } = require('chai');
-const HashTable = require(`${process.cwd()}/app/HashTable`);
 const WebElement = require(`${process.cwd()}/app/WebElement`);
-const { loadJSONFile } = require(`${process.cwd()}/app/util`);
-const { getDriver, getWebDriver, activateTab, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
+const jsonfile = require('jsonfile');
+const { getDriver, getWebDriver, activateTab, closeTabAndSwitch, getURL, getTitle, config } = require(`${process.cwd()}/app/driver`);
 const { log } = require(`${process.cwd()}/app/logger`);
 const { populateInput, populateClick, populateSelect, populateRichTextField } = require(`${process.cwd()}/app/populate`);
 
@@ -14,13 +13,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   var that = {};
   that.pageName = pageNameInput;
   that.pageDefinitionFileName = pageNameDirectoryInput + pageNameInput;
-  that.pageElements = new HashTable({}); // a hash of all of the web elements for this page.
+  that.pageElements = new Map(); // a hash of all of the web elements for this page.
 
   that.driver = getDriver();
   that.webdriver = getWebDriver();
 
   const loadPageDefinitionFile = function (fullFileName) {
-    var jsonContent = loadJSONFile(fullFileName);
+    var jsonContent = jsonfile.readFileSync(fullFileName);
 
     for (var i in jsonContent.webElements) {
       var element = jsonContent.webElements[i];
@@ -29,23 +28,25 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const addElement = function (elementName, elements) {
-    that.pageElements.setItem(elementName, elements);
+    that.pageElements.set(elementName, elements);
   }
 
   const getElement = async function (elementName) {
-    return that.pageElements.getItem(elementName);
+    return that.pageElements.get(elementName);
   }
 
   const hasElement = async function (elementName) {
-    return that.pageElements.hasItem(elementName);
+    return that.pageElements.has(elementName);
   }
 
   const addDynamicElement = async function (elementName, additionalDescription) {
+    let newElementName = elementName + " " + additionalDescription;
     if (typeof additionalDescription !== 'undefined' && await hasElement(elementName)) {
-      var dynamicElement = JSON.parse(JSON.stringify(await that.pageElements.getItem(elementName)));
+      var dynamicElement = Object.assign({}, await getElement(elementName));
+      dynamicElement.name = newElementName;
       dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
-      await addElement(elementName + additionalDescription, dynamicElement);
-      return elementName + additionalDescription;
+      addElement(newElementName, dynamicElement);
+      return newElementName;
     }
   }
 
@@ -117,7 +118,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       switch (tagName.toLowerCase()) {
         case 'input':
         case 'textarea':
-          await populateInput(webElement, value, actionElement);
+          value == 'click' ? await populateClick(webElement, value, actionElement) : await populateInput(webElement, value, actionElement);
           break;
         case 'a':
         case 'button':
@@ -126,7 +127,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'ul':
         case 'li':
         case 'th':
-        case 'h2':
+        case 'h2':  
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
@@ -137,6 +138,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'p':
           await populateSelect(webElement, value, actionElement);
           break;
+        case 'label' :
+        case 'option':
+          await populateClick(webElement, value, actionElement);
+          break;
         default:
           assert.fail(`ERROR: We tried to populate an unknown tag(${tagName}) of element(${elementName}) with data in populateGenericElement()\n\tWe failed.`);
       }
@@ -146,8 +151,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const getWebElements = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
     
     if (await hasElement(elementName)) {
       let WebElementData = {};
@@ -156,38 +162,6 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const WebElementObject = await WebElement(WebElementData);
       const elementList = await WebElementObject.getWebElements();
       return elementList
-    } else {
-      assert.fail(`Element ${elementName} not found.`);
-      throw new Error(`Element ${elementName} not found.`);
-    }
-  }
-
-  const getAttributeValue = async function (elementName, replaceText, attributeName) {
-    if (attributeName !== undefined && replaceText === undefined) {
-      attributeName = replaceText;
-    } else {
-      await addDynamicElement(elementName, replaceText);
-      elementName = elementName + (replaceText || '');
-    }
-
-    if (await hasElement(elementName)) {
-      let WebElementData = {};
-      WebElementData = await getElement(elementName);
-      await switchFrame(WebElementData.frame);
-      const WebElementObject = await WebElement(WebElementData);
-      const webElement = await WebElementObject.getWebElement();
-      var returnValue;
-      if (attributeName === undefined) {
-        returnValue = await webElement.getAttribute('textContent');
-      } else if (attributeName.toLowerCase() === 'text') {
-        returnValue = await webElement.getText();
-      } else if (attributeName === 'selected') {
-        returnValue = await webElement.isSelected();
-      } else {
-        returnValue = await webElement.getAttribute(attributeName);
-      }
-
-      return returnValue;
     } else {
       assert.fail(`Element ${elementName} not found.`);
       throw new Error(`Element ${elementName} not found.`);
@@ -215,11 +189,16 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       log.error(err.stack);
       throw err;
     }
-  }
+  };
 
-  const scrollElementIntoView = async function (elementName) {
+  //to be revisited
+  const scrollElementIntoView = async function (elementName, replaceText) {
     let WebElementObject = '';
     let WebElementData = {};
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
     log.debug(`Scrolling element: ${elementName} into view.`)
     if (await hasElement(elementName)) {
       WebElementData = await getElement(elementName);
@@ -245,9 +224,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
-          await getDriver().manage().setTimeouts({ implicit: 5000 });
+          const implicit = (await getDriver().manage().getTimeouts()).implicit;
+          await getDriver().manage().setTimeouts({
+            implicit: 5000
+          });
           let retval = !(await WebElementObject.elementDisplayed());
-          await getDriver().manage().setTimeouts({ implicit: config.timeout });
+          await getDriver().manage().setTimeouts({
+            implicit: implicit
+          });
           return retval;
         case 'visible':
         case 'displayed':
@@ -257,16 +241,31 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
           return (await WebElementObject.elementDisabled());
         case 'exists':
           var collection = await WebElementObject.getWebElements();
-          return collection.length > 0 ? true : false;          
+          return collection.length > 0 ? true : false;
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during AssertElement() attempt.`);
     }
   };
 
+  const checkElementExists = async function (elementName, replaceText) {
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    if (await genericAssertElement(elementName, 'displayed')) {
+      log.info(`Web Element ${elementName} is displayed on page.`);
+      return true;
+    }
+    log.info(`Web Element ${elementName} is not displayed on page.`);
+    return false;
+  };
+
   const assertElementExists = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
     if (await genericAssertElement(elementName, 'displayed')) {
       log.info(`Web Element ${elementName} is displayed on page. PASS`);
     } else {
@@ -275,8 +274,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertElementDoesNotExist = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
     if (await genericAssertElement(elementName, 'notdisplayed')) {
       log.info(`Web Element ${elementName} is not displayed on page. PASS`);
     } else {
@@ -285,8 +286,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertElementDisabled = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
     if (await genericAssertElement(elementName, 'disabled')) {
       log.info(`Web Element ${elementName} is disabled. PASS`);
     } else {
@@ -294,10 +296,67 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const assertText = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) { expectedValue = replaceText };
+  //to be revisited
+  const genericGetAttribute = async function (elementName, attributeName) {
+    if (await hasElement(elementName)) {
+      let WebElementData = {};
+      WebElementData = await getElement(elementName);
+      await switchFrame(WebElementData.frame);
+      const WebElementObject = await WebElement(WebElementData);
+      const webElement = await WebElementObject.getWebElement();
+      var returnValue;
+      if (attributeName === undefined) {
+        returnValue = await webElement.getAttribute('textContent');
+      } else if (attributeName.toLowerCase() === 'text') {
+        returnValue = await webElement.getText();
+      } else if (attributeName === 'selected') {
+        returnValue = await webElement.isSelected();
+      } else {
+        returnValue = await webElement.getAttribute(attributeName);
+      }
+      return returnValue;
+    } else {
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during GetAttributeValue() attempt.`);
+    }
+  };
+
+  const getAttributeValue = async function (elementName, replaceText, attributeName) {
+    if (attributeName === undefined && replaceText !== undefined) {
+      attributeName = replaceText;
+    } else if (replaceText !== undefined && attributeName !== undefined){
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
     try {
-      const actualValue = await getAttributeValue(elementName, replaceText);
+      return await genericGetAttribute(elementName, attributeName);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const getText = async function (elementName, replaceText) {
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    try {
+      return await genericGetAttribute(elementName);
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const assertText = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined && replaceText !== undefined) {
+      expectedValue = replaceText;
+    } else {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    try {
+      const actualValue = await genericGetAttribute(elementName);
       log.info(`Asserting text for "${elementName}".`);
       if (await expect(actualValue).to.equal(expectedValue)) {
         log.info(`Actual value "${actualValue}" equals Expected value "${expectedValue}". PASS`);
@@ -309,9 +368,14 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const assertTextIncludes = async function (elementName, replaceText, expectedValue) {
-    if (expectedValue === undefined) { expectedValue = replaceText };
+    if (expectedValue === undefined && replaceText !== undefined) {
+      expectedValue = replaceText;
+    } else {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
     try {
-      const actualValue = await getAttributeValue(elementName, replaceText);
+      const actualValue = await genericGetAttribute(elementName);
       log.info(`Asserting text for "${elementName}".`);
       if (await expect(actualValue).to.include(expectedValue)) {
         log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
@@ -322,7 +386,27 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const genericWaitForElement = async function (elementName, condition) {
+  const assertTextDoesNotInclude = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined && replaceText !== undefined) {
+      expectedValue = replaceText;
+    } else {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    try {
+      const actualValue = await genericGetAttribute(elementName);
+      log.info(`Asserting text for "${elementName}" does not exist`);
+      
+      if (await expect(actualValue).to.not.include(expectedValue)) {
+        log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
+      };
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const genericWaitForElement = async function (elementName, condition, timeout) {
     let WebElementObject = '';
     let WebElementData = {};
 
@@ -333,50 +417,46 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (condition.toLowerCase()) {
         case 'visibility':
-          return (await WebElementObject.waitForVisibility());
+          return (await WebElementObject.waitForVisibility(timeout));
         case 'invisibility':
-          return (await WebElementObject.waitForInvisibility());
+          return (await WebElementObject.waitForInvisibility(timeout));
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during WaitForElement() attempt.`);
     }
   };
-  
-  const waitForElementVisibility = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
-    if (await genericWaitForElement(elementName, 'visibility')) {
+
+  const waitForElementVisibility = async function (elementName, replaceText, timeoutInSeconds) {
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    let timeout = timeoutInSeconds || 120;
+    if (await genericWaitForElement(elementName, 'visibility', timeout)) {
       log.info(`Web Element ${elementName} is visible on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is not visible on page after 120 second wait. FAIL`);
+      assert.fail(`Web Element ${elementName} is not visible on page after ${timeout} second wait. FAIL`);
     };
   };
 
-  const waitForElementInvisibility = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
-    if (await genericWaitForElement(elementName, 'invisibility')) {
+  const waitForElementInvisibility = async function (elementName, replaceText, timeoutInSeconds) {
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    let timeout = timeoutInSeconds || 120;
+    if (await genericWaitForElement(elementName, 'invisibility', timeout)) {
       log.info(`Web Element ${elementName} is not visible on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is visible on page after 120 second wait. FAIL`);
+      assert.fail(`Web Element ${elementName} is visible on page after ${timeout} second wait. FAIL`);
     };
-  };
-
-  const getText = async function (elementName) {
-    try {
-      return await getAttributeValue(elementName);
-    } catch (err) {
-      log.error(err.stack);
-      throw err;
-    }
   };
 
   const populateElement = async function (elementName, replaceText, strValue) {
-    if (strValue === undefined) {
+    if (strValue === undefined && replaceText !== undefined) {
       strValue = replaceText;
     } else {
-      await addDynamicElement(elementName, replaceText);
-      elementName = elementName + (replaceText || '');
+      elementName = await addDynamicElement(elementName, replaceText);
     }
 
     try {
@@ -389,10 +469,11 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const clickElement = async function (elementName, replaceText) {
-    await addDynamicElement(elementName, replaceText);
-    elementName = elementName + (replaceText || '');
+    if (replaceText !== undefined) {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
     try {
-      log.debug(`Starting click the web element: ${elementName}`);
+      log.info(`Starting click the web element: ${elementName}`);
       await genericPopulateElement(elementName, 'click');
     } catch (err) {
       log.error(err.stack);
@@ -403,7 +484,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const switchToTab = async function (tabName) {
     try {
       log.debug(`Switching to tab : ${tabName}`);
-      await activateTab(tabName);
+      if (!(await activateTab(tabName))) {
+        assert.fail(`${tabName} tab was not found. FAIL`);
+      };
     } catch (err) {
       log.error(err.stack);
       throw err;
@@ -413,8 +496,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const closeTab = async function (tabName) {
     try {
       log.debug(`Closing tab : ${tabName}`);
-      await activateTab(tabName);
-      await getDriver().close();
+      await closeTabAndSwitch(tabName);
     } catch (err) {
       log.error(err.stack);
       throw err;
@@ -467,24 +549,24 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     }
   };
 
-  const acceptAlert = async function(){
+  const acceptAlert = async function () {
     await genericAlertOperations('accept');
     log.info(`Accepted alert popup.`);
   };
 
-  const dismissAlert = async function(){
+  const dismissAlert = async function () {
     await genericAlertOperations('dismiss');
     log.info(`Dismissed alert popup.`);
   };
 
-  const getAlertText = async function(){
+  const getAlertText = async function () {
     log.debug("Getting text in alert popup.");
     let actualValue = await genericAlertOperations('text');
     log.info(`${actualValue} is displayed in the alert popup.`);
     return actualValue;
   };
 
-  const assertAlertText = async function(expectedValue){
+  const assertAlertText = async function (expectedValue) {
     log.debug("Asserting text in alert popup.");
     let actualValue = await genericAlertOperations('text');
     if (actualValue === expectedValue) {
@@ -494,7 +576,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const assertAlertTextIncludes = async function(expectedValue){
+  const assertAlertTextIncludes = async function (expectedValue) {
     log.debug("Asserting text in alert popup.");
     let actualValue = await genericAlertOperations('text');
     if (actualValue.includes(expectedValue)) {
@@ -504,10 +586,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const genericAlertOperations = async function(operation){
-    if (await that.driver.wait(that.webdriver.until.alertIsPresent())){
+  const genericAlertOperations = async function (operation) {
+    if (await that.driver.wait(that.webdriver.until.alertIsPresent())) {
       let alert = that.driver.switchTo().alert();
-      switch (operation.toLowerCase()){
+      switch (operation.toLowerCase()) {
         case 'accept':
           await alert.accept();
           break;
@@ -525,6 +607,18 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
+  const dragAndDrop = async function (dragElementName, dragReplaceText, dropElementName, dropReplaceText) {
+    await addDynamicElement(dragElementName, dragReplaceText);
+    await addDynamicElement(dropElementName, dropReplaceText);
+    dragElementName = dragElementName + (dragReplaceText || '');
+    dropElementName = dropElementName + (dropReplaceText || '');
+    if (await genericAssertElement(elementName, 'displayed')) {
+      log.info(`Web Element ${elementName} is displayed on page. PASS`);
+    } else {
+      assert.fail(`Web Element ${elementName} is not displayed on page.`);
+    };
+  };
+
   that.acceptAlert = acceptAlert;
   that.dismissAlert = dismissAlert;
   that.getAlertText = getAlertText;
@@ -532,6 +626,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.assertAlertTextIncludes = assertAlertTextIncludes;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
+  that.assertTextDoesNotInclude = assertTextDoesNotInclude;
   that.assertElementDisabled = assertElementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;
@@ -541,6 +636,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
+  that.checkElementExists = checkElementExists;
   that.assertElementExists = assertElementExists;
   that.assertElementDoesNotExist = assertElementDoesNotExist;
   that.getWebElements = getWebElements;
@@ -550,14 +646,17 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.switchToTab = switchToTab;
   that.closeTab = closeTab;
   that.getCurrentURL = getCurrentURL;
-  that.getPageTitle=getPageTitle;
-  that.assertPageTitle=assertPageTitle;
-  that.assertPageTitleIncludes=assertPageTitleIncludes;
-  that.addDynamicElement=addDynamicElement;
+  that.getPageTitle = getPageTitle;
+  that.assertPageTitle = assertPageTitle;
+  that.assertPageTitleIncludes = assertPageTitleIncludes;
+  that.addDynamicElement = addDynamicElement;
   that.waitForElementVisibility = waitForElementVisibility;
   that.waitForElementInvisibility = waitForElementInvisibility;
+  that.dragAndDrop = dragAndDrop;
   loadPageDefinitionFile(that.pageDefinitionFileName);
   return that;
 }
 
-module.exports = { PageObject };
+module.exports = {
+  PageObject
+};

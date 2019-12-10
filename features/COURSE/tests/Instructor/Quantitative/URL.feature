@@ -1,22 +1,40 @@
 @Course @Smoke
-Feature: Verify that Instructor is able to create URL
+Feature: Verify that Instructor is able to create URL In Quantitative Course
 
    @mediaproducer-delete-course
-    Scenario: Verify that mediaproducer is able to create a custom task with URL
+   @mediaproducer-delete-courseTemplate
+    Scenario: Verify that mediaproducer is able to create a custom task with URL in Quantitative Course
 
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |
 
+        And I close the popup message                      
+
+        And I click on search button and input "Quantitative Template" to search the course     
+
         And I activate the "Quantitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
             | Quantitative Template  |   E2E 301     |  Active On Date      | 
 
 
+        And I click on "Quantitative Template" card
+        And I click on "Production" Tab
+
+        And I add activities to "Content Library"
+          | activities            |
+          | GLOSSARY              |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
+        
+        And I click on back to course
+        And I click on home button to return to coursepage
+
+        And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "Quantitative Template" template with the following data
-            | courseName           | courseCode           |
-            | Quantitative Course  | E2E 301              |
+            | courseName          | courseCode           |
+            | Quantitative Course  | E2E 301             |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1"
@@ -32,13 +50,22 @@ Feature: Verify that Instructor is able to create URL
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
+     
+        And I add the activities in courseplanner to "Quantitative Course" course
+            | activity                                                          | 
+            | LCRP1550612138614                                                 |                                                        
+            | LC1551301608988                                                   |
+            | GLOSSARY                                                          |
+
+        And I close the popup message
+
         And I add URL link to "Quantitative Course" in coursePlanner
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 
         Then I verify that "URL Link Added to "Your Content"" message is displayed
 
-        And I add url link in courseplanner
+        And I add URL in courseplanner
             | activity                                    |
             | Google                                      |
 

@@ -1,7 +1,7 @@
 @Course @Smoke
 Feature: Media Editor has only view access that they are not a collaborator
 
-     @mediaproducer-delete-course
+     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Editor has only view access that they are not collaborator
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -9,16 +9,23 @@ Feature: Media Editor has only view access that they are not a collaborator
             | courseType  | productModel       | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative       | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
 
+        And I close the popup message                      
+
+        And I click on search button and input "Quantitative Template" to search the course     
+
         And I activate the "Quantitative Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
             | Quantitative Template  |   E2E 301     |  Active On Date      | 
 
 
-        And I add the activities in resources to "Quantitative Template" template
-            | type                    | activity                                      |
-            | addButtonAssessment     | Exercise: Misused words 1 (autoscored)        |     
-            | addButtonLearningcurve  | LC1551301608988                               |
-            | addReadingButton        |  Glossary                                     |
+        And I click on "Quantitative Template" card
+        And I click on "Production" Tab
+
+        And I add activities to "Content Library"
+          | activities            |
+          | GLOSSARY              |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
 
         And I sign out of Achieve
 

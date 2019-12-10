@@ -1,6 +1,7 @@
 const HashTable = function HashTable (obj) {
   this.length = 0;
   this.items = {};
+  
   for (var p in obj) {
     if (obj.hasOwnProperty(p)) {
       this.items[p] = obj[p];
@@ -8,19 +9,36 @@ const HashTable = function HashTable (obj) {
     }
   }
 
-  this.setItem = function (key, value) {
+  this.setItem = function (key, attribute, value) {
     let previous;
     if (this.hasItem(key)) {
       previous = this.items[key];
     } else {
       this.length++;
+      if (value !== undefined) {
+        this.items[key] = new HashTable();
+      }
     }
-    this.items[key] = value;
+
+    if (value !== undefined) {
+      this.items[key].setItem(attribute, value);
+    } else {
+      this.items[key] = attribute;
+    }
     return previous;
   };
 
-  this.getItem = function (key) {
-    return this.hasItem(key) ? this.items[key] : undefined;
+  this.getItem = function (key, attribute) {
+    if (this.hasItem(key)) {
+      if (attribute === undefined) {
+        return this.items[key];
+      } else {
+        if (this.items[key].hasItem(attribute)) {
+          return this.items[key].getItem(attribute);
+        }
+      }
+    }
+    return undefined;
   };
 
   this.hasItem = function (key) {
@@ -86,4 +104,3 @@ const HashTable = function HashTable (obj) {
   };
 };
 module.exports = HashTable;
-
