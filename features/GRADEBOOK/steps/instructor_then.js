@@ -100,6 +100,7 @@ Then('I verify grade override modal has correct data', async function (dataTable
 
 Then('The manage iClicker button should be displayed', async function () {
   await openIClickerMenu();
+  await iclicker.waitForElementVisibility('manageIClickerMenu');
   await iclicker.click('manageIClickerMenu');
   await iclicker.switchToTab('iClicker Cloud');
   const URL = await iclicker.getCurrentURL();

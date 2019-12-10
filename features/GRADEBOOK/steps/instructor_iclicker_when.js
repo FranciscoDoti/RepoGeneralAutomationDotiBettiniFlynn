@@ -40,6 +40,7 @@ async function disconnectFromIClicker () {
 }
 
 async function openIClickerMenu () {
+  await iclicker.waitForElementVisibility('iClickerMenu');
   await iclicker.click('iClickerMenu');
   await iclicker.waitForElementVisibility('iClickerMenuDisconnect');
 }
