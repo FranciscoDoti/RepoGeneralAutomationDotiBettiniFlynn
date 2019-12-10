@@ -27,21 +27,19 @@ When(/^I enroll the following students in my course$/, async function (dataTable
   await coursePages.createCourse.assertElementExists('courseCard', courseName);
   await coursePages.createCourse.click('courseCard', courseName);
   await driver.getDriver().navigate().refresh();
-  await coursePages.createCourse.assertElementExists('courseTitle', 'E2E 301: ' + courseName)
-  await coursePages.home.scrollElementIntoView('togglerMenu');
-  await coursePages.home.assertElementExists('togglerMenu');
+  await coursePages.createCourse.waitForElementVisibility('courseTitle', 'E2E 301: ' + courseName)
+  await coursePages.home.waitForElementVisibility('togglerMenu');
   await coursePages.home.click('togglerMenu');
   await coursePages.adminMenu.waitForElementVisibility('admin');
-  await coursePages.adminMenu.assertElementExists('admin');
-  await sleep(500);
   await coursePages.adminMenu.click('admin');
   await coursePages.adminMenu.click('admin');
+  await coursePages.adminMenu.waitForElementVisibility('manageEnrollments');
   await coursePages.adminMenu.click('manageEnrollments');
   for (let i = 0; i < dataTable.rows().length; i++) {
     const user = this.users[dataTable.hashes()[i].student];
     await coursePages.adminMenu.populate('emailInput', user.username);
     await coursePages.adminMenu.click('addUserButton');
-    await sleep(1000);
+    await sleep(5000);
   }
   await coursePages.adminMenu.click('closeManageRoles');
   await coursePages.home.click('achieveHome');
@@ -72,11 +70,13 @@ When(/^I create a Gradebook Category with dropped lowest grade policy$/, async f
   for (let i = 0; i < dataTable.rows().length; i++) {
     const courseName = this.data.get('courseName');
     await coursePages.courseList.populate('search', courseName);
+    sleep(15000);
     await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
     await coursePages.createCourse.assertElementExists('courseCard', courseName);
     await coursePages.createCourse.click('courseCard', courseName);
+    await coursePages.coursePage.waitForElementVisibility('navigation', 'Gradebook');
     await coursePages.coursePage.click('navigation', 'Gradebook');
-    await coursePages.gradebook.click('gradebookSettings')
+    await coursePages.gradebook.click('gradebookSettings');
     await coursePages.gradebook.click('gradeBookCategory', 'Add Category');
     await coursePages.gradebook.scrollElementIntoView('categoryName')
     await coursePages.gradebook.populate('categoryName', dataTable.hashes()[i].categoryName)

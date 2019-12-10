@@ -34,10 +34,11 @@ When(/^I assign students to activities in courseplanner$/, async function (dataT
       const user = this.users[student];
       await coursePages.coursePlanner.populate('assignmentModalRosterSearch', `${user.firstName} ${user.lastName}`);
     }
-    await coursePages.coursePlanner.click('vissibilityButton');
+    await coursePages.coursePlanner.waitForElementVisibility('pointsInput', dataTable.hashes()[i].points);
     await coursePages.coursePlanner.populate('pointsInput', dataTable.hashes()[i].points);
 
     await coursePages.coursePlanner.click('assignButton');
+    await coursePages.home.waitForElementVisibility('closeAlert');
     await coursePages.home.click('closeAlert');
 
     await driver.getDriver().navigate().refresh();
