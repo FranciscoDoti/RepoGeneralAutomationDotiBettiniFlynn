@@ -62,11 +62,10 @@ When('Instructor connects to iClicker', async function () {
 When('Instructor disconnects to iClicker', async function () {
   await waitForSettings();
   const connected = await isConnected();
-  if (!connected) {
-    await connectToiClicker();
-    await sleep(3000);
+  if (connected) {
+    await disconnectFromIClicker();
   }
-  await disconnectFromIClicker();
+
 });
 
 module.exports = {
