@@ -1,5 +1,5 @@
 @Course @Smoke
-Feature: Instructor creates Master Section, creates Custom task and content to it
+Feature: Instructor creates Master Section, creates Custom task and adds content to it
 
     @mediaproducer-delete-course
     @instructor-masterSection-delete-course
@@ -29,8 +29,6 @@ Feature: Instructor creates Master Section, creates Custom task and content to i
           | activities                                 |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
-          | LC1551301608988                            |
-          | LCRP1550612138614                          |
 
         And I click on back to course
         And I click on home button to return to coursepage

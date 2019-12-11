@@ -317,3 +317,24 @@ Then('I verify that I created a Master Section with following data', async funct
 When('I click on master card', async function (){
   await pages.masterSection.click('masterCard')
 })
+
+When('I copy the course from the Master Section', async function (data_table){
+  for (let c = 0; c < data_table.rows().length; c++) {
+    await pages.masterSection.click('courseMenuButton', c.courseName)
+    await pages.masterSection.click('copyMasterSection')
+    await pages.masterSection.click('createSingleCourse')
+    await pages.masterSection.populate('courseName', c.courseName)
+    await pages.masterSection.populate('courseCode', c.courseCode)
+    await pages.masterSection.click('courseEndDate');
+    await pages.courseList.click('nextMonthButton');
+    await pages.courseList.click('selectDate', '15');
+    await pages.masterSection.click('fullAccess');
+    await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Master Section');
+  }
+})
+
+When(/^I verify that the course "(.*)" is created$/,async function (courseName){
+  await pages.coursePage.click('tab', 'Courses')
+  await pages.courseList.populate('search', courseName)
+  await pages.courseList.assertElementExists('')
+})
