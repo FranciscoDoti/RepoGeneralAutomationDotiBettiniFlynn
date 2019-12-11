@@ -1,9 +1,14 @@
 {
-  "firstName": "Automation",
-  "lastName": "Student1",
-  "username": "Student1@auto.test",
+  "username": "vapon16621@newmail.top",
   "password": "ABCabc@123",
-  "userId": "fake_user_1776216624",
-  "userType": "student",
-  "admin": false
+  "firstName": "Student",
+  "lastName": "Macmillan",
+  "sq1": "What high school did you attend?",
+  "sq1_answer": "answer111",
+  "sq2": "What is your favorite movie?",
+  "sq2_answer": "answer222",
+  "sq3": "What is your favorite color?",
+  "sq3_answer": "answer",
+  "primarySchool": "macmillan.com"
 }
+

@@ -151,7 +151,7 @@
         {
             "name": "addAssignmentButton",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../div/*[@type='add_to_course']",
+            "definition": "//a[.='<ReplaceText>']/../../..//*[@data-test-id='content_library_add_to_course_btn']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -403,9 +403,27 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "vissibilityButton",
-            "byType": "xpath",
-            "definition": "//*[text()='Make visible to students for entirety of the course']",
+            "name": "assignToStudents",
+            "byType": "css",
+            "definition": "[data-test-id='radio_button_assign_students']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "assignmentModalRosterSearch",
+            "byType": "css",
+            "definition": "[data-test-id='edit_assignment_modal_roster_search_btn']",
+            "frame": "default",
+            "specialInstr": "arrowdownafter enterAfter"
+        }, {
+            "name": "studentSearchBox",
+            "byType": "css",
+            "definition": "[data-test-id='student_search_box']",
+            "frame": "default",
+            "specialInstr": "arrowdownafter enterAfter"
+        }, {
+            "name": "radioButtonAssignStudents",
+            "byType": "css",
+            "definition": "[data-test-id='radio_button_assign_students']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -715,6 +733,20 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },
+        {
+            "name": "addExceptionBtn",
+            "byType": "css",
+            "definition": "[data-test-id='add_exception_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "exceptionDatePickerButton",
+            "byType": "css",
+            "definition": "[data-test-id='exception_due_date_picker']",
+            "frame": "default",
+            "specialInstr": "NA"
         },
         {
             "name": "Category",

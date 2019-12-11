@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
-const { getDriver, onWaitForElementToBeInvisible,sleep,driver} = require(`${process.cwd()}/app/driver`);
+const { getDriver, onWaitForElementToBeInvisible, sleep, driver } = require(`${process.cwd()}/app/driver`);
 const { assert, expect } = require('chai');
 const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const shared = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
@@ -14,6 +14,7 @@ When('I complete the reading activity', async function (data_table) {
 });
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
+  await getDriver().navigate().refresh();
   await pages.coursePage.click('Tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
@@ -227,4 +228,26 @@ Then('I do not see assignments more than 7 days out on the course plan tab', asy
   await pages.coursePage.click('navigation','My Course');
   await pages.coursePage.click('tab', 'ASSIGNMENTS');
   await pages.coursePage.assertElementDoesNotExist('dueDateDay', dayMore7);
+});
+
+When(/^I enroll "(.*)" in "(.*)" using Grace Period$/, async function (userType, courseName){
+  await pages.createCourse.getText('courseShortId', courseName);
+  let user = this.users[userType];
+  let text = await pages.createCourse.getText('courseShortId', courseName);
+  await shared.login.click('togglerMenu');
+  await shared.login.click('signOut');
+  await IAMpages.signIn.click('signinlink');
+  await shared.login.populate('username', user.username);
+  await shared.login.populate('password', user.password);
+  await shared.login.click('signin');
+  await pages.coursePage.click('enroll');
+  await pages.coursePage.populate('accessModelInput', text);
+  await pages.coursePage.click('enter');
+  await pages.courseList.click('gracePeriod');
+  await pages.courseList.populate('checkBox', 'check');
+  await pages.coursePage.click('finishEnrollement');
+});
+
+Then(/^I verify that student is enrolled in "(.*)"$/, async function(courseName){
+  await pages.courseList.assertElementExists('courseName', courseName)
 });

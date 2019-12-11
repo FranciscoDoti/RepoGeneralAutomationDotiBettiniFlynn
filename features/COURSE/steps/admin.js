@@ -8,6 +8,7 @@ const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
@@ -18,17 +19,25 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.home.click('togglerMenu');
   await pages.adminMenu.waitForElementVisibility('admin');
   await pages.adminMenu.assertElementExists('admin');
-  await sleep (500);
+  await sleep(500);
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('manageEnrollments');
   await pages.adminMenu.populate('emailInput', user.username);
   await pages.adminMenu.click('addUserButton');
+  await pages.home.click('closeAlert')
   await pages.adminMenu.click('closeManageRoles');
 });
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
+  await pages.courseList.populate('search', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.click('courseCard', courseName);
+});
+
+When(/^I search for the course "(.*)" and click on course card$/, async function (courseName) {
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
@@ -73,7 +82,7 @@ Then(/^I verify the message for each "(.*)"$/, async function (message) {
 
 When('I generate and export course report', async function (){
   await pages.home.click('togglerMenu');
-  await pages.adminMenu.click('admin');
+  await sleep(500);
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('courseReport');
   await pages.adminMenu.click('generateReport')
@@ -89,7 +98,6 @@ Then('I verify the report is dowloaded with following data', async function (dat
       expect(data[0]).to.have.property(data_table.hashes()[i].ColumnName);
   }
 });
-
 
 When(/^I click on "(.*)" Tab$/, async function (tabName){
   await pages.coursePage.click('navigation', tabName);
@@ -239,3 +247,9 @@ Then('I verify that Folders are deleted', async function (data_table){
   await pages.eBook.assertElementDoesNotExist('contentCheckbox', data_table.hashes()[i].Folder,'check');
   }
 });
+
+When('I use a pre-built course', async function () {
+  await pages.coursePage.click('navigation', 'Start with a Pre-built Course');
+  await pages.coursePage.click('checkbox');
+  await pages.coursePage.click('navigation', 'Continue to Course Plan')
+})

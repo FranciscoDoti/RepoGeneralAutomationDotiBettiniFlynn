@@ -3,6 +3,7 @@ const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver.js`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
+  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
 
@@ -48,7 +49,7 @@ When('I assign the activities in courseplanner', async function (data_table) {
     while (x >= 0) {
       x--;
       await pages.coursePlanner.click('assignAssignmentButton');
-      await pages.coursePlanner.click('vissibilityButton');
+      await pages.coursePlanner.click('assignToStudents');
       await pages.coursePlanner.populate('pointsInput', data_table.hashes()[i].Points);
       await pages.coursePlanner.click('assignButton');
       await pages.home.click('closeAlert');
@@ -150,6 +151,7 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
     await pages.coursePlanner.click('assignButton');
   }
 });
+
 When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Gradebook');
@@ -169,6 +171,7 @@ Then('I verify the Grades', async function (data_table){
     await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
   }
 });
+
 When(/^I add "(.*)" content first in order to continue adding the rest contentfrom Browse to courseplanner in "(.*)"$/, async function (activity, courseName, data_table) {
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Browse');
@@ -338,3 +341,16 @@ When(/^I verify that the course "(.*)" is created$/,async function (courseName){
   await pages.courseList.populate('search', courseName)
   await pages.courseList.assertElementExists('')
 })
+When(/^I add the activities by searching in browse and adding it to courseplanner in "(.*)" course$/, async function(courseName,data_table){
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.click('navigation','Browse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
+    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].addContent);
+    if(i===0) {
+      await pages.coursePlanner.click('addingContent');
+      await pages.coursePlanner.click('continue');
+      await pages.home.click('closeAlert');
+    }
+  }
+});

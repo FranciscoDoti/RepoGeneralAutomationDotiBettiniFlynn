@@ -1,19 +1,19 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName); 
+  await sleep(500)
   await pages.courseList.click('courseMenu', courseName); 
-  await pages.courseList.click('courseMenu', courseName);
   await pages.courseList.click('manageInstructor');
   await pages.courseList.populate('addInstructor', user.username);
   await pages.courseList.click('addButton');
   await pages.courseList.assertElementExists('instructorClose');
   await pages.courseList.click('instructorClose');
-  
 });
 
 When(/^I check the account of "(.*)"$/, async function (userType){
@@ -21,6 +21,7 @@ When(/^I check the account of "(.*)"$/, async function (userType){
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');
+  await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.assertElementExists('checkAccount');
   await pages.adminMenu.click('checkAccount');
@@ -70,7 +71,7 @@ When('I update the access code', async function (data_table) {
   }
 });
 
-When(/^I search for "(.*)" in Course tab$/, async function (courseName){
+When(/^I search for "(.*)" in Courses tab$/, async function (courseName){
   await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName)

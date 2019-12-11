@@ -133,6 +133,12 @@
             "frame": "default",
             "specialInstr": "focus"
 
+        },{
+            "name": "checkbox",
+            "byType": "xpath",
+            "definition": "//input[@type='checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

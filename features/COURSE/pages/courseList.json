@@ -150,6 +150,12 @@
         "frame": "default",
         "specialInstr": "NA"
     }, {
+        "name": "previousMonthButton",
+        "byType": "css",
+        "definition": "[aria-label='previous_month_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+    }, {
         "name": "nextMonthButton",
         "byType": "css",
         "definition": "[aria-label='next_month_button']",
@@ -218,6 +224,28 @@
         "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1UHg']",
         "frame": "default",
         "specialInstr": "NA"
+    },
+    {
+        "name": "gracePeriod",
+        "byType": "css",
+        "definition": "[data-test-id='access_code_modal_start_gp_btn']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "checkBox",
+        "byType": "css",
+        "definition": "[type='checkbox']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },
+    {
+        "name": "courseName",
+        "byType": "xpath",
+        "definition": "//div[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     },
     {
         "name": "courseName",
