@@ -1,7 +1,6 @@
 const { When } = require('cucumber');
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { sleep } = require(`${process.cwd()}/app/driver`);
-const driver = require(`${process.cwd()}/app/driver`);
 
 When(/^I assign "(.*)" to my course$/, async function (userKey) {
   const user = this.users[userKey];
@@ -70,7 +69,7 @@ When(/^I create a Gradebook Category with dropped lowest grade policy$/, async f
     const courseName = this.data.get('courseName');
     await coursePages.courseList.waitForElementVisibility('search', courseName);
     await coursePages.courseList.populate('search', courseName);
-    sleep(5000);
+    await sleep(5000);
     await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
     await coursePages.createCourse.click('courseCard', courseName);
     await coursePages.coursePage.waitForElementVisibility('navigation', 'Gradebook');
