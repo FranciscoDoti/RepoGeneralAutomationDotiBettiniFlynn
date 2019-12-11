@@ -29,14 +29,14 @@ When(/^I enroll the following students in my course$/, async function (dataTable
   await coursePages.home.click('togglerMenu');
   await coursePages.adminMenu.waitForElementVisibility('admin');
   await coursePages.adminMenu.click('admin');
-  await coursePages.adminMenu.click('admin');
   await coursePages.adminMenu.waitForElementVisibility('manageEnrollments');
   await coursePages.adminMenu.click('manageEnrollments');
   for (let i = 0; i < dataTable.rows().length; i++) {
     const user = this.users[dataTable.hashes()[i].student];
-    await coursePages.adminMenu.populate('emailInput', user.username);
-    await coursePages.adminMenu.click('addUserButton');
     await sleep(5000);
+    await coursePages.adminMenu.populate('emailInput', user.username);
+    await sleep(5000);
+    await coursePages.adminMenu.click('addUserButton');
   }
   await coursePages.adminMenu.click('closeManageRoles');
   await coursePages.home.click('achieveHome');
