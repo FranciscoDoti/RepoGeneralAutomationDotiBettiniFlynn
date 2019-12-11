@@ -19,7 +19,8 @@ When(/^I assign students to activities in courseplanner$/, async function (dataT
   const courseName = this.data.get('courseName');
   await coursePages.createCourse.click('courseCard', courseName);
   await coursePages.coursePage.click('navigation', 'My Course');
-  await coursePages.coursePage.click('Tab', 'COURSE PLAN')
+  await coursePages.coursePage.waitForElementVisibility('Tab', 'COURSE PLAN');
+  await coursePages.coursePage.click('Tab', 'COURSE PLAN');
   for (let i = 0; i < dataTable.rows().length; i++) {
     const student = dataTable.hashes()[i].student
     const category = dataTable.hashes()[i].category
@@ -43,29 +44,39 @@ When(/^I assign students to activities in courseplanner$/, async function (dataT
 
     await driver.getDriver().navigate().refresh();
     await coursePages.coursePage.click('Tab', 'COURSE PLAN')
+    await coursePages.coursePlanner.waitForElementVisibility('assignGradebook', activity);
     await coursePages.coursePlanner.click('assignGradebook', activity);
 
     await coursePages.coursePlanner.waitForElementVisibility('gradeBookCategory');
     await coursePages.coursePlanner.click('gradeBookCategory');
+    await coursePages.coursePlanner.waitForElementVisibility('Category', category)
     await coursePages.coursePlanner.populate('Category', category)
 
     if (exceptionStudent) {
       const exceptionUser = this.users[exceptionStudent];
       await coursePages.coursePlanner.click('addExceptionBtn');
+      await coursePages.coursePlanner.waitForElementVisibility('studentSearchBox', `${exceptionUser.firstName} ${exceptionUser.lastName}`);
       await coursePages.coursePlanner.populate('studentSearchBox', `${exceptionUser.firstName} ${exceptionUser.lastName}`);
     }
 
     if (isPastDue) {
+      await coursePages.coursePlanner.waitForElementVisibility('assignmentDueDate');
       await coursePages.coursePlanner.click('assignmentDueDate');
+      await coursePages.courseList.waitForElementVisibility('previousMonthButton');
       await coursePages.courseList.click('previousMonthButton');
+      await coursePages.courseList.waitForElementVisibility('selectDate', '15');
       await coursePages.courseList.click('selectDate', '15');
     } else {
+      await coursePages.coursePlanner.waitForElementVisibility('assignmentDueDate');
       await coursePages.coursePlanner.click('assignmentDueDate');
+      await coursePages.courseList.waitForElementVisibility('nextMonthButton');
       await coursePages.courseList.click('nextMonthButton');
+      await coursePages.courseList.waitForElementVisibility('selectDate', '15');
       await coursePages.courseList.click('selectDate', '15');
     }
 
     await coursePages.coursePlanner.click('assignButton');
+    await coursePages.home.waitForElementVisibility('closeAlert');
     await coursePages.home.click('closeAlert');
   }
 });
