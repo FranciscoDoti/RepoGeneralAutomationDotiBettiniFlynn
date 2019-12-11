@@ -24,9 +24,7 @@ When(/^I enroll the following students in my course$/, async function (dataTable
   const courseName = this.data.get('courseName');
   await coursePages.courseList.populate('search', courseName);
   await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
-  await coursePages.createCourse.assertElementExists('courseCard', courseName);
   await coursePages.createCourse.click('courseCard', courseName);
-  await driver.getDriver().navigate().refresh();
   await coursePages.createCourse.waitForElementVisibility('courseTitle', 'E2E 301: ' + courseName)
   await coursePages.home.waitForElementVisibility('togglerMenu');
   await coursePages.home.click('togglerMenu');
@@ -52,6 +50,7 @@ When(/^I activate course "(.*)" with the following data$/, async function (cours
     await sleep(500);
     await coursePages.courseList.waitForElementVisibility('courseMenu', courseName);
     await coursePages.courseList.click('courseMenu', courseName);
+    await coursePages.copyCourse.waitForElementVisibility('copyCourse');
     await coursePages.copyCourse.click('copyCourse');
     await coursePages.copyCourse.populate('courseName', c.courseName)
     await coursePages.copyCourse.populate('courseCode', c.courseCode)
@@ -69,10 +68,10 @@ When(/^I activate course "(.*)" with the following data$/, async function (cours
 When(/^I create a Gradebook Category with dropped lowest grade policy$/, async function (dataTable) {
   for (let i = 0; i < dataTable.rows().length; i++) {
     const courseName = this.data.get('courseName');
+    await coursePages.courseList.waitForElementVisibility('search', courseName);
     await coursePages.courseList.populate('search', courseName);
-    sleep(15000);
+    sleep(5000);
     await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
-    await coursePages.createCourse.assertElementExists('courseCard', courseName);
     await coursePages.createCourse.click('courseCard', courseName);
     await coursePages.coursePage.waitForElementVisibility('navigation', 'Gradebook');
     await coursePages.coursePage.click('navigation', 'Gradebook');

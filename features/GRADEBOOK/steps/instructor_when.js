@@ -45,6 +45,7 @@ When(/^I assign students to activities in courseplanner$/, async function (dataT
     await coursePages.coursePage.click('Tab', 'COURSE PLAN')
     await coursePages.coursePlanner.click('assignGradebook', activity);
 
+    await coursePages.coursePlanner.waitForElementVisibility('gradeBookCategory');
     await coursePages.coursePlanner.click('gradeBookCategory');
     await coursePages.coursePlanner.populate('Category', category)
 
