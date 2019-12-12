@@ -31,7 +31,6 @@ const addFeedbackModule = async function (tab, moduleType) {
     await pages.raptor.click('Feedback Add Button');
     await pages.raptor.click('Feedback Module', moduleType);
     await pages.raptor.click('Feedback Context Area');
-    await pages.raptor.click('Feedback Text');
 };
 
 const checkAnswerMode = async function () {

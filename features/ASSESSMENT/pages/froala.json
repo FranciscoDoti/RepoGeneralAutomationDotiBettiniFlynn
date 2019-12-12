@@ -20,6 +20,13 @@
             "definition": "//button[@id='close-edit-host']",
             "frame":"default",
             "specialInstr":"NA"
+        },
+        {
+            "name": "Feedback edit btn",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']//div[@data-test-id='edit-module-button']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

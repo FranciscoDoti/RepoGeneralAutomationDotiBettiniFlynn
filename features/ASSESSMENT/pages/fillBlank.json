@@ -3,9 +3,9 @@
         {
             "name": "Text",
             "byType": "xpath",
-            "definition": "//div[@class='sticky-buttons']//div[@class='ace-here ace_editor ace-clouds']/textarea",
+            "definition": "//div[@class='ace_scroller']",
             "frame": "default",
-            "specialInstr": "noclick overwrite"
+            "specialInstr": "overwrite"
         },
         {
             "name": "Add DropDown Button",
@@ -17,7 +17,7 @@
         {
             "name": "Choice Value Text",
             "byType": "xpath",
-            "definition": "(//div[@class='sl-list-edit']//div[@class='ace_line'])[<ReplaceText>]",
+            "definition": "(//div/div/button[@id='close-edit-host']/../..//div[contains(@class,'ace_text')])[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "overwrite"
         },
@@ -32,6 +32,13 @@
             "name": "Option",
             "byType": "css",
             "definition": "ul[data-test-id='dropDownAnswerChoices'] > li:nth-child(<ReplaceText>)",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Raptor Canvas Btns",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }

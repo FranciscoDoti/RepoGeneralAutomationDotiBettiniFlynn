@@ -1,4 +1,4 @@
-@Assessment @PreviewItem @Smoke
+@Assessment @NPreviewItem @Smoke
 Feature: Preview item feature
 
     Scenario Outline: Preview Item
@@ -19,7 +19,7 @@ Feature: Preview item feature
             | Default Feedback   | Default text   |
 
         Examples:
-            | Title               | Module Type       |
+            | Title                    | Module Type       |
             | PreviewItem Test MC Item | Multiple Choice   |
             | PreviewItem Test MS Item | Multiple Select   |
             | PreviewItem Test UT Item | Ungraded Text     |
