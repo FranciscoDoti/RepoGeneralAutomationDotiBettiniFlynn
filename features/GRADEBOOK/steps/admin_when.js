@@ -7,16 +7,17 @@ When(/^I assign "(.*)" to my course$/, async function (userKey) {
   const courseName = this.data.get('courseName');
   await coursePages.courseList.click('courseTemplate', 'COURSES');
   await coursePages.courseList.populate('search', courseName);
+  // TODO fix menu toggle defect, optimize menu rendering
   await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
   await coursePages.createCourse.assertElementExists('courseCard', courseName);
   await coursePages.courseList.assertElementExists('courseMenu', courseName);
   await coursePages.courseList.click('courseMenu', courseName);
   await coursePages.courseList.click('courseMenu', courseName);
   await coursePages.courseList.click('manageInstructor');
-  await coursePages.courseList.populate('addInstructor', user.username);
-  await coursePages.courseList.click('addButton');
+  await coursePages.courseList.waitPopulate('addInstructor', user.username);
+  await coursePages.courseList.waitClick('addButton');
   await coursePages.courseList.assertElementExists('instructorClose');
-  await coursePages.courseList.click('instructorClose');
+  await coursePages.courseList.waitClick('instructorClose');
 });
 
 When(/^I enroll the following students in my course$/, async function (dataTable) {
