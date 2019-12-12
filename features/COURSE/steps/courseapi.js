@@ -1,9 +1,12 @@
 const { When } = require('cucumber');
-const { RestObject } = require(`${process.cwd()}/app/rest`);
 const { expect } = require('chai');
-const specPath = `${process.cwd()}/features/COURSE/apispecs/lms/course`;
+const _ = require('lodash');
+const urls = require(`${process.cwd()}/config/urls.json`);
+const { RestObject } = require(`${process.cwd()}/app/rest`);
+const specPath = `${process.cwd()}/features/COURSE/apispecs/`;
 
 When('I create a course template with as {string} with the following data', async function (userType, datatable) {
+    let url = await _.get(urls, ['Achieve-CW', this.stack]);
     let spec = `${specPath}/createcourse.json`;
     let jwt_payload = this.users[userType].jwt_payload;
     let rest = new RestObject(spec);
@@ -11,7 +14,7 @@ When('I create a course template with as {string} with the following data', asyn
     
     for(let i = 0; i < datatable.rows().length; i++){
         let courseData = datatable.hashes()[i];
-        expect(await rest.POST(courseData)).to.equal(200);
+        expect(await rest.POST(url, courseData)).to.equal(200);
         console.log(await rest.response());
     };
 });

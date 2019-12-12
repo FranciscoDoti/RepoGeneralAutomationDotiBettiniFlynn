@@ -1,6 +1,6 @@
 {
     "method":"POST",
-    "uri": "https://dev-cw-triage-courseware.mldev.cloud/lms/course",
+    "endpoint": "/lms/course",
     "json": true,
     "request": {
       "name": "test-sm-api",

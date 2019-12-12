@@ -16,10 +16,10 @@ const send = async function () {
     }));
 };
 
-const setRequestOptions = async function (requestType) {
+const setRequestOptions = async function (requestType, url) {
     log.info(`Constructing request options for request type ${requestType}`);
     request.method = requestType;
-    request.uri = spec.uri;
+    request.uri = `https://${url.split('/')[2]}${spec.endpoint}`;
     request.body = spec.request;
     request.json = spec.json;
     request.resolveWithFullResponse = true;
@@ -55,8 +55,8 @@ RestObject.prototype.setCookie = async function (payload) {
     });
 };
 
-RestObject.prototype.POST = async function (body) {
-    await setRequestOptions('POST');
+RestObject.prototype.POST = async function (url, body) {
+    await setRequestOptions('POST', url);
     await setRequestBody(body);
     await setRequestCookie();
     let result = await send();
