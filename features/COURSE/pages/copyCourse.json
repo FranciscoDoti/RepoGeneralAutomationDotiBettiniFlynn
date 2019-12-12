@@ -1,28 +1,39 @@
 {
-    "webElements": [{
-        "name": "courseName",
-        "byType": "id",
-        "definition": "copyCourseName",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "courseCode",
-        "byType": "id",
-        "definition": "copyCourseShortName",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "save",
-        "byType": "css",
-        "definition": "[data-test-id='copy_course_save_btn']",
-        "frame": "default",
-        "specialInstr": "NA"
-    }, {
-        "name": "copyCourse",
-        "byType": "css",
-        "definition": "[data-test-id='copy_course_modal']",
-        "frame": "default",
-        "specialInstr": "NA"
-
-    }]
+    "webElements": [
+        {
+            "name": "courseName",
+            "byType": "id",
+            "definition": "copyCourseName",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "courseCode",
+            "byType": "id",
+            "definition": "copyCourseShortName",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "save",
+            "byType": "css",
+            "definition": "[data-test-id='copy_course_save_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "copyCourse",
+            "byType": "css",
+            "definition": "[data-test-id='copy_course_modal']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "copyCourseStatus",
+            "byType": "css",
+            "definition": "[data-test-id='copy_course_status']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
 }

@@ -224,12 +224,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
       switch (value.toLowerCase()) {
         case 'notdisplayed':
+          const implicit = (await getDriver().manage().getTimeouts()).implicit;
           await getDriver().manage().setTimeouts({
             implicit: 5000
           });
           let retval = !(await WebElementObject.elementDisplayed());
           await getDriver().manage().setTimeouts({
-            implicit: config.timeout
+            implicit: implicit
           });
           return retval;
         case 'visible':
@@ -254,9 +255,10 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
 
     if (await genericAssertElement(elementName, 'displayed')) {
       log.info(`Web Element ${elementName} is displayed on page.`);
-    } else {
-      log.info(`Web Element ${elementName} is not displayed on page.`);
-    };
+      return true;
+    }
+    log.info(`Web Element ${elementName} is not displayed on page.`);
+    return false;
   };
 
   const assertElementExists = async function (elementName, replaceText) {
@@ -376,6 +378,26 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const actualValue = await genericGetAttribute(elementName);
       log.info(`Asserting text for "${elementName}".`);
       if (await expect(actualValue).to.include(expectedValue)) {
+        log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
+      };
+    } catch (err) {
+      log.error(err.stack);
+      throw err;
+    }
+  };
+
+  const assertTextDoesNotInclude = async function (elementName, replaceText, expectedValue) {
+    if (expectedValue === undefined && replaceText !== undefined) {
+      expectedValue = replaceText;
+    } else {
+      elementName = await addDynamicElement(elementName, replaceText);
+    }
+
+    try {
+      const actualValue = await genericGetAttribute(elementName);
+      log.info(`Asserting text for "${elementName}" does not exist`);
+      
+      if (await expect(actualValue).to.not.include(expectedValue)) {
         log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
       };
     } catch (err) {
@@ -604,6 +626,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.assertAlertTextIncludes = assertAlertTextIncludes;
   that.assertText = assertText;
   that.assertTextIncludes = assertTextIncludes;
+  that.assertTextDoesNotInclude = assertTextDoesNotInclude;
   that.assertElementDisabled = assertElementDisabled;
   that.getElement = getElement;
   that.hasElement = hasElement;

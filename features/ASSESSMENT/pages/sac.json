@@ -129,7 +129,7 @@
         {
             "name": "Answer Score",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='side-nav-item-<ReplaceText>-score']/span",
+            "definition": "//div[@data-test-id='side-nav-item-<ReplaceText>-score']",
             "frame": "questionList",
             "specialInstr": "NA"
         },

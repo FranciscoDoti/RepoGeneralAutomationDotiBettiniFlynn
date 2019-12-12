@@ -1,0 +1,32 @@
+{
+  "webElements": [
+    {
+      "name": "addCategory",
+      "byType": "css",
+      "definition": "[data-test-id='add-category-button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "saveCategory",
+      "byType": "css",
+      "definition": "[data-test-id='save-category-button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "newCategoryInput",
+      "byType": "css",
+      "definition": "[data-test-id='settings-category-list'] li:last-of-type input",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "removeCategory",
+      "byType": "css",
+      "definition": "[data-test-id='settings-remove-category']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}

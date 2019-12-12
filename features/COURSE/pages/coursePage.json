@@ -66,41 +66,79 @@
             "frame": "default",
             "specialInstr": "NA"
 
-        },{
+        }, {
             "name": "enroll",
             "byType": "css",
             "definition": "[data-test-id='enroll_in_a_new_course_button']",
             "frame": "default",
             "specialInstr": "NA"
 
-        },{
+        }, {
             "name": "accessModelInput",
             "byType": "css",
             "definition": "[data-test-id='access_code_modal_input']",
             "frame": "default",
             "specialInstr": "NA"
 
-        },{
+        }, {
             "name": "enter",
             "byType": "css",
             "definition": "[data-test-id='access_code_modal_enter_btn']",
             "frame": "default",
             "specialInstr": "NA"
 
-        },{
+        }, {
             "name": "finishEnrollement",
             "byType": "css",
             "definition": "[data-test-id='access_code_modal_finish_enrollment_btn']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
+        },{
+            "name": "assignmentsDueSevenDays",
+            "byType": "css",
+            "definition": "div[role='presentation']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "dueDateDay",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
             "name": "Tab",
             "byType": "xpath",
-            "definition": "//button[.='<ReplaceText>']",
+            "definition": "//div[@aria-label='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 
+        },{
+            "name": "contentType",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@id='filter-keyword-title']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },{
+            "name": "CoursePlanEbook",
+            "byType": "xpath",
+            "definition": "//*[@id='simple-menu']/div[3]/ul/li",
+            "frame": "default",
+            "specialInstr": "focus"
+
+        },{
+            "name": "All",
+            "byType": "xpath",
+            "definition": "//*[@id='simple-menu']/div[3]/ul/li[3]",
+            "frame": "default",
+            "specialInstr": "focus"
+
+        },{
+            "name": "checkbox",
+            "byType": "xpath",
+            "definition": "//input[@type='checkbox']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

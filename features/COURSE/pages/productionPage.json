@@ -1,0 +1,34 @@
+{
+    "webElements": [{
+            "name": "productionTab",
+            "byType": "xpath",
+            "definition": "//span[contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "showFilter",
+            "byType": "css",
+            "definition": "[id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "keywordSearchBar",
+            "byType": "css",
+            "definition": "[placeholder='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "applySearch",
+            "byType": "css",
+            "definition": "[aria-label='Apply']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "searchResults",
+            "byType": "xpath",
+            "definition": "//a[contains(@data-test-id,'activity_link') and contains(text(), '<ReplaceText>')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { expect } = require('chai');
+const { assert, expect} = require('chai');
 
 
 
@@ -23,16 +23,30 @@ const searchResultCount = async function () {
 
 };
 
-const verifyTextInRow = async function (index, option) {
-  let rowData = {};
-  rowData = await pages.filters.getAttributeValue('Search Result', index, 'textContent');
-  expect(rowData).to.include(option);
+const verifyItemInRow = async function(rowNumber, filters, textFilter){
+  let rowData = await pages.filters.getAttributeValue('Search Result', rowNumber, 'textContent');
+  
+  if (filters === undefined && textFilter!== undefined){
+      
+      expect(rowData).to.include(textFilter);
+  }else if (textFilter === undefined && filters !== undefined){
+      for (let i=0;i< filters.length; i++){
+          expect(rowData).to.include(filters[i].Option);
+      }
+
+  }else{
+      expect(rowData).to.include(textFilter);
+      for (let i=0;i< filters.length; i++){
+          expect(rowData).to.include(filters[i].Option);
+      }
+
+  }
 };
 
-const verifyItemsWithFilterApplied = async function (option) {
+const verifyItemswithFiltersApplied = async function(filters,textFilter){
   let i = 1;
-  while (i <= await searchResultCount()) {
-    await verifyTextInRow(i, option);
+  while (i <= await searchResultCount()) {  
+      await verifyItemInRow(i, filters, textFilter);     
     if (i % 200 == 0 && i <= 999) {
       await pages.filters.scrollElementIntoView('Load More');
       await pages.filters.click('Load More');
@@ -47,7 +61,8 @@ const removeFilter = async function (tagText) {
 };
 
 const verifyThatCountResultHasIncreased = async function() {
-  expect(await searchResultCount()).to.be.greaterThan(200);
+  let results= await searchResultCount();
+  assert(results>200, 'Current quantity of table results:'+ results);
 }; 
 
 
@@ -57,7 +72,7 @@ module.exports = {
   verifyTag,
   removeFilter,
   searchResultCount,
-  verifyTextInRow,
-  verifyItemsWithFilterApplied,
+  verifyItemInRow,
+  verifyItemswithFiltersApplied,
   verifyThatCountResultHasIncreased
 };

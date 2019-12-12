@@ -15,17 +15,19 @@ When(/^I set Item Details name as "(.*)"$/, async function (name) {
 
 When(/^I add Math equation module$/, async function () {
   await pages.raptorAms.click('menuBarAdd');
+  await pages.raptorAms.assertElementExists('addMathEquation');
   await pages.raptorAms.click('addMathEquation');
 });
 
 When(/^I click on the Question tab, and add an Answer field$/, async function () {
+  await pages.raptorAms.assertElementExists('contextTab', 'correct');
   await pages.raptorAms.click('questionContent');
   await pages.raptorAms.assertElementExists('answerLabel');
 });
 
 When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.*)"$/, async function (eval, endpoints, upperTolerance, lowerTolerance, eqn) {
   await pages.raptorAms.click('contextTab', 'correct');
-  await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
   await pages.raptorAms.populate('mathGradeAs', eval);
   await pages.raptorAms.populate('mathEquationField', eqn);
 
@@ -79,9 +81,10 @@ When(/^I input the answer "(.*)"$/, async function (eqn) {
 
       // if a comma is encountered in the equation, the rightArrow key is sent before the comma
       // this is required because the Math component is expecting a comma to signify the end of partial equation
-      // also the below logic with 2 right and left key arrows was implemented to disable closing right brackets 
+      // also the below logic with 2 right and left key arrows was implemented to disable closing right brackets, especially when division involved 
       // that is auto triggered by the app after the expression
-      if (token === ',') {
+      // the check for previous character not equal to ')' is introduced as the ')' is part of the equation input and not auto triggered by app. 
+      if (token === ',' && eqn.charAt(i-1) !== ')') {
         await pages.palette.click('rightArrow');
         await pages.palette.click('rightArrow');
         await pages.palette.click('leftArrow');
@@ -152,6 +155,7 @@ Then(/^the answer is graded incorrect with "(.*)" from author$/, async function 
 When(/^I set the grade as "(.*)" type$/, async function (gradeAsEval) {
   await pages.raptorAms.click('contextTab', 'correct');
   await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
   await pages.raptorAms.click('mathGradeAs');
 });
@@ -168,7 +172,7 @@ When(/^I select Polar Coordinate checkbox$/, async function () {
 When(/^I navigate to AuthorApp clicking on Raptor item on AMS page$/, async function () {
   await pages.ams.click('raptorNewItem');
   await pages.raptorAms.switchToTab('Raptor Authoring');
-  await pages.raptorAms.assertElementExists('menuBarAdd');
+  await pages.raptorAms.assertElementExists('menuBarMore');
 });
 
 When(/^I select Math Equation module, click on Question tab$/, async function () {
@@ -179,14 +183,16 @@ When(/^I select Math Equation module, click on Question tab$/, async function ()
 });
 
 Then(/^I verify default evaltype for GradeAs dropdown is Expression$/, async function () {
-  await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
   await pages.raptorAms.assertElementExists('mathGradeAs');
   await pages.mathModule.assertElementExists('gradeAsExpression');
 });
 
-Then(/^I verify "(.*)" checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab$/, async function (present, objects, contextType) {
+Then(/^I verify "(.*)" dropdown\(s\), checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab$/, async function (present, objects, contextType) {
   await pages.raptorAms.click('contextTab', contextType);
   await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
+
 
   const elementList = objects.split(', ');
   for (let i = 0; i < elementList.length; i++) {
@@ -216,6 +222,7 @@ Then(/^I verify "(.*)" checkbox\(es\) or radio button\(s\): "(.*)" on "(.*)" tab
 When(/^I click on Question tab, select GradeAs dropdown "(.*)" evaltype$/, async function (gradeAsEval) {
   await pages.raptorAms.click('contextTab', 'question');
   await pages.mathModule.click('answerTextField');
+  await pages.raptorAms.click('correctSetup');
   await pages.raptorAms.populate('mathGradeAs', gradeAsEval);
 });
 
@@ -226,6 +233,7 @@ When(/^I select isList checkbox$/, async function () {
 When(/^I unselect Enforce Endpoints checkbox$/, async function () {
   await pages.raptorAms.click('mathEnforceEndpoints');
 });
+
 
 When(/^I input upper numeric tolerance "(.*)" and lower numeric tolerance "(.*)"$/, async function (upperTolerance, lowerTolerance){
   await pages.raptorAms.click('mathNumericTolerance');

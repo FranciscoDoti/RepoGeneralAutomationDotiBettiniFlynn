@@ -18,6 +18,52 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },{
+        "name": "activityVerification",
+        "byType": "xpath",
+        "definition": "//a[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "focus"
+
+    },
+    {
+        "name": "contentCheckbox",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//div/input[@data-test-id='content_checkbox']",
+        "frame": "default",
+        "specialInstr": "focus"
+
+    },
+    {
+        "name": "activitySelected",
+        "byType": "xpath",
+        "definition": "//span[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "Folder",
+        "byType": "xpath",
+        "definition": "//button[@aria-label='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "arrowUP",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//*[@type='chevron_right']",
+        "frame": "default",
+        "specialInstr": "focus"
+
+    },
+    {
+        "name": "arrowDown",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/../../..//*[@type='chevron_down']",
+        "frame": "default",
+        "specialInstr": "focus"
 
     }]
 }
