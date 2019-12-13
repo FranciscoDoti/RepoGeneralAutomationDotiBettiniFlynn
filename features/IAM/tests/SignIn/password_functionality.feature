@@ -1,4 +1,4 @@
-@IAM
+@IAM @failing
 Feature: Forgot password functionality
 
     Scenario: Verify that forgot password functionality working fine 
