@@ -73,9 +73,9 @@ When(/^Instructor copy course from the "(.*)" template with the following data$/
   await pages.copyCourse.click('save');
   await pages.home.click('closeAlert');
 });
-  
-   
-  
+
+
+
 
 Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userType){
   let user = this.users[userType];
@@ -107,7 +107,7 @@ When(/^I add URL link to "(.*)" in coursePlanner$/, async function (courseName, 
 When('I add URL in courseplanner', async function (data_table){
   await pages.resources.click('goToContent');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
+    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity);
   }
 });
 
@@ -178,7 +178,7 @@ When(/^I add "(.*)" content first in order to continue adding the rest contentfr
   await pages.coursePlanner.populate('librarySearchInput', activity);
   await pages.coursePlanner.click('addAssignmentButton', activity);
   await pages.coursePlanner.click('addingContent');
-  await pages.coursePlanner.click('continue'); 
+  await pages.coursePlanner.click('continue');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
@@ -205,7 +205,7 @@ Then(/^I verify that "(.*)" writing activity is added in Browse$/, async functio
 
 When('I add custom content courseplanner', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity); 
+    await pages.coursePlanner.click('addCustomActivity', data_table.hashes()[i].activity);
   }
 });
 
@@ -258,7 +258,7 @@ When('I create a custom assessment task with following data', async function (da
     await pages.coursePlanner.populate('ProvideATitle', a.assessmentTitle);
     await pages.coursePlanner.populate('dropDown', 'Choose an assignment type', a.assessmentType);
     await pages.coursePlanner.populate('dropDown', 'Choose a taxonomy', a.homeTaxonomy);
-  
+
   }
   await pages.coursePlanner.click('resetModel');
   await pages.coursePlanner.click('questionBank');
@@ -282,7 +282,7 @@ When(/^I add activities in "(.*)" courseplanner tab$/, async function (courseNam
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    
+
   }
 });
 

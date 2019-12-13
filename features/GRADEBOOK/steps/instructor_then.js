@@ -106,3 +106,8 @@ Then('The manage iClicker button should be displayed', async function () {
   const URL = await iclicker.getCurrentURL();
   expect(URL).to.contains('reef-education.com')
 });
+
+Then(/Only the assignment "(.*)" should be visible$/, async function (assignment) {
+  console.log(assignment);
+  console.log('test console');
+});

@@ -5,6 +5,55 @@ const { gradebook } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.j
 const driver = require(`${process.cwd()}/app/driver`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
 
+async function assignStudents (dataTable) {
+  await coursePages.coursePage.waitClick('Tab', 'COURSE PLAN');
+  for (let i = 0; i < dataTable.rows().length; i++) {
+    const student = dataTable.hashes()[i].student
+    const category = dataTable.hashes()[i].category
+    const activity = dataTable.hashes()[i].activity
+    const isPastDue = dataTable.hashes()[i].isPastDue === 'true'
+    const exceptionStudent = dataTable.hashes()[i].exceptionStudent
+    await coursePages.coursePlanner.click('assignGradebook', activity);
+
+    await coursePages.coursePlanner.waitClick('radioButtonAssignStudents');
+
+    if (student !== 'Everyone') {
+      const user = this.users[student];
+      await coursePages.coursePlanner.waitPopulate('assignmentModalRosterSearch', `${user.firstName} ${user.lastName}`);
+    }
+    await coursePages.coursePlanner.waitPopulate('pointsInput', dataTable.hashes()[i].points);
+    await coursePages.coursePlanner.click('assignButton');
+    await coursePages.home.waitClick('closeAlert');
+
+    await driver.getDriver().navigate().refresh();
+
+    await coursePages.coursePage.waitClick('Tab', 'COURSE PLAN')
+    await coursePages.coursePlanner.waitClick('assignGradebook', activity);
+    await coursePages.coursePlanner.waitClick('gradeBookCategory');
+    await coursePages.coursePlanner.waitPopulate('Category', category)
+
+    if (exceptionStudent) {
+      const exceptionUser = this.users[exceptionStudent];
+
+      await coursePages.coursePlanner.waitClick('addExceptionBtn');
+      await coursePages.coursePlanner.waitPopulate('studentSearchBox', `${exceptionUser.firstName} ${exceptionUser.lastName}`);
+    }
+
+    if (isPastDue) {
+      await coursePages.coursePlanner.waitClick('assignmentDueDate');
+      await coursePages.courseList.waitClick('previousMonthButton');
+      await coursePages.courseList.waitClick('selectDate', '15');
+    } else {
+      await coursePages.coursePlanner.waitClick('assignmentDueDate');
+      await coursePages.courseList.waitClick('nextMonthButton');
+      await coursePages.courseList.waitClick('selectDate', '15');
+    }
+
+    await coursePages.coursePlanner.waitClick('assignButton');
+    await coursePages.home.waitClick('closeAlert');
+  }
+};
+
 When('Instructor toggle percents', async function () {
   await gradebook.waitForElementVisibility('percentsToggleButton');
   await gradebook.click('percentsToggleButton');
@@ -15,70 +64,14 @@ When('Instructor toggle points', async function () {
   await gradebook.click('pointsToggleButton');
 });
 
+When(/^Instructor assigns students to activities in courseplanner$/, assignStudents);
+
 When(/^I assign students to activities in courseplanner$/, async function (dataTable) {
   const courseName = this.data.get('courseName');
   await coursePages.createCourse.click('courseCard', courseName);
   await coursePages.coursePage.click('navigation', 'My Course');
   await coursePages.coursePage.waitForElementVisibility('Tab', 'COURSE PLAN');
-  await coursePages.coursePage.click('Tab', 'COURSE PLAN');
-  for (let i = 0; i < dataTable.rows().length; i++) {
-    const student = dataTable.hashes()[i].student
-    const category = dataTable.hashes()[i].category
-    const activity = dataTable.hashes()[i].activity
-    const isPastDue = dataTable.hashes()[i].isPastDue === 'true'
-    const exceptionStudent = dataTable.hashes()[i].exceptionStudent
-    await coursePages.coursePlanner.click('assignGradebook', activity);
-    await coursePages.coursePlanner.waitForElementVisibility('radioButtonAssignStudents');
-    await coursePages.coursePlanner.click('radioButtonAssignStudents');
-
-    if (student !== 'Everyone') {
-      const user = this.users[student];
-      await coursePages.coursePlanner.populate('assignmentModalRosterSearch', `${user.firstName} ${user.lastName}`);
-    }
-    await coursePages.coursePlanner.waitForElementVisibility('pointsInput', dataTable.hashes()[i].points);
-    await coursePages.coursePlanner.populate('pointsInput', dataTable.hashes()[i].points);
-
-    await coursePages.coursePlanner.click('assignButton');
-    await coursePages.home.waitForElementVisibility('closeAlert');
-    await coursePages.home.click('closeAlert');
-
-    await driver.getDriver().navigate().refresh();
-    await coursePages.coursePage.click('Tab', 'COURSE PLAN')
-    await coursePages.coursePlanner.waitForElementVisibility('assignGradebook', activity);
-    await coursePages.coursePlanner.click('assignGradebook', activity);
-
-    await coursePages.coursePlanner.waitForElementVisibility('gradeBookCategory');
-    await coursePages.coursePlanner.click('gradeBookCategory');
-    await coursePages.coursePlanner.waitForElementVisibility('Category', category)
-    await coursePages.coursePlanner.populate('Category', category)
-
-    if (exceptionStudent) {
-      const exceptionUser = this.users[exceptionStudent];
-      await coursePages.coursePlanner.click('addExceptionBtn');
-      await coursePages.coursePlanner.waitForElementVisibility('studentSearchBox', `${exceptionUser.firstName} ${exceptionUser.lastName}`);
-      await coursePages.coursePlanner.populate('studentSearchBox', `${exceptionUser.firstName} ${exceptionUser.lastName}`);
-    }
-
-    if (isPastDue) {
-      await coursePages.coursePlanner.waitForElementVisibility('assignmentDueDate');
-      await coursePages.coursePlanner.click('assignmentDueDate');
-      await coursePages.courseList.waitForElementVisibility('previousMonthButton');
-      await coursePages.courseList.click('previousMonthButton');
-      await coursePages.courseList.waitForElementVisibility('selectDate', '15');
-      await coursePages.courseList.click('selectDate', '15');
-    } else {
-      await coursePages.coursePlanner.waitForElementVisibility('assignmentDueDate');
-      await coursePages.coursePlanner.click('assignmentDueDate');
-      await coursePages.courseList.waitForElementVisibility('nextMonthButton');
-      await coursePages.courseList.click('nextMonthButton');
-      await coursePages.courseList.waitForElementVisibility('selectDate', '15');
-      await coursePages.courseList.click('selectDate', '15');
-    }
-
-    await coursePages.coursePlanner.click('assignButton');
-    await coursePages.home.waitForElementVisibility('closeAlert');
-    await coursePages.home.click('closeAlert');
-  }
+  await assignStudents(dataTable);
 });
 
 When(/^I edit students grades$/, async function (dataTable) {
