@@ -40,6 +40,9 @@ When('I navigate to assessment', async function () {
     await pages.sac.click('Student Assessment Link');
 });
 
+
+
+
 When('I answer questions', async function (datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         await pages.sac.click('Question Button', datatable.hashes()[i].Question);

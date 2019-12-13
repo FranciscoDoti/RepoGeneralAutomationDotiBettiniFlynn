@@ -1,39 +1,82 @@
 {
     "webElements": [
         {
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Template Name",
             "byType": "xpath",
             "definition": "//input[@name='title']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Time Limit Checkbox",
             "byType": "xpath",
             "definition": "//label[@data-test-id='time-limit-checkbox-label']/span[@class='square']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Time Limit - Hours",
             "byType": "xpath",
             "definition": "//input[@data-time-type='hours']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Time Limit - Minutes",
             "byType": "xpath",
             "definition": "//input[@data-time-type='minutes']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
-            "name": "Save Button",
+            "name": "Save Grading Setting",
+            "byType": "xpath",
+            "definition": "//button[contains(.,'Save')]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Create New",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='assignment-settings-custom-create' and .='Create New']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Cancel",
+            "byType": "xpath",
+            "definition": "//button[.='Cancel']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Save",
             "byType": "xpath",
             "definition": "//button[.='Save']",
-            "frame": "default",
+            "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Due Date Clock",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id= 'due-date-picker']//button[@title='Select time']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Due Date Clock Options",
+            "byType": "xpath",
+            "definition": "//ul[contains(@id,'listbox')]/li[<ReplaceText>]",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+            
         }
     ]
 }
