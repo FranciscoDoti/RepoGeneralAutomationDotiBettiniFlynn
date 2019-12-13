@@ -1,4 +1,4 @@
-@Assessment @NPreviewItem @Smoke
+@Assessment @PreviewItem @Smoke
 Feature: Preview item feature
 
     Scenario Outline: Preview Item

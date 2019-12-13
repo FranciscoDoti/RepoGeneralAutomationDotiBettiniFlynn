@@ -34,13 +34,6 @@
             "definition": "ul[data-test-id='dropDownAnswerChoices'] > li:nth-child(<ReplaceText>)",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "Raptor Canvas Btns",
-            "byType": "xpath",
-            "definition": "//div[@data-test-id='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
         }
     ]
 }

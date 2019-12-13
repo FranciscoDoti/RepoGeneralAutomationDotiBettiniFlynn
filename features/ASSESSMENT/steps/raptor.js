@@ -115,12 +115,12 @@ When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, posit
         await pages.raptor.click('Tab', 'correct');
     }
     await pages.numericEntry.click('Element', position);
-    await pages.fillBlank.click('Raptor Canvas Btns', 'edit-module-button');
+    await pages.raptor.click('Raptor Canvas Btns', 'edit-module-button');
     await pages.numericEntry.populate('Target Value', '1', value);
 });
 
 When('I configure FR module', async function () {
-    await pages.fillBlank.click('Raptor Canvas Btns', 'edit-module-button');
+    await pages.raptor.click('Raptor Canvas Btns', 'edit-module-button');
     await pages.freeResponse.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
     await pages.freeResponse.populate('Min Character Count', '20');
     await pages.freeResponse.populate('Max Character Count', '40');
