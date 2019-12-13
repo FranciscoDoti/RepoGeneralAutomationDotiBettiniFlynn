@@ -1,6 +1,8 @@
 @Assessment @Smoke
 Feature: To Verify assignment with grading policy
 
+
+
     @setGradingPolicy @TimedPolicy
     Scenario: Set Assessment with a new policy with time limit
         Given I login to IBISCMS as "raptor-instructor"

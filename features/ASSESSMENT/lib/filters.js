@@ -23,31 +23,30 @@ const searchResultCount = async function () {
 
 };
 
-const verifyTextInRow = async function (index, option) {
-  let rowData = {};
-  rowData = await pages.filters.getAttributeValue('Search Result', index, 'textContent');
-  expect(rowData).to.include(option);
-};
+const verifyItemInRow = async function(rowNumber, filters, textFilter){
+  let rowData = await pages.filters.getAttributeValue('Search Result', rowNumber, 'textContent');
+  
+  if (filters === undefined && textFilter!== undefined){
+      
+      expect(rowData).to.include(textFilter);
+  }else if (textFilter === undefined && filters !== undefined){
+      for (let i=0;i< filters.length; i++){
+          expect(rowData).to.include(filters[i].Option);
+      }
 
-const verifyItemsWithFilterApplied = async function (option) {
-  let i = 1;
-  while (i <= await searchResultCount()) {
-    await verifyTextInRow(i, option);
-    if (i % 200 == 0 && i <= 999) {
-      await pages.filters.scrollElementIntoView('Load More');
-      await pages.filters.click('Load More');
-    }
-    i++;
+  }else{
+      expect(rowData).to.include(textFilter);
+      for (let i=0;i< filters.length; i++){
+          expect(rowData).to.include(filters[i].Option);
+      }
+
   }
 };
 
-const verifyItemsWithMultipleFilterApplied = async function (options) {
+const verifyItemswithFiltersApplied = async function(filters,textFilter){
   let i = 1;
-  while (i <= await searchResultCount()) {
-    for (let j=0; j< options.length;j++){
-      await verifyTextInRow(i, options[j]);
-    }
-  
+  while (i <= await searchResultCount()) {  
+      await verifyItemInRow(i, filters, textFilter);     
     if (i % 200 == 0 && i <= 999) {
       await pages.filters.scrollElementIntoView('Load More');
       await pages.filters.click('Load More');
@@ -73,8 +72,7 @@ module.exports = {
   verifyTag,
   removeFilter,
   searchResultCount,
-  verifyTextInRow,
-  verifyItemsWithFilterApplied,
-  verifyItemsWithMultipleFilterApplied,
+  verifyItemInRow,
+  verifyItemswithFiltersApplied,
   verifyThatCountResultHasIncreased
 };

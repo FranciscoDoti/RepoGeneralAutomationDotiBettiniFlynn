@@ -1,6 +1,13 @@
 {
     "webElements": [
         {
+            "name": "Raptor Canvas Btns",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Module Multiple Select Edit",
             "byType": "xpath",
             "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
