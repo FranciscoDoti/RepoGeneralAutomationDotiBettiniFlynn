@@ -122,5 +122,26 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },{
+        "name": "Search",
+        "byType": "css",
+        "definition": "//input[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "MasterCourse",
+        "byType": "xpath",
+        "definition": "//div[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "createSingleCourseSection",
+        "byType": "xpath",
+        "definition": "//input[@name='course']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     }]
 }

@@ -2,7 +2,7 @@
 Feature: Instructor creates Master Section, creates Custom task and adds content to it
 
     @mediaproducer-delete-course
-    @instructor-masterSection-delete-course
+    #@instructor-masterSection-delete-course
     @mediaproducer-delete-courseTemplate
 
     Scenario: Verify that Instructor is able to create a Master Section in Qualitative Course
@@ -51,13 +51,11 @@ Feature: Instructor creates Master Section, creates Custom task and adds content
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
-        And I create a Master Section from "Qualitative Template" with following data
+        And I copy the "Qualitative Master Course" course from the Master Section
             | field             | value                        |
             | courseName        | Qualitative Master Course    |
-            | courseCode        |  E2E 301                     |
-
-        And I copy the course from the Master Section
-        | courseName          | courseCode           |
-        | Qualitative Course  | E2E 301              |
+            | courseCode        |  E2E 301                     |   
         
-        And I verify that the course "Qualitative Course" is created
+        And I close the popup message   
+
+        And I verify that the course "Qualitative Master Course" is created
