@@ -106,3 +106,8 @@ Then('The manage iClicker button should be displayed', async function () {
   const URL = await iclicker.getCurrentURL();
   expect(URL).to.contains('reef-education.com')
 });
+
+Then('Only Google URL Link should display', async function () {
+  console.log('need to assert something here;')
+});
+

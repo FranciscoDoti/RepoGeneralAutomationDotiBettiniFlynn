@@ -1,7 +1,7 @@
 const { When } = require('cucumber');
 
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const { gradebook } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
+const { gradebook, filter } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const { assignStudents, unassignStudents } = require('../helpers');
 const { sleep } = require(`${process.cwd()}/app/driver`);
 
@@ -55,4 +55,11 @@ When(/^I update category "(.*)" to drop "(.*)" grades$/, async function (categor
   await gradebook.waitForElementVisibility('dropGradeDropdown');
   await gradebook.populate('dropGradeDropdown', droppedGrades);
   await gradebook.click('save', 'Save');
+});
+
+When('Instructor filters on the last 7 days', async function () {
+  await filter.waitClick('showFilters');
+  await filter.waitClick('showDateRange');
+  await filter.waitClick('lastSevenDays');
+  await filter.waitClick('showFilters');
 });
