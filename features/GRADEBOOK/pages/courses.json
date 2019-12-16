@@ -6,6 +6,34 @@
       "definition": "[data-test-id='create_a_new_course_button']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "actionButton",
+      "byType": "xpath",
+      "definition": "//a[.='<ReplaceText>']/../../../../..//button[@data-test-id='action_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "removeButton",
+      "byType": "xpath",
+      "definition": "//a[.='<ReplaceText>']/../../../../..//button[@data-test-id='action_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "unassignItem",
+      "byType": "css",
+      "definition": "[data-test-id='action_menu_items_unassign_item']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "unassignConfirm",
+      "byType": "css",
+      "definition": "[data-test-id='unassign_modal_unassign_button']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }
