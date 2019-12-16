@@ -10,7 +10,7 @@
         {
             "name": "Target Value",
             "byType": "xpath",
-            "definition": "//*[@id='module-edit-area']/div/div[2]/div[1]/div[2]/input",
+            "definition": "(//aside[@id='module-edit-area']//input[@class='numeric-entry-input'])[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
         },
