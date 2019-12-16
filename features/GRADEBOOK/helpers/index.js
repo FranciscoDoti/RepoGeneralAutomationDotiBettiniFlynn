@@ -1,5 +1,4 @@
 const { gradebook, courses } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
-
 const {
   coursePage,
   coursePlanner,
@@ -61,19 +60,13 @@ function getStudentData (dataTable, i) {
 }
 
 async function assingEveryone (dataTable) {
-  await coursePage.waitClick('Tab', 'COURSE PLAN');
+  await sleep(5000);
   for (let i = 0; i < dataTable.rows().length; i++) {
     const { activity, points } = getStudentData(dataTable, i);
-
-    console.log('assignGradebook');
     await coursePlanner.waitClick('assignGradebook', activity);
-    console.log('assignGradebook1');
     await coursePlanner.waitClick('radioButtonAssignStudents');
-    console.log('assignGradebook2');
     await coursePlanner.waitPopulate('pointsInput', points);
-    console.log('assignGradebook3');
     await coursePlanner.click('assignButton');
-    console.log('assignGradebook4');
     await home.waitClick('closeAlert');
   }
 }
