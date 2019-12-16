@@ -62,14 +62,12 @@ function getStudentData (dataTable, i) {
 
 async function assingEveryone (dataTable) {
   await sleep(5000);
-  for (let i = 0; i < dataTable.rows().length; i++) {
-    const { activity, points } = getStudentData(dataTable, i);
-    await courses.waitClick('assignIcon', activity);
-    await coursePlanner.waitClick('radioButtonAssignStudents');
-    await coursePlanner.waitPopulate('pointsInput', points);
-    await coursePlanner.click('assignButton');
-    await home.waitClick('closeAlert');
-  }
+  const { activity, points } = getStudentData(dataTable, 0);
+  await courses.waitClick('assignIcon', activity);
+  await coursePlanner.waitClick('radioButtonAssignStudents');
+  await coursePlanner.waitPopulate('pointsInput', points);
+  await coursePlanner.click('assignButton');
+  await home.waitClick('closeAlert');
 }
 
 async function assignStudents (dataTable) {
