@@ -1,4 +1,5 @@
 const { gradebook, courses } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
+
 const {
   coursePage,
   coursePlanner,
@@ -27,11 +28,17 @@ async function selectGradebookMenu () {
 async function unassignStudents (activity) {
   await coursePage.waitClick('Tab', 'COURSE PLAN');
   await courses.waitClick('actionButton', activity);
-  await courses.waitClick('removeButton', activity);
-  if (await courses.checkElementExists('unassignItem')) {
+
+  await sleep(5000); // TODO update app to address test automation with menu animation
+  await courses.waitForElementVisibility('removeButton', activity); // Wait to open
+  const canUnAssign = await courses.checkElementExists('unassignItem'); // Check if assigned
+
+  if (canUnAssign) {
     await courses.waitClick('unassignItem');
     await courses.waitClick('unassignConfirm');
-    sleep(1000);
+  } else {
+    // We can't click off screen for the menu so we need to reload
+    await driver.visitURL(driver.getURL());
   }
 }
 

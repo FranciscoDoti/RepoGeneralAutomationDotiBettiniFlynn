@@ -29,7 +29,7 @@ When(/^I edit students grades$/, async function (dataTable) {
   await coursePages.coursePage.click('navigation', 'Gradebook');
   for (let i = 0; i < dataTable.rows().length; i++) {
     const row = dataTable.hashes()[i].row;
-    const column = dataTable.hashes()[i] .column;
+    const column = dataTable.hashes()[i].column;
     const grade = dataTable.hashes()[i].grade;
     const feedback = dataTable.hashes()[i].feedback;
     await gradebook.waitForElementVisibility(`editGradeButton`, `${row}_${column}`)
