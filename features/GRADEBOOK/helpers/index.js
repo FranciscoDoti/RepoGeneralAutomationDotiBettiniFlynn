@@ -27,7 +27,7 @@ async function selectGradebookMenu () {
 
 async function unassignStudents (activity) {
   await coursePage.waitClick('Tab', 'COURSE PLAN');
-  await courses.waitClick('actionButton', activity);
+  await courses.waitClick('actionIcon', activity);
 
   await sleep(5000); // TODO update app to address test automation with menu animation
   await courses.waitForElementVisibility('removeButton', activity); // Wait to open
@@ -39,17 +39,57 @@ async function unassignStudents (activity) {
   } else {
     // We can't click off screen for the menu so we need to reload
     await driver.visitURL(driver.getURL());
+    await coursePage.waitClick('Tab', 'COURSE PLAN');
+  }
+}
+
+function getStudentData (dataTable, i) {
+  const student = dataTable.hashes()[i].student;
+  const category = dataTable.hashes()[i].category;
+  const activity = dataTable.hashes()[i].activity;
+  const isPastDue = dataTable.hashes()[i].isPastDue === 'true'
+  const exceptionStudent = dataTable.hashes()[i].exceptionStudent;
+  const points = dataTable.hashes()[i].points;
+  return {
+    student,
+    category,
+    activity,
+    isPastDue,
+    exceptionStudent,
+    points
+  };
+}
+
+async function assingEveryone (dataTable) {
+  await coursePage.waitClick('Tab', 'COURSE PLAN');
+  for (let i = 0; i < dataTable.rows().length; i++) {
+    const { activity, points } = getStudentData(dataTable, i);
+
+    console.log('assignGradebook');
+    await coursePlanner.waitClick('assignGradebook', activity);
+    console.log('assignGradebook1');
+    await coursePlanner.waitClick('radioButtonAssignStudents');
+    console.log('assignGradebook2');
+    await coursePlanner.waitPopulate('pointsInput', points);
+    console.log('assignGradebook3');
+    await coursePlanner.click('assignButton');
+    console.log('assignGradebook4');
+    await home.waitClick('closeAlert');
   }
 }
 
 async function assignStudents (dataTable) {
   await coursePage.waitClick('Tab', 'COURSE PLAN');
   for (let i = 0; i < dataTable.rows().length; i++) {
-    const student = dataTable.hashes()[i].student
-    const category = dataTable.hashes()[i].category
-    const activity = dataTable.hashes()[i].activity
-    const isPastDue = dataTable.hashes()[i].isPastDue === 'true'
-    const exceptionStudent = dataTable.hashes()[i].exceptionStudent
+    const {
+      student,
+      category,
+      activity,
+      isPastDue,
+      exceptionStudent,
+      points
+    } = getStudentData(dataTable, i);
+
     await coursePlanner.waitClick('assignGradebook', activity);
     await coursePlanner.waitClick('radioButtonAssignStudents');
 
@@ -57,7 +97,7 @@ async function assignStudents (dataTable) {
       const user = this.users[student];
       await coursePlanner.waitPopulate('assignmentModalRosterSearch', `${user.firstName} ${user.lastName}`);
     }
-    await coursePlanner.waitPopulate('pointsInput', dataTable.hashes()[i].points);
+    await coursePlanner.waitPopulate('pointsInput', points);
     await coursePlanner.click('assignButton');
     await home.waitClick('closeAlert');
 
@@ -94,5 +134,6 @@ module.exports = {
   viewCourse,
   selectGradebookMenu,
   assignStudents,
-  unassignStudents
+  unassignStudents,
+  assingEveryone
 };

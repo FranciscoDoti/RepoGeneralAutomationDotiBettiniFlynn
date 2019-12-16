@@ -286,6 +286,13 @@
       "definition": "[aria-labelledby='drop_label_1']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "dataGrid",
+      "byType": "css",
+      "definition": "div[data-test-id='gradebook_table_assignments_cell']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }

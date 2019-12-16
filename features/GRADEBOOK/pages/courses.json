@@ -8,6 +8,13 @@
       "specialInstr": "NA"
     },
     {
+      "name": "actionIcon",
+      "byType": "css",
+      "definition": "[data-test-id='action_button_icon_<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
       "name": "actionButton",
       "byType": "xpath",
       "definition": "//a[.='<ReplaceText>']/../../../../..//button[@data-test-id='action_button']",

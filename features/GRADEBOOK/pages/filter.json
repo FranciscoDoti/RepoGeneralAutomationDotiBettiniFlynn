@@ -20,6 +20,13 @@
       "definition": "[data-test-id='last-seven-days']",
       "frame": "default",
       "specialInstr": "NA"
+    },
+    {
+      "name": "applyFilters",
+      "byType": "css",
+      "definition": "[data-test-id='apply-filters']",
+      "frame": "default",
+      "specialInstr": "NA"
     }
   ]
 }

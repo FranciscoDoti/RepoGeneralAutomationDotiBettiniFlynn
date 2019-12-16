@@ -2,7 +2,7 @@ const { When } = require('cucumber');
 
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { gradebook, filter } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
-const { assignStudents, unassignStudents } = require('../helpers');
+const { assignStudents, unassignStudents, assingEveryone } = require('../helpers');
 const { sleep } = require(`${process.cwd()}/app/driver`);
 
 When('Instructor toggle percents', async function () {
@@ -16,6 +16,7 @@ When('Instructor toggle points', async function () {
 });
 
 When(/^Instructor assigns students to activities in courseplanner$/, assignStudents);
+When(/^Instructor assigns everyone to activities in courseplanner$/, assingEveryone);
 
 When(/^I assign students to activities in courseplanner$/, async function (dataTable) {
   const courseName = this.data.get('courseName');
@@ -61,5 +62,5 @@ When('Instructor filters on the last 7 days', async function () {
   await filter.waitClick('showFilters');
   await filter.waitClick('showDateRange');
   await filter.waitClick('lastSevenDays');
-  await filter.waitClick('showFilters');
+  await filter.waitClick('applyFilters');
 });

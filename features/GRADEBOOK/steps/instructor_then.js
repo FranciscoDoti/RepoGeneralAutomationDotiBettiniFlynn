@@ -108,6 +108,8 @@ Then('The manage iClicker button should be displayed', async function () {
 });
 
 Then('Only Google URL Link should display', async function () {
-  console.log('need to assert something here;')
+  const grid = await gradebook.getWebElements('dataGrid');
+  expect(grid.length).to.equal(2);
+  expect(await grid[0].getText()).to.contains('Google');
+  expect(await grid[1].getText()).to.contains('Category Total');
 });
-
