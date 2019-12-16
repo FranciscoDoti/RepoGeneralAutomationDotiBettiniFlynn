@@ -34,6 +34,7 @@ async function unassignStudents (activity) {
 
   if (canUnAssign) {
     await courses.waitClick('unassignItem');
+    await sleep(5000);
     await courses.waitClick('unassignConfirm');
   } else {
     // We can't click off screen for the menu so we need to reload
@@ -73,6 +74,7 @@ async function assingEveryone (dataTable) {
 
 async function assignStudents (dataTable) {
   await coursePage.waitClick('Tab', 'COURSE PLAN');
+  await sleep(5000);
   for (let i = 0; i < dataTable.rows().length; i++) {
     const {
       student,
