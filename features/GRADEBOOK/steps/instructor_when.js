@@ -27,7 +27,7 @@ When(/^I assign students to activities in courseplanner$/, async function (dataT
 When('Instructor unassigns activity {string} in courseplanner', unassignStudents);
 
 When(/^I edit students grades$/, async function (dataTable) {
-  await coursePages.coursePage.click('navigation', 'Gradebook');
+  await coursePages.coursePage.waitClick('navigation', 'Gradebook');
   for (let i = 0; i < dataTable.rows().length; i++) {
     const row = dataTable.hashes()[i].row;
     const column = dataTable.hashes()[i].column;
