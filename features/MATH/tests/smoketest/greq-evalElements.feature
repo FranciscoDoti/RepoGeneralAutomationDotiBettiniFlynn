@@ -10,7 +10,7 @@ Feature: Verify page elements for different eval types
 
         Then I verify default evaltype for GradeAs dropdown is Expression
         And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "gradeAsListC" on "question" tab
-        And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "gradeAsListC, gradeFormType, mathNumericTolerance, exactTolerance" on "correct" tab
+        And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "gradeAsListC, gradeFormType, mathNumericTolerance, exactTolerance, creatVariableContext" on "correct" tab
 
         When I click on Question tab, select GradeAs dropdown "Point" evaltype
         Then I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "isList" on "question" tab
@@ -22,4 +22,12 @@ Feature: Verify page elements for different eval types
 
         When I click on Question tab, select GradeAs dropdown "Relation" evaltype
         Then I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "isList" on "question" tab
-        And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "isList, isImaginary" on "correct" tab
+        And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "isList, isImaginary, creatVariableContext" on "correct" tab
+
+         When I click on Question tab, select GradeAs dropdown "Interval" evaltype
+        Then I verify "there are no" dropdown(s), checkbox(es) or radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance" on "question" tab
+        And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "mathEnforceEndpoints, mathNumericTolerance, exactTolerance" on "correct" tab
+
+        When I click on Question tab, select GradeAs dropdown "Parametric" evaltype
+        Then I verify "there are no" dropdown(s), checkbox(es) or radio button(s): "vectorEnforceForm, mathNumericTolerance, exactTolerance" on "question" tab
+        And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "mathEnforceEndpoints, mathNumericTolerance, exactTolerance, creatVariableContext" on "correct" tab
