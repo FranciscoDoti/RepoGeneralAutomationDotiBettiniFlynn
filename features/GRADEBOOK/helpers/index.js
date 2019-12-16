@@ -64,7 +64,7 @@ async function assingEveryone (dataTable) {
   await sleep(5000);
   for (let i = 0; i < dataTable.rows().length; i++) {
     const { activity, points } = getStudentData(dataTable, i);
-    await coursePlanner.waitClick('assignGradebook', activity);
+    await courses.waitClick('assignIcon', activity);
     await coursePlanner.waitClick('radioButtonAssignStudents');
     await coursePlanner.waitPopulate('pointsInput', points);
     await coursePlanner.click('assignButton');
@@ -74,7 +74,7 @@ async function assingEveryone (dataTable) {
 
 async function assignStudents (dataTable) {
   await coursePage.waitClick('Tab', 'COURSE PLAN');
-  await sleep(5000);
+
   for (let i = 0; i < dataTable.rows().length; i++) {
     const {
       student,
@@ -85,7 +85,8 @@ async function assignStudents (dataTable) {
       points
     } = getStudentData(dataTable, i);
 
-    await coursePlanner.waitClick('assignGradebook', activity);
+    await sleep(5000);
+    await courses.waitClick('assignIcon', activity);
     await coursePlanner.waitClick('radioButtonAssignStudents');
 
     if (student !== 'Everyone') {
@@ -99,7 +100,10 @@ async function assignStudents (dataTable) {
     await driver.getDriver().navigate().refresh();
 
     await coursePage.waitClick('Tab', 'COURSE PLAN')
-    await coursePlanner.waitClick('assignGradebook', activity);
+
+    await sleep(5000);
+    await courses.waitClick('assignIcon', activity);
+
     await coursePlanner.waitClick('gradeBookCategory');
     await coursePlanner.waitPopulate('Category', category)
 

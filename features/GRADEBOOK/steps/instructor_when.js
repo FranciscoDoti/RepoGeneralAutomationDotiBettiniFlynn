@@ -21,7 +21,7 @@ When(/^Instructor assigns everyone to activities in courseplanner$/, assingEvery
 When(/^I assign students to activities in courseplanner$/, async function (dataTable) {
   const courseName = this.data.get('courseName');
   await coursePages.createCourse.click('courseCard', courseName);
-  await assignStudents(dataTable);
+  await assignStudents.call(this, dataTable);
 });
 
 When('Instructor unassigns activity {string} in courseplanner', unassignStudents);

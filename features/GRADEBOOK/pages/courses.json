@@ -15,6 +15,13 @@
       "specialInstr": "NA"
     },
     {
+      "name": "assignIcon",
+      "byType": "css",
+      "definition": "[data-test-id='assign_assignment_button_<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
       "name": "actionButton",
       "byType": "xpath",
       "definition": "//a[.='<ReplaceText>']/../../../../..//button[@data-test-id='action_button']",
