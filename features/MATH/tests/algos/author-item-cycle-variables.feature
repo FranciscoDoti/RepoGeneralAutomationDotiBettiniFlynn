@@ -1,4 +1,4 @@
-@math @algo
+ @algo
 Feature: Author loads raptor item by URL and cycles variables
 
   Scenario Outline: Author loads existing Raptor item <itemId> and cycles variables without triggering algo init error
