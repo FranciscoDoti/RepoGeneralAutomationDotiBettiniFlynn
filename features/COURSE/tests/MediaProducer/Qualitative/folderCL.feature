@@ -21,55 +21,54 @@ Feature: Adding activities in Folder Resource Tab to Qualitative template
         And I click on "Production" Tab
 
         And I add activities to "Content Library"
-            | activities            |
-            | Glossary              |
-            | LCRP1550612138614     |
-            | LC1551301608988       |
+            | activities                                |
+            | Glossary                                  |
+            | Exercise: Misused words 1 (autoscored)    |    
 
         Then I verify that activties are added in "Content Library"
             | activity                                      |    
             | Glossary                                      |
-            | LCRP1550612138614                             |
-            | LC1551301608988                               |
+            | Exercise: Misused words 1 (autoscored)        | 
+            
 
-        And I create folder and add the activities to the folder in "Content Library" 
-            | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  Glossary              | Reading 1 folder      |
-            | Reading 2    | LCRP1550612138614      | Reading 2 folder      |
-            | Reading 3    | LC1551301608988        | Reading 3 folder      |
+        And I create folder and add the activities to the folder in "Content Library" in Production Tool 
+            | Folder       | activities                                 | PlaceFolder           |
+            | Reading 1    |  Glossary                                  | Reading 1 folder      |
+            | Reading 2    | Exercise: Misused words 1 (autoscored)     | Reading 2 folder      |
+    
            
 
         Then I verify that activities are added to the folder 
-            | Folder        | activities             |
-            | Reading 1     | Glossary               |
-            | Reading 2     | LCRP1550612138614      |
-            | Reading 3     | LC1551301608988        |
+            | Folder        | activities                                |
+            | Reading 1     | Glossary                                  |
+            | Reading 2     | Exercise: Misused words 1 (autoscored)    | 
+           
        
 
-        When I Reorder The folders
+        When I Reorder The folders in Production Tab
             | Folder    |   Button              |
             | Reading 1 |   moveToTop           |
             | Reading 2 |   moveUpButton        |
-            | Reading 3 |   moveToEnd           |
+    
           
 
         Then I verify that Folders are reordered 
             | Folder                                                            | orderNumber    |
             | Reading 1                                                         |  1             |                                                       
             | Reading 2                                                         |  2             |
-            | Reading 3                                                         |  3             |
+    
             
 
-        When I delete the folder 
+        When I delete the folder in Production Tab 
             | Folder     |
             | Reading 1  |
             | Reading 2  |
-            | Reading 3  |
+        
             
 
         Then I verify that Folders are deleted
             | Folder     |
             | Reading 1  |
             | Reading 2  |
-            | Reading 3  |
+         
            
