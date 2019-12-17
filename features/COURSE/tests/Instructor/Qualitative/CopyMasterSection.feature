@@ -2,6 +2,7 @@
 Feature: Instructor creates Master Section, creates Custom task and adds content to it
 
     @mediaproducer-delete-course
+    #@instructor-delete-course
     #@instructor-masterSection-delete-course
     @mediaproducer-delete-courseTemplate
 
@@ -10,7 +11,7 @@ Feature: Instructor creates Master Section, creates Custom task and adds content
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 8781464199498  | draft         |                      
 
 
          And I close the popup message                      
@@ -28,7 +29,6 @@ Feature: Instructor creates Master Section, creates Custom task and adds content
         And I add activities to "Content Library"
           | activities                                 |
           | Glossary                                   |
-          | Exercise: Misused words 1 (autoscored)     |
 
         And I click on back to course
         And I click on home button to return to coursepage
@@ -43,13 +43,18 @@ Feature: Instructor creates Master Section, creates Custom task and adds content
         And I assign "instructor_1" to the "Qualitative Course" course
         
         And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_1"
+        Given I login to Achieve-CW as "instructor_1"
 
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
-            | courseName        | Qualitative Course           |
+           | courseName        | Qualitative Course           |
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
+
+        And I create a Master Section from "Qualitative Template" with following data
+            | field             | value                        |
+            | courseName        | Qualitative Master Course    |
+            | courseCode        |  E2E 301                     |
 
         And I copy the "Qualitative Master Course" course from the Master Section
             | field             | value                        |

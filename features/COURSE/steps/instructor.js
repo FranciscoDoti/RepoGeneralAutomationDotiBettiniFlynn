@@ -289,7 +289,7 @@ When(/^I add activities in "(.*)" courseplanner tab$/, async function (courseNam
 When(/^I create a Master Section from "(.*)" with following data$/, async function (courseName, data_table){
   await pages.createCourse.click('createNewCourse');
   await pages.masterSection.click('selectTemplate', courseName);
-  await pages.masterSection.click('createMasterSection');
+  await pages.masterSection.click('createAMasterSection');
   await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
@@ -322,7 +322,6 @@ When('I click on master card', async function (){
 })
 
 When(/^I copy the "(.*)" course from the Master Section$/, async function (sectionName, data_table){
-  await pages.coursePage.click('tab', 'MASTER SECTIONS')
   await pages.masterSection.click('courseMenuButton', sectionName)
   await pages.masterSection.click('copyMasterSection')
   await pages.masterSection.click('createSingleCourseSection')
@@ -337,7 +336,6 @@ When(/^I copy the "(.*)" course from the Master Section$/, async function (secti
 })
 
 When(/^I verify that the course "(.*)" is created$/,async function (courseName){
-  //remove popup
   await pages.coursePage.click('tab', 'MASTER SECTIONS')
   await pages.coursePage.click('tab', 'COURSES')
   await pages.masterSection.assertElementExists('MasterCourse', courseName)

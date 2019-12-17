@@ -143,5 +143,12 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },{
+        "name": "createAMasterSection",
+        "byType": "xpath",
+        "definition": "//input[@name='master_section']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     }]
 }
