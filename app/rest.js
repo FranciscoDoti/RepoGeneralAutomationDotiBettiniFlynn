@@ -2,19 +2,26 @@ const jsonfile = require('jsonfile');
 const _ = require('lodash');
 const rp = require('request-promise-native');
 const jsonwebtoken = require('jsonwebtoken');
-const {
-    log
-} = require(`${process.cwd()}/app/logger`);
-const {
-    config
-} = require(`${process.cwd()}/app/driver`);
+const { log } = require(`${process.cwd()}/app/logger`);
+const { config } = require(`${process.cwd()}/app/driver`);
 const uris = require(`${process.cwd()}/config/endpoints.json`);
+let cookieMap = new Map();
+
+function RestObject(fullFileName) {
+    this.spec = Object.assign({}, jsonfile.readFileSync(fullFileName));
+    this.request = Object.assign({});
+    this.cookie = null;
+    this.response = null;
+    this.error = null;
+
+    log.debug(`Reading rest specs from file ${fullFileName}`);
+};
 
 RestObject.prototype.send = async function () {
+    log.debug(`Sending request :\n${JSON.stringify(this.request)}`);
     try {
         let fullresponse = await rp(this.request);
         this.response = fullresponse.body;
-        console.log(this.response);
         log.info(`Request returned response. Status code ${this.response.status}`);
         return true;
     } catch (err) {
@@ -47,25 +54,22 @@ RestObject.prototype.setRequestCookie = async function () {
     }
 };
 
-function RestObject(fullFileName) {
-    this.spec = Object.assign({}, jsonfile.readFileSync(fullFileName));
-    this.request = Object.assign({});
-    this.cookie = null;
-    this.response = null;
-    this.error = null;
-
-    log.debug(`Reading rest specs from file ${fullFileName}`);
-};
-
 RestObject.prototype.setCookie = async function (payload) {
-    const tough = require('tough-cookie');
-    this.cookie = new tough.Cookie({
-        key: "id_token",
-        value: jsonwebtoken.sign(payload, 'secret', {
-            expiresIn: '1d'
-        }),
-        domain: 'mldev.cloud'
-    });
+    if(cookieMap.has(payload)){
+        log.debug(`Cookie exists payload ${JSON.stringify(payload)}. Using existing.`);
+        this.cookie = cookieMap.get(payload);
+    } else {
+        log.debug(`Cookie does not exist for payload ${JSON.stringify(payload)}. Creating new cookie.`);
+        const tough = require('tough-cookie');
+        this.cookie = new tough.Cookie({
+            key: "id_token",
+            value: jsonwebtoken.sign(payload, 'secret', {
+                expiresIn: '1d'
+            }),
+            domain: 'mldev.cloud'
+        });
+        cookieMap.set(payload, this.cookie);
+    }
 };
 
 RestObject.prototype.POST = async function (app, body) {
@@ -81,11 +85,11 @@ RestObject.prototype.POST = async function (app, body) {
     };
 };
 
-RestObject.prototype.response = async function (body) {
+RestObject.prototype.response = async function () {
     return this.response.body;
 };
 
-RestObject.prototype.error = async function (body) {
+RestObject.prototype.error = async function () {
     return this.error;
 };
 
