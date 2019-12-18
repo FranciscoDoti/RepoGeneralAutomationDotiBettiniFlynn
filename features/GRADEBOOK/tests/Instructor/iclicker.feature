@@ -16,7 +16,6 @@ Feature: Instructor adds and removes Categories
     When Instructor connects to iClicker
     Then The manage iClicker button should be displayed
 
-  @MyTest
   Scenario: Instructor syncs a students grade
     Given Instructor views the Gradebook for "iclicker_skills1" as "instructor_8"
     When Instructor connects or stays connected to iClicker
