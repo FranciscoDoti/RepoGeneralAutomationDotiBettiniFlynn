@@ -26,7 +26,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.adminMenu.populate('emailInput', user.username);
   await pages.adminMenu.click('addUserButton');
   await pages.home.click('closeAlert')
-  await pages.adminMenu.click('closeManageRoles');
+  await pages.adminMenu.click('closeEnrollmentRoles');
 });
 
 When(/^I search for "(.*)" and click on course card$/, async function (courseName) {
@@ -44,6 +44,7 @@ When(/^I search for the course "(.*)" and click on course card$/, async function
 });
 
 When('I click on Manage roles', async function () {
+  await sleep(500);
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.assertElementExists('admin');

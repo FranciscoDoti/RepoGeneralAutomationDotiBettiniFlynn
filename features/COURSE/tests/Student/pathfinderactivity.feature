@@ -1,4 +1,4 @@
-@Smoke @Course
+@Smoke @Course @Skip
 Feature: Student compelets Pathfinder Activity
 
     Scenario: Verify that Student Takes Practice Test 
@@ -98,70 +98,78 @@ Feature: Student compelets Pathfinder Activity
         And the topic report card for "Patterns of Organization" should have the score "5/5"
         And the topic report card for "Topics and Main Ideas" should have the score "5/5"
 
-    # Scenario: Student Uses Study Plan
-    #     Given I login to Achieve-CW as "student_1"
-    #     When I click on "Pathfinder Course"
-    #     And I launch the Pathfinder Assignment "Complete the Study Plan for Reading Skil ..."
-    #     Then there should be a "Student Tested Out Message" that includes the text "Nice! You tested out of the study plan for Reading Skills." on the "studentAssignment" page
+    Scenario: Student Uses Study Plan
+        Given I login to Achieve-CW as "student_1"
+        When I click on "Pathfinder Course"
+        And I launch the Pathfinder Assignment "Complete the Study Plan for Reading Skil ..."
+        Then there should be a "Student Tested Out Message" that includes the text "Nice! You tested out of the study plan for Reading Skills." on the "studentAssignment" page
 
-    # Scenario: Student Takes Final Test and Answers Every Question Correctly
-    #     Given I login to Achieve-CW as "student_1"
-    #     When I click on "Pathfinder Course"
-    #     And I launch the Pathfinder Assignment "Final Test for Reading Skills - English  ..."
-    #     And I click on the "Start Test Button" on the "studentAssignment" page
-    #     And I complete an NGA assignment with the following answers
-    #         |Question  |Answer |
-    #         | 1        | 4     |
-    #         | 2        | 3     |
-    #         | 3        | 1     |
-    #         | 4        | 2     |
-    #         | 5        | 3     |
-    #         | 6        | 2     |
-    #         | 7        | 1     |
-    #         | 8        | 4     |
-    #         | 9        | 3     |
-    #         | 10       | 4     |
-    #         | 11       | 2     |
-    #         | 12       | 1     |
-    #         | 13       | 3     |
-    #         | 14       | 4     |
-    #         | 15       | 3     |
-    #         | 16       | 1     |
-    #         | 17       | 1     |
-    #         | 18       | 3     |
-    #         | 19       | 4     |
-    #         | 20       | 3     |
+    Scenario: Student Takes Final Test and Answers Every Question Correctly
+        Given I login to Achieve-CW as "student_1"
+        When I click on "Pathfinder Course"
+        And I launch the Pathfinder Assignment "Final Test for Reading Skills - English  ..."
+        And I click on the "Start Test Button" on the "studentAssignment" page
+        And I complete an NGA assignment with the following answers
+            |Question  |Answer |
+            | 1        | 4     |
+            | 2        | 3     |
+            | 3        | 1     |
+            | 4        | 2     |
+            | 5        | 3     |
+            | 6        | 2     |
+            | 7        | 1     |
+            | 8        | 4     |
+            | 9        | 3     |
+            | 10       | 4     |
+            | 11       | 2     |
+            | 12       | 1     |
+            | 13       | 3     |
+            | 14       | 4     |
+            | 15       | 3     |
+            | 16       | 1     |
+            | 17       | 1     |
+            | 18       | 3     |
+            | 19       | 4     |
+            | 20       | 3     |
 
-    #     And I refresh the page
-    #     Then there should be a "Final Test Results Summary" that includes the text "Excellent! You have completed the final test." on the "studentAssignment" page
+        And I refresh the page
+        Then there should be a "Final Test Results Summary" that includes the text "Excellent! You have completed the final test." on the "studentAssignment" page
 
-    # Scenario: Student Verify the status of pathfinder activities
+    Scenario: Student Verify the status of pathfinder activities
 
-    #     When I login to Achieve-CW as "student_1"
-    #     And I click on "Pathfinder Course"
-    #     And I click on "My Course" Button
+        When I login to Achieve-CW as "student_1"
+        And I click on "Pathfinder Course"
+        And I click on "My Course" Button
 
-    #     Then I verify the activity status for the following activities in "COURSE PLAN"
-    #         | activity                                          | status    |
-    #         | Practice Test for Reading Skills - Engli ...      | Complete  |
-    #         | Complete the Study Plan for Reading Skil ...      | Complete  |
-    #         | Final Test for Reading Skills - English  ...      | Complete  |
+        Then I verify the activity status for the following activities in "COURSE PLAN"
+            | activity                                          | status    |
+            | Practice Test for Reading Skills - Engli ...      | Complete  |
+            | Complete the Study Plan for Reading Skil ...      | Complete  |
+            | Final Test for Reading Skills - English  ...      | Complete  |
 
-    #     And I verify the activity status for the following activities in "ASSIGNMENTS"
-    #         | activity                                          | status    |
-    #         | Practice Test for Reading Skills - Engli ...      | Complete  |
-    #         | Complete the Study Plan for Reading Skil ...      | Complete  |
-    #         | Final Test for Reading Skills - English  ...      | Complete  |
+        And I verify the activity status for the following activities in "ASSIGNMENTS"
+            | activity                                          | status    |
+            | Practice Test for Reading Skills - Engli ...      | Complete  |
+            | Complete the Study Plan for Reading Skil ...      | Complete  |
+            | Final Test for Reading Skills - English  ...      | Complete  |
     
    
-    # Scenario: Verify that student is able to see Grades in Gradebook 
+    Scenario: Verify that student is able to see Grades in Gradebook 
 
-    #     When I login to Achieve-CW as "student_1"
+        When I login to Achieve-CW as "student_1"
 
-    #     And I click on "Pathfinder Course"
+        And I click on "Pathfinder Course"
 
-    #     Then I verify the assignmenent grades in gradebook for below assigned activities 
-    #         | activity                                          | percentage  | points  | PercentOfTotalgrades |
-    #         |  Practice Test for Reading Skills - Engli ...     |   100%      | 5       | 33%                  |
-    #         | Complete the Study Plan for Reading Skil ...      |   100%      | 5       | 33%                  |
-    #         | Final Test for Reading Skills - English  ...      |   100%      | 5       | 33%                  |
+        Then I verify the assignmenent grades in gradebook for below assigned activities 
+            | activity                                          | percentage  | points  | PercentOfTotalgrades |
+            |  Practice Test for Reading Skills - Engli ...     |   100%      | 5       | 33%                  |
+            | Complete the Study Plan for Reading Skil ...      |   100%      | 5       | 33%                  |
+            | Final Test for Reading Skills - English  ...      |   100%      | 5       | 33%                  |
+
+
+    Scenario: I delete the course and Template
+
+        Given I login to Achieve-CW as "media_producer_2"
+        And I click on "COURSE TEMPLATES" tab  
+        And I delete "Pathfinder Template" and "Pathfinder Course"
+

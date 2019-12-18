@@ -27,7 +27,6 @@ Feature: Assigning the activities present in Qualitative course
           | activities                                 |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
-          | LC1551301608988                            |
 
         And I click on back to course
         And I click on home button to return to coursepage
@@ -54,20 +53,17 @@ Feature: Assigning the activities present in Qualitative course
         And I add the activities in courseplanner to "Qualitative Course" course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
             | Glossary                                                          |
         And I close the popup message
 
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | Exercise: Misused words 1 (autoscored)                           | 5      | 
-            | LC1551301608988                                                  | 5      |
             | Glossary                                                         | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status | 
             | Exercise: Misused words 1 (autoscored)                           | Open   | 
-            | LC1551301608988                                                  | Open   |
             | Glossary                                                         | Open   |
         
         Then I see assignments due in the next 7 days on the course Plan tab

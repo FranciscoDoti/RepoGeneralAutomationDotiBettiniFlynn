@@ -228,6 +228,7 @@ When('I navigate to gradebook and verify grades', async function (data_table) {
 When(/^I create a single course from "(.*)" with following data$/, async function (courseName, data_table){
   await pages.createCourse.click('createNewCourse');
   await pages.masterSection.click('selectTemplate', courseName);
+  await pages.masterSection.waitForElementVisibility('createSingleCourse')
   await pages.masterSection.click('createSingleCourse');
   await pages.masterSection.click('buttonToCreateCourse','Next: Set course info')
   for (let i = 0; i < data_table.rows().length; i++) {
@@ -289,7 +290,8 @@ When(/^I add activities in "(.*)" courseplanner tab$/, async function (courseNam
 When(/^I create a Master Section from "(.*)" with following data$/, async function (courseName, data_table){
   await pages.createCourse.click('createNewCourse');
   await pages.masterSection.click('selectTemplate', courseName);
-  await pages.masterSection.click('createMasterSection');
+  await pages.masterSection.waitForElementVisibility('createMasterSection');
+  await pages.masterSection.populate('createMasterSection','check');
   await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)

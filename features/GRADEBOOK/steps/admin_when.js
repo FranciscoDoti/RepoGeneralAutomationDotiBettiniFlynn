@@ -43,8 +43,8 @@ When(/^I enroll the following students in my course$/, async function (dataTable
     await coursePages.adminMenu.click('addUserButton');
     await sleep(1000);
   }
-  await coursePages.adminMenu.click('closeManageRoles');
-  await coursePages.home.click('achieveHome');
+  await coursePages.adminMenu.click('closeEnrollmentRoles');
+  await coursePages.home.click('achieveHome')
 });
 
 When(/^I activate course "(.*)" with the following data$/, async function (courseName, dataTable) {

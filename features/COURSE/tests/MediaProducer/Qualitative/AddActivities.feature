@@ -24,10 +24,8 @@ Feature: Adding activities to Qualitative template
           | activities                                 |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
-          | LC1551301608988                            |
 
         Then I verify that activties are added in "Content Library"
             | activity                                      |
             | Exercise: Misused words 1 (autoscored)        |     
-            | LC1551301608988                               |
             |  Glossary                                     |            

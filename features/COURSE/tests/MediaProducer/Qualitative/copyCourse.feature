@@ -25,7 +25,6 @@ Feature: Copy course Qualitative template
           | activities                                 |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
-          | LC1551301608988                            |
         
         And I click on back to course
 

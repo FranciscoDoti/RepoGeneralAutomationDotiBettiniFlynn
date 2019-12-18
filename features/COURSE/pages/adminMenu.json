@@ -154,7 +154,7 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "closeManageRoles",
+            "name": "closeEnrollmentRoles",
             "byType": "css",
             "definition": "[data-test-id='manage_enrollment_modal_close']",
             "frame": "default",
@@ -339,6 +339,14 @@
             "name": "closeCheckAccessCode",
             "byType": "css",
             "definition": "[data-test-id='check_access_code_modal_close']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, 
+        {
+            "name": "closeManageRoles",
+            "byType": "css",
+            "definition": "[data-test-id='manage_roles_modal_close']",
             "frame": "default",
             "specialInstr": "NA"
 
