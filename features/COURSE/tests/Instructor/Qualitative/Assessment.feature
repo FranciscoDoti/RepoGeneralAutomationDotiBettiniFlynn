@@ -27,7 +27,6 @@ Feature: Instructor creates Assessment custom task
           | activities                                 |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
-          | LC1551301608988                            |
 
         And I click on back to course
         And I click on home button to return to coursepage
@@ -53,7 +52,6 @@ Feature: Instructor creates Assessment custom task
         And I add the activities in courseplanner to "Qualitative Course" course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
             | Glossary                                                          | 
         And I close the popup message
 

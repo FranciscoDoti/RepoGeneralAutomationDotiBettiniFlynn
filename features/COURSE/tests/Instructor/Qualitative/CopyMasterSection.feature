@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @WIP
 Feature: Instructor creates Master Section, creates Custom task and content to it
 
     @mediaproducer-delete-course
@@ -29,8 +29,6 @@ Feature: Instructor creates Master Section, creates Custom task and content to i
           | activities                                 |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
-          | LC1551301608988                            |
-          | LCRP1550612138614                          |
 
         And I click on back to course
         And I click on home button to return to coursepage
@@ -59,7 +57,7 @@ Feature: Instructor creates Master Section, creates Custom task and content to i
             | courseCode        |  E2E 301                     |
 
         And I copy the course from the Master Section
-        | courseName          | courseCode           |
-        | Qualitative Course  | E2E 301              |
+            | courseName          | courseCode           |
+            | Qualitative Course  | E2E 301              |
         
         And I verify that the course "Qualitative Course" is created
