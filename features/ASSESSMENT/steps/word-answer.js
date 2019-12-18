@@ -4,6 +4,7 @@ const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js
 
 When('I configure the following grading options', async function (datatable) {
   await pages.raptor.click('Tab', 'correct');
+  await pages.raptor.click('Raptor Canvas Btns', 'edit-module-button');
   for (let i = 0; i < datatable.rows().length; i++) {
     let checkboxStatus = await pages.wordAnswer.getAttributeValue('Grading Option Checkbox', datatable.hashes()[i].Option, 'selected');
     if (checkboxStatus !== datatable.hashes()[i].Value) {

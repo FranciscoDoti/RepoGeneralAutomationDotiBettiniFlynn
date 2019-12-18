@@ -8,8 +8,8 @@
         "specialInstr": "NA" 
     },{
         "name": "createSingleCourse",
-        "byType": "css",
-        "definition": "[data-test-id='create_course_single']",
+        "byType": "xpath",
+        "definition": "//input[@name='course']",
         "frame": "default",
         "specialInstr": "NA" 
     },{
