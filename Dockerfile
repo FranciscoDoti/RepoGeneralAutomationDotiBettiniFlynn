@@ -1,7 +1,8 @@
 FROM node:10.15.3
 
-LABEL Thomas DSilva (thomas.dsilva.contractor@macmillan.com) 
+LABEL AUTHOR="Thomas DSilva (thomas.dsilva.contractor@macmillan.com)"
 COPY ./ ./
+RUN mkdir /downloads
 RUN npm install
 #EXPOSE 3000
 

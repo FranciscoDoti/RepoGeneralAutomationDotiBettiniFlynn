@@ -1,6 +1,13 @@
 {
     "webElements": [
         {
+            "name": "Raptor Canvas Btns",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Module Multiple Select Edit",
             "byType": "xpath",
             "definition": "//div[@data-module-type='multiple_select'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
@@ -58,8 +65,8 @@
         },
         {
             "name": "Content Area",
-            "byType": "xpath",
-            "definition": "//div[@class='content-preview']",
+            "byType": "id",
+            "definition": "primary-content-area",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -330,6 +337,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Editor Panel Done Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//button[text()='Done']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "=.=.=.=.=.=": "===========================================================================================",
             "=.COMMENT.=": "= THE FOLLOWING ELEMENTS ARE IN THIS FILE BECAUSE THEY ARE COMMON TO MORE THAN ONE MODULE =",
             ".=.=.=.=.=.": "==========================================================================================="
@@ -349,9 +363,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Choice Text 1",
+            "name": "Choice Text",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span/label/span",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span/label/div/span",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -360,7 +374,7 @@
             "byType": "xpath",
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
             "frame": "default",
-            "specialInstr": ""
+            "specialInstr": "NA"
         }
     ]
 }

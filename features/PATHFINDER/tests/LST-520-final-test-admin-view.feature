@@ -1,3 +1,4 @@
+@SetScreenSize
 @Pathfinder
 @admin
 Feature: Test the basic functionality of the admin view of a final test

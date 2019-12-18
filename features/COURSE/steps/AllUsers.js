@@ -4,7 +4,6 @@ const {sleep } = require(`${process.cwd()}/app/driver`);
 const driver = require(`${process.cwd()}/app/driver.js`);
 
 Given(/^I search for "(.*)" course$/, async function (input) {
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', input);
   await pages.createCourse.assertElementExists('courseCard', input)
 });
@@ -35,8 +34,8 @@ When(/^I click on search button and input "(.*)" to search the course$/, async f
 
 When(/^I activate "(.*)" template and add the following data$/, async function (courseName,data_table){
   await pages.courseList.waitForElementVisibility('courseMenu', courseName);
+  await sleep(500);
   await pages.courseList.click('courseMenu', courseName);
-  await pages.courseList.click('courseMenu', courseName)
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
@@ -51,7 +50,7 @@ When(/^I activate "(.*)" template and add the following data$/, async function (
 
 When(/^I delete the "(.*)"$/, async function (courseName) {
     await pages.courseList.waitForElementVisibility('courseMenu', courseName);
-    await pages.courseList.click('courseMenu', courseName);
+    await sleep(500);
     await pages.courseList.click('courseMenu', courseName);
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');

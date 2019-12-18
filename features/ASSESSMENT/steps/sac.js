@@ -66,7 +66,7 @@ When('I answer questions', async function (datatable) {
                     option++;
                 }
                 await pages.sac.click('View Solution Button');
-                scores[i] = score + "/100";
+                scores[i] = score + "%";
                 break;
             case "DD":
                 await pages.sac.click('Check Answer Button');
@@ -77,7 +77,7 @@ When('I answer questions', async function (datatable) {
                 }
                 await pages.sac.click('Give Up Button');
                 await pages.sac.click('Confirm Give Up Button');
-                scores[i] = "0/100";
+                scores[i] = "0%";
                 break;
         }
     }

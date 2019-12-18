@@ -243,7 +243,7 @@
         {
             "name": "courseShortId",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3tPK']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1_XC']",
             "frame": "default",
             "specialInstr": "NA"
         },
