@@ -64,7 +64,7 @@
             "specialInstr": "NA"
         }, 
         {
-            "name": "creatVariableContext",
+            "name": "createVariableContext",
             "byType": "css",
             "definition": ".cdl-button[data-test-id ='generic-feedback-button']",
             "frame": "default",
