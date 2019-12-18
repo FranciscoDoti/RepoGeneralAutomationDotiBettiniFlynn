@@ -43,7 +43,7 @@ Feature: Instructor creates Master Section, creates Custom task and adds content
         And I assign "instructor_1" to the "Qualitative Course" course
         
         And I sign out of Achieve
-        Given I login to Achieve-CW as "instructor_1"
+        And I login to Achieve-CW as "instructor_1"
 
         When I activate "Qualitative Course" course with following data 
             | field             | value                        |
