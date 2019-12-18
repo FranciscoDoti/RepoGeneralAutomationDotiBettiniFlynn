@@ -326,7 +326,7 @@ When('I click on master card', async function (){
 When(/^I copy the "(.*)" course from the Master Section$/, async function (sectionName, data_table){
   await pages.masterSection.click('courseMenuButton', sectionName)
   await pages.masterSection.click('copyMasterSection')
-  await pages.masterSection.click('createSingleCourseSection')
+  await pages.masterSection.click('createSingleCourse')
   await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
