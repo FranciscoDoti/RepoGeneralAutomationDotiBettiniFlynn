@@ -24,7 +24,7 @@ Feature: Verify page elements for different eval types
         Then I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "isList" on "question" tab
         And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "isList, isImaginary, createVariableContext" on "correct" tab
 
-         When I click on Question tab, select GradeAs dropdown "Interval" evaltype
+        When I click on Question tab, select GradeAs dropdown "Interval" evaltype
         Then I verify "there are no" dropdown(s), checkbox(es) or radio button(s): "mathEnforceEndpoints, mathNumericTolerance, exactTolerance" on "question" tab
         And I verify "one or more" dropdown(s), checkbox(es) or radio button(s): "mathEnforceEndpoints, mathNumericTolerance, exactTolerance" on "correct" tab
 
