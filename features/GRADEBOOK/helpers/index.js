@@ -28,8 +28,7 @@ async function unassignStudents (activity) {
   await coursePage.waitClick('Tab', 'COURSE PLAN');
   await courses.waitClick('actionIcon', activity);
 
-  await sleep(5000); // TODO update app to address test automation with menu animation
-  await courses.waitForElementVisibility('removeButton', activity); // Wait to open
+  await courses.waitForElementVisibility('removeButton');
   const canUnAssign = await courses.checkElementExists('unassignItem'); // Check if assigned
 
   if (canUnAssign) {
