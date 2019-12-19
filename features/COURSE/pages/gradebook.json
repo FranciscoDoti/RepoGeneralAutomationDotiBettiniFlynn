@@ -146,6 +146,13 @@
             "definition": "//div[.='<ReplaceText>']/../../../..//div[@data-test-id='percentage_complete']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "showFilter",
+            "byType": "css",
+            "definition": "[data-test-id='show_filters']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

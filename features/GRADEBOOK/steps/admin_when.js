@@ -1,47 +1,43 @@
 const { When } = require('cucumber');
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { sleep } = require(`${process.cwd()}/app/driver`);
-const driver = require(`${process.cwd()}/app/driver`);
 
 When(/^I assign "(.*)" to my course$/, async function (userKey) {
   const user = this.users[userKey];
   const courseName = this.data.get('courseName');
   await coursePages.courseList.click('courseTemplate', 'COURSES');
   await coursePages.courseList.populate('search', courseName);
+  // TODO fix menu toggle defect, optimize menu rendering
   await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
   await coursePages.createCourse.assertElementExists('courseCard', courseName);
   await coursePages.courseList.assertElementExists('courseMenu', courseName);
   await coursePages.courseList.click('courseMenu', courseName);
   await coursePages.courseList.click('courseMenu', courseName);
   await coursePages.courseList.click('manageInstructor');
-  await coursePages.courseList.populate('addInstructor', user.username);
-  await coursePages.courseList.click('addButton');
+  await coursePages.courseList.waitPopulate('addInstructor', user.username);
+  await coursePages.courseList.waitClick('addButton');
   await coursePages.courseList.assertElementExists('instructorClose');
-  await coursePages.courseList.click('instructorClose');
+  await coursePages.courseList.waitClick('instructorClose');
 });
 
 When(/^I enroll the following students in my course$/, async function (dataTable) {
   const courseName = this.data.get('courseName');
   await coursePages.courseList.populate('search', courseName);
   await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
-  await coursePages.createCourse.assertElementExists('courseCard', courseName);
   await coursePages.createCourse.click('courseCard', courseName);
-  await driver.getDriver().navigate().refresh();
-  await coursePages.createCourse.assertElementExists('courseTitle', 'E2E 301: ' + courseName)
-  await coursePages.home.scrollElementIntoView('togglerMenu');
-  await coursePages.home.assertElementExists('togglerMenu');
+  await coursePages.createCourse.waitForElementVisibility('courseTitle', 'E2E 301: ' + courseName)
+  await coursePages.home.waitForElementVisibility('togglerMenu');
   await coursePages.home.click('togglerMenu');
   await coursePages.adminMenu.waitForElementVisibility('admin');
-  await coursePages.adminMenu.assertElementExists('admin');
-  await sleep(500);
   await coursePages.adminMenu.click('admin');
-  await coursePages.adminMenu.click('admin');
+  await coursePages.adminMenu.waitForElementVisibility('manageEnrollments');
   await coursePages.adminMenu.click('manageEnrollments');
   for (let i = 0; i < dataTable.rows().length; i++) {
     const user = this.users[dataTable.hashes()[i].student];
+    await sleep(5000);
     await coursePages.adminMenu.populate('emailInput', user.username);
+    await sleep(5000);
     await coursePages.adminMenu.click('addUserButton');
-    await sleep(1000);
   }
   await coursePages.adminMenu.click('closeEnrollmentRoles');
   await coursePages.home.click('achieveHome')
@@ -54,6 +50,7 @@ When(/^I activate course "(.*)" with the following data$/, async function (cours
     await sleep(500);
     await coursePages.courseList.waitForElementVisibility('courseMenu', courseName);
     await coursePages.courseList.click('courseMenu', courseName);
+    await coursePages.copyCourse.waitForElementVisibility('copyCourse');
     await coursePages.copyCourse.click('copyCourse');
     await coursePages.copyCourse.populate('courseName', c.courseName)
     await coursePages.copyCourse.populate('courseCode', c.courseCode)
@@ -71,12 +68,14 @@ When(/^I activate course "(.*)" with the following data$/, async function (cours
 When(/^I create a Gradebook Category with dropped lowest grade policy$/, async function (dataTable) {
   for (let i = 0; i < dataTable.rows().length; i++) {
     const courseName = this.data.get('courseName');
+    await coursePages.courseList.waitForElementVisibility('search', courseName);
     await coursePages.courseList.populate('search', courseName);
+    await sleep(5000);
     await coursePages.createCourse.waitForElementVisibility('courseCard', courseName);
-    await coursePages.createCourse.assertElementExists('courseCard', courseName);
     await coursePages.createCourse.click('courseCard', courseName);
+    await coursePages.coursePage.waitForElementVisibility('navigation', 'Gradebook');
     await coursePages.coursePage.click('navigation', 'Gradebook');
-    await coursePages.gradebook.click('gradebookSettings')
+    await coursePages.gradebook.click('gradebookSettings');
     await coursePages.gradebook.click('gradeBookCategory', 'Add Category');
     await coursePages.gradebook.scrollElementIntoView('categoryName')
     await coursePages.gradebook.populate('categoryName', dataTable.hashes()[i].categoryName)
