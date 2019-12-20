@@ -323,6 +323,25 @@ When('I click on master card', async function (){
   await pages.masterSection.click('masterCard')
 })
 
+When(/^I copy the "(.*)" course from the Master Section$/, async function (sectionName, data_table){
+  await pages.masterSection.click('courseMenuButton', sectionName)
+  await pages.masterSection.click('copyMasterSection')
+  await pages.masterSection.click('createSingleCourse')
+  await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
+  }
+  await pages.masterSection.click('courseEndDate');
+  await pages.courseList.click('nextMonthButton');
+  await pages.courseList.click('selectDate', '15');
+  await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Course');
+})
+
+When(/^I verify that the course "(.*)" is created$/,async function (courseName){
+  await pages.coursePage.click('tab', 'MASTER SECTIONS')
+  await pages.coursePage.click('tab', 'COURSES')
+  await pages.masterSection.assertElementExists('MasterCourse', courseName)
+})
 When(/^I add the activities by searching in browse and adding it to courseplanner in "(.*)" course$/, async function(courseName,data_table){
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Browse');

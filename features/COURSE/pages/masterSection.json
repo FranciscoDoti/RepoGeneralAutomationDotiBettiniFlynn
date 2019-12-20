@@ -108,5 +108,33 @@
         "frame": "default",
         "specialInstr": "NA"
 
+    },{
+        "name": "courseMenuButton",
+        "byType": "xpath",
+        "definition": "//a[.='Qualitative Master Course']/../..//button[@data-test-id= 'course_menu_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "copyMasterSection",
+        "byType": "css",
+        "definition": "[data-test-id='master_section_copy']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "Search",
+        "byType": "css",
+        "definition": "//input[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "MasterCourse",
+        "byType": "xpath",
+        "definition": "//div[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
     }]
 }
