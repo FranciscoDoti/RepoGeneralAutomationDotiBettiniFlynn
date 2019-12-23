@@ -1,22 +1,23 @@
 @Course @Smoke
 Feature: Media Editor is able to create a template and update in SKills Template
 
-   @medieditor-delete-course
+   @mediaeditor-delete-course
     Scenario: Verify that media editor is able to create a template and update in Skills Template
 
         Given I login to Achieve-CW as "media_editor_1"
         When I create template with following data 
-           | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199498  | draft         |                      
+           | courseType  | productModel | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
+           | Template    | Skills       | Automation Skills Template  |                  | E2E 301      | 9781464199498  | draft         | 
+                      
 
+        Then I verify that "Automation Skills Template Created." message is displayed
+        When I search for "Automation Skills Template" course
+        Then I verify that "Automation Skills Template" has created with following "9781464199498" ISBN number by Media editor
 
-        Then I verify that "Skills Template Created." message is displayed
-        And I verify that "Skills Template" has created with following "9781464199498" ISBN number
+        When I activate the "Automation Skills Template" template and add the following data
+            | courseName                    |  courseCode   |  templateStatus      |
+            | Automation Skills Template    |   E2E 301     |  Active On Date      | 
 
-       And I update "Skills Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      |
-
-        Then I verify that "Skills Template" is activated with following data
-            | CourseName            | Status                    | ISBN                      |
-            | Skills Template       |  Active                   |  9781464199498            |
+        Then I verify that "Automation Skills Template" is activated with following data
+            | CourseName                       | Status                    | ISBN                      |
+            | Automation Skills Template       |  Active                   |  9781464199498            |

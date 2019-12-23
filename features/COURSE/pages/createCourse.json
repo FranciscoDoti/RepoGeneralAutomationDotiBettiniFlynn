@@ -9,7 +9,7 @@
         }, {
             "name": "courseCard",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']",
+            "definition": "//div[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -34,7 +34,7 @@
         {
             "name": "TemplateStatus",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3cOL']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1UHg']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -191,7 +191,7 @@
         }, {
             "name": "ISBNVerification",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='SibD']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='clDE']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -243,7 +243,7 @@
         {
             "name": "courseShortId",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_3tPK']",
+            "definition": "//*[.='<ReplaceText>']/../../..//div[@class='_1_XC']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -251,6 +251,28 @@
             "name": "courseCardName",
             "byType": "css",
             "definition": "[data-test-id='course_name']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        { 
+            "name": "New",
+            "byType": "css",
+            "definition": "[data-test-id='create_custom_content_new_btn']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "customContentAdd",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../..//*[@data-test-id='add_to_library']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "createNewCourse",
+            "byType": "css",
+            "definition": "[data-test-id='create_a_new_course_button']",
             "frame": "default",
             "specialInstr": "NA"
         }

@@ -7,17 +7,26 @@ Feature: Adding collaborator to Read & Practice template
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
+            | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |
+
+        And I close the popup message                      
+
+        And I click on search button and input "Read & Practice Template" to search the course
 
         And I activate the "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+            | Read & Practice Template  |   E2E 301     |  Active On Date      |                       
 
-        And I add the activities in resources to "Read & Practice Template" template
-            | type                      | activity                                      |
-            | addButtonReadandpractice  | LCRP1550612138614                             |     
-            | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  GLOSSARY                                     |
+        And I click on "Read & Practice Template" card
+        And I click on "Production" Tab
+
+        And I add activities to "Content Library"
+          | activities            |
+          | GLOSSARY              |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
+        
+        And I click on back to course
     
         And I add "media_editor_1" as collaborator to "Read & Practice Template"
         And I sign out of Achieve
@@ -25,20 +34,39 @@ Feature: Adding collaborator to Read & Practice template
 
         Then I verify that "Read & Practice Template" is present and media editor has access to it has collaborator
 
-        And I add the activities in resources to "Read & Practice Template" template
-            | type                     | activity                                      |   
-            | addButtonReadandpractice | LCRP1551301608988                             |
-            | addReadingButton         |  Appendix F                                   |
+        When I click on "Read & Practice Template" card
+        And  I click on "Production" Tab
 
-        And I add the following activities to respective folders in resource tab
-            | activity                                      | folders           | message                                                                             |
-            | LCRP1551301608988                             | Learning Curve    | 'LCRP1551301608988' was successfully moved to Learning Curve.                       |
-            |  Appendix F                                   | Reading           | 'Appendix F' was successfully moved to Reading.                                     |
-           
-        Then I verify the following activities are present in folders
-            | activity                                      | folders           |
-            | LCRP1551301608988                             | Learning Curve    |
-            |  Appendix F                                   | Reading           |
+        And I add activities to "Content Library"
+          | activities            |
+          | Confidence Intervals  |
+          | 17b. Psychopathology  |
+
+        And I add the activities in both "Course Plan" and "E-book"
+            | activities            | tab               |
+            | 17b. Psychopathology  | CoursePlanEbook   |
+            | Confidence Intervals  | CoursePlanEbook   |
+        
+        And I close the popup message
+
+        And I create folder and add the activities to the folder in "Course Plan" in Production Tool
+            | Folder       | activities             | PlaceFolder           |
+            | Reading 1    |  17b. Psychopathology  | Reading 1 folder      |
+            | Reading 2    | Confidence Intervals   | Reading 2 folder      |
+
+        Then I verify that activities are added to the folder 
+            | Folder        | activities             |
+            | Reading 1     | 17b. Psychopathology   |
+            | Reading 2     | Confidence Intervals   |
+
+        
+
+
+
+
+
+
+        
 
 
 

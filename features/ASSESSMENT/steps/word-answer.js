@@ -1,8 +1,10 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When('I configure the following grading options', async function (datatable) {
   await pages.raptor.click('Tab', 'correct');
+  await pages.raptor.click('Raptor Canvas Btns', 'edit-module-button');
   for (let i = 0; i < datatable.rows().length; i++) {
     let checkboxStatus = await pages.wordAnswer.getAttributeValue('Grading Option Checkbox', datatable.hashes()[i].Option, 'selected');
     if (checkboxStatus !== datatable.hashes()[i].Value) {
@@ -19,8 +21,7 @@ When('I add the following word choices', async function (datatable) {
 });
 
 Then('I grade the following words', async function (datatable) {
-  await pages.raptor.click('More Menu');
-  await pages.raptor.click('Check Answer Slider');
+  await raptorlib.checkAnswerMode();
 
   for (let i = 0; i < datatable.rows().length; i++) {
     await pages.wordAnswer.populate('Word Answer Textbox', datatable.hashes()[i].Word);

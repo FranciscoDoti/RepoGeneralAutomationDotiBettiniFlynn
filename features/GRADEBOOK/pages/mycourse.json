@@ -1,0 +1,11 @@
+{
+  "webElements": [
+    {
+      "name": "myCourse",
+      "byType": "css",
+      "definition": "[data-test-id='create_a_new_course_button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}

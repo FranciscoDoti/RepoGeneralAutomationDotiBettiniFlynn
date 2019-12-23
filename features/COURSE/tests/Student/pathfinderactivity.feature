@@ -1,4 +1,4 @@
-@Smoke @Course
+@Smoke @Course @Skip
 Feature: Student compelets Pathfinder Activity
 
     Scenario: Verify that Student Takes Practice Test 
@@ -6,18 +6,26 @@ Feature: Student compelets Pathfinder Activity
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Pathfinder Template   | macmillan calculus     | E2E 301      | 9781464199496  | draft         |                      
+            | Template    | Qualitative       | Pathfinder Template   | macmillan calculus     | E2E 301      | 9781464199496  | draft         |
+        And I close the popup message 
+
+        And I click on search button and input "Pathfinder Template" to search the course                     
 
         And I activate the "Pathfinder Template" template and add the following data
             | courseName             |  courseCode   |  templateStatus      |
-            | Pathfinder Template    |   E2E 301     |  Active On Date      | 
+            | Pathfinder Template    |   E2E 301     |  Active On Date      |
+        And I click on "Pathfinder Template" card
+        And I click on "Production" Tab 
 
-        And I add the activities in resources to "Pathfinder Template" template
-            | type                    | activity                                                    |
-            | addButtonPathfinder     | Practice Test for Reading Skills - English v2               |     
-            | addButtonPathfinder     | Complete the Study Plan for Reading Skills - English v2     |
-            | addButtonPathfinder     |  Final Test for Reading Skills - English v2                 |
+        And I add activities by "Search" and add to content library 
+           | activities                                                  | addContent                                       |
+           | Practice Test for Reading Skills - English v2               | Practice Test for Reading Skills - Engli ...     |    
+           | Complete the Study Plan for Reading Skills - English v2     | Complete the Study Plan for Reading Skil ...     |
+           |  Final Test for Reading Skills - English v2                 | Final Test for Reading Skills - English  ...     |
+
+        And I click on back to course
         And I click on home button to return to coursepage
+        And I click on "COURSE TEMPLATES" tab
         And I copy course from the "Pathfinder Template" template with the following data
             | courseName           | courseCode           |
             | Pathfinder Course    | E2E 301              |
@@ -35,11 +43,15 @@ Feature: Student compelets Pathfinder Activity
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
 
-        And I click "Diagnostic" content Type and add the activities in "Pathfinder Course"
-            | activity                                                    |
-            | Practice Test for Reading Skills - Engli ...                |     
-            | Complete the Study Plan for Reading Skil ...                |
-            | Final Test for Reading Skills - English  ...                |
+
+        And I add the activities by searching in browse and adding it to courseplanner in "Pathfinder Course" course
+           | activities                                                  | addContent                                       |
+           | Practice Test for Reading Skills - English v2               | Practice Test for Reading Skills - Engli ...     |    
+           | Complete the Study Plan for Reading Skills - English v2     | Complete the Study Plan for Reading Skil ...     |
+           |  Final Test for Reading Skills - English v2                 | Final Test for Reading Skills - English  ...     |
+
+
+        And I close the popup message
 
         And I assign the activities in courseplanner
             | activity                                                    | Points |
@@ -153,3 +165,11 @@ Feature: Student compelets Pathfinder Activity
             |  Practice Test for Reading Skills - Engli ...     |   100%      | 5       | 33%                  |
             | Complete the Study Plan for Reading Skil ...      |   100%      | 5       | 33%                  |
             | Final Test for Reading Skills - English  ...      |   100%      | 5       | 33%                  |
+
+
+    Scenario: I delete the course and Template
+
+        Given I login to Achieve-CW as "media_producer_2"
+        And I click on "COURSE TEMPLATES" tab  
+        And I delete "Pathfinder Template" and "Pathfinder Course"
+

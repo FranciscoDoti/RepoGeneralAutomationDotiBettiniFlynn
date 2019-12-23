@@ -9,20 +9,26 @@ Feature: Instructor adds folder, remove folder and reorders it in Read & Practic
         When I create template with following data 
             | courseType  | productModel      | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Read & Practice   | Read & Practice Template    |                  | E2E 301      | 9781464199498  | draft         |                      
+        And I close the popup message                      
 
-
+        And I click on search button and input "Read & Practice Template" to search the course
         And I activate the "Read & Practice Template" template and add the following data
             | courseName                |  courseCode   |  templateStatus      |
-            | Read & Practice Template  |   E2E 301     |  Active On Date      | 
+            | Read & Practice Template  |   E2E 301     |  Active On Date      |                       
 
-        And I add the activities in resources to "Read & Practice Template" template
-            | type                      | activity                                      |    
-            | addButtonLearningcurve    | LC1551301608988                               |
-            | addReadingButton          |  GLOSSARY                                     |
-            | addButtonReadandpractice  | LCRP1550612138614                             |                         
+        And I click on "Read & Practice Template" card
+        And I click on "Production" Tab
 
+        And I add activities to "Content Library"
+          | activities            |
+          | GLOSSARY              |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
+          
+        And I click on back to course
         And I click on home button to return to coursepage
         And I click on "COURSE TEMPLATES" tab 
+
         And I copy course from the "Read & Practice Template" template with the following data
             | courseName              | courseCode           |
             | Read & Practice Course  | E2E 301              |
@@ -41,11 +47,12 @@ Feature: Instructor adds folder, remove folder and reorders it in Read & Practic
             | courseCode        |  E2E 301                     |
             | templateStatus    |  Active On Date              |
      
-        And I add the activities in courseplanner to "Read & Practice Course" course
+        And I add activities in "Read & Practice Course" courseplanner tab
             | activity                                                          |                                                        
             | LC1551301608988                                                   |
             | GLOSSARY                                                          |
             | LCRP1550612138614                                                 |
+        And I close the popup message
             
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |                                                    
@@ -60,10 +67,10 @@ Feature: Instructor adds folder, remove folder and reorders it in Read & Practic
             | GLOSSARY                                                          |  3             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
-            | activity                                      | folders           | message                                                                             |
-            | LC1551301608988                               | Learning Curve    | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | GLOSSARY                                      | Reading           | 'GLOSSARY' was successfully moved to Reading.                                     |
-            | LCRP1550612138614                             | ReadandPractice   | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
+            | activity                                      | folders           | folderName                | message                                                                             |
+            | LC1551301608988                               | Learning Curve    | Learning Curve folder     | 'LC1551301608988' was successfully moved to Learning Curve.                         |
+            | GLOSSARY                                      | Reading           | Reading folder            | 'GLOSSARY' was successfully moved to Reading.                                     |
+            | LCRP1550612138614                             | ReadandPractice   | ReadandPractice folder    | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |

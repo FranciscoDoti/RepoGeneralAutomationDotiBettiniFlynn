@@ -15,6 +15,13 @@
             "specialInstr": "NA"
         },
         {
+            "name": "correctSetup",
+            "byType": "css",
+            "definition": ".aqua-button",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "menuBarColumn",
             "byType": "css",
             "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
@@ -249,6 +256,20 @@
             "name": "incorrectAnswer",
             "byType": "css",
             "definition": "div[aria-label ='Incorrect Answer']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "cycleVariables",
+            "byType": "id",
+            "definition": "regenerate-algos",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "staticTextfield",
+            "byType": "css",
+            "definition": "div[data-module-type='static_textfield']",
             "frame": "default",
             "specialInstr": "NA"
         }
