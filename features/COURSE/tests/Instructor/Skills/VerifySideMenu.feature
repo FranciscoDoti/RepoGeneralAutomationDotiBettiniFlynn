@@ -3,7 +3,7 @@ Feature: Verify side menu in Skills Course
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
-    #@instructor-delete-course
+    @instructor-delete-course
     Scenario: Verify that the side menu exist in a Skills Course
     
         Given I login to Achieve-CW as "media_producer_2"
