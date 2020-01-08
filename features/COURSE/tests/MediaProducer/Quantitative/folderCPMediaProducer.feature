@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @Skip
 Feature: Adding activities in Folder courseplanner in Quantitative Template
 
     @mediaproducer-delete-courseTemplate

@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @Skip
 Feature: Student grades
  
 @mediaproducer-delete-course

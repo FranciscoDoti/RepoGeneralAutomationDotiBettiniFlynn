@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @Skip
 Feature: Instructor creates Assessment custom task 
 
     @mediaproducer-delete-course

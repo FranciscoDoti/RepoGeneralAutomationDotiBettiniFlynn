@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @Skip
 Feature: Instructor creates writing activity in Skills Production Template
 
     @mediaproducer-delete-course

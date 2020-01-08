@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @Skip
 Feature: Instructor creates Master Section, creates Custom task and content to it
 
     @mediaproducer-delete-course

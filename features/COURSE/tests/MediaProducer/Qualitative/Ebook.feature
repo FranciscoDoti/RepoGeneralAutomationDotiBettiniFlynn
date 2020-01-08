@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @SKip
 Feature: Verify that MediaProducer is able to add activities in Ebook
 
     @mediaproducer-delete-courseTemplate
