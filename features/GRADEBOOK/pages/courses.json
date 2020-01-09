@@ -30,8 +30,8 @@
     },
     {
       "name": "removeButton",
-      "byType": "xpath",
-      "definition": "//a[.='<ReplaceText>']/../../../../..//button[@data-test-id='action_button']",
+      "byType": "css",
+      "definition": "[animation-end-test-id='action_menu_items_remove_item']",
       "frame": "default",
       "specialInstr": "NA"
     },
