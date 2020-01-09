@@ -17,11 +17,4 @@ Feature: Render variable values while preview an item
             | Value       |
             | ???trees??? |
             | Trees       |
-
-        # And I set the number "1" as the correct answer
-        # And The variable values are displayed as choices
         Then I preview the item created with rendered variable values
-            | Choices|
-            | oak    |
-            | pine   |
-            | beech  |

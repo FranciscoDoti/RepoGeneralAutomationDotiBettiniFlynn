@@ -2,7 +2,7 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const { log } = require(`${process.cwd()}/app/logger`);
 const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
-const { assert } =  require('chai');
+const { assert, expect } = require('chai');
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await amslib.addRaptorItem();
@@ -28,7 +28,7 @@ When('I duplicate the following items', async function (dataTable) {
         let item = dataTable.hashes()[i];
         let itemTitle = this.data.get(item.Title, 'id');
         let duplicatedItemId = await amslib.duplicateItem(itemTitle);
-        if(duplicatedItemId == '' || duplicatedItemId === undefined){
+        if (duplicatedItemId == '' || duplicatedItemId === undefined) {
             assert.fail('Duplicate Item Id is blank.');
         };
         this.data.set(item.Title, "id", duplicatedItemId);
@@ -172,18 +172,33 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     }
 });
 
-Then(/^I preview the item created with rendered variable values$/, async function (datatable) {
-    await pages.raptor.click('Tab', 'correct');
-    await pages.raptor.scrollElementIntoView('Answer Radio Button ' + "1");
-    await pages.raptor.click('Answer Radio Button ' + "1");
-    await pages.raptor.click('Cycle Variables Button');
-    await raptorlib.saveItem();
-    let text = await pages.raptor.getText('Choice Text 1');
-    switch (text) {
-        case "oak":
-        case "pine":
-        case "beech":
-            log.info(`Correct value rendered "${text}". PASS`);
-        break;
+Then(/^I preview the item created with rendered variable values$/, async function () {
+    let i = 1;
+    let case_oak = false;
+    let case_pine = false;
+    let case_beech = false;
+    while (i <= 20) {
+        await pages.raptor.click('Cycle Variables Button');
+        let text = await pages.raptor.getText('Answer Radio Button 1', '1');
+        switch (text) {
+            case "oak":
+                log.info(`Correct value rendered "${text}". PASS`);
+                case_oak = true;
+                break;
+            case "pine":
+                log.info(`Correct value rendered "${text}". PASS`);
+                case_pine = true;
+                break;
+            case "beech":
+                log.info(`Correct value rendered "${text}". PASS`);
+                case_beech = true;
+                break;
+            default:
+                await pages.raptor.assertElementExists(text);
+        }
+        i++;
     }
+    let allValuesRendered = ((case_oak == true && case_pine == true) && case_beech == true);
+    log.info(`Executed All cases "${allValuesRendered}". PASS`);
+    expect(allValuesRendered).to.equal(true);
 });
