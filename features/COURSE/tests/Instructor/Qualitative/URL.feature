@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Verify that Instructor is able to create URL in Qualitative Course
  
   @mediaproducer-delete-course

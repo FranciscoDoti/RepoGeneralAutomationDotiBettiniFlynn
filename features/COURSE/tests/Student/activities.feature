@@ -1,4 +1,4 @@
-@Smoke @Course @Skip
+@Smoke @Course @flaky
 Feature: Student attempts reading, static file, URL, Gradebook category 
 
     @mediaproducer-delete-course

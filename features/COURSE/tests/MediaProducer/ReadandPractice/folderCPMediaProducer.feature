@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Adding activities in Folder courseplanner in Read & Practice template
 
     @mediaproducer-delete-courseTemplate

@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Adding activities in Folder Resource Tab to Skills Production Template
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Skills Production Template

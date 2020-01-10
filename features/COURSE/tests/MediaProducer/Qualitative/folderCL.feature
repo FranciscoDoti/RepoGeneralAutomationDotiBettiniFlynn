@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Adding activities in Folder Resource Tab to Qualitative template
 
     @mediaproducer-delete-courseTemplate
