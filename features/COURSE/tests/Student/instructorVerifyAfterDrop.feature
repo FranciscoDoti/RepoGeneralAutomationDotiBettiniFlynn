@@ -1,4 +1,4 @@
-@Smoke @Course
+@Smoke @Course @flaky
 Feature: Student attempts reading, static file, URL, Gradebook category
 
 

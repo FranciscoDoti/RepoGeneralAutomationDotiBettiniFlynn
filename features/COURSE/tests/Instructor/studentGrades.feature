@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Student grades
  
 @mediaproducer-delete-course

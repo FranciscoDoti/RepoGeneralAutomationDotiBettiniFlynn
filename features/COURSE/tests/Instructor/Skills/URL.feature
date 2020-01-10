@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Verify that Instructor is able to create URL in Skills Production Course
 
    @mediaproducer-delete-course

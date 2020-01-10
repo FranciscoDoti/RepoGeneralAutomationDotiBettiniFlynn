@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Adding activities in Folder COURSE PLAN in Qualitative template
 
     @mediaproducer-delete-courseTemplate
