@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Adding activities in Folder courseplanner to Skills Production Template
 
     @mediaproducer-delete-courseTemplate

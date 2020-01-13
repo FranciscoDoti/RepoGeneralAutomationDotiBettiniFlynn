@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @Skip @flaky
 Feature: Adding collaborator to Skills Production Template
 
     @mediaproducer-delete-courseTemplate
