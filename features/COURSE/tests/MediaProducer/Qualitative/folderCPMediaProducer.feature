@@ -60,20 +60,5 @@ Feature: Adding activities in Folder COURSE PLAN in Qualitative template
             | Folder                                                            | orderNumber    |
             | Reading 1                                                         |  2             |                                                       
             | Reading 2                                                         |  1             |
-   
-
-        #When I delete the folder in Production Tab 
-        #    | Folder     |
-        #    | Reading 1  |
-        #    | Reading 2  |
-         
-            
-
-        #Then I verify that Folders are deleted
-        #    | Folder     |
-        #    | Reading 1  |
-        #    | Reading 2  |
-         
-
 
        
