@@ -1,4 +1,4 @@
-@Course @Smoke @Skip @flaky
+@Course @Smoke @flaky
 Feature: Adding collaborator to Read & Practice template 
 
     @mediaproducer-delete-courseTemplate

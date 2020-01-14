@@ -1,4 +1,4 @@
-@Smoke @Course @Skip @Flaky
+@Smoke @Course @Flaky
 Feature: Student compelets Pathfinder Activity
 
     Scenario: Verify that Student Takes Practice Test 
