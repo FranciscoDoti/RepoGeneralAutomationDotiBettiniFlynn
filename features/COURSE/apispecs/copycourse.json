@@ -1,6 +1,6 @@
 {
     "method":"POST",
-    "endpoint": "/lms/clone/[id]",
+    "endpoint": "/lms/clone/{id}",
     "json": true,
     "request": {
     "name": "COPY OF 10/1 Qual",
