@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const { RestObject } = require(`${process.cwd()}/app/rest`);
 const specPath = `${process.cwd()}/features/COURSE/apispecs`;
 
-When('I create a course template with as {string} with the following data', async function (userType, datatable) {
+When('I create a course template as {string} with the following data', async function (userType, datatable) {
     let spec = `${specPath}/createcourse.json`;
     let jwt_payload = this.users[userType].jwt_payload;
     let rest = new RestObject(spec);
