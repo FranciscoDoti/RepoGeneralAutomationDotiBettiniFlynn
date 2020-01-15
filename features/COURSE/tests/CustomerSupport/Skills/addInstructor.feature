@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Adding Instructor to the Template
 
     @mediaproducer-delete-course

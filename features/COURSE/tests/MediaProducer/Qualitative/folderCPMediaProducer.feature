@@ -1,4 +1,4 @@
-@Course @Smoke @flaky
+@Course @Smoke 
 Feature: Adding activities in Folder COURSE PLAN in Qualitative template
 
     @mediaproducer-delete-courseTemplate
@@ -7,7 +7,7 @@ Feature: Adding activities in Folder COURSE PLAN in Qualitative template
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9783464198498  | draft         |                      
 
         And I close the popup message 
         And I click on search button and input "Qualitative Template" to search the course                     
@@ -58,22 +58,7 @@ Feature: Adding activities in Folder COURSE PLAN in Qualitative template
 
         Then I verify that Folders are reordered 
             | Folder                                                            | orderNumber    |
-            | Reading 1                                                         |  1             |                                                       
-            | Reading 2                                                         |  2             |
-   
-
-        When I delete the folder in Production Tab 
-            | Folder     |
-            | Reading 1  |
-            | Reading 2  |
-         
-            
-
-        Then I verify that Folders are deleted
-            | Folder     |
-            | Reading 1  |
-            | Reading 2  |
-         
-
+            | Reading 1                                                         |  2             |                                                       
+            | Reading 2                                                         |  1             |
 
        
