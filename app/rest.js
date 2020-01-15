@@ -22,7 +22,6 @@ RestObject.prototype.send = async function () {
     try {
         let fullresponse = await rp(this.request);
         this.response = fullresponse.body;
-        console.log(this.response);
         log.info(`Request returned response. Status code ${this.response.status}`);
         return true;
     } catch (err) {
@@ -86,11 +85,11 @@ RestObject.prototype.POST = async function (app, body) {
     };
 };
 
-RestObject.prototype.response = async function (body) {
+RestObject.prototype.response = async function () {
     return this.response.body;
 };
 
-RestObject.prototype.error = async function (body) {
+RestObject.prototype.error = async function () {
     return this.error;
 };
 
