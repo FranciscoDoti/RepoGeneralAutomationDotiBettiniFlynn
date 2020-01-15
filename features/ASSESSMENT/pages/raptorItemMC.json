@@ -1,0 +1,37 @@
+{
+    "webElements": [
+        {
+            "name": "Raptor Canvas Btns",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Value Textbox",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Editor Panel Done Button",
+            "byType": "xpath",
+            "definition": "//button[@id='close-edit-host']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Cycle Variables Button",
+            "byType": "xpath",
+            "definition": "//div[@class='cycle-variables-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Choice Button",
+            "byType": "css",
+            "definition": "a[data-test-id='add-item-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }]}

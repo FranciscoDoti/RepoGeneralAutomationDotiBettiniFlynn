@@ -172,33 +172,3 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     }
 });
 
-Then(/^I preview the item created with rendered variable values$/, async function () {
-    let i = 1;
-    let case_oak = false;
-    let case_pine = false;
-    let case_beech = false;
-    while (i <= 20) {
-        await pages.raptor.click('Cycle Variables Button');
-        let text = await pages.raptor.getText('Answer Radio Button 1', '1');
-        switch (text) {
-            case "oak":
-                log.info(`Correct value rendered "${text}". PASS`);
-                case_oak = true;
-                break;
-            case "pine":
-                log.info(`Correct value rendered "${text}". PASS`);
-                case_pine = true;
-                break;
-            case "beech":
-                log.info(`Correct value rendered "${text}". PASS`);
-                case_beech = true;
-                break;
-            default:
-                await pages.raptor.assertElementExists(text);
-        }
-        i++;
-    }
-    let allValuesRendered = ((case_oak == true && case_pine == true) && case_beech == true);
-    log.info(`Executed All cases "${allValuesRendered}". PASS`);
-    expect(allValuesRendered).to.equal(true);
-});
