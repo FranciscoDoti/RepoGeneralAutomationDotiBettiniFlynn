@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Verify that Admin is able to create URL in Read and Practice Course 
 
     @admin-delete-courseTemplate

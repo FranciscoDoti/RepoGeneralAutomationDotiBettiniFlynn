@@ -127,7 +127,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'ul':
         case 'li':
         case 'th':
-        case 'h2':  
+        case 'h2':
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
@@ -154,7 +154,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     if (replaceText !== undefined) {
       elementName = await addDynamicElement(elementName, replaceText);
     }
-    
+
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
@@ -396,7 +396,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     try {
       const actualValue = await genericGetAttribute(elementName);
       log.info(`Asserting text for "${elementName}" does not exist`);
-      
+
       if (await expect(actualValue).to.not.include(expectedValue)) {
         log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
       };
@@ -619,6 +619,16 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
+  const waitClick = async function (elementName, replaceText, timeoutInSeconds) {
+    await waitForElementVisibility(elementName, replaceText, timeoutInSeconds);
+    await clickElement(elementName, replaceText);
+  };
+
+  const waitPopulate = async function (elementName, replaceText, timeoutInSeconds) {
+    await waitForElementVisibility(elementName, replaceText, timeoutInSeconds);
+    await populateElement(elementName, replaceText);
+  };
+
   that.acceptAlert = acceptAlert;
   that.dismissAlert = dismissAlert;
   that.getAlertText = getAlertText;
@@ -632,7 +642,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.hasElement = hasElement;
   that.getDriver = getDriver;
   that.populate = populateElement;
+  that.waitPopulate = waitPopulate;
   that.click = clickElement;
+  that.waitClick = waitClick;
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;

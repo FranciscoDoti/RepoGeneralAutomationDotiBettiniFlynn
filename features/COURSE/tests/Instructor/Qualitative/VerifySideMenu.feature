@@ -1,10 +1,10 @@
 @Course @Smoke
-Feature: Single Quantitative Course 
+Feature: Verify side menu in Quantitative Course 
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
-    @instructor-delete-course
-    Scenario: Verify that Instructor is able to copy course from Qualitative Template
+    #@instructor-delete-course
+    Scenario: Verify that the side menu exist in a Qualitative Course
     
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
@@ -21,17 +21,6 @@ Feature: Single Quantitative Course
             | courseName             |  courseCode   |  templateStatus      |
             | Qualitative Template   |   E2E 301     |  Active On Date      | 
 
-        And I click on "Qualitative Template" card
-        And I click on "Production" Tab
-
-        And I add activities to "Content Library"
-          | activities                                 |
-          | Glossary                                   |
-          | Exercise: Misused words 1 (autoscored)     |
-
-        And I click on back to course
-        And I click on home button to return to coursepage
-        And I click on "COURSE TEMPLATES" tab 
         And I copy course from the "Qualitative Template" template with the following data
             | courseName          | courseCode           |
             | Qualitative Course  | E2E 301              |
@@ -55,7 +44,4 @@ Feature: Single Quantitative Course
             | courseName        | Qualitative Single Course    |
             | courseCode        |  E2E 301                     |
 
-        Then I verify that "Course Created." message is displayed
-        And I verify that "Qualitative Single Course" is created
-
-      
+        And I verify that the side menu exist in "Qualitative Single Course"

@@ -106,16 +106,16 @@
       "specialInstr": "NA"
     },
     {
-      "name": "singleCategory",
+      "name": "allCategoryHeaders",
       "byType": "css",
-      "definition": "[data-test-id='gradebook_table_category_cell']:nth-of-type(3)",
+      "definition": "[data-test-id*='gradebook_table_category_cell']",
       "frame": "default",
       "specialInstr": "NA"
     },
     {
-      "name": "categoryHeaderCells",
+      "name": "categoryHeader",
       "byType": "css",
-      "definition": ".ReactVirtualized__Grid.InstructorGradebook_topRightGrid_P6X",
+      "definition": "[data-test-id='gradebook_table_category_cell-<ReplaceText>']",
       "frame": "default",
       "specialInstr": "NA"
     },
@@ -284,6 +284,13 @@
       "name": "dropGradeDropdown",
       "byType": "css",
       "definition": "[aria-labelledby='drop_label_1']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "dataGrid",
+      "byType": "css",
+      "definition": "div[data-test-id='gradebook_table_assignments_cell']",
       "frame": "default",
       "specialInstr": "NA"
     }

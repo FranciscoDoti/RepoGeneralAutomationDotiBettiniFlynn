@@ -1,5 +1,5 @@
 
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Assigning the activities present in Quantitative course 
 
     @mediaproducer-delete-course

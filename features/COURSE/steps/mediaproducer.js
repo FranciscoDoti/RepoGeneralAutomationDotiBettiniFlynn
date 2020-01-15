@@ -5,6 +5,7 @@ const {sleep } = require(`${process.cwd()}/app/driver`);
 When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async function (number, code, data_table) {
   this.data.set('code', code);
   this.data.set('Number', number);
+  await sleep(500);
   await pages.createCourse.click('plusButton');
   for (let i = 0; i < data_table.rows().length; i++) {
     if (data_table.hashes()[i].page_object !== 'day') {
@@ -45,7 +46,6 @@ When(/^I add the activities in resources to "(.*)" template$/, async function (c
 });
 
 When(/^I copy course from the "(.*)" template with the following data$/, async function (courseName, data_table) {
-  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName);
   await sleep(500);
@@ -416,5 +416,37 @@ When(/^I click on "(.*)" tab and verify the checkboxes with the following data$/
       await pages.coursePlanner.click('Apply')
       await pages.coursePlanner.click('contentCheckbox');
     }
+});
+
+When(/^I create folder and add the activities to the folder in "(.*)" in Production Tool$/, async function (tabName, data_table){
+  await pages.coursePage.click('navigation', tabName);
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('addFolder')
+    await pages.resources.populate('folderName', data_table.hashes()[i].Folder);
+    await pages.resources.click('addFolderButton');
+    await pages.eBook.click('actionButton', data_table.hashes()[i].activities);
+    await pages.coursePlanner.click('actionMoveItemToFolder');
+    await pages.eBook.click('Folder', data_table.hashes()[i].PlaceFolder);
+    await pages.resources.click('placeInFolder');
+    await pages.home.click('closeAlert');
+  }
+})
+
+When('I Reorder The folders in Production Tab', async function (data_table){
+  await pages.coursePlanner.click('actionButtonValidation');
+  await pages.coursePlanner.click('unitActionItemsReorder');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.resources.click('reorderResources', data_table.hashes()[i].Folder);
+    await pages.resources.click(data_table.hashes()[i].Button);
+  }
+  await pages.coursePlanner.click('modalSaveButton');
+})
+
+When('I delete the folder in Production Tab', async function (data_table){
+  for (let i = 0; i < data_table.rows().length; i++) {
+    await pages.eBook.click('actionButton', data_table.hashes()[i].Folder);
+    await pages.coursePalner.click('removeFolderAction');
+    await pages.coursePlanner.click('removeFolderButton')
+  }
 });
 
