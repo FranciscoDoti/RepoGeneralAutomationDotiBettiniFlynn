@@ -17,8 +17,8 @@ Feature: To configure a multiple choice raptor item
     And I add the following choices in "Multiple Choice" module
       | Value       |
       | ???trees??? |
-      | Trees       |
+      | Trees       | 
 
-    And I set the number "1" as the correct answwer
+    And I set the number "1" as the correct answer
 
     Then The variable values are displayed as choices
