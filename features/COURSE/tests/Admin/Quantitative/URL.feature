@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @API
 Feature: Verify that Admin is able to create URL in Quantitative Course
 
     @admin-delete-courseTemplate
