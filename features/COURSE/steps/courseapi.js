@@ -10,8 +10,8 @@ When('I create a course template with as {string} with the following data', asyn
     rest.setCookie(jwt_payload);
     
     for(let i = 0; i < datatable.rows().length; i++){
-        this.data.set('code', data_table.hashes()[i].short_name);
-        this.data.set('Number',data_table.hashes()[i].isbn);
+        this.data.set('code', datatable.hashes()[i].short_name);
+        this.data.set('Number',datatable.hashes()[i].isbn);
         let courseData = datatable.hashes()[i];
         expect(await rest.POST('Achieve-CW', courseData)).to.equal(200);
         console.log(await rest.response);
