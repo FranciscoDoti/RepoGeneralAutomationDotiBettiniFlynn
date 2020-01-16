@@ -18,7 +18,7 @@ Feature: Verify functionality of Multiple Choice raptor item
             | ???trees??? |
             | Trees       |
 
-        Then I preview the item and whether clicking on Cycle Variables updates the choices
+        Then I verify whether clicking on Cycle Variables updates the choices
             | Choice |
             | beech  |
             | pine   |
