@@ -1,7 +1,7 @@
-@Assessment @RenderVariable @Smoke
-Feature: Render variable values while preview an item
+@Assessment @MultipleChoice @CycleVariables @Smoke
+Feature: Verify functionality of Multiple Choice raptor item
 
-    Scenario: Render variable
+    Scenario: Verify the Cycle Variables functionality of a Multiple Choice Raptor item
         Given I login to AMS as "all-permissions-author"
         When I add the "Multiple Choice" module
 
@@ -17,4 +17,9 @@ Feature: Render variable values while preview an item
             | Value       |
             | ???trees??? |
             | Trees       |
-        Then I preview the item created with rendered variable values
+
+        Then I preview the item and whether clicking on Cycle Variables updates the choices
+            | Choice |
+            | beech  |
+            | pine   |
+            | oak    |

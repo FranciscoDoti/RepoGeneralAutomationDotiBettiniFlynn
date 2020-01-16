@@ -214,6 +214,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const genericAssertElement = async function (elementName, value) {
+    let retval;
     let WebElementObject = '';
     let WebElementData = {};
 
@@ -222,13 +223,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       await switchFrame(WebElementData.frame);
       WebElementObject = await WebElement(WebElementData);
 
+      const implicit = (await getDriver().manage().getTimeouts()).implicit;
       switch (value.toLowerCase()) {
         case 'notdisplayed':
-          const implicit = (await getDriver().manage().getTimeouts()).implicit;
           await getDriver().manage().setTimeouts({
             implicit: 5000
           });
-          let retval = !(await WebElementObject.elementDisplayed());
+          retval = !(await WebElementObject.elementDisplayed());
           await getDriver().manage().setTimeouts({
             implicit: implicit
           });
@@ -240,8 +241,15 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'disabled':
           return (await WebElementObject.elementDisabled());
         case 'exists':
-          var collection = await WebElementObject.getWebElements();
-          return collection.length > 0 ? true : false;
+          await getDriver().manage().setTimeouts({
+            implicit: 3000
+          });
+          retval = await WebElementObject.getWebElements();
+          await getDriver().manage().setTimeouts({
+            implicit: implicit
+          });
+          log.info(`Found ${retval.length} matching elements on page.`);
+          return retval.length > 0 ? true : false;
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during AssertElement() attempt.`);
@@ -253,7 +261,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       elementName = await addDynamicElement(elementName, replaceText);
     }
 
-    if (await genericAssertElement(elementName, 'displayed')) {
+    if (await genericAssertElement(elementName, 'exists')) {
       log.info(`Web Element ${elementName} is displayed on page.`);
       return true;
     }
