@@ -16,7 +16,7 @@ When('I add the following choices in Multiple Choice module', async function (da
   await pages.canvasMC.click('Done Button');
 });
 
-Then('I preview the item and whether clicking on Cycle Variables updates the choices', async function (datatable) {
+Then('I verify whether clicking on Cycle Variables updates the choices', async function (datatable) {
   for (let data of datatable.hashes()) {
     for(let counter = 0; counter <= 10; counter++){
       if(await pages.canvasMC.checkElementExists('Choice RadioButton', data.Choice)){
