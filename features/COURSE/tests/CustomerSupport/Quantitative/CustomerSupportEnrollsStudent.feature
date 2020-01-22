@@ -24,7 +24,7 @@ Feature: Customer Support Enrolls the student in Quantitative Cousre
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LC1551301608988       |
         
         And I click on back to course
@@ -52,12 +52,12 @@ Feature: Customer Support Enrolls the student in Quantitative Cousre
         And I add the activities in courseplanner to "Quantitative Course" course
             | activity                                                          |                                                         
             | LC1551301608988                                                   |
-            | GLOSSARY                                                          |
+            | Glossary                                                          |
 
         And I close the popup message
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
-            | GLOSSARY                                                         | 5      | 
+            | Glossary                                                         | 5      | 
             | LC1551301608988                                                  | 5      | 
 
         And I sign out of Achieve

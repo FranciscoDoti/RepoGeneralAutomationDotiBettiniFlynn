@@ -28,7 +28,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Google                                        |
         And I add activities to "Content Library"
           | activities                         |
-          | GLOSSARY                           |
+          | Glossary                           |
           | AutomationEpub-201910171217        |
           
         
@@ -57,14 +57,14 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | GLOSSARY                                    |
+            | Glossary                                    |
             | AutomationEpub-201910171217                 |
         And I close the popup message 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | GLOSSARY                                                         | 5      |
+            | Glossary                                                         | 5      |
             | AutomationEpub-201910171217                                      | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
@@ -91,7 +91,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I complete the reading activity 
             | activity           |
-            | GLOSSARY           |
+            | Glossary           |
         
         And I sign out of Achieve
 
