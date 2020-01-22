@@ -24,7 +24,7 @@ Feature: Instructor creates Assessment custom task
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LCRP1550612138614     |
           | LC1551301608988       |
         
@@ -55,7 +55,7 @@ Feature: Instructor creates Assessment custom task
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | LC1551301608988                                                   |
-            | GLOSSARY                                                          |
+            | Glossary                                                          |
 
         And I close the popup message
         And I create a custom assessment task with following data

@@ -22,7 +22,7 @@ Feature: Copy course from Skills Production Template
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LC1551301608988       |
         
         And I click on back to course
