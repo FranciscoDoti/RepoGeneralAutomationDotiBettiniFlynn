@@ -227,7 +227,7 @@
     {
       "name": "editTotal",
       "byType": "xpath",
-      "definition": "(//*[.='<ReplaceText>']/../../../../../../../../..//div/button[@class='_3VyP'])[1]",
+      "definition": "//*[.='Macmillan']/../../../../../../../.././..//div[@data-test-id='assignment_grade_1_1']",
       "frame": "default",
       "specialInstr": "NA"
     },

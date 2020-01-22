@@ -166,9 +166,9 @@ When(/^I edit student grade in "(.*)"$/, async function (courseName,data_table) 
 Then('I verify the Grades', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     let user = this.users[data_table.hashes()[i].Students];
-    await pages.gradebook.assertTextIncludes('courseTotal', user.firstName, data_table.hashes()[i].CourseTotal);
-    await pages.gradebook.assertTextIncludes('studentcourseTotal', user.firstName, data_table.hashes()[i].Google);
-    await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.firstName, data_table.hashes()[i].CategoryTotal)
+    await pages.gradebook.assertTextIncludes('courseTotal', user.lastName, data_table.hashes()[i].CourseTotal);
+    await pages.gradebook.assertTextIncludes('studentcourseTotal', user.lastName, data_table.hashes()[i].Google);
+    await pages.gradebook.assertTextIncludes('studentCategoryTotal', user.lastName, data_table.hashes()[i].CategoryTotal)
   }
 });
 
