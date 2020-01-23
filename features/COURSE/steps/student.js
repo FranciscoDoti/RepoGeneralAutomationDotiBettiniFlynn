@@ -15,6 +15,7 @@ When('I complete the reading activity', async function (data_table) {
 
 Then(/^I verify the activity status for the following activities in "(.*)"$/, async function (Tab, data_table) {
   await getDriver().navigate().refresh();
+  await pages.coursePage.waitForElementVisibility('Tab',Tab);
   await pages.coursePage.click('Tab',Tab);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.overview.assertTextIncludes('activityStatus', data_table.hashes()[i].activity, data_table.hashes()[i].status);
@@ -77,7 +78,7 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
       let y = eval(610/600)
       let z = await pages.overview.checkElementExists('midwayLc');
         if(x < y){
-         
+
         let jsonObject = await pages.overview.getText('activityQuestion');
         let split = jsonObject.split('}')[0] + '}';
         console.log(split);
@@ -101,7 +102,7 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
               }
               if(z=== true){
                 await pages.overview.click('midwayLc')
-        
+
               }
               await pages.overview.assertElementExists('nextQuestion');
               await pages.overview.click('nextQuestion');
@@ -109,7 +110,7 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
             }
 
           case 'MC':
-          console.log('Entered MC') 
+          console.log('Entered MC')
             let ordered = answerKey.Ordered
             let answerList = await pages.overview.getWebElements('mcAnswers')
             for (let i = 0; i < answerList.length; i++) {
@@ -125,7 +126,7 @@ When(/^I attempt "(.*)" Learning curve activity$/, async function (activityName)
             await pages.overview.click('submitButton');
             if(z=== true){
               await pages.overview.click('midwayLc')
-      
+
             }
             await pages.overview.assertElementExists('nextQuestion');
             await pages.overview.click('nextQuestion');
@@ -159,7 +160,7 @@ When(/^I attempt "(.*)" Read and Practice activity$/, async function (activityNa
     await choice.click();
     break;
   }
- 
+
 });
 
 When('I add the activities to the resource tab', async function (data_table) {
@@ -171,7 +172,7 @@ When('I add the activities to the resource tab', async function (data_table) {
   await pages.resources.click('addContent');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.populate('searchBar', data_table.hashes()[i].activities);
-    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities) 
+    await pages.resources.assertElementExists(data_table.hashes()[i].type, data_table.hashes()[i].activities)
     await pages.resources.click(data_table.hashes()[i].type, data_table.hashes()[i].activities);
     await pages.resources.click('closeResourceSearchNav');
     await pages.resources.click('addContent');
@@ -209,7 +210,7 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
 });
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
-  await pages.home.click('closeAlert'); 
+  await pages.home.click('closeAlert');
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
   await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);

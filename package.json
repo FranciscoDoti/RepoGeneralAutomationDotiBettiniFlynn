@@ -29,6 +29,7 @@
     "mailparser": "latest",
     "nodemailer": "latest",
     "parse-duration": "latest",
+    "request-promise-native": "^1.0.7",
     "selenium-webdriver": "latest",
     "testrail-api": "latest",
     "winston": "latest"

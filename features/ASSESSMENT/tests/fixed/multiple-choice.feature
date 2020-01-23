@@ -14,11 +14,11 @@ Feature: To configure a multiple choice raptor item
       | Type   | Description | Name  | Value1 | Value2 | Value3 |
       | String | String      | trees | oak    | pine   | beech  |
 
-    And I add the following choices in "Multiple Choice" module
+    And I add the following choices in Multiple Choice module
       | Value       |
       | ???trees??? |
-      | Trees       |
+      | Trees       | 
 
-    And I set the number "1" as the correct answwer
+    And I set the number "1" as the correct answer
 
     Then The variable values are displayed as choices

@@ -78,7 +78,7 @@ Then(/^I navigate to "(.*)" page$/, async function (title) {
 });
 
 When(/^I have added \"([^\"]*)\" custom questions to assessment$/, async function (question_count) {
-  await pages.hatchlingItemFrame.waitForElementVisibility('Assessment Title', 'assignment-create-title');
+  await pages.hatchlingItemFrame.waitForElementVisibility('Assessment Title', 'assignment-view-title');
   await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-customquestions');
   for (let i = 1; i <= question_count; i++) {
     await pages.customQuestion.click("Items Checkbox", i);

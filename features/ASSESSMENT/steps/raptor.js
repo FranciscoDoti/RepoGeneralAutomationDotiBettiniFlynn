@@ -1,7 +1,8 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
+const { log } = require(`${process.cwd()}/app/logger`);
 const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
-const { assert } =  require('chai');
+const { assert, expect } = require('chai');
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await amslib.addRaptorItem();
@@ -27,7 +28,7 @@ When('I duplicate the following items', async function (dataTable) {
         let item = dataTable.hashes()[i];
         let itemTitle = this.data.get(item.Title, 'id');
         let duplicatedItemId = await amslib.duplicateItem(itemTitle);
-        if(duplicatedItemId == '' || duplicatedItemId === undefined){
+        if (duplicatedItemId == '' || duplicatedItemId === undefined) {
             assert.fail('Duplicate Item Id is blank.');
         };
         this.data.set(item.Title, "id", duplicatedItemId);
@@ -170,3 +171,4 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
         await amslib.verifyFeedback(itemTabs);
     }
 });
+

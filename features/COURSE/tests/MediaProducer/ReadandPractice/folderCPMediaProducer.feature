@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Adding activities in Folder courseplanner in Read & Practice template
 
     @mediaproducer-delete-courseTemplate
@@ -40,7 +40,7 @@ Feature: Adding activities in Folder courseplanner in Read & Practice template
             | LC1551301608988                               |
         And I close the popup message
 
-        And I create folder and add the activities to the folder in "Course Plan" 
+        And I create folder and add the activities to the folder in "Course Plan" in Production Tool 
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    |  GLOSSARY              | Reading 1 folder      |
             | Reading 2    | LCRP1550612138614      | Reading 2 folder      |
@@ -54,7 +54,7 @@ Feature: Adding activities in Folder courseplanner in Read & Practice template
             | Reading 3     | LC1551301608988        |
        
 
-        When I Reorder The folders
+        When I Reorder The folders in Production Tab
             | Folder    |   Button              |
             | Reading 1 |   moveToTop           |
             | Reading 2 |   moveUpButton        |
@@ -68,7 +68,7 @@ Feature: Adding activities in Folder courseplanner in Read & Practice template
             | Reading 3                                                         |  3             |
             
 
-        When I delete the folder 
+        When I delete the folder in Production Tab 
             | Folder     |
             | Reading 1  |
             | Reading 2  |

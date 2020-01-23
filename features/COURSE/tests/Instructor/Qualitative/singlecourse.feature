@@ -28,7 +28,6 @@ Feature: Single Quantitative Course
           | activities                                 |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
-          | LC1551301608988                            |
 
         And I click on back to course
         And I click on home button to return to coursepage

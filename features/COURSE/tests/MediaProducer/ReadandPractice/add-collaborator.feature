@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Adding collaborator to Read & Practice template 
 
     @mediaproducer-delete-courseTemplate
@@ -49,7 +49,7 @@ Feature: Adding collaborator to Read & Practice template
         
         And I close the popup message
 
-        And I create folder and add the activities to the folder in "Course Plan" 
+        And I create folder and add the activities to the folder in "Course Plan" in Production Tool
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    |  17b. Psychopathology  | Reading 1 folder      |
             | Reading 2    | Confidence Intervals   | Reading 2 folder      |

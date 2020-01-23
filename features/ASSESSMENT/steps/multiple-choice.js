@@ -4,7 +4,7 @@ const { log } = require(`${process.cwd()}/app/logger`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
 const { hatchlinglib, raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
-When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
+When(/^I set the number "(.*)" as the correct answer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
   await pages.raptor.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
   await pages.raptor.click('Answer Radio Button ' + correctAnswer);

@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke 
 Feature: Adding activities in Folder COURSE PLAN in Qualitative template
 
     @mediaproducer-delete-courseTemplate
@@ -7,7 +7,7 @@ Feature: Adding activities in Folder COURSE PLAN in Qualitative template
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | Template    | Qualitative       | Qualitative Template  | macmillan calculus     | E2E 301      | 9783464198498  | draft         |                      
 
         And I close the popup message 
         And I click on search button and input "Qualitative Template" to search the course                     
@@ -20,65 +20,45 @@ Feature: Adding activities in Folder COURSE PLAN in Qualitative template
         And I click on "Production" Tab
 
         And I add activities to "Content Library"
-            | activities            |
-            | Glossary              |
-            | LCRP1550612138614     |
-            | LC1551301608988       |
+            | activities                                |
+            | Glossary                                  |
+            | Exercise: Misused words 1 (autoscored)    | 
 
         And I add activities in "Course Plan" 
-            | activities            |
-            | Glossary              |
-            | LCRP1550612138614     |
-            | LC1551301608988       |
+            | activities                                |
+            | Glossary                                  |
+            | Exercise: Misused words 1 (autoscored)    | 
 
          Then I verify that activties are added in "Course Plan"
             | activity                                      |    
             | Glossary                                      |
-            | LCRP1550612138614                             |
-            | LC1551301608988                               |
+            | Exercise: Misused words 1 (autoscored)        | 
         
         And I close the popup message
 
-        And I create folder and add the activities to the folder in "Course Plan" 
-            | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  Glossary              | Reading 1 folder      |
-            | Reading 2    | LCRP1550612138614      | Reading 2 folder      |
-            | Reading 3    | LC1551301608988        | Reading 3 folder      |
+        And I create folder and add the activities to the folder in "Course Plan" in Production Tool 
+            | Folder       | activities                                | PlaceFolder           |
+            | Reading 1    |  Glossary                                 | Reading 1 folder      |
+            | Reading 2    | Exercise: Misused words 1 (autoscored)    |  Reading 2 folder      |
+           
            
 
         Then I verify that activities are added to the folder 
-            | Folder        | activities             |
-            | Reading 1     | Glossary               |
-            | Reading 2     | LCRP1550612138614      |
-            | Reading 3     | LC1551301608988        |
+            | Folder        | activities                                |
+            | Reading 1     | Glossary                                  |
+            | Reading 2     | Exercise: Misused words 1 (autoscored)    | 
+            
        
 
-        When I Reorder The folders
+        When I Reorder The folders in Production Tab
             | Folder    |   Button              |
             | Reading 1 |   moveToTop           |
             | Reading 2 |   moveUpButton        |
-            | Reading 3 |   moveToEnd           |
           
 
         Then I verify that Folders are reordered 
             | Folder                                                            | orderNumber    |
-            | Reading 1                                                         |  1             |                                                       
-            | Reading 2                                                         |  2             |
-            | Reading 3                                                         |  3             |
-            
-
-        When I delete the folder 
-            | Folder     |
-            | Reading 1  |
-            | Reading 2  |
-            | Reading 3  |
-            
-
-        Then I verify that Folders are deleted
-            | Folder     |
-            | Reading 1  |
-            | Reading 2  |
-            | Reading 3  |
-
+            | Reading 1                                                         |  2             |                                                       
+            | Reading 2                                                         |  1             |
 
        

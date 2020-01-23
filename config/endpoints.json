@@ -1,0 +1,29 @@
+{
+    "Achieve-CW": {
+        "local": "",
+        "dev-ml-sdk": "",
+        "int": "https://int-achieve-courseware.mldev.cloud",
+        "dev": "https://dev-achieve-courseware.mldev.cloud",
+        "dev-courseware": "",
+        "dev-gb": "",
+        "dev-triage": "",
+        "dev-dash": "",
+        "dev-onboarding": "",
+        "dev-cw-coursemgmt1": "",
+        "dev-cw-coursemgmt2": "",
+        "dev-cw-coursemgmt3": "",
+        "dev-cw-toolsint": "",
+        "dev-cw-servicesint": "https://dev-cw-servicesint-courseware.mldev.cloud",
+        "dev-learning-curve": "https://dev-learning-curve-courseware-frontend.mldev.cloud",
+        "uat": "https://dev-achieve-uat-courseware-frontend.mldev.cloud",
+        "prod": "https://achieve.macmillanlearning.com",
+        "pre-prod": "https://int-achieve-preprod-courseware-frontend.mldev.cloud"
+    },
+    "ApplicationName": {
+        "local": "http://local.application.me:3080",
+        "int": "http://int.application.me:3080",
+        "dev": "http://dev.application.me:3080",
+        "prod": "http://prod.application.me:3080",
+        "pre-prod": "http://pre-prod.application.me:3080"
+    }
+}

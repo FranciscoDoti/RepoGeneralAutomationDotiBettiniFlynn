@@ -1,0 +1,10 @@
+{
+  "method": "POST",
+  "endpoint": "/lms/course/delete",
+  "json": true,
+  "request": {
+    "username": "admin@courseware.com",
+    "password": "Passw0rd!",
+    "retURL": "https://dev-cw-servicesint-courseware-frontend.mldev.cloud/courses"
+  }
+}

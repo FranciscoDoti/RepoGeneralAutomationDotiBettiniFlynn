@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Adding collaborator to Qualitative template 
 
     @mediaproducer-delete-courseTemplate
@@ -21,10 +21,9 @@ Feature: Adding collaborator to Qualitative template
         And I click on "Production" Tab
 
         And I add activities to "Content Library"
-          | activities            |
-          | Glossary              |
-          | LCRP1550612138614     |
-          | LC1551301608988       |
+          | activities                             |
+          | Glossary                               |
+          | Exercise: Misused words 1 (autoscored) |
         
         And I click on back to course
 
@@ -49,7 +48,7 @@ Feature: Adding collaborator to Qualitative template
         
         And I close the popup message
 
-        And I create folder and add the activities to the folder in "Course Plan" 
+        And I create folder and add the activities to the folder in "Course Plan" in Production Tool
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    |  17b. Psychopathology  | Reading 1 folder      |
             | Reading 2    | Confidence Intervals   | Reading 2 folder      |

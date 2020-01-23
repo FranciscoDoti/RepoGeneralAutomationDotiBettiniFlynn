@@ -40,6 +40,7 @@ async function disconnectFromIClicker () {
 }
 
 async function openIClickerMenu () {
+  await iclicker.waitForElementVisibility('iClickerMenu');
   await iclicker.click('iClickerMenu');
   await iclicker.waitForElementVisibility('iClickerMenuDisconnect');
 }
@@ -56,17 +57,25 @@ When('Instructor connects to iClicker', async function () {
     await disconnectFromIClicker();
     await sleep(3000);
   }
-  await connectToiClicker()
+  await connectToiClicker();
+});
+
+When('Instructor connects or stays connected to iClicker', async function () {
+  await waitForSettings();
+  const connected = await isConnected();
+  if (!connected) {
+    await connectToiClicker();
+  }
+  await sleep(5000);
 });
 
 When('Instructor disconnects to iClicker', async function () {
   await waitForSettings();
   const connected = await isConnected();
-  if (!connected) {
-    await connectToiClicker();
-    await sleep(3000);
+  if (connected) {
+    await disconnectFromIClicker();
   }
-  await disconnectFromIClicker();
+
 });
 
 module.exports = {

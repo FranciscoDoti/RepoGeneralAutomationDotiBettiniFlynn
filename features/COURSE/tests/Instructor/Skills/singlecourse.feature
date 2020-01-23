@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Single Skills Course
 
     @mediaproducer-delete-course

@@ -372,7 +372,7 @@
         {
             "name": "Answer Radio Button 1",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[1]/span",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]//span[@class=' stix-font']",
             "frame": "default",
             "specialInstr": "NA"
         }

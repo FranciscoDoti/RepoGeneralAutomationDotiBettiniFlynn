@@ -8,8 +8,8 @@
         "specialInstr": "NA" 
     },{
         "name": "createSingleCourse",
-        "byType": "css",
-        "definition": "[data-test-id='create_course_single']",
+        "byType": "xpath",
+        "definition": "//input[@name='course']",
         "frame": "default",
         "specialInstr": "NA" 
     },{
@@ -105,6 +105,34 @@
         "name": "fullAccess",
         "byType": "css",
         "definition": "[data-test-id='select_full_access']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "courseMenuButton",
+        "byType": "xpath",
+        "definition": "//a[.='Qualitative Master Course']/../..//button[@data-test-id= 'course_menu_button']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "copyMasterSection",
+        "byType": "css",
+        "definition": "[data-test-id='master_section_copy']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "Search",
+        "byType": "css",
+        "definition": "//input[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },{
+        "name": "MasterCourse",
+        "byType": "xpath",
+        "definition": "//div[.='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
 

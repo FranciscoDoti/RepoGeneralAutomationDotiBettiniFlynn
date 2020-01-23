@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Customer Support attempts all the activities in Qualitative Template
 
     @customersupport-delete-course
