@@ -24,6 +24,8 @@ Feature: Adding collaborator to the template in Quantitative Template
         And I add activities to "Content Library"
           | activities            |
           | Glossary              |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
         
         And I click on back to course
         And I add "media_editor_1" as collaborator to "Quantitative Template"

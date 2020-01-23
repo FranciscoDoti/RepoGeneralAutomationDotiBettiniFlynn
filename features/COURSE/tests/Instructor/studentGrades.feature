@@ -39,7 +39,7 @@ Scenario: Verify that instructor is able to edit the grades of student
         And I add activities to "Content Library"
           | activities                                   |
           | Glossary                                     |
-          | AutomationEpub-201910171217                  |
+          | SampleChapterAuto.jpg                        |
 
         And I click on back to course
         And I click on home button to return to coursepage
@@ -67,7 +67,11 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                    | 
             | Google                                      |
             | Glossary                                    |
+<<<<<<< HEAD
             | AutomationEpub-201910171217                 |
+=======
+            | SampleChapterAuto.jpg                              |
+>>>>>>> a4cd2f638d019f44705635f28b91bb1ba844e067
         
         And I close the popup message  
 
@@ -75,7 +79,7 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                                         | Points |
             | Google                                                           | 5      |
             | Glossary                                                         | 5      |
-            | AutomationEpub-201910171217                                      | 5      |
+            | SampleChapterAuto.jpg                                            | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
@@ -94,7 +98,7 @@ Scenario: Verify that instructor is able to edit the grades of student
 
         And I attempt "Google" URL activity
 
-        And I attempt "AutomationAsset2" File activity
+        And I attempt "SampleChapterAuto.jpg" File activity
 
         And I complete the reading activity 
             | activity           |
@@ -105,22 +109,22 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | AutomationEpub-201910171217                             | Complete  |
+            | SampleChapterAuto.jpg                         | Complete  |
     
 
         And I verify the activity status for the following activities in "ASSIGNMENTS"
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | AutomationEpub-201910171217                   | Complete  |
+            | SampleChapterAuto.jpg                         | Complete  |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
 
         When I edit student grade in "activities Course"
             | Students   | editGrade |
-            | student_1  |  1        | 
+            | student_2  |  1        | 
 
         Then I verify the Grades
             | Students  | CourseTotal  | Google  | CategoryTotal | 
-            | student_1 | 73%          | 20%     | 20%           | 
+            | student_2 | 73%          | 20%     | 20%           | 

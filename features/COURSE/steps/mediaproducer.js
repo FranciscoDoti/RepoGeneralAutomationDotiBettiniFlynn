@@ -445,7 +445,7 @@ When('I Reorder The folders in Production Tab', async function (data_table){
 When('I delete the folder in Production Tab', async function (data_table){
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.eBook.click('actionButton', data_table.hashes()[i].Folder);
-    await pages.coursePalner.click('removeFolderAction');
+    await pages.coursePlanner.click('removeFolderAction');
     await pages.coursePlanner.click('removeFolderButton')
   }
 });
