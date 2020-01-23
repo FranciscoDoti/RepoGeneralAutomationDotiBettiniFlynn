@@ -67,11 +67,7 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                    | 
             | Google                                      |
             | Glossary                                    |
-<<<<<<< HEAD
-            | AutomationEpub-201910171217                 |
-=======
-            | SampleChapterAuto.jpg                              |
->>>>>>> a4cd2f638d019f44705635f28b91bb1ba844e067
+            | SampleChapterAuto.jpg                       |
         
         And I close the popup message  
 
