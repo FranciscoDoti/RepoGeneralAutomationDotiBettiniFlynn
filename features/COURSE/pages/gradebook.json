@@ -122,10 +122,17 @@
         {
             "name": "studentcourseTotal",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade_1_1']",
             "frame": "default",
             "specialInstr": "NA"
         },
+        {
+            "name": "editTotal",
+            "byType": "xpath",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../../.././..//button[@class='_3VyP']",
+            "frame": "default",
+            "specialInstr": "NA"
+          },
         {
             "name": "editGrade",
             "byType": "css",
@@ -136,7 +143,7 @@
         {
             "name": "studentCategoryTotal",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade'][1]",
+            "definition": "//*[.='<ReplaceText>']/../../../../../../../../..//div[@data-test-id='assignment_grade_total_1_2']",
             "frame": "default",
             "specialInstr": "NA"
         },
