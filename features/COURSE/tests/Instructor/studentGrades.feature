@@ -39,7 +39,7 @@ Scenario: Verify that instructor is able to edit the grades of student
         And I add activities to "Content Library"
           | activities                                   |
           | Glossary                                     |
-          | SampleChapterAuto.jpg                               |
+          | SampleChapterAuto.jpg                        |
 
         And I click on back to course
         And I click on home button to return to coursepage
@@ -67,7 +67,7 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                    | 
             | Google                                      |
             | Glossary                                    |
-            | SampleChapterAuto.jpg                              |
+            | SampleChapterAuto.jpg                       |
         
         And I close the popup message  
 
@@ -75,7 +75,7 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                                         | Points |
             | Google                                                           | 5      |
             | Glossary                                                         | 5      |
-            | SampleChapterAuto.jpg                                                   | 5      |
+            | SampleChapterAuto.jpg                                            | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
@@ -105,14 +105,14 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | SampleChapterAuto.jpg                                | Complete  |
+            | SampleChapterAuto.jpg                         | Complete  |
     
 
         And I verify the activity status for the following activities in "ASSIGNMENTS"
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | SampleChapterAuto.jpg                                | Complete  |
+            | SampleChapterAuto.jpg                         | Complete  |
 
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
