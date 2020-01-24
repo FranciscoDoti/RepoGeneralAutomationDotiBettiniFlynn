@@ -31,9 +31,9 @@ When (/^I add "(.*)" random questions to the assessment$/, async function(Number
   await pages.assignmentTab.click("AssignmentTab");
 });
 
-When(/^I create a new grading Setting$/, async function(){
+When("I create a new grading Setting", async function(){
   await pages.assignmentTab.click("Grading Settings");
-    await pages.gradingSettings.click("Create New");
+    await pages.gradingSettings.click("Create New Button");
 });
 
 When(/^added it to new assessment as pool$/, async function () {

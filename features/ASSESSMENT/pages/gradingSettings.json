@@ -38,28 +38,28 @@
         {
             "name": "Save Grading Setting",
             "byType": "xpath",
-            "definition": "//button[contains(.,'Save')]",
+            "definition": "//button[contains(text(),'Save')]",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
-            "name": "Create New",
+            "name": "Create New Button",
             "byType": "xpath",
-            "definition": "//button[@data-test-id='assignment-settings-custom-create' and .='Create New']",
+            "definition": "//button[@data-test-id='assignment-settings-custom-create' and text()='Create New']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Cancel",
             "byType": "xpath",
-            "definition": "//button[.='Cancel']",
+            "definition": "//button[text()='Cancel']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Save",
             "byType": "xpath",
-            "definition": "//button[.='Save']",
+            "definition": "//button[text()='Save']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },

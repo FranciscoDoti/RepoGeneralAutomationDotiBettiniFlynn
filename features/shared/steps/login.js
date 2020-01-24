@@ -71,7 +71,7 @@ Given(/^navigate to a course having course id "(.*)"$/, async function (courseid
   await visitURL(courseURL);
 });
 
-Given(/^navigate to an assessment created before$/, async function () {
+Given("navigate to an assessment created before", async function () {
   var currentURL = await pages.login.getCurrentURL();
   var assessmentURL = currentURL + 'mod/flcn/view.php?id=' + this.data.get('assessmentID'); 
   await visitURL(assessmentURL);
