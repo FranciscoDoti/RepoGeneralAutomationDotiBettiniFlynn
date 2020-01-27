@@ -80,14 +80,13 @@ When('I update an item by title with the following details in AMS', async functi
   id = id[0];
   //set the ids to use in next steps
   this.data.set("smallId", id);
-  //this.data.set("idItem", idItem);
 
   for (i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
     await pages.ams.click('Item by Title', this.data.get('Question Title'));
-
+    //Get the topic title created in previous steps (if its necesary)
     let topic = this.data.get('Topic Title');
-    if (topic != "" || topic != undefined) {
+    if (topic != "" && topic != undefined) {
       item['Topic Level 5'] = topic;
     }
 
@@ -115,7 +114,9 @@ Then('I verify the item details are displayed in AMS', async function (datatable
     let item = datatable.hashes()[i];
     let itemId = this.data.get("smallId");
     let topic = this.data.get('Topic Title');
-    if (topic != "" || topic != undefined) { item['Topic'] = topic; };
+    if (topic != "" || topic != undefined) {
+      item['Topic'] = topic;
+    };
     await amslib.verifyItemDetails(item, itemId);
   }
 });

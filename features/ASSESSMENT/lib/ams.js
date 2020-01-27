@@ -93,7 +93,7 @@ const verifyItemDetails = async function (item, itemId) {
 };
 
 const navigateToTopic = async function (topicPath) {
-    await pages.taxonomy.click('Nav Menu', 'Taxonomies');
+    await pages.ams.click('Nav Menu', 'Taxonomies');
     await pages.taxonomy.click('Subject Selector', topicPath["Subject"]);
     await pages.taxonomy.click('Title Selector', topicPath["Title"]);
     await pages.taxonomy.click('Chapter Selector', topicPath["Chapter"]);
@@ -101,15 +101,15 @@ const navigateToTopic = async function (topicPath) {
 };
 
 const addTopic = async function (topic) {
-    await pages.taxonomy.click('Add Topic Button');
+    await pages.taxonomy.click('Topic Action Button', 'Add');
     await pages.taxonomy.populate("Section Title Input", topic);
     await pages.taxonomy.populate("Section Display Name Input", topic);
-    await pages.taxonomy.click("Save Topic Button");
+    await pages.taxonomy.click("Topic Form Button",'Save');
 };
 
 const deleteTopic = async function (topic) {
     await pages.taxonomy.click("Topic Selector", topic);
-    await pages.taxonomy.click("Delete Topic Button");
+    await pages.taxonomy.click("Topic Action Button", 'Delete');
 };
 
 module.exports = {
