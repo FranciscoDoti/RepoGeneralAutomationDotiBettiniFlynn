@@ -1,0 +1,60 @@
+{
+    "webElements": [
+        {
+            "name": "Grid Columns",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'data-entry-col')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Grid Rows",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'data-entry-col')][1]/span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Column Title",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'data-entry-col')][<ReplaceText>]/span[1]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Variable Title",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'data-entry-col')][1]/span[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Child Button",
+            "byType": "id",
+            "definition": "add-child-button",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Child ID Input",
+            "byType": "xpath",
+            "definition": "(//div[@id='child-items-panel']//input)[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Editor Panel Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Editor Panel Text Field",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//label[contains(text(),'<ReplaceText>')]/..//span",
+            "frame": "default",
+            "specialInstr": "overwrite focus"
+        }
+    ]
+}

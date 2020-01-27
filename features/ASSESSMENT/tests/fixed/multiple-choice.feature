@@ -7,7 +7,7 @@ Feature: To configure a multiple choice raptor item
     When I add the "Multiple Choice" module
 
     And I configure the following item details
-      | Title               |
+      | Title                       |
       | MultipleChoice Test MC Item |
 
     And I add list variables
@@ -17,7 +17,7 @@ Feature: To configure a multiple choice raptor item
     And I add the following choices in Multiple Choice module
       | Value       |
       | ???trees??? |
-      | Trees       | 
+      | Trees       |
 
     And I set the number "1" as the correct answer
 

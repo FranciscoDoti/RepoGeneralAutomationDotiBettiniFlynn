@@ -43,6 +43,20 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Module Smart Data",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='sted'][<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Module Smart Data Edit",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='sted'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "Item ID",
             "byType": "xpath",
             "definition": "//div[@data-test-id='edit-id']",
@@ -99,9 +113,23 @@
             "specialInstr": "NA"
         },
         {
-            "name": "More Item Details",
+            "name": "Item Details",
             "byType": "xpath",
             "definition": "//*[@class='active-menu']//div[.='Item Details']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Details Item Type",
+            "byType": "xpath",
+            "definition": "//label[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Type Confirmation Button",
+            "byType": "xpath",
+            "definition": "//div[@class='modal-content']//button[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
