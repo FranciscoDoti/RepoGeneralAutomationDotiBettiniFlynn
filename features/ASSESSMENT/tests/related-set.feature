@@ -24,6 +24,6 @@ Feature: To create and configure a StED raptor item
             | 1505573  |
             | 1505577  |
 
-        And I verify the details of the following items are displayed in AMS
+        Then I verify the details of the following items are displayed in AMS
             | Author Mode | Title                      | Module Type |
             | Raptor      | NGA QA StED Shared Content | RS          |
