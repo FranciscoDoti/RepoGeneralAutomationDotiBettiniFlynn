@@ -217,6 +217,15 @@ After('@mol3d', async function (scenario) {
     await visitURL('http://www.saplinglearning.com/ibiscms/course/view.php?id=77826');
 });
 
+
+
+
+
+
+
+
+
+
 //***********           this After always needs to be at the bottom of this file           ***********//
 After(async function (scenario) {
     if (this.screenshots.toLowerCase().includes('onfail') &&
