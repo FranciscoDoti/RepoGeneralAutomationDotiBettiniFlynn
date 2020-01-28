@@ -1,8 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const { log } = require(`${process.cwd()}/app/logger`);
 const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
-const { assert, expect } = require('chai');
+const { assert } = require('chai');
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await amslib.addRaptorItem();
@@ -35,6 +34,16 @@ When('I duplicate the following items', async function (dataTable) {
         await pages.ams.closeTab('Raptor Authoring');
         await pages.ams.switchToTab('Sapling Learning Author Management System');
     }
+});
+
+When('I create a non-performance module in AMS with the following details', async function (datatable) {
+    await amslib.addRaptorItem();
+    let item = datatable.hashes()[0];
+    await raptorlib.addItemDetails(item);
+    await raptorlib.addModule(item['Module Type']);
+
+    let itemId = await raptorlib.saveItem();
+    this.data.set(item.Title, "id", itemId);
 });
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
