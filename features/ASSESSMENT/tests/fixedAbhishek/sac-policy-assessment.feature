@@ -1,7 +1,24 @@
 @Assessment @Smoke @GradingSetting
 Feature: To Verify assignment with grading policy
 
-
+    @SetGradingPolicy @TimedPolicy
+    Scenario: Set Assessment with a new policy with time limit
+        Given I login to IBISCMS as "raptor-instructor"
+        And navigate to a course having course id "79848"
+        And I create a new assessment with its necessary details
+            | field           | value             |
+            | Assessment Name | QAAssessmentLateHW |
+        When I add "2" random questions to the assessment
+        And I create a new grading Setting
+        And I set the grading setting name as "LateHW"
+        And I click the Allow Late Submissions checkbox //TODO: Design this step
+        And I select "10" % in Flat Penalty //TODO: Design this step
+        And I click on save on grading settins page
+        And I logout IBISCMS
+        And I login to IBISCMS as "raptor-student"
+        And navigate to an assessment created before
+        Then I am shown the modal indicating this is a late assignment.//TODO: Design this step
+        Then I see the items are yellow highlighted and indicate Late "-10%"" //TODO: Design this step
 
     @SetGradingPolicy @TimedPolicy
     Scenario: Set Assessment with a new policy with time limit

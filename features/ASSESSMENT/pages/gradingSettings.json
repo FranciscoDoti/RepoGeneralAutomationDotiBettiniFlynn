@@ -76,7 +76,6 @@
             "definition": "//ul[contains(@id,'listbox')]/li[<ReplaceText>]",
             "frame": "aeframe",
             "specialInstr": "NA"
-            
         }
     ]
 }
