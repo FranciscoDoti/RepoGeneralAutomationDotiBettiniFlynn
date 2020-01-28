@@ -1,0 +1,24 @@
+{
+    "method":"POST",
+    "endpoint": "/lms/course",
+    "json": true,
+    "request": {
+      "name": "test-sm-api",
+      "short_name": "api-001",
+      "status": "active",
+      "format": "topics",
+      "owner_id": "0053B000001YyTMQA0",
+      "lo_framework_id": null,
+      "product_model_id": 1,
+      "is_course_template": false,
+      "isbn": null,
+      "meeting_times_list": [null, null, null, null, null, null, null],
+      "enrollment_start_date": "2019-10-02T03:00:00.000Z",
+      "course_end_date": "2019-10-24T03:00:00.000Z",
+      "ebook_link": null,
+      "taxonomy_id": null,
+      "course_type": "course",
+      "course_term": "spring",
+      "course_year": "2019"
+    }
+  }

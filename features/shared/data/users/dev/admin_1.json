@@ -1,4 +1,11 @@
 {
   "username": "admin@courseware.com",
-  "password": "Passw0rd!"
+  "password": "Passw0rd!",
+  "jwt_payload": {
+    "email": "admin@courseware.com",
+    "app_metadata": {
+      "admin": true,
+      "support": false
+    }
+  }
 }

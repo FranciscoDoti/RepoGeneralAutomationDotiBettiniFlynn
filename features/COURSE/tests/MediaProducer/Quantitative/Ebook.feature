@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitative Template)
 
     @mediaproducer-delete-courseTemplate
@@ -23,19 +23,19 @@ Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitati
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | Appendix F            |
           | Literary Elements     |
           | Confidence Intervals  |
 
         And I add the activities in "E-book"
             | activities |
-            | GLOSSARY   |
+            | Glossary   |
             | Appendix F |
 
         Then I verify that activities are added in "E-book" and not in "Course Plan"
             | activities |
-            | GLOSSARY   |
+            | Glossary   |
             | Appendix F |
 
        When I add activities in "Course Plan" 
@@ -50,22 +50,22 @@ Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitati
 
          When I add the activities in both "Course Plan" and "E-book"
             | activities            | tab               |
-            | GLOSSARY              | CoursePlanEbook   |
+            | Glossary              | CoursePlanEbook   |
             | Appendix F            | CoursePlanEbook   |
             | Literary Elements     | CoursePlanEbook   |
             | Confidence Intervals  | CoursePlanEbook   |
 
         Then I verify that activities are added both in "E-book" and "Course Plan" 
             | activities            |
-            | GLOSSARY              |
+            | Glossary              |
             | Appendix F            |
             | Literary Elements     |
             | Confidence Intervals  |
 
-        When I create folder and add the activities to the folder in "E-book" 
+        When I create folder and add the activities to the folder in "E-book" in Production Tool
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    | Appendix F             | Reading 1 folder      |
-            | Reading 2    | GLOSSARY               | Reading 2 folder      |
+            | Reading 2    | Glossary               | Reading 2 folder      |
             | Reading 3    | Confidence Intervals   | Reading 3 folder      |
             | Reading 4    | Literary Elements      | Reading 4 folder      |
 
@@ -73,10 +73,10 @@ Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitati
             | Folder        | activities             |
             | Reading 4     | Literary Elements      |
             | Reading 1     | Appendix F             |
-            | Reading 2     | GLOSSARY               |
+            | Reading 2     | Glossary               |
             | Reading 3     | Confidence Intervals   |
 
-        When I Reorder The folders
+        When I Reorder The folders in Production Tab
             | Folder    |   Button              |
             | Reading 1 |   moveToTop           |
             | Reading 2 |   moveUpButton        |
@@ -91,7 +91,7 @@ Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitati
             | Reading 3                                                         |  3             |
             | Reading 4                                                         |  4             |
            
-        When I delete the folder 
+        When I delete the folder in Production Tab
             | Folder     |
             | Reading 1  |
             | Reading 2  |

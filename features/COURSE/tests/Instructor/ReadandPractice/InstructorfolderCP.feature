@@ -21,7 +21,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Read & Practic
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LCRP1550612138614     |
           | LC1551301608988       |
           
@@ -50,32 +50,32 @@ Feature: Instructor adds folder, remove folder and reorders it in Read & Practic
         And I add activities in "Read & Practice Course" courseplanner tab
             | activity                                                          |                                                        
             | LC1551301608988                                                   |
-            | GLOSSARY                                                          |
+            | Glossary                                                          |
             | LCRP1550612138614                                                 |
         And I close the popup message
             
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |                                                    
             | LC1551301608988                                                   | movedownButton |
-            | GLOSSARY                                                          | moveToEnd      |
+            | Glossary                                                          | moveToEnd      |
             | LCRP1550612138614                                                 | moveUpButton   |
 
         Then I verify that resources are reordered in "COURSE PLAN"
             | activities                                                        | orderNumber    |
             | LCRP1550612138614                                                 |  1             |                                                       
             | LC1551301608988                                                   |  2             |
-            | GLOSSARY                                                          |  3             |      
+            | Glossary                                                          |  3             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           | folderName                | message                                                                             |
             | LC1551301608988                               | Learning Curve    | Learning Curve folder     | 'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | GLOSSARY                                      | Reading           | Reading folder            | 'GLOSSARY' was successfully moved to Reading.                                     |
+            | Glossary                                      | Reading           | Reading folder            | 'Glossary' was successfully moved to Reading.                                     |
             | LCRP1550612138614                             | ReadandPractice   | ReadandPractice folder    | 'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         And I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | LC1551301608988                               | Learning Curve    |
-            | GLOSSARY                                      | Reading           |
+            | Glossary                                      | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the resources from the Template in "COURSE PLAN"

@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
-const { assert } =  require('chai');
+const { assert } = require('chai');
 
 When(/^I add the "(.*)" module with following details$/, async function (moduleType, dataTable) {
     await amslib.addRaptorItem();
@@ -27,13 +27,23 @@ When('I duplicate the following items', async function (dataTable) {
         let item = dataTable.hashes()[i];
         let itemTitle = this.data.get(item.Title, 'id');
         let duplicatedItemId = await amslib.duplicateItem(itemTitle);
-        if(duplicatedItemId == '' || duplicatedItemId === undefined){
+        if (duplicatedItemId == '' || duplicatedItemId === undefined) {
             assert.fail('Duplicate Item Id is blank.');
         };
         this.data.set(item.Title, "id", duplicatedItemId);
         await pages.ams.closeTab('Raptor Authoring');
         await pages.ams.switchToTab('Sapling Learning Author Management System');
     }
+});
+
+When('I create a non-performance module in AMS with the following details', async function (datatable) {
+    await amslib.addRaptorItem();
+    let item = datatable.hashes()[0];
+    await raptorlib.addItemDetails(item);
+    await raptorlib.addModule(item['Module Type']);
+
+    let itemId = await raptorlib.saveItem();
+    this.data.set(item.Title, "id", itemId);
 });
 
 When(/^I add the "(.*)" module$/, async function (moduleType) {
@@ -115,10 +125,12 @@ When(/^I set correct answer "(.*)" for NE "(.*)"$/, async function (value, posit
         await pages.raptor.click('Tab', 'correct');
     }
     await pages.numericEntry.click('Element', position);
-    await pages.numericEntry.populate('Target Value', value);
+    await pages.raptor.click('Raptor Canvas Btns', 'edit-module-button');
+    await pages.numericEntry.populate('Target Value', '1', value);
 });
 
 When('I configure FR module', async function () {
+    await pages.raptor.click('Raptor Canvas Btns', 'edit-module-button');
     await pages.freeResponse.populate('Prompt', '<md-never><img src="http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2014/07/nic-cage.jpg" alt="" style="width: 100%"/></md-never>');
     await pages.freeResponse.populate('Min Character Count', '20');
     await pages.freeResponse.populate('Max Character Count', '40');
@@ -127,8 +139,8 @@ When('I configure FR module', async function () {
 Then('I check NE answers', async function () {
     await raptorlib.saveItem();
     await raptorlib.checkAnswerMode();
-    await pages.numericEntry.populate('Numeric Entry 1', '.0258');
-    await pages.numericEntry.populate('Numeric Entry 2', '-0.0258');
+    await pages.numericEntry.populate('Element', '1', '.0258');
+    await pages.numericEntry.populate('Element', '2', '-0.0258');
     await pages.raptor.click('Check Your Work Submit Button');
     await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 });
@@ -168,3 +180,4 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
         await amslib.verifyFeedback(itemTabs);
     }
 });
+

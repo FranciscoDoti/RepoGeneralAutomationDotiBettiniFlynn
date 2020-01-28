@@ -1,21 +1,16 @@
-@Course @Smoke @Skip
+@Course @Smoke @API
 Feature: Verify that Admin is able to create URL in Skill Course
 
     @admin-delete-courseTemplate
     Scenario: Verify that Admin is able to create a custom task with URL in Skill Course 
 
        Given I login to Achieve-CW as "admin_1"
-        When I create template with following data 
-           | courseType  | productModel | courseName           |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills URL Template  |                  | E2E 301      | 9781464199499  | draft         |
-
-        And I close the popup message                  
+       When I create a course template as "admin_1" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   |  warn_prebuilt | isbn             |
+            | Skills URL Template                 | E2E 301    | topics | active | 1                | true               | 0053B000001YyTMQA0  | template      |   false        |  9781464199499   |  
+        
 
         And I click on search button and input "Skills URL Template" to search the course
-
-        And I activate "Skills URL Template" template and add the following data
-            | courseName                    |  courseCode   |  templateStatus      |
-            | Skills URL Template           |   E2E 301     |  Active On Date      |
 
         And I click on "Skills URL Template" card
         And I click on "Production" Tab

@@ -253,5 +253,11 @@
         "definition": "//div[contains(@class,'_3XTJ') and contains(text(), '<ReplaceText>')]",
         "frame": "default",
         "specialInstr": "NA"
+    },{
+        "name": "masterMenu",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']/..//button[@data-test-id='course_menu_button']",
+        "frame": "default",
+        "specialInstr": "NA"
     }]
 }

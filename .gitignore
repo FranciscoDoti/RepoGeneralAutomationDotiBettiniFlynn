@@ -7,3 +7,4 @@ package-lock.json
 reports/**
 screenshots/**
 **/config.json
+.idea

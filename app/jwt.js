@@ -1,8 +1,5 @@
 var jwt = require('jsonwebtoken');
 
-var instructorCourses = [];
-var studentCourses = [];
-
 const generateJWT = function (user, courses) {
   if (user.userType === 'student') {
     studentCourses = courses;

@@ -1,4 +1,4 @@
-@Gradebook @Smoke
+@Gradebook @Smoke @GradebookVerifyGrades
 Feature: Verify grade and exception accuracy
   Grades always appear correct under different exceptions and assignment configurations
   These tests rely on there being a course in the Courses tab called "E2E GBK Student Grades Template"

@@ -9,7 +9,7 @@
         }, {
             "name": "courseCard",
             "byType": "xpath",
-            "definition": "//*[.='<ReplaceText>']",
+            "definition": "//div[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {

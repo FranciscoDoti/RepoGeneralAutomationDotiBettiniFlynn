@@ -1,4 +1,4 @@
-@Smoke @Course
+@Smoke @Course @flaky
 Feature: Student attempts reading, static file, URL, Gradebook category 
 
     @mediaproducer-delete-course
@@ -31,7 +31,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | Google                                        |
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | AutomationEpub-201910171217        |
           
         
@@ -60,14 +60,14 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
-            | GLOSSARY                                    |
+            | Glossary                                    |
             | AutomationEpub-201910171217                 |
         And I close the popup message
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
-            | GLOSSARY                                                         | 5      |
+            | Glossary                                                         | 5      |
             | AutomationEpub-201910171217                                      | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
@@ -91,12 +91,12 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I complete the reading activity 
             | activity           |
-            | GLOSSARY           |
+            | Glossary           |
 
     
         Then I verify the activity status for the following activities in "COURSE PLAN"
             | activity                                      | status    |
-            | GLOSSARY                                      | Complete  |
+            | Glossary                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationEpub-201910171217                   | Complete  |
         
@@ -106,13 +106,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
     
         And I verify the activity status for the following activities in "ASSIGNMENTS"
             | activity                                      | status    |
-            | GLOSSARY                                      | Complete  |
+            | Glossary                                      | Complete  |
             | Google                                        | Complete  |
             | AutomationEpub-201910171217                   | Complete  |
 
         And I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
-            | GLOSSARY                                      |   100%      | 5       | 50%                  |
+            | Glossary                                      |   100%      | 5       | 50%                  |
             | Google                                        |   100%      | 5       | 100%                 |
             | AutomationEpub-201910171217                   |   100%      | 5       | 50%                  |
 

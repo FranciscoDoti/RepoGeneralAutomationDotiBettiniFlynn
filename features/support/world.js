@@ -12,7 +12,7 @@ function ThisWorld ({ attach }) {
   this.headless = config.headless;
   this.stack = config.stack;
   this.users = users();
-
+  
   this.attach = attach;
   this.downloadLocation = `${process.cwd()}/reports/downloads`;
   setDefaultTimeout(10 * config.timeout * 1000);

@@ -25,17 +25,16 @@ Then('The settings button is visible', async function () {
 });
 
 Then('A new category should appear in the Gradebook', async function () {
-  await gradebook.waitForElementVisibility('singleCategory');
   const newCategoryName = getCategoryName();
-  await gradebook.assertElementExists('categoryHeaderCells', newCategoryName);
+  await gradebook.waitForElementVisibility('categoryHeader', newCategoryName);
 });
 
 Then('No categories should appear in the Gradebook', async function () {
-  await gradebook.waitForElementVisibility('singleCategory');
-  const cells = await gradebook.getWebElements('categoryHeaderCells');
-  const text = await cells[0].getText();
-  const newCategoryName = getCategoryName();
-  expect(text).to.contains(newCategoryName);
+  await gradebook.waitForElementVisibility('allCategoryHeaders');
+  await sleep(2000);
+  const cells = await gradebook.getWebElements('allCategoryHeaders');
+  const headerCount = cells.length;
+  expect(headerCount).to.equal(1);
 });
 
 Then('The sync button should be visible', async function () {
@@ -101,8 +100,16 @@ Then('I verify grade override modal has correct data', async function (dataTable
 
 Then('The manage iClicker button should be displayed', async function () {
   await openIClickerMenu();
+  await iclicker.waitForElementVisibility('manageIClickerMenu');
   await iclicker.click('manageIClickerMenu');
   await iclicker.switchToTab('iClicker Cloud');
   const URL = await iclicker.getCurrentURL();
   expect(URL).to.contains('reef-education.com')
+});
+
+Then('Only Google URL Link should display', async function () {
+  const grid = await gradebook.getWebElements('dataGrid');
+  expect(grid.length).to.equal(2);
+  expect(await grid[0].getText()).to.contains('Google');
+  expect(await grid[1].getText()).to.contains('Category Total');
 });

@@ -399,7 +399,7 @@
         }, {
             "name": "addCustomActivity",
             "byType": "xpath",
-            "definition": "//a[.='<ReplaceText>']/../../../..//*[@data-test-id='my_content_add_to_course_btn']",
+            "definition": "//a[.='<ReplaceText>']/../../../..//*[@data-test-id='content_library_add_to_course_btn']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
