@@ -102,9 +102,9 @@ const navigateToTopic = async function (topicPath) {
 
 const addTopic = async function (topic) {
     await pages.taxonomy.click('Topic Action Button', 'Add');
-    await pages.taxonomy.populate("Section Title Input", topic);
-    await pages.taxonomy.populate("Section Display Name Input", topic);
-    await pages.taxonomy.click("Topic Form Button",'Save');
+    await pages.taxonomy.populate("Topic Form Input", "topic title", topic);
+    await pages.taxonomy.populate("Topic Form Input", "display name", topic);
+    await pages.taxonomy.click("Topic Form Button", 'Save');
 };
 
 const deleteTopic = async function (topic) {

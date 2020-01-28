@@ -10,7 +10,7 @@ Feature: From AMS, I manage taxonomies
             | Testing | SAVI Testing Taxonomy | Chapter 1 | Section 1.1 |
         And I create a new topic called "QA V"
         Then The new topic is displayed
-        And I deleted the created Topic
+        And I delete the created Topic
         And I verify the Topic is not present
 
     @Topic @AssignTopic
@@ -48,5 +48,5 @@ Feature: From AMS, I manage taxonomies
         When I access to the taxonomy page
             | Subject | Title                 | Chapter   | Section     |
             | Testing | SAVI Testing Taxonomy | Chapter 1 | Section 1.1 |
-        And I deleted the created Topic
+        And I delete the created Topic
         And I verify the Topic is not present

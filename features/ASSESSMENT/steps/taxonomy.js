@@ -1,6 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-let scores = [];
 const { amslib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When("I access to the taxonomy page", async function (datatable) {
@@ -9,8 +8,7 @@ When("I access to the taxonomy page", async function (datatable) {
 });
 
 When(/^I create a new topic called "(.*)"$/, async function (topicName) {
-  let code = Date.now();
-  let topicTitle = topicName + " " + code;
+  let topicTitle = topicName + " " + Date.now();
   this.data.set('Topic Title', topicTitle);
 
   await amslib.addTopic(topicTitle);
@@ -21,7 +19,7 @@ Then("The new topic is displayed", async function () {
   await pages.taxonomy.assertElementExists("Topic Selector", topic);
 });
 
-Then("I deleted the created Topic", async function () {
+Then("I delete the created Topic", async function () {
   let topicTitle = this.data.get('Topic Title');
   await amslib.deleteTopic(topicTitle);
 });

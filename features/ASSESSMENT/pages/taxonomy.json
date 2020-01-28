@@ -36,16 +36,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Section Title Input",
+            "name": "Topic Form Input",
             "byType": "xpath",
-            "definition": "//div[@class='new-taxonomy-form']//label[text()='topic title']/../input",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Section Display Name Input",
-            "byType": "xpath",
-            "definition": "//div[@class='new-taxonomy-form']//label[text()='display name']/../input",
+            "definition": "//div[@class='new-taxonomy-form']//label[text()='<ReplaceText>']/../input",
             "frame": "default",
             "specialInstr": "NA"
         },
