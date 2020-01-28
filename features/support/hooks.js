@@ -1,4 +1,4 @@
-var { After, AfterAll, Before} = require('cucumber');
+var { After, AfterAll} = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const { closeBrowser, resetBrowser, takeScreenshot, visitURL, config } = require(`${process.cwd()}/app/driver`);
