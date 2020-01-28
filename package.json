@@ -2,11 +2,6 @@
   "requires": true,
   "lockfileVersion": 1,
   "scripts": {
-    "savi": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/ -f json:reports/cucumber_report.json --environment prod",
-    "savi-bcv": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/brightcove/videoplayer -f json:reports/cucumber_report.json",
-    "savi-bca": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/brightcove/audioplayer -f json:reports/cucumber_report.json",
-    "savi-ids": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/brightcove/brightcovemediaIDs.feature -f json:reports/cucumber_report.json",
-    "savi-mol3d": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/mol3d.feature -f json:reports/cucumber_report.json",
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'"
   },
