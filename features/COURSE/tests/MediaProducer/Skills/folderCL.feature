@@ -20,26 +20,26 @@ Feature: Adding activities in Folder Resource Tab to Skills Production Template
 
         And I add activities to "Content Library"
             | activities            |
-            | GLOSSARY              |
+            | Glossary              |
             | LCRP1550612138614     |
             | LC1551301608988       |
 
         Then I verify that activties are added in "Content Library"
             | activity                                      |    
-            | GLOSSARY                                      |
+            | Glossary                                      |
             | LCRP1550612138614                             |
             | LC1551301608988                               |
 
         And I create folder and add the activities to the folder in "Content Library" in Production Tool
             | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  GLOSSARY              | Reading 1 folder      |
+            | Reading 1    |  Glossary              | Reading 1 folder      |
             | Reading 2    | LCRP1550612138614      | Reading 2 folder      |
             | Reading 3    | LC1551301608988        | Reading 3 folder      |
            
 
         Then I verify that activities are added to the folder 
             | Folder        | activities             |
-            | Reading 1     | GLOSSARY               |
+            | Reading 1     | Glossary               |
             | Reading 2     | LCRP1550612138614      |
             | Reading 3     | LC1551301608988        |
        

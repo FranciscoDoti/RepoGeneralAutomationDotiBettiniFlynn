@@ -25,7 +25,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
 
         And I add activities to "Content Library"
           | activities                             |
-          | GLOSSARY                               |
+          | Glossary                               |
           | LCRP1550612138614                      |
           | LC1551301608988                        |
           | Exercise: Misused words 1 (autoscored) |
@@ -56,7 +56,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
             | LC1551301608988                                                   |
-            | GLOSSARY                                                          |
+            | Glossary                                                          |
             | LCRP1550612138614                                                 |
         And I close the popup message
             
@@ -64,7 +64,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
             | LC1551301608988                                                   | movedownButton |
-            | GLOSSARY                                                          |  moveToEnd     |
+            | Glossary                                                          |  moveToEnd     |
             | LCRP1550612138614                                                 | moveUpButton   |
 
         Then I verify that resources are reordered in "COURSE PLAN"
@@ -72,20 +72,20 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | LCRP1550612138614                                                 |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
             | LC1551301608988                                                   |  3             |
-            | GLOSSARY                                                          |  4             |      
+            | Glossary                                                          |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           |   folderName                 |  message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |  Assesment folder            |  'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
             | LC1551301608988                               | Learning Curve    |  Learning Curve folder       |  'LC1551301608988' was successfully moved to Learning Curve.                         |
-            | GLOSSARY                                      | Reading           |  Reading folder              |  'GLOSSARY' was successfully moved to Reading.                                       |
+            | Glossary                                      | Reading           |  Reading folder              |  'Glossary' was successfully moved to Reading.                                       |
             | LCRP1550612138614                             | ReadandPractice   |  ReadandPractice folder      |  'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         Then I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
             | LC1551301608988                               | Learning Curve    |
-            | GLOSSARY                                      | Reading           |
+            | Glossary                                      | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 
         When I delete the resources from the Template in "COURSE PLAN"

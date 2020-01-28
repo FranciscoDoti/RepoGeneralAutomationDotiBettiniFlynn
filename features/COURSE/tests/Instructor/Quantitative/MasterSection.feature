@@ -10,7 +10,7 @@ Feature: Instructor creates Master Section, creates Custom task and content to i
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative      | Quantitative Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | Template    | Quantitative      | Quantitative Template  | macmillan calculus     | E2E 301      | 9791464199498  | draft         |                      
 
 
          And I close the popup message                      
@@ -27,7 +27,7 @@ Feature: Instructor creates Master Section, creates Custom task and content to i
 
         And I add activities to "Content Library"
           | activities                                 |
-          | GLOSSARY                                   |
+          | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
           | LC1551301608988                            |
           | LCRP1550612138614                          |

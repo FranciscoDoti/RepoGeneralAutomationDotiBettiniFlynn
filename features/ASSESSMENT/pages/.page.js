@@ -27,6 +27,7 @@ let pages = {
     chemicalEquation: new PageObject('chemicalEquation.json',stepsPath),
     gradingSettings: new PageObject('gradingSettings.json', stepsPath),
     canvasMC: new PageObject('canvasMC.json',stepsPath),
+    relatedSet: new PageObject('relatedSet.json',stepsPath)
 };
 
 module.exports ={

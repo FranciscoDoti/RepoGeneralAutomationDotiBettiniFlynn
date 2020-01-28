@@ -23,7 +23,7 @@ Feature: Media Editor has only view access that they are not a collaborator
 
         And I add activities to "Content Library"
           | activities                             |
-          | GLOSSARY                               |
+          | Glossary                               |
           | Exercise: Misused words 1 (autoscored) |
 
         And I sign out of Achieve

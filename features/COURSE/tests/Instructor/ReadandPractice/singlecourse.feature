@@ -24,7 +24,7 @@ Feature: Single Read & Practice Course
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LCRP1550612138614     |
           | LC1551301608988       |
           
