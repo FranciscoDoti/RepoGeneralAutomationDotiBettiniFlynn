@@ -13,6 +13,17 @@ When (/^I set a time limit to the policy with hours "(.*)" and minutes "(.*)"$/,
     await gradingSettingsLib.applyTimeLimit(hours, minutes);
 });
 
+When ("I click the Allow Late Submissions checkbox", async function(){
+    await pages.gradingSettings.click('Allow Late Submissions');
+});
+
+
+When (/^I select "(.*)" % in Flat Penalty$/, async function(penaltyPercentage){
+    await pages.gradingSettings.populate('Flat Penalty', penaltyPercentage);
+});
+
+
+
 When ("I click on save on grading settins page", async function(){
     await pages.gradingSettings.click('Save Grading Setting');
     await pages.gradingSettings.click('Due Date Clock');

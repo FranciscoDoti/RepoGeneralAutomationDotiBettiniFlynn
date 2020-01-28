@@ -146,6 +146,20 @@
             "definition": "//span[.='<ReplaceText>']/..",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Oops Modal Ok Button",
+            "byType": "xpath",
+            "definition": "//div[@class='modal-actions']//button[text()='Ok']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Items List",
+            "byType": "xpath",
+            "definition": "//ul[@data-test-id='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
         }
     ]
 }

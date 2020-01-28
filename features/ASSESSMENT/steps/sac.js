@@ -93,3 +93,12 @@ Then('I verify grades for answers', async function () {
 Then('The course landing page is loaded', async function () {
     await pages.sac.assertElementExists('Student Assessment Link');
 });
+
+Then('I am shown the modal indicating this is a late assignment', async function () {
+    await pages.sac.click('Oops Modal Ok Button');
+    let countItems =  await pages.sac.getAttributeValue('Items List', 'items', 'childElementCount');
+    for(let i=0; i< countItems;  i++){
+        //TODO: chequear que diga Late
+    }
+});
+

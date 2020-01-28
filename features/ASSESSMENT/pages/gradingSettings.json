@@ -76,6 +76,20 @@
             "definition": "//ul[contains(@id,'listbox')]/li[<ReplaceText>]",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Allow Late Submissions",
+            "byType": "xpath",
+            "definition": "//input[@id='late-penalty-checkbox']/..",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Flat Penalty",
+            "byType": "xpath",
+            "definition": "//span[text()='% Flat penalty']/..//input[@name='late_penalty']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }
