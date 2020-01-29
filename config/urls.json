@@ -43,12 +43,20 @@
     },
     "IBISCMS":{
         "int":"http://int.saplinglearning.me/ibiscms",
-        "ae": "http://ae.saplinglearning.me/ibiscms"
+        "ae": "http://ae.saplinglearning.me/ibiscms",
+        "prod": "https://www.saplinglearning.com/ibiscms",
+        "local": "http://local.saplinglearning.me:3080"
     },
     "Yahoo":{
         "yahoo":"https://www.yahoo.com"
     },
     "Reading":{
         "local":"localhost:4000/9781319066840?cfi=6/22&begin=4/2/60&end=4/2/76"
+    },
+    "savi":{
+        "local": "http://local.saplinglearning.me:3080",
+        "prod": "http://www.saplinglearning.com/ibiscms/course/view.php?id=77826",
+        "brightcove": "https://studio.brightcove.com/products/videocloud/media",
+        "google": "https://www.google.com"
     }
 }
