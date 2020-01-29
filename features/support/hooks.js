@@ -1,4 +1,4 @@
-var { After, AfterAll } = require('cucumber');
+var { After, AfterAll} = require('cucumber');
 const _ = require('lodash');
 const urls = require(`${process.cwd()}/config/urls.json`);
 const { closeBrowser, resetBrowser, takeScreenshot, visitURL, config } = require(`${process.cwd()}/app/driver`);
@@ -6,13 +6,14 @@ const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pa
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { sleep } = require(`${process.cwd()}/app/driver`);
 
+
 After(async function (scenario) {
     await resetBrowser();
 });
 
 AfterAll(async function () {
     await closeBrowser();
-});
+}); 
 
 // Delete the newly created assessment
 After('@assessmentCreation', async function () {
@@ -212,10 +213,9 @@ After('@instructor-masterSection-delete-course', async function () {
     }
 });
 
-
-
-
-
+After('@mol3d', async function (scenario) {
+    await visitURL('http://www.saplinglearning.com/ibiscms/course/view.php?id=77826');
+});
 
 
 
