@@ -1,0 +1,11 @@
+{
+    "webElements": [
+        {
+            "name": "recipecard",
+            "byType": "className",
+            "definition": "recipecard",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}
