@@ -94,11 +94,11 @@ Then('The course landing page is loaded', async function () {
     await pages.sac.assertElementExists('Student Assessment Link');
 });
 
-Then('I am shown the modal indicating this is a late assignment', async function () {
+Then(/^I am shown the modal indicating this is a late assignment with percentage "(.*)"$/, async function (latePenaltyPercentage) {
     await pages.sac.click('Oops Modal Ok Button');
     let countItems =  await pages.sac.getAttributeValue('Items List', 'items', 'childElementCount');
-    for(let i=0; i< countItems;  i++){
-        //TODO: chequear que diga Late
+    for(let i=1; i<= countItems;  i++){
+        let strAux = "("+latePenaltyPercentage+")";
+        await pages.sac.assertText('Item Late label', i, 'Late ' + strAux);
     }
 });
-

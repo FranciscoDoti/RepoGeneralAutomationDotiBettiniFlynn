@@ -17,8 +17,7 @@ Feature: To Verify assignment with grading policy
         And I logout IBISCMS
         And I login to IBISCMS as "raptor-student"
         And navigate to an assessment created before
-        Then I am shown the modal indicating this is a late assignment
-        Then I see the items are yellow highlighted and indicate Late "-10%"" //TODO: Design this step
+        Then I am shown the modal indicating this is a late assignment with percentage "-10%"
 
     @SetGradingPolicy @TimedPolicy
     Scenario: Set Assessment with a new policy with time limit
