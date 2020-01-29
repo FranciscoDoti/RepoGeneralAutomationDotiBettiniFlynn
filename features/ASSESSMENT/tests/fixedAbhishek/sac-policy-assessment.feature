@@ -1,7 +1,7 @@
 @Assessment @Smoke @GradingSetting
 Feature: To Verify assignment with grading policy
 
-    @SetGradingPolicy @TimedPolicy
+    @SetGradingPolicy @LateHW
     Scenario: Set Assessment with a new policy with time limit
         Given I login to IBISCMS as "raptor-instructor"
         And navigate to a course having course id "79848"
