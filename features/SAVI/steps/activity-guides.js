@@ -27,10 +27,18 @@ Then('all of the activity guide links can be loaded from {string}', async functi
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
     await visitURL(url);
-    let recipecard = await pages.activityguide.getWebElements('recipecard');
+    const recipecard = await pages.activityguide.getWebElements('recipecard');
     if (recipecard.length) {
       success.push(url);
       log.info('Web Element recipecard is displayed on page. PASS');
+      // Here we check if all links on the page are working...
+      //
+      // First get all link elements on the page
+      //
+      // Click the link element (or otherwise visit the source location) to get the result
+      //
+      // Report pass or fail
+      //
     } else {
       fail.push(url);
       log.error('Web Element recipecard not found on page. FAIL');
