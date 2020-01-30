@@ -3,7 +3,8 @@
   "lockfileVersion": 1,
   "scripts": {
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'"
+    "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
+    "test": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/labeling-item.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
@@ -29,7 +30,7 @@
     "mailparser": "latest",
     "nodemailer": "latest",
     "parse-duration": "latest",
-    "request-promise-native": "^1.0.7",
+    "request-promise-native": "^1.0.8",
     "selenium-webdriver": "latest",
     "testrail-api": "latest",
     "winston": "latest"

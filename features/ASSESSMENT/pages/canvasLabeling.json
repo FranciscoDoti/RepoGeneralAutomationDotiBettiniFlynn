@@ -1,0 +1,38 @@
+{
+    "webElements": [{
+            "name": "Canvas Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-action-bar']/div[.='Labeling']/../div[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Token Value Textbox",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Done Button",
+            "byType": "xpath",
+            "definition": "//button[@id='close-edit-host']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Bin_Token Button",
+            "byType": "xpath",
+            "definition": "//a[text()='Add a Bin']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Bin Checkbox",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='item-label-<ReplaceText>']//div//span[text()='Hold multiple tokens']/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}
