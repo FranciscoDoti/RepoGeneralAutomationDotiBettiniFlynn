@@ -10,4 +10,4 @@ Scenario: All the activity guides load at their master links
   When I navigate to the activity guide demo master link
   Then the activity guide loads
 
-  When I test all of the Activity Guide master links
+  Then all of the activity guide links can be loaded from "activityguides.csv"
