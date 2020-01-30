@@ -26,7 +26,8 @@ let pages = {
     filters: new PageObject('filters.json',stepsPath),
     chemicalEquation: new PageObject('chemicalEquation.json',stepsPath),
     canvasMC: new PageObject('canvasMC.json',stepsPath),
-    taxonomy: new PageObject('taxonomy.json',stepsPath)
+    taxonomy: new PageObject('taxonomy.json',stepsPath),
+    relatedSet: new PageObject('relatedSet.json',stepsPath)
 };
 
 module.exports ={

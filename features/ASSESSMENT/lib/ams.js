@@ -36,7 +36,7 @@ const deleteItem = async function (itemId) {
 const duplicateItem = async function (itemId) {
     await pages.ams.click('Duplicate Item', itemId);
     await pages.raptor.switchToTab('Raptor Authoring');
-    await pages.raptor.waitForElementVisibility('Tab', 'question');
+    await pages.raptor.waitForElementVisibility('Content Area');
     await pages.raptor.assertElementExists('Item ID');
     let duplicatedItemId = await pages.raptor.getText('Item ID');
     duplicatedItemId = duplicatedItemId.split(":")[1].trim();

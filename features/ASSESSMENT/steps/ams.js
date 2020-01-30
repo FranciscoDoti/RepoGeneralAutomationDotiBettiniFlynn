@@ -9,8 +9,8 @@ When('I create the following draft Raptor items in AMS', async function (datatab
     let item = datatable.hashes()[i];
 
     await amslib.addRaptorItem();
-    await raptorlib.addModule(item['Module Type']);
     await raptorlib.addItemDetails(item);
+    await raptorlib.addModule(item['Module Type']);
 
     let itemId = await raptorlib.saveItem();
     this.data.set(item.Title, "id", itemId);
