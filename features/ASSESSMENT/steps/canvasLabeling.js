@@ -24,5 +24,5 @@ When('I add 3 tokens with the following token names', async function (datatable)
 
 When(/^I drag \"([^\"]*)\" into the bin as a correct answer and check my work$/,async function (token){
     await pages.canvasLabeling.click('Canvas Tab', 'correct');
-    await pages.canvasLabeling.dragAndDrop(dragToken, 1,dropToken)
+    await pages.canvasLabeling.dragAndDrop(dragToken, 1,dropToken, 'bin 1')
 })
