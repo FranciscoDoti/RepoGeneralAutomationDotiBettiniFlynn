@@ -1,0 +1,60 @@
+{
+    "webElements": [
+        {
+            "name": "Ranking Panel",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='ranking']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Ranking Action Edit Button",
+            "byType": "xpath",
+            "definition": "//div[text()='Ranking']/../div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Ranking Bin Headers Input",
+            "byType": "xpath",
+            "definition": "(//div[@data-test-id='module-edit-container']//div[@class='sticky-buttons ace-buttons']//span)[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "overwrite"
+        },
+        {
+            "name": "Ranking Token Labels Input",
+            "byType": "xpath",
+            "definition": "(//div[@data-test-id='module-edit-container']//div[@class='sl-list-edit']//span)[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "overwrite"
+        },
+        {
+            "name": "Ranking Edit Token Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Ranking Edit Done Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//button[text()='Done']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Ranking Context Drag Item",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-category sl-ranking']//span[text()='<ReplaceText>']/../..",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Ranking Context Drop Item",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-bin-parent sl-ranking']//div[@class='sl-bin sl-ranking']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}
