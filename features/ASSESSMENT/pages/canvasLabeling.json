@@ -52,7 +52,7 @@
         {
             "name": "dropToken",
             "byType": "xpath",
-            "definition": "//div[.='<ReplaceText>']//div[@class=' labeling-dropzone']",
+            "definition": "//div[@class=' labeling-dropzone']//div[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }

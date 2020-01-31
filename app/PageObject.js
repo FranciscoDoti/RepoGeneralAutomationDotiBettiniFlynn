@@ -40,13 +40,21 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const addDynamicElement = async function (elementName, additionalDescription) {
-    let newElementName = elementName + " " + additionalDescription;
-    if (typeof additionalDescription !== 'undefined' && await hasElement(elementName)) {
-      var dynamicElement = Object.assign({}, await getElement(elementName));
-      dynamicElement.name = newElementName;
-      dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
-      addElement(newElementName, dynamicElement);
-      return newElementName;
+    if (await hasElement(elementName)) {
+      if(typeof additionalDescription !== 'undefined'){
+        let newElementName = elementName + " " + additionalDescription;
+        if(!(await hasElement(newElementName))){
+          var dynamicElement = Object.assign({}, await getElement(elementName));
+          dynamicElement.name = newElementName;
+          dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
+          addElement(newElementName, dynamicElement);
+        }
+        return newElementName;
+      } else {
+        return elementName;
+      }
+    } else {
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements for adding dynamic element.`);
     }
   }
 
@@ -615,16 +623,46 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const dragAndDrop = async function (dragElementName, dragReplaceText, dropElementName, dropReplaceText) {
-    await addDynamicElement(dragElementName, dragReplaceText);
-    await addDynamicElement(dropElementName, dropReplaceText);
-    dragElementName = dragElementName + (dragReplaceText || '');
-    dropElementName = dropElementName + (dropReplaceText || '');
-    if (await genericAssertElement(elementName, 'displayed')) {
-      log.info(`Web Element ${elementName} is displayed on page. PASS`);
+  const dragAndDrop = async function (dragElementName, dropElementName, dragReplaceText, dropReplaceText) {
+    let From, To;
+    let WebElementObject = '';
+    let WebElementData = {};
+
+    dragElementName = await addDynamicElement(dragElementName, dragReplaceText);
+    if (await genericAssertElement(dragElementName, 'displayed')) {
+      log.info(`Target Web Element "${dragElementName}" is displayed on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is not displayed on page.`);
+      assert.fail(`Target Web Element "${dragElementName}" is not displayed on page.`);
     };
+    if (await hasElement(dragElementName)) {
+      WebElementData = await getElement(dragElementName);
+      await switchFrame(WebElementData.frame);
+      WebElementObject = await WebElement(WebElementData);
+      await WebElementObject.scrollIntoView();
+      From = await WebElementObject.getWebElement();
+    }
+
+    dropElementName = await addDynamicElement(dropElementName, dropReplaceText);
+    if (await genericAssertElement(dropElementName, 'displayed')) {
+      log.info(`Destination Web Element "${dropElementName}" is displayed on page. PASS`);
+    } else {
+      assert.fail(`Destination Web Element "${dropElementName}" is not displayed on page.`);
+    };
+    if (await hasElement(dropElementName)) {
+      WebElementData = await getElement(dropElementName);
+      await switchFrame(WebElementData.frame);
+      WebElementObject = await WebElement(WebElementData);
+      await WebElementObject.scrollIntoView();
+      To = await WebElementObject.getWebElement();
+    }
+
+    try {
+      const actions = getDriver().actions({bridge: true});
+      await actions.dragAndDrop(From, To).perform();
+      log.debug(`Dropped element "${dragElementName}" on element "${dropElementName}". PASS`);
+    } catch (err) {
+      assert.fail(`Unable to perform drag and drop operation due to error. FAIL. Error `+err);
+    }
   };
 
   const waitClick = async function (elementName, replaceText, timeoutInSeconds) {
