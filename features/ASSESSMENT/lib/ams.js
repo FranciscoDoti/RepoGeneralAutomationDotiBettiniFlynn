@@ -92,6 +92,26 @@ const verifyItemDetails = async function (item, itemId) {
     }
 };
 
+const navigateToTopic = async function (topicPath) {
+    await pages.ams.click('Nav Menu', 'Taxonomies');
+    await pages.taxonomy.click('Subject Selector', topicPath["Subject"]);
+    await pages.taxonomy.click('Title Selector', topicPath["Title"]);
+    await pages.taxonomy.click('Chapter Selector', topicPath["Chapter"]);
+    await pages.taxonomy.click('Section Selector', topicPath["Section"]);
+};
+
+const addTopic = async function (topic) {
+    await pages.taxonomy.click('Topic Action Button', 'Add');
+    await pages.taxonomy.populate("Topic Form Input", "topic title", topic);
+    await pages.taxonomy.populate("Topic Form Input", "display name", topic);
+    await pages.taxonomy.click("Topic Form Button", 'Save');
+};
+
+const deleteTopic = async function (topic) {
+    await pages.taxonomy.click("Topic Selector", topic);
+    await pages.taxonomy.click("Topic Action Button", 'Delete');
+};
+
 module.exports = {
     addRaptorItem,
     deleteItem,
@@ -101,5 +121,8 @@ module.exports = {
     verifyItemDetails,
     waitAlgoliaProcess,
     verifyFeedback,
-    duplicateItem
+    duplicateItem,
+    navigateToTopic,
+    addTopic,
+    deleteTopic
 };

@@ -12,7 +12,7 @@
             "byType": "id",
             "definition": "username",
             "frame": "default",
-            "specialInstr": "overwrite"
+            "specialInstr": "NA"
         },
         {
             "name": "password",
@@ -37,10 +37,10 @@
         },
         {
             "name": "submit",
-            "byType": "xpath",
-            "definition": "//input[@value='Log In']",
+            "byType": "id",
+            "definition": "submitButton",
             "frame": "default",
-            "specialInstr": "focus"
+            "specialInstr": "NA"
         },
         {
             "name": "signin",

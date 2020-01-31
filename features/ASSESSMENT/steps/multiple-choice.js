@@ -86,6 +86,7 @@ When(/^I set hint and generic feedback with following details and save on \"([^\
   if (assessmentType === 'AMS') {
     await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
     await pages.hatchlingItem.click('Button', 'Save');
+    await pages.hatchlingItem.waitForElementInvisibility('Button', 'Save');
   } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
     await pages.hatchlingItemFrame.click('Button', 'Save');
