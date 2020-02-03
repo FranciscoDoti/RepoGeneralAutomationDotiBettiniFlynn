@@ -36,9 +36,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Save Grading Setting",
+            "name": "Grading Setting Button",
             "byType": "xpath",
-            "definition": "//button[contains(text(),'Save')]",
+            "definition": "//button[contains(text(),'<ReplaceText>')]",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
@@ -46,13 +46,6 @@
             "name": "Create New Button",
             "byType": "xpath",
             "definition": "//button[@data-test-id='assignment-settings-custom-create' and text()='Create New']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Cancel",
-            "byType": "xpath",
-            "definition": "//button[text()='Cancel']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },

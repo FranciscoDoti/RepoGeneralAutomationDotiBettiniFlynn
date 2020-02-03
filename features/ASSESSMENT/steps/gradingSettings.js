@@ -25,7 +25,7 @@ When (/^I select "(.*)" % in Flat Penalty$/, async function(penaltyPercentage){
 
 
 When ("I click on save on grading settins page", async function(){
-    await pages.gradingSettings.click('Save Grading Setting');
+    await pages.gradingSettings.click('Grading Setting Button','Save Grading Settings');
     await pages.gradingSettings.click('Due Date Clock');
     await pages.gradingSettings.click('Due Date Clock Options',3);
     await pages.gradingSettings.click('Save');

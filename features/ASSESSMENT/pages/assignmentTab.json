@@ -136,14 +136,14 @@
         {
             "name": "Question Bank Tab",
             "byType": "xpath",
-            "definition": "//a[@data-test-id= 'link-to-questionbank']",
+            "definition": "//a[text()= 'Question Bank']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
         {
             "name": "Grading Settings",
             "byType": "xpath",
-            "definition": "//a[@data-test-id= 'assignment-settings-link']",
+            "definition": "//a[text()='Grading Settings']",
             "frame": "aeframe",
             "specialInstr": "NA"
         }
