@@ -1,7 +1,7 @@
 'use strict';
 const {  When  } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const { gradingSettingsLib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
+const { gradingsettingslib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 
 
@@ -10,7 +10,7 @@ When (/^I set the grading setting name as "(.*)"$/, async function(policyName){
 });
 
 When (/^I set a time limit to the policy with hours "(.*)" and minutes "(.*)"$/, async function(hours, minutes){
-    await gradingSettingsLib.applyTimeLimit(hours, minutes);
+    await gradingsettingslib.applyTimeLimit(hours, minutes);
 });
 
 When ("I click the Allow Late Submissions checkbox", async function(){
