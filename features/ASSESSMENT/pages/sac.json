@@ -146,6 +146,34 @@
             "definition": "//span[.='<ReplaceText>']/..",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Oops Modal Ok Button",
+            "byType": "xpath",
+            "definition": "//div[@class='modal-actions']//button[text()='Ok']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Items List",
+            "byType": "xpath",
+            "definition": "//ul[@data-test-id='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Late label",
+            "byType": "xpath",
+            "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and @class='item-late-penalty']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Late Penalty Percentage",
+            "byType": "xpath",
+            "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and contains(@data-test-id,'late-penalty')]",
+            "frame": "questionList",
+            "specialInstr": "NA"
         }
     ]
 }
