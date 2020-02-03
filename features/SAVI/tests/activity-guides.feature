@@ -10,4 +10,4 @@ Scenario: All the activity guides load at their master links
   When I navigate to the activity guide demo master link
   Then the activity guide loads
 
-  Then all of the activity guide links can be loaded from "activityguides.csv"
+  Then all of the activity guide links can be loaded from "activityguides.json"

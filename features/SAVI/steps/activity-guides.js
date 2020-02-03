@@ -15,9 +15,9 @@ Then('the activity guide loads', async function () {
   await pages.activityguide.assertElementExists('recipecard');
 });
 
-Then('all of the activity guide links can be loaded from {string}', async function (csv) {
-  console.log(csv);
-  var data = await csvtojson().fromFile(`${process.cwd()}/features/SAVI/data/${csv}`);
+Then('all of the activity guide links can be loaded from {string}', async function (json) {
+  console.log('json', json);
+  const data = require(`${process.cwd()}/features/SAVI/data/${json}`);
   const urls = [];
   data.forEach(async (activity) => {
     urls.push(activity.url);

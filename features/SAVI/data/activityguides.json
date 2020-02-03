@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://savi-cdn.mldev.cloud/allp-bio-demo/master/index.html",
+    "name": "Ch 5 Instructor In-Class Activity Guide: What Do Chlorophyll and Fireworks Have in Common?",
+    "discipline": "BIO"
+  },
+  {
+    "url": "https://savi-cdn.mldev.cloud/allp-calc-demo/master/index.html",
+    "name": "Instructor In-Class Activity Guide: Title Goes Here",
+    "discipline": "CALC"
+  },
+  {
+    "url": "https://savi-cdn.mldev.cloud/allp-calc2-demo/master/index.html",
+    "name": "Instructor In-Class Activity Guide: Title Goes Here",
+    "discipline": "CALC"
+  },
+  {
+    "url": "https://savi-cdn.mldev.cloud/allp-calc3-demo/master/index.html",
+    "name": "Instructor In-Class Activity Guide: Title Goes Here",
+    "discipline": "CALC"
+  },
+  {
+    "url": "https://savi-cdn.mldev.cloud/allp-chem-demo/master/index.html",
+    "name": "Instructor In-Class Activity Guide: Title Goes Here",
+    "discipline": "CHEM"
+  },
+  {
+    "url": "https://savi-cdn.mldev.cloud/allp-demo/master/index.html",
+    "name": "Instructor In-Class Activity Guide: Title Goes Here",
+    "discipline": "DEFAULT"
+  },
+  {
+    "url": "https://savi-cdn.mldev.cloud/allp-psych-demo/master/index.html",
+    "name": "Instructor In-Class Activity Guide: Title Goes Here",
+    "discipline": "PSYCH"
+  }
+]
