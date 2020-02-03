@@ -1,5 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
+const { raptorlib, amslib, froalalib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 const { log } = require(`${process.cwd()}/app/logger`);
 
 When(/^I add \"([^\"]*)\" bins and check the corresponding checkboxes$/, async function (noOfBins) {
@@ -24,5 +25,9 @@ When('I add 3 tokens with the following token names', async function (datatable)
 
 When(/^I drag \"([^\"]*)\" into the bin as a correct answer and check my work$/, async function (token) {
     await pages.canvasLabeling.click('Canvas Tab', 'correct');
-    await pages.canvasLabeling.dragAndDrop('dragToken', 'dropToken', '1', 'bin 1');
+    await pages.canvasLabeling.dragAndDrop('dragToken', 'dropToken', '???token1???', '1');
+    await raptorlib.checkAnswerMode();
+    await pages.canvasLabeling.dragAndDrop('dragToken', 'dropToken', '???token1???', '1');
+    await pages.raptor.click('Check Your Work Submit Button');
+    await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 })

@@ -45,14 +45,14 @@
         {
             "name": "dragToken",
             "byType": "xpath",
-            "definition": "//div[text()='Answer Bank']/..//div[@class='token-outline'][<ReplaceText>]",
+            "definition": "//div[text()='Answer Bank']/..//div[@class='token-outline']//span//span[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "dropToken",
             "byType": "xpath",
-            "definition": "//div[@class=' labeling-dropzone']//div[.='<ReplaceText>']",
+            "definition": "(//div[@class=' labeling-dropzone'])[<ReplaceText>]",
             "frame": "default",
             "specialInstr": "NA"
         }
