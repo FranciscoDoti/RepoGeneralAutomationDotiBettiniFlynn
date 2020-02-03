@@ -22,9 +22,9 @@ Given('I create a new assessment with its necessary details', async function (da
 });
 
 
-When (/^I add "(.*)" random questions to the assessment$/, async function(NumberOfQuestionsToAdd){
+When (/^I add "(.*)" random questions to the assessment$/, async function(numberOfQuestionsToAdd){
   await pages.assignmentTab.click("Question Bank Tab");
-  for (let i = 1; i<= NumberOfQuestionsToAdd; i++){
+  for (let i = 1; i<= numberOfQuestionsToAdd; i++){
     await pages.questionBank.click("Item Checkbox", i );
   }
   await pages.questionBank.click("Add Button");

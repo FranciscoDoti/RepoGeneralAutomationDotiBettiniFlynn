@@ -134,7 +134,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Question Bank",
+            "name": "Question Bank Tab",
             "byType": "xpath",
             "definition": "//a[@data-test-id= 'link-to-questionbank']",
             "frame": "aeframe",
