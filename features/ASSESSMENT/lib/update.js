@@ -80,6 +80,14 @@ const verifyItemDetails = async function (item) {
         let text = await pages.update.getAttributeValue('Field', 'item_type', 'value');
         expect(text).to.equal(item['Item Type']);
     }
+    if (item['Title'] !== undefined) {
+        let text = await pages.update.getAttributeValue('Field', 'title', 'value');
+        expect(text).to.equal(item['Title']);
+    }
+    if (item['Module Type'] !== undefined) {
+        let text = await pages.update.getAttributeValue('Field', 'module_type', 'value');
+        expect(text).to.equal(item['Module Type']);
+    }
 };
 
 const close = async function () {

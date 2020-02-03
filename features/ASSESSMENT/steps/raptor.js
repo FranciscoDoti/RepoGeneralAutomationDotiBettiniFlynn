@@ -181,3 +181,8 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     }
 });
 
+When(/^I add a Ungraded Text on Feedback with the text (.*)$/, async function (text) {
+    await amslib.addRaptorItem();
+    await raptorlib.addModule(moduleType);
+    await raptorlib.addItemDetails({ Title: title });
+});
