@@ -28,7 +28,8 @@ let pages = {
     canvasMC: new PageObject('canvasMC.json',stepsPath),
     canvasLabeling: new PageObject('canvasLabeling.json',stepsPath),
     taxonomy: new PageObject('taxonomy.json',stepsPath),
-    relatedSet: new PageObject('relatedSet.json',stepsPath)
+    relatedSet: new PageObject('relatedSet.json',stepsPath),
+    ranking: new PageObject('ranking.json',stepsPath)
 };
 
 module.exports ={

@@ -20,6 +20,11 @@ Feature: To create and configure a Ranking raptor item
             | Token  | Six    |
             | Token  | Seven  |
         And I configure the Correct Context
+            | Value  |
+            | One    |
+            | Two    |
+            | Three  |
+            | Four   |
         And I configure the Default Context
-        And I save the project, Check my work and click on Submit Answer button
-        Then I am shown the Default context and I see "Default" in the feedback panel at page bottom
+       # And I save the project, Check my work and click on Submit Answer button
+       # Then I am shown the Default context and I see "Default" in the feedback panel at page bottom
