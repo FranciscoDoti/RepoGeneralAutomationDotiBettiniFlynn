@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "axe-webdriverjs": "latest",
-    "chai": "latest",
     "chai-sorted": "latest",
     "chromedriver": "latest",
     "csvtojson": "latest",
@@ -29,12 +28,13 @@
     "mailparser": "latest",
     "nodemailer": "latest",
     "parse-duration": "latest",
-    "request-promise-native": "^1.0.7",
+    "request-promise-native": "^1.0.8",
     "selenium-webdriver": "latest",
     "testrail-api": "latest",
     "winston": "latest"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^6.0.1",
