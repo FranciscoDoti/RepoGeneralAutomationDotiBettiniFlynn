@@ -1,4 +1,5 @@
-@Assessment @LabelingItem @Smoke @WIP
+# @Assessment @LabelingItem @Smoke @WIP
+@adg
 Feature: Verify Labeling raptor item
 
     Scenario: Verify Range Algo in Labeling tokens and bins
@@ -7,7 +8,7 @@ Feature: Verify Labeling raptor item
         And I configure the following item details
             | Title                |
             | Labeling Raptor Item |
-        And I add "2" bins and check the corresponding checkboxes
+        And I add bins and check the corresponding checkboxes
         And I add 3 tokens with the following token names
             | Token        |
             | ???token1??? |
@@ -18,6 +19,6 @@ Feature: Verify Labeling raptor item
             | Range 1     | token1        | 2             | 8              | 2              |
             | Range 2     | token2        | 1000          | 5555           | 0.01           |
             | Range 3     | token3        | -40           | 40             | 0.5            |
-        And I drag "token1" into the bin as a correct answer and check my work
+        Then I drag "???token2???" into the bin as a correct answer and check my work
 
 

@@ -43,14 +43,14 @@
             "specialInstr": "NA"
         },
         {
-            "name": "dragToken",
+            "name": "Drag Token",
             "byType": "xpath",
             "definition": "//div[text()='Answer Bank']/..//div[@class='token-outline']//span//span[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "dropToken",
+            "name": "Drop Token",
             "byType": "xpath",
             "definition": "(//div[@class=' labeling-dropzone'])[<ReplaceText>]",
             "frame": "default",
