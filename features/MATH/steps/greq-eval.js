@@ -197,7 +197,6 @@ Then(/^I verify "(.*)" dropdown\(s\), checkbox\(es\) or radio button\(s\): "(.*)
   const elementList = objects.split(', ');
   for (let i = 0; i < elementList.length; i++) {
     const element = elementList[i]
-    console.log("element", element);
     // temporary solution: if element check; until the raptorAms page is refactored by moving all the math prefixed elements into mathModule page
     switch (present) {
       case 'one or more':
