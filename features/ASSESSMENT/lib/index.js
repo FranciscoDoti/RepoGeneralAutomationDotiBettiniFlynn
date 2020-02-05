@@ -8,6 +8,7 @@ const filterslib = require(`${process.cwd()}/features/ASSESSMENT/lib/filters.js`
 const moldrawlib = require(`${process.cwd()}/features/ASSESSMENT/lib/moldraw.js`);
 const gradingsettingslib = require(`${process.cwd()}/features/ASSESSMENT/lib/gradingSettings.js`);
 const relatedsetlib = require(`${process.cwd()}/features/ASSESSMENT/lib/relatedset.js`);
+const labelinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/labeling.js`);
 
 module.exports = {
     raptorlib,
@@ -18,6 +19,7 @@ module.exports = {
     userlib,
     filterslib,
     moldrawlib,
-    gradingsettingslib,
-    relatedsetlib
+    relatedsetlib,
+    labelinglib,
+    gradingsettingslib
 };
