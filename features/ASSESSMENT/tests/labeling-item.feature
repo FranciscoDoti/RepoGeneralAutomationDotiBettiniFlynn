@@ -1,4 +1,4 @@
-@Assessment @LabelingItem @Smoke @WIP
+@Assessment @LabelingItem @Smoke
 Feature: Verify Labeling raptor item
 
     Scenario: Verify Range Algo in Labeling tokens and bins

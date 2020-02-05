@@ -3,7 +3,7 @@
         {
             "name": "Canvas Button",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='module-action-bar']/div[.='Labeling']/../div[.='<ReplaceText>']",
+            "definition": "//div[@data-test-id='module-action-bar']/div[text()='Labeling']/../div[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
@@ -45,7 +45,7 @@
         {
             "name": "Drag Token",
             "byType": "xpath",
-            "definition": "//div[text()='Answer Bank']/..//div[@class='token-outline']//span//span[.='<ReplaceText>']",
+            "definition": "//div[text()='Answer Bank']/..//div[@class='token-outline']//span//span[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },

@@ -8,7 +8,7 @@ When('I add bins and check the corresponding checkboxes', async function () {
 })
 
 When('I add 3 tokens with the following token names', async function (datatable) {
-    await labelinglib.addMultipleLableingTokens(datatable);
+    await labelinglib.addMultipleLabelingTokens(datatable);
     await pages.raptor.click('variablesChevron');
 })
 
