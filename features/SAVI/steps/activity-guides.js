@@ -6,7 +6,7 @@ const { expect } = require('chai');
 const { log } = require(`${process.cwd()}/app/logger`);
 
 When('I navigate to the activity guide demo master link', async function () {
-  //this sets the cookie, allowing the rest of the links to work
+  // this sets the cookie, allowing the rest of the links to work
   await pages.saplingLearning.click('activityGuideDemoLink');
   console.log('loading demo');
 });
@@ -34,8 +34,34 @@ Then('all of the activity guide links can be loaded from {string}', async functi
       // Here we check if all links on the page are working...
       //
       // First get all link elements on the page
-      //
-      // Click the link element (or otherwise visit the source location) to get the result
+      const links = await pages.activityguide.getWebElements('links');
+      log.info(`${links.length} links found`);
+      const linkInfo = [];
+      const map = new Map();
+      for (let l = 0; l < links.length; l++) {
+        const link = links[l];
+        const href = await link.getAttribute('href');
+        const html = await link.getAttribute('innerHTML');
+        const target = await link.getAttribute('target');
+        const disabled = await link.getAttribute('disabled');
+        if (!map.has(href) && !disabled) { // skip duplicate hrefs and disabled links
+          map.set(href, true);
+          linkInfo.push({
+            id: l,
+            html,
+            href,
+            target,
+            disabled
+          });
+        }
+      };
+      console.log(linkInfo);
+      for (let u = 0; u < linkInfo.length; u++) {
+        const hrefTest = linkInfo[u].href;
+        log.info(`Visiting the link path: ${hrefTest}`);
+        await visitURL(hrefTest);
+        await sleep(1000);
+      }
       //
       // Report pass or fail
       //
@@ -50,7 +76,11 @@ Then('all of the activity guide links can be loaded from {string}', async functi
       log.error(fail[item]);
     }
   } else {
-    log.info(`All "${success.length}" pages loaded! PASS`)
+    if (success.length === 1) {
+      log.info(`"${success.length}" page loaded! PASS`);
+    } else {
+      log.info(`All "${success.length}" pages loaded! PASS`);
+    }
   }
   await expect(fail.length).to.equal(0);
 });

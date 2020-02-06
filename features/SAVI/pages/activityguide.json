@@ -6,6 +6,13 @@
             "definition": "recipecard",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "links",
+            "byType": "tagName",
+            "definition": "a",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
