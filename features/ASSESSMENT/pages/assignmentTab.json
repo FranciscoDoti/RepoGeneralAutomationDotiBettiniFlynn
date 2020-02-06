@@ -146,6 +146,20 @@
             "definition": "//a[text()='Grading Settings']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Student Preview",
+            "byType": "xpath",
+            "definition": "//button[text()='Student Preview']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },        
+        {
+            "name": "Filter Input",
+            "byType": "xpath",
+            "definition": "//input[@data-test-id='filter-input']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }
