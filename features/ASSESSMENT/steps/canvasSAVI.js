@@ -1,8 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const { canvasSAVIlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
-const { assert, expect } = require('chai');
-const { log } = require(`${process.cwd()}/app/logger`);
+const { assert } = require('chai');
 
 When(/^I select "(.*)" in the SAVI module edit window$/, async function (dropdownOption) {
   await pages.canvasSAVI.click('Module SAVI Edit', 1);
