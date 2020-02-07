@@ -33,7 +33,7 @@ When(/^I set the grade as "(.*)" type, with "(.*)", "(.*)", "(.*)" and input "(.
 
   // by default the endpoints checkbox is checked for Interval equation
   if (endpoints === "unchecked") {
-    await pages.raptorAms.click('mathEnforceEndpoints');
+    await pages.mathModule.click('enforceEndpoints');
   }
 
   // Assumes Author always passes valid inputs -- 
@@ -203,6 +203,7 @@ Then(/^I verify "(.*)" dropdown\(s\), checkbox\(es\) or radio button\(s\): "(.*)
         if (element === 'mathNumericTolerance' || element === 'mathPolarCoordinate') {
           await pages.raptorAms.assertElementExists(element)
         } else {
+
           await pages.mathModule.assertElementExists(element)
         }
         break;
@@ -231,7 +232,7 @@ When(/^I select isList checkbox$/, async function () {
 });
 
 When(/^I unselect Enforce Endpoints checkbox$/, async function () {
-  await pages.raptorAms.click('mathEnforceEndpoints');
+  await pages.mathModule.click('enforceEndpoints');
 });
 
 
