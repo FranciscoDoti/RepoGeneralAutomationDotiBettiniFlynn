@@ -1,5 +1,12 @@
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 
+const selectSAVIModule = async function(dropdownOption, position) {
+  position = position || 1;
+  await pages.canvasSAVI.click('Module SAVI Edit', position);
+  await pages.canvasSAVI.waitForElementVisibility('SAVI Edit Panel Dropdown');
+  await pages.canvasSAVI.populate('SAVI Edit Panel Dropdown', dropdownOption);
+  await pages.canvasSAVI.click('SAVI Edit Panel Done button');  
+}
 
 const moduleAstronomyPhasesOfTheMoonIsDisplayed = function () {
   const containerIsDisplayed = pages.canvasSAVI.checkElementExists('SAVI Module Container');
@@ -18,5 +25,6 @@ const moduleIsRendered = async function (saviModule) {
 };
 
 module.exports = {
-  moduleIsRendered
+  moduleIsRendered,
+  selectSAVIModule
 };

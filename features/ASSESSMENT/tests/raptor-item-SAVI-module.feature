@@ -7,7 +7,7 @@ Feature: To add a SAVI module to a raptor item
     Given I login to AMS as "all-permissions-author"
     
     When I add the "SAVI" module
-    And I select "Astronomy: Phases of the Moon" in the SAVI module edit window
+    And I select "Astronomy: Phases of the Moon" in the SAVI module edit panel
     
     Then I verify that the SAVI module "Astronomy: Phases of the Moon" is rendered
   

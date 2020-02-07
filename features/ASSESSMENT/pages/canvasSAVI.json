@@ -8,14 +8,14 @@
             "specialInstr": "NA"
         },
         {
-            "name": "SAVI Edit Window Dropdown",
+            "name": "SAVI Edit Panel Dropdown",
             "byType": "xpath",
             "definition": "//div[@id='module-edit-container']/..//select",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "SAVI Edit Window Done button",
+            "name": "SAVI Edit Panel Done button",
             "byType": "xpath",
             "definition": "//div[@id='module-edit-container']/..//button[@id='close-edit-host']",
             "frame": "default",
