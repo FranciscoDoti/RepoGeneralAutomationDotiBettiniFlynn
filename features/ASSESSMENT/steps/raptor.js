@@ -189,10 +189,6 @@ When('I add hints', async function (datatable) {
     }
 });
 
-When('I click on Default Context', async function () {
-    await pages.raptor.click('Tab', 'default');
-});
-
 When('I Save the item', async function () {
     let itemId = await raptorlib.saveItem();
 }); 
