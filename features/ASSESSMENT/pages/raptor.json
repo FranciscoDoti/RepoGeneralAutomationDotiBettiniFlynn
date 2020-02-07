@@ -57,13 +57,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Module SAVI Edit",
-            "byType": "xpath",
-            "definition": "//div[@data-module-type='savi'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Item ID",
             "byType": "xpath",
             "definition": "//div[@data-test-id='edit-id']",
@@ -408,20 +401,6 @@
             "name": "Answer Radio Button 1",
             "byType": "xpath",
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]//span[@class=' stix-font']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "SAVI Module Edit Window Dropdown",
-            "byType": "css",
-            "definition": "#module-edit-container select",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "SAVI Module Edit Window Done button",
-            "byType": "css",
-            "definition": "#module-edit-container select",
             "frame": "default",
             "specialInstr": "NA"
         }

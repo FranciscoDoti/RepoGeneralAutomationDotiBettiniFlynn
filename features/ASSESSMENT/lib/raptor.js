@@ -48,18 +48,10 @@ const checkAnswerMode = async function () {
     await pages.raptor.click('Check Answer Slider');
 };
 
-const editSAVIItemModule = async function (moduleOption, itemPosition) {
-    itemPosition = itemPosition || 1;
-    await pages.raptor.click('Module SAVI Edit', itemPosition);
-    await pages.raptor.populate('SAVI Module Edit Window Dropdown', moduleOption);
-    await pages.raptor.click('SAVI Module Edit Window Done button');
-}
-
 module.exports = {
     addItemDetails,
     addModule,
     saveItem,
     addFeedbackModule,
-    checkAnswerMode,
-    editSAVIItemModule
+    checkAnswerMode
 };

@@ -180,7 +180,3 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
         await amslib.verifyFeedback(itemTabs);
     }
 });
-
-When(/^I select "(.*)" in the SAVI module edit window$/, async function (dropdownOption) {
-    await raptorlib.editSAVIItemModule(dropdownOption, 1);
-})
