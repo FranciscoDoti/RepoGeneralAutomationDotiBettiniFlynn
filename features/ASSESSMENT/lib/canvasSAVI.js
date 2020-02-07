@@ -8,16 +8,12 @@ const selectSAVIModule = async function(dropdownOption, position) {
   await pages.canvasSAVI.click('SAVI Edit Panel Done button');  
 }
 
-const moduleAstronomyPhasesOfTheMoonIsDisplayed = function () {
-  const containerIsDisplayed = pages.canvasSAVI.checkElementExists('SAVI Module Container');
-  const playButtonIsDisplayed = pages.canvasSAVI.checkElementExists('SAVI Module Play Simulation Button');
-  return containerIsDisplayed && playButtonIsDisplayed
-}
-
 const moduleIsRendered = async function (saviModule) {
   switch (saviModule) {
     case 'Astronomy: Phases of the Moon':
-      return moduleAstronomyPhasesOfTheMoonIsDisplayed()
+      const containerIsDisplayed = pages.canvasSAVI.checkElementExists('SAVI Module Container');
+      const playButtonIsDisplayed = pages.canvasSAVI.checkElementExists('SAVI Module Play Simulation Button');
+      return containerIsDisplayed && playButtonIsDisplayed
       break;
   default:
     throw new Error(`Module ${saviModule} not yet implemented`)
