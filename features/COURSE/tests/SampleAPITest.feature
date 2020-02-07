@@ -1,4 +1,4 @@
-@Module @NameAPIBeingTested @TestSuiteType @TestGroupName @WIP
+@Module @NameAPIBeingTested @TestSuiteType @TestGroupName
 Feature: To verify the request and response from sample API
 
     @NamesofTheAPIBeingCalled @PriorityOfTest @ParameterSelections

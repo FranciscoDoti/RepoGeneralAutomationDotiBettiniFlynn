@@ -183,13 +183,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "mathEnforceEndpoints",
-            "byType": "css",
-            "definition": "input[data-test-id='edit-panel-checkbox-interval_endpoints']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "mathNumericTolerance",
             "byType": "css",
             "definition": "input[data-test-id='numeric-tolerance-radio']",

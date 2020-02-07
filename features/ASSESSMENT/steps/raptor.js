@@ -102,11 +102,12 @@ When('I add list variables', async function (datatable) {
 When('I add the following range algos', async function (datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         await pages.raptor.click('addRangeAlgoButton');
+        await pages.raptor.populate('Range Algo Desc Field', i * 2 + 1, datatable.hashes()[i].Description);
         await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, '');
-        await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, datatable.hashes()[i].Name);
-        await pages.raptor.populate('rangeMinimumTextbox', i * 2 + 1, datatable.hashes()[i].Minimum);
-        await pages.raptor.populate('rangeMaximumTextbox', i * 2 + 1, datatable.hashes()[i].Maximum);
-        await pages.raptor.populate('rangeIncrementTextbox', i * 2 + 1, datatable.hashes()[i].Increment);
+        await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, datatable.hashes()[i]['Variable Name']);
+        await pages.raptor.populate('rangeMinimumTextbox', i * 2 + 1, datatable.hashes()[i]['Minimum Value']);
+        await pages.raptor.populate('rangeMaximumTextbox', i * 2 + 1, datatable.hashes()[i]['Maxmimum Value']);
+        await pages.raptor.populate('rangeIncrementTextbox', i * 2 + 1, datatable.hashes()[i]['Increment Step']);
     }
 });
 
