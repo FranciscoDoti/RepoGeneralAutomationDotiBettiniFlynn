@@ -24,7 +24,7 @@ Feature: Adding activities to Quantitative Template
 
         And I add activities to "Content Library"
           | activities                                |
-          | GLOSSARY                                  |
+          | Glossary                                  |
           | Exercise: Misused words 1 (autoscored)    |
           | LC1551301608988                           |
 
@@ -32,4 +32,4 @@ Feature: Adding activities to Quantitative Template
             | activity                                      |
             | Exercise: Misused words 1 (autoscored)        |     
             | LC1551301608988                               |
-            |  GLOSSARY                                     |            
+            |  Glossary                                     |            

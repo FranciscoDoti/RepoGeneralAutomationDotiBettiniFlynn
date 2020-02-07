@@ -4,7 +4,7 @@ const { log } = require(`${process.cwd()}/app/logger`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
 const { hatchlinglib, raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
-When(/^I set the number "(.*)" as the correct answwer$/, async function (correctAnswer) {
+When(/^I set the number "(.*)" as the correct answer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
   await pages.raptor.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
   await pages.raptor.click('Answer Radio Button ' + correctAnswer);
@@ -86,6 +86,7 @@ When(/^I set hint and generic feedback with following details and save on \"([^\
   if (assessmentType === 'AMS') {
     await pages.hatchlingItem.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
     await pages.hatchlingItem.click('Button', 'Save');
+    await pages.hatchlingItem.waitForElementInvisibility('Button', 'Save');
   } else if (assessmentType === 'AE') {
     await pages.hatchlingItemFrame.populate('Hint and Generic Feedback', 'Generic Feedback', ans['Generic Feedback']);
     await pages.hatchlingItemFrame.click('Button', 'Save');

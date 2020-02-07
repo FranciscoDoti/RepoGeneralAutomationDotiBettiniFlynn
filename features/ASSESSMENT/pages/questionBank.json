@@ -1,41 +1,60 @@
-{"webElements": [
-    {
-        "name": "aeFrame",
-        "byType": "css",
-        "definition": "#aeIframe",
-        "frame": "default",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "QuestionBankTab",
-        "byType": "css",
-        "definition": "a[data-test-id='link-to-questionbank']",
-        "frame": "aeframe",
-        "specialInstr": "NA"
-    }, {
-        "name": "QBitemsCheckbox",
-        "byType": "xpath",
-        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']",
-        "frame": "aeFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "QBActionBarButtonsLabel",
-        "byType": "css",
-        "definition": "div[data-test-id='action-bar-button-label']",
-        "frame": "aeFrame",
-        "specialInstr": "NA"
-    }, {
-        "name": "QBActionBarButtons",
-        "byType": "css",
-        "definition": "button.action-bar-button",
-        "frame": "aeFrame",
-        "specialInstr": "NA"
-    },
-    {
-        "name": "questionsId",
-        "byType": "xpath",
-        "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
-        "frame": "aeFrame",
-        "specialInstr": "NA"
-    }
-]}
+{
+    "webElements": [
+        {
+            "name": "aeFrame",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "QuestionBankTab",
+            "byType": "css",
+            "definition": "a[data-test-id='link-to-questionbank']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "QBitemsCheckbox",
+            "byType": "xpath",
+            "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']",
+            "frame": "aeFrame",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "QBActionBarButtonsLabel",
+            "byType": "css",
+            "definition": "div[data-test-id='action-bar-button-label']",
+            "frame": "aeFrame",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "QBActionBarButtons",
+            "byType": "css",
+            "definition": "button.action-bar-button",
+            "frame": "aeFrame",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionsId",
+            "byType": "xpath",
+            "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
+            "frame": "aeFrame",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Item Checkbox",
+            "byType": "xpath",
+            "definition": "//div[@id='items-table']/div[<ReplaceText>]//span[@data-test-id='item-checkbox-input-label']",
+            "frame": "aeFrame",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Button",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='action-bar-button'][1]",
+            "frame": "aeFrame",
+            "specialInstr": "NA"
+        }
+    ]
+}

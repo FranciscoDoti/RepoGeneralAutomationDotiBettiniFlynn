@@ -1,0 +1,32 @@
+{
+  "webElements": [
+    {
+      "name": "showFilters",
+      "byType": "css",
+      "definition": "[data-test-id='show_filters']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "showDateRange",
+      "byType": "css",
+      "definition": "[data-test-id='date-range-show']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "lastSevenDays",
+      "byType": "css",
+      "definition": "[data-test-id='last-seven-days']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "applyFilters",
+      "byType": "css",
+      "definition": "[data-test-id='apply-filters']",
+      "frame": "default",
+      "specialInstr": "NA"
+    }
+  ]
+}

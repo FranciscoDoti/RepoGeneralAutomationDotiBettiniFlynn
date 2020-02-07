@@ -71,6 +71,12 @@ Given(/^navigate to a course having course id "(.*)"$/, async function (courseid
   await visitURL(courseURL);
 });
 
+Given("navigate to an assessment created before", async function () {
+  var currentURL = await pages.login.getCurrentURL();
+  var assessmentURL = currentURL + 'mod/flcn/view.php?id=' + this.data.get('assessmentID'); 
+  await visitURL(assessmentURL);
+});
+
 Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['IBISCMS', this.stack]);
   let user = this.users[userType];
@@ -85,6 +91,16 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
     await pages.login.populate('password', user.password);
     await pages.login.click('submit')
   };
+});
+
+Given(/^I login to Savi Verification as "(.*)"/, async function (userType) {
+  let url = await _.get(urls, ['savi', this.stack]);
+  let user = this.users[userType];
+
+  await visitURL(url);
+  await pages.login.populate('username', user.username);
+  await pages.login.populate('password', user.password);
+  await pages.login.click('submit')
 });
 
 When('I logout IBISCMS', async function () {

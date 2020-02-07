@@ -3,13 +3,15 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 const { raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 When(/^I add a dropdown with text "(.*)" and the following options$/, async function (text, datatable) {
+  await pages.raptor.click('Raptor Canvas Btns', 'edit-module-button');
   await pages.fillBlank.populate('Text', text);
   await pages.fillBlank.click('Add DropDown Button');
   for (let i = 0; i < datatable.rows().length; i++) {
     if (i > 0) {
       await pages.raptor.click('Add Choice Button');
+      await pages.fillBlank.waitForElementVisibility('Choice Value Text', i+2, datatable.hashes()[i].Option);
     }
-    await pages.fillBlank.populate('Choice Value Text', i + 1, datatable.hashes()[i].Option);
+    await pages.fillBlank.populate('Choice Value Text', i+2 , datatable.hashes()[i].Option);
   }
 });
 

@@ -29,13 +29,10 @@
     "mailparser": "latest",
     "nodemailer": "latest",
     "parse-duration": "latest",
+    "request-promise-native": "^1.0.8",
     "selenium-webdriver": "latest",
     "testrail-api": "latest",
-<<<<<<< HEAD
-    "imap-simple": "latest"
-=======
     "winston": "latest"
->>>>>>> 45afdd7da734f7dfb979fb9950de2d2b9f2ea069
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",

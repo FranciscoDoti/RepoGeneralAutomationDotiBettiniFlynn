@@ -1,0 +1,64 @@
+{
+    "webElements": [{
+            "name": "mol3d",
+            "byType": "className",
+            "definition": "savi-mol3d",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "savi-mol3d-body",
+            "byType": "className",
+            "definition": "savi-mol3d-body",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "savi-jmol-menu",
+            "byType": "className",
+            "definition": "savi-jmol-menu",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "rotateX",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='Rotate X']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "rotateY",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='Rotate Y']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "rotateZ",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='Rotate Z']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "zoomIn",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='Zoom In']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "zoomOut",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='Zoom Out']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "toggleLabels",
+            "byType": "xpath",
+            "definition": "//button[@aria-label='Toggle Labels']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "jmolConsole",
+            "byType": "css",
+            "definition": ".savi-mol3d-body > div > div > div[id*='infotablediv'] > div[id*='infodiv'] > div > span",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

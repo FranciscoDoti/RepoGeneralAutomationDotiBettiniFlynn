@@ -14,7 +14,7 @@
     }, {
         "name": "actionButton",
         "byType": "xpath",
-        "definition": "//a[.='<ReplaceText>']/../../../../..//button[@data-test-id='action_button']",
+        "definition": "//*[.='<ReplaceText>']/../../..//button[@data-test-id='action_button']",
         "frame": "default",
         "specialInstr": "NA"
 

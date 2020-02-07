@@ -23,7 +23,7 @@ Feature: Assigning the activities present in Skills Production Course
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LC1551301608988       |
         
         And I click on back to course
@@ -51,7 +51,7 @@ Feature: Assigning the activities present in Skills Production Course
         And I add the activities in courseplanner to "Skills Production Course" course
             | activity                                                          |                                                        
             | LC1551301608988                                                   |
-            | GLOSSARY                                                          |
+            | Glossary                                                          |
         
         And I close the popup message
 
@@ -59,12 +59,12 @@ Feature: Assigning the activities present in Skills Production Course
         And I assign the activities in courseplanner
             | activity                                                         | Points | 
             | LC1551301608988                                                  | 5      |
-            | GLOSSARY                                                         | 5      |
+            | Glossary                                                         | 5      |
 
         Then I verify that activities are assigned
             | activity                                                         | Status |  
             | LC1551301608988                                                  | Open   |
-            | GLOSSARY                                                         | Open   |
+            | Glossary                                                         | Open   |
 
         Then I see assignments due in the next 7 days on the course Plan tab
 

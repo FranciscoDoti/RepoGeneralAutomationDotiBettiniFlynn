@@ -25,6 +25,11 @@ let pages = {
     froala: new PageObject('froala.json', stepsPath),
     filters: new PageObject('filters.json',stepsPath),
     chemicalEquation: new PageObject('chemicalEquation.json',stepsPath),
+    gradingSettings: new PageObject('gradingSettings.json', stepsPath),
+    canvasMC: new PageObject('canvasMC.json',stepsPath),
+    canvasLabeling: new PageObject('canvasLabeling.json',stepsPath),
+    taxonomy: new PageObject('taxonomy.json',stepsPath),
+    relatedSet: new PageObject('relatedSet.json',stepsPath)
 };
 
 module.exports ={

@@ -9,8 +9,8 @@ When('I create the following draft Raptor items in AMS', async function (datatab
     let item = datatable.hashes()[i];
 
     await amslib.addRaptorItem();
-    await raptorlib.addModule(item['Module Type']);
     await raptorlib.addItemDetails(item);
+    await raptorlib.addModule(item['Module Type']);
 
     let itemId = await raptorlib.saveItem();
     this.data.set(item.Title, "id", itemId);
@@ -71,11 +71,52 @@ When('I update single items by title with the following details in AMS', async f
   }
 });
 
+When('I update an item by title with the following details in AMS', async function (datatable) {
+  await pages.ams.click("Nav Menu", "Items");
+  await amslib.waitAlgoliaProcess();
+
+  let idItem = await pages.ams.getText('Item by Title', this.data.get('Question Title'));
+  let id = idItem.split(" ");
+  id = id[0];
+  
+  this.data.set("smallId", id);
+
+  for (i = 0; i < datatable.rows().length; i++) {
+    let item = datatable.hashes()[i];
+    await pages.ams.click('Item by Title', this.data.get('Question Title'));
+
+    let topic = this.data.get('Topic Title');
+    if (topic != "" && topic != undefined) {
+      item['Topic Level 5'] = topic;
+    }
+
+    await updatelib.setTopic(item);
+    await updatelib.setTaxonomy(item);
+    await updatelib.setDifficulty(item.Difficulty);
+    await updatelib.setStatus(item.Status);
+
+    await updatelib.save();
+  }
+});
+
 Then('I verify the details of the following items are displayed in AMS', async function (datatable) {
   await amslib.waitAlgoliaProcess();
   for (i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
     let itemId = this.data.get(item.Title, "id");
+    await amslib.verifyItemDetails(item, itemId);
+  }
+});
+
+Then('I verify the item details are displayed in AMS', async function (datatable) {
+  await amslib.waitAlgoliaProcess();
+  for (i = 0; i < datatable.rows().length; i++) {
+    let item = datatable.hashes()[i];
+    let itemId = this.data.get("smallId");
+    let topic = this.data.get('Topic Title');
+    if (topic != "" || topic != undefined) {
+      item['Topic'] = topic;
+    };
     await amslib.verifyItemDetails(item, itemId);
   }
 });

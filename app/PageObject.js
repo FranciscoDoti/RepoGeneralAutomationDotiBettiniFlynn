@@ -40,13 +40,21 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   }
 
   const addDynamicElement = async function (elementName, additionalDescription) {
-    let newElementName = elementName + " " + additionalDescription;
-    if (typeof additionalDescription !== 'undefined' && await hasElement(elementName)) {
-      var dynamicElement = Object.assign({}, await getElement(elementName));
-      dynamicElement.name = newElementName;
-      dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
-      addElement(newElementName, dynamicElement);
-      return newElementName;
+    if (await hasElement(elementName)) {
+      if(typeof additionalDescription !== 'undefined'){
+        let newElementName = elementName + " " + additionalDescription;
+        if(!(await hasElement(newElementName))){
+          var dynamicElement = Object.assign({}, await getElement(elementName));
+          dynamicElement.name = newElementName;
+          dynamicElement.definition = dynamicElement.definition.replace('<ReplaceText>', additionalDescription);
+          addElement(newElementName, dynamicElement);
+        }
+        return newElementName;
+      } else {
+        return elementName;
+      }
+    } else {
+      assert.fail(`ERROR: WebElement ${elementName} not found in PageElements for adding dynamic element.`);
     }
   }
 
@@ -127,7 +135,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'ul':
         case 'li':
         case 'th':
-        case 'h2':  
+        case 'h2':
         case 'section':
           value == 'click' ? await populateClick(webElement, value, actionElement) : await populateRichTextField(webElement, value, actionElement);
           break;
@@ -154,7 +162,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     if (replaceText !== undefined) {
       elementName = await addDynamicElement(elementName, replaceText);
     }
-    
+
     if (await hasElement(elementName)) {
       let WebElementData = {};
       WebElementData = await getElement(elementName);
@@ -214,6 +222,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   };
 
   const genericAssertElement = async function (elementName, value) {
+    let retval;
     let WebElementObject = '';
     let WebElementData = {};
 
@@ -222,13 +231,13 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       await switchFrame(WebElementData.frame);
       WebElementObject = await WebElement(WebElementData);
 
+      const implicit = (await getDriver().manage().getTimeouts()).implicit;
       switch (value.toLowerCase()) {
         case 'notdisplayed':
-          const implicit = (await getDriver().manage().getTimeouts()).implicit;
           await getDriver().manage().setTimeouts({
             implicit: 5000
           });
-          let retval = !(await WebElementObject.elementDisplayed());
+          retval = !(await WebElementObject.elementDisplayed());
           await getDriver().manage().setTimeouts({
             implicit: implicit
           });
@@ -240,8 +249,15 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
         case 'disabled':
           return (await WebElementObject.elementDisabled());
         case 'exists':
-          var collection = await WebElementObject.getWebElements();
-          return collection.length > 0 ? true : false;
+          await getDriver().manage().setTimeouts({
+            implicit: 3000
+          });
+          retval = await WebElementObject.getWebElements();
+          await getDriver().manage().setTimeouts({
+            implicit: implicit
+          });
+          log.info(`Found ${retval.length} matching elements on page.`);
+          return retval.length > 0 ? true : false;
       }
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during AssertElement() attempt.`);
@@ -253,7 +269,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       elementName = await addDynamicElement(elementName, replaceText);
     }
 
-    if (await genericAssertElement(elementName, 'displayed')) {
+    if (await genericAssertElement(elementName, 'exists')) {
       log.info(`Web Element ${elementName} is displayed on page.`);
       return true;
     }
@@ -396,7 +412,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     try {
       const actualValue = await genericGetAttribute(elementName);
       log.info(`Asserting text for "${elementName}" does not exist`);
-      
+
       if (await expect(actualValue).to.not.include(expectedValue)) {
         log.info(`Actual value "${actualValue}" includes Expected value "${expectedValue}". PASS`);
       };
@@ -607,16 +623,56 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
     };
   };
 
-  const dragAndDrop = async function (dragElementName, dragReplaceText, dropElementName, dropReplaceText) {
-    await addDynamicElement(dragElementName, dragReplaceText);
-    await addDynamicElement(dropElementName, dropReplaceText);
-    dragElementName = dragElementName + (dragReplaceText || '');
-    dropElementName = dropElementName + (dropReplaceText || '');
-    if (await genericAssertElement(elementName, 'displayed')) {
-      log.info(`Web Element ${elementName} is displayed on page. PASS`);
+  const dragAndDrop = async function (dragElementName, dropElementName, dragReplaceText, dropReplaceText) {
+    let From, To;
+    let WebElementObject = '';
+    let WebElementData = {};
+
+    dragElementName = await addDynamicElement(dragElementName, dragReplaceText);
+    if (await genericAssertElement(dragElementName, 'displayed')) {
+      log.info(`Target Web Element "${dragElementName}" is displayed on page. PASS`);
     } else {
-      assert.fail(`Web Element ${elementName} is not displayed on page.`);
+      assert.fail(`Target Web Element "${dragElementName}" is not displayed on page.`);
     };
+    if (await hasElement(dragElementName)) {
+      WebElementData = await getElement(dragElementName);
+      await switchFrame(WebElementData.frame);
+      WebElementObject = await WebElement(WebElementData);
+      await WebElementObject.scrollIntoView();
+      From = await WebElementObject.getWebElement();
+    }
+
+    dropElementName = await addDynamicElement(dropElementName, dropReplaceText);
+    if (await genericAssertElement(dropElementName, 'displayed')) {
+      log.info(`Destination Web Element "${dropElementName}" is displayed on page. PASS`);
+    } else {
+      assert.fail(`Destination Web Element "${dropElementName}" is not displayed on page.`);
+    };
+    if (await hasElement(dropElementName)) {
+      WebElementData = await getElement(dropElementName);
+      await switchFrame(WebElementData.frame);
+      WebElementObject = await WebElement(WebElementData);
+      await WebElementObject.scrollIntoView();
+      To = await WebElementObject.getWebElement();
+    }
+
+    try {
+      const actions = getDriver().actions({bridge: true});
+      await actions.dragAndDrop(From, To).perform();
+      log.debug(`Dropped element "${dragElementName}" on element "${dropElementName}". PASS`);
+    } catch (err) {
+      assert.fail(`Unable to perform drag and drop operation due to error. FAIL. Error `+err);
+    }
+  };
+
+  const waitClick = async function (elementName, replaceText, timeoutInSeconds) {
+    await waitForElementVisibility(elementName, replaceText, timeoutInSeconds);
+    await clickElement(elementName, replaceText);
+  };
+
+  const waitPopulate = async function (elementName, replaceText, timeoutInSeconds) {
+    await waitForElementVisibility(elementName, replaceText, timeoutInSeconds);
+    await populateElement(elementName, replaceText);
   };
 
   that.acceptAlert = acceptAlert;
@@ -632,7 +688,9 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   that.hasElement = hasElement;
   that.getDriver = getDriver;
   that.populate = populateElement;
+  that.waitPopulate = waitPopulate;
   that.click = clickElement;
+  that.waitClick = waitClick;
   that.getAttributeValue = getAttributeValue;
   that.populateFromDataTable = genericPopulateDatable;
   that.populateDatatable = genericPopulateDatable;
