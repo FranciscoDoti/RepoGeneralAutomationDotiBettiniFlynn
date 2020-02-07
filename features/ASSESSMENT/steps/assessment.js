@@ -18,6 +18,22 @@ Given('I create a new assessment with its necessary details', async function (da
   let moduleId = await pages.createAssessment.getAttributeValue('assessmentID', 'value');
   this.data.set('assessmentID', moduleId);
   this.data.set('assessment_name', assessment_name);
+
+});
+
+
+When (/^I add "(.*)" random questions to the assessment$/, async function(numberOfQuestionsToAdd){
+  await pages.assignmentTab.click("Question Bank Tab");
+  for (let i = 1; i<= numberOfQuestionsToAdd; i++){
+    await pages.questionBank.click("Item Checkbox", i );
+  }
+  await pages.questionBank.click("Add Button");
+  await pages.assignmentTab.click("AssignmentTab");
+});
+
+When("I create a new grading Setting", async function(){
+  await pages.assignmentTab.click("Grading Settings");
+    await pages.gradingSettings.click("Create New Button");
 });
 
 When(/^added it to new assessment as pool$/, async function () {

@@ -6,8 +6,10 @@ const hatchlinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/hatchling
 const userlib = require(`${process.cwd()}/features/ASSESSMENT/lib/user.js`);
 const filterslib = require(`${process.cwd()}/features/ASSESSMENT/lib/filters.js`);
 const moldrawlib = require(`${process.cwd()}/features/ASSESSMENT/lib/moldraw.js`);
+const gradingsettingslib = require(`${process.cwd()}/features/ASSESSMENT/lib/gradingSettings.js`);
 const relatedsetlib = require(`${process.cwd()}/features/ASSESSMENT/lib/relatedset.js`);
 const canvasSAVIlib = require(`${process.cwd()}/features/ASSESSMENT/lib/canvasSAVI.js`);
+const labelinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/labeling.js`);
 
 module.exports = {
     raptorlib,
@@ -19,5 +21,10 @@ module.exports = {
     filterslib,
     moldrawlib,
     relatedsetlib,
+<<<<<<< HEAD
     canvasSAVIlib
+=======
+    labelinglib,
+    gradingsettingslib
+>>>>>>> b9204debdaea07cc9cc4b2897404cebe0bf94627
 };

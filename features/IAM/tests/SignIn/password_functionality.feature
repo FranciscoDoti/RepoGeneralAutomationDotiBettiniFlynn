@@ -1,9 +1,9 @@
-@IAM
+@IAM @failing
 Feature: Forgot password functionality
 
     Scenario: Verify that forgot password functionality working fine 
 
-        Given I have opened Achieve "Achieve-CW"
+        Given I have opened "Achieve-CW"
         
         When I click on Forgot link
         Then I verify that I am redirected to forgot page
