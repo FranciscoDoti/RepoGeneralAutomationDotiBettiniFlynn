@@ -182,8 +182,17 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     }
 });
 
-When(/^I add a Ungraded Text on Feedback with the text (.*)$/, async function (text) {
-    await amslib.addRaptorItem();
-    await raptorlib.addModule(moduleType);
-    await raptorlib.addItemDetails({ Title: title });
+When('I add hints', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let hint = datatable.hashes()[i];
+        await raptorlib.addHint(hint['Module Type'], hint['Value']);
+    }
 });
+
+When('I click on Default Context', async function () {
+    await pages.raptor.click('Tab', 'default');
+});
+
+When('I Save the item', async function () {
+    let itemId = await raptorlib.saveItem();
+}); 

@@ -1,4 +1,4 @@
-@Assessment @Raptor
+@Assessment @Raptor @Smoke
 Feature: To create and configure a Chemical Equation raptor item
 
     @ChemicalEquation @CreateCEE
@@ -11,11 +11,11 @@ Feature: To create and configure a Chemical Equation raptor item
         And I add hints
             | Module Type   | Value |
             | Ungraded Text | Water |
-        And I add a Correct Context for Chemical Equation with the text "H2O"
+        And I set the "Correct" Context for CEE and configure it with the text "H2O"
         And I add hints
             | Module Type   | Value   |
             | Ungraded Text | Correct |
-        And I add an Incorrect Context and configure it with the text "2HO"
+        And I set the "Incorrect" Context for CEE and configure it with the text "2HO"
         And I add hints
             | Module Type   | Value     |
             | Ungraded Text | Incorrect |
