@@ -21,10 +21,7 @@ module.exports = {
     filterslib,
     moldrawlib,
     relatedsetlib,
-<<<<<<< HEAD
-    canvasSAVIlib
-=======
+    canvasSAVIlib,
     labelinglib,
     gradingsettingslib
->>>>>>> b9204debdaea07cc9cc4b2897404cebe0bf94627
 };
