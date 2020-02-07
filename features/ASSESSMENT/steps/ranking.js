@@ -20,7 +20,7 @@ When('I edit the Ranking', async function (datatable) {
     await pages.ranking.click('Ranking Edit Done Button');
 });
 
-When('I configure the Correct Context', async function (datatable) {
+When('I configure the Correct Context for Ranking', async function (datatable) {
     await pages.raptor.click('Tab', 'correct');
     for (let i = 0; i < datatable.rows().length; i++) {
         let field = datatable.hashes()[i];

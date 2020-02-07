@@ -19,7 +19,7 @@ Feature: To create and configure a Ranking raptor item
             | Token  | Five   |
             | Token  | Six    |
             | Token  | Seven  |
-        And I configure the Correct Context
+        And I configure the Correct Context for Ranking
             | Value  |
             | One    |
             | Two    |
