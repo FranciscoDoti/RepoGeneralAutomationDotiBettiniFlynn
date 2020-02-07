@@ -24,6 +24,9 @@ Given('I create a new assessment with its necessary details', async function (da
 When("I add the raptor item created before", async function () {
   await pages.assignmentTab.click("Question Bank Tab");
   await pages.assignmentTab.populate('Filter Input', this.data.get("SmokeTestItem", "id"));
+  await pages.questionBank.click("Item Checkbox", 1);
+  await pages.questionBank.click("Add Button");
+  await pages.assignmentTab.click("AssignmentTab");
 });
 
 When(/^I add "(.*)" random questions to the assessment$/, async function (numberOfQuestionsToAdd) {
