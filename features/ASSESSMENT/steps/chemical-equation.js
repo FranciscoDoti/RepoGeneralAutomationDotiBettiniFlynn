@@ -21,7 +21,6 @@ When(/^I set the "(.*)" Context$/, async function (context, datatable) {
                 break;
         }
         if (context !== 'Default') {
-            let item = datatable.hashes()[0];
             await chemicalEquationlib.configureContext(context, item);
         }
         await raptorlib.addHint(item['Hint Type'], item['Value']);
