@@ -24,6 +24,7 @@ Then('all of the activity guide links can be loaded from {string}', async functi
   });
   const success = [];
   const fail = [];
+  const brokenLinks = [];
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
     await visitURL(url);
@@ -60,6 +61,12 @@ Then('all of the activity guide links can be loaded from {string}', async functi
         const hrefTest = linkInfo[u].href;
         log.info(`Visiting the link path: ${hrefTest}`);
         await visitURL(hrefTest);
+        // check for broken link
+        const brokenLinkPage = await pages.activityguide.getWebElements('brokenLinkPage');
+        console.log(brokenLinkPage);
+        if (brokenLinkPage.length) {
+          brokenLinks.push(hrefTest);
+        }
         await sleep(1000);
       }
       //
@@ -82,5 +89,14 @@ Then('all of the activity guide links can be loaded from {string}', async functi
       log.info(`All "${success.length}" pages loaded! PASS`);
     }
   }
+  if (brokenLinks.length) {
+    log.error(`THE FOLLOWING ${brokenLinks.length} BROKEN LINKS WERE FOUND:`);
+    for (var b in brokenLinks) {
+      log.error(brokenLinks[b]);
+    }
+  } else {
+    log.info('No broken links found. PASS');
+  }
   await expect(fail.length).to.equal(0);
+  await expect(brokenLinks.length).to.equal(0);
 });

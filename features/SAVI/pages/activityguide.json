@@ -13,6 +13,13 @@
             "definition": "a",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "brokenLinkPage",
+            "byType": "xpath",
+            "definition": "//*[contains(text(), 'This XML file does not appear to have any style information associated with it.')]",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
