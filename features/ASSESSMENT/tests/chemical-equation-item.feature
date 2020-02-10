@@ -12,23 +12,14 @@ Feature: To create and configure a Chemical Equation raptor item
             | Module Type   | Value |
             | Ungraded Text | Water |
         And I set the "Correct" Context
-            | Text |
-            | H2O  |            
-        And I add hints
-            | Module Type   | Value   |
-            | Ungraded Text | Correct |
+            | Text | Hint Type     | Value   |
+            | H2O  | Ungraded Text | Correct |
         And I set the "Incorrect" Context
-            | Text |
-            | H2O  | 
-        And I add hints
-            | Module Type   | Value     |
-            | Ungraded Text | Incorrect |
+            | Text | Hint Type     | Value     |
+            | 2HO  | Ungraded Text | Incorrect |
         And I set the "Default" Context
-            | Text |
-            |      | 
-        And I add hints
-            | Module Type   | Value                     |
-            | Ungraded Text | You must enter a response |
+            | Text | Hint Type     | Value                     |
+            |      | Ungraded Text | You must enter a response |
         And I Save the item
         Then I verify the details of the following items are displayed in the Item Details modal
             | Author Mode | Title                | Status      | Module Type |
