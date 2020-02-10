@@ -73,7 +73,10 @@ Then('I verify item has been created with following details', async function (da
 });
 
 When('I configure the following item details', async function (datatable) {
-    await raptorlib.addItemDetails(datatable.hashes()[0]);
+    let item = datatable.hashes()[0];
+    await raptorlib.addItemDetails(item);
+    let itemId = await raptorlib.saveItem();
+    this.data.set(item.Title, "id", itemId);
 });
 
 When('I add list variables', async function (datatable) {
@@ -188,7 +191,3 @@ When('I add hints', async function (datatable) {
         await raptorlib.addHint(hint['Module Type'], hint['Value']);
     }
 });
-
-When('I Save the item', async function () {
-    let itemId = await raptorlib.saveItem();
-}); 

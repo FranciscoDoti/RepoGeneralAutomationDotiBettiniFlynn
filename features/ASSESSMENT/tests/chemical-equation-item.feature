@@ -1,13 +1,11 @@
-@Assessment @Raptor @Smoke
+@Assessment @Raptor @Smoke @CEE
 Feature: To create and configure a Chemical Equation raptor item
 
     @ChemicalEquation @CreateCEE
     Scenario: Admin creates and configures a Chemical Equation Raptor item and verifies in AMS
 
         Given I login to AMS as "all-permissions-author"
-        When I create a non-performance module in AMS with the following details
-            | Title                | Module Type       |
-            | NGA QA Test CEE Item | Chemical Equation |
+        When I add the "Chemical Equation" module
         And I add hints
             | Module Type   | Value |
             | Ungraded Text | Water |
@@ -20,7 +18,9 @@ Feature: To create and configure a Chemical Equation raptor item
         And I set the "Default" Context
             | Hint Type     | Value                     |
             | Ungraded Text | You must enter a response |
-        And I Save the item
+        And I configure the following item details
+            | Title                |
+            | NGA QA Test CEE Item |
         Then I verify the details of the following items are displayed in the Item Details modal
             | Author Mode | Title                | Status      | Module Type |
             | author      | NGA QA Test CEE Item | in progress | CEE         |
