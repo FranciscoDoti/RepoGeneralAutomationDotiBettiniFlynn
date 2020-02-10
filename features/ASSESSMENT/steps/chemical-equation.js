@@ -10,11 +10,6 @@ When(/^I set the "(.*)" Context$/, async function (context, datatable) {
                 await pages.raptor.click('Add Context', 'incorrect');
                 break;
             case 'Correct':
-                /*if (i === 0) {
-                    await pages.raptor.click('Tab', 'correct');
-                } else {
-                    await pages.raptor.click('Add Context', 'correct');
-                }*/
                 await pages.raptor.click(i === 0 ? 'Tab' : 'Add Context', 'correct');
                 break;
             case 'Default':

@@ -18,8 +18,8 @@ Feature: To create and configure a Chemical Equation raptor item
             | Text | Hint Type     | Value     |
             | 2HO  | Ungraded Text | Incorrect |
         And I set the "Default" Context
-            | Text | Hint Type     | Value                     |
-            |      | Ungraded Text | You must enter a response |
+            | Hint Type     | Value                     |
+            | Ungraded Text | You must enter a response |
         And I Save the item
         Then I verify the details of the following items are displayed in the Item Details modal
             | Author Mode | Title                | Status      | Module Type |
