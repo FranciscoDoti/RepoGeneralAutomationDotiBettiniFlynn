@@ -14,7 +14,7 @@
     "chai-sorted": "latest",
     "chromedriver": "latest",
     "csvtojson": "latest",
-    "cucumber": "^5.1.0",
+    "cucumber": "^6.0.5",
     "cucumber-html-reporter": "latest",
     "dateformat": "latest",
     "eslint": "latest",
