@@ -28,6 +28,7 @@ let pages = {
     gradingSettings: new PageObject('gradingSettings.json', stepsPath),
     canvasMC: new PageObject('canvasMC.json',stepsPath),
     canvasLabeling: new PageObject('canvasLabeling.json',stepsPath),
+    canvasSorting: new PageObject('canvasSorting.json',stepsPath),
     taxonomy: new PageObject('taxonomy.json',stepsPath),
     relatedSet: new PageObject('relatedSet.json',stepsPath)
 };
