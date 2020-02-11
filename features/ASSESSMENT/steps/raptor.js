@@ -73,7 +73,10 @@ Then('I verify item has been created with following details', async function (da
 });
 
 When('I configure the following item details', async function (datatable) {
-    await raptorlib.addItemDetails(datatable.hashes()[0]);
+    let item = datatable.hashes()[0];
+    await raptorlib.addItemDetails(item);
+    let itemId = await raptorlib.saveItem();
+    this.data.set(item.Title, "id", itemId);
 });
 
 When('I add list variables', async function (datatable) {
@@ -179,5 +182,12 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     for (let i = 0; i < datatable.rows().length; i++) {
         let itemTabs = datatable.hashes()[i];
         await amslib.verifyFeedback(itemTabs);
+    }
+});
+
+When('I add hints', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let hint = datatable.hashes()[i];
+        await raptorlib.addHint(hint['Module Type'], hint['Value']);
     }
 });

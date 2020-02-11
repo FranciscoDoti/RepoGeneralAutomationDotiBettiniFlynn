@@ -337,25 +337,11 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Feedback Add Button",
-            "byType": "xpath",
-            "definition": "//div[@id='context-feedback-menu-buttons']/h2[text()='Add']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Feedback Module",
             "byType": "xpath",
             "definition": "//div[@id='feedback-module-palette']/ul/li/div[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "Feedback Context Area",
-            "byType": "xpath",
-            "definition": "//section[@id='secondary-content-area']",
-            "frame": "default",
-            "specialInstr": "focus"
         },
         {
             "name": "Feedback Text",
@@ -410,6 +396,45 @@
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]//span[@class=' stix-font']",
             "frame": "default",
             "specialInstr": "NA"
+        },        {
+            "=.=.=.=.=.=": "===========================================================================================",
+            "=.COMMENT.=": "= HINT AREA                                                                                =",
+            ".=.=.=.=.=.": "==========================================================================================="
+        },
+        {
+            "name": "Feedback Add Button",
+            "byType": "xpath",
+            "definition": "//div[@id='context-feedback-menu-buttons']/h2[text()='Add']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Add Element",
+            "byType": "xpath",
+            "definition": "//div[@id='context-feedback-menu-buttons']//div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Feedback Ungraded Text Actions",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']//div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Feedback Ungraded Text Edit Input",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//div[@class='sticky-buttons ace-buttons']//span",
+            "frame": "default",
+            "specialInstr": "overwrite"
+        },
+        {
+            "name": "Feedback Context Area",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']",
+            "frame": "default",
+            "specialInstr": "focus"
         }
     ]
 }
