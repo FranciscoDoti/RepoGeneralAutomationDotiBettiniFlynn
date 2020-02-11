@@ -1,4 +1,5 @@
-@Assessment @SortingItem @Smoke
+# @Assessment @SortingItem @Smoke
+@adu
 Feature: Verify Sorting raptor item
 
     Scenario: Verify Creating a Sorting Item and adding contexts
@@ -19,9 +20,10 @@ Feature: Verify Sorting raptor item
             | Third Token  |
             | Fourth Token |
             | Fifth Token  |
-        # Then I drag the following token into the following respetive bins
-        #     | Token        | Bin        |
-        #     | First Token  | First Bin  |
-        #     | Second Token | Second Bin |
-        #     | Third Token  | Third Bin  |
-
+        Then I drag the following token into the following respetive bins
+            | Token        | Bin |
+            | First Token  | 1   |
+            | Second Token | 2   |
+            | Third Token  | 3   |
+            | Fourth Token | 3   |
+            | Fifth Token  | 2   |

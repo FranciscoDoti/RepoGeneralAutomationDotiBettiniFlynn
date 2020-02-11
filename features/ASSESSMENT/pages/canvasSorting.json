@@ -34,6 +34,27 @@
             "definition": "//button[@id='close-edit-host']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Canvas Tab",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='<ReplaceText>-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Drag Token",
+            "byType": "xpath",
+            "definition": "//div[text()='Not placed by student']/..//span//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Drop Token",
+            "byType": "xpath",
+            "definition": "(//div[@class='sorting-bin-container']//div//div[contains(@class,'sorting-dropzone')])[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

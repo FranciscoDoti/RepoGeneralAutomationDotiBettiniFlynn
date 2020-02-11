@@ -23,10 +23,13 @@ When('I add tokens with the following token names', async function (datatable) {
 })
 
 Then('I drag the following token into the following respetive bins', async function (datatable) {
-    await pages.canvasLabeling.click('Canvas Tab', 'correct');
-    await pages.canvasLabeling.dragAndDrop('Drag Token', 'Drop Token', token, '1');
-    await raptorlib.checkAnswerMode();
-    await pages.canvasLabeling.dragAndDrop('Drag Token', 'Drop Token', token, '1');
-    await pages.raptor.click('Check Your Work Submit Button');
-    await pages.raptor.assertText('activeTabTakeMode', 'correct1');
+    await pages.canvasSorting.click('Canvas Tab', 'correct');
+    for (let i = 0; i < datatable.rows().length; i++) {
+        await pages.canvasSorting.dragAndDrop('Drag Token', 'Drop Token', datatable.hashes()[i].Token, datatable.hashes()[i].Bin);
+    }
+    // await pages.canvasLabeling.dragAndDrop('Drag Token', 'Drop Token', token, '1');
+    // await raptorlib.checkAnswerMode();
+    // await pages.canvasLabeling.dragAndDrop('Drag Token', 'Drop Token', token, '1');
+    // await pages.raptor.click('Check Your Work Submit Button');
+    // await pages.raptor.assertText('activeTabTakeMode', 'correct1');
 })
