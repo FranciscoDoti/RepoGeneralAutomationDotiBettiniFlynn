@@ -1,18 +1,39 @@
 {
     "webElements": [
         {
-            "name": "Prefix",
-            "byType": "css",
-            "definition": "span[data-test-id=chem-eq-prefix-label] textarea",
+            "name": "CEE Module",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='chemical_equation']",
             "frame": "default",
-            "specialInstr": "noclick"
+            "specialInstr": "NA"
         },
         {
-            "name": "Answer Input",
-            "byType": "css",
-            "definition": "input[data-test-id=chem-eq-answer-input]",
+            "name": "CEE Action Button",
+            "byType": "xpath",
+            "definition": "//div[text()='Chemical Equation']/../div[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "overwrite"
+        },
+        {
+            "name": "CEE Context Setup",
+            "byType": "xpath",
+            "definition": "//section[@id='primary-content-area']//div[@data-module-type='chemical_equation']/..//div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "CEE Correct Setup Answer",
+            "byType": "xpath",
+            "definition": "//div[@id='module-edit-container']//span[text()='Answer']/..//input[@data-test-id='chem-eq-answer-input']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "CEE Module Context",
+            "byType": "xpath",
+            "definition": "//section[@id='primary-content-area']//div[@data-module-type='chemical_equation']//div[@class='numeric-entry-table chemical-equation']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

@@ -11,4 +11,4 @@ const addMultipleLabelingTokens = async function (datatable) {
 }
 module.exports = {
     addMultipleLabelingTokens
-  };
+};
