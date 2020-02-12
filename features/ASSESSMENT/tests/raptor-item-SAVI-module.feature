@@ -1,7 +1,7 @@
 @Assessment @SAVI
 Feature: To add a SAVI module to a raptor item
 
-  @Assessment @SAVI
+  @Assessment @SAVI @Smoke
   Scenario: User adds a SAVI module to a raptor item
 
     Given I login to AMS as "all-permissions-author"
