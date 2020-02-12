@@ -1,6 +1,5 @@
-const { When, Then, Given } = require('cucumber');
+const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
-const csvtojson = require('csvtojson');
 const { visitURL, sleep } = require(`${process.cwd()}/app/driver`);
 const { expect } = require('chai');
 const { log } = require(`${process.cwd()}/app/logger`);
@@ -33,7 +32,6 @@ Then('all of the activity guide links can be loaded from {string}', async functi
       success.push(url);
       log.info('Web Element recipecard is displayed on page. PASS');
       // Here we check if all links on the page are working...
-      //
       // First get all link elements on the page
       const links = await pages.activityguide.getWebElements('links');
       log.info(`${links.length} links found`);
@@ -62,19 +60,11 @@ Then('all of the activity guide links can be loaded from {string}', async functi
         log.info(`Visiting the link path: ${hrefTest}`);
         await visitURL(hrefTest);
         // check for broken link
-      
-        const brokenLinkPage = await pages.activityguide.checkElementExists('brokenLinkPage'); {
-      //  const brokenLinkPage = await pages.activityguide.getWebElements('brokenLinkPage'); {
-        console.log(brokenLinkPage);
-        if (brokenLinkPage) 
+        const brokenLinkPage = await pages.activityguide.checkElementExists('brokenLinkPage');
+        if (brokenLinkPage) {
           brokenLinks.push(hrefTest);
-          console.log(hrefTest)
-        }     
-        await sleep(1000);
+        }
       }
-      //
-      // Report pass or fail
-      //
     } else {
       fail.push(url);
       log.error('Web Element recipecard not found on page. FAIL');
@@ -102,5 +92,4 @@ Then('all of the activity guide links can be loaded from {string}', async functi
   }
   await expect(fail.length).to.equal(0);
   await expect(brokenLinks.length).to.equal(0);
-         
 });
