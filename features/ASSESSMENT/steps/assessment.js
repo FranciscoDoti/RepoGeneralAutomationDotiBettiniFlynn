@@ -29,6 +29,10 @@ When("I add the raptor item created before", async function () {
   await pages.assignmentTab.click("AssignmentTab");
 });
 
+Then(/^I verify that the item with title "(.*)" has been added to the assessment$/ , async function(title){
+  await pages.assignmentTab.assertText('Items In Assessment Title' , 1, title);
+});
+
 When(/^I add "(.*)" random questions to the assessment$/, async function (numberOfQuestionsToAdd) {
   await pages.assignmentTab.click("Question Bank Tab");
   for (let i = 1; i <= numberOfQuestionsToAdd; i++) {

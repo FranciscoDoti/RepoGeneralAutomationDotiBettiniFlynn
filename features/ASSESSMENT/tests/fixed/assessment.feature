@@ -7,6 +7,9 @@ Feature: Tests inside assessment from instructor side
         When I create the following draft Raptor items in AMS
             | Title         | Module Type |
             | SmokeTestItem | Labeling    |
+        And I update single items by title with the following details in AMS
+            | Title         | Status |
+            | SmokeTestItem | Live   |
         And I go back to sapling page and logout
         Given I login to IBISCMS as "raptor-instructor"
         And navigate to a course having course id "79848"
@@ -14,7 +17,8 @@ Feature: Tests inside assessment from instructor side
             | field           | value        |
             | Assessment Name | QAAssessment |
         Then I add the raptor item created before
- 
+        And I verify that the item with title "SmokeTestItem" has been added to the assessment
+
     Scenario: Preview Assignment
         Given I login to IBISCMS as "raptor-instructor"
         And navigate to a course having course id "79848"
