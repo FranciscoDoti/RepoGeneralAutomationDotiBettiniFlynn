@@ -9,6 +9,7 @@ const moldrawlib = require(`${process.cwd()}/features/ASSESSMENT/lib/moldraw.js`
 const gradingsettingslib = require(`${process.cwd()}/features/ASSESSMENT/lib/gradingSettings.js`);
 const relatedsetlib = require(`${process.cwd()}/features/ASSESSMENT/lib/relatedset.js`);
 const labelinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/labeling.js`);
+const sortinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/sorting.js`);
 const chemicalEquationlib = require(`${process.cwd()}/features/ASSESSMENT/lib/chemicalEquation.js`);
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
     moldrawlib,
     relatedsetlib,
     labelinglib,
+    sortinglib,
     gradingsettingslib,
     chemicalEquationlib
 };

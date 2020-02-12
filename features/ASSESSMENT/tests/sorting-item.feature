@@ -1,13 +1,8 @@
-# @Assessment @SortingItem @Smoke
-@adu
+@Assessment @SortingItem @Smoke
 Feature: Verify Sorting raptor item
-
     Scenario: Verify Creating a Sorting Item and adding contexts
         Given I login to AMS as "all-permissions-author"
         When I add the "Sorting" module
-        And I configure the following item details
-            | Title                |
-            | Sorting Raptor Item |
         And I add bins with the following bin names
             | Bin        |
             | First Bin  |
@@ -20,7 +15,23 @@ Feature: Verify Sorting raptor item
             | Third Token  |
             | Fourth Token |
             | Fifth Token  |
-        Then I drag the following token into the following respetive bins
+        And I drag the following token into the following respetive bins
+            | Token        | Bin |
+            | First Token  | 1   |
+            | Second Token | 2   |
+            | Third Token  | 3   |
+            | Fourth Token | 3   |
+            | Fifth Token  | 2   |
+        And I set the "Correct" feedback
+            | Hint Type     | Value   |
+            | Ungraded Text | Correct |
+        And I set the "Default" feedback
+            | Hint Type     | Value   |
+            | Ungraded Text | Default |
+        And I configure the following item details
+            | Title               |
+            | Sorting Raptor Item |
+        Then I check my Work for correct attempt
             | Token        | Bin |
             | First Token  | 1   |
             | Second Token | 2   |
