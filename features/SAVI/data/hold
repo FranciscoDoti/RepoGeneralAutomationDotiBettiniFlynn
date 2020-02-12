@@ -1,5 +1,4 @@
-[
-  {
+{
     "url": "https://savi-cdn.mldev.cloud/allp-bio-demo/master/index.html",
     "name": "Ch 5 Instructor In-Class Activity Guide: What Do Chlorophyll and Fireworks Have in Common?",
     "discipline": "BIO"
@@ -43,10 +42,4 @@
     "url": "https://savi-cdn.mldev.cloud/allp-psych-demo/master/index.html",
     "name": "Instructor In-Class Activity Guide: Title Goes Here",
     "discipline": "PSYCH"
-  },
-  {
-    "url": "https://savi-cdn.mldev.cloud/allp-demo-with-broken-link/SAVI-4941/index.html",
-    "name": "Instructor In-Class Activity Guide: Title Goes Here",
-    "discipline": "DEFAULT"
   }
-]

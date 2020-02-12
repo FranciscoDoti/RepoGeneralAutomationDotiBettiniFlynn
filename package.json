@@ -4,7 +4,7 @@
   "scripts": {
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "start": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/activity-guides.feature --env prod --stack prod"
+    "start": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/activity-guides.feature --env prod --stack prod -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"

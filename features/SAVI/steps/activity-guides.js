@@ -62,11 +62,14 @@ Then('all of the activity guide links can be loaded from {string}', async functi
         log.info(`Visiting the link path: ${hrefTest}`);
         await visitURL(hrefTest);
         // check for broken link
-        const brokenLinkPage = await pages.activityguide.getWebElements('brokenLinkPage');
+      
+        const brokenLinkPage = await pages.activityguide.checkElementExists('brokenLinkPage'); {
+      //  const brokenLinkPage = await pages.activityguide.getWebElements('brokenLinkPage'); {
         console.log(brokenLinkPage);
-        if (brokenLinkPage.length) {
+        if (brokenLinkPage.length) 
           brokenLinks.push(hrefTest);
-        }
+          console.log(hrefTest)
+        }     
         await sleep(1000);
       }
       //
@@ -99,4 +102,5 @@ Then('all of the activity guide links can be loaded from {string}', async functi
   }
   await expect(fail.length).to.equal(0);
   await expect(brokenLinks.length).to.equal(0);
+         
 });
