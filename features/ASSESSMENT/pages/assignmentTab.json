@@ -1,11 +1,26 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "aeframe",
             "byType": "css",
             "definition": "#aeIframe",
             "frame": "default",
             "specialInstr": "NA"
-        }, 
+        },
+        {
+            "name": "User Menu",
+            "byType": "xpath",
+            "definition": "//button[@id='user_menu']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Logout",
+            "byType": "xpath",
+            "definition": "//a[text()='logout']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
         {
             "name": "AssignmentTab",
             "byType": "css",
@@ -25,14 +40,14 @@
             "byType": "xpath",
             "definition": "//div[<ReplaceText>]/div/div/div[@class='ae-checkbox']/span/input",
             "frame": "aeframe",
-            "specialInstr":"NA"
+            "specialInstr": "NA"
         },
         {
             "name": "Assessment questions id",
             "byType": "css",
             "definition": "input[id='<ReplaceText>']",
-            "frame":"aeframe",
-            "specialInstr":"NA"
+            "frame": "aeframe",
+            "specialInstr": "NA"
         },
         {
             "name": "CreateMyOwn",
@@ -40,7 +55,7 @@
             "definition": "button[data-test-id='assignment-create-actions-create-my-own']",
             "frame": "aeframe",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "HatchlingQuestionType",
             "byType": "css",
@@ -54,7 +69,7 @@
             "definition": "//span[contains(text(),'<ReplaceText>')]/../../..//div",
             "frame": "default",
             "specialInstr": "NA"
-        }, 
+        },
         {
             "name": "list Assessments Delete",
             "byType": "xpath",
@@ -67,35 +82,37 @@
             "byType": "xpath",
             "definition": "//span[contains(text(),'Playground/Showcase/')]",
             "frame": "default",
-            "specialInstr":"NA"
-        },{
+            "specialInstr": "NA"
+        },
+        {
             "name": "NETitle",
             "byType": "css",
             "definition": "input[data-test-id='hatchling-item-title']",
             "frame": "aeframe",
-            "specialInstr":"NA"
+            "specialInstr": "NA"
         },
         {
             "name": "pool dropdown",
             "byType": "css",
             "definition": ".pool-content .ae-dropdown",
             "frame": "aeframe",
-            "specialInstr":"NA"
+            "specialInstr": "NA"
         },
         {
             "name": "pool question list",
             "byType": "css",
             "definition": ".question-pool-indicator .ae-checkbox",
-            "frame":"aeframe",
-            "specialInstr":"NA"
+            "frame": "aeframe",
+            "specialInstr": "NA"
         },
         {
             "name": "pool questions id",
             "byType": "css",
             "definition": "input[id='<ReplaceText>']",
-            "frame":"aeframe",
-            "specialInstr":"NA"
-        }, {
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
             "name": "NEAssessment",
             "byType": "xpath",
             "definition": "//div[text()='<ReplaceText>']",
@@ -113,8 +130,22 @@
             "name": "policy name",
             "byType": "xpath",
             "definition": "//div[@class='assignment-sub-header']/h4",
-            "frame":"aeframe",
-            "specialInstr":"NA"
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question Bank Tab",
+            "byType": "xpath",
+            "definition": "//a[text()= 'Question Bank']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Grading Settings",
+            "byType": "xpath",
+            "definition": "//a[text()='Grading Settings']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }
     ]
 }

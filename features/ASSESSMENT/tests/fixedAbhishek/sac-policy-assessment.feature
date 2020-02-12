@@ -1,6 +1,41 @@
-@Assessment @Smoke
+@Assessment @Smoke @GradingSetting
 Feature: To Verify assignment with grading policy
 
+    @SetGradingPolicy @LateHW
+    Scenario: Set Assessment with a new policy with time limit
+        Given I login to IBISCMS as "raptor-instructor"
+        And navigate to a course having course id "79848"
+        And I create a new assessment with its necessary details
+            | field           | value             |
+            | Assessment Name | QAAssessmentLateHW |
+        When I add "2" random questions to the assessment
+        And I create a new grading Setting
+        And I set the grading setting name as "LateHW"
+        And I click the Allow Late Submissions checkbox
+        And I select "10" % in Flat Penalty
+        And I click on save on grading settins page
+        And I logout IBISCMS
+        And I login to IBISCMS as "raptor-student"
+        And navigate to an assessment created before
+        Then I am shown the modal indicating this is a late assignment with percentage "-10%"
+
+    @SetGradingPolicy @TimedPolicy
+    Scenario: Set Assessment with a new policy with time limit
+        Given I login to IBISCMS as "raptor-instructor"
+        And navigate to a course having course id "79848"
+        And I create a new assessment with its necessary details
+            | field           | value             |
+            | Assessment Name | QAAssessmentTimed |
+        When I add "2" random questions to the assessment
+        And I create a new grading Setting
+        And I set the grading setting name as "TimedPolicy" 
+        And I set a time limit to the policy with hours "1" and minutes "5" 
+        And I click on save on grading settins page
+        And I logout IBISCMS
+        And I login to IBISCMS as "raptor-student"
+        And navigate to an assessment created before
+
+        
     @setGradingPolicy
     Scenario: Set Assessment grading policy
         Given I login to IBISCMS as "all-permissions-author"
@@ -32,3 +67,4 @@ Feature: To Verify assignment with grading policy
             | Question | Grade     |
             | 1        | Incorrect |
             | 2        | Incorrect |
+

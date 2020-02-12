@@ -73,7 +73,10 @@ Then('I verify item has been created with following details', async function (da
 });
 
 When('I configure the following item details', async function (datatable) {
-    await raptorlib.addItemDetails(datatable.hashes()[0]);
+    let item = datatable.hashes()[0];
+    await raptorlib.addItemDetails(item);
+    let itemId = await raptorlib.saveItem();
+    this.data.set(item.Title, "id", itemId);
 });
 
 When('I add list variables', async function (datatable) {
@@ -102,11 +105,12 @@ When('I add list variables', async function (datatable) {
 When('I add the following range algos', async function (datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         await pages.raptor.click('addRangeAlgoButton');
+        await pages.raptor.populate('Range Algo Desc Field', i * 2 + 1, datatable.hashes()[i].Description);
         await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, '');
-        await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, datatable.hashes()[i].Name);
-        await pages.raptor.populate('rangeMinimumTextbox', i * 2 + 1, datatable.hashes()[i].Minimum);
-        await pages.raptor.populate('rangeMaximumTextbox', i * 2 + 1, datatable.hashes()[i].Maximum);
-        await pages.raptor.populate('rangeIncrementTextbox', i * 2 + 1, datatable.hashes()[i].Increment);
+        await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, datatable.hashes()[i]['Variable Name']);
+        await pages.raptor.populate('rangeMinimumTextbox', i * 2 + 1, datatable.hashes()[i]['Minimum Value']);
+        await pages.raptor.populate('rangeMaximumTextbox', i * 2 + 1, datatable.hashes()[i]['Maxmimum Value']);
+        await pages.raptor.populate('rangeIncrementTextbox', i * 2 + 1, datatable.hashes()[i]['Increment Step']);
     }
 });
 
@@ -181,3 +185,9 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     }
 });
 
+When('I add hints', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let hint = datatable.hashes()[i];
+        await raptorlib.addHint(hint['Module Type'], hint['Value']);
+    }
+});

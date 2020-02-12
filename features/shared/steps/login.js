@@ -71,6 +71,12 @@ Given(/^navigate to a course having course id "(.*)"$/, async function (courseid
   await visitURL(courseURL);
 });
 
+Given("navigate to an assessment created before", async function () {
+  var currentURL = await pages.login.getCurrentURL();
+  var assessmentURL = currentURL + 'mod/flcn/view.php?id=' + this.data.get('assessmentID'); 
+  await visitURL(assessmentURL);
+});
+
 Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
   let url = await _.get(urls, ['IBISCMS', this.stack]);
   let user = this.users[userType];
