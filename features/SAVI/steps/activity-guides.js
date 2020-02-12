@@ -66,7 +66,7 @@ Then('all of the activity guide links can be loaded from {string}', async functi
         const brokenLinkPage = await pages.activityguide.checkElementExists('brokenLinkPage'); {
       //  const brokenLinkPage = await pages.activityguide.getWebElements('brokenLinkPage'); {
         console.log(brokenLinkPage);
-        if (brokenLinkPage.length) 
+        if (brokenLinkPage) 
           brokenLinks.push(hrefTest);
           console.log(hrefTest)
         }     
@@ -86,7 +86,7 @@ Then('all of the activity guide links can be loaded from {string}', async functi
       log.error(fail[item]);
     }
   } else {
-    if (success.length === 1) {
+    if (success.length) {
       log.info(`"${success.length}" page loaded! PASS`);
     } else {
       log.info(`All "${success.length}" pages loaded! PASS`);
