@@ -10,6 +10,7 @@ const gradingsettingslib = require(`${process.cwd()}/features/ASSESSMENT/lib/gra
 const relatedsetlib = require(`${process.cwd()}/features/ASSESSMENT/lib/relatedset.js`);
 const rankinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/ranking.js`);
 const labelinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/labeling.js`);
+const chemicalEquationlib = require(`${process.cwd()}/features/ASSESSMENT/lib/chemicalEquation.js`);
 
 module.exports = {
     raptorlib,
@@ -23,5 +24,6 @@ module.exports = {
     relatedsetlib,
     labelinglib,
     gradingsettingslib,
+    chemicalEquationlib,
     rankinglib
 };
