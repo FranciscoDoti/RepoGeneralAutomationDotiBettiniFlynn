@@ -191,3 +191,16 @@ When('I add hints', async function (datatable) {
         await raptorlib.addHint(hint['Module Type'], hint['Value']);
     }
 });
+
+When('I click on Check Your Work', async function () {
+
+    await raptorlib.checkAnswerMode();
+    await pages.raptor.click('Check Your Work Submit Button');
+});
+
+When('I Verify the Ungraded Text in current context', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let item = datatable.hashes()[i];
+        await pages.raptor.assertElementExists("Feedback Ungraded Text Check", item['Text']);
+    }
+});
