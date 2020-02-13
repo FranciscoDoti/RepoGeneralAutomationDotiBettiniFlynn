@@ -16,24 +16,6 @@ When('I drag the following token into the following respetive bins', async funct
     await pages.canvasSorting.click('Canvas Tab', 'correct');
     await sortinglib.dragAndDropTokensToBins(datatable);
 })
-When(/^I set the \"([^\"]*)\" feedback$/, async function (tab, datatable) {
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let item = datatable.hashes()[i];
-        switch (tab) {
-            case 'Incorrect':
-                await pages.raptor.click('Add Context', 'incorrect');
-                break;
-            case 'Correct':
-                await pages.raptor.click(i === 0 ? 'Tab' : 'Add Context', 'correct');
-                break;
-            case 'Default':
-                await pages.raptor.click('Tab', 'default');
-                break;
-        }
-        await raptorlib.addHint(item['Hint Type'], item['Value']);
-    }
-
-})
 When('I set the following feedbacks wrt the contexts', async function (datatable) {
     let i = 0;
     while (i < datatable.rows().length) {
@@ -52,7 +34,6 @@ When('I set the following feedbacks wrt the contexts', async function (datatable
         await raptorlib.addHint(item['Hint Type'], item['Value']);
         i++;
     }
-
 })
 Then(/^I check my Work for correct attempt$/, async function (datatable) {
     await raptorlib.checkAnswerMode();
