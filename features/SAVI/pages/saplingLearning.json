@@ -47,6 +47,12 @@
             "definition": "//*[@id='module-10596895']/a",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "activityGuideDemoLink",
+            "byType": "xpath",
+            "definition": "//*[@id='module-11621915']/a",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
