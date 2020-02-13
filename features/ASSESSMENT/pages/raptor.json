@@ -92,13 +92,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Check Your Work",
-            "byType": "xpath",
-            "definition": "//h2[text()='More']//div[text()='Check Your Work']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Check Your Work Submit Button",
             "byType": "xpath",
             "definition": "//button[text()='Submit Answer']",
@@ -448,7 +441,7 @@
             "byType": "xpath",
             "definition": "//section[@id='secondary-content-area']//span[text()='<ReplaceText>']",
             "frame": "default",
-            "specialInstr": "focus"
+            "specialInstr": "NA"
         }
     ]
 }

@@ -1,7 +1,7 @@
-@Assessment @Raptor
+@Assessment @Raptor @Smoke
 Feature: To create and configure a Ranking raptor item
 
-    @Ranking @Emiliano
+    @Ranking @CreateRanking
     Scenario: Admin creates and configures a Ranking Raptor item and verifies in AMS
 
         Given I login to AMS as "all-permissions-author"
@@ -32,7 +32,7 @@ Feature: To create and configure a Ranking raptor item
         And I configure the following item details
             | Title                                |
             | NGA QA Ranking Item [release number] |
-        And I click on Check Your Work
+        And I click on Check Your Work and Submit Answer
         Then I Verify the Ungraded Text in current context
             | Text    |
             | Default |

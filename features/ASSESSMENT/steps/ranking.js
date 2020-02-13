@@ -1,7 +1,6 @@
 const { When } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
 const { rankinglib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
-const { sleep, getDriver } = require(`${process.cwd()}/app/driver`);
 
 When('I edit the Ranking', async function (datatable) {
     await pages.ranking.click('Ranking Panel');
@@ -22,10 +21,9 @@ When('I edit the Ranking', async function (datatable) {
 
 When('I configure the Correct Context for Ranking', async function (datatable) {
     await pages.raptor.click('Tab', 'correct');
+    await pages.ranking.waitForElementVisibility('Ranking Context Drop Item');
     for (let i = 0; i < datatable.rows().length; i++) {
         let field = datatable.hashes()[i];
-        await pages.ranking.waitForElementVisibility('Ranking Context Drop Item');
-        await pages.ranking.dragAndDrop('Ranking Context Drag Item', 'Ranking Context Drop Item', field['Value'], '');
-        //DragAndDrop, here
+        await pages.ranking.dragAndDrop('Ranking Context Drag Item', 'Ranking Context Drop Item', field['Value']);
     }
 }); 

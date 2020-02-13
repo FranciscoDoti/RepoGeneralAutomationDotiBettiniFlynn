@@ -48,7 +48,11 @@ const checkAnswerMode = async function () {
     await pages.raptor.click('Check Answer Slider');
 };
 
-const addHint = async function (moduleType, value){
+const submitAnswer = async function () {
+    await pages.raptor.click('Check Your Work Submit Button');
+};
+
+const addHint = async function (moduleType, value) {
     await pages.raptor.click('Feedback Add Button');
     if (moduleType === 'Ungraded Text') {
         await pages.raptor.click('Feedback Add Element', moduleType);
@@ -65,5 +69,6 @@ module.exports = {
     saveItem,
     addFeedbackModule,
     checkAnswerMode,
-    addHint
+    addHint,
+    submitAnswer
 };

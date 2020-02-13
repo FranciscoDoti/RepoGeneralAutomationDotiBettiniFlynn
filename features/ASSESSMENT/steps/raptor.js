@@ -192,10 +192,9 @@ When('I add hints', async function (datatable) {
     }
 });
 
-When('I click on Check Your Work', async function () {
-
+When('I click on Check Your Work and Submit Answer', async function () {
     await raptorlib.checkAnswerMode();
-    await pages.raptor.click('Check Your Work Submit Button');
+    await raptorlib.submitAnswer();
 });
 
 When('I Verify the Ungraded Text in current context', async function (datatable) {
