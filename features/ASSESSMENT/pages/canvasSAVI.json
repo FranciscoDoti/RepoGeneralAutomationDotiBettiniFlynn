@@ -1,0 +1,39 @@
+{
+    "webElements": [
+        {
+            "name": "Module SAVI Edit",
+            "byType": "xpath",
+            "definition": "//div[@data-module-type='savi'][<ReplaceText>]/..//div[@class='module-action-bar question']/div[text()='Edit']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "SAVI Edit Panel Dropdown",
+            "byType": "xpath",
+            "definition": "//div[@id='module-edit-container']/..//select",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "SAVI Edit Panel Done button",
+            "byType": "xpath",
+            "definition": "//div[@id='module-edit-container']/..//button[@id='close-edit-host']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "SAVI Module Container",
+            "byType": "xpath",
+            "definition": "//div[contains(@class, 'savi-astro-moonphases-container')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "SAVI Module Play Simulation Button",
+            "byType": "xpath",
+            "definition": "//div[contains(@class, 'savi-astro-moonphases-container')]//button[@class='savi-astro-moonphases-play-simulation-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}
