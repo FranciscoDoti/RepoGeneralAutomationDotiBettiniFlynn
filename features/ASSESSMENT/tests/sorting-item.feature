@@ -1,4 +1,5 @@
-@Assessment @SortingItem @Smoke
+# @Assessment @SortingItem @Smoke
+@adu
 Feature: Verify Sorting raptor item
     Scenario: Verify Creating a Sorting Item and adding contexts
         Given I login to AMS as "all-permissions-author"
@@ -22,12 +23,17 @@ Feature: Verify Sorting raptor item
             | Third Token  | 3   |
             | Fourth Token | 3   |
             | Fifth Token  | 2   |
-        And I set the "Correct" feedback
-            | Hint Type     | Value   |
-            | Ungraded Text | Correct |
-        And I set the "Default" feedback
-            | Hint Type     | Value   |
-            | Ungraded Text | Default |
+        And I set the following feedback
+            | Context | Hint Type     | Value  |
+            | Correct | Ungraded Text | Correct|
+            | Default | Ungraded Text | Default|    
+        # And I set the "Correct" feedback
+        #     | Context | Hint Type     | Value  |
+        #     | Correct | Ungraded Text | Correct|
+        #     | Default | Ungraded Text | Default|
+        # And I set the "Default" feedback
+        #     | Hint Type     | Value   |
+        #     | Ungraded Text | Default |
         And I configure the following item details
             | Title               |
             | Sorting Raptor Item |

@@ -34,7 +34,27 @@ When(/^I set the \"([^\"]*)\" feedback$/, async function (tab, datatable) {
     }
 
 })
-Then(/^I check my Work for correct attempt$/,async function (datatable) {
+When('I set the following feedbacks wrt the contexts', async function (datatable) {
+    let i = 0;
+    while (i < datatable.rows().length) {
+        let item = datatable.hashes()[i];
+        switch (item['Context']) {
+            case 'Incorrect':
+                await pages.raptor.click('Add Context', 'incorrect');
+                break;
+            case 'Correct':
+                await pages.raptor.click(i === 0 ? 'Tab' : 'Add Context', 'correct');
+                break;
+            case 'Default':
+                await pages.raptor.click('Tab', 'default');
+                break;
+        }
+        await raptorlib.addHint(item['Hint Type'], item['Value']);
+        i++;
+    }
+
+})
+Then(/^I check my Work for correct attempt$/, async function (datatable) {
     await raptorlib.checkAnswerMode();
     await sortinglib.dragAndDropTokensToBins(datatable);
     await pages.raptor.click('Check Your Work Submit Button');

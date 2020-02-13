@@ -10,7 +10,7 @@
         {
             "name": "Add Bin_Token Button",
             "byType": "xpath",
-            "definition": "//a[text()='<ReplaceText>']",
+            "definition": "//div[@data-test-id='module-edit-container']//a[text()='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },
