@@ -22,7 +22,7 @@ Feature: Verify Sorting raptor item
             | Third Token  | 3   |
             | Fourth Token | 3   |
             | Fifth Token  | 2   |
-        And I set the following feedbacks wrt the contexts
+        And I set the following feedbacks with respect to the contexts
             | Context | Hint Type     | Value  |
             | Correct | Ungraded Text | Correct|
             | Default | Ungraded Text | Default|    

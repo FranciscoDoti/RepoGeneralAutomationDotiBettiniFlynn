@@ -13,12 +13,11 @@ When('I add tokens with the following token names', async function (datatable) {
 })
 
 When('I drag the following token into the following respetive bins', async function (datatable) {
-    await pages.canvasSorting.click('Canvas Tab', 'correct');
+    await pages.raptor.click('Tab', 'correct');
     await sortinglib.dragAndDropTokensToBins(datatable);
 })
-When('I set the following feedbacks wrt the contexts', async function (datatable) {
-    let i = 0;
-    while (i < datatable.rows().length) {
+When('I set the following feedbacks with respect to the contexts', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
         let item = datatable.hashes()[i];
         switch (item['Context']) {
             case 'Incorrect':
@@ -32,7 +31,6 @@ When('I set the following feedbacks wrt the contexts', async function (datatable
                 break;
         }
         await raptorlib.addHint(item['Hint Type'], item['Value']);
-        i++;
     }
 })
 Then(/^I check my Work for correct attempt$/, async function (datatable) {

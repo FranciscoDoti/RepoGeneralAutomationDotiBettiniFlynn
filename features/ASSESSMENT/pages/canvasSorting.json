@@ -36,13 +36,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Canvas Tab",
-            "byType": "xpath",
-            "definition": "//a[@data-test-id='<ReplaceText>-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Drag Token",
             "byType": "xpath",
             "definition": "//div[@class='sorting-bin-container']/..//span//span[text()='<ReplaceText>']",
