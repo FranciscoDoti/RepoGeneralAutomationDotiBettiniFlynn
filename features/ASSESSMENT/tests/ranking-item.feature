@@ -23,12 +23,10 @@ Feature: To create and configure a Ranking raptor item
             | Two   |
             | Three |
             | Four  |
-        And I add hints
-            | Module Type   | Value   |
-            | Ungraded Text | Correct |
-        And I set the "Default" Context
-            | Hint Type     | Value   |
-            | Ungraded Text | Default |
+        And I set the following feedbacks with respect to the contexts
+            | Context | Hint Type     | Value   |
+            | Correct | Ungraded Text | Correct |
+            | Default | Ungraded Text | Default |
         And I configure the following item details
             | Title                                |
             | NGA QA Ranking Item [release number] |

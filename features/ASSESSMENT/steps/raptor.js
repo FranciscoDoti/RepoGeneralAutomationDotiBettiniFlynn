@@ -203,3 +203,21 @@ When('I Verify the Ungraded Text in current context', async function (datatable)
         await pages.raptor.assertElementExists("Feedback Ungraded Text Check", item['Text']);
     }
 });
+
+When('I set the following feedbacks with respect to the contexts', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let item = datatable.hashes()[i];
+        switch (item['Context']) {
+            case 'Incorrect':
+                await pages.raptor.click('Add Context', 'incorrect');
+                break;
+            case 'Correct':
+                await pages.raptor.click(i === 0 ? 'Tab' : 'Add Context', 'correct');
+                break;
+            case 'Default':
+                await pages.raptor.click('Tab', 'default');
+                break;
+        }
+        await raptorlib.addHint(item['Hint Type'], item['Value']);
+    }
+});
