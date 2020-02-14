@@ -11,6 +11,7 @@ const relatedsetlib = require(`${process.cwd()}/features/ASSESSMENT/lib/relateds
 const rankinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/ranking.js`);
 const canvasSAVIlib = require(`${process.cwd()}/features/ASSESSMENT/lib/canvasSAVI.js`);
 const labelinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/labeling.js`);
+const sortinglib = require(`${process.cwd()}/features/ASSESSMENT/lib/sorting.js`);
 const chemicalEquationlib = require(`${process.cwd()}/features/ASSESSMENT/lib/chemicalEquation.js`);
 
 module.exports = {
@@ -25,6 +26,7 @@ module.exports = {
     relatedsetlib,
     canvasSAVIlib,
     labelinglib,
+    sortinglib,
     gradingsettingslib,
     chemicalEquationlib,
     rankinglib
