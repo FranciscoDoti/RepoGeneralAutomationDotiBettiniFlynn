@@ -2,14 +2,8 @@
 Feature: To configure a multiple choice raptor item
 
   Scenario: User creates a new AMS multiple choice raptor item and configures it
-
     Given I login to AMS as "all-permissions-author"
     When I add the "Multiple Choice" module
-
-    And I configure the following item details
-      | Title                       |
-      | MultipleChoice Test MC Item |
-
     And I add list variables
       | Type   | Description | Name  | Value1 | Value2 | Value3 |
       | String | String      | trees | oak    | pine   | beech  |
@@ -18,7 +12,8 @@ Feature: To configure a multiple choice raptor item
       | Value       |
       | ???trees??? |
       | Trees       |
-
+    And I configure the following item details
+      | Title                       |
+      | MultipleChoice Test MC Item |
     And I set the number "1" as the correct answer
-
     Then The variable values are displayed as choices

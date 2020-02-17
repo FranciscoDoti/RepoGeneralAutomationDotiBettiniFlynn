@@ -6,8 +6,8 @@ const { hatchlinglib, raptorlib } = require(`${process.cwd()}/features/ASSESSMEN
 
 When(/^I set the number "(.*)" as the correct answer$/, async function (correctAnswer) {
   await pages.raptor.click('Tab', 'correct');
-  await pages.raptor.scrollElementIntoView('Answer Radio Button ' + correctAnswer);
-  await pages.raptor.click('Answer Radio Button ' + correctAnswer);
+  await pages.raptor.scrollElementIntoView('Tab', 'correct');
+  await pages.raptor.click('Answer Radio Button 1', correctAnswer);
 });
 
 Then('The variable values are displayed as choices', async function () {

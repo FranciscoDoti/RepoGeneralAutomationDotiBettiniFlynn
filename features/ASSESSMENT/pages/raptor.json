@@ -393,9 +393,9 @@
         {
             "name": "Answer Radio Button 1",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]//span[@class=' stix-font']",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']//div[@class='multichoice-column1'][<ReplaceText>]//label",
             "frame": "default",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },        {
             "=.=.=.=.=.=": "===========================================================================================",
             "=.COMMENT.=": "= HINT AREA                                                                                =",
