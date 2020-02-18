@@ -96,9 +96,33 @@ Then('The course landing page is loaded', async function () {
 
 Then(/^I am shown the modal indicating this is a late assignment with percentage "(.*)"$/, async function (latePenaltyPercentage) {
     await pages.sac.click('Oops Modal Ok Button');
-    let countItems =  await pages.sac.getAttributeValue('Items List', 'items', 'childElementCount');
-    for(let i=1; i<= countItems;  i++){
-        let strAux = "("+latePenaltyPercentage+")";
+    let countItems = await pages.sac.getAttributeValue('Items List', 'items', 'childElementCount');
+    for (let i = 1; i <= countItems; i++) {
+        let strAux = "(" + latePenaltyPercentage + ")";
         await pages.sac.assertText('Item Late label', i, 'Late ' + strAux);
+    }
+});
+
+When('I navigate to an assignment', async function () {
+    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
+    await pages.sac.click('Instructor Assessment Link', 'All Mods');
+});
+
+Then('I verify the question numbers', async function () {
+    let countItems = (await pages.sac.getWebElements('Question List')).length;
+    for (let i = 1; i <= countItems; i++) {
+        await pages.sac.click('Question Button',i);
+        await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
+        await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
+    }
+    for (let i = countItems-1; i >= 1; i--) {
+        await pages.sac.click('Left arrow Question Main Section');
+        await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
+        await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
+    }
+    for (let i = 2; i <= countItems; i++) {
+        await pages.sac.click('Right arrow Question Main Section');
+        await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
+        await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
     }
 });

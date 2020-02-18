@@ -106,6 +106,41 @@
             "specialInstr": "NA"
         },
         {
+            "name": "Question List",
+            "byType": "xpath",
+            "definition": "//ul[@id='question-nav']/li",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Header Question List Text",
+            "byType": "xpath",
+            "definition": "//div[@class='panel-label']//span[contains(text(),'Questions')]",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Left arrow Question Main Section",
+            "byType": "xpath",
+            "definition": "//div[@id='question-name']//button[@class='left']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Right arrow Question Main Section",
+            "byType": "xpath",
+            "definition": "//div[@id='question-name']//button[@class='right']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question Number Main Section",
+            "byType": "xpath",
+            "definition": "//div[@id='question-name']//h2[@data-test-id='nav-question-header']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
             "name": "View Solution Button",
             "byType": "xpath",
             "definition": "//button[@data-test-id='solution-modal-view-solution']",
