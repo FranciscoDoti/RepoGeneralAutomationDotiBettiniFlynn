@@ -435,6 +435,13 @@
             "definition": "//section[@id='secondary-content-area']",
             "frame": "default",
             "specialInstr": "focus"
+        },
+        {
+            "name": "Feedback Ungraded Text Check",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
