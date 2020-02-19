@@ -1,4 +1,4 @@
-@SAC @Smoke @LeftNav @Regression
+@SAC @Assessment @Smoke @LeftNav @Regression
 Feature: SAC UI left panel
 
   @QuestionList @QuestionTitles
