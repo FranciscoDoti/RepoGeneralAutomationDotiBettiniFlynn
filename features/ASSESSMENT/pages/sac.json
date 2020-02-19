@@ -120,16 +120,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Left arrow Question Main Section",
+            "name": "Arrow Question Main Section",
             "byType": "xpath",
-            "definition": "//div[@id='question-name']//button[@class='left']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Right arrow Question Main Section",
-            "byType": "xpath",
-            "definition": "//div[@id='question-name']//button[@class='right']",
+            "definition": "//div[@id='question-name']//button[@class='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },

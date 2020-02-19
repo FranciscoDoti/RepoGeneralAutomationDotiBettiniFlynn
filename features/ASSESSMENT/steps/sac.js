@@ -103,9 +103,9 @@ Then(/^I am shown the modal indicating this is a late assignment with percentage
     }
 });
 
-When('I navigate to an assignment', async function () {
-    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
-    await pages.sac.click('Instructor Assessment Link', 'All Mods');
+When('I navigate to an assignment', async function (datatable) {
+    await pages.sac.click('Course Link', datatable.hashes()[0].Course);
+    await pages.sac.click('Instructor Assessment Link', datatable.hashes()[0].Assessment);
 });
 
 Then('I verify the question numbers', async function () {
@@ -116,12 +116,12 @@ Then('I verify the question numbers', async function () {
         await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
     }
     for (let i = countItems-1; i >= 1; i--) {
-        await pages.sac.click('Left arrow Question Main Section');
+        await pages.sac.click('Arrow Question Main Section','left');
         await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
         await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
     }
     for (let i = 2; i <= countItems; i++) {
-        await pages.sac.click('Right arrow Question Main Section');
+        await pages.sac.click('Arrow Question Main Section','right');
         await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
         await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
     }
