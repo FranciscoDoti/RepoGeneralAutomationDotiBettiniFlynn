@@ -393,7 +393,7 @@
         {
             "name": "Answer Radio Button 1",
             "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']//div[@class='multichoice-column1'][<ReplaceText>]//label",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']//div[.='<ReplaceText>']//input",
             "frame": "default",
             "specialInstr": "focus"
         },        {
