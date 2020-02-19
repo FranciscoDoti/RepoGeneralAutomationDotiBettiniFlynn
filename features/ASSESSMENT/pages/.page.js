@@ -32,7 +32,7 @@ let pages = {
     canvasSorting: new PageObject('canvasSorting.json',stepsPath),
     taxonomy: new PageObject('taxonomy.json',stepsPath),
     relatedSet: new PageObject('relatedSet.json',stepsPath),
-    ranking: new PageObject('ranking.json',stepsPath)
+    ranking: new PageObject('canvasRanking.json',stepsPath)
 };
 
 module.exports ={
