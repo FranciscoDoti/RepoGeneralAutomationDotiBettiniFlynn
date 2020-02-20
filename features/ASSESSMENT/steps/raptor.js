@@ -191,6 +191,19 @@ When('I add hints', async function (datatable) {
         await raptorlib.addHint(hint['Module Type'], hint['Value']);
     }
 });
+
+When('I click on Check Your Work and Submit Answer', async function () {
+    await raptorlib.checkAnswerMode();
+    await raptorlib.submitAnswer();
+});
+
+When('I Verify the Ungraded Text in current context', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let item = datatable.hashes()[i];
+        await pages.raptor.assertElementExists("Feedback Ungraded Text Check", item['Text']);
+    }
+});
+
 When('I set the following feedbacks with respect to the contexts', async function (datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         let item = datatable.hashes()[i];
@@ -207,4 +220,4 @@ When('I set the following feedbacks with respect to the contexts', async functio
         }
         await raptorlib.addHint(item['Hint Type'], item['Value']);
     }
-})
+});

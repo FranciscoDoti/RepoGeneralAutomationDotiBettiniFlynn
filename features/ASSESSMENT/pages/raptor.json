@@ -389,14 +389,7 @@
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span/label/div/span",
             "frame": "default",
             "specialInstr": "NA"
-        },
-        {
-            "name": "Answer Radio Button 1",
-            "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']//div[.='<ReplaceText>']//input",
-            "frame": "default",
-            "specialInstr": "focus"
-        },        {
+        },{
             "=.=.=.=.=.=": "===========================================================================================",
             "=.COMMENT.=": "= HINT AREA                                                                                =",
             ".=.=.=.=.=.": "==========================================================================================="
@@ -435,6 +428,13 @@
             "definition": "//section[@id='secondary-content-area']",
             "frame": "default",
             "specialInstr": "focus"
+        },
+        {
+            "name": "Feedback Ungraded Text Check",
+            "byType": "xpath",
+            "definition": "//section[@id='secondary-content-area']//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }

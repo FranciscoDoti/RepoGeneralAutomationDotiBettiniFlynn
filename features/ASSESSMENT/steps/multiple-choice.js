@@ -4,12 +4,6 @@ const { log } = require(`${process.cwd()}/app/logger`);
 const { sleep } = require(`${process.cwd()}/app/driver`);
 const { hatchlinglib, raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
-When(/^I set the number "(.*)" as the correct answer$/, async function (correctAnswer) {
-  await pages.raptor.click('Tab', 'correct');
-  await pages.raptor.scrollElementIntoView('Tab', 'correct');
-  await pages.raptor.click('Answer Radio Button 1', correctAnswer);
-});
-
 Then('The variable values are displayed as choices', async function () {
   await pages.raptor.click('Cycle Variables Button');
   await raptorlib.saveItem();
