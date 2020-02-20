@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Adding collaborator to Read & Practice template 
 
     @mediaproducer-delete-courseTemplate
@@ -22,12 +22,11 @@ Feature: Adding collaborator to Read & Practice template
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LCRP1550612138614     |
           | LC1551301608988       |
         
         And I click on back to course
-    
         And I add "media_editor_1" as collaborator to "Read & Practice Template"
         And I sign out of Achieve
         And I login to Achieve-CW as "media_editor_1"
@@ -39,39 +38,22 @@ Feature: Adding collaborator to Read & Practice template
 
         And I add activities to "Content Library"
           | activities            |
-          | Confidence Intervals  |
-          | 17b. Psychopathology  |
+          | LCRP1550612138614     |
+          | LC1551301608988       |
 
         And I add the activities in both "Course Plan" and "E-book"
             | activities            | tab               |
-            | 17b. Psychopathology  | CoursePlanEbook   |
-            | Confidence Intervals  | CoursePlanEbook   |
+            | LCRP1550612138614     | CoursePlanEbook   | 
+            | LC1551301608988       | CoursePlanEbook   |
         
         And I close the popup message
 
-        And I create folder and add the activities to the folder in "Course Plan" in Production Tool
+        And I create folder and add the activities to the folder in "Course Plan" in Production Tool 
             | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  17b. Psychopathology  | Reading 1 folder      |
-            | Reading 2    | Confidence Intervals   | Reading 2 folder      |
+            | Reading 1    | LCRP1550612138614      | Reading 1 folder      |
+            | Reading 2    | LC1551301608988        | Reading 2 folder      |
 
         Then I verify that activities are added to the folder 
             | Folder        | activities             |
-            | Reading 1     | 17b. Psychopathology   |
-            | Reading 2     | Confidence Intervals   |
-
-        
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
+            | Reading 1     | LCRP1550612138614      |
+            | Reading 2     | LC1551301608988        |

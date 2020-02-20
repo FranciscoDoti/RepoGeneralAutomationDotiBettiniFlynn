@@ -1,0 +1,38 @@
+{
+    "webElements": [{
+            "name": "Canvas Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-action-bar']/div[.='Multiple Choice']/../div[.='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Choice Value Textbox",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Done Button",
+            "byType": "xpath",
+            "definition": "//button[@id='close-edit-host']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Choice Button",
+            "byType": "css",
+            "definition": "a[data-test-id='add-item-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Answer Radio Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[.='<ReplaceText>']//input",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "webElements": [
+        {
+            "name": "Subject Selector",
+            "byType": "xpath",
+            "definition": "//div[@class='left-panel-tree']//div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Title Selector",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'tree-view_children')]/div[text()='<ReplaceText>' and @class='info']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Chapter Selector",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'tree-view_item')]/div[text()='<ReplaceText>' and @class='node']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Section Selector",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'tree-view_children')]//div[text()='<ReplaceText>' and @class='node']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Topic Action Button",
+            "byType": "xpath",
+            "definition": "//div[@class='left-panel-actions']/button[text()='<ReplaceText>' and @class='cdl-button txtbutton']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Topic Form Input",
+            "byType": "xpath",
+            "definition": "//div[@class='new-taxonomy-form']//label[text()='<ReplaceText>']/../input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Topic Form Button",
+            "byType": "xpath",
+            "definition": "//div[@class='new-taxonomy-form']//button[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Topic Selector",
+            "byType": "xpath",
+            "definition": "//div[contains(@class,'tree-view_children')]//div[text()='<ReplaceText>' and contains(@class, 'info')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

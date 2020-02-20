@@ -10,8 +10,7 @@ const populateInput = async function (selector, value, WebElementObject) {
   switch (type) {
     case 'radio':
       if (value.toLowerCase() === 'click') {
-        log.debug('Clicking radio button');
-        await selector.click();
+        await populateClick(selector, value, WebElementObject);
       } else {
         log.debug('By passing radio button click');
       }
@@ -206,11 +205,11 @@ const populateClick = async function (selector, value, WebElementObject) {
       await selector.click();
     } catch (ex) {
       if (ex.name == 'ElementNotInteractableError') {
-        log.debug(`Error name ${ex.name}`);
+        log.info(`Error name ${ex.name}.`);
+        log.info(`Trying again using mouse actions to perform click.`);
         const actions = getDriver().actions({ bridge: true });
         await actions.click(selector).perform();
       } else {
-        log.debug(`Error name ${ex.name}`);
         assert.fail(`Exception occurred and caught. ${ex}`);
       }
     };

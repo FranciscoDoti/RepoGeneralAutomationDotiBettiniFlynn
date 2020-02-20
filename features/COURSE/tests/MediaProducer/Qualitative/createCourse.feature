@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Create course Qualitative 
 
     @mediaproducer-delete-courseTemplate

@@ -89,8 +89,29 @@
             "byType": "xpath",
             "definition": "//a[.='logout']",
             "frame": "default",
+            "specialInstr": "NA"           
+        },
+        {
+            "name": "email",
+            "byType": "id",
+            "definition": "email",
+            "frame": "default",
             "specialInstr": "NA"
-           
+        },
+        {
+            "name": "loginForm",
+            "byType": "id",
+            "definition": "loginForm",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "signinButton",
+            "byType": "id",
+            "definition": "signinButton",
+            "frame": "default",
+            "specialInstr": "NA"
         }
+
     ]
 }

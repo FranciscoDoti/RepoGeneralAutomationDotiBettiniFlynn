@@ -22,7 +22,7 @@ Feature: Verify that paid Access code Creater is able to generate, Check and upd
 
         And I add activities to "Content Library"
           | activities            |
-          | GLOSSARY              |
+          | Glossary              |
           | LCRP1550612138614     |
           | LC1551301608988       |
           

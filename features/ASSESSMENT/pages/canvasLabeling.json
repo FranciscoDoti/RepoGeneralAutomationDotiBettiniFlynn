@@ -1,0 +1,60 @@
+{
+    "webElements": [
+        {
+            "name": "Canvas Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-action-bar']/div[text()='Labeling']/../div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Token Value Textbox",
+            "byType": "xpath",
+            "definition": "//div[@class='sl-list-edit']/div[<ReplaceText>]//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Done Button",
+            "byType": "xpath",
+            "definition": "//button[@id='close-edit-host']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Bin_Token Button",
+            "byType": "xpath",
+            "definition": "//a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Bin Checkbox",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='item-label-<ReplaceText>']//div//span[text()='Hold multiple tokens']/input",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Canvas Tab",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='<ReplaceText>-context']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Drag Token",
+            "byType": "xpath",
+            "definition": "//div[text()='Answer Bank']/..//div[@class='token-outline']//span//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Drop Token",
+            "byType": "xpath",
+            "definition": "(//div[@class=' labeling-dropzone'])[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

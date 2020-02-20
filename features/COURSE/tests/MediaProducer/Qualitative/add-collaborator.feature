@@ -1,4 +1,4 @@
-@Course @Smoke @Skip
+@Course @Smoke @flaky
 Feature: Adding collaborator to Qualitative template 
 
     @mediaproducer-delete-courseTemplate

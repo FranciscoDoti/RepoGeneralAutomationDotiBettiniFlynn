@@ -1,0 +1,53 @@
+{
+    "webElements": [
+        {
+            "name": "Canvas Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-action-bar']/div[text()='Sorting']/../div[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Add Bin_Token Button",
+            "byType": "xpath",
+            "definition": "//div[@data-test-id='module-edit-container']//a[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Bin Value Textbox",
+            "byType": "xpath",
+            "definition": "//a[text()='Add a Bin']/..//div[@data-test-id='item-label-<ReplaceText>']//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Token Value Textbox",
+            "byType": "xpath",
+            "definition": "//a[text()='Add a Token']/..//div[@data-test-id='item-label-<ReplaceText>']//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
+        },
+        {
+            "name": "Done Button",
+            "byType": "xpath",
+            "definition": "//button[@id='close-edit-host']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Drag Token",
+            "byType": "xpath",
+            "definition": "//div[@class='sorting-bin-container']/..//span//span[text()='<ReplaceText>']",
+            "frame": "default",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Drop Token",
+            "byType": "xpath",
+            "definition": "(//div[@class='sorting-bin-container']//div//div[contains(@class,'sorting-dropzone')])[<ReplaceText>]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

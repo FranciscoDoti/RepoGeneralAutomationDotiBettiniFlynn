@@ -57,11 +57,26 @@
             "specialInstr": "NA"
         },
         {
+            "name": "enforceEndpoints",
+            "byType": "css",
+            "definition": "input[data-test-id='edit-panel-checkbox-interval_endpoints']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "vectorEnforceForm",
             "byType": "css",
             "definition": ".greq-input[data-test-id='edit-panel-checkbox-vector_form']",
             "frame": "default",
             "specialInstr": "NA"
+        }, 
+        {
+            "name": "createVariableContext",
+            "byType": "css",
+            "definition": ".cdl-button[data-test-id ='generic-feedback-button']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
+        
     ]
 }

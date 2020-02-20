@@ -201,10 +201,10 @@ After('@instructor-masterSection-delete-course', async function () {
     await pages.home.click('signIn')
     let course = this.data.get('course');
     await pages.courseList.click('courseTemplate', 'MASTER SECTIONS')
-    await pages.courseList.assertElementExists('courseMenu', course);
-    let elements = await pages.courseList.getWebElements('courseMenu', course)
+    await pages.courseList.assertElementExists('masterMenu', course);
+    let elements = await pages.courseList.getWebElements('masterMenu', course)
     for (let i = 0; i < elements.length; i++) {
-        await pages.courseList.click('courseMenu', course);
+        await pages.courseList.click('masterMenu', course);
         await pages.masterSection.click('deleteMS');
         await pages.masterSection.assertElementExists('confirmDeleteMS')
         await pages.masterSection.click('confirmDeleteMS')   

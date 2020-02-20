@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @flaky
 Feature: Verify that MediaProducer is able to add activities in Ebook
 
     @mediaproducer-delete-courseTemplate
