@@ -1,6 +1,5 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const { log } = require(`${process.cwd()}/app/logger`);
 
 When('I add the following choices in Multiple Choice module', async function (datatable) {
   //canvas
@@ -19,13 +18,19 @@ When('I add the following choices in Multiple Choice module', async function (da
 Then('I verify whether clicking on Cycle Variables updates the choices', async function (datatable) {
   for (let data of datatable.hashes()) {
     for(let counter = 0; counter <= 10; counter++){
-      if(await pages.canvasMC.checkElementExists('Choice RadioButton', data.Choice)){
+      if(await pages.canvasMC.checkElementExists('Answer Radio Button', data.Choice)){
         break;
       }
       await pages.raptor.click('Cycle Variables Button');
       if(counter == 10){
-        await pages.canvasMC.assertElementExists('Choice RadioButton', data.Choice);
+        await pages.canvasMC.assertElementExists('Answer Radio Button', data.Choice);
       }
     }
   }
+});
+
+When(/^I set the number "(.*)" as the correct answer$/, async function (answer) {
+  await pages.raptor.click('Tab', 'correct');
+  await pages.raptor.scrollElementIntoView('Tab', 'correct');
+  await pages.canvasMC.click('Answer Radio Button', answer);
 });
