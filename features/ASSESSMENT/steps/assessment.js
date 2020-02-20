@@ -21,19 +21,30 @@ Given('I create a new assessment with its necessary details', async function (da
 
 });
 
-
-When (/^I add "(.*)" random questions to the assessment$/, async function(numberOfQuestionsToAdd){
+When("I add the raptor item created before", async function () {
   await pages.assignmentTab.click("Question Bank Tab");
-  for (let i = 1; i<= numberOfQuestionsToAdd; i++){
-    await pages.questionBank.click("Item Checkbox", i );
+  await pages.assignmentTab.populate('Filter Input', this.data.get("SmokeTestItem", "id"));
+  await pages.questionBank.click("Item Checkbox", 1);
+  await pages.questionBank.click("Add Button");
+  await pages.assignmentTab.click("AssignmentTab");
+});
+
+Then(/^I verify that the item with title "(.*)" has been added to the assessment$/ , async function(title){
+  await pages.assignmentTab.assertText('Items In Assessment Title' , 1, title);
+});
+
+When(/^I add "(.*)" random questions to the assessment$/, async function (numberOfQuestionsToAdd) {
+  await pages.assignmentTab.click("Question Bank Tab");
+  for (let i = 1; i <= numberOfQuestionsToAdd; i++) {
+    await pages.questionBank.click("Item Checkbox", i);
   }
   await pages.questionBank.click("Add Button");
   await pages.assignmentTab.click("AssignmentTab");
 });
 
-When("I create a new grading Setting", async function(){
+When("I create a new grading Setting", async function () {
   await pages.assignmentTab.click("Grading Settings");
-    await pages.gradingSettings.click("Create New Button");
+  await pages.gradingSettings.click("Create New Button");
 });
 
 When(/^added it to new assessment as pool$/, async function () {
@@ -61,6 +72,11 @@ When(/^added it to new assessment as pool$/, async function () {
   }
   await pages.assignmentTab.click('AssignmentTab');
 });
+
+When("I open the Student Preview Menu", async function() { 
+  await pages.assignmentTab.click('Student Preview');
+});
+
 
 Then('I see the item present in the assessment', async function () {
   await pages.hatchlingItemFrame.click('AE Course Page Tabs', 'link-to-assignment');
