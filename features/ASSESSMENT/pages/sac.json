@@ -99,37 +99,28 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Question Button",
+            "name": "Question Number",
             "byType": "xpath",
-            "definition": "//ul[@id='question-nav']/li[<ReplaceText>]/div/button",
+            "definition": "//span[.='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },
         {
-            "name": "Question List",
+            "name": "Side Nav Title",
             "byType": "xpath",
-            "definition": "//ul[@id='question-nav']/li",
+            "definition": "//span[@data-test-id='side-nav-button-title' and .='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
-        },
-        {
-            "name": "Header Question List Text",
+        },{
+            "name": "Nav Question Header Title",
             "byType": "xpath",
-            "definition": "//div[@class='panel-label']//span[contains(text(),'Questions')]",
+            "definition": "//h2[@data-test-id='nav-question-header' and .='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
-        },
-        {
-            "name": "Arrow Question Main Section",
+        },{
+            "name": "Nav Question Header Arrow",
             "byType": "xpath",
             "definition": "//div[@id='question-name']//button[@class='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question Number Main Section",
-            "byType": "xpath",
-            "definition": "//div[@id='question-name']//h2[@data-test-id='nav-question-header']",
             "frame": "questionList",
             "specialInstr": "NA"
         },

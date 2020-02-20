@@ -103,26 +103,23 @@ Then(/^I am shown the modal indicating this is a late assignment with percentage
     }
 });
 
-When('I navigate to an assignment', async function (datatable) {
-    await pages.sac.click('Course Link', datatable.hashes()[0].Course);
-    await pages.sac.click('Instructor Assessment Link', datatable.hashes()[0].Assessment);
+When('I navigate to {string} assessment link in {string} course', async function (AssessmentName, CourseName) {
+    await pages.sac.click('Course Link', CourseName);
+    await pages.sac.click('Instructor Assessment Link', AssessmentName);
 });
 
-Then('I verify the question numbers', async function () {
-    let countItems = (await pages.sac.getWebElements('Question List')).length;
-    for (let i = 1; i <= countItems; i++) {
-        await pages.sac.click('Question Button',i);
-        await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
-        await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
-    }
-    for (let i = countItems-1; i >= 1; i--) {
-        await pages.sac.click('Arrow Question Main Section','left');
-        await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
-        await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
-    }
-    for (let i = 2; i <= countItems; i++) {
-        await pages.sac.click('Arrow Question Main Section','right');
-        await pages.sac.assertText('Header Question List Text', i + ' of ' + countItems + ' Questions');
-        await pages.sac.assertText('Question Number Main Section', 'Question ' + i + ' of ' + countItems);
-    }
+When('I click on {string} in the side nav', async function (question) {
+    await pages.sac.click('Question Number', question);
+});
+
+Then('I should see {string} as the side nav title', async function (title) {
+    await pages.sac.assertElementExists('Side Nav Title', title);
+});
+
+Then('I should see {string} as the nav question header', async function (title) {
+    await pages.sac.assertElementExists('Nav Question Header Title', title);
+});
+
+When('I click on {string} arrow in the nav question header', async function (arrow) {
+    await pages.sac.click('Nav Question Header Arrow', arrow);
 });
