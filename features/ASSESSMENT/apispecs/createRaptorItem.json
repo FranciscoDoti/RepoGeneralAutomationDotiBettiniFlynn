@@ -1,0 +1,10 @@
+{
+    "method": "POST",
+    "endpoint": "v1/author/item",
+    "json": true,
+    "request": {
+        "owner_author__id": 1668,
+        "taxonomy_id": 1,
+        "waitForAlgolia": true
+    }
+}
