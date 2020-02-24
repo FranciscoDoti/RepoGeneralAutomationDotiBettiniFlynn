@@ -96,9 +96,30 @@ Then('The course landing page is loaded', async function () {
 
 Then(/^I am shown the modal indicating this is a late assignment with percentage "(.*)"$/, async function (latePenaltyPercentage) {
     await pages.sac.click('Oops Modal Ok Button');
-    let countItems =  await pages.sac.getAttributeValue('Items List', 'items', 'childElementCount');
-    for(let i=1; i<= countItems;  i++){
-        let strAux = "("+latePenaltyPercentage+")";
+    let countItems = await pages.sac.getAttributeValue('Items List', 'items', 'childElementCount');
+    for (let i = 1; i <= countItems; i++) {
+        let strAux = "(" + latePenaltyPercentage + ")";
         await pages.sac.assertText('Item Late label', i, 'Late ' + strAux);
     }
+});
+
+When('I navigate to {string} assessment link in {string} course', async function (AssessmentName, CourseName) {
+    await pages.sac.click('Course Link', CourseName);
+    await pages.sac.click('Instructor Assessment Link', AssessmentName);
+});
+
+When('I click on {string} in the side nav', async function (question) {
+    await pages.sac.click('Question Number', question);
+});
+
+Then('I should see {string} as the side nav title', async function (title) {
+    await pages.sac.assertElementExists('Side Nav Title', title);
+});
+
+Then('I should see {string} as the nav question header', async function (title) {
+    await pages.sac.assertElementExists('Nav Question Header Title', title);
+});
+
+When('I click on {string} arrow in the nav question header', async function (arrow) {
+    await pages.sac.click('Nav Question Header Arrow', arrow);
 });
