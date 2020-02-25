@@ -1,4 +1,5 @@
-@Assessment @MultipleChoice @Smoke
+# @Assessment @MultipleChoice @Smoke
+@adu
 Feature: To configure a multiple choice raptor item
 
   Scenario: User creates a new AMS multiple choice raptor item and configures it
