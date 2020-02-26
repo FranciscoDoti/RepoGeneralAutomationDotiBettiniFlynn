@@ -5,7 +5,9 @@ const { expect } = require('chai');
 const { log } = require(`${process.cwd()}/app/logger`);
 
 When('I navigate to the activity guide demo master link', async function () {
-  // this sets the cookie, allowing the rest of the links to work
+  // this sets the prod cookie, allowing any prod links within the guides to work
+  await pages.saplingLearning.click('saviLoaderProdLink');
+  await visitURL('https://www.saplinglearning.com/ibiscms/course/view.php?id=77826');
   await pages.saplingLearning.click('activityGuideDemoLink');
   console.log('loading demo');
 });
