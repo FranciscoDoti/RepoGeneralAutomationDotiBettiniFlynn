@@ -54,7 +54,7 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
-            "name": "activityGuideProdLink",
+            "name": "saviLoaderProdLink",
             "byType": "xpath",
             "definition": "//*[@id='module-11718914']/a",
             "frame": "default",
