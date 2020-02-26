@@ -5,7 +5,7 @@
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "test": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/fixed/multiple-choice.feature -f json:reports/cucumber_report.json",
-    "start": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/activity-guides.feature -f json:reports/cucumber_report.json"
+    "start": "node ./node_modules/cucumber/bin/cucumber-js features/SAVI/tests/activity-guides.feature --env prod --stack prod json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
