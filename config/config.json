@@ -1,5 +1,5 @@
 {
-    "environment": "int",
+    "environment": "prod",
     "mode": "local",
     "browser": "chrome",
     "headless": false,

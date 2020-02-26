@@ -53,6 +53,12 @@
             "definition": "//*[@id='module-11621915']/a",
             "frame": "default",
             "specialInstr": "NA"
+        }, {
+            "name": "activityGuideProdLink",
+            "byType": "xpath",
+            "definition": "//*[@id='module-11718914']/a",
+            "frame": "default",
+            "specialInstr": "NA"
         }
     ]
 }
