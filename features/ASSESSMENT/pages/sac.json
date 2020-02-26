@@ -99,9 +99,28 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Question Button",
+            "name": "Question Number",
             "byType": "xpath",
-            "definition": "//ul[@id='question-nav']/li[<ReplaceText>]/div/button",
+            "definition": "//span[.='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Side Nav Title",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='side-nav-button-title' and .='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },{
+            "name": "Nav Question Header Title",
+            "byType": "xpath",
+            "definition": "//h2[@data-test-id='nav-question-header' and .='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },{
+            "name": "Nav Question Header Arrow",
+            "byType": "xpath",
+            "definition": "//div[@id='question-name']//button[@class='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },
