@@ -34,7 +34,7 @@ RestObject.prototype.send = async function () {
 RestObject.prototype.setRequestBody = async function (body) {
     log.info(`Adding body ${JSON.stringify(body)} to request`);
     Object.assign(this.request.body, body);
-};
+    this.request.body};
 
 RestObject.prototype.setRequestOptions = async function (requestType, app) {
     let uri = await _.get(uris, [app, config.stack]);
