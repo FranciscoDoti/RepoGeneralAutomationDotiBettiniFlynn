@@ -3,13 +3,12 @@ Feature: Verify side menu in Read & Practice Course
 
     @mediaproducer-delete-course
     @mediaproducer-delete-courseTemplate
-    @instructor-delete-course
     Scenario: Verify that the side menu exist in a Read & Practice Course
     
         Given I login to Achieve-CW as "media_producer_2"
         When I create template with following data 
             | courseType  | productModel      | courseName              | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice Template| macmillan calculus     | E2E 301      | 9781464199498  | draft         |                      
+            | Template    | Read & Practice   | Read & Practice Template|                        | E2E 301      | 9781464199498  | draft         |                      
 
 
          And I close the popup message                      
@@ -25,23 +24,4 @@ Feature: Verify side menu in Read & Practice Course
             | courseName            | courseCode           |
             | Read & Practice Course | E2E 301              |
 
-        And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
-
-        And I assign "instructor_1" to the "Read & Practice Course" course
-        
-        And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_1"
-
-        When I activate "Read & Practice Course" course with following data 
-            | field             | value                        |
-            | courseName        | Read & Practice Course       |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
-
-        And I create a single course from "Read & Practice Template" with following data
-            | field             | value                        |
-            | courseName        | Read & Practice Single Course   |
-            | courseCode        |  E2E 301                     |
-
-        And I verify that the side menu exist in "Read & Practice Single Course"
+        And I verify that the side menu exist in "Read & Practice Course"

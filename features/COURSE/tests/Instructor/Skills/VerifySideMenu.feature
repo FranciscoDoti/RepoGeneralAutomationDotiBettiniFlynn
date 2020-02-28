@@ -22,25 +22,6 @@ Feature: Verify side menu in Skills Course
 
         And I copy course from the "Skills Template" template with the following data
             | courseName            | courseCode           |
-            | Auto Skills Course    | E2E 301              |
+            | Skills Course    | E2E 301              |
 
-        And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
-
-        And I assign "instructor_1" to the "Auto Skills Course" course
-        
-        And I sign out of Achieve
-        And I login to Achieve-CW as "instructor_1"
-
-        When I activate "Auto Skills Course" course with following data 
-            | field             | value                        |
-            | courseName        | Auto Skills Course           |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
-
-        And I create a single course from "Skills Template" with following data
-            | field             | value                        |
-            | courseName        | Skills Single Course         |
-            | courseCode        |  E2E 301                     |
-
-        And I verify that the side menu exist in "Skills Single Course"
+        And I verify that the side menu exist in "Skills Course"
