@@ -26,7 +26,7 @@ Feature: Instructor creates writing activity in Skills Production Template
           | activities            |
           | Glossary              |
           | LCRP1550612138614     |
-          | LC1551301608988       |
+          | LCRP1551301608988     |
           
         And I click on back to course
         And I click on home button to return to coursepage
@@ -52,7 +52,7 @@ Feature: Instructor creates writing activity in Skills Production Template
         And I add the activities in courseplanner to "Skills Production Course" course
             | activity                                                          |
             |   Glossary                                                        |                                                        
-            | LC1551301608988                                                   |
+            | LCRP1551301608988                                                 |
             | LCRP1550612138614                                                 |
 
         And I create "Skills Assignment" writing activity as an instructor

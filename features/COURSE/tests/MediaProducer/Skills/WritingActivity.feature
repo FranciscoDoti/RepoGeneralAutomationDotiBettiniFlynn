@@ -1,4 +1,4 @@
-Feature: Instructor creates writing activity in Skills Production Template
+Feature: Media Producer creates writing activity in Skills Production Template
 
     @mediaproducer-delete-courseTemplate
     Scenario: Verify that Instructor is able to create Custom Writing activity 
