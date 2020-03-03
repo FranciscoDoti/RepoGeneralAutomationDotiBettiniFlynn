@@ -16,7 +16,7 @@ When(/^I am on the AMS page and search for the item id "(.*)"$/, async function 
 });
 
 When(/^I click Cycle Variables$/, async function () {
-  await pages.raptorAms.click('cycleVariables');
+  await pages.raptorAlgos.click('cycleVariables');
 });
 
 Then('I verify the algos are rendered in the text module', async function () {
