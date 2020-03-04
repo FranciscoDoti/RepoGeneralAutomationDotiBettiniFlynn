@@ -32,7 +32,8 @@ let pages = {
     canvasSorting: new PageObject('canvasSorting.json',stepsPath),
     taxonomy: new PageObject('taxonomy.json',stepsPath),
     relatedSet: new PageObject('relatedSet.json',stepsPath),
-    ranking: new PageObject('canvasRanking.json',stepsPath)
+    ranking: new PageObject('canvasRanking.json',stepsPath),
+    sacResponse: new PageObject('sacResponseTab.json',stepsPath)
 };
 
 module.exports ={

@@ -1,6 +1,30 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
+const loginpages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
+const { sleep } = require(`${process.cwd()}/app/driver`);
 let scores = [];
+
+When(/^I \"([^\"]*)\" for the \"([^\"]*)\"$/, async function (resetattempts, student) {
+    await sleep(2000); //WaitForElement is not working here
+    await pages.sacResponse.click('AE Course Page Tabs', 'link-to-responses');
+    let i = 0;
+    try {
+        if (await pages.sacResponse.getText('Performance overview tab') === 'Attempts per Question') {
+            i = 1;
+            await pages.sacResponse.click('Response tab buttons', 'Edit');
+            await pages.sacResponse.click('Student name in responses tab', student);
+            await pages.sacResponse.click('Response tab buttons', resetattempts);
+            await pages.sacResponse.click('Response tab buttons', 'Save');
+            await loginpages.login.click('User Menu Button');
+            await loginpages.login.click('Logout Menu');
+
+        }
+    } catch (err) { }
+    if (i === 0) {
+        await loginpages.login.click('User Menu Button');
+        await loginpages.login.click('Logout Menu');
+    }
+});
 
 When('I navigate to assignment preview', async function () {
     await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
@@ -123,3 +147,47 @@ Then('I should see {string} as the nav question header', async function (title) 
 When('I click on {string} arrow in the nav question header', async function (arrow) {
     await pages.sac.click('Nav Question Header Arrow', arrow);
 });
+Then(/^I verify that new assignment should have an overall assignment score of \"([^\"]*)\"$/, async function (overallScore) {
+    await pages.sac.assertElementExists('OverAll Assessment Score', overallScore);
+})
+When(/^I provide the incorrect \"([^\"]*)\" response to the \"([^\"]*)\"$/, async function (incorrectResponse, question) {
+    await pages.sac.click('Question Number', question);
+    await pages.sac.click('Question 1 Response', incorrectResponse);
+    await pages.sac.click('Check Answer Button');
+})
+Then(/^The Question grade should be \"([^\"]*)\" and Assignment grade should be \"([^\"]*)\"$/, async function (QuestionGrade, AssessmentGrade) {
+    await pages.sac.assertElementExists('Question 1 Score', QuestionGrade);
+    await pages.sac.assertElementExists('OverAll Assessment Score', AssessmentGrade);
+})
+When('I Give up on the Question 1', async function () {
+    await pages.sac.click('Give Up Button');
+    await pages.sac.click('Confirm Give Up Button');
+})
+When(/^I provide the correct response to the \"([^\"]*)\"$/, async function (question) {
+    await pages.sac.click('Question Number', question);
+    if (await pages.sac.getText('Check Answer Button') === 'Try Again') {
+        await pages.sac.click('Check Answer Button');
+    }
+    let questionText = await pages.sac.getText('Question 1 Content');
+    let factor = questionText.substring('Which of the following is the correct prime factorization of'.length).replace(/[?,\s]+/g, '');
+    switch (factor) {
+        case "540":
+            await pages.sac.click('Question 1 Response', '2 · 2 · 3 · 3 · 3 ·5');
+            break;
+        case "600":
+            await pages.sac.click('Question 1 Response', '2 · 2 · 2 · 3 · 5 ·5');
+            break;
+        case "900":
+            await pages.sac.click('Question 1 Response', '2 · 2 · 3 · 3 · 5 ·5');
+            break;
+        case "360":
+            await pages.sac.click('Question 1 Response', '2 · 2 · 2 · 3 · 3 ·5');
+            break;
+        case "240":
+            await pages.sac.click('Question 1 Response', '2 · 2 · 2 · 2 · 3 ·5');
+            break;
+        case 'Default':
+            break;
+    }
+    await pages.sac.click('Check Answer Button');
+})

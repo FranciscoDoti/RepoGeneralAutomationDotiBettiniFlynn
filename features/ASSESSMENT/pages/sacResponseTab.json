@@ -1,0 +1,39 @@
+{
+    "webElements": [
+        {
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "AE Course Page Tabs",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Performance overview tab",
+            "byType": "xpath",
+            "definition": "//ol[@class='stats-legend-container']//li[@class='spaced-third title']/h1",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Response tab buttons",
+            "byType": "xpath",
+            "definition": "//button[text()='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Student name in responses tab",
+            "byType": "xpath",
+            "definition": "//div[.='<ReplaceText>']//input",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }
+    ]
+}

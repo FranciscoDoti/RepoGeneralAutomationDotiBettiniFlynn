@@ -193,6 +193,34 @@
             "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and contains(@data-test-id,'late-penalty')]",
             "frame": "questionList",
             "specialInstr": "NA"
+        },
+        {
+            "name": "OverAll Assessment Score",
+            "byType": "xpath",
+            "definition": "//button[text()='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 1 Content",
+            "byType": "xpath",
+            "definition": "//article[@class='module-container']/..//span[contains(text(),'Which of the following is the correct prime factorization of')]",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 1 Response",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 1 Score",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-1-score']",
+            "frame": "questionList",
+            "specialInstr": "NA"
         }
     ]
 }
