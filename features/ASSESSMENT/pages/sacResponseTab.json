@@ -31,7 +31,7 @@
         {
             "name": "Student name in responses tab",
             "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']//input",
+            "definition": "//div[text()='<ReplaceText>']/..//input",
             "frame": "aeframe",
             "specialInstr": "NA"
         }
