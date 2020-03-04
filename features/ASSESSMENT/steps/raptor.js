@@ -73,7 +73,10 @@ Then('I verify item has been created with following details', async function (da
 });
 
 When('I configure the following item details', async function (datatable) {
-    await raptorlib.addItemDetails(datatable.hashes()[0]);
+    let item = datatable.hashes()[0];
+    await raptorlib.addItemDetails(item);
+    let itemId = await raptorlib.saveItem();
+    this.data.set(item.Title, "id", itemId);
 });
 
 When('I add list variables', async function (datatable) {
@@ -102,11 +105,12 @@ When('I add list variables', async function (datatable) {
 When('I add the following range algos', async function (datatable) {
     for (let i = 0; i < datatable.rows().length; i++) {
         await pages.raptor.click('addRangeAlgoButton');
+        await pages.raptor.populate('Range Algo Desc Field', i * 2 + 1, datatable.hashes()[i].Description);
         await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, '');
-        await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, datatable.hashes()[i].Name);
-        await pages.raptor.populate('rangeMinimumTextbox', i * 2 + 1, datatable.hashes()[i].Minimum);
-        await pages.raptor.populate('rangeMaximumTextbox', i * 2 + 1, datatable.hashes()[i].Maximum);
-        await pages.raptor.populate('rangeIncrementTextbox', i * 2 + 1, datatable.hashes()[i].Increment);
+        await pages.raptor.populate('rangeNameTextbox', i * 2 + 1, datatable.hashes()[i]['Variable Name']);
+        await pages.raptor.populate('rangeMinimumTextbox', i * 2 + 1, datatable.hashes()[i]['Minimum Value']);
+        await pages.raptor.populate('rangeMaximumTextbox', i * 2 + 1, datatable.hashes()[i]['Maxmimum Value']);
+        await pages.raptor.populate('rangeIncrementTextbox', i * 2 + 1, datatable.hashes()[i]['Increment Step']);
     }
 });
 
@@ -181,3 +185,39 @@ Then(/^I verify the feedbacks in the following tabs$/, async function (datatable
     }
 });
 
+When('I add hints', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let hint = datatable.hashes()[i];
+        await raptorlib.addHint(hint['Module Type'], hint['Value']);
+    }
+});
+
+When('I click on Check Your Work and Submit Answer', async function () {
+    await raptorlib.checkAnswerMode();
+    await raptorlib.submitAnswer();
+});
+
+When('I Verify the Ungraded Text in current context', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let item = datatable.hashes()[i];
+        await pages.raptor.assertElementExists("Feedback Ungraded Text Check", item['Text']);
+    }
+});
+
+When('I set the following feedbacks with respect to the contexts', async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let item = datatable.hashes()[i];
+        switch (item['Context']) {
+            case 'Incorrect':
+                await pages.raptor.click('Add Context', 'incorrect');
+                break;
+            case 'Correct':
+                await pages.raptor.click(i === 0 ? 'Tab' : 'Add Context', 'correct');
+                break;
+            case 'Default':
+                await pages.raptor.click('Tab', 'default');
+                break;
+        }
+        await raptorlib.addHint(item['Hint Type'], item['Value']);
+    }
+});

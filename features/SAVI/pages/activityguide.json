@@ -1,0 +1,25 @@
+{
+    "webElements": [
+        {
+            "name": "recipecard",
+            "byType": "className",
+            "definition": "recipecard",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "links",
+            "byType": "tagName",
+            "definition": "a",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "brokenLinkPage",
+            "byType": "xpath",
+            "definition": "//*[contains(text(), 'This XML file does not appear to have any style information associated with it.')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

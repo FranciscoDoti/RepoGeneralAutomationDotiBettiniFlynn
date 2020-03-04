@@ -138,12 +138,33 @@
             "byType": "xpath",
             "definition": "//a[text()= 'Question Bank']",
             "frame": "aeframe",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "Grading Settings",
             "byType": "xpath",
             "definition": "//a[text()='Grading Settings']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Student Preview",
+            "byType": "xpath",
+            "definition": "//button[text()='Student Preview']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },        
+        {
+            "name": "Filter Input",
+            "byType": "xpath",
+            "definition": "//input[@data-test-id='filter-input']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },        
+        {
+            "name": "Items In Assessment Title",
+            "byType": "xpath",
+            "definition": "//div[@id='items-table']/div[<ReplaceText>]//div[@class='tooltip-content truncate-on-overflow']",
             "frame": "aeframe",
             "specialInstr": "NA"
         }

@@ -1,4 +1,4 @@
-@Assessment @Smoke @DuplicateItemFeature
+@Assessment @AMS @Smoke @DuplicateItemFeature
 Feature: As a user, I want to duplicate an existing item
 
    @DuplicateItems

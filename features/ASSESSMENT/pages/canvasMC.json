@@ -28,7 +28,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Choice RadioButton",
+            "name": "Answer Radio Button",
             "byType": "xpath",
             "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[.='<ReplaceText>']//input",
             "frame": "default",
