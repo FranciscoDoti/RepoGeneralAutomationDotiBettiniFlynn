@@ -22,30 +22,30 @@
             "specialInstr": "NA"
         },
         {
-            "name": "listAlgosVariableName",
+            "name": "variableName1ListAlgos",
             "byType": "xpath",
             "definition": "//table[@class='table list-algo-table']/tbody/tr/td[4]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "listAlgosInput",
+            "name": "row1Column2ListAlgos",
             "byType": "xpath",
             "definition": "//table[@class='table list-algo-table']/tbody/tr/td[6]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "rowAlgosInput",
+            "name": "row2ListAlgos",
             "byType": "xpath",
-            "definition": "//table[@class='table list-algo-table']/tbody/tr[2]/td[5]",
+            "definition": "//table[@class='table list-algo-table']/tbody/tr[2]",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "rowAlgosDelete",
-            "byType": "css",
-            "definition": ".text-center.btn.btn-xs.btn-danger.glyphicon.glyphicon-trash",
+            "name": "row2ListAlgosDelete",
+            "byType": "xpath",
+            "definition": "//tr[2]//button[@class = 'text-center btn btn-xs btn-danger glyphicon glyphicon-trash']",
             "frame": "default",
             "specialInstr": "NA"
         }
