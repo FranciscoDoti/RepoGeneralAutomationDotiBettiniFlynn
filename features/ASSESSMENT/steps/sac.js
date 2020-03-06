@@ -12,19 +12,14 @@ When(/^I \"([^\"]*)\" for the \"([^\"]*)\"$/, async function (resetattempts, stu
         await pages.sacResponse.click('Action Bar Buttons', 'Add');
     }
     await pages.sacResponse.click('AE Course Page Tabs', 'link-to-responses');
-    try {
-        if (await pages.sacResponse.getText('Performance overview tab') === 'Attempts per Question') {
-            await pages.sacResponse.click('Response tab buttons', 'Edit');
-            await pages.sacResponse.click('Student name in responses tab', student);
-            await pages.sacResponse.click('Response tab buttons', resetattempts);
-            await pages.sacResponse.click('Response tab buttons', 'Save');
-        }
-    } catch (err) { }
-
-    finally {
-        await loginpages.login.click('User Menu Button');
-        await loginpages.login.click('Logout Menu');
+    if (await pages.sacResponse.checkElementExists('Performance overview tab')) {
+        await pages.sacResponse.click('Response tab buttons', 'Edit');
+        await pages.sacResponse.click('Student name in responses tab', student);
+        await pages.sacResponse.click('Response tab buttons', resetattempts);
+        await pages.sacResponse.click('Response tab buttons', 'Save');
     }
+    await loginpages.login.click('User Menu Button');
+    await loginpages.login.click('Logout Menu');
 });
 
 When('I navigate to assignment preview', async function () {
@@ -201,7 +196,19 @@ Then(/^The Question grade should have the following grade and Assignment grade s
     }
 })
 When(/^I \"([^\"]*)\" Question \"([^\"]*)\" from the assessment$/, async function (Action, questionNo) {
-    await pages.sacResponse.click('Question Checkbox', questionNo);
-    await pages.sacResponse.click('Action Bar Buttons', Action);
-    await pages.sacResponse.click('Confirm Remove Item Button');
+    let noOfQuestions = await pages.sacResponse.getText('AE Course Page Tabs Texts', 'link-to-assignment');
+    switch (noOfQuestions) {
+        case "4":
+            await pages.sacResponse.click('AE Course Page Tabs', 'link-to-customquestions');
+            await pages.sacResponse.click('Question Checkbox', 'Q5');
+            await pages.sacResponse.click('Action Bar Buttons', Action);
+            break;
+        case "5":
+            await pages.sacResponse.click('Question Checkbox', questionNo);
+            await pages.sacResponse.click('Action Bar Buttons', Action);
+            await pages.sacResponse.click('Confirm Remove Item Button');
+            break;
+        case 'Default':
+            break;
+    }
 })
