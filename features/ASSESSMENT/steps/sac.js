@@ -6,21 +6,22 @@ let scores = [];
 
 When(/^I \"([^\"]*)\" for the \"([^\"]*)\"$/, async function (resetattempts, student) {
     await sleep(2000); //WaitForElement is not working here
+    if (await pages.sacResponse.getText('AE Course Page Tabs Texts', 'link-to-assignment') === '4') {
+        await pages.sacResponse.click('AE Course Page Tabs', 'link-to-customquestions');
+        await pages.sacResponse.click('Question Checkbox', 'Q5');
+        await pages.sacResponse.click('Action Bar Buttons', 'Add');
+    }
     await pages.sacResponse.click('AE Course Page Tabs', 'link-to-responses');
-    let i = 0;
     try {
         if (await pages.sacResponse.getText('Performance overview tab') === 'Attempts per Question') {
-            i = 1;
             await pages.sacResponse.click('Response tab buttons', 'Edit');
             await pages.sacResponse.click('Student name in responses tab', student);
             await pages.sacResponse.click('Response tab buttons', resetattempts);
             await pages.sacResponse.click('Response tab buttons', 'Save');
-            await loginpages.login.click('User Menu Button');
-            await loginpages.login.click('Logout Menu');
-
         }
     } catch (err) { }
-    if (i === 0) {
+
+    finally {
         await loginpages.login.click('User Menu Button');
         await loginpages.login.click('Logout Menu');
     }
@@ -42,21 +43,6 @@ When('I navigate to assignment and go back to the course landing page', async fu
 Then('The assignment preview is opened in a new tab', async function () {
     await pages.sac.switchToTab('Sapling Learning Student Assignment Container');
     await pages.sac.assertElementExists('Preview Check Answer Button');
-});
-
-When(/^I reset attempts from student "(.*)"$/, async function (userType) {
-    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
-    await pages.sac.click('Instructor Assessment Link', 'All Mods');
-    await pages.sac.assertElementExists('Activity Editor Tab', 'Responses');
-    await pages.sac.click('Activity Editor Tab', 'Responses');
-    await pages.sac.click('Edit Student Attempts Button');
-
-    let user = this.users[userType];
-    let name = user.firstName + " " + user.lastName;
-    await pages.sac.click('Student Checkbox', name);
-
-    await pages.sac.click('Reset Student Attempts Button');
-    await pages.sac.click('Save Student Attempts Button');
 });
 
 When('I navigate to assessment', async function () {
@@ -190,4 +176,32 @@ When(/^I provide the correct response to the \"([^\"]*)\"$/, async function (que
             break;
     }
     await pages.sac.click('Check Answer Button');
+})
+When(/^I provide the following responses to the following questions$/, async function (datatable) {
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let val = datatable.hashes()[i];
+        await pages.sac.click('Question Number', val.Question);
+        await pages.sac.click('Question 1 Response', val.Response);
+        await pages.sac.click('Check Answer Button');
+        await pages.sac.click('Next Question Button');
+    }
+})
+Then(/^The Question grade should have the following grade and Assignment grade should be \"([^\"]*)\"$/, async function (AssessmentGrade, datatable) {
+    await pages.sac.assertElementExists('OverAll Assessment Score', AssessmentGrade);
+    for (let i = 0; i < datatable.rows().length; i++) {
+        let questionGrade = datatable.hashes()[i];
+        await pages.sac.assertElementExists('Question 1 Score', questionGrade['Question 1']);
+        await pages.sac.assertElementExists('Question 2 Score', questionGrade['Question 2']);
+        await pages.sac.assertElementExists('Question 3 Score', questionGrade['Question 3']);
+        await pages.sac.assertElementExists('Question 4 Score', questionGrade['Question 4']);
+        if (await pages.sac.getText('Side Nav Title Text') === '5 of 5 Questions') {
+            await pages.sac.assertElementExists('Question 5 Score', questionGrade['Question 5']);
+        }
+
+    }
+})
+When(/^I \"([^\"]*)\" Question \"([^\"]*)\" from the assessment$/, async function (Action, questionNo) {
+    await pages.sacResponse.click('Question Checkbox', questionNo);
+    await pages.sacResponse.click('Action Bar Buttons', Action);
+    await pages.sacResponse.click('Confirm Remove Item Button');
 })

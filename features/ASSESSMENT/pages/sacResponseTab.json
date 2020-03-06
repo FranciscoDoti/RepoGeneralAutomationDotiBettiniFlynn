@@ -15,6 +15,13 @@
             "specialInstr": "focus"
         },
         {
+            "name": "AE Course Page Tabs Texts",
+            "byType": "xpath",
+            "definition": "//a[@data-test-id='<ReplaceText>']/span",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        },
+        {
             "name": "Performance overview tab",
             "byType": "xpath",
             "definition": "//ol[@class='stats-legend-container']//li[@class='spaced-third title']/h1",
@@ -32,6 +39,27 @@
             "name": "Student name in responses tab",
             "byType": "xpath",
             "definition": "//div[text()='<ReplaceText>']/..//input",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question Checkbox",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']/../../../..//div[@class='ae-checkbox']",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Action Bar Buttons",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']/..",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        },
+        {
+            "name": "Confirm Remove Item Button",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='reset-modal-confirm-button']",
             "frame": "aeframe",
             "specialInstr": "NA"
         }

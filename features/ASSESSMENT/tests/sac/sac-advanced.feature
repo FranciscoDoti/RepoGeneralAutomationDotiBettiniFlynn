@@ -4,8 +4,8 @@ Feature: To configure an advanced test in SAC
   Scenario: Instructor removes previous responses from an assessment
 
     Given I login to IBISCMS as "raptor-instructor"
-    When I reset attempts from student "raptor-student"
-    Then I logout IBISCMS
+    When I navigate to "All Mods" assessment link in "Raptor Automation - Do Not Delete" course
+    And I "Reset Attempts" for the "Raptor Student"
 
   Scenario: Student completes an assessment
 
