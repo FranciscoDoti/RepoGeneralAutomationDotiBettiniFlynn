@@ -33,7 +33,7 @@ let pages = {
     taxonomy: new PageObject('taxonomy.json',stepsPath),
     relatedSet: new PageObject('relatedSet.json',stepsPath),
     ranking: new PageObject('canvasRanking.json',stepsPath),
-    sacResponse: new PageObject('sacResponseTab.json',stepsPath)
+    ActivityEditor: new PageObject('ActivityEditor.json',stepsPath)
 };
 
 module.exports ={
