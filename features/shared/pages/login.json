@@ -85,7 +85,7 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Logout Menu",
+            "name": "Logout",
             "byType": "xpath",
             "definition": "//a[.='logout']",
             "frame": "default",

@@ -1,0 +1,59 @@
+{
+    "webElements": [
+        {
+            "name": "aeframe",
+            "byType": "css",
+            "definition": "#aeIframe",
+            "frame": "default",
+            "specialInstr": "NA"
+        }, {
+            "name": "AE Tab",
+            "byType": "xpath",
+            "definition": "//div[@id='navigation-tabs']/a[contains(.,'<ReplaceText>')]",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        }, {
+            "name": "Attempts per Question",
+            "byType": "xpath",
+            "definition": "//h1[.='Attempts per Question']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, { 
+            "name": "Button",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "Student Name",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']/..//input",
+            "frame": "aeframe",
+            "specialInstr": "NA"
+        }, {
+            "name": "Question Checkbox",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']/../../../..//div[@class='ae-checkbox']",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        }, {
+            "name": "Question Added",
+            "byType": "xpath",
+            "definition": "//div[.='<ReplaceText>']/../../..//span[.='Added']",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        }, {
+            "name": "Question More",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']/../../../..//button[@data-test-id='edit-button']",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        }, {
+            "name": "More Menu Option",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        }
+    ]
+}

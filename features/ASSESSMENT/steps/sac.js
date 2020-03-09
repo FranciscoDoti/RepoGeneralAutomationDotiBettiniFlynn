@@ -4,23 +4,102 @@ const loginpages = require(`${process.cwd()}/features/shared/pages/.page.js`).pa
 const { sleep } = require(`${process.cwd()}/app/driver`);
 let scores = [];
 
-When(/^I \"([^\"]*)\" for the \"([^\"]*)\"$/, async function (resetattempts, student) {
-    await sleep(2000); //WaitForElement is not working here
-    if (await pages.sacResponse.getText('AE Course Page Tabs Texts', 'link-to-assignment') === '4') {
-        await pages.sacResponse.click('AE Course Page Tabs', 'link-to-customquestions');
-        await pages.sacResponse.click('Question Checkbox', 'Q5');
-        await pages.sacResponse.click('Action Bar Buttons', 'Add');
+When('I navigate to {string} assessment link in {string} course', async function (AssessmentName, CourseName) {
+    await pages.sac.click('Course Link', CourseName);
+    await pages.sac.click('Instructor Assessment Link', AssessmentName);
+});
+
+When('I click on {string} in the side nav', async function (question) {
+    await pages.sac.click('Question Number', question);
+});
+
+Then('I should see {string} as the side nav title', async function (title) {
+    await pages.sac.assertElementExists('Side Nav Title', title);
+});
+
+Then('I should see {string} as the nav question header', async function (title) {
+    await pages.sac.assertElementExists('Nav Question Header Title', title);
+});
+
+When('I click on {string} arrow in the nav question header', async function (arrow) {
+    await pages.sac.click('Nav Question Header Arrow', arrow);
+});
+
+Then('The overall assignment score should be {string}', async function (score) {
+    await pages.sac.assertElementExists('OverAll Assessment Score', score);
+});
+
+Then('The questions should have the following grades', async function (datatable) {
+    for (let data of datatable.hashes()) {
+        await pages.sac.assertText('Question Score', data['Question'], data['Grade']);
     }
-    await pages.sacResponse.click('AE Course Page Tabs', 'link-to-responses');
-    if (await pages.sacResponse.checkElementExists('Performance overview tab')) {
-        await pages.sacResponse.click('Response tab buttons', 'Edit');
-        await pages.sacResponse.click('Student name in responses tab', student);
-        await pages.sacResponse.click('Response tab buttons', resetattempts);
-        await pages.sacResponse.click('Response tab buttons', 'Save');
+});
+
+When('I provide the following responses', async function (datatable) {
+    for (let data of datatable.hashes()) {
+        await pages.sac.click('Question Number', data['Question']);
+        
+        switch (data['Module Type']) {
+            case 'Multiple Choice':
+                await pages.sac.click('Question MC Response', data['Response']);
+                break;
+        
+            default:
+                break;
+        }
+        
+        if(data['Check Answer'] === 'Yes'){
+            await pages.sac.click('Check Answer Button');
+        }
+    }
+});
+
+When('I give up on {string}', async function (question) {
+    await pages.sac.click('Question Number', question);
+    await pages.sac.click('Give Up Button');
+    await pages.sac.click('Confirm Give Up Button');
+});
+
+When('I reset attempts for student {string}', async function (student) {
+    await pages.ActivityEditor.waitForElementVisibility('AE Tab', 'Responses');
+    await pages.ActivityEditor.click('AE Tab', 'Responses');
+    if (await pages.ActivityEditor.checkElementExists('Attempts per Question')) {
+        await pages.ActivityEditor.click('Button', 'Edit');
+        await pages.ActivityEditor.click('Student Name', student);
+        await pages.ActivityEditor.click('Button', 'Reset Attempts');
+        await pages.ActivityEditor.click('Button', 'Save');
     }
     await loginpages.login.click('User Menu Button');
-    await loginpages.login.click('Logout Menu');
+    await loginpages.login.click('Logout');
 });
+
+When('I remove the following questions from the assessment', async function (datatable) {
+    await pages.ActivityEditor.waitForElementVisibility('AE Tab', 'Responses');
+    for (let data of datatable.hashes()) {
+        await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
+        if (await pages.ActivityEditor.checkElementExists('Question Added', data['Question'])) {
+            await pages.ActivityEditor.click('Question More', data['Question']);
+            await pages.ActivityEditor.click('More Menu Option', 'Remove From Assessment');
+            await pages.ActivityEditor.click('Button', 'Remove Item');
+        }
+    }
+});
+
+When('I add the following questions to the assessment', async function (datatable) {
+    await pages.ActivityEditor.waitForElementVisibility('AE Tab', 'Responses');
+    for (let data of datatable.hashes()) {
+        await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
+        if (!(await pages.ActivityEditor.checkElementExists('Question Added', data['Question']))) {
+            await pages.ActivityEditor.click('Question More', data['Question']);
+            await pages.ActivityEditor.click('More Menu Option', 'Add to Assessment');
+        }
+    }
+});
+
+
+
+
+
 
 When('I navigate to assignment preview', async function () {
     await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
@@ -108,42 +187,9 @@ Then(/^I am shown the modal indicating this is a late assignment with percentage
     }
 });
 
-When('I navigate to {string} assessment link in {string} course', async function (AssessmentName, CourseName) {
-    await pages.sac.click('Course Link', CourseName);
-    await pages.sac.click('Instructor Assessment Link', AssessmentName);
-});
 
-When('I click on {string} in the side nav', async function (question) {
-    await pages.sac.click('Question Number', question);
-});
 
-Then('I should see {string} as the side nav title', async function (title) {
-    await pages.sac.assertElementExists('Side Nav Title', title);
-});
 
-Then('I should see {string} as the nav question header', async function (title) {
-    await pages.sac.assertElementExists('Nav Question Header Title', title);
-});
-
-When('I click on {string} arrow in the nav question header', async function (arrow) {
-    await pages.sac.click('Nav Question Header Arrow', arrow);
-});
-Then(/^I verify that new assignment should have an overall assignment score of \"([^\"]*)\"$/, async function (overallScore) {
-    await pages.sac.assertElementExists('OverAll Assessment Score', overallScore);
-})
-When(/^I provide the incorrect \"([^\"]*)\" response to the \"([^\"]*)\"$/, async function (incorrectResponse, question) {
-    await pages.sac.click('Question Number', question);
-    await pages.sac.click('Question 1 Response', incorrectResponse);
-    await pages.sac.click('Check Answer Button');
-})
-Then(/^The Question grade should be \"([^\"]*)\" and Assignment grade should be \"([^\"]*)\"$/, async function (QuestionGrade, AssessmentGrade) {
-    await pages.sac.assertElementExists('Question 1 Score', QuestionGrade);
-    await pages.sac.assertElementExists('OverAll Assessment Score', AssessmentGrade);
-})
-When('I Give up on the Question 1', async function () {
-    await pages.sac.click('Give Up Button');
-    await pages.sac.click('Confirm Give Up Button');
-})
 When(/^I provide the correct response to the \"([^\"]*)\"$/, async function (question) {
     await pages.sac.click('Question Number', question);
     if (await pages.sac.getText('Check Answer Button') === 'Try Again') {
@@ -172,15 +218,7 @@ When(/^I provide the correct response to the \"([^\"]*)\"$/, async function (que
     }
     await pages.sac.click('Check Answer Button');
 })
-When(/^I provide the following responses to the following questions$/, async function (datatable) {
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let val = datatable.hashes()[i];
-        await pages.sac.click('Question Number', val.Question);
-        await pages.sac.click('Question 1 Response', val.Response);
-        await pages.sac.click('Check Answer Button');
-        await pages.sac.click('Next Question Button');
-    }
-})
+
 Then(/^The Question grade should have the following grade and Assignment grade should be \"([^\"]*)\"$/, async function (AssessmentGrade, datatable) {
     await pages.sac.assertElementExists('OverAll Assessment Score', AssessmentGrade);
     for (let i = 0; i < datatable.rows().length; i++) {
@@ -194,21 +232,4 @@ Then(/^The Question grade should have the following grade and Assignment grade s
         }
 
     }
-})
-When(/^I \"([^\"]*)\" Question \"([^\"]*)\" from the assessment$/, async function (Action, questionNo) {
-    let noOfQuestions = await pages.sacResponse.getText('AE Course Page Tabs Texts', 'link-to-assignment');
-    switch (noOfQuestions) {
-        case "4":
-            await pages.sacResponse.click('AE Course Page Tabs', 'link-to-customquestions');
-            await pages.sacResponse.click('Question Checkbox', 'Q5');
-            await pages.sacResponse.click('Action Bar Buttons', Action);
-            break;
-        case "5":
-            await pages.sacResponse.click('Question Checkbox', questionNo);
-            await pages.sacResponse.click('Action Bar Buttons', Action);
-            await pages.sacResponse.click('Confirm Remove Item Button');
-            break;
-        case 'Default':
-            break;
-    }
-})
+});
