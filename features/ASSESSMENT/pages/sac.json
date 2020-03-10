@@ -1,6 +1,5 @@
 {
-    "webElements": [
-        {
+    "webElements": [{
             "name": "aeframe",
             "byType": "css",
             "definition": "#aeIframe",
@@ -97,11 +96,50 @@
             "definition": "//button[@data-test-id='check-answer-button']",
             "frame": "questionList",
             "specialInstr": "NA"
+        },{
+            "name": "Question Number",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },{
+            "name": "Question Score",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']/../../../div[@class='right']/div[contains(@class, 'score')]",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },{
+            "name": "Question MC Response",
+            "byType": "xpath",
+            "definition": "//span[.='<ReplaceText>']/input[@type='radio']",
+            "frame": "questionList",
+            "specialInstr": "NA"
         },
         {
-            "name": "Question Button",
+            "name": "Side Nav Title",
             "byType": "xpath",
-            "definition": "//ul[@id='question-nav']/li[<ReplaceText>]/div/button",
+            "definition": "//span[@data-test-id='side-nav-button-title' and .='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Side Nav Title Text",
+            "byType": "xpath",
+            "definition": "//span[@data-test-id='side-nav-button-title']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Nav Question Header Title",
+            "byType": "xpath",
+            "definition": "//h2[@data-test-id='nav-question-header' and .='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Nav Question Header Arrow",
+            "byType": "xpath",
+            "definition": "//div[@id='question-name']//button[@class='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },
@@ -172,6 +210,69 @@
             "name": "Item Late Penalty Percentage",
             "byType": "xpath",
             "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and contains(@data-test-id,'late-penalty')]",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "OverAll Assessment Score",
+            "byType": "xpath",
+            "definition": "//button[text()='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 1 Content",
+            "byType": "xpath",
+            "definition": "//article[@class='module-container']/..//span[contains(text(),'Which of the following is the correct prime factorization of')]",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 1 Response",
+            "byType": "xpath",
+            "definition": "//span[text()='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 1 Score",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-1-score']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 2 Score",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-2-score']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 3 Score",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-3-score']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 4 Score",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-4-score']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Question 5 Score",
+            "byType": "xpath",
+            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-5-score']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Next Question Button",
+            "byType": "xpath",
+            "definition": "//button[@data-test-id='solution-modal-next-item']",
             "frame": "questionList",
             "specialInstr": "NA"
         }
