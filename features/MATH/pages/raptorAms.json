@@ -253,13 +253,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "cycleVariables",
-            "byType": "id",
-            "definition": "regenerate-algos",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "staticTextfield",
             "byType": "css",
             "definition": "div[data-module-type='static_textfield']",
