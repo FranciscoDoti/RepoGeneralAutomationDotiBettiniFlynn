@@ -5,7 +5,7 @@ Feature: To configure an advanced test in SAC
 
     Given I login to IBISCMS as "raptor-instructor"
     When I navigate to "All Mods" assessment link in "Raptor Automation - Do Not Delete" course
-    And I "Reset Attempts" for the "Raptor Student"
+    And I reset attempts for student "Raptor Student"
 
   Scenario: Student completes an assessment
 
