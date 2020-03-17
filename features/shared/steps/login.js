@@ -105,7 +105,7 @@ Given(/^I login to Savi Verification as "(.*)"/, async function (userType) {
 
 When('I logout IBISCMS', async function () {
   await pages.login.click('User Menu Button');
-  await pages.login.click('Logout Menu');
+  await pages.login.click('Logout');
 });
 
 module.exports = {
