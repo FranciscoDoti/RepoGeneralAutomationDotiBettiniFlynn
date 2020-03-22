@@ -38,17 +38,17 @@ Then('The questions should have the following grades', async function (datatable
 When('I provide the following responses', async function (datatable) {
     for (let data of datatable.hashes()) {
         await pages.sac.click('Question Number', data['Question']);
-        
+
         switch (data['Module Type']) {
             case 'Multiple Choice':
                 await pages.sac.click('Question MC Response', data['Response']);
                 break;
-        
+
             default:
                 break;
         }
-        
-        if(data['Check Answer'] === 'Yes'){
+
+        if (data['Check Answer'] === 'Yes') {
             await pages.sac.click('Check Answer Button');
         }
     }
@@ -61,6 +61,7 @@ When('I give up on {string}', async function (question) {
 });
 
 When('I reset attempts for student {string}', async function (student) {
+    await sleep(2000);
     await pages.ActivityEditor.click('AE Tab', 'Responses');
     if (await pages.ActivityEditor.checkElementExists('Attempts per Question')) {
         await pages.ActivityEditor.click('Button', 'Edit');
@@ -73,7 +74,7 @@ When('I reset attempts for student {string}', async function (student) {
 });
 
 When('I remove the following questions from the assessment', async function (datatable) {
-    await pages.ActivityEditor.waitForElementVisibility('AE Tab', 'Responses');
+    await sleep(2000);
     for (let data of datatable.hashes()) {
         await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
         if (await pages.ActivityEditor.checkElementExists('Question Added', data['Question'])) {
@@ -85,7 +86,7 @@ When('I remove the following questions from the assessment', async function (dat
 });
 
 When('I add the following questions to the assessment', async function (datatable) {
-    await pages.ActivityEditor.waitForElementVisibility('AE Tab', 'Responses');
+    await sleep(2000);
     for (let data of datatable.hashes()) {
         await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
         if (!(await pages.ActivityEditor.checkElementExists('Question Added', data['Question']))) {
@@ -94,11 +95,6 @@ When('I add the following questions to the assessment', async function (datatabl
         }
     }
 });
-
-
-
-
-
 
 When('I navigate to assignment preview', async function () {
     await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
@@ -216,19 +212,4 @@ When(/^I provide the correct response to the \"([^\"]*)\"$/, async function (que
             break;
     }
     await pages.sac.click('Check Answer Button');
-})
-
-Then(/^The Question grade should have the following grade and Assignment grade should be \"([^\"]*)\"$/, async function (AssessmentGrade, datatable) {
-    await pages.sac.assertElementExists('OverAll Assessment Score', AssessmentGrade);
-    for (let i = 0; i < datatable.rows().length; i++) {
-        let questionGrade = datatable.hashes()[i];
-        await pages.sac.assertElementExists('Question 1 Score', questionGrade['Question 1']);
-        await pages.sac.assertElementExists('Question 2 Score', questionGrade['Question 2']);
-        await pages.sac.assertElementExists('Question 3 Score', questionGrade['Question 3']);
-        await pages.sac.assertElementExists('Question 4 Score', questionGrade['Question 4']);
-        if (await pages.sac.getText('Side Nav Title Text') === '5 of 5 Questions') {
-            await pages.sac.assertElementExists('Question 5 Score', questionGrade['Question 5']);
-        }
-
-    }
 });

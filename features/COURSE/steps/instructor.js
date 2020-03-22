@@ -354,4 +354,17 @@ When(/^I add the activities by searching in browse and adding it to courseplanne
       await pages.home.click('closeAlert');
     }
   }
+})
+When(/^I verify that the side menu exist in "(.*)"$/, async function(courseName){
+  await pages.coursePage.click('tab', 'COURSES')
+  await pages.createCourse.assertElementExists('courseCard', courseName)
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.coursePage.assertElementExists('navigation','My Course');
+  await pages.coursePage.assertElementExists('navigation','Browse');
+  await pages.coursePage.assertElementExists('navigation','Gradebook');
+  await pages.coursePage.assertElementExists('navigation','People');
+  if(courseName != 'Read & Practice Course'){
+    await pages.coursePage.assertElementExists('navigation','Reports');
+    await pages.coursePage.assertElementExists('navigation','E-book');
+  }
 });

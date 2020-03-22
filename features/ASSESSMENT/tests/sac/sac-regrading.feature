@@ -1,4 +1,4 @@
-@SAC @Assessment @Smoke @Score @Regression @WIP
+@SAC @Assessment @Smoke @Score @Regression
 Feature: Validate the SAC Regrading functionality
 
     Background: Reset Student's Attempts

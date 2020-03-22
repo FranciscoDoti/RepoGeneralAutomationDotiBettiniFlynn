@@ -123,13 +123,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Side Nav Title Text",
-            "byType": "xpath",
-            "definition": "//span[@data-test-id='side-nav-button-title']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Nav Question Header Title",
             "byType": "xpath",
             "definition": "//h2[@data-test-id='nav-question-header' and .='<ReplaceText>']",
@@ -231,48 +224,6 @@
             "name": "Question 1 Response",
             "byType": "xpath",
             "definition": "//span[text()='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question 1 Score",
-            "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-1-score']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question 2 Score",
-            "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-2-score']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question 3 Score",
-            "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-3-score']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question 4 Score",
-            "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-4-score']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question 5 Score",
-            "byType": "xpath",
-            "definition": "//div[text()='<ReplaceText>']//self::div[@data-test-id='side-nav-item-5-score']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Next Question Button",
-            "byType": "xpath",
-            "definition": "//button[@data-test-id='solution-modal-next-item']",
             "frame": "questionList",
             "specialInstr": "NA"
         }

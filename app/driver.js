@@ -93,7 +93,7 @@ const buildDriver = function() {
       driver.usingServer('http://localhost:4444/wd/hub/')
       break;
     case "hub":
-      driver.usingServer('https://dev-qa-hub.mldev.cloud/wd/hub')
+      driver.usingServer('https://dev-qa-zalenium.mldev.cloud/wd/hub')
   }
   return driver.build();
 };
