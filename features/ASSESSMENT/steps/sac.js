@@ -109,6 +109,21 @@ When('I navigate to assignment and go back to the course landing page', async fu
     await pages.sac.click('Breadcrumb', 'Raptor Automation');
 });
 
+When('I click on Save Answer', async function () {
+    await pages.sac.click('Save Answer');
+});
+
+When('I Submit All Questions', async function () {
+    await pages.sac.click('Submit All Questions');
+    await pages.sac.click('Submit Final Answers');
+});
+
+
+When(/^I verify that no score is displayed for the question number "(.*)"$/, async function (questionNumber) {
+    await pages.sac.assertElementDoesNotExist('Answer Score', questionNumber);
+});
+
+
 Then('The assignment preview is opened in a new tab', async function () {
     await pages.sac.switchToTab('Sapling Learning Student Assignment Container');
     await pages.sac.assertElementExists('Preview Check Answer Button');

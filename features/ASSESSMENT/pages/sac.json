@@ -226,6 +226,27 @@
             "definition": "//span[text()='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
+        },
+        {
+            "name": "Save Answer",
+            "byType": "xpath",
+            "definition": "//button[text()='Save Answer']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Submit All Questions",
+            "byType": "xpath",
+            "definition": "//button[text()='Submit All Questions']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Submit Final Answers",
+            "byType": "xpath",
+            "definition": "//button[text()='submit final answers']",
+            "frame": "questionList",
+            "specialInstr": "NA"
         }
     ]
 }
