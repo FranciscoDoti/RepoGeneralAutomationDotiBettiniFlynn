@@ -85,13 +85,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Sample Assessment Question Radio Button",
-            "byType": "xpath",
-            "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div[<ReplaceText>]/span",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Check Answer Button",
             "byType": "xpath",
             "definition": "//button[@data-test-id='check-answer-button']",
@@ -113,9 +106,9 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Question MC Response",
+            "name": "Multiple Choice Response Label",
             "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']/input[@type='radio']",
+            "definition": "//label[@class='sl-list-label']//span[.='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },
@@ -141,13 +134,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "View Solution Button",
-            "byType": "xpath",
-            "definition": "//button[@data-test-id='solution-modal-view-solution']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Give Up Button",
             "byType": "xpath",
             "definition": "//span[@data-test-id='giveup-button-text']",
@@ -158,13 +144,6 @@
             "name": "Confirm Give Up Button",
             "byType": "xpath",
             "definition": "//button[@data-test-id='give-up-modal-give-up']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Answer Score",
-            "byType": "xpath",
-            "definition": "//div[@data-test-id='side-nav-item-<ReplaceText>-score']",
             "frame": "questionList",
             "specialInstr": "NA"
         },

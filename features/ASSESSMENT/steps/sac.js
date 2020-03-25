@@ -41,7 +41,7 @@ When('I provide the following responses', async function (datatable) {
 
         switch (data['Module Type']) {
             case 'Multiple Choice':
-                await pages.sac.click('Question MC Response', data['Response']);
+                await pages.sac.click('Multiple Choice Response Label', data['Response']);
                 break;
 
             default:
@@ -138,61 +138,6 @@ Then('The assignment preview is opened in a new tab', async function () {
     await pages.sac.assertElementExists('Preview Check Answer Button');
 });
 
-When('I navigate to assessment', async function () {
-    await pages.sac.click('Course Link', 'Raptor Automation - Do Not Delete');
-    await pages.sac.click('Student Assessment Link');
-});
-
-When('I answer questions', async function (datatable) {
-    for (let i = 0; i < datatable.rows().length; i++) {
-        await pages.sac.click('Question Button', datatable.hashes()[i].Question);
-        switch (datatable.hashes()[i].Type) {
-            case "MC":
-                let correct = false;
-                let option = 1;
-                let score = 100;
-                // In this loop I select and check every answer from the first one to the last one
-                while (!correct) {
-                    await pages.sac.click('Sample Assessment Question Radio Button', option);
-                    await pages.sac.click('Check Answer Button');
-                    let buttonText = await pages.sac.getText('Check Answer Button');
-                    // This commented loop is to wait the button to be ready to click so I know if the answer was correct or incorrect
-                    while (buttonText == "Please Wait") {
-                        buttonText = await pages.sac.getText('Check Answer Button');
-                    }
-                    if (buttonText == 'Try Again') { //Wrong answer
-                        score -= 5;
-                        await pages.sac.click('Check Answer Button');
-                    } else {
-                        correct = true;
-                    }
-                    option++;
-                }
-                await pages.sac.click('View Solution Button');
-                scores[i] = score + "%";
-                break;
-            case "DD":
-                await pages.sac.click('Check Answer Button');
-                let buttonText = await pages.sac.getText('Check Answer Button');
-                // This commented loop is to wait for the server response and then I can click the Give Up button
-                while (buttonText == "Please Wait") {
-                    buttonText = await pages.sac.getText('Check Answer Button');
-                }
-                await pages.sac.click('Give Up Button');
-                await pages.sac.click('Confirm Give Up Button');
-                scores[i] = "0%";
-                break;
-        }
-    }
-
-});
-
-Then('I verify grades for answers', async function () {
-    for (let i = 0; i < scores.length; i++) {
-        await pages.sac.assertText('Answer Score', i + 1, scores[i]);
-    }
-});
-
 Then('The course landing page is loaded', async function () {
     await pages.sac.assertElementExists('Student Assessment Link');
 });
@@ -205,9 +150,6 @@ Then(/^I am shown the modal indicating this is a late assignment with percentage
         await pages.sac.assertText('Item Late label', i, 'Late ' + strAux);
     }
 });
-
-
-
 
 When(/^I provide the correct response to the \"([^\"]*)\"$/, async function (question) {
     await pages.sac.click('Question Number', question);
