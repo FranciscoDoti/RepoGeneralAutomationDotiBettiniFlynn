@@ -102,9 +102,9 @@
             "frame": "questionList",
             "specialInstr": "NA"
         },{
-            "name": "Question MC Response",
+            "name": "Multiple Choice Response Label",
             "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']/input[@type='radio']",
+            "definition": "//label[@class='sl-list-label']//span[.='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },
