@@ -41,7 +41,7 @@ When('I provide the following responses', async function (datatable) {
 
         switch (data['Module Type']) {
             case 'Multiple Choice':
-                await pages.sac.click('Question MC Response', data['Response']);
+                await pages.sac.click('Multiple Choice Response Label', data['Response']);
                 break;
 
             default:
