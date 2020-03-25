@@ -6,8 +6,6 @@ Feature: Validate the functionality of SAC Grading Matrix using HW Policy
         When I navigate to "SacAutomationHW" assessment link in "Raptor Automation - Do Not Delete" course
         And I reset attempts for student "Raptor Student"
 
-    #TODO: CHECK AS WELL THE OVERALL SCORE
-
     @HWPolicy @Incorrect
     Scenario: Single module question - Incorrect, 1st attempt (HW)
         Given I login to IBISCMS as "raptor-student"
@@ -49,5 +47,3 @@ Feature: Validate the functionality of SAC Grading Matrix using HW Policy
         And The questions should have the following grades
             | Question   | Grade |
             | 1 Question | 95%   |
-
-

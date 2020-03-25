@@ -29,6 +29,3 @@ Feature: Validate the functionality of SAC Grading Matrix using Test policy
         And The questions should have the following grades
             | Question   | Grade |
             | 1 Question | 100%  |
-#TODO: CHECK AS WELL THE OVERALL SCORE
-
-
