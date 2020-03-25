@@ -82,11 +82,17 @@
             "definition": "//button[@data-test-id='assignment-preview-button']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },{
+            "name": "Close Modal",
+            "byType": "xpath",
+            "definition": "//button[@id='close-modal-x']",
+            "frame": "questionList",
+            "specialInstr": "NA"
         },
         {
-            "name": "Check Answer Button",
+            "name": "Action Button",
             "byType": "xpath",
-            "definition": "//button[@data-test-id='check-answer-button']",
+            "definition": "//div[@class='check-bar-actions']//button[.='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },{
@@ -141,13 +147,6 @@
             "byType": "xpath",
             "definition": "//button[@data-test-id='give-up-modal-give-up']",
             "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Preview Check Answer Button",
-            "byType": "xpath",
-            "definition": "//button[@data-test-id='check-answer-button']",
-            "frame": "default",
             "specialInstr": "NA"
         },
         {
