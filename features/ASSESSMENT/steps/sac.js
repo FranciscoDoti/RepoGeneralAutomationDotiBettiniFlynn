@@ -54,6 +54,15 @@ When('I provide the following responses', async function (datatable) {
     }
 });
 
+When('I click on Try Again', async function () {
+    await pages.sac.click('Try Again');
+});
+
+When('I click on View Solution', async function(){
+    await pages.sac.click('View Solution');
+});
+
+
 When('I give up on {string}', async function (question) {
     await pages.sac.click('Question Number', question);
     await pages.sac.click('Give Up Button');

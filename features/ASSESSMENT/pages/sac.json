@@ -1,5 +1,6 @@
 {
-    "webElements": [{
+    "webElements": [
+        {
             "name": "aeframe",
             "byType": "css",
             "definition": "#aeIframe",
@@ -96,19 +97,22 @@
             "definition": "//button[@data-test-id='check-answer-button']",
             "frame": "questionList",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "Question Number",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "Question Score",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']/../../../div[@class='right']/div[contains(@class, 'score')]",
             "frame": "questionList",
             "specialInstr": "NA"
-        },{
+        },
+        {
             "name": "Question MC Response",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']/input[@type='radio']",
@@ -245,6 +249,20 @@
             "name": "Submit Final Answers",
             "byType": "xpath",
             "definition": "//button[text()='submit final answers']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Try Again",
+            "byType": "xpath",
+            "definition": "//button[text()='Try Again']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "View Solution",
+            "byType": "xpath",
+            "definition": "//button[text()='View Solution']",
             "frame": "questionList",
             "specialInstr": "NA"
         }
