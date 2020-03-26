@@ -13,7 +13,7 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "^80.0.1",
+    "chromedriver": "latest",
     "csvtojson": "latest",
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "latest",

@@ -2,9 +2,11 @@ const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pag
 
 const createHatchlingEasyItem = async function (moduleType) {
   await pages.ams.click('Add Item', 'Easy');
+  await pages.ams.assertElementExists('Hatchling Item Option', moduleType);
   await pages.ams.click('Hatchling Item Option', moduleType);
   await pages.hatchlingItem.assertText('Dialog Title', `${moduleType} Question`);
-}
+};
+
 const populateQuestion = async function (question, assessmentType) {
   let code = Date.now();
   QuestionTitle = question['Question Title'] + " " + code;

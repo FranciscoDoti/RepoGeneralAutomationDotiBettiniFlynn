@@ -83,11 +83,24 @@
             "definition": "//button[@data-test-id='assignment-preview-button']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        },{
+            "name": "Close Modal",
+            "byType": "xpath",
+            "definition": "//button[@id='close-modal-x']",
+            "frame": "questionList",
+            "specialInstr": "NA"
         },
         {
-            "name": "Check Answer Button",
+            "name": "Modal Button",
             "byType": "xpath",
-            "definition": "//button[@data-test-id='check-answer-button']",
+            "definition": "//div[@class='modal-actions']//button[.='<ReplaceText>']",
+            "frame": "questionList",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Action Button",
+            "byType": "xpath",
+            "definition": "//header[@id='check-bar']//button[.='<ReplaceText>']",
             "frame": "questionList",
             "specialInstr": "NA"
         },
@@ -148,13 +161,6 @@
             "specialInstr": "NA"
         },
         {
-            "name": "Preview Check Answer Button",
-            "byType": "xpath",
-            "definition": "//button[@data-test-id='check-answer-button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
             "name": "Breadcrumb",
             "byType": "xpath",
             "definition": "//span[.='<ReplaceText>']/..",
@@ -207,41 +213,6 @@
             "name": "Question 1 Response",
             "byType": "xpath",
             "definition": "//span[text()='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Save Answer",
-            "byType": "xpath",
-            "definition": "//button[text()='Save Answer']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Submit All Questions",
-            "byType": "xpath",
-            "definition": "//button[text()='Submit All Questions']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Submit Final Answers",
-            "byType": "xpath",
-            "definition": "//button[text()='submit final answers']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Try Again",
-            "byType": "xpath",
-            "definition": "//button[text()='Try Again']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "View Solution",
-            "byType": "xpath",
-            "definition": "//button[text()='View Solution']",
             "frame": "questionList",
             "specialInstr": "NA"
         }

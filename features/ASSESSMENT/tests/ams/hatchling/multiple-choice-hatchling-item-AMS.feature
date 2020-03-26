@@ -1,7 +1,7 @@
 @Assessment @Smoke
 Feature: Create a MC Hatchling Item from AMS
 
-    @CreateMCHatchling @workinprogress
+    @CreateMCHatchling @IncompleteTest
     Scenario: Verify that user able to create MC Hatchling Item through AMS
         Given I login to AMS as "all-permissions-author"
         When I add "Multiple Choice" hatchling item with following details on "AMS"

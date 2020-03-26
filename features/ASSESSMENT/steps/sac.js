@@ -39,6 +39,12 @@ When('I provide the following responses', async function (datatable) {
     for (let data of datatable.hashes()) {
         await pages.sac.click('Question Number', data['Question']);
 
+        if (await pages.sac.checkElementExists('Action Button', 'Try Again')) {
+            await pages.sac.click('Action Button', 'Try Again');
+        } else if(await pages.sac.checkElementExists('Action Button', 'Resume')){
+            await pages.sac.click('Action Button', 'Resume');
+        }
+
         switch (data['Module Type']) {
             case 'Multiple Choice':
                 await pages.sac.click('Multiple Choice Response Label', data['Response']);
@@ -49,19 +55,22 @@ When('I provide the following responses', async function (datatable) {
         }
 
         if (data['Check Answer'] === 'Yes') {
-            await pages.sac.click('Check Answer Button');
+            await pages.sac.click('Action Button', 'Check Answer');
+        }
+
+        if (data['Save Answer'] === 'Yes') {
+            await pages.sac.click('Action Button', 'Save Answer');
+        }
+
+        if (await pages.sac.checkElementExists('Close Modal')) {
+            await pages.sac.click('Close Modal');
         }
     }
 });
 
-When('I click on Try Again', async function () {
-    await pages.sac.click('Try Again');
+When('I click on action button {string}', async function (button) {
+    await pages.sac.click('Action Button', button);
 });
-
-When('I click on View Solution', async function(){
-    await pages.sac.click('View Solution');
-});
-
 
 When('I give up on {string}', async function (question) {
     await pages.sac.click('Question Number', question);
@@ -118,24 +127,19 @@ When('I navigate to assignment and go back to the course landing page', async fu
     await pages.sac.click('Breadcrumb', 'Raptor Automation');
 });
 
-When('I click on Save Answer', async function () {
-    await pages.sac.click('Save Answer');
+When('I submit the test quiz', async function () {
+    await pages.sac.click('Action Button', 'Submit All Questions');
+    await pages.sac.click('Modal Button', 'submit final answers');
 });
 
-When('I Submit All Questions', async function () {
-    await pages.sac.click('Submit All Questions');
-    await pages.sac.click('Submit Final Answers');
-});
-
-
-When(/^I verify that no score is displayed for the question number "(.*)"$/, async function (questionNumber) {
-    await pages.sac.assertElementDoesNotExist('Answer Score', questionNumber);
+Then('The Grade for {string} should not be displayed', async function (question) {
+    await pages.sac.assertElementDoesNotExist('Question Score', question);
 });
 
 
 Then('The assignment preview is opened in a new tab', async function () {
     await pages.sac.switchToTab('Sapling Learning Student Assignment Container');
-    await pages.sac.assertElementExists('Preview Check Answer Button');
+    await pages.sac.assertElementExists('Action Button', 'Check Answer');
 });
 
 Then('The course landing page is loaded', async function () {
@@ -149,33 +153,4 @@ Then(/^I am shown the modal indicating this is a late assignment with percentage
         let strAux = "(" + latePenaltyPercentage + ")";
         await pages.sac.assertText('Item Late label', i, 'Late ' + strAux);
     }
-});
-
-When(/^I provide the correct response to the \"([^\"]*)\"$/, async function (question) {
-    await pages.sac.click('Question Number', question);
-    if (await pages.sac.getText('Check Answer Button') === 'Try Again') {
-        await pages.sac.click('Check Answer Button');
-    }
-    let questionText = await pages.sac.getText('Question 1 Content');
-    let factor = questionText.substring('Which of the following is the correct prime factorization of'.length).replace(/[?,\s]+/g, '');
-    switch (factor) {
-        case "540":
-            await pages.sac.click('Question 1 Response', '2 · 2 · 3 · 3 · 3 ·5');
-            break;
-        case "600":
-            await pages.sac.click('Question 1 Response', '2 · 2 · 2 · 3 · 5 ·5');
-            break;
-        case "900":
-            await pages.sac.click('Question 1 Response', '2 · 2 · 3 · 3 · 5 ·5');
-            break;
-        case "360":
-            await pages.sac.click('Question 1 Response', '2 · 2 · 2 · 3 · 3 ·5');
-            break;
-        case "240":
-            await pages.sac.click('Question 1 Response', '2 · 2 · 2 · 2 · 3 ·5');
-            break;
-        case 'Default':
-            break;
-    }
-    await pages.sac.click('Check Answer Button');
 });
