@@ -258,6 +258,34 @@
             "definition": "div[data-module-type='static_textfield']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "authorCanvas",
+            "byType": "css",
+            "definition": ".mq-math-mode",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "authorLabel",
+            "byType": "css",
+            "definition": ".graded-equations-td:nth-child(1)  > * .stix-font >span",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "questionEdit",
+            "byType": "css",
+            "definition": ".aqua-button[data-test-id='edit-module-button']",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "labelInput",
+            "byType": "xpath",
+            "definition": "//div[@id='module-edit-target']//textarea",
+            "frame": "default",
+            "specialInstr": "noclick"
         }
     ]
 }
