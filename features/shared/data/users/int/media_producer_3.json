@@ -9,5 +9,13 @@
   "sq2_answer": "answer",
   "sq3": "What is the name of your pet?",
   "sq3_answer": "answer",
-  "primarySchool": "macmillan learning"
+  "primarySchool": "macmillan learning",
+  "jwt_payload": {
+    "email": "macmillaninstructor@gmail.com",
+    "app_metadata": {
+      "admin": false,
+      "support": false,
+      "producer": true
+    }
+  }
 }

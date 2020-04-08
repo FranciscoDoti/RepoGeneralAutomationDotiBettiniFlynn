@@ -1,20 +1,15 @@
-@Course @Smoke @Skip
+@Course @Smoke @Skip @API
 Feature: Verify that Media EDitor is able to create URL Qualitative Template
 
-    @mediaeditor-delete-course
+   @delete-Courses
     Scenario: Verify that Media Editor is able to create a custom tsak with URL in Qualitative Template
 
        Given I login to Achieve-CW as "media_editor_1"
-        When I create template with following data 
-            | courseType  | productModel      | courseName                | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative URL Template  | macmillan calculus     | E2E 301      | 9781464199498  | draft         | 
+        When I create a course as "media_editor_1" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | lo_framework_id                         | warn_prebuilt | isbn             | template_version  |
+            | Qualitative URL Template            | E2E 301    | topics | draft  | 4                | true               |  0050n000002Wt0fAAC | template      | 57ba5934-30c2-4558-b776-b4bef6954d99    |  false        |  9781464199490   | 1                 |
 
-        And I search for "Qualitative URL Template" course                     
-
-        And I activate "Qualitative URL Template" template and add the following data
-            | courseName                    |  courseCode   |  templateStatus      |
-            | Qualitative URL Template      |   E2E 301     |  Active On Date      |
-
+        And I search for "Qualitative URL Template" course          
         And I click on "Qualitative URL Template" card
         And I click on "Production" Tab
 

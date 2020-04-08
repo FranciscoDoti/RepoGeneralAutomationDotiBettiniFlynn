@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @API
 Feature: Verify side menu in Skills Course 
 
     @mediaproducer-delete-course

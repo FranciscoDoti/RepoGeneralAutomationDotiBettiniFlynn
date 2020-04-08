@@ -1,25 +1,16 @@
-@Course @Smoke
+@Course @Smoke @API
 Feature: Instructor adds folder, remove folder and reorders it in Quantitative Course
 
-    @mediaproducer-delete-course
-    @mediaproducer-delete-courseTemplate
+    
+    @delete-Courses
     Scenario: Verify that Instructor is able to add folder, remove folder and reorder resources in Quantitative Course
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create template with following data 
-            | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative | Quantitative Template  | Principles of Microeconomics      | E2E 301      | 9781464199498  | draft         |   
-
-
-        And I close the popup message                      
-
-        And I click on search button and input "Quantitative Template" to search the course     
-
-        And I activate the "Quantitative Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Quantitative Template  |   E2E 301     |  Active On Date      | 
-
-
+        When I create a course as "media_producer_2" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | lo_framework_id                         | warn_prebuilt | isbn             | template_version  |
+            | Quantitative Template               | E2E 301    | topics | draft  | 3                | true               | 0050n000002Wt0kAAC  | template      | 57ba5934-30c2-4558-b776-b4bef6954d99    |  false        |  9781464199490   |   1               |  
+        
+        And I click on "COURSE TEMPLATES" tab
         And I click on "Quantitative Template" card
         And I click on "Production" Tab
 
@@ -27,35 +18,23 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
           | activities                             |
           | Glossary                               |
           | LCRP1550612138614                      |
-          | LC1551301608988                        |
+          | LCRP1551301608988                      |
           | Exercise: Misused words 1 (autoscored) |
         
-        And I click on back to course
-        And I click on home button to return to coursepage
-
-        And I click on "COURSE TEMPLATES" tab 
-        And I copy course from the "Quantitative Template" template with the following data
-            | courseName          | courseCode           |
-            | Quantitative Course  | E2E 301             |
+        And I copy course from "Quantitative Template" as "media_producer_2" with the following data
+            | name                  | short_name | c_account   | is_course_template | course_term | course_year | status | course_type | isbn          | warn_prebuilt | enrollment_start_date | course_end_date   |
+            | Quantitative Course   | E2E 301    | null        | false              | spring      | 2020        | active | course      | 9781464199490 | false         | todaydate             |  After3Months     |
 
         And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
-
-        And I assign "instructor_1" to the "Quantitative Course" course
-        
-        And I sign out of Achieve
+        And I assign instructor to "Quantitative Course" as a "customer_support_1"
+            |   id     |   enrollments         | product_model_id  | course_type    |
+            |   id     |   instructor_1        |   3               | course         |
         And I login to Achieve-CW as "instructor_1"
-
-        When I activate "Quantitative Course" course with following data 
-            | field             | value                        |
-            | courseName        | Quantitative Course          |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
      
         And I add the activities in courseplanner to "Quantitative Course" course
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LC1551301608988                                                   |
+            | LCRP1551301608988                                                   |
             | Glossary                                                          |
             | LCRP1550612138614                                                 |
         And I close the popup message
@@ -63,7 +42,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
         And I reorder the resources on template in "COURSE PLAN"
             | actvities                                                         | reorder        |
             | Exercise: Misused words 1 (autoscored)                            | moveToTop      |                                                     
-            | LC1551301608988                                                   | movedownButton |
+            | LCRP1551301608988                                                 | movedownButton |
             | Glossary                                                          |  moveToEnd     |
             | LCRP1550612138614                                                 | moveUpButton   |
 
@@ -71,20 +50,20 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             | activities                                                        | orderNumber    |
             | LCRP1550612138614                                                 |  1             |                                                       
             | Exercise: Misused words 1 (autoscored)                            |  2             |
-            | LC1551301608988                                                   |  3             |
+            | LCRP1551301608988                                                 |  3             |
             | Glossary                                                          |  4             |      
 
         And I add the activities to respective folders in "COURSE PLAN"
             | activity                                      | folders           |   folderName                 |  message                                                                             |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |  Assesment folder            |  'Exercise: Misused words 1 (autoscored)' was successfully moved to Assesment.       |
-            | LC1551301608988                               | Learning Curve    |  Learning Curve folder       |  'LC1551301608988' was successfully moved to Learning Curve.                         |
+            | LCRP1551301608988                             | Learning Curve    |  Learning Curve folder       |  'LCRP1551301608988' was successfully moved to Learning Curve.                         |
             | Glossary                                      | Reading           |  Reading folder              |  'Glossary' was successfully moved to Reading.                                       |
             | LCRP1550612138614                             | ReadandPractice   |  ReadandPractice folder      |  'LCRP1550612138614' was successfully moved to ReadandPractice.                      |
 
         Then I verify the activities are added in folders which are present in "COURSE PLAN"
             | activity                                      | folders           |
             | Exercise: Misused words 1 (autoscored)        | Assesment         |
-            | LC1551301608988                               | Learning Curve    |
+            | LCRP1551301608988                             | Learning Curve    |
             | Glossary                                      | Reading           |
             | LCRP1550612138614                             | ReadandPractice   |
 

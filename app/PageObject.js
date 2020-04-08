@@ -471,7 +471,7 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
   const populateElement = async function (elementName, replaceText, strValue) {
     if (strValue === undefined && replaceText !== undefined) {
       strValue = replaceText;
-    } else {
+    } else if (replaceText !== undefined && strValue !== undefined){
       elementName = await addDynamicElement(elementName, replaceText);
     }
 

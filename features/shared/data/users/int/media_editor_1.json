@@ -1,6 +1,6 @@
 {
-  "username": "jafaziy@maillist.in",
-  "password": "ABCabc@123",
+  "username": "testautomation760+mediaeditor@gmail.com",
+  "password": "Passw0rd!",
   "firstName": "Media",
   "lastName": "editor",
   "sq1": "What high school did you attend?",
@@ -9,5 +9,36 @@
   "sq2_answer": "answer",
   "sq3": "What is your favorite color?",
   "sq3_answer": "answer",
-  "primarySchool": "Miami University"
+  "primarySchool": "Miami University",
+  "jwt_payload": {
+    "sub": "dc127d38-6474-11ea-8b0e-0e2ba9abcbb5",
+    "user_id": "dc127d38-6474-11ea-8b0e-0e2ba9abcbb5",
+    "Id": "dc127d38-6474-11ea-8b0e-0e2ba9abcbb5",
+    "FirstName": "Media",
+    "LastName": "Editor",
+    "email": "testautomation760+mediaeditor@gmail.com",
+    "Email": "testautomation760+mediaeditor@gmail.com",
+    "C_Acct__c": "C02777",
+    "OptIn__c": false,
+    "LastModifiedDate": "2020-03-12T15:20:12.118Z",
+    "CreatedDate": "2020-03-12T15:19:25.939Z",
+    "School_or_Institution__c": "test",
+    "email_verified": "",
+    "nickname": "w5g0bboprhpt9qoa7j9tqdq4k",
+    "name": "Media Editor",
+    "type": "Student",
+    "auth0_id": null,
+    "app_metadata": {
+      "admin": false,
+      "editor": true,
+      "support": false
+    },
+    "user_metadata": {
+      "cAccount": "C02777",
+      "name": "Media Editor",
+      "last_name": "Editor",
+      "first_name": "Media",
+      "institution_id": ""
+    }
+  }
 }

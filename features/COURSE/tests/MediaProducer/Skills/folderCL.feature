@@ -1,19 +1,16 @@
-@Course @Smoke @flaky
+@Course @Smoke @flaky @API
 Feature: Adding activities in Folder Resource Tab to Skills Production Template
-    @mediaproducer-delete-courseTemplate
+
+    @delete-Courses      
     Scenario: Verify that Media Producer is able to add activities in folder present in resource tab to Skills Production Template
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create template with following data 
-           | courseType  | productModel | courseName                  |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills Production Template  |                  | E2E 301      | 9781464199498  | draft         |                      
-
-        And I close the popup message                      
-
-        And I click on search button and input "Skills Production Template" to search the course
-        And I activate the "Skills Production Template" template and add the following data
-            | courseName                    |  courseCode   |  templateStatus      |
-            | Skills Production Template    |   E2E 301     |  Active On Date      |                      
+         When I create a course as "media_producer_2" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | warn_prebuilt | isbn             | template_version  |
+            | Skills Production Template          | E2E 301    | topics | draft  | 2                | true               | 0050n000002Wt0kAAC  | template      |  false        |  9781464199490   |  1                |
+                                    
+                                    
+        And I click on "COURSE TEMPLATES" tab                       
 
         And I click on "Skills Production Template" card
         And I click on "Production" Tab
@@ -22,26 +19,26 @@ Feature: Adding activities in Folder Resource Tab to Skills Production Template
             | activities            |
             | Glossary              |
             | LCRP1550612138614     |
-            | LC1551301608988       |
+            | LCRP1551301608988     |
 
         Then I verify that activties are added in "Content Library"
             | activity                                      |    
             | Glossary                                      |
             | LCRP1550612138614                             |
-            | LC1551301608988                               |
+            | LCRP1551301608988                             |
 
         And I create folder and add the activities to the folder in "Content Library" in Production Tool
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    |  Glossary              | Reading 1 folder      |
             | Reading 2    | LCRP1550612138614      | Reading 2 folder      |
-            | Reading 3    | LC1551301608988        | Reading 3 folder      |
+            | Reading 3    | LCRP1551301608988      | Reading 3 folder      |
            
 
         Then I verify that activities are added to the folder 
             | Folder        | activities             |
             | Reading 1     | Glossary               |
             | Reading 2     | LCRP1550612138614      |
-            | Reading 3     | LC1551301608988        |
+            | Reading 3     | LCRP1551301608988      |
        
 
         When I Reorder The folders in Production Tab

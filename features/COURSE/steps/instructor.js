@@ -1,6 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver.js`);
+const {sleep } = require(`${process.cwd()}/app/driver`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseTemplate', 'COURSES');
@@ -79,7 +80,7 @@ When(/^Instructor copy course from the "(.*)" template with the following data$/
 
 Then(/^I verify that "(.*)" is assigned to "(.*)"$/, async function (courseName, userType){
   let user = this.users[userType];
-  await pages.home.click('signInLocal');
+  await pages.home.click('signInLocal', 'SIGN IN');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn');
@@ -245,6 +246,7 @@ When(/^I create a single course from "(.*)" with following data$/, async functio
 })
 
 Then(/^I verify that "(.*)" is created$/, async function(courseName){
+  await sleep (500);
   this.data.set('course', courseName);
   await pages.courseList.assertElementExists('courseName', courseName);
 })
@@ -291,9 +293,10 @@ When(/^I create a Master Section from "(.*)" with following data$/, async functi
   await pages.createCourse.click('createNewCourse');
   await pages.masterSection.click('selectTemplate', courseName);
   await pages.masterSection.waitForElementVisibility('createMasterSection');
-  await pages.masterSection.populate('createMasterSection','check');
+  await pages.masterSection.click('createMasterSection');
   await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
   for (let i = 0; i < data_table.rows().length; i++) {
+
     await pages.masterSection.populate(data_table.hashes()[i].field, data_table.hashes()[i].value)
   }
   await pages.masterSection.click('courseEndDate');
@@ -304,6 +307,7 @@ When(/^I create a Master Section from "(.*)" with following data$/, async functi
   await pages.courseList.click('selectDate', '15');
   await pages.masterSection.click('fullAccess');
   await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Master Section');
+  await pages.home.click('closeAlert');
 });
 
 Then('I verify that I created a Master Section with following data', async function (data_table){
@@ -325,6 +329,7 @@ When('I click on master card', async function (){
 
 When(/^I copy the "(.*)" course from the Master Section$/, async function (sectionName, data_table){
   await pages.masterSection.click('courseMenuButton', sectionName)
+  this.data.set('section', sectionName);
   await pages.masterSection.click('copyMasterSection')
   await pages.masterSection.click('createSingleCourse')
   await pages.masterSection.click('buttonToCreateCourse','Next: Set course info');
@@ -337,7 +342,7 @@ When(/^I copy the "(.*)" course from the Master Section$/, async function (secti
   await pages.masterSection.click('buttonToCreateCourse', 'Next: Create Course');
 })
 
-When(/^I verify that the course "(.*)" is created$/,async function (courseName){
+Then(/^I verify that the course "(.*)" is created$/,async function (courseName){
   await pages.coursePage.click('tab', 'MASTER SECTIONS')
   await pages.coursePage.click('tab', 'COURSES')
   await pages.masterSection.assertElementExists('MasterCourse', courseName)
@@ -348,11 +353,11 @@ When(/^I add the activities by searching in browse and adding it to courseplanne
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
     await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].addContent);
-    if(i===0) {
-      await pages.coursePlanner.click('addingContent');
-      await pages.coursePlanner.click('continue');
-      await pages.home.click('closeAlert');
-    }
+    // if(i===0) {
+    //   await pages.coursePlanner.click('addingContent');
+    //   await pages.coursePlanner.click('continue');
+    //   await pages.home.click('closeAlert');
+    // }
   }
 })
 When(/^I verify that the side menu exist in "(.*)"$/, async function(courseName){

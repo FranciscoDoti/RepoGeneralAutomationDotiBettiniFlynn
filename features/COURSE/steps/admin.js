@@ -11,9 +11,9 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
   await pages.createCourse.click('courseCard', courseName);
-  await driver.getDriver().navigate().refresh();
+  await sleep(500);
   await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: ' + courseName)
-  await pages.home.scrollElementIntoView('togglerMenu');
+  await sleep(500);
   await pages.home.assertElementExists('togglerMenu');
   await pages.home.click('togglerMenu');
   await pages.adminMenu.waitForElementVisibility('admin');
@@ -22,6 +22,7 @@ When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseN
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('manageEnrollments');
+  await pages.adminMenu.waitForElementVisibility('emailInput');
   await pages.adminMenu.populate('emailInput', user.username);
   await pages.adminMenu.click('addUserButton');
   await pages.home.click('closeAlert')
@@ -110,7 +111,7 @@ Then('I verify that following Tab are present', async function (data_table) {
 });
 
 When(/^I click on "(.*)" card$/, async function (courseName) {
-  await pages.createCourse.click('courseCard', courseName)
+  await pages.createCourse.click('courseCardTemplate', courseName)
 });
 
 When(/^I add activities to "(.*)"$/, async function (tab, data_table) {
@@ -119,6 +120,7 @@ When(/^I add activities to "(.*)"$/, async function (tab, data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activities);
     await pages.coursePlanner.click('librarySearchInput');
+    await sleep(500);
     await pages.resources.click('addResources', data_table.hashes()[i].activities);
   }
 });
@@ -226,7 +228,7 @@ When(/^I verify that "(.*)" section exists in the "(.*)" view in "(.*)" course$/
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.waitForElementVisibility('courseName', courseName);
-  await pages.courseList.click('courseName', courseName);
+  await pages.createCourse.click('courseCardTemplate', courseName);
   await pages.productionPage.waitForElementVisibility('productionTab', production);
   await pages.productionPage.click('productionTab', production);
   await pages.productionPage.waitForElementVisibility('productionTab', search);

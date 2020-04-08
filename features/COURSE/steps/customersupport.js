@@ -6,6 +6,7 @@ When(/^I assign "(.*)" to the "(.*)" course$/, async function (userType, courseN
   let user = this.users[userType];
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
+  await sleep(500)
   await pages.courseList.assertElementExists('courseMenu', courseName); 
   await sleep(500)
   await pages.courseList.click('courseMenu', courseName); 
@@ -41,6 +42,7 @@ Then(/^I verify that "(.*)" details$/, async function (userType, data_table){
 When(/^I generate access code for "(.*)"$/, async function (courseName){
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName);
+  await sleep(500);
   await pages.createCourse.click('courseCard', courseName);
   await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: '+ courseName )
   await pages.home.click('togglerMenu');
@@ -75,4 +77,21 @@ When(/^I search for "(.*)" in Courses tab$/, async function (courseName){
   await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName)
+})
+
+When(/^I copy course from the "(.*)" Course with the following data$/, async function (courseName, data_table){
+  await pages.courseList.populate('search', courseName);
+  await pages.courseList.assertElementExists('courseMenu', courseName);
+  await sleep(500);
+  await pages.coursePage.click('courseMenu')
+  await pages.copyCourse.click('copyCourse');
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    this.data.set('code', c.courseCode);
+    this.data.set('courseName',c.courseName);
+    await pages.copyCourse.populate('courseName', c.courseName)
+    await pages.copyCourse.populate('courseCode', c.courseCode)
+  };
+  await pages.copyCourse.click('save');
+  await pages.home.click('closeAlert');
 })

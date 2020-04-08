@@ -43,8 +43,8 @@
             "specialInstr": "NA"
         }, {
             "name": "achieveLogoLink",
-            "byType": "css",
-            "definition": "[data-test-id='achieve_logo_link']",
+            "byType": "xpath",
+            "definition": "[alt='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         }, {

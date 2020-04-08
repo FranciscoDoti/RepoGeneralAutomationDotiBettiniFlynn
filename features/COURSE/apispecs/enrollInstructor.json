@@ -1,0 +1,8 @@
+{
+    "method": "PUT",
+    "endpoint": "/lms/course/{id}",
+    "json": true,
+    "request": {
+
+        }
+}

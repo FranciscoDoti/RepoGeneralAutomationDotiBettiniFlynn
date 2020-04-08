@@ -1,13 +1,45 @@
  {
-  "username": "instructor@theeasymail.com",
-  "password": "ABCabc@123",
-  "firstName": "instructor",
-  "lastName": "Macmillan",
-  "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
-  "sq1_answer": "answer",
-  "sq2": "What is the name of your first school?",
-  "sq2_answer": "answer",
-  "sq3": "What is the name of your pet?",
-  "sq3_answer": "answer",
-  "primarySchool": "macmillan learning"
+     "username": "testautomation760+instructor@gmail.com",
+     "password": "Passw0rd!",
+     "firstName": "Automation",
+     "lastName": "Instructor",
+     "sq1": "What is the first and lastname of your first boyfriend or girlfriend?",
+     "sq1_answer": "answer",
+     "sq2": "What is the name of your first school?",
+     "sq2_answer": "answer",
+     "sq3": "What is the name of your pet?",
+     "sq3_answer": "answer",
+     "primarySchool": "macmillan learning",
+     "jwt_payload": {
+         "instructors": [{
+             "sub": "351623e8-6476-11ea-8b0e-0e2ba9abcbb5",
+             "user_id": "351623e8-6476-11ea-8b0e-0e2ba9abcbb5",
+             "Id": "351623e8-6476-11ea-8b0e-0e2ba9abcbb5",
+             "FirstName": "Automation",
+             "LastName": "Instructor",
+             "email": "testautomation760+instructor@gmail.com",
+             "Email": "testautomation760+instructor@gmail.com",
+             "LastModifiedDate": "2020-03-13T17:23:59.494Z",
+             "School_or_Institution__c": "test",
+             "nickname": "vnbzpnuhh7ducqa0u6e1h2y07",
+             "name": "Automation Instructor",
+             "type": "Student",
+             "app_metadata": {
+                 "admin": false,
+                 "support": false
+             },
+             "course_data": {
+                 "student": []
+             },
+             "user_metadata": {
+                 "cAccount": "C02777",
+                 "name": "Automation Instructor",
+                 "last_name": "Instructor",
+                 "first_name": "Automation",
+                 "institution_id": ""
+             }
+
+         }]
+     }
+
  }

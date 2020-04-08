@@ -7,12 +7,19 @@
             "frame": "default",
             "specialInstr": "NA"
         }, {
+            "name": "courseCardTemplate",
+            "byType": "xpath",
+            "definition": "//div[.='<ReplaceText>']/..//a[starts-with(.,'CURRENT')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
             "name": "courseCard",
             "byType": "xpath",
             "definition": "//div[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
-        }, {
+        },  {
             "name": "courseCode",
             "byType": "id",
             "definition": "__createCourse_codeInput",

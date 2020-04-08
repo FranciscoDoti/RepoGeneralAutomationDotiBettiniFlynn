@@ -1,4 +1,13 @@
 {
   "username": "mediaproduer@gmail.com",
-  "password": "ABCabc@123"
+  "password": "ABCabc@123",
+  "jwt_payload": {
+    "email": "mediaproduer@gmail.com",
+    "app_metadata": {
+      "admin": false,
+      "support": false,
+      "producer": true
+      
+    }
+  }
 }

@@ -22,7 +22,7 @@ RestObject.prototype.send = async function () {
     try {
         let fullresponse = await rp(this.request);
         this.response = fullresponse.body;
-        log.info(`Request returned response. Status code ${this.response.status}`);
+        log.info(`Request returned response. Status code ${this.response.statusCode || this.response.status}`);
         return true;
     } catch (err) {
         this.error = err;
@@ -70,6 +70,33 @@ RestObject.prototype.setCookie = async function (payload) {
         });
         cookieMap.set(payload, this.cookie);
     }
+};
+RestObject.prototype.DELETE = async function (app, body) {
+    await this.setRequestOptions('DELETE', app);
+    await this.setRequestBody(body);
+    await this.setRequestCookie();
+    let result = await this.send();
+
+    if (result) {
+        return this.response.status;
+    } else {
+        return this.error.statusCode;
+    };
+
+};
+
+RestObject.prototype.PUT = async function (app, body) {
+    await this.setRequestOptions('PUT', app);
+    await this.setRequestBody(body);
+    await this.setRequestCookie();
+    let result = await this.send();
+
+    if (result) {
+        return this.response.status;
+    } else {
+        return this.error.statusCode;
+    };
+
 };
 
 RestObject.prototype.POST = async function (app, body) {

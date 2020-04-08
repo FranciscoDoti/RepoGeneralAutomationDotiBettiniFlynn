@@ -5,7 +5,7 @@ After('@delete-mediaproducer-courses', async function () {
   let user = this.users['media_producer_2'];
   await pages.home.click('togglerMenu');
   await pages.home.click('signOut');
-  await pages.home.click('signInLocal');
+  await pages.home.click('signInLocal', 'SIGN IN');
   await pages.home.populate('username', user.username);
   await pages.home.populate('password', user.password);
   await pages.home.click('signIn')

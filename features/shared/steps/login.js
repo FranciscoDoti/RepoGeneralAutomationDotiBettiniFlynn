@@ -46,9 +46,9 @@ When(/^I go back to sapling page and logout$/, async function () {
   await mathPages.saplingLearning.click('logout');
 });
 
-async function loginAchieveCw (userType) {
-  let url = await _.get(urls, ['Achieve-CW', this.stack]);
-  let user = this.users[userType];
+async function loginAchieveCw (userType, context) {
+  let url = await _.get(urls, ['Achieve-CW', context.stack]);
+  let user = context.users[userType];
   await visitURL(url);
   await pages.login.waitForElementVisibility('Button', 'SIGN IN', 10);
   await pages.login.click('Button', 'SIGN IN');
@@ -56,7 +56,9 @@ async function loginAchieveCw (userType) {
   await pages.login.populate('password', user.password);
   await pages.login.click('signin');
 };
-Given(/^I login to Achieve-CW as "(.*)"/, loginAchieveCw);
+Given(/^I login to Achieve-CW as "(.*)"/, async function(userType){
+  await loginAchieveCw(userType, this);
+});
 
 When('I sign out of Achieve', async function () {
   await pages.login.scrollElementIntoView('togglerMenu');

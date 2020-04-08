@@ -6,12 +6,12 @@ Feature: Verify that Admin is able to search for the content using Keyword searc
 
        Given I login to Achieve-CW as "admin_1"
        When I create template with following data 
-            | courseType  | productModel      | courseName                           | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Qualitative Keyword Search Template  | macmillan calculus     | E2E 301      | 9781464199499  | Active On Date|
+            | courseType  | productModel       | courseName                            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
+            | Template    | Qualitative        | Production Template                   | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
         
-       Then I verify that "Qualitative Keyword Search Template Created." message is displayed
+       Then I verify that "Production Template Created." message is displayed
        And I close the popup message
 
-       Then I verify that "Search" section exists in the "Production" view in "Qualitative Keyword Search Template" course
+       Then I verify that "Search" section exists in the "Production" view in "Production Template" course
        
        And I search the "Glossary" activity using "Search by keyword" search bar in "filter-keyword-title" section

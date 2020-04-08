@@ -3,7 +3,7 @@
         {
             "name": "Button",
             "byType": "xpath",
-            "definition": "//button[.='<ReplaceText>']",
+            "definition": "//*[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
         },

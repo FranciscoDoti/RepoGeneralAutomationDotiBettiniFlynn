@@ -1,8 +1,8 @@
 {
     "webElements": [{
         "name": "achieveHome",
-        "byType": "css",
-        "definition": "[data-test-id='achieve-logo-link']",
+        "byType": "xpath",
+        "definition": "//a[contains(@href, '/courses')]",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -49,8 +49,8 @@
         "specialInstr": "NA"
     }, {
         "name": "signInLocal",
-        "byType": "css",
-        "definition": "[data-test-id='sign_in_link_btn']",
+        "byType": "xpath",
+        "definition": "//*[.='<ReplaceText>']",
         "frame": "default",
         "specialInstr": "NA"
     }, {

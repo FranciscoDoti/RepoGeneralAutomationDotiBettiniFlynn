@@ -9,5 +9,14 @@
   "sq2_answer": "answer",
   "sq3": "What is your favorite color?",
   "sq3_answer": "answer",
-  "primarySchool": "Miami University"
+  "primarySchool": "Miami University",
+  "jwt_payload": {
+    "email": "greeshma.reddy.contractor@macmillan.com",
+      "app_metadata": {
+        "admin": false,
+        "support": false,
+        "producer": true
+    }
+  }
+  
 }

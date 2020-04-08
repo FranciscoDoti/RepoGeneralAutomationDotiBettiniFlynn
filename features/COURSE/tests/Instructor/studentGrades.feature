@@ -1,26 +1,19 @@
-@Course @Smoke @flaky
+@Course @Smoke @flaky @API
 Feature: Student grades
  
-@mediaproducer-delete-course
-@mediaproducer-delete-courseTemplate
+
+    @delete-Courses
 Scenario: Verify that instructor is able to edit the grades of student
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create template with following data 
-            | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199486  | draft         |
+        When I create a course as "media_producer_2" with the following data
+            | name                 | short_name | format | status | product_model_id | is_course_template | owner_id           | course_type | lo_framework_id                      | warn_prebuilt | isbn          | template_version  |
+            | activities Template  | E2E 301    | topics | draft  | 4                | true               | 0050n000002Wt0kAAC | template    | 57ba5934-30c2-4558-b776-b4bef6954d99 | false         | 9781464199490 | 1                 |
 
-        And I close the popup message                      
-
-        And I click on search button and input "activities Template" to search the course                     
-
-        And I activate the "activities Template" template and add the following data
-            | courseName            |  courseCode  |  templateStatus       |
-            | activities Template   |   E2E 301     |  Active On Date      | 
-
+        
+        And I click on "COURSE TEMPLATES" tab
         And I click on "activities Template" card
         And I click on "Production" Tab
-
         And I add URL link to "Create" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
@@ -41,27 +34,22 @@ Scenario: Verify that instructor is able to edit the grades of student
           | Glossary                                     |
           | SampleChapterAuto.jpg                        |
 
-        And I click on back to course
-        And I click on home button to return to coursepage
-        And I click on "COURSE TEMPLATES" tab 
-        And I copy course from the "activities Template" template with the following data
-            | courseName          | courseCode           |
-            | activities Course   | E2E 301              |
+        And I copy course from "activities Template" as "media_producer_2" with the following data
+            | name               | short_name | is_course_template | isbn          | course_term | course_year | status  | course_type | enrollment_start_date | course_end_date   | warn_prebuil |
+            | activities Course  | E2E 301    | false              | 9781464199490 | spring      | 2020        | active  | course      | todaydate             |  After3Months     | false        |
+
 
         And I sign out of Achieve
 
-        And I login to Achieve-CW as "customer_support_1"
-
-        And I assign "instructor_1" to the "activities Course" course
-        
-        And I sign out of Achieve
+        And I assign instructor to "activities Course" as a "customer_support_1"
+            |   id     |   enrollments         | product_model_id  | course_type    |
+            |   id     |   instructor_1        |   4               | course         |
         And I login to Achieve-CW as "instructor_1"
 
-        When I activate "activities Course" course with following data 
-            | field             | value                        |
-            | courseName        | activities Course            |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
+        When I activate "activities Course" as "instructor_1" with following data
+            | id    | status | course_term  | course_year | owner_id              | enrollment_start_date       | course_end_date               | course_type | 
+            | id    | active | spring       | 2020        | 00050n000002WrqZAAS   |  todayDate                  |  3MonthfromstartDate          | course      |
+        
      
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 

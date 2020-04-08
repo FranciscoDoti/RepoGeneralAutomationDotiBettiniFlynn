@@ -1,21 +1,16 @@
-@Course @Smoke @Skip
+@Course @Smoke @Skip @API
 Feature: Verify that Media Editor is able to create URL in Skills Template
 
-    @mediaeditor-delete-course
+    @delete-Courses
     Scenario: Verify that Media Editor is able to create a custom task with URL in Skills Templete
 
        Given I login to Achieve-CW as "media_editor_1"
-        When I create template with following data 
-           | courseType  | productModel | courseName          |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-           | Template    | Skills       | Skills URLTemplate  |                  | E2E 301      | 9781464199498  | draft         |
-
-        And I search for "Skills URLTemplate" course                      
-
-        And I activate "Skills URLTemplate" template and add the following data
-            | courseName                    |  courseCode   |  templateStatus      |
-            | Skills URLTemplate            |   E2E 301     |  Active On Date      | 
-
-        And I click on "Skills URLTemplate" card
+        When I create a course as "media_editor_1" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | warn_prebuilt | isbn             | template_version  |
+            | Skills URL Template                 | E2E 301    | topics | draft  | 2                | true               | 0050n000002Wt0fAAC  | template      |  false        |  9781464199490   |  1                |                
+        
+        And I search for "Skills URL Template" course
+        And I click on "Skills URL Template" card
         And I click on "Production" Tab
 
         And I add URL link to "Create" 

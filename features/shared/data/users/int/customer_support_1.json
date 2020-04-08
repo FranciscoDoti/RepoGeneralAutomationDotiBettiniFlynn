@@ -1,6 +1,6 @@
 {
-  "username": "zilet@mail-point.net",
-  "password": "ABCabc@123",
+  "username": "testautomation760+customersupport@gmail.com",
+  "password": "Passw0rd!",
   "firstName": "Cust",
   "lastName": "Spport",
   "sq1": "What high school did you attend?",
@@ -9,5 +9,35 @@
   "sq2_answer": "answer",
   "sq3": "What is your favorite color?",
   "sq3_answer": "answer",
-  "primarySchool": "Miami University"
-}
+  "primarySchool": "Miami University",
+  "jwt_payload": {
+      "sub": "a9dac118-6474-11ea-8b0e-0e2ba9abcbb5",
+      "user_id": "a9dac118-6474-11ea-8b0e-0e2ba9abcbb5",
+      "Id": "a9dac118-6474-11ea-8b0e-0e2ba9abcbb5",
+      "FirstName": "Customer",
+      "LastName": "Support",
+      "email": "testautomation760+customersupport@gmail.com",
+      "Email": "testautomation760+customersupport@gmail.com",
+      "C_Acct__c": "C02777",
+      "OptIn__c": false,
+      "LastModifiedDate": "2020-03-12T15:18:53.194Z",
+      "CreatedDate": "2020-03-12T15:18:01.688Z",
+      "School_or_Institution__c": "test",
+      "email_verified": "",
+      "nickname": "g9vjpdj0qu47ju4vbw0ey0j8d",
+      "name": "Customer Support",
+      "type": "Student",
+      "auth0_id": null,
+      "app_metadata": {
+        "admin": false,
+        "support": true
+      },
+      "user_metadata": {
+        "cAccount": "C02777",
+        "name": "Customer Support",
+        "last_name": "Support",
+        "first_name": "Customer",
+        "institution_id": ""
+      }
+    }
+  }

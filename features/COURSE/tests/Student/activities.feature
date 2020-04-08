@@ -1,25 +1,17 @@
-@Smoke @Course @flaky
+@Smoke @Course @flaky @API
 Feature: Student attempts reading, static file, URL, Gradebook category 
 
-    @mediaproducer-delete-course
-    @mediaproducer-delete-courseTemplate
+    
+    @delete-Courses
     Scenario: Verify that Student is able to attempt activities of a Instructor created course created from activities Template 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create template with following data 
-            | courseType  | productModel | courseName             | learningObjective                 | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative | activities Template    | Principles of Microeconomics      | E2E 301      | 9781464199486  | draft         |
-
-       
-        And I close the popup message                      
-
-        And I click on search button and input "activities Template" to search the course     
-
-        And I activate the "activities Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | activities Template    |   E2E 301     |  Active On Date      | 
-
-
+        When I create a course as "media_producer_2" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | lo_framework_id                         | warn_prebuilt | isbn             | template_version  |
+            | activities Template                 | E2E 301    | topics | draft  | 4                | true               | 0050n000002Wt0kAAC  | template      | 57ba5934-30c2-4558-b776-b4bef6954d99    |  false        |  9781464199490   |   1               |
+        
+                   
+        And I click on "COURSE TEMPLATES" tab
         And I click on "activities Template" card
         And I click on "Production" Tab
         And I add URL link to "Create" 
@@ -30,45 +22,33 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | activity                                      |    
             | Google                                        |
         And I add activities to "Content Library"
-          | activities            |
-          | Glossary              |
-          | AutomationEpub-201910171217        |
+          | activities                         |
+          | Glossary                           |
+          | SampleChapterAuto.jpg              |
           
-        
-        And I click on back to course
-        And I click on home button to return to coursepage
-
-        And I click on "COURSE TEMPLATES" tab 
-        And I copy course from the "activities Template" template with the following data
-            | courseName           | courseCode           |
-            | activities Course    | E2E 301             |
-
-        And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
-
-        And I assign "instructor_1" to the "activities Course" course
+        And I copy course from "activities Template" as "media_producer_2" with the following data
+            | name               | short_name | c_account   | is_course_template | course_term | course_year | status | course_type | isbn          | warn_prebuilt | enrollment_start_date | course_end_date   |
+            | activities Course  | E2E 301    | null        | false              | spring      | 2020        | active | course      | 9781464199498 | false         |  todaydate            |  After3Months     |               
         
         And I sign out of Achieve
+        And I assign instructor to "activities Course" as a "customer_support_1"
+            |   id     |    enrollments        | product_model_id  | course_type    |
+            |   id     |   instructor_1        |   4               | course         |
         And I login to Achieve-CW as "instructor_1"
-
-        When I activate "activities Course" course with following data 
-            | field             | value                        |
-            | courseName        | activities Course            |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
+        
      
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
             | Google                                      |
             | Glossary                                    |
-            | AutomationEpub-201910171217                 |
+            | SampleChapterAuto.jpg                       |
         And I close the popup message
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
             | Google                                                           | 5      |
             | Glossary                                                         | 5      |
-            | AutomationEpub-201910171217                                      | 5      |
+            | SampleChapterAuto.jpg                                            | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
@@ -87,7 +67,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I attempt "Google" URL activity
 
-        And I attempt "AutomationEpub-201910171217" File activity
+        And I attempt "SampleChapterAuto.jpg" File activity
 
         And I complete the reading activity 
             | activity           |
@@ -98,7 +78,7 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | AutomationEpub-201910171217                   | Complete  |
+            | SampleChapterAuto.jpg                         | Complete  |
         
         And I see assignments due in the next 7 days on the course Plan tab
 
@@ -108,13 +88,13 @@ Feature: Student attempts reading, static file, URL, Gradebook category
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | AutomationEpub-201910171217                   | Complete  |
+            | SampleChapterAuto.jpg                         | Complete  |
 
         And I verify the assignmenent grades in gradebook for below assigned activities 
             | activity                                      | percentage  | points  | PercentOfTotalgrades |
             | Glossary                                      |   100%      | 5       | 50%                  |
             | Google                                        |   100%      | 5       | 100%                 |
-            | AutomationEpub-201910171217                   |   100%      | 5       | 50%                  |
+            | SampleChapterAuto.jpg                         |   100%      | 5       | 50%                  |
 
         And I verify Total Grades
             | activity                                      | percentage  | points  | PercentOfTotalgrades |

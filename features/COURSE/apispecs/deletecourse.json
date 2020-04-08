@@ -1,6 +1,6 @@
 {
-  "method": "POST",
-  "endpoint": "/lms/course/delete",
+  "method": "DELETE",
+  "endpoint": "/lms/course/{id}",
   "json": true,
   "request": {
     "username": "admin@courseware.com",

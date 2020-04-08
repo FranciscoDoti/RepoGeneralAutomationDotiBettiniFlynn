@@ -189,7 +189,7 @@
             "byType": "css",
             "definition": "[id='__librarySearchInput']",
             "frame": "default",
-            "specialInstr": "enterAfter"
+            "specialInstr": "enterAfter overwrite"
         }, {
             "name": "closeCourseplanner",
             "byType": "xpath",
@@ -351,7 +351,7 @@
         }, {
             "name": "close",
             "byType": "css",
-            "definition": "[data-test-id='back_button']",
+            "definition": "button[aria-label='Back']",
             "frame": "default",
             "specialInstr": "NA"
         }, {
@@ -872,6 +872,22 @@
             "name": "Apply",
             "byType": "xpath",
             "definition": "//*[@data-test-id='add_button']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "Next",
+            "byType": "xpath",
+            "definition": "//*[.='ReplaceText']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        },
+        {
+            "name": "Got it",
+            "byType": "xpath",
+            "definition": "//*[.='ReplaceText']",
             "frame": "default",
             "specialInstr": "NA"
 

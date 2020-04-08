@@ -1,19 +1,17 @@
-@Smoke @Course @Flaky
+@Smoke @Course @Flaky @API
 Feature: Student compelets Pathfinder Activity
 
+    
+    @delete-Courses
     Scenario: Verify that Student Takes Practice Test 
 
         Given I login to Achieve-CW as "media_producer_2"
-        When I create template with following data 
-            | courseType  | productModel      | courseName            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Qualitative       | Pathfinder Template   | macmillan calculus     | E2E 301      | 9781464199496  | draft         |
-        And I close the popup message 
-
-        And I click on search button and input "Pathfinder Template" to search the course                     
-
-        And I activate the "Pathfinder Template" template and add the following data
-            | courseName             |  courseCode   |  templateStatus      |
-            | Pathfinder Template    |   E2E 301     |  Active On Date      |
+        When I create a course as "media_producer_2" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | lo_framework_id                         | warn_prebuilt | isbn             | template_version  |
+            | Pathfinder Template                 | E2E 301    | topics | draft  | 4                | true               | 0050n000002Wt0kAAC  | template      | 57ba5934-30c2-4558-b776-b4bef6954d99    |  false        |  9781464199490   |   1               |
+        
+                       
+        And I click on "COURSE TEMPLATES" tab
         And I click on "Pathfinder Template" card
         And I click on "Production" Tab 
 
@@ -23,26 +21,19 @@ Feature: Student compelets Pathfinder Activity
            | Complete the Study Plan for Reading Skills - English v2     | Complete the Study Plan for Reading Skil ...     |
            |  Final Test for Reading Skills - English v2                 | Final Test for Reading Skills - English  ...     |
 
-        And I click on back to course
-        And I click on home button to return to coursepage
-        And I click on "COURSE TEMPLATES" tab
-        And I copy course from the "Pathfinder Template" template with the following data
-            | courseName           | courseCode           |
-            | Pathfinder Course    | E2E 301              |
+        And I copy course from "Pathfinder Template" as "media_producer_2" with the following data
+            | name               | short_name | c_account   | is_course_template | course_term | course_year | status | course_type | isbn          | warn_prebuilt | enrollment_start_date | course_end_date   |
+            | Pathfinder Course  | E2E 301    | null        | false              | spring      | 2020        | active | course      | 9781464199498 | false         |  todaydate            |  After3Months     |               
+
 
         And I sign out of Achieve
-        And I login to Achieve-CW as "customer_support_1"
 
-        And I assign "instructor_1" to the "Pathfinder Course" course
-        And I sign out of Achieve
+        And I assign instructor to "Pathfinder Course" as a "customer_support_1"
+            |   id     |   enrollments         | product_model_id  | course_type    |
+            |   id     |   instructor_1        |   4               | course         |
+        
          And I login to Achieve-CW as "instructor_1"
-
-        When I activate "Pathfinder Course" course with following data 
-            | field             | value                        |
-            | courseName        | Pathfinder Course            |
-            | courseCode        |  E2E 301                     |
-            | templateStatus    |  Active On Date              |
-
+    
 
         And I add the activities by searching in browse and adding it to courseplanner in "Pathfinder Course" course
            | activities                                                  | addContent                                       |
@@ -98,15 +89,9 @@ Feature: Student compelets Pathfinder Activity
         And the topic report card for "Patterns of Organization" should have the score "5/5"
         And the topic report card for "Topics and Main Ideas" should have the score "5/5"
 
-    Scenario: Student Uses Study Plan
-        Given I login to Achieve-CW as "student_1"
-        When I click on "Pathfinder Course"
+    
         And I launch the Pathfinder Assignment "Complete the Study Plan for Reading Skil ..."
         Then there should be a "Student Tested Out Message" that includes the text "Nice! You tested out of the study plan for Reading Skills." on the "studentAssignment" page
-
-    Scenario: Student Takes Final Test and Answers Every Question Correctly
-        Given I login to Achieve-CW as "student_1"
-        When I click on "Pathfinder Course"
         And I launch the Pathfinder Assignment "Final Test for Reading Skills - English  ..."
         And I click on the "Start Test Button" on the "studentAssignment" page
         And I complete an NGA assignment with the following answers
@@ -135,12 +120,6 @@ Feature: Student compelets Pathfinder Activity
         And I refresh the page
         Then there should be a "Final Test Results Summary" that includes the text "Excellent! You have completed the final test." on the "studentAssignment" page
 
-    Scenario: Student Verify the status of pathfinder activities
-
-        When I login to Achieve-CW as "student_1"
-        And I click on "Pathfinder Course"
-        And I click on "My Course" Button
-
         Then I verify the activity status for the following activities in "COURSE PLAN"
             | activity                                          | status    |
             | Practice Test for Reading Skills - Engli ...      | Complete  |
@@ -152,11 +131,7 @@ Feature: Student compelets Pathfinder Activity
             | Practice Test for Reading Skills - Engli ...      | Complete  |
             | Complete the Study Plan for Reading Skil ...      | Complete  |
             | Final Test for Reading Skills - English  ...      | Complete  |
-    
-   
-    Scenario: Verify that student is able to see Grades in Gradebook 
 
-        When I login to Achieve-CW as "student_1"
 
         And I click on "Pathfinder Course"
 
@@ -165,11 +140,3 @@ Feature: Student compelets Pathfinder Activity
             |  Practice Test for Reading Skills - Engli ...     |   100%      | 5       | 33%                  |
             | Complete the Study Plan for Reading Skil ...      |   100%      | 5       | 33%                  |
             | Final Test for Reading Skills - English  ...      |   100%      | 5       | 33%                  |
-
-
-    Scenario: I delete the course and Template
-
-        Given I login to Achieve-CW as "media_producer_2"
-        And I click on "COURSE TEMPLATES" tab  
-        And I delete "Pathfinder Template" and "Pathfinder Course"
-

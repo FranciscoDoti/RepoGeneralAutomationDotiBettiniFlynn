@@ -197,6 +197,7 @@ Then('I verify Total Grades', async function (data_table){
 });
 
 When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
+  await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.click('courseMenu', courseTemplate);
   await pages.courseList.click('deleteCourse');
   await pages.courseList.click('confirmDelete');
@@ -210,9 +211,8 @@ When(/^I delete "(.*)" and "(.*)"$/, async function (courseTemplate, Course) {
 });
 
 Then(/^I verify that "(.*)" and "(.*)" are deleted$/, async function (courseTemplate, Course){
-  await pages.home.click('closeAlert');
+  await getDriver().navigate().refresh(); 
   await pages.createCourse.assertElementDoesNotExist('courseCard', courseTemplate);
-  await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.createCourse.assertElementDoesNotExist('courseCard', Course);
 
 })
@@ -251,4 +251,30 @@ When(/^I enroll "(.*)" in "(.*)" using Grace Period$/, async function (userType,
 
 Then(/^I verify that student is enrolled in "(.*)"$/, async function(courseName){
   await pages.courseList.assertElementExists('courseName', courseName)
+});
+
+When(/^I enroll the student in "(.*)" course$/, async function (courseName, data_table){
+  await pages.courseList.click('courseTemplate', 'COURSES');
+  await pages.courseList.populate('search', courseName);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  await pages.createCourse.click('courseCard', courseName);
+  await pages.createCourse.assertElementExists('courseTitle', 'E2E 301: ' + courseName)
+  await pages.home.scrollElementIntoView('togglerMenu');
+  await pages.home.assertElementExists('togglerMenu');
+  await pages.home.click('togglerMenu');
+  await pages.adminMenu.waitForElementVisibility('admin');
+  await pages.adminMenu.assertElementExists('admin');
+  await sleep(500);
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('admin');
+  await pages.adminMenu.click('manageEnrollments');
+  for (let i = 0; i < data_table.rows().length; i++) {
+  let user = this.users[data_table.hashes()[i].students];
+  await pages.adminMenu.waitForElementVisibility('emailInput');
+  await pages.adminMenu.populate('emailInput', user.username);
+  await pages.adminMenu.click('addUserButton');
+  await sleep(500);
+  }
+  await pages.home.click('closeAlert')
+  await pages.adminMenu.click('closeEnrollmentRoles')
 });

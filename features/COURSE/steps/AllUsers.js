@@ -28,14 +28,16 @@ When(/^I click on "(.*)" Button$/, async function (tab){
 When(/^I click on search button and input "(.*)" to search the course$/, async function (CourseName) {
   await pages.courseList.waitForElementVisibility('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
+  await sleep (500);
   await pages.courseList.populate('search', CourseName);
-  await pages.createCourse.assertElementExists('courseCard', CourseName)
+  await sleep(500);
+  await pages.courseList.assertElementExists('courseName', CourseName)
 });
 
 When(/^I activate "(.*)" template and add the following data$/, async function (courseName,data_table){
   await pages.courseList.waitForElementVisibility('courseMenu', courseName);
   await sleep(500);
-  await pages.courseList.click('courseMenu', courseName);
+  await pages.courseList.click('courseMenuTemplate', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
@@ -49,7 +51,7 @@ When(/^I activate "(.*)" template and add the following data$/, async function (
 
 
 When(/^I delete the "(.*)"$/, async function (courseName) {
-    await pages.courseList.waitForElementVisibility('courseMenu', courseName);
+    await pages.courseList.waitForElementVisibility('courseMenuTemplate', courseName);
     await sleep(500);
     await pages.courseList.click('courseMenu', courseName);
     await pages.courseList.click('deleteCourse');

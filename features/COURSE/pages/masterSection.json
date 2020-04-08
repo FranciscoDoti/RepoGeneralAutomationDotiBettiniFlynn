@@ -48,7 +48,7 @@
    },{
         "name": "createMasterSection",
         "byType": "css",
-        "definition": "[data-test-id='create_master_section']",
+        "definition": "input[name='master_section']",
         "frame": "default",
         "specialInstr": "NA"
 

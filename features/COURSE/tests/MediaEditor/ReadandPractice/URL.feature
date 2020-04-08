@@ -1,20 +1,15 @@
-@Course @Smoke @Skip
+@Course @Smoke  @API
 Feature: Verify that MediaEditor is able to create URL in Read & Practice Template
 
-    @mediaeditor-delete-course
-    Scenario: Verify that Admin is able to create a custom task with URL in Read & Practice Template
+    @delete-Courses
+    Scenario: Verify that MediaEditor is able to create a custom task with URL in Read & Practice Template
 
        Given I login to Achieve-CW as "media_editor_1"
-        When I create template with following data 
-            | courseType  | productModel      | courseName                      |learningObjective | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Read & Practice   | Read & Practice URL Template    |                  | E2E 301      | 9781464199498  | draft         | 
+         When I create a course as "media_editor_1" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | warn_prebuilt | isbn             | template_version  |
+            | Read & Practice URL Template        | E2E 301    | topics | draft  | 1                | true               | 0050n000002Wt0fAAC  | template      |  false        |  9781464199490   | 1                 |                 
 
-        And I search for "Read & Practice URL Template" course                     
-
-        And I activate "Read & Practice URL Template" template and add the following data
-            | courseName                    |  courseCode   |  templateStatus      |
-            | Read & Practice URL Template  |   E2E 301     |  Active On Date      | 
-
+        And I search for "Read & Practice URL Template" course                       
         And I click on "Read & Practice URL Template" card
         And I click on "Production" Tab
 

@@ -1,4 +1,4 @@
-@Course @Smoke
+@Course @Smoke @API
 Feature: Verify side menu in Read & Practice Course 
 
     @mediaproducer-delete-course

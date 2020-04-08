@@ -1,31 +1,23 @@
-@Course @Smoke @flaky
+@Course @Smoke @flaky @API
 Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitative Template)
 
-    @mediaproducer-delete-courseTemplate
+    @delete-Courses     
     Scenario: Verify that Media Producer is able to add activities, create Folder, delete Folder in Quantitative template
 
        Given I login to Achieve-CW as "media_producer_2"
-       When I create template with following data 
-            | courseType  | productModel      | courseName                        | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Quantitative      | Quantitative Production Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
-
-        And I close the popup message                      
-
-        And I click on search button and input "Quantitative Production Template" to search the course
-
-        And I activate "Quantitative Production Template" template and add the following data
-            | courseName                           |  courseCode   |  templateStatus      |
-            | Quantitative Production Template     |   E2E 301     |  Active On Date      | 
-        
-
+       When I create a course as "media_producer_2" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id             | course_type   | lo_framework_id                         | warn_prebuilt | isbn             | template_version  |
+            | Quantitative Production Template    | E2E 301    | topics | draft  | 3                | true               | 0050n000002Wt0kAACA  | template      | 57ba5934-30c2-4558-b776-b4bef6954d99    |  false        |  9781464199490   |  1                |               
+   
+                                                    
+        And I click on "COURSE TEMPLATES" tab
         And I click on "Quantitative Production Template" card
         And I click on "Production" Tab
 
         And I add activities to "Content Library"
           | activities            |
           | Glossary              |
-          | Appendix F            |
-          | Literary Elements     |
+          | Appendix F            |     
           | Confidence Intervals  |
 
         And I add the activities in "E-book"
@@ -40,38 +32,33 @@ Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitati
 
        When I add activities in "Course Plan" 
             | activities           |
-            | Literary Elements    |
             | Confidence Intervals |
 
         Then I verify that activities are added in CoursePlan and not in eBook
             | activities                    |
-            | Literary Elements             |
             | Confidence Intervals          |
 
          When I add the activities in both "Course Plan" and "E-book"
             | activities            | tab               |
             | Glossary              | CoursePlanEbook   |
             | Appendix F            | CoursePlanEbook   |
-            | Literary Elements     | CoursePlanEbook   |
             | Confidence Intervals  | CoursePlanEbook   |
 
         Then I verify that activities are added both in "E-book" and "Course Plan" 
             | activities            |
             | Glossary              |
-            | Appendix F            |
-            | Literary Elements     |
+            | Appendix F            |   
             | Confidence Intervals  |
+        And I close the popup message
 
         When I create folder and add the activities to the folder in "E-book" in Production Tool
             | Folder       | activities             | PlaceFolder           |
             | Reading 1    | Appendix F             | Reading 1 folder      |
             | Reading 2    | Glossary               | Reading 2 folder      |
             | Reading 3    | Confidence Intervals   | Reading 3 folder      |
-            | Reading 4    | Literary Elements      | Reading 4 folder      |
 
         Then I verify that activities are added to the folder 
             | Folder        | activities             |
-            | Reading 4     | Literary Elements      |
             | Reading 1     | Appendix F             |
             | Reading 2     | Glossary               |
             | Reading 3     | Confidence Intervals   |
@@ -80,23 +67,21 @@ Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitati
             | Folder    |   Button              |
             | Reading 1 |   moveToTop           |
             | Reading 2 |   moveUpButton        |
-            | Reading 2 |   moveUpButton        |
-            | Reading 3 |   moveUpButton        |
-            | Reading 4 |  moveToEnd            |  
-
+            | Reading 3 |   movedownButton      |
+    
         Then I verify that Folders are reordered 
             | Folder                                                            | orderNumber    |
             | Reading 1                                                         |  1             |                                                       
             | Reading 2                                                         |  2             |
             | Reading 3                                                         |  3             |
-            | Reading 4                                                         |  4             |
+    
            
         When I delete the folder in Production Tab
             | Folder     |
             | Reading 1  |
             | Reading 2  |
             | Reading 3  |
-            | Reading 4  |
+
    
 
         Then I verify that Folders are deleted
@@ -104,5 +89,4 @@ Feature: Verify that MediaProducer is able to add activities in Ebook(Quantitati
             | Reading 1  |
             | Reading 2  |
             | Reading 3  |
-            | Reading 4  |
         

@@ -1,6 +1,6 @@
 {
-  "username": "nehatenep@mail-click.net",
-  "password": "ABCabc@123",
+  "username": "testautomation760+mediaproducer@gmail.com",
+  "password": "Passw0rd!",
   "firstName": "media",
   "lastName": "producer",
   "sq1": "What is the name of your first school?",
@@ -9,5 +9,37 @@
   "sq2_answer": "answer",
   "sq3": "What is the name of your favorite pet?",
   "sq3_answer": "answer",
-  "primarySchool": "macmillan.com"
+  "primarySchool": "macmillan.com",
+  "jwt_payload": {
+    "sub": "a446013c-6473-11ea-8b0e-0e2ba9abcbb5",
+    "user_id": "a446013c-6473-11ea-8b0e-0e2ba9abcbb5",
+    "Id": "a446013c-6473-11ea-8b0e-0e2ba9abcbb5",
+    "FirstName": "Media",
+    "LastName": "Producer",
+    "email": "testautomation760+mediaproducer@gmail.com",
+    "Email": "testautomation760+mediaproducer@gmail.com",
+    "C_Acct__c": "C02777",
+    "OptIn__c": false,
+    "LastModifiedDate": "2020-03-12T15:16:15.741Z",
+    "CreatedDate": "2020-03-12T15:10:42.828Z",
+    "School_or_Institution__c": "test",
+    "email_verified": "",
+    "nickname": "bsmnv0r2zob9mfko87iec9lws",
+    "name": "Media Producer",
+    "type": "Student",
+    "auth0_id": null,
+    "app_metadata": {
+      "admin": false,
+      "support": false,
+      "producer": true
+    },
+    "user_metadata": {
+      "cAccount": "C02777",
+      "name": "Media Producer",
+      "last_name": "Producer",
+      "first_name": "Media",
+      "institution_id": ""
+    }
+  }
+
 }

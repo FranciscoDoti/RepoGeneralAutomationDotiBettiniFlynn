@@ -7,7 +7,7 @@ Feature: Verify that Admin is able to search for the content using Keyword searc
        Given I login to Achieve-CW as "admin_1"
        When I create template with following data 
             | courseType  | productModel | courseName                      | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills       | Skills Keyword Search Template  |                        | E2E 301      | 9781464199499  | Active On Date|
+            | Template    | Skills       | Skills Keyword Search Template  |                        | E2E 301      | 9781464199499  | draft         |
         
        Then I verify that "Skills Keyword Search Template Created." message is displayed
        And I close the popup message

@@ -1,4 +1,34 @@
 {
   "username": "nehatenep@mail-click.net",
-  "password": "ABCabc@123"
+  "password": "ABCabc@123",
+  "jwt_payload": {
+    "sub": "0053B000002ja4cQAA",
+    "user_id": "0053B000002ja4cQAA",
+    "Id": "0053B000002ja4cQAA",
+    "FirstName": "Media",
+    "LastName": "Producer",
+    "email": "nehatenep@mail-click.net",
+    "Email": "nehatenep@mail-click.net",
+    "C_Acct__c": "C02777",
+    "OptIn__c": true,
+    "LastModifiedDate": "2020-02-05T09:57:04.085Z",
+    "School_or_Institution__c": "Macmillan Learning",
+    "email_verified": "",
+    "nickname": "yon48yvgf4v6xtd4k6bxrt7fa",
+    "name": "Media Producer",
+    "type": "Student",
+    "auth0_id": "",
+    "app_metadata": {
+      "admin": false,
+      "support": false,
+      "producer": true
+    },
+    "user_metadata": {
+      "first_name": "Media",
+      "last_name": "Producer",
+      "name": "Media Producer",
+      "cAccount": "C02777",
+      "institution_id": "001i000000btYyyAAE"
+    }
+  }
 }
