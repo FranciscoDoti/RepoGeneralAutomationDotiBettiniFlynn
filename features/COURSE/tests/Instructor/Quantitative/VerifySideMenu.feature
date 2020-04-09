@@ -1,14 +1,9 @@
 @Course @Smoke @API
 Feature: Verify side menu in Quantitative Course 
 
-<<<<<<< HEAD
    
     @delete-Courses
     @instructor-delete-course
-=======
-    @mediaproducer-delete-course
-    @mediaproducer-delete-courseTemplate
->>>>>>> 9d4f363b4264b45451aed951109c480039231b41
     Scenario: Verify that the side menu exist in a Quantitative Course
     
         Given I login to Achieve-CW as "media_producer_2"
@@ -19,7 +14,6 @@ Feature: Verify side menu in Quantitative Course
             | name                  | short_name | c_account   | is_course_template | course_term | course_year | status | course_type | isbn          | warn_prebuilt | enrollment_start_date | course_end_date   |
             | Quantitative Course   | E2E 301    | null        | false              | spring      | 2020        | active | course      | 9781464199490 | false         | todaydate             |  After3Months     |
 
-<<<<<<< HEAD
         And I sign out of Achieve
         And I assign instructor to "Quantitative Course" as a "customer_support_1"
             |   id     |   enrollments         | product_model_id  | course_type    |
@@ -32,6 +26,3 @@ Feature: Verify side menu in Quantitative Course
             | courseCode        |  E2E 301                     |
 
         And I verify that the side menu exist in "Quantitative Single Course"
-=======
-        And I verify that the side menu exist in "Quantitative Course"
->>>>>>> 9d4f363b4264b45451aed951109c480039231b41
