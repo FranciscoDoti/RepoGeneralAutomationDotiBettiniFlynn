@@ -27,27 +27,7 @@ Feature: Adding collaborator to Read & Practice template
 
         Then I verify that "Read & Practice Template" is present and media editor has access to it has collaborator
 
-        When I click on "Read & Practice Template" card
-        And  I click on "Production" Tab
-
-        And I add activities to "Content Library"
-          | activities            |
-          | LCRP1550612138614     |
-          | Glossary              |
-
-        And I add the activities in both "Course Plan" and "E-book"
-            | activities            | tab               |
-            | LCRP1550612138614     | CoursePlanEbook   | 
-            | Glossary              | CoursePlanEbook   |
+        And  I verify that following tab are present 
+            |   Tab            |
+            |   Production     |
         
-        And I close the popup message
-
-        And I create folder and add the activities to the folder in "Course Plan" in Production Tool 
-            | Folder       | activities             | PlaceFolder           |
-            | Reading 1    | LCRP1550612138614      | Reading 1 folder      |
-            | Reading 2    | Glossary               | Reading 2 folder      |
-
-        Then I verify that activities are added to the folder 
-            | Folder        | activities             |
-            | Reading 1     | LCRP1550612138614      |
-            | Reading 2     | Glossary               |

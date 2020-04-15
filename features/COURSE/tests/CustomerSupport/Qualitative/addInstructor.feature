@@ -32,5 +32,7 @@ Feature: Adding Instructor to the Template in Qualitative Course
         And I login to Achieve-CW as "instructor_1"
         And I sign out of Achieve
 
-        Then I verify that "Qualitative Course" is assigned to "instructor_1"
+        Then I verify the following details
+            |courseName         | short_name | course_id        |
+            |Qualitative Course |   E2E 301  | randomCourseId   | 
 

@@ -6,7 +6,6 @@ Feature: Validating the user
         Given I login to Achieve-CW as "customer_support_1"
         When I check the account of "student_1"
         Then I verify that "student_1" details
-            |Details        |  Value                |
-            |accountName    | macmillan student     |   
-            |studentId      | 0053B000002UYzhQAG    | 
+           | name           | Id        |
+           | media_editor_1 | Id        |
 

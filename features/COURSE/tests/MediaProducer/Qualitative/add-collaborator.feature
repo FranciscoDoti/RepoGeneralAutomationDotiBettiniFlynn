@@ -28,31 +28,9 @@ Feature: Adding collaborator to Qualitative template
 
         Then I verify that "Qualitative Template" is present and media editor has access to it has collaborator
 
-        When I click on "Qualitative Template" card
-        And  I click on "Production" Tab
-
-        And I add activities to "Content Library"
-          | activities            |
-          | Confidence Intervals  |
-          | 17b. Psychopathology  |
-
-        And I add the activities in both "Course Plan" and "E-book"
-            | activities            | tab               |
-            | 17b. Psychopathology  | CoursePlanEbook   |
-            | Confidence Intervals  | All               |
-        
-        And I close the popup message
-
-        And I create folder and add the activities to the folder in "Course Plan" in Production Tool
-            | Folder       | activities             | PlaceFolder           |
-            | Reading 1    |  17b. Psychopathology  | Reading 1 folder      |
-            | Reading 2    | Confidence Intervals   | Reading 2 folder      |
-
-        Then I verify that activities are added to the folder 
-            | Folder        | activities             |
-            | Reading 1     | 17b. Psychopathology   |
-            | Reading 2     | Confidence Intervals   |
-
+        And I verify that following tab are present 
+            |   Tab            |
+            |   Production     |
         
 
 

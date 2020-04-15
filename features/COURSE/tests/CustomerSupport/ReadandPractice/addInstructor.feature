@@ -32,6 +32,8 @@ Feature: Adding Instructor to the Read and Practice Template
         
         And I sign out of Achieve
 
-        Then I verify that "Read & Practice Course" is assigned to "instructor_1"
+        Then I verify the following details
+            |courseName             | short_name | course_id        |
+            |Read & Practice Course |   E2E 301  | randomCourseId   |
 
            
