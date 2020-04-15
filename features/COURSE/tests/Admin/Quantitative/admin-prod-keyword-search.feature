@@ -9,9 +9,9 @@ Feature: Verify that Admin is able to search for the content using Keyword searc
             | courseType  | productModel       | courseName                            | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
             | Template    | Quantitative       | Quantitative Keyword Search Template  | macmillan calculus     | E2E 301      | 9781464199499  | draft         |
         
-       Then I verify that "Quantitative Keyword Search Template Created." message is displayed
+       Then I verify that "Created." message is displayed
        And I close the popup message
 
-       Then I verify that "Search" section exists in the "Production" view in "Quantitative Keyword Search Template" course
+       Then I verify that "Search" section exists in the "Production" view in "randoMTemplate" course
        
        And I search the "Glossary" activity using "Search by keyword" search bar in "filter-keyword-title" section

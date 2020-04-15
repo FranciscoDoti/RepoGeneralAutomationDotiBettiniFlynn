@@ -19,10 +19,6 @@ Feature: Verify that Admin is able to create URL
             | field           | link                   |
             | addUrlLinkinput | https://www.google.com |
 
-        Then I verify that "URL Link Added to "Your Content"." message is displayed
-
-        When I click on go to your content
-
         Then I verify that activties are added in "Create"
             | activity |
             | Google   |

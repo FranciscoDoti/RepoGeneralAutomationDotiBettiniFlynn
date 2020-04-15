@@ -1,4 +1,4 @@
-@Course @Smoke @flaky @API @test
+@Course @Smoke @flaky @API
 Feature: Instructor creates Assessment custom task 
 
     

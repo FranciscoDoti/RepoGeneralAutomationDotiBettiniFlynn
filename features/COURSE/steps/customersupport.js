@@ -35,7 +35,12 @@ Then(/^I verify that "(.*)" details$/, async function (userType, data_table) {
   let user = this.users[userType];
   await pages.adminMenu.assertTextIncludes('studentEmail', user.username);
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.adminMenu.assertTextIncludes(data_table.hashes()[i].Details, data_table.hashes()[i].Value);
+    var c = data_table.hashes()[i];
+    let jwtpayload = this.users[userType].jwt_payload
+    c.name = jwtpayload.name
+    c.Id = jwtpayload.Id
+    await pages.adminMenu.assertTextIncludes('accountName', c.name);
+    await pages.adminMenu.assertTextIncludes('studentId', c.Id);
   }
 });
 
@@ -74,7 +79,7 @@ When('I update the access code', async function (data_table) {
   }
 });
 
-When(/^I search for "(.*)" in Courses tab$/, async function (courseName){
+When(/^I search for "(.*)" in Courses tab$/, async function (courseName) {
   await pages.courseList.click('courseTemplate', 'COURSES');
   await pages.courseList.populate('search', courseName);
   await pages.createCourse.assertElementExists('courseCard', courseName)

@@ -272,8 +272,8 @@
 
         }, {
             "name": "goToContent",
-            "byType": "css",
-            "definition": "[data-test-id='add_url']",
+            "byType": "xpath",
+            "definition": "//button[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 

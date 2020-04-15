@@ -77,8 +77,10 @@ When(/^I grant "(.*)" to the "(.*)"$/, async function (roles, userType) {
   await pages.adminMenu.click('grantRole');
 });
 
-Then(/^I verify the message for each "(.*)"$/, async function (message) {
-  await pages.home.assertTextIncludes('alert', message);
+Then(/^I verfy the message displayed for each "(.*)" according to their "(.*)"$/, async function (userType, message) {
+  let user = this.users[userType];
+  let alertMessage = message + ' ' + user.username + '.';
+  await pages.home.assertTextIncludes('alert', alertMessage);
 });
 
 When('I generate and export course report', async function () {
@@ -225,6 +227,8 @@ When('I delete the folder', async function (data_table) {
   }
 });
 When(/^I verify that "(.*)" section exists in the "(.*)" view in "(.*)" course$/, async function (search, production, courseName) {
+  let name = this.data.get('Name');
+  courseName = name;
   await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
   await pages.courseList.populate('search', courseName);
   await pages.courseList.waitForElementVisibility('courseName', courseName);

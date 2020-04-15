@@ -1,12 +1,6 @@
-const {
-  Given,
-  When,
-  Then
-} = require('cucumber');
+const {When, Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const {
-  sleep
-} = require(`${process.cwd()}/app/driver`);
+const {sleep} = require(`${process.cwd()}/app/driver`);
 
 When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async function (number, code, data_table) {
   this.data.set('code', code);
@@ -69,7 +63,9 @@ When(/^I copy course from the "(.*)" template with the following data$/, async f
 });
 
 Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
-  await pages.home.assertTextIncludes('alert', message);
+  let Message = this.data.get('Name');
+  let alertMessage = Message + ' ' + message
+  await pages.home.assertTextIncludes('alert', alertMessage);
 });
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
@@ -169,7 +165,6 @@ When(/^I add the activities to respective folders in "(.*)"$/, async function (c
     await pages.eBook.click('Folder', data_table.hashes()[i].folderName);
     await pages.resources.click('placeInFolder');
     await pages.home.click('closeAlert');
-
   }
 });
 
