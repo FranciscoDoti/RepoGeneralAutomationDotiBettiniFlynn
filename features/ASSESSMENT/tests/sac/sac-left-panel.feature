@@ -1,4 +1,4 @@
-@SAC @Assessment @Smoke @LeftNav @Regression
+@SAC @Assessment @Regression @LeftNav 
 Feature: Validate the functionality of SAC Left Panel
 
   @QuestionList @QuestionTitles

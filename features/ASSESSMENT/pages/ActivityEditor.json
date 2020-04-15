@@ -54,6 +54,12 @@
             "definition": "//span[.='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "focus"
+        }, {
+            "name": "Raptor Student Total Score",
+            "byType": "xpath",
+            "definition": "//div[@class='total-score-table']/table/tbody/tr[count(//tr[.='Raptor Student']/preceding-sibling::tr)+1]",
+            "frame": "aeframe",
+            "specialInstr": "focus"
         }
     ]
 }

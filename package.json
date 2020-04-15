@@ -4,8 +4,7 @@
   "scripts": {
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "test": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac/sac-grading.feature -f json:reports/cucumber_report.json",
-    "test2": "node ./node_modules/cucumber/bin/cucumber-js features/COURSE/tests/Admin/Qualitative/URL.feature -f json:reports/cucumber_report.json"
+    "test": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac/sac-grading-matrix-hw-policy.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"
@@ -14,13 +13,11 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "^80.0.2",
+    "chromedriver": "latest",
     "csvtojson": "latest",
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "latest",
     "dateformat": "latest",
-    "dependencies": "0.0.1",
-    "download": "^8.0.0",
     "eslint": "latest",
     "faker": "latest",
     "geckodriver": "latest",

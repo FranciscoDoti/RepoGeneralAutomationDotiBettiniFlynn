@@ -86,35 +86,35 @@ Feature: To verify the correct functionality of ams's item filter
 
         Examples:
             | Filter               | Option                                                                     |
-            | Topic                | Your Questions (uncategorized)                                             |
+            # | Topic                | Your Questions (uncategorized)                                             |
             | Topic                | End of Chapter Problems                                                    |
-            | Blooms               | Remembering                                                                |
-            | Blooms               | Understanding                                                              |
-            | Blooms               | Applying                                                                   |
+            # | Blooms               | Remembering                                                                |
+            # | Blooms               | Understanding                                                              |
+            # | Blooms               | Applying                                                                   |
             | Blooms               | Analyzing                                                                  |
-            | Blooms               | Evaluating                                                                 |
-            | Blooms               | Creating                                                                   |
-            | Difficulty           | easy                                                                       |
-            | Difficulty           | medium                                                                     |
+            # | Blooms               | Evaluating                                                                 |
+            # | Blooms               | Creating                                                                   |
+            # | Difficulty           | easy                                                                       |
+            # | Difficulty           | medium                                                                     |
             | Difficulty           | hard                                                                       |
             | Taxonomy             | Question Bank                                                              |
-            | Taxonomy             | Morris 3e - Biology How Life Works                                         |
-            | Taxonomy             | Krugman/Wells 4e - Macroeconomics Test Bank                                |
-            | Taxonomy             | Cowen/Tabarrok, Modern Principles: Microeconomics Test Bank                |
-            | Taxonomy             | Chiang - Microeconomics, 4e Test Bank                                      |
-            | Taxonomy             | Krugman/Wells Microeconomics in Modules 4e Test Bank                       |
-            | Taxonomy             | Composition                                                                |
-            | Taxonomy             | Sapling Economics                                                          |
-            | Taxonomy             | Krugman/Wells Macroeconomics in Modules 4e Test Bank                       |
-            | Taxonomy             | Chiang - Macroeconomics, 4e Test Bank                                      |
-            | Status               | live                                                                       |
-            | Status               | in progress                                                                |
-            | Status               | child                                                                      |
+            # | Taxonomy             | Morris 3e - Biology How Life Works                                         |
+            # | Taxonomy             | Krugman/Wells 4e - Macroeconomics Test Bank                                |
+            # | Taxonomy             | Cowen/Tabarrok, Modern Principles: Microeconomics Test Bank                |
+            # | Taxonomy             | Chiang - Microeconomics, 4e Test Bank                                      |
+            # | Taxonomy             | Krugman/Wells Microeconomics in Modules 4e Test Bank                       |
+            # | Taxonomy             | Composition                                                                |
+            # | Taxonomy             | Sapling Economics                                                          |
+            # | Taxonomy             | Krugman/Wells Macroeconomics in Modules 4e Test Bank                       |
+            # | Taxonomy             | Chiang - Macroeconomics, 4e Test Bank                                      |
+            # | Status               | live                                                                       |
+            # | Status               | in progress                                                                |
+            # | Status               | child                                                                      |
             | Status               | deprecated                                                                 |
-            | Status               | in review                                                                  |
-            | Item Type            | performance                                                                |
+            # | Status               | in review                                                                  |
+            # | Item Type            | performance                                                                |
             | Item Type            | participation                                                              |
             | Internal Topic Title | Your Questions (uncategorized)                                             |
             | Access               | public                                                                     |
-            | Access               | private                                                                    |
+            # | Access               | private                                                                    |
             | Learning Objective   | untagged                                                                   |

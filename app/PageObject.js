@@ -321,15 +321,19 @@ const PageObject = function (pageNameInput, pageNameDirectoryInput) {
       const WebElementObject = await WebElement(WebElementData);
       const webElement = await WebElementObject.getWebElement();
       var returnValue;
-      if (attributeName === undefined) {
-        returnValue = await webElement.getAttribute('textContent');
-      } else if (attributeName.toLowerCase() === 'text') {
+
+      if (attributeName === undefined){
+        attributeName = 'textContent';
+      }
+
+      if (attributeName.toLowerCase() === 'text') {
         returnValue = await webElement.getText();
       } else if (attributeName === 'selected') {
         returnValue = await webElement.isSelected();
       } else {
         returnValue = await webElement.getAttribute(attributeName);
       }
+      log.info(`Attribute "${attributeName}" value for element "${elementName}" is "${returnValue}".`);
       return returnValue;
     } else {
       assert.fail(`ERROR: WebElement ${elementName} not found in PageElements during GetAttributeValue() attempt.`);

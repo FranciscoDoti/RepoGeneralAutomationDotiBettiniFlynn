@@ -200,7 +200,7 @@
             "byType": "xpath",
             "definition": "//a[@data-test-id='<ReplaceText>']",
             "frame": "aeframe",
-            "specialInstr": "NA"
+            "specialInstr": "focus"
         },
         {
             "name": "Assessment Title",

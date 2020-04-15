@@ -127,11 +127,13 @@ When(/^I select the created assessment$/, async function () {
   let id = this.data.get('assessmentID');
   await pages.createAssessment.click('Created Assessment', id);
 });
+
 When('I submit all the questions after attempting', async function () {
   await pages.createAssessment.waitForElementVisibility('Submit Answers', 'submit-assignment-button');
   await pages.createAssessment.click('Submit Answers', 'submit-assignment-button');
   await pages.createAssessment.click('Submit Answers', 'submit-all-modal-submit');
 });
+
 Then(/^I verify all the questions grades$/, async function (datatable) {
   await pages.createAssessment.waitForElementVisibility('Submit Answers', 'score-label');
   for (let i = 0; i < datatable.rows().length; i++) {

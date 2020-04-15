@@ -129,7 +129,7 @@
         {
             "name": "policy name",
             "byType": "xpath",
-            "definition": "//div[@class='assignment-sub-header']/h4",
+            "definition": "//div[@class='assignment-sub-header']/h4[text()='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },
