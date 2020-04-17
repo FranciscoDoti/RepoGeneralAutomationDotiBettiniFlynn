@@ -431,6 +431,96 @@ Feature: Validate the functionality of SAC Grading Matrix using HW Policy
         And I click on "Modal Button" "View Solution"
         And I click on "Action Button" "Solution"
             And The "Panel Container" named "solution" should not be displayed
+    
+    @RetainResponses @DirectNavigation
+    Scenario: Verify Direct Navigation test features in SAC
+        Given I login to IBISCMS as "raptor-student"
+        When I navigate to "SAC Automation - Validation Tests HW" assessment link in "Raptor Automation - Do Not Delete" course
+            Then I should see "Question 1 of 5" as the nav question header
+            And The Multiple Choice question "Shape of the Earth?" should be displayed with
+                | Response  |
+                | Square    |
+                | Round     |
+                | Triangle  |
+                | Rectangle |
+        When I click on "5 Question" in the side nav
+            Then I should see "Question 5 of 5" as the nav question header
+            And The Multiple Choice question "Shape of the Ball?" should be displayed with
+                | Response  |
+                | Square    |
+                | Round     |
+                | Triangle  |
+                | Rectangle |
+        When I provide the following responses
+            | Question   | Module Type     | Response | Check Answer |
+            | 3 Question | Multiple Choice | Square   | Yes          |
+            | 5 Question | Multiple Choice | Round    | Yes          |
+        When I click on "1 Question" in the side nav
+        When I click on "4 Question" in the side nav
+        When I click on "2 Question" in the side nav
+        When I click on "3 Question" in the side nav
+        When I click on "4 Question" in the side nav
+        When I click on "5 Question" in the side nav
+            Then I should see "Question 5 of 5" as the nav question header
+            And The Multiple Choice question "Shape of the Ball?" should be displayed with
+                | Response  |
+                | Square    |
+                | Round     |
+                | Triangle  |
+                | Rectangle |
+            And I verify the following responses are retained
+                | Module Type     | Response |
+                | Multiple Choice | Round    |
+            And The questions should have the following grades
+                | Question   | Grade   | Status  |
+                | 5 Question | 100/100 | Correct |
+        When I click on "5 Question" in the side nav
+        When I click on "2 Question" in the side nav
+        When I click on "3 Question" in the side nav
+        When I click on "1 Question" in the side nav
+        When I click on "4 Question" in the side nav
+        When I click on "3 Question" in the side nav
+            Then I should see "Question 3 of 5" as the nav question header
+            And The Multiple Choice question "Shape of the Wheel?" should be displayed with
+                | Response  |
+                | Square    |
+                | Round     |
+                | Triangle  |
+                | Rectangle |
+            And I verify the following responses are retained
+                | Module Type     | Response |
+                | Multiple Choice | Square   |
+            And The questions should have the following grades
+                | Question   | Grade  | Status      |
+                | 3 Question | 0/100  | In Progress |
+        When I click on "5 Question" in the side nav
+        When I click on "2 Question" in the side nav
+        When I click on "3 Question" in the side nav
+        When I click on "1 Question" in the side nav
+        When I click on "4 Question" in the side nav
+        When I click on "2 Question" in the side nav
+            Then I should see "Question 2 of 5" as the nav question header
+            And The Multiple Choice question "Shape of the Moon?" should be displayed with
+                | Response  |
+                | Square    |
+                | Round     |
+                | Triangle  |
+                | Rectangle |
+            And The questions should have the following grades
+                | Question   | Grade | Status      |
+                | 2 Question | 0/100 |             |
+
+    @Grading @Regrade @AnsweringSomeQuestion @BackArrowNavigation @ForwardArrowNavigation
+    Scenario: Verify Regrade assignment when student answers the Question by navigating through back and forward arrow in SAC
+        Given I login to IBISCMS as "raptor-student"
+        When I navigate to "SAC Automation - Validation Tests HW" assessment link in "Raptor Automation - Do Not Delete" course
+        And I provide the following responses
+            | Question   | Module Type     | Response | Check Answer |
+            | 2 Question | Multiple Choice | Square   | Yes          |
+            Then The questions should have the following grades
+                | Question   | Grade | Status      |
+                | 2 Question | 0%    | In Progress |
+            And Side panel for "2 Question" should display the "Feedback" "Incorrect - Moon is not Square"
 
     @Grading @Regrade @AnsweringSomeQuestion @BackArrowNavigation @ForwardArrowNavigation
     Scenario: Verify Regrade assignment when student answers the Question by navigating through back and forward arrow in SAC
