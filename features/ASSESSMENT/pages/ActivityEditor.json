@@ -18,6 +18,12 @@
             "definition": "//h1[.='Attempts per Question']",
             "frame": "aeframe",
             "specialInstr": "NA"
+        }, {
+            "name": "No Reports Card",
+            "byType": "xpath",
+            "definition": "//div[@class='no-reports-card']",
+            "frame": "aeframe",
+            "specialInstr": "NA"
         }, { 
             "name": "Button",
             "byType": "xpath",
@@ -46,6 +52,12 @@
             "name": "Question More",
             "byType": "xpath",
             "definition": "//div[text()='<ReplaceText>']/../../../..//button[@data-test-id='edit-button']",
+            "frame": "aeframe",
+            "specialInstr": "focus"
+        }, {
+            "name": "Question Count",
+            "byType": "xpath",
+            "definition": "//div[@class='question-list-more-count']",
             "frame": "aeframe",
             "specialInstr": "focus"
         }, {

@@ -7,7 +7,7 @@ Feature: Validate the SAC Regrading functionality for Quiz Policy Assessments
         And I reset attempts for student "Raptor Student"
         And I logout IBISCMS
 
-    @RegradeAssessmentScore
+    @Regrade @Grading
     Scenario: Verify no assessment score and correct/incorrect indicator should be displayed in Quiz Polict Assessment in SAC
         When I login to IBISCMS as "raptor-student"
         And I navigate to "SAC Automation - Quiz" assessment link in "Raptor Automation - Do Not Delete" course
@@ -29,7 +29,7 @@ Feature: Validate the SAC Regrading functionality for Quiz Policy Assessments
             And The "Question Score" should not be displayed for "3 Question"
             And The "Question Attempts Indicator" should not be displayed for "3 Question"
 
-    @RegradeAssessmentScore @AddQuestion @RemoveQuestion
+    @Regrade @AddQuestion @RemoveQuestion
     Scenario: Verify no assessment score and correct/incorrect indicator should be displayed in Quiz Polict Assessment in SAC
         Given I login to IBISCMS as "raptor-instructor"
         When I navigate to "SAC Automation - Quiz" assessment link in "Raptor Automation - Do Not Delete" course

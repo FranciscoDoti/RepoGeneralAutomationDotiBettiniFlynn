@@ -51,9 +51,11 @@ Then('The questions should have the following grades', async function (datatable
 
 When('I provide the following responses', async function (datatable) {
     for (let data of datatable.hashes()) {
-        await pages.sac.click('Question Number', data['Question']);
-        await sleep(3000);  //wait for question to load
-
+        if (data['Question'] !== undefined) {
+            await pages.sac.click('Question Number', data['Question']);
+            await sleep(3000);  //wait for question to load
+        }
+        
         if (await pages.sac.checkElementExists('Action Button', 'Try Again')) {
             await pages.sac.click('Action Button', 'Try Again');
         } else if (await pages.sac.checkElementExists('Action Button', 'Resume')) {
@@ -71,11 +73,12 @@ When('I provide the following responses', async function (datatable) {
 
         if (data['Check Answer'] === 'Yes') {
             await pages.sac.click('Action Button', 'Check Answer');
-            await pages.sac.waitForElementInvisibility('Action Button', 'Please Wait')
+            await pages.sac.waitForElementInvisibility('Action Button', 'Please Wait');
         }
 
         if (data['Save Answer'] === 'Yes') {
             await pages.sac.click('Action Button', 'Save Answer');
+            await pages.sac.waitForElementInvisibility('Action Button', 'Saving');
         }
 
         if (await pages.sac.checkElementExists('Close Modal Button')) {
@@ -90,6 +93,8 @@ Then('I verify the following responses are retained', async function (datatable)
             await pages.sac.click('Question Number', data['Question']);
             await sleep(3000);  //wait for question to load
         }
+        await pages.sac.waitForElementInvisibility('Action Button', 'Please Wait');
+        await pages.sac.waitForElementInvisibility('Action Button', 'Saving');
         
         if (data['Attempt'] !== undefined) {
             if (await pages.sac.checkElementExists('Attempts Dropdown')) {
@@ -113,12 +118,15 @@ When('I give up on {string}', async function (question) {
     await pages.sac.click('Question Number', question);
     await pages.sac.click('Action Button', 'Give Up?');
     await pages.sac.click('Modal Button', 'give up and view solution');
+    await pages.sac.waitForElementInvisibility('Action Button', 'Please Wait');
 });
 
 When('I reset attempts for student {string}', async function (student) {
     await sleep(2000);
     await pages.ActivityEditor.click('AE Tab', 'Responses');
-    if (await pages.ActivityEditor.checkElementExists('Attempts per Question')) {
+
+    if (!(await pages.ActivityEditor.checkElementExists('No Reports Card')) ||
+        await pages.ActivityEditor.checkElementExists('Attempts per Question')) {
         await pages.ActivityEditor.click('Button', 'Edit');
         await pages.ActivityEditor.click('Student Name', student);
         await pages.ActivityEditor.click('Button', 'Reset Attempts');
@@ -128,8 +136,10 @@ When('I reset attempts for student {string}', async function (student) {
 
 When('I remove the following questions from the assessment', async function (datatable) {
     await sleep(2000);
+    await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
+    await pages.ActivityEditor.waitForElementVisibility('Question Count');
+
     for (let data of datatable.hashes()) {
-        await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
         if (await pages.ActivityEditor.checkElementExists('Question Added', data['Question'])) {
             await pages.ActivityEditor.click('Question More', data['Question']);
             await pages.ActivityEditor.click('More Menu Option', 'Remove From Assessment');
@@ -140,8 +150,10 @@ When('I remove the following questions from the assessment', async function (dat
 
 When('I add the following questions to the assessment', async function (datatable) {
     await sleep(2000);
+    await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
+    await pages.ActivityEditor.waitForElementVisibility('Question Count');
+
     for (let data of datatable.hashes()) {
-        await pages.ActivityEditor.click('AE Tab', 'Custom Questions');
         if (!(await pages.ActivityEditor.checkElementExists('Question Added', data['Question']))) {
             await pages.ActivityEditor.click('Question More', data['Question']);
             await pages.ActivityEditor.click('More Menu Option', 'Add to Assessment');

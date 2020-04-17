@@ -38,7 +38,7 @@
         {
             "name": "Assignment Button",
             "byType": "xpath",
-            "definition": "//div[@class='assignment-buttons']/button[.='<ReplaceText>']]",
+            "definition": "//div[@class='assignment-buttons']/button[.='<ReplaceText>']",
             "frame": "aeframe",
             "specialInstr": "NA"
         },

@@ -432,3 +432,33 @@ Feature: Validate the functionality of SAC Grading Matrix using HW Policy
         And I click on "Action Button" "Solution"
             And The "Panel Container" named "solution" should not be displayed
 
+    @Grading @Regrade @AnsweringSomeQuestion @BackArrowNavigation @ForwardArrowNavigation
+    Scenario: Verify Regrade assignment when student answers the Question by navigating through back and forward arrow in SAC
+        Given I login to IBISCMS as "raptor-student"
+        When I navigate to "SAC Automation - Validation Tests HW" assessment link in "Raptor Automation - Do Not Delete" course
+        And I provide the following responses
+            | Question   | Module Type     | Response | Check Answer |
+            | 2 Question | Multiple Choice | Square   | Yes          |
+            Then The questions should have the following grades
+                | Question   | Grade | Status      |
+                | 2 Question | 0%    | In Progress |
+            And Side panel for "2 Question" should display the "Feedback" "Incorrect - Moon is not Square"
+
+        When I click on "left" arrow in the nav question header
+        And I provide the following responses
+            | Module Type     | Response | Check Answer |
+            | Multiple Choice | Round    | Yes          |
+            Then The questions should have the following grades
+                | Question   | Grade | Status  |
+                | 1 Question | 100%  | Correct |
+            And Side panel for "1 Question" should display the "Solution" "Correct - Earth is Round"
+
+        When I click on "right" arrow in the nav question header
+        And I provide the following responses
+            | Module Type     | Response | Check Answer |
+            | Multiple Choice | Round    | Yes          |
+            Then The overall assignment score should be "59%"
+            And The questions should have the following grades
+                | Question   | Grade | Status  |
+                | 2 Question | 95%   | Correct |
+            And Side panel for "2 Question" should display the "Solution" "Correct - Moon is Round"
