@@ -26,7 +26,7 @@ After('@delete-Courses', async function () {
   this.data.data.keys().forEach(courseName => {
     let api = new RestObject(spec);
     api.setCookie(jwt_payload);
-    api.spec.endpoint = api.spec.endpoint.replace('{id}', this.data.get(courseName, 'id'));
+    api.spec.endpoint = api.spec.endpoint.replace('{id}', this.data.get(courseName).id);
     api.DELETE('Achieve-CW');
   });
 });

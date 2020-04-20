@@ -200,7 +200,7 @@ Feature: Validate the functionality of SAC Grading Matrix using Test policy
                 | 1 Question | 100%  | Correct   |
             And Side panel for "1 Question" should display the "Solution" "Correct - Earth is Round" 
 
-    @RetainResponses @NavigationArrows @WIP
+    @RetainResponses @NavigationArrows
     Scenario: Verify Feedback button test features in SAC
         Given I login to IBISCMS as "raptor-student"
         When I navigate to "SAC Automation - Validation Tests Quiz" assessment link in "Raptor Automation - Do Not Delete" course

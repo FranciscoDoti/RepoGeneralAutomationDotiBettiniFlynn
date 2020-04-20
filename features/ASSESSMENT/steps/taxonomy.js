@@ -10,7 +10,6 @@ When("I access to the taxonomy page", async function (datatable) {
 When(/^I create a new topic called "(.*)"$/, async function (topicName) {
   let topicTitle = topicName + " " + Date.now();
   this.data.set('Topic Title', topicTitle);
-
   await amslib.addTopic(topicTitle);
 });
 

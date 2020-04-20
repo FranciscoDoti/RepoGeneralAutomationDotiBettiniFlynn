@@ -1,7 +1,7 @@
 @Assessment @AMS @BulkUpdate @Smoke
-Feature: To update and delete multiple raptor items in AMS by bulk update
+Feature: Bulk Update/Delete multiple raptor items in AMS
 
-    @BulkUpdateEdit
+    @BulkUpdateEdit @WIP
     Scenario: Instructor updates several items at once by bulk update
 
         Given I login to AMS as "all-permissions-author"
@@ -23,12 +23,12 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | Topic Level 1 | Topic Level 2 | Topic Level 3        | Topic Level 4 | Topic Level 5                  | Taxonomy Level 1 | Taxonomy Level 2 | Difficulty | Status | Access |
             | Algebra       | Math Review   | CHAPTER 0 All Topics | All Topics    | Your Questions (uncategorized) | Algebra          | Math Review      | Easy       | Live   | public |
 
-        Then I verify the details of the following items are displayed in AMS
-            | Author Mode | Title                       | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
-            | Raptor      | BulkUpdateEdit Test MC Item | Your Questions (uncategorized) | Math Review | easy       | MC          | live   | public |
-            | Raptor      | BulkUpdateEdit Test MS Item | Your Questions (uncategorized) | Math Review | easy       | MS          | live   | public |
-            | Raptor      | BulkUpdateEdit Test UT Item | Your Questions (uncategorized) | Math Review | easy       |             | live   | public |
-            | Raptor      | BulkUpdateEdit Test MD Item | Your Questions (uncategorized) | Math Review | easy       | MD          | live   | public |
+            Then I verify the details of the following items are displayed in AMS
+                | Author Mode | Title                       | Topic                          | Taxonomy    | Difficulty | Module Type | Status | Access |
+                | Raptor      | BulkUpdateEdit Test MC Item | Your Questions (uncategorized) | Math Review | easy       | MC          | live   | public |
+                | Raptor      | BulkUpdateEdit Test MS Item | Your Questions (uncategorized) | Math Review | easy       | MS          | live   | public |
+                | Raptor      | BulkUpdateEdit Test UT Item | Your Questions (uncategorized) | Math Review | easy       |             | live   | public |
+                | Raptor      | BulkUpdateEdit Test MD Item | Your Questions (uncategorized) | Math Review | easy       | MD          | live   | public |
 
     @BulkUpdateDelete
     Scenario: Instructor deletes several items at once by bulk update
@@ -50,12 +50,12 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
 
         And I delete the selected items
 
-        Then I verify the deleted items are displayed in Deleted Items screen in AMS
-            | Title                         |
-            | BulkUpdateDelete Test MC Item |
-            | BulkUpdateDelete Test MS Item |
-            | BulkUpdateDelete Test UT Item |
-            | BulkUpdateDelete Test MD Item |
+            Then I verify the deleted items are displayed in Deleted Items screen in AMS
+                | Title                         |
+                | BulkUpdateDelete Test MC Item |
+                | BulkUpdateDelete Test MS Item |
+                | BulkUpdateDelete Test UT Item |
+                | BulkUpdateDelete Test MD Item |
 
         And I verify the deleted items are not displayed in AMS
             | Title                         |
@@ -104,9 +104,9 @@ Feature: To update and delete multiple raptor items in AMS by bulk update
             | Topic Level 1        | Topic Level 2               | Topic Level 3          | Topic Level 4                            | Topic Level 5          | Taxonomy Level 1     | Taxonomy Level 2            | Difficulty | Status    | Access  |
             | Analytical Chemistry | Exploring Chemical Analysis | The Analytical Process | 0-2 General Steps in a Chemical Analysis | The Analytical Process | Analytical Chemistry | Exploring Chemical Analysis | Hard       | In Review | private |
 
-        Then I verify the details of the following items are displayed in AMS
-            | Author Mode | Title                            | Topic                  | Taxonomy                    | Difficulty | Module Type | Status    | Access  |
-            | Raptor      | BulkUpdateEditTwice Test MC Item | The Analytical Process | Exploring Chemical Analysis | hard       | MC          | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test MS Item | The Analytical Process | Exploring Chemical Analysis | hard       | MS          | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test UT Item | The Analytical Process | Exploring Chemical Analysis | hard       |             | in review | private |
-            | Raptor      | BulkUpdateEditTwice Test MD Item | The Analytical Process | Exploring Chemical Analysis | hard       | MD          | in review | private |
+            Then I verify the details of the following items are displayed in AMS
+                | Author Mode | Title                            | Topic                  | Taxonomy                    | Difficulty | Module Type | Status    | Access  |
+                | Raptor      | BulkUpdateEditTwice Test MC Item | The Analytical Process | Exploring Chemical Analysis | hard       | MC          | in review | private |
+                | Raptor      | BulkUpdateEditTwice Test MS Item | The Analytical Process | Exploring Chemical Analysis | hard       | MS          | in review | private |
+                | Raptor      | BulkUpdateEditTwice Test UT Item | The Analytical Process | Exploring Chemical Analysis | hard       |             | in review | private |
+                | Raptor      | BulkUpdateEditTwice Test MD Item | The Analytical Process | Exploring Chemical Analysis | hard       | MD          | in review | private |

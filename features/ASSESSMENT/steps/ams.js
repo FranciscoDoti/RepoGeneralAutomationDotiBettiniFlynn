@@ -13,7 +13,7 @@ When('I create the following draft Raptor items in AMS', async function (datatab
     await raptorlib.addModule(item['Module Type']);
 
     let itemId = await raptorlib.saveItem();
-    this.data.set(item.Title, "id", itemId);
+    this.data.set(item.Title, { id: itemId });
     await pages.ams.closeTab('Raptor Authoring');
 
     log.debug(`Item Id ${itemId} for module type ${item['Module Type']}`);
@@ -24,7 +24,7 @@ When('I select the following items by title in AMS', async function (datatable) 
   await amslib.waitAlgoliaProcess();
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.click('Select Checkbox', this.data.get(item.Title, "id"));
+    await pages.ams.click('Select Checkbox', this.data.get(item.Title).id);
   }
 });
 
@@ -53,7 +53,7 @@ When('I delete the following items in AMS', async function (datatable) {
   await amslib.waitAlgoliaProcess();
   for (i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    let itemId = this.data.get(item.Title, "id");
+    let itemId = this.data.get(item.Title).id;
     await amslib.deleteItem(itemId);
   }
 });
@@ -62,7 +62,7 @@ When('I update single items by title with the following details in AMS', async f
   await amslib.waitAlgoliaProcess();
   for (i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.click('Item ID Link', this.data.get(item.Title, "id"));
+    await pages.ams.click('Item ID Link', this.data.get(item.Title).id);
     await updatelib.setTopic(item);
     await updatelib.setTaxonomy(item);
     await updatelib.setDifficulty(item.Difficulty);
@@ -103,7 +103,7 @@ Then('I verify the details of the following items are displayed in AMS', async f
   await amslib.waitAlgoliaProcess();
   for (i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    let itemId = this.data.get(item.Title, "id");
+    let itemId = this.data.get(item.Title).id;
     await amslib.verifyItemDetails(item, itemId);
   }
 });
@@ -126,7 +126,7 @@ Then('I verify the deleted items are displayed in Deleted Items screen in AMS', 
   await pages.ams.click('AMS Tab', 'Deleted Items');
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.assertElementExists('Item ID Link', this.data.get(item.Title, "id"));
+    await pages.ams.assertElementExists('Item ID Link', this.data.get(item.Title).id);
   }
 });
 
@@ -135,7 +135,7 @@ Then('I verify the deleted items are not displayed in AMS', async function (data
   await pages.ams.click('AMS Tab', 'Items');
   for (let i = 0; i < datatable.rows().length; i++) {
     let item = datatable.hashes()[i];
-    await pages.ams.assertElementDoesNotExist('Item ID Link', this.data.get(item.Title, "id"));
+    await pages.ams.assertElementDoesNotExist('Item ID Link', this.data.get(item.Title).id);
   }
 });
 

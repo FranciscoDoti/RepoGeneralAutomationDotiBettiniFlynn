@@ -14,15 +14,17 @@ When('I create a course as {string} with the following data', async function (us
     data.isbn = '"' + randomNumber + '"'
     data.owner_id = jwt_payload.user_id;
     expect(await api.POST('Achieve-CW', data)).to.equal(200);
-    this.data.set(data.name,'courseName', data.name);
-    this.data.set(data.name, 'short_name', data.short_name);
-    this.data.set(data.name, 'isbn', data.isbn);
-    this.data.set(data.name, 'id', api.response.id);
+    this.data.set(data.name, {
+      courseName: data.name,
+      short_name: data.short_name,
+      isbn: data.isbn,
+      id: api.response.id,
+    });
   }
 });
 
 When('I copy course from {string} as {string} with the following data', async function (courseName, userType, datatable) {
-  let courseId = this.data.get(courseName, 'id');
+  let courseId = this.data.get(courseName).id;
   let spec = `${specPath}/copycourse.json`;
   let jwt_payload = this.users[userType].jwt_payload;
   let api = new RestObject(spec);
@@ -37,16 +39,18 @@ When('I copy course from {string} as {string} with the following data', async fu
     data.enrollment_start_date = format;
     data.course_end_date = format_Next;
     await api.POST('Achieve-CW', data)
-    this.data.set(data.name,'courseName', data.name);
-    this.data.set(data.name, 'short_name', data.short_name);
-    this.data.set(data.name, 'isbn', data.isbn);
-    this.data.set(data.name, 'id', api.response.courseId);
+    this.data.set(data.name, {
+      courseName: data.name,
+      short_name: data.short_name,
+      isbn: data.isbn,
+      id: api.response.id,
+    });
     console.log(api.response.courseId);
   }
 });
 
 When('I assign instructor to {string} as a {string}', async function(courseName, userName, datatable) {
-  let courseId = this.data.get(courseName, 'id');
+  let courseId = this.data.get(courseName).id;
   let spec = `${specPath}/enrollInstructor.json`;
   let jwt_payload = this.users[userName].jwt_payload;
   let api = new RestObject(spec);
@@ -59,7 +63,7 @@ When('I assign instructor to {string} as a {string}', async function(courseName,
   }
 })
 When('I activate {string} as {string} with following data', async function (courseName, userType, datatable) {
-  let courseId = this.data.get(courseName,'id');
+  let courseId = this.data.get(courseName).id;
   let spec = `${specPath}/activate.json`;
   let jwt_payload = this.users[userType].jwt_payload.instructors;
   let api = new RestObject(spec);
