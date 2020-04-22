@@ -2,6 +2,7 @@ const {Given, When, Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const {sleep} = require(`${process.cwd()}/app/driver`);
 const driver = require(`${process.cwd()}/app/driver.js`);
+const { randomURL } = require(`${process.cwd()}/features/COURSE/helpers/dataGenerator`);
 
 Given(/^I search for "(.*)" course$/, async function (input) {
   await pages.courseList.populate('search', input);
@@ -85,7 +86,9 @@ When(/^I add URL link to "(.*)"$/, async function (tabName, data_table) {
   await pages.createCourse.click('New');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.resources.click('urlLink');
-    await pages.resources.populate(data_table.hashes()[i].field, data_table.hashes()[i].link)
+    let link = data_table.hashes()[i].link == "randomURL" ? randomURL : data_table.hashes()[i].link;
+    await pages.resources.populate(data_table.hashes()[i].field, link)
+    await pages.resources.click('nextStepUrlLink');
     await pages.resources.click('addUrlLink');
     await pages.resources.click('goToContent', 'Go to Your Content');
   }

@@ -1,0 +1,21 @@
+{
+    "username": "testing.sapling+mediaproducer4int@gmail.com",
+    "password": "Passw0rd!",
+    "firstName": "media",
+    "lastName": "producer",
+    "sq1": "What is the name of your first school?",
+    "sq1_answer": "answer",
+    "sq2": "What high school did you attend?",
+    "sq2_answer": "answer",
+    "sq3": "What is the name of your favorite pet?",
+    "sq3_answer": "answer",
+    "primarySchool": "Macmillan Learning",
+    "jwt_payload": {
+        "email": "testing.sapling+mediaproducer4int@gmail.com",
+        "app_metadata": {
+          "admin": false,
+          "support": false,
+          "producer": true
+        }
+      }
+  }

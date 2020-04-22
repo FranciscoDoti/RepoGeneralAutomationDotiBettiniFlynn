@@ -1,6 +1,7 @@
 const {When, Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const {sleep} = require(`${process.cwd()}/app/driver`);
+const { randomURLDisplayName } = require(`${process.cwd()}/features/COURSE/helpers/dataGenerator`);
 
 When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async function (number, code, data_table) {
   this.data.set('code', code);
@@ -66,6 +67,10 @@ Then(/^I verify that "(.*)" message is displayed$/, async function (message) {
   let Message = this.data.get('Name');
   let alertMessage = Message + ' ' + message
   await pages.home.assertTextIncludes('alert', alertMessage);
+});
+
+Then(/^I verify that complete icon is displayed$/, async function () {
+    await pages.home.assertElementExists('completed-icon');
 });
 
 Then(/^I verify that "(.*)" has created with following "(.*)" number$/, async function (courseName, verifyNumber) {
@@ -260,7 +265,8 @@ Then('I verify that activties are added', async function (data_table) {
 Then(/^I verify that activties are added in "(.*)"$/, async function (tabName, data_table) {
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePage.click('navigation', tabName);
-    await pages.eBook.assertElementExists('activityVerification', data_table.hashes()[i].activity);
+    let activity = data_table.hashes()[i].activity == "randomURLDisplayName" ? randomURLDisplayName : data_table.hashes()[i].activity;
+    await pages.eBook.assertElementExists('activityVerification', activity);
   }
 });
 
@@ -369,7 +375,8 @@ When(/^I create "(.*)" custom activity in "(.*)" tab$/, async function (activity
 When('I add custom activity to Content Library', async function (data_table) {
   await pages.coursePage.click('navigation', 'Create');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.createCourse.click('customContentAdd', data_table.hashes()[i].activity);
+    let activity = data_table.hashes()[i].activity == "randomURLDisplayName" ? randomURLDisplayName : data_table.hashes()[i].activity;
+    await pages.createCourse.click('customContentAdd', activity);
   }
 })
 

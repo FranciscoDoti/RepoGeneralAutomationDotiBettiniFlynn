@@ -16,18 +16,18 @@ Feature: Student attempts reading, static file, URL, Gradebook category
         And I click on "Production" Tab
         And I add URL link to "Create" 
             | field             | link                         |
-            | addUrlLinkinput   | https://www.google.com       |
-        Then I verify that "URL Link Added to "Your Content"." message is displayed
+            | addUrlLinkinput   |  randomURL  |
+        Then I verify that complete icon is displayed
 
         When I click on go to your content
 
         Then I verify that activties are added in "Create"
             | activity                                      |    
-            | Google                                        |
+            | randomURLDisplayName                          |
 
         When I add custom activity to Content Library
             | activity                                      |    
-            | Google                                        |
+            | randomURLDisplayName                          |
         
         And I add activities to "Content Library"
           | activities                                   |
@@ -47,22 +47,22 @@ Feature: Student attempts reading, static file, URL, Gradebook category
      
         And I add the activities in courseplanner to "activities Course" course
             | activity                                    | 
-            | Google                                      |
+            | randomURLDisplayName                        |
             | Glossary                                    |
             | SampleChapterAuto.jpg                       |
         And I close the popup message 
 
         And I assign the activities in courseplanner
             | activity                                                         | Points |
-            | Google                                                           | 5      |
+            | randomURLDisplayName                                             | 5      |
             | Glossary                                                         | 5      |
             | SampleChapterAuto.jpg                                            | 5      |
 
-        And I create Gradebook Category for student and assign that to "Google" activity
+        And I create Gradebook Category for student and assign that to "randomURLDisplayName" activity
             |   CategoryName        | DropGrade | GradebookCategory |
             |   Test                |  1        |   Test            |
 
-        Then I verify that "The details of 'Google' have been updated." message is displayed
+        Then I verify that "The details of 'randomURLDisplayName' have been updated." message is displayed
         And I close the popup message
         And I sign out of Achieve
 
@@ -77,5 +77,5 @@ Feature: Student attempts reading, static file, URL, Gradebook category
 
         And I click on "activities Course"
 
-        And I attempt "Google" URL activity
+        And I attempt "randomURLDisplayName" URL activity
         

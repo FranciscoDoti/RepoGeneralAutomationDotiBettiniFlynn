@@ -2,6 +2,7 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const driver = require(`${process.cwd()}/app/driver.js`);
 const {sleep } = require(`${process.cwd()}/app/driver`);
+const { randomURLDisplayName } = require(`${process.cwd()}/features/COURSE/helpers/dataGenerator`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {
   await pages.courseList.click('courseTemplate', 'COURSES');
@@ -27,16 +28,13 @@ When(/^I activate "(.*)" course with following data$/, async function (courseNam
 
 
 When(/^I add the activities in courseplanner to "(.*)" course$/, async function (courseName, data_table) {
+  await sleep(1000);
   await pages.createCourse.click('courseCard', courseName);
   await pages.coursePage.click('navigation','Browse');
   for (let i = 0; i < data_table.rows().length; i++) {
-    await pages.coursePlanner.populate('librarySearchInput', data_table.hashes()[i].activity);
-    await pages.coursePlanner.click('addAssignmentButton', data_table.hashes()[i].activity);
-    if(i===0) {
-      await pages.coursePlanner.click('addingContent');
-      await pages.coursePlanner.click('continue');
-      await pages.home.click('closeAlert');
-    }
+    let tActivity = data_table.hashes()[i].activity == "randomURLDisplayName" ? randomURLDisplayName : data_table.hashes()[i].activity;
+    await pages.coursePlanner.populate('librarySearchInput', tActivity);
+    await pages.coursePlanner.click('addAssignmentButton', tActivity);
   }
 });
 
@@ -137,15 +135,18 @@ When(/^I create Gradebook Category for student and assign that to "(.*)" activit
   await pages.coursePage.click('navigation','Gradebook');
   await pages.gradebook.click('gradebookSettings')
   await pages.gradebook.click('gradeBookCategory','Add Category');
+  await sleep (500);
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.gradebook.scrollElementIntoView('categoryName')
     await pages.gradebook.populate('categoryName', data_table.hashes()[i].CategoryName)
     await pages.gradebook.populate('dropLowestGrade', data_table.hashes()[i].DropGrade);
     await pages.gradebook.click('save','Save');
+    await sleep (500);
   }
   await pages.coursePage.click('navigation','My Course');
   await pages.coursePage.click('Tab', 'COURSE PLAN');
-  await pages.coursePlanner.click('assignGradebook', activity);
+  let sActivity = data_table.hashes()[i].activity == "randomURLDisplayName" ? randomURLDisplayName : data_table.hashes()[i].activity;
+  await pages.coursePlanner.click('assignGradebook', sActivity);
   await pages.coursePlanner.click('gradeBookCategory');
   for (let i = 0; i < data_table.rows().length; i++) {
     await pages.coursePlanner.populate('Category', data_table.hashes()[i].GradebookCategory)

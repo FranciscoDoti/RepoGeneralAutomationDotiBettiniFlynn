@@ -72,5 +72,13 @@
         "frame": "default",
         "specialInstr": "NA"
 
-    }]
+    }, {
+        "name": "completed-icon",
+        "byType": "css",
+        "definition": "[data-test-id='completed-icon']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    }
+]
 }

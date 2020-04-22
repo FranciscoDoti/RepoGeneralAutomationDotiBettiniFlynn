@@ -271,9 +271,16 @@
             "specialInstr": "NA"
 
         }, {
+            "name": "nextStepUrlLink",
+            "byType": "css",
+            "definition": "[data-test-id='next_url']",
+            "frame": "default",
+            "specialInstr": "NA"
+
+        }, {
             "name": "goToContent",
-            "byType": "xpath",
-            "definition": "//button[.='<ReplaceText>']",
+            "byType": "css",
+            "definition": "[data-test-id='add_url']",
             "frame": "default",
             "specialInstr": "NA"
 

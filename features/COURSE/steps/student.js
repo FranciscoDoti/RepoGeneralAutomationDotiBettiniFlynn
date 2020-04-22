@@ -268,13 +268,15 @@ When(/^I enroll the student in "(.*)" course$/, async function (courseName, data
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('admin');
   await pages.adminMenu.click('manageEnrollments');
+  await sleep(2500);
   for (let i = 0; i < data_table.rows().length; i++) {
   let user = this.users[data_table.hashes()[i].students];
   await pages.adminMenu.waitForElementVisibility('emailInput');
   await pages.adminMenu.populate('emailInput', user.username);
-  await pages.adminMenu.click('addUserButton');
   await sleep(500);
+  await pages.adminMenu.click('addUserButton');
+  await sleep(1000);
   }
-  await pages.home.click('closeAlert')
+  await pages.home.assertElementExists('closeAlert')
   await pages.adminMenu.click('closeEnrollmentRoles')
 });

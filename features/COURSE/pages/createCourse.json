@@ -282,6 +282,13 @@
             "definition": "[data-test-id='create_a_new_course_button']",
             "frame": "default",
             "specialInstr": "NA"
+        },
+        {
+            "name": "closeButtonFeedbackModal",
+            "byType": "css",
+            "definition": "[class='_pendo-close-guide']",
+            "frame": "default",
+            "specialInstr": "NA"
         }
           
     ]
