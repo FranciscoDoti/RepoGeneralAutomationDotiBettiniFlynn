@@ -1,7 +1,7 @@
 @Assessment @AMS @BulkUpdate @Smoke
 Feature: Bulk Update/Delete multiple raptor items in AMS
 
-    @BulkUpdateEdit @WIP
+    @BulkUpdateEdit
     Scenario: Instructor updates several items at once by bulk update
 
         Given I login to AMS as "all-permissions-author"

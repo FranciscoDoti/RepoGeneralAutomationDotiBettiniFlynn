@@ -3,7 +3,7 @@ const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const chai = require('chai');
 const _ = require('lodash');
-const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { visitURL } = require('test-automation-pack/driver');
 const { Key } = require('selenium-webdriver');
 chai.use(require('chai-sorted'));
 
@@ -36,14 +36,16 @@ When(/^I input "(.*)" in the filter field$/, async function (userText) {
 });
 
 Then(/^I verify all graphs that have "(.*)" in the graph title or in graph Id are displayed$/, async function (userText) {
-  let titleColumnData = await pages.graphTab.getWebElements('titlecolumndata');
-  let idColumnData = await pages.graphTab.getWebElements('idcolumndata');
+  const titleColumnData = await pages.graphTab.getWebElements('titlecolumndata');
+  const idColumnData = await pages.graphTab.getWebElements('idcolumndata');
 
   for (let i = 0; i < titleColumnData.length - 1; i++) {
     try {
-      expect(await titleColumnData[i].getText()).to.include(userText);
+      expect((await titleColumnData[i].getText()).toLowerCase()).to.include(userText.toLowerCase());
     } catch (e) {
-      expect(await idColumnData[i].getText()).to.include(userText);
+      console.log(await titleColumnData[i].getText());
+      console.log(await idColumnData[i].getText());
+      expect((await idColumnData[i].getText()).toLowerCase()).to.include(userText.toLowerCase());
     }
   }
 });

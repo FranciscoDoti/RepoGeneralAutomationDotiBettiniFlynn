@@ -13,28 +13,16 @@
     "axe-webdriverjs": "latest",
     "chai": "latest",
     "chai-sorted": "latest",
-    "chromedriver": "latest",
     "csvtojson": "latest",
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "latest",
-    "dateformat": "latest",
-    "faker": "latest",
-    "geckodriver": "latest",
-    "imagemin": "^7.0.0",
-    "imagemin-pngquant": "^8.0.0",
-    "imap": "latest",
     "imap-simple": "latest",
-    "js-datepicker": "^4.6.1",
-    "jsonfile": "latest",
     "jsonwebtoken": "latest",
     "mailparser": "latest",
-    "minimist": "latest",
     "nodemailer": "latest",
-    "parse-duration": "latest",
-    "request-promise-native": "latest",
     "selenium-webdriver": "latest",
     "testrail-api": "latest",
-    "winston": "latest"
+    "test-automation-pack": "^0.0.14"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -53,10 +41,6 @@
   "lint-staged": {
     "*.{json,sh,groovy}": [
       "prettier --write"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ],
-    "*.feature": "gherkin-lint -c .gherkin-lintrc.json"
+    ]
   }
 }

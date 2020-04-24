@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/SAVI/pages/`;
-const { PageObject } = require(`${process.cwd()}/app/PageObject`);
+const { PageObject } = require('test-automation-pack/PageObject');
 
 const pages = {
     brightcovevideo: new PageObject('brightcovevideo.json', stepsPath),

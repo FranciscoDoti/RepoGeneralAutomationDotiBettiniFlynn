@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const driver = require(`${process.cwd()}/app/driver.js`);
-const {sleep } = require(`${process.cwd()}/app/driver`);
+const driver = require('test-automation-pack/driver');
+const {sleep } = require('test-automation-pack/driver');
 const { randomURLDisplayName } = require(`${process.cwd()}/features/COURSE/helpers/dataGenerator`);
 
 When(/^I activate "(.*)" course with following data$/, async function (courseName, data_table) {

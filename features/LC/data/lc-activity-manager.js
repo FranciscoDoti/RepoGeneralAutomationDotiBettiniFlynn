@@ -1,5 +1,5 @@
 const fs = require('fs');
-const config = require(`${process.cwd()}/config/config.json`);
+const config = require(`${process.cwd()}/.test-automation-packrc.json`);
 
 // lcType 'lc' or 'lcrp'
 let getLcByName = function (activityName, lcType) {

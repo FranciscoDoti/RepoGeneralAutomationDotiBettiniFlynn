@@ -1,7 +1,7 @@
 const testRailAPI = require('testrail-api');
 const path = require('path');
 const fs = require('fs');
-const { log } =  require(`${process.cwd()}/app/logger`);
+const { log } =  require('test-automation-pack/logger');
 const argv = require('minimist')(process.argv.slice(2));
 
 const sleep = async function (ms) {

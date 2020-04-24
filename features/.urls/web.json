@@ -1,0 +1,62 @@
+{
+  "Achieve-CW": {
+    "local": "https://courseware-frontend.local-mml.cloud/start",
+    "dev-ml-sdk": "https://courseware-local.mldev.cloud/start",
+    "int": "https://int-achieve-courseware-frontend.mldev.cloud/start",
+    "dev": "https://dev-achieve-courseware-frontend.mldev.cloud/start",
+    "dev-courseware": "https://dev-courseware-courseware-frontend.mldev.cloud/start",
+    "dev-gb": "https://dev-gradebook-courseware-frontend.mldev.cloud/start",
+    "dev-triage": "https://dev-cw-triage-courseware-frontend.mldev.cloud/start",
+    "dev-dash": "https://dev-dashboard-courseware-frontend.mldev.cloud/start",
+    "dev-onboarding": "https://dev-onboarding-courseware-frontend.mldev.cloud/start",
+    "dev-cw-coursemgmt1": "https://dev-cw-coursemgmt1-courseware-frontend.mldev.cloud/start",
+    "dev-cw-coursemgmt2": "https://dev-cw-coursemgmt2-courseware-frontend.mldev.cloud/start",
+    "dev-cw-coursemgmt3": "https://dev-cw-coursemgmt3-courseware-frontend.mldev.cloud/start",
+    "dev-cw-toolsint": "https://dev-cw-toolsint-courseware-frontend.mldev.cloud/start",
+    "dev-cw-servicesint": "https://dev-cw-servicesint-courseware-frontend.mldev.cloud/start",
+    "dev-learning-curve": "https://dev-learning-curve-courseware-frontend.mldev.cloud/",
+    "uat": "https://dev-achieve-uat-courseware-frontend.mldev.cloud/start",
+    "prod": "https://achieve.macmillanlearning.com/start",
+    "pre-prod": "https://int-achieve-preprod-courseware-frontend.mldev.cloud/"
+  },
+  "AMS": {
+    "local": "http://local.saplinglearning.me:3080/ams",
+    "int": "http://int.saplinglearning.me/ams",
+    "dev": "http://dev.saplinglearning.me/ams",
+    "prod": "",
+    "pre-prod": ""
+  },
+  "LC": {
+    "devlc": "https://dev-learning-curve-learningcurve.mldev.cloud/",
+    "dev": "https://dev-achieve-learningcurve.mldev.cloud/",
+    "int": "https://int-achieve-learningcurve.mldev.cloud/",
+    "uat": "https://dev-achieve-uat-learningcurve.mldev.cloud/",
+    "pre-prod": "https://int-achieve-preprod-learningcurve.mldev.cloud",
+    "prod": "https://learningcurve.macmillanlearning.com/"
+  },
+  "ApplicationName": {
+    "local": "http://local.application.me:3080",
+    "int": "http://int.application.me:3080",
+    "dev": "http://dev.application.me:3080",
+    "prod": "http://prod.application.me:3080",
+    "pre-prod": "http://pre-prod.application.me:3080"
+  },
+  "IBISCMS": {
+    "int": "http://int.saplinglearning.me/ibiscms",
+    "ae": "http://ae.saplinglearning.me/ibiscms",
+    "prod": "https://www.saplinglearning.com/ibiscms",
+    "local": "http://local.saplinglearning.me:3080"
+  },
+  "Yahoo": {
+    "yahoo": "https://www.yahoo.com"
+  },
+  "Reading": {
+    "local": "localhost:4000/9781319066840?cfi=6/22&begin=4/2/60&end=4/2/76"
+  },
+  "savi": {
+    "local": "http://local.saplinglearning.me:3080",
+    "prod": "http://www.saplinglearning.com/ibiscms/course/view.php?id=77826",
+    "brightcove": "https://studio.brightcove.com/products/videocloud/media",
+    "google": "https://www.google.com"
+  }
+}

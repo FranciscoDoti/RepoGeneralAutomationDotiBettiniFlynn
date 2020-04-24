@@ -1,7 +1,7 @@
 const { Given, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
-const { visitURL, sleep } = require(`${process.cwd()}/app/driver`); // allows this file to be moved wherever
-const { log } = require(`${process.cwd()}/app/logger`);
+const { visitURL, sleep } = require('test-automation-pack/driver'); // allows this file to be moved wherever
+const { log } = require('test-automation-pack/logger');
 
 Given('I navigate to an assignment with Brightcove Audio Player', async function () {
   visitURL('http://www.saplinglearning.com/ibiscms/mod/flcn/view.php?id=9246174,');

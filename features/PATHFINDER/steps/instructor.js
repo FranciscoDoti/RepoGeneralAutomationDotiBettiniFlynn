@@ -1,5 +1,5 @@
 const { When, Then } = require('cucumber');
-const driver = require(`${process.cwd()}/app/driver.js`);
+const driver = require('test-automation-pack/driver');
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
 
 When("I change the grading setting to completion", async function () {

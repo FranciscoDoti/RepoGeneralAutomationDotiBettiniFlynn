@@ -1,4 +1,4 @@
-const config = require(`${process.cwd()}/config/config.json`);
+const config = require(`${process.cwd()}/.test-automation-packrc.json`);
 
 let getActivities = function () {
   let activityList

@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/IAM/pages/`;
-const { PageObject } = require(`${process.cwd()}/app/PageObject`);
+const { PageObject } = require('test-automation-pack/PageObject');
 
 const pages = {
     forgot: new PageObject('forgot.json', stepsPath),

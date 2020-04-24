@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/LC/pages/`;
-const { PageObject } = require(`${process.cwd()}/app/PageObject`);
+const { PageObject } = require('test-automation-pack/PageObject');
 
 const pages = {
     instructorCommon: new PageObject('lc-instructor-common.json', stepsPath),

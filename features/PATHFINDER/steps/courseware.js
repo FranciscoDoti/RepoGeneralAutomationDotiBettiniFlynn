@@ -1,5 +1,5 @@
 const { When, Then } = require('cucumber');
-const driver = require(`${process.cwd()}/app/driver.js`);
+const driver = require('test-automation-pack/driver');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 
 When(/^I launch the Pathfinder Assignment "(.*)"$/, async function (assignment) {

@@ -1,291 +1,291 @@
 {
-    "webElements": [
-        {
-            "name": "menuBarAdd",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "addMathEquation",
-            "byType": "css",
-            "definition": "#module-palette-graded_equation",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "correctSetup",
-            "byType": "css",
-            "definition": ".aqua-button",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "menuBarColumn",
-            "byType": "css",
-            "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "menuBarMore",
-            "byType": "css",
-            "definition": "h2[data-test-id='PRIMARY MORE']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "moreSaveAsDraft",
-            "byType": "id",
-            "definition": "save-button",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "moreCheckYourWork",
-            "byType": "xpath",
-            "definition": "//div[@data-test-id='check-work-edit']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "moreCheckYourWorkSlider",
-            "byType": "id",
-            "definition": "authoring-menu-bar > * div.slider.round",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "moreItemDetails",
-            "byType": "xpath",
-            "definition": "//div[.='Item Details']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "itemDetailsName",
-            "byType": "css",
-            "definition": "input[type='text']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "itemDetailsSubmit",
-            "byType": "css",
-            "definition": "input[type = 'submit']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "itemDetailsTopicEdit",
-            "byType": "css",
-            "definition": "button[data-test-id='Topic']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "topic",
-            "byType": "xpath",
-            "definition": "//div[@title='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "topicRogawski",
-            "byType": "css",
-            "definition": "div.info[title ='Rogawski 4e Calculus Early Transcendentals']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "topicIntegration",
-            "byType": "css",
-            "definition": ".node[title = '<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "topicSection5",
-            "byType": "css",
-            "definition": ".info[title='Section 5.3 Questions_ID 47511 (Rog4e)']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "topicConfirmButton",
-            "byType": "css",
-            "definition": ".button-bottom-lock > button.cdl-button.primary",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "topicConfirm",
-            "byType": "css",
-            "definition": ".author-app-item-details >div :nth-child(9) > div >i",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "saveMessage",
-            "byType": "xpath",
-            "definition": "//h4[@class='modal-title' and contains(.,'<ReplaceText>')]",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "getItemid",
-            "byType": "css",
-            "definition": "div[data-test-id='edit-id']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "moduleTab",
-            "byType": "css",
-            "definition": "a[href='#module-palette']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "questionContent",
-            "byType": "id",
-            "definition": "primary-content-area",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "contextTab",
-            "byType": "css",
-            "definition": "a[data-test-id = '<ReplaceText>-context']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "answerLabel",
-            "byType": "css",
-            "definition": "span[aria-label ='Answer =']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "mathEquationField",
-            "byType": "xpath",
-            "definition": "//div[@data-test-id='equation-field-container']//textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        },
-        {
-            "name": "mathGradeAs",
-            "byType": "css",
-            "definition": ".greq-input[data-test-id='eval-type-dropdown']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "mathNumericTolerance",
-            "byType": "css",
-            "definition": "input[data-test-id='numeric-tolerance-radio']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "numericUpperTolerance",
-            "byType": "css",
-            "definition": "input[data-test-id='tolerance-above-field']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "numericLowerTolerance",
-            "byType": "css",
-            "definition": "input[data-test-id='tolerance-below-field']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "mathPolarCoordinate",
-            "byType": "css",
-            "definition": "input[data-test-id='edit-panel-checkbox-polar_form']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "submitAnswer",
-            "byType": "xpath",
-            "definition": "//button[.='Submit Answer']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "checkYourWorkAnswerText1",
-            "byType": "css",
-            "definition": "span.mq-math-mode",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "checkYourWorkAnswerText2",
-            "byType": "css",
-            "definition": "#primary-content-area > * div > span > * textarea",
-            "frame": "default",
-            "specialInstr": "noclick noclear"
-        },
-        {
-            "name": "incorrectAnswerAlert",
-            "byType": "css",
-            "definition": "section.red-border.content-area",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "correctAnswer",
-            "byType": "css",
-            "definition": "div[aria-label ='Correct Answer']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "incorrectAnswer",
-            "byType": "css",
-            "definition": "div[aria-label ='Incorrect Answer']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "staticTextfield",
-            "byType": "css",
-            "definition": "div[data-module-type='static_textfield']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "authorCanvas",
-            "byType": "css",
-            "definition": ".mq-math-mode",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "authorLabel",
-            "byType": "css",
-            "definition": ".graded-equations-td:nth-child(1)  > * .stix-font >span",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "questionEdit",
-            "byType": "css",
-            "definition": ".aqua-button[data-test-id='edit-module-button']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "labelInput",
-            "byType": "xpath",
-            "definition": "//div[@id='module-edit-target']//textarea",
-            "frame": "default",
-            "specialInstr": "noclick"
-        }
-    ]
+  "webElements": [
+    {
+      "name": "menuBarAdd",
+      "byType": "css",
+      "definition": "h2[data-test-id='PRIMARY ADD MODULE']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "addMathEquation",
+      "byType": "css",
+      "definition": "#module-palette-graded_equation",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "correctSetup",
+      "byType": "css",
+      "definition": ".aqua-button",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "menuBarColumn",
+      "byType": "css",
+      "definition": "authoring-menu-bar > nav > h2:nth-child(2)",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "menuBarMore",
+      "byType": "css",
+      "definition": "h2[data-test-id='PRIMARY MORE']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "moreSaveAsDraft",
+      "byType": "id",
+      "definition": "save-button",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "moreCheckYourWork",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='check-work-edit']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "moreCheckYourWorkSlider",
+      "byType": "id",
+      "definition": "authoring-menu-bar > * div.slider.round",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "moreItemDetails",
+      "byType": "xpath",
+      "definition": "//div[.='Item Details']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "itemDetailsName",
+      "byType": "css",
+      "definition": "input[type='text']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "itemDetailsSubmit",
+      "byType": "css",
+      "definition": "input[type = 'submit']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "itemDetailsTopicEdit",
+      "byType": "css",
+      "definition": "button[data-test-id='Topic']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "topic",
+      "byType": "xpath",
+      "definition": "//div[@title='<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "topicRogawski",
+      "byType": "css",
+      "definition": "div.info[title ='Rogawski 4e Calculus Early Transcendentals']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "topicIntegration",
+      "byType": "css",
+      "definition": ".node[title = '<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "topicSection5",
+      "byType": "css",
+      "definition": ".info[title='Section 5.3 Questions_ID 47511 (Rog4e)']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "topicConfirmButton",
+      "byType": "css",
+      "definition": ".button-bottom-lock > button.cdl-button.primary",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "topicConfirm",
+      "byType": "css",
+      "definition": ".author-app-item-details >div :nth-child(9) > div >i",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "saveMessage",
+      "byType": "xpath",
+      "definition": "//h4[@class='modal-title' and contains(.,'<ReplaceText>')]",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "getItemid",
+      "byType": "css",
+      "definition": "div[data-test-id='edit-id']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "moduleTab",
+      "byType": "css",
+      "definition": "a[href='#module-palette']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "questionContent",
+      "byType": "id",
+      "definition": "primary-content-area",
+      "frame": "default",
+      "specialInstr": "focus"
+    },
+    {
+      "name": "contextTab",
+      "byType": "css",
+      "definition": "a[data-test-id = '<ReplaceText>-context']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "answerLabel",
+      "byType": "css",
+      "definition": "span[aria-label ='Answer =']",
+      "frame": "default",
+      "specialInstr": "focus"
+    },
+    {
+      "name": "mathEquationField",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='equation-field-container']//textarea",
+      "frame": "default",
+      "specialInstr": "noclick"
+    },
+    {
+      "name": "mathGradeAs",
+      "byType": "css",
+      "definition": ".greq-input[data-test-id='eval-type-dropdown']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "mathNumericTolerance",
+      "byType": "css",
+      "definition": "input[data-test-id='numeric-tolerance-radio']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "numericUpperTolerance",
+      "byType": "css",
+      "definition": "input[data-test-id='tolerance-above-field']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "numericLowerTolerance",
+      "byType": "css",
+      "definition": "input[data-test-id='tolerance-below-field']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "mathPolarCoordinate",
+      "byType": "css",
+      "definition": "input[data-test-id='edit-panel-checkbox-polar_form']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "submitAnswer",
+      "byType": "xpath",
+      "definition": "//button[.='Submit Answer']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "checkYourWorkAnswerText1",
+      "byType": "css",
+      "definition": "span.mq-math-mode",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "checkYourWorkAnswerText2",
+      "byType": "css",
+      "definition": "#primary-content-area > * div > span > * textarea",
+      "frame": "default",
+      "specialInstr": "noclick noclear"
+    },
+    {
+      "name": "incorrectAnswerAlert",
+      "byType": "css",
+      "definition": "section.red-border.content-area",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "correctAnswer",
+      "byType": "css",
+      "definition": "div[aria-label ='Correct Answer']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "incorrectAnswer",
+      "byType": "css",
+      "definition": "div[aria-label ='Incorrect Answer']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "staticTextfield",
+      "byType": "css",
+      "definition": "div[data-module-type='static_textfield']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "authorCanvas",
+      "byType": "css",
+      "definition": ".mq-math-mode",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "authorLabel",
+      "byType": "css",
+      "definition": ".graded-equations-td:nth-child(1)  > * .stix-font >span",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "questionEdit",
+      "byType": "css",
+      "definition": ".aqua-button[data-test-id='edit-module-button']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "labelInput",
+      "byType": "xpath",
+      "definition": "//div[@id='module-edit-target']//textarea",
+      "frame": "default",
+      "specialInstr": "noclick"
+    }
+  ]
 }

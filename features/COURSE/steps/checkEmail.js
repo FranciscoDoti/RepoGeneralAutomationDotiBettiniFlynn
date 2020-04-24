@@ -1,7 +1,7 @@
 const imaps = require('imap-simple');
 const _ = require('lodash');
 const simpleParser = require('mailparser').simpleParser;
-const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { visitURL } = require('test-automation-pack/driver');
 let linkFound;
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = "0";

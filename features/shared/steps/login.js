@@ -1,13 +1,12 @@
 const { Given, When } = require('cucumber');
 const _ = require('lodash');
-const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
-const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { visitURL } = require('test-automation-pack/driver');
 const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 /* Verifies Sapling login */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['AMS', this.stack]);
+  let url = await _.get(this.urls, ['AMS', this.stack]);
   let user = this.users[userType];
   await visitURL(url);
   if (this.environment === 'local') {
@@ -25,7 +24,7 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
 // And was causing issue with second time user login in a graphing scenario
 
 Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['AMS', this.stack]);
+  let url = await _.get(this.urls, ['AMS', this.stack]);
   let user = this.users[userType];
 
   await visitURL(url);
@@ -39,7 +38,7 @@ Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
 });
 
 When(/^I go back to sapling page and logout$/, async function () {
-  let url = await _.get(urls, ['IBISCMS', this.stack]);
+  let url = await _.get(this.urls, ['IBISCMS', this.stack]);
   await mathPages.saplingLearning.switchToTab('Sapling');
   await visitURL(url);
   await mathPages.saplingLearning.click('RaptorAdmin');
@@ -47,15 +46,17 @@ When(/^I go back to sapling page and logout$/, async function () {
 });
 
 async function loginAchieveCw (userType, context) {
-  let url = await _.get(urls, ['Achieve-CW', context.stack]);
+  context.url = await _.get(context.urls, ['Achieve-CW', context.stack]);
+  context.apiserver = await _.get(context.endpoints, ['Achieve-CW', context.stack]);
   let user = context.users[userType];
-  await visitURL(url);
+  await visitURL(context.url);
   await pages.login.waitForElementVisibility('Button', 'SIGN IN', 10);
   await pages.login.click('Button', 'SIGN IN');
   await pages.login.populate('username', user.username);
   await pages.login.populate('password', user.password);
   await pages.login.click('signin');
 };
+
 Given(/^I login to Achieve-CW as "(.*)"/, async function(userType){
   await loginAchieveCw(userType, this);
 });
@@ -79,8 +80,8 @@ Given("navigate to an assessment created before", async function () {
   await visitURL(assessmentURL);
 });
 
-Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['IBISCMS', this.stack]);
+Given('I login to IBISCMS as {string}', async function (userType) {
+  let url = await _.get(this.urls, ['IBISCMS', this.stack]);
   let user = this.users[userType];
 
   await visitURL(url);
@@ -96,7 +97,7 @@ Given(/^I login to IBISCMS as "(.*)"/, async function (userType) {
 });
 
 Given(/^I login to Savi Verification as "(.*)"/, async function (userType) {
-  let url = await _.get(urls, ['savi', this.stack]);
+  let url = await _.get(this.urls, ['savi', this.stack]);
   let user = this.users[userType];
 
   await visitURL(url);

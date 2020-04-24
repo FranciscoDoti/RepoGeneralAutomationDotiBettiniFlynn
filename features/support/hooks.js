@@ -1,10 +1,8 @@
 var { After, AfterAll } = require('cucumber');
-const _ = require('lodash');
-const urls = require(`${process.cwd()}/config/urls.json`);
-const { closeBrowser, resetBrowser, takeScreenshot, visitURL, config } = require(`${process.cwd()}/app/driver`);
+const { closeBrowser, resetBrowser, takeScreenshot } = require('test-automation-pack/driver');
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const { sleep } = require(`${process.cwd()}/app/driver`);
+const { sleep } = require('test-automation-pack/driver');
 const { loginAchieveCw } = require(`${process.cwd()}/features/shared/steps/login.js`);
 
 After(async function (scenario) {
@@ -14,21 +12,22 @@ After(async function (scenario) {
 AfterAll(async function () {
   await closeBrowser();
 });
+
 var { After, AfterAll } = require('cucumber');
 const specPath = `${process.cwd()}/features/COURSE/apispecs`;
-const { RestObject } = require(`${process.cwd()}/app/rest`);
+const { RestObject } = require('test-automation-pack/rest');
 
 
 After('@delete-Courses', async function () {
   let spec = `${specPath}/deletecourse.json`;
   let jwt_payload = this.users['admin_1'].jwt_payload;
 
-  this.data.data.keys().forEach(courseName => {
+  for(const course of Object.values(this.data)){
     let api = new RestObject(spec);
     api.setCookie(jwt_payload);
-    api.spec.endpoint = api.spec.endpoint.replace('{id}', this.data.get(courseName).id);
-    api.DELETE('Achieve-CW');
-  });
+    api.spec.endpoint = api.spec.endpoint.replace('{id}', course.id);
+    api.DELETE(this.apiserver);
+  }
 });
 
 // Delete the newly created assessment
@@ -52,7 +51,6 @@ After('@admin-delete-course', async function () {
     await pages.courseList.click('deleteCourse');
     await pages.courseList.click('confirmDelete');
     await pages.home.click('closeAlert');
-
   }
 });
 

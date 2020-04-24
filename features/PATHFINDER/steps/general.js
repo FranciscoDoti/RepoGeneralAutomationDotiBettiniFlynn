@@ -1,5 +1,5 @@
 const { Before, When, Then } = require('cucumber');
-const driver = require(`${process.cwd()}/app/driver.js`);
+const driver = require('test-automation-pack/driver');
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
 
 Before('@SetScreenSize', async function () {

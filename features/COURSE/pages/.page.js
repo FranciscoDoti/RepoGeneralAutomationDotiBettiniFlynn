@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/COURSE/pages/`;
-const { PageObject } = require(`${process.cwd()}/app/PageObject`);
+const { PageObject } = require('test-automation-pack/PageObject');
 
 const pages = {
     home: new PageObject('home.json', stepsPath),

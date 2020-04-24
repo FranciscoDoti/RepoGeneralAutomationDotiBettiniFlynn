@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/PATHFINDER/pages/`;
-const { PageObject } = require(`${process.cwd()}/app/PageObject`);
+const { PageObject } = require('test-automation-pack/PageObject');
 
 const pages = {
   instructorAssignment: new PageObject('instructorAssignment.json', stepsPath),

@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/GRADEBOOK/pages/`;
-const { PageObject } = require(`${process.cwd()}/app/PageObject`);
+const { PageObject } = require('test-automation-pack/PageObject');
 
 const pages = {
     gradebook: new PageObject('gradebook.json', stepsPath),

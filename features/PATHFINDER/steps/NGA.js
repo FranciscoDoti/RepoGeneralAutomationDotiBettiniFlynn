@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/PATHFINDER/pages/.page.js`).pages;
-const driver = require(`${process.cwd()}/app/driver.js`);
+const driver = require('test-automation-pack/driver');
 
 When("I complete an NGA assignment with the following answers", async function (datatable) {
   for (let i=0; i < datatable.rows().length; i++){

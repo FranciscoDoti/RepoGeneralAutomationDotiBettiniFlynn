@@ -1,8 +1,8 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
-const { visitURL, sleep, getDriver } = require(`${process.cwd()}/app/driver`);
+const { visitURL, sleep, getDriver } = require('test-automation-pack/driver');
 const { expect } = require('chai');
-const { log } = require(`${process.cwd()}/app/logger`);
+const { log } = require('test-automation-pack/logger');
 
 When('I click the link to Mol3d assessment', async function () {
   await visitURL('http://www.saplinglearning.com/ibiscms/mod/flcn/view.php?id=9246108');

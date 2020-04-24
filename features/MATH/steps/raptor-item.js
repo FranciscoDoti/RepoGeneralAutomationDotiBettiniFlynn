@@ -1,8 +1,8 @@
 const { When, Then } = require('cucumber');
 const expect = require('chai').expect;
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
-const { log } = require(`${process.cwd()}/app/logger`);
-const { sleep, visitURL } = require(`${process.cwd()}/app/driver`);
+const { log } = require('test-automation-pack/logger');
+const { sleep, visitURL } = require('test-automation-pack/driver');
 const { Key } = require('selenium-webdriver');
 
 

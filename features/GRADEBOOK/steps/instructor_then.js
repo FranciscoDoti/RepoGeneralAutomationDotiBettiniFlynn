@@ -1,6 +1,6 @@
 const { Then } = require('cucumber');
 const { expect } = require('chai');
-const { sleep } = require(`${process.cwd()}/app/driver`);
+const { sleep } = require('test-automation-pack/driver');
 const { iclicker, gradebook } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { getCategoryName } = require('../data/test_value_generator');

@@ -1,8 +1,8 @@
 const fs = require('fs');
 const axe = require('axe-webdriverjs');
 const { Then } = require('cucumber');
-const { getDriver } = require('../../../app/driver');
-const config = require(`${process.cwd()}/config/config.json`);
+const { getDriver } = require('test-automation-pack/driver');
+const config = require(`${process.cwd()}/.test-automation-packrc.json`);
 
 let accessibilityFile = null;
 

@@ -1,21 +1,13 @@
-const {
-    Given,
-    When,
-    Then
-} = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
-const urls = require(`${process.cwd()}/config/urls.json`);
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
-const {
-    visitURL,
-    sleep,
-} = require(`${process.cwd()}/app/driver.js`);
+const { visitURL, sleep } = require('test-automation-pack/driver');
 const email = require(`${process.cwd()}/features/COURSE/steps/checkEmail.js`);
 var window = window;
 
 Given('I have opened "Achieve-CW"', async function () {
-    let url = await _.get(urls, ['Achieve-CW', this.stack]);
-    await visitURL(url);
+    this.url = await _.get(this.urls, ['Achieve-CW', this.stack]);
+    await visitURL(this.url);
     await pages.signIn.click('signinlink');
 });
 
@@ -85,7 +77,7 @@ Then('I verify the password as following information', async function (dataTable
 });
 
 When(/^I go to my email account "(.*)"$/, async function (userType) {
-    let url = await _.get(urls, ['Yahoo', this.stack]);
+    let url = await _.get(this.urls, ['Yahoo', this.stack]);
     await visitURL(url);
     await pages.signIn.click('signinlink');
     let user = this.users[userType];

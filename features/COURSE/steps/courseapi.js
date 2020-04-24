@@ -1,6 +1,6 @@
 const { When } = require('cucumber');
 const { expect } = require('chai');
-const { RestObject } = require(`${process.cwd()}/app/rest`);
+const { RestObject } = require('test-automation-pack/rest');
 const specPath = `${process.cwd()}/features/COURSE/apispecs`;
 
 When('I create a course as {string} with the following data', async function (userType, datatable) {
@@ -13,7 +13,7 @@ When('I create a course as {string} with the following data', async function (us
     let randomNumber = Math.floor(Math.random() * 10000000000000)
     data.isbn = '"' + randomNumber + '"'
     data.owner_id = jwt_payload.user_id;
-    expect(await api.POST('Achieve-CW', data)).to.equal(200);
+    expect(await api.POST(this.apiserver, data)).to.equal(200);
     this.data.set(data.name, {
       courseName: data.name,
       short_name: data.short_name,
@@ -38,7 +38,7 @@ When('I copy course from {string} as {string} with the following data', async fu
     format_Next =  next_date.toISOString().slice(0,10)
     data.enrollment_start_date = format;
     data.course_end_date = format_Next;
-    await api.POST('Achieve-CW', data)
+    await api.POST(this.apiserver, data)
     this.data.set(data.name, {
       courseName: data.name,
       short_name: data.short_name,
@@ -59,9 +59,10 @@ When('I assign instructor to {string} as a {string}', async function(courseName,
   for (let data of datatable.hashes()) {
     data.enrollments = this.users[data.enrollments].jwt_payload;
     data.id = courseId
-    await api.PUT('Achieve-CW', data)
+    await api.PUT(this.apiserver, data)
   }
-})
+});
+
 When('I activate {string} as {string} with following data', async function (courseName, userType, datatable) {
   let courseId = this.data.get(courseName).id;
   let spec = `${specPath}/activate.json`;
@@ -69,6 +70,7 @@ When('I activate {string} as {string} with following data', async function (cour
   let api = new RestObject(spec);
   api.setCookie(jwt_payload);
   api.spec.endpoint = api.spec.endpoint.replace('{id}', courseId);
+
   const date = new Date();
   const futureDate = new Date();
   futureDate.setMonth(futureDate.getMonth()+3);
@@ -81,7 +83,7 @@ When('I activate {string} as {string} with following data', async function (cour
     data.enrollment_start_date = DateJson;
     data.course_end_date = futureJson;
     data.enrollments = user;
-    await api.PUT('Achieve-CW', data)
+    await api.PUT(this.apiserver, data)
     console.log(api.response);
   }
-})
+});

@@ -1,5 +1,5 @@
 const path = require('path');
-const { config } = require(`${process.cwd()}/app/driver`);
+const { config } = require('test-automation-pack/driver');
 const fs = require('fs');
 
 let courses = null;

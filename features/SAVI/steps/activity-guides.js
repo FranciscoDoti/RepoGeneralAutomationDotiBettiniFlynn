@@ -1,8 +1,8 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
-const { visitURL, sleep } = require(`${process.cwd()}/app/driver`);
+const { visitURL, sleep } = require('test-automation-pack/driver');
 const { expect } = require('chai');
-const { log } = require(`${process.cwd()}/app/logger`);
+const { log } = require('test-automation-pack/logger');
 
 When('I navigate to the activity guide demo master link', async function () {
   // this sets the prod cookie, allowing any prod links within the guides to work

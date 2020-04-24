@@ -1,6 +1,5 @@
 const { Given, When, Then, Before } = require('cucumber');
-const { visitURL } = require(`${process.cwd()}/app/driver`);
-const urls = require(`${process.cwd()}/config/urls.json`);
+const { visitURL } = require('test-automation-pack/driver');
 const _ = require('lodash');
 const pages = require(`${process.cwd()}/features/READING/pages/.page.js`).pages;
 let page
@@ -14,7 +13,7 @@ Before('@GetEnvironment', function () {
 })
 
 Given('I open a reading', async function () {
-  let url = _.get(urls, ['Reading', this.stack]);
+  let url = _.get(this.urls, ['Reading', this.stack]);
   await visitURL(url);
 });
 

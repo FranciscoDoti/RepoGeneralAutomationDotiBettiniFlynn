@@ -1,6 +1,6 @@
 const {When, Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const {sleep} = require(`${process.cwd()}/app/driver`);
+const {sleep} = require('test-automation-pack/driver');
 const { randomURLDisplayName } = require(`${process.cwd()}/features/COURSE/helpers/dataGenerator`);
 
 When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async function (number, code, data_table) {

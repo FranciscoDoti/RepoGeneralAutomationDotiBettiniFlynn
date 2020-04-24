@@ -1,6 +1,6 @@
 const { When } = require('cucumber');
 const { expect } = require('chai');
-const { RestObject } = require(`${process.cwd()}/app/rest`);
+const { RestObject } = require('test-automation-pack/rest');
 const specPath = `${process.cwd()}/features/ASSESSMENT/apispecs`;
 
 When('API _ I create a new Raptor item', async function () {

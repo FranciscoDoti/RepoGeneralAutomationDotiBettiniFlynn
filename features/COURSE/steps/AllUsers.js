@@ -1,7 +1,7 @@
 const {Given, When, Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const {sleep} = require(`${process.cwd()}/app/driver`);
-const driver = require(`${process.cwd()}/app/driver.js`);
+const {sleep} = require('test-automation-pack/driver');
+const driver = require('test-automation-pack/driver');
 const { randomURL } = require(`${process.cwd()}/features/COURSE/helpers/dataGenerator`);
 
 Given(/^I search for "(.*)" course$/, async function (input) {

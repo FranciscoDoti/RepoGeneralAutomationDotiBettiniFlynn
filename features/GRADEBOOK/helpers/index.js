@@ -5,9 +5,9 @@ const {
   courseList,
   home
 } = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const { visitURL } = require(`${process.cwd()}/app/driver`);
+const { visitURL } = require('test-automation-pack/driver');
 const { getCourseData } = require('../data/courses');
-const driver = require(`${process.cwd()}/app/driver`);
+const driver = require('test-automation-pack/driver');
 const { sleep } = driver;
 
 async function viewCourse (course) {

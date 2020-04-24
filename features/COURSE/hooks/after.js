@@ -1,6 +1,6 @@
 // var { After, AfterAll } = require('cucumber');
 // const specPath = `${process.cwd()}/features/COURSE/apispecs`;
-// const { RestObject } = require(`${process.cwd()}/app/rest`);
+// const { RestObject } = require('test-automation-pack/rest');
 
 
 // After('@delete-Courses', async function () {
