@@ -29,8 +29,8 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                      |    
             | Google                                        |
         
-        And I add activities to "Content Library"
-          | activities                                   |
+        And I add activities to the content library of "activities Template" template
+          | name                                         |
           | Glossary                                     |
           | SampleChapterAuto.jpg                        |
 

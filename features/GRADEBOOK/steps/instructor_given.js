@@ -9,13 +9,17 @@ Given(/^navigate to Gradebook using course "(.*)"$/, async function (course) {
   await selectGradebookMenu();
 });
 Given('Instructor views the Gradebook for {string} as {string}', async function (course, userType) {
-  await loginAchieveCw.call(this, userType);
+  this.url = await _.get(this.urls, ['Achieve-CW', this.stack]);
+  this.apiserver = await _.get(this.endpoints, ['Achieve-CW', this.stack]);
+  await loginAchieveCw(userType, this);
   await coursesPage.waitForElementVisibility('createNewCourseButton');
   await viewCourse(course);
   await selectGradebookMenu();
 });
 Given('Instructor views the My Course for {string} as {string}', async function (course, userType) {
-  await loginAchieveCw.call(this, userType);
+  this.url = await _.get(this.urls, ['Achieve-CW', this.stack]);
+  this.apiserver = await _.get(this.endpoints, ['Achieve-CW', this.stack]);
+  await loginAchieveCw(userType, this);
   await coursesPage.waitForElementVisibility('createNewCourseButton');
   await viewCourse(course);
 });

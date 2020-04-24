@@ -10,12 +10,8 @@ Feature: Customer Support enrolls the student in Read & Practice course
             | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | warn_prebuilt | isbn             | template_version  |
             | Read & Practice Template            | E2E 301    | topics | draft  | 1                | true               | 0050n000002Wt0kAAC  | template      |  false        |  9781464199490   |  1                |
 
-                                       
-        And I click on "COURSE TEMPLATES" tab                      
-        And I click on "Read & Practice Template" card
-        And I click on "Production" Tab
-        And I add activities to "Content Library"
-          | activities            |
+        And I add activities to the content library of "Read & Practice Template" template
+          | name                  |
           | Glossary              |
           | LCRP1550612138614     |
           | LCRP1551301608988     |

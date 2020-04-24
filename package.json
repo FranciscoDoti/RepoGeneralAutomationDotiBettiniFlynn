@@ -22,7 +22,8 @@
     "nodemailer": "latest",
     "selenium-webdriver": "latest",
     "testrail-api": "latest",
-    "test-automation-pack": "^0.0.14"
+    "test-automation-pack": "^0.0.14",
+    "faker": "latest"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -41,6 +42,10 @@
   "lint-staged": {
     "*.{json,sh,groovy}": [
       "prettier --write"
-    ]
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.feature": "gherkin-lint -c .gherkin-lintrc.json"
   }
 }

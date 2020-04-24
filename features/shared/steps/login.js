@@ -1,14 +1,14 @@
 const { Given, When } = require('cucumber');
+const { visitURL } = require('test-automation-pack/driver');
 const _ = require('lodash');
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
-const { visitURL } = require('test-automation-pack/driver');
 const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 /* Verifies Sapling login */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {
-  let url = await _.get(this.urls, ['AMS', this.stack]);
+  this.url = await _.get(this.urls, ['AMS', this.stack]);
   let user = this.users[userType];
-  await visitURL(url);
+  await visitURL(this.url);
   if (this.environment === 'local') {
     await pages.login.populate('username-local', user.username);
     await pages.login.populate('password-local', user.password);
@@ -24,10 +24,9 @@ Given(/^I login to AMS as "(.*)"/, async function (userType) {
 // And was causing issue with second time user login in a graphing scenario
 
 Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
-  let url = await _.get(this.urls, ['AMS', this.stack]);
   let user = this.users[userType];
 
-  await visitURL(url);
+  await visitURL(this.url);
   if (this.environment === 'local') {
     await pages.login.populate('password-local', user.password);
     await pages.login.click('submit-local')
@@ -38,19 +37,17 @@ Given(/^I login back to AMS again as "(.*)"/, async function (userType) {
 });
 
 When(/^I go back to sapling page and logout$/, async function () {
-  let url = await _.get(this.urls, ['IBISCMS', this.stack]);
+  this.url = await _.get(this.urls, ['IBISCMS', this.stack]);
   await mathPages.saplingLearning.switchToTab('Sapling');
-  await visitURL(url);
+  await visitURL(this.url);
   await mathPages.saplingLearning.click('RaptorAdmin');
   await mathPages.saplingLearning.click('logout');
 });
 
 async function loginAchieveCw (userType, context) {
-  context.url = await _.get(context.urls, ['Achieve-CW', context.stack]);
-  context.apiserver = await _.get(context.endpoints, ['Achieve-CW', context.stack]);
   let user = context.users[userType];
   await visitURL(context.url);
-  await pages.login.waitForElementVisibility('Button', 'SIGN IN', 10);
+  await pages.login.waitForElementVisibility('Button', 'SIGN IN');
   await pages.login.click('Button', 'SIGN IN');
   await pages.login.populate('username', user.username);
   await pages.login.populate('password', user.password);
@@ -58,6 +55,8 @@ async function loginAchieveCw (userType, context) {
 };
 
 Given(/^I login to Achieve-CW as "(.*)"/, async function(userType){
+  this.url = await _.get(this.urls, ['Achieve-CW', this.stack]);
+  this.apiserver = await _.get(this.endpoints, ['Achieve-CW', this.stack]);
   await loginAchieveCw(userType, this);
 });
 
@@ -66,6 +65,7 @@ When('I sign out of Achieve', async function () {
   await pages.login.assertElementExists('togglerMenu');
   await pages.login.click('togglerMenu');
   await pages.login.click('signOut');
+  await pages.login.waitForElementVisibility('Button', 'SIGN IN');
 });
 
 Given(/^navigate to a course having course id "(.*)"$/, async function (courseid) {
@@ -81,10 +81,10 @@ Given("navigate to an assessment created before", async function () {
 });
 
 Given('I login to IBISCMS as {string}', async function (userType) {
-  let url = await _.get(this.urls, ['IBISCMS', this.stack]);
+  this.url = await _.get(this.urls, ['IBISCMS', this.stack]);
   let user = this.users[userType];
 
-  await visitURL(url);
+  await visitURL(this.url);
   if (this.environment === 'local') {
     await pages.login.populate('username-local', user.username);
     await pages.login.populate('password-local', user.password);
@@ -97,10 +97,10 @@ Given('I login to IBISCMS as {string}', async function (userType) {
 });
 
 Given(/^I login to Savi Verification as "(.*)"/, async function (userType) {
-  let url = await _.get(this.urls, ['savi', this.stack]);
+  this.url = await _.get(this.urls, ['savi', this.stack]);
   let user = this.users[userType];
 
-  await visitURL(url);
+  await visitURL(this.url);
   await pages.login.populate('username', user.username);
   await pages.login.populate('password', user.password);
   await pages.login.click('submit')

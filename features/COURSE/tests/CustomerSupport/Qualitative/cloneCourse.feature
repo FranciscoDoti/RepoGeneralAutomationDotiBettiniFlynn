@@ -12,12 +12,8 @@ Feature: Customer Support is able to create course from Qualitative Template
             | Qualitative Template | E2E 301    | topics | draft  | 4                | true               | 0050n000002Wt0kAAC | template    | 57ba5934-30c2-4558-b776-b4bef6954d99 | false         | 9781464199490 | 1                 |
         
         
-        And I click on "COURSE TEMPLATES" tab                
-        And I click on "Qualitative Template" card
-        And I click on "Production" Tab
-
-        And I add activities to "Content Library"
-          | activities                                 |
+        And I add activities to the content library of "Qualitative Template" template
+          | name                                       |
           | Glossary                                   |
           | Exercise: Misused words 1 (autoscored)     |
         

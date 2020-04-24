@@ -7,5 +7,5 @@ package-lock.json
 *.csv
 reports/**
 screenshots/**
-**/config.json
+.test-automation-packrc.json
 .idea

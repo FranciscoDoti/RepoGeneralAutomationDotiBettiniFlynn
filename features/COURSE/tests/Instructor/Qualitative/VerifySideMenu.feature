@@ -13,10 +13,4 @@ Feature: Verify side menu in Quantitative Course
         And I click on "COURSE TEMPLATES" tab
         And I click on "Qualitative Template" card
         And I click on "Production" Tab
-
-        And I add activities to "Content Library"
-            | activities                             |
-            | Glossary                               |
-            | Exercise: Misused words 1 (autoscored) |
-
         And I verify that the side menu exist in "Qualitative Course"

@@ -7,7 +7,7 @@ const config = require(`${process.cwd()}/.test-automation-packrc.json`);
 let accessibilityFile = null;
 
 Then(/I check accessibility on "(.+)" page/, async function (pageName) {
-  if (config.accessible) {
+  if (this.accessible) {
     await analyzeAccessibility().then(results => {
       writeAccessibilitiesResults(pageName, results.violations);
     });

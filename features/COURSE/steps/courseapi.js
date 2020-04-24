@@ -7,7 +7,7 @@ When('I create a course as {string} with the following data', async function (us
   let spec = `${specPath}/createcourse.json`;
   let jwt_payload = this.users[userType].jwt_payload;
   let api = new RestObject(spec);
-  api.setCookie(jwt_payload);
+  await api.setCookie(jwt_payload);
 
   for (let data of datatable.hashes()) {
     let randomNumber = Math.floor(Math.random() * 10000000000000)
@@ -87,3 +87,43 @@ When('I activate {string} as {string} with following data', async function (cour
     console.log(api.response);
   }
 });
+
+When('I add activities to the content library of {string} template', async function (courseName, datatable) {
+    let courseId = this.data.get(courseName, 'id');
+    let spec = `${specPath}/addingActivities.json`;
+    let jwt_payload = this.users['admin_1'].jwt_payload;
+    let api = new RestObject(spec);
+    api.setCookie(jwt_payload);
+    api.spec.endpoint = api.spec.endpoint.replace('{id}', courseId.id);
+    let data = {}
+    let items = []
+    
+    for (let row of datatable.hashes()) {
+      let item = await activitySearch(row.name, jwt_payload)
+      await items.push(item)
+    }
+    
+    data.items = items
+    expect(await api.PUT(this.apiserver, data)).to.equal(200)
+    
+})
+
+async function activitySearch(activityName, jwt_payload){
+  let spec = `${specPath}/searchActivity.json`;
+  let api = new RestObject(spec);
+  api.setCookie(jwt_payload);
+  let data = {}
+  data.searchTerm = activityName
+  await api.POST(this.apiserver, data)
+  let item = {}
+  item.name = await api.response.hits[0].name
+  item.objectId = await api.response.hits[0].objectID
+  item.tool = await api.response.hits[0].type
+  item.activity_id = await api.response.hits[0].activity_id
+  item.isInContentLibrary = false
+  item.isDisabled = false
+  item.actionText = "Show in Content Library"
+  item.folder_id = null
+  return item
+}
+

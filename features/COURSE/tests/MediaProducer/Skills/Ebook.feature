@@ -9,16 +9,15 @@ Feature: Verify that MediaProducer is able to add activities in Ebook
             | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | warn_prebuilt | isbn             | template_version  |
             | Skills Production Template          | E2E 301    | topics | draft  | 2                | true               | 0050n000002Wt0kAAC  | template      |  false        |  9781464199490   |  1                |
                                     
+        And I add activities to the content library of "Skills Production Template" template
+          | name                  |
+          | Glossary              |
+          | Appendix F            |   
+          | Confidence Intervals  |
                                     
         And I click on "COURSE TEMPLATES" tab 
         And I click on "Skills Production Template" card
         And I click on "Production" Tab
-
-         And I add activities to "Content Library"
-          | activities            |
-          | Glossary              |
-          | Appendix F            |   
-          | Confidence Intervals  |
 
         And I add the activities in "E-book"
             | activities |

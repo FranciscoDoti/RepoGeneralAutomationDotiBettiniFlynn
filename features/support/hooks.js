@@ -135,6 +135,7 @@ After('@mediaproducer-delete-courseTemplate', async function () {
 After('@mediaproducer-delete-course', async function () {
   await resetBrowser();
   await loginAchieveCw('media_producer_2', this);
+
   let course = this.data.get('code');
   let courseName = this.data.get('courseName');
   await pages.courseList.populate('search', courseName);
@@ -153,6 +154,7 @@ After('@mediaproducer-delete-course', async function () {
 After('@instructor-delete-course', async function () {
   await resetBrowser();
   await loginAchieveCw('instructor_1', this);
+
   let course = this.data.get('course');
   await pages.createCourse.assertElementExists('courseCard', course);
   let elements = await pages.createCourse.getWebElements('courseCard', course)
@@ -168,6 +170,7 @@ After('@instructor-delete-course', async function () {
 After('@instructor-masterSection-delete-course', async function () {
   await resetBrowser();
   await loginAchieveCw('instructor_1', this);
+
   let course = this.data.get('course');
   await pages.courseList.click('courseTemplate', 'MASTER SECTIONS')
   await pages.courseList.assertElementExists('masterMenu', course);
@@ -184,6 +187,7 @@ After('@instructor-masterSection-delete-course', async function () {
 After('@instructor-copyMasterSection-delete-course', async function () {
   await resetBrowser();
   await loginAchieveCw('instructor_1', this);
+  
   let course = this.data.get('section');
   await pages.createCourse.assertElementExists('courseCard', course);
   let elements = await pages.createCourse.getWebElements('courseCard', course)

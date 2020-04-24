@@ -1,7 +1,7 @@
 @SAC @Assessment @Smoke 
 Feature: To configure an intermediate test in SAC
 
-  @Breadcrumb @SACIntermediate @WIP
+  @Breadcrumb @SACIntermediate
   Scenario: Student navigates to an existing assessment
     Given I login to IBISCMS as "raptor-student"
     When I navigate to "SAC Automation - HW" assessment link in "Raptor Automation - Do Not Delete" course
