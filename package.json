@@ -22,7 +22,7 @@
     "nodemailer": "latest",
     "selenium-webdriver": "latest",
     "testrail-api": "latest",
-    "test-automation-pack": "^0.0.14",
+    "test-automation-pack": "^0.0.18",
     "faker": "latest"
   },
   "devDependencies": {

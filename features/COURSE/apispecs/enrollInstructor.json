@@ -1,6 +1,6 @@
 {
     "method": "PUT",
-    "endpoint": "/lms/course/{id}",
+    "endpoint": "/lms/course/ReplaceID",
     "json": true,
     "request": {
 

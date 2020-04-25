@@ -1,6 +1,6 @@
 {
   "method": "PUT",
-  "endpoint": "/lms/course/{id}/view/1/bulkUpsert/",
+  "endpoint": "/lms/course/ReplaceID/view/1/bulkUpsert/",
   "json": true,
   "request": {
     "productModelId": 1,
