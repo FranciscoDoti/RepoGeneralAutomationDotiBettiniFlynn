@@ -65,6 +65,17 @@ When('I provide the following responses', async function (datatable) {
             case 'Multiple Choice':
                 await pages.sac.click('Multiple Choice Response Label', data['Response']);
                 break;
+            case 'Numeric Entry':
+                await pages.sac.populate('Numeric Entry Label', data['Response']);
+                break;
+            case 'Multiple Select':
+                if(!await pages.sac.getAttributeValue('Multiple Choice Input', data['Response'], 'checked')){
+                    await pages.sac.click('Multiple Select Label', data['Response']);
+                }                
+                break;
+            case 'Word Answer':
+                await pages.sac.populate('Word Answer Input', data['Response']);
+                break;
 
             default:
                 break;

@@ -1,252 +1,277 @@
 {
-    "webElements": [
-        {
-            "name": "aeframe",
-            "byType": "css",
-            "definition": "#aeIframe",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "questionList",
-            "byType": "css",
-            "definition": "#flcn_assignment",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Page Title",
-            "byType": "xpath",
-            "definition": "//div[@class='course-content']//h1[.='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Course Link",
-            "byType": "xpath",
-            "definition": "//*[@id='div_acc_courses']//a[.='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Assessment Link",
-            "byType": "xpath",
-            "definition": "//ul[contains(@class,'section img-text')]//span[text()='<ReplaceText>']",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Assignment Button",
-            "byType": "xpath",
-            "definition": "//div[@class='assignment-buttons']/button[.='<ReplaceText>']",
-            "frame": "aeframe",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Close Modal Button",
-            "byType": "xpath",
-            "definition": "//button[@id='close-modal-x']",
-            "frame": "questionList",
-            "specialInstr": "focus"
-        },
-        {
-            "name": "Modal Button",
-            "byType": "xpath",
-            "definition": "//div[@class='modal-actions']//button[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Modal",
-            "byType": "xpath",
-            "definition": "//div[@role='dialog']/div/div[@class='modal-title-container' and .='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Modal Message",
-            "byType": "xpath",
-            "definition": "//div[@role='dialog']/div/div[contains(@id,'modal-content') and contains(.,'<ReplaceText>')]",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Action Button",
-            "byType": "xpath",
-            "definition": "//header[@id='check-bar']//button[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Disabled Action Button",
-            "byType": "xpath",
-            "definition": "//header[@id='check-bar']//button[.='<ReplaceText>' and @disabled]",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question Number",
-            "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question Score",
-            "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']/../../../div[@class='right']/div[contains(@class, 'score')]",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },{
-            "name": "Multiple Choice Question Text",
-            "byType": "xpath",
-            "definition": "//article[@class='module-container']/div[@data-module-type='multiple_choice']//legend/span[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Multiple Choice Response Label",
-            "byType": "xpath",
-            "definition": "//article[@class='module-container']/div[@data-module-type='multiple_choice']//div[@data-test-id='multipleSelectAnswerChoices']//span[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Multiple Choice Input",
-            "byType": "xpath",
-            "definition": "//label[@class='sl-list-label']//span[.='<ReplaceText>']/../../../input",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Side Nav Title",
-            "byType": "xpath",
-            "definition": "//span[@data-test-id='side-nav-button-title' and .='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Nav Question Header Title",
-            "byType": "xpath",
-            "definition": "//h2[@data-test-id='nav-question-header' and .='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Nav Question Header Arrow",
-            "byType": "xpath",
-            "definition": "//div[@id='question-name']//button[@class='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Breadcrumb",
-            "byType": "xpath",
-            "definition": "//span[.='<ReplaceText>']/..",
-            "frame": "default",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Items List",
-            "byType": "xpath",
-            "definition": "//ul[@data-test-id='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Item Late label",
-            "byType": "xpath",
-            "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and @class='item-late-penalty']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Item Late Penalty Percentage",
-            "byType": "xpath",
-            "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and contains(@data-test-id,'late-penalty')]",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "OverAll Assessment Score",
-            "byType": "xpath",
-            "definition": "//button[text()='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Attempts Dropdown",
-            "byType": "xpath",
-            "definition": "//button[@data-test-id='attempts-dropdown-button']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Attempts Dropdown Option",
-            "byType": "xpath",
-            "definition": "//ul[@data-test-id='attempts']/li[@data-test-id='inside-attempts']/button[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Selected Attempt",
-            "byType": "xpath",
-            "definition": "//div[@role='menu']/button[@id='attempts-button']/span[@class='flex-span']/span[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Selected Attempt Status",
-            "byType": "xpath",
-            "definition": "//div[@role='menu']/button[@id='attempts-button']/span[@class='flex-span']/span[@class='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Side Panel Content",
-            "byType": "xpath",
-            "definition": "//section[@id='<ReplaceText>-content']//span[@class=' stix-font']/span",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        }, {
-            "name": "Panel Container",
-            "byType": "xpath",
-            "definition": "//aside[contains(@class,'panel show')]/section[contains(@class,'title')]/span[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        }, {
-            "name": "Expanded Panel Container",
-            "byType": "xpath",
-            "definition": "//aside[contains(@class,'panel show expand')]/section[contains(@class,'title')]/span[.='<ReplaceText>']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        }, {
-            "name": "Panel Toggle Button",
-            "byType": "xpath",
-            "definition": "//aside[contains(@class,'panel show')]/section[contains(@class,'title')]/span[.='<ReplaceText>']/../button[@class='panel-toggle-icon']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        }, {
-            "name": "Close Panel Container",
-            "byType": "xpath",
-            "definition": "//aside[contains(@class,'panel show')]/section[contains(@class,'title')]/span[.='<ReplaceText>']/../button[@class='close']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question Status",
-            "byType": "xpath",
-            "definition": "//span[text()='<ReplaceText>']/../../../div[@class='right']/div[@class='status']/span",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        },
-        {
-            "name": "Question Attempts Indicator",
-            "byType": "xpath",
-            "definition": "//span[text()='<ReplaceText>']/../../..//div[@class='attempts']",
-            "frame": "questionList",
-            "specialInstr": "NA"
-        }
-    ]
+  "webElements": [
+    {
+      "name": "aeframe",
+      "byType": "css",
+      "definition": "#aeIframe",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "questionList",
+      "byType": "css",
+      "definition": "#flcn_assignment",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Page Title",
+      "byType": "xpath",
+      "definition": "//div[@class='course-content']//h1[.='<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Course Link",
+      "byType": "xpath",
+      "definition": "//*[@id='div_acc_courses']//a[.='<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Assessment Link",
+      "byType": "xpath",
+      "definition": "//ul[contains(@class,'section img-text')]//span[text()='<ReplaceText>']",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Assignment Button",
+      "byType": "xpath",
+      "definition": "//div[@class='assignment-buttons']/button[.='<ReplaceText>']",
+      "frame": "aeframe",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Close Modal Button",
+      "byType": "xpath",
+      "definition": "//button[@id='close-modal-x']",
+      "frame": "questionList",
+      "specialInstr": "focus"
+    },
+    {
+      "name": "Modal Button",
+      "byType": "xpath",
+      "definition": "//div[@class='modal-actions']//button[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Modal",
+      "byType": "xpath",
+      "definition": "//div[@role='dialog']/div/div[@class='modal-title-container' and .='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Modal Message",
+      "byType": "xpath",
+      "definition": "//div[@role='dialog']/div/div[contains(@id,'modal-content') and contains(.,'<ReplaceText>')]",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Action Button",
+      "byType": "xpath",
+      "definition": "//header[@id='check-bar']//button[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Disabled Action Button",
+      "byType": "xpath",
+      "definition": "//header[@id='check-bar']//button[.='<ReplaceText>' and @disabled]",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Question Number",
+      "byType": "xpath",
+      "definition": "//span[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Question Score",
+      "byType": "xpath",
+      "definition": "//span[.='<ReplaceText>']/../../../div[@class='right']/div[contains(@class, 'score')]",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Multiple Choice Question Text",
+      "byType": "xpath",
+      "definition": "//article[@class='module-container']/div[@data-module-type='multiple_choice']//legend/span[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Multiple Choice Response Label",
+      "byType": "xpath",
+      "definition": "//article[@class='module-container']/div[@data-module-type='multiple_choice']//div[@data-test-id='multipleSelectAnswerChoices']//span[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Multiple Choice Input",
+      "byType": "xpath",
+      "definition": "//label[@class='sl-list-label']//span[.='<ReplaceText>']/../../../input",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Numeric Entry Input",
+      "byType": "xpath",
+      "definition": "//input[@title='Enter numeric value' and @class='numeric-entry-input']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Multiple Select Label",
+      "byType": "xpath",
+      "definition": "//div[@data-test-id='multipleSelectAnswerChoices']/div/span[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Word Answer Input",
+      "byType": "xpath",
+      "definition": "//div[@class='graded-equations-td']/div/div[@data-test-id='correct-answer']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Side Nav Title",
+      "byType": "xpath",
+      "definition": "//span[@data-test-id='side-nav-button-title' and .='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Nav Question Header Title",
+      "byType": "xpath",
+      "definition": "//h2[@data-test-id='nav-question-header' and .='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Nav Question Header Arrow",
+      "byType": "xpath",
+      "definition": "//div[@id='question-name']//button[@class='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Breadcrumb",
+      "byType": "xpath",
+      "definition": "//span[.='<ReplaceText>']/..",
+      "frame": "default",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Items List",
+      "byType": "xpath",
+      "definition": "//ul[@data-test-id='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Item Late label",
+      "byType": "xpath",
+      "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and @class='item-late-penalty']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Item Late Penalty Percentage",
+      "byType": "xpath",
+      "definition": "//ul[@data-test-id='items']/li[<ReplaceText>]//span[contains(@data-test-id,'side-nav-item') and contains(@data-test-id,'late-penalty')]",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "OverAll Assessment Score",
+      "byType": "xpath",
+      "definition": "//button[text()='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Attempts Dropdown",
+      "byType": "xpath",
+      "definition": "//button[@data-test-id='attempts-dropdown-button']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Attempts Dropdown Option",
+      "byType": "xpath",
+      "definition": "//ul[@data-test-id='attempts']/li[@data-test-id='inside-attempts']/button[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Selected Attempt",
+      "byType": "xpath",
+      "definition": "//div[@role='menu']/button[@id='attempts-button']/span[@class='flex-span']/span[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Selected Attempt Status",
+      "byType": "xpath",
+      "definition": "//div[@role='menu']/button[@id='attempts-button']/span[@class='flex-span']/span[@class='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Side Panel Content",
+      "byType": "xpath",
+      "definition": "//section[@id='<ReplaceText>-content']//span[@class=' stix-font']/span",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Panel Container",
+      "byType": "xpath",
+      "definition": "//aside[contains(@class,'panel show')]/section[contains(@class,'title')]/span[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Expanded Panel Container",
+      "byType": "xpath",
+      "definition": "//aside[contains(@class,'panel show expand')]/section[contains(@class,'title')]/span[.='<ReplaceText>']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Panel Toggle Button",
+      "byType": "xpath",
+      "definition": "//aside[contains(@class,'panel show')]/section[contains(@class,'title')]/span[.='<ReplaceText>']/../button[@class='panel-toggle-icon']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Close Panel Container",
+      "byType": "xpath",
+      "definition": "//aside[contains(@class,'panel show')]/section[contains(@class,'title')]/span[.='<ReplaceText>']/../button[@class='close']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Question Status",
+      "byType": "xpath",
+      "definition": "//span[text()='<ReplaceText>']/../../../div[@class='right']/div[@class='status']/span",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    },
+    {
+      "name": "Question Attempts Indicator",
+      "byType": "xpath",
+      "definition": "//span[text()='<ReplaceText>']/../../..//div[@class='attempts']",
+      "frame": "questionList",
+      "specialInstr": "NA"
+    }
+  ]
 }
-
