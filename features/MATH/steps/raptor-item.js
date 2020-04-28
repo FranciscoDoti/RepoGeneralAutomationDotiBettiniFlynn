@@ -2,7 +2,9 @@ const { When, Then } = require('cucumber');
 const expect = require('chai').expect;
 const pages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 const { log } = require('test-automation-pack/logger');
-const { sleep, visitURL } = require('test-automation-pack/driver');
+const { visitURL } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
+
 const { Key } = require('selenium-webdriver');
 
 

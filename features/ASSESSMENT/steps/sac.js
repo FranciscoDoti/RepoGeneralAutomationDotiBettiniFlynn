@@ -1,7 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const loginpages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
-const { sleep } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
 const { expect } = require('chai');
 
 When('I navigate to {string} assessment link in {string} course', async function (AssessmentName, CourseName) {

@@ -1,8 +1,10 @@
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
 const assert = require('assert');
-const { visitURL, sleep, getDriver } = require('test-automation-pack/driver'); // allows this file to be moved wherever
+const { visitURL, getDriver } = require('test-automation-pack/driver'); // allows this file to be moved wherever
 const { log } = require('test-automation-pack/logger');
+const { sleep } = require('test-automation-pack/utils');
+
 
 Then('I navigate to an assignment with Brightcove Video Player', async function () {
   visitURL('http://www.saplinglearning.com/ibiscms/mod/flcn/view.php?id=9595874');

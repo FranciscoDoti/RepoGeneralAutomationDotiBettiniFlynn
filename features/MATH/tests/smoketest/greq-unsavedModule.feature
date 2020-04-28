@@ -1,7 +1,7 @@
 @math @smoke @greq
 Feature: Creating a new AMS raptor item for different Eval types and simulate grading without saving the module.
 
-  Scenario Outline: Author creates a <evaltype> type <questionEquation> equation and verifies grading for correct answer <answerEquation> input
+  Scenario Outline: Author creates a <evaltype> type <questionEquation> equation and verifies grading for correct answer <answerEquation> input no save
 
     Given I login to AMS as "all-permissions-author"
     When I click on the New Raptor item in the AMS page

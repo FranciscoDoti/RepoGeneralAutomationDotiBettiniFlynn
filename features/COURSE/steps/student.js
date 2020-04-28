@@ -1,7 +1,8 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const csvtojson = require('csvtojson');
-const { getDriver, onWaitForElementToBeInvisible, sleep, driver } = require('test-automation-pack/driver');
+const { getDriver } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
 const { assert, expect } = require('chai');
 const IAMpages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
 const shared = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;

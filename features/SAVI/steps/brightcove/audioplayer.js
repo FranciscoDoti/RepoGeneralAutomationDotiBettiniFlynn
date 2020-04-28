@@ -1,6 +1,6 @@
 const { Given, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
-const { visitURL, sleep } = require('test-automation-pack/driver'); // allows this file to be moved wherever
+const { visitURL } = require('test-automation-pack/driver'); // allows this file to be moved wherever
 const { log } = require('test-automation-pack/logger');
 
 Given('I navigate to an assignment with Brightcove Audio Player', async function () {

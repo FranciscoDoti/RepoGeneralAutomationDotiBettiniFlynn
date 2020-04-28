@@ -1,6 +1,6 @@
 const { When } = require('cucumber');
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const { sleep } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
 
 When(/^I assign "(.*)" to my course$/, async function (userKey) {
   const user = this.users[userKey];

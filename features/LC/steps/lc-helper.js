@@ -1,6 +1,6 @@
 const stepsPath = process.cwd() + '/features/LC/pages/';
 const { PageObject } = require('test-automation-pack/PageObject');
-const { sleep } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
 const {assert} = require('chai');
 const {By} = require('selenium-webdriver');
 const pages = require(`${process.cwd()}/features/LC/pages/.page.js`).pages;

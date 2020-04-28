@@ -2,11 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const jsonfile = require('jsonfile');
 const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } = require('cucumber');
+const argv = require('minimist')(process.argv.slice(2));
+
+const rc = jsonfile.readFileSync(`${process.cwd()}/.test-automation-packrc.json`);
+const testrail = require('test-automation-pack/testrailuploader');
+const { fdate } = require('test-automation-pack/utils');
 const { takeScreenshot } = require('test-automation-pack/driver');
 const { log } = require('test-automation-pack/logger');
-const seleniumConfig = require('test-automation-pack/config');
-const argv = require('minimist')(process.argv.slice(2));
-const rc = jsonfile.readFileSync(`${process.cwd()}/.test-automation-packrc.json`);
+const config = require('test-automation-pack/config');
 
 const environment = (argv.env || rc.app.environment);
 const stack = (argv.stack || rc.app.stack || argv.env || rc.app.environment);
@@ -29,8 +32,8 @@ function ThisWorld({ attach }) {
   this.urls = jsonfile.readFileSync(`${process.cwd()}/features/.urls/web.json`);
   this.endpoints = jsonfile.readFileSync(`${process.cwd()}/features/.urls/api.json`);
   this.users = users();
-  this.url;
-  this.apiserver;
+  this.url = null;
+  this.apiserver = null;
 
   this.data = new Map();
   this.downloadLocation = `${process.cwd()}/reports/downloads`;
@@ -55,20 +58,38 @@ setDefinitionFunctionWrapper((fn) => {
   };
 });
 
-process.on('exit', () => {
+function updateMetadata () {
   const reportPath = argv.f !== undefined ? (argv.f.indexOf('json:') > -1 ? (`${process.cwd()}/${(argv.f).split(':')[1]}`) : undefined) : undefined;
   if (reportPath !== undefined) {
     const metadata = {
-      Browser: seleniumConfig.capabilities.get('browserName').toUpperCase(),
-      'Browser Version': seleniumConfig.capabilities.get('browserVersion').toUpperCase(),
-      Platform: seleniumConfig.capabilities.get('platformName').toUpperCase(),
+      Browser: config.capabilities.get('browserName').toUpperCase(),
+      'Browser Version': config.capabilities.get('browserVersion').toUpperCase(),
+      Platform: config.capabilities.get('platformName').toUpperCase(),
       Environment: environment.toUpperCase(),
       Stack: stack.toUpperCase(),
-      Grid: seleniumConfig.grid.toUpperCase(),
-      'Date Time': `${seleniumConfig.datetime.split('T')[0]} ${seleniumConfig.datetime.split('T')[1].split('.')[0]}`,
+      Grid: config.grid.toUpperCase(),
+      'Date Time': `${config.datetime.split('T')[0]} ${config.datetime.split('T')[1].split('.')[0]}`,
     };
     const contents = jsonfile.readFileSync(reportPath);
     contents[0].metadata = metadata;
     jsonfile.writeFileSync(reportPath, contents);
   }
+};
+
+async function testRailUpload () {
+  if(config.testrail.upload === true){
+    const user = config.testrail.user;
+    const report = `${process.cwd()}/reports/cucumber_report.json`;
+    const suite = config.testrail.suite;
+    const run = `Results: UI - Automation on ${fdate()} in environment ${stack}`;
+
+    const uploader = testrail.cucumberToTestRail();
+    await uploader.uploadCases(user, report, suite);
+    await uploader.uploadResults(user, report, suite, run);
+  }
+};
+
+process.once('beforeExit', async () => {
+  updateMetadata();
+  testRailUpload();
 });

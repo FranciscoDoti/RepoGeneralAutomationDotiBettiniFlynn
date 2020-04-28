@@ -2,7 +2,7 @@ var { After, AfterAll } = require('cucumber');
 const { closeBrowser, resetBrowser, takeScreenshot } = require('test-automation-pack/driver');
 const asmtpages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const { sleep } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
 const { loginAchieveCw } = require(`${process.cwd()}/features/shared/steps/login.js`);
 
 After(async function (scenario) {

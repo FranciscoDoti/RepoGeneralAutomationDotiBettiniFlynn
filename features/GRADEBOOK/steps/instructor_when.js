@@ -3,7 +3,7 @@ const { When } = require('cucumber');
 const coursePages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const { gradebook, filter } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
 const { assignStudents, unassignStudents, assingEveryone } = require('../helpers');
-const { sleep } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
 
 When('Instructor toggle percents', async function () {
   await gradebook.waitForElementVisibility('percentsToggleButton');

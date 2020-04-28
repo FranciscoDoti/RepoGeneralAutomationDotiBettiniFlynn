@@ -16,14 +16,15 @@
     "csvtojson": "latest",
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "latest",
+    "faker": "latest",
     "imap-simple": "latest",
     "jsonwebtoken": "latest",
     "mailparser": "latest",
     "nodemailer": "latest",
     "selenium-webdriver": "latest",
-    "testrail-api": "latest",
-    "test-automation-pack": "^0.0.18",
-    "faker": "latest"
+    "test-automation-pack": "^0.0.21",
+    "minimist": "latest",
+    "jsonfile": "latest"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

@@ -1,6 +1,6 @@
 const {Given, When, Then} = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
-const {sleep} = require('test-automation-pack/driver');
+const {sleep} = require('test-automation-pack/utils');
 const driver = require('test-automation-pack/driver');
 const { randomURL } = require(`${process.cwd()}/features/COURSE/helpers/dataGenerator`);
 

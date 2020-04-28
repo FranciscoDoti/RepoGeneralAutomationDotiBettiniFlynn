@@ -4,7 +4,9 @@ const stepsPath = process.cwd() + '/features/LC/pages/';
 const { PageObject } = require('test-automation-pack/PageObject');
 const pages = require(`${process.cwd()}/features/LC/pages/.page.js`).pages;
 const { log } = require('test-automation-pack/logger');
-const { getDriver, sleep } = require('test-automation-pack/driver');
+const { getDriver } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
+
 const {By} = require('selenium-webdriver');
 const config = require(`${process.cwd()}/.test-automation-packrc.json`);
 const assert = require('assert');

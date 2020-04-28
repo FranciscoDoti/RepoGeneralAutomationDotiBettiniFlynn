@@ -1,4 +1,4 @@
-@SAC @Assessment @Smoke 
+@SAC @Assessment @Smoke
 Feature: To configure an intermediate test in SAC
 
   @Breadcrumb @SACIntermediate

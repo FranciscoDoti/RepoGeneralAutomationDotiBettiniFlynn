@@ -8,7 +8,7 @@ const {
 const { visitURL } = require('test-automation-pack/driver');
 const { getCourseData } = require('../data/courses');
 const driver = require('test-automation-pack/driver');
-const { sleep } = driver;
+const { sleep } = require('test-automation-pack/utils');
 
 async function viewCourse (course) {
   const courses = getCourseData();

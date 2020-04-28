@@ -1,4 +1,4 @@
-@math @graph @graph-permit @smoke
+@math @graph @graph-permit @smoke 
 Feature: User with/without graphing permission
 
     Scenario: User with graphing permission have access to Graphs

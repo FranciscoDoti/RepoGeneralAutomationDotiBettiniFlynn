@@ -2,8 +2,7 @@ const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/COURSE/pages/.page.js`).pages;
 const expect = require('chai').expect;
 const csvtojson = require('csvtojson');
-const driver = require('test-automation-pack/driver');
-const {sleep } = require('test-automation-pack/driver');
+const {sleep } = require('test-automation-pack/utils');
 
 When(/^I enroll the "(.*)" in "(.*)" course$/, async function (userType, courseName) {
   let user = this.users[userType];

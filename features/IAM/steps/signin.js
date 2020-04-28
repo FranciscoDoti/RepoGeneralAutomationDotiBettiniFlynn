@@ -1,8 +1,7 @@
 const { Given, When, Then } = require('cucumber');
 const _ = require('lodash');
 const pages = require(`${process.cwd()}/features/IAM/pages/.pages.js`).pages;
-const { visitURL, sleep } = require('test-automation-pack/driver');
-const email = require(`${process.cwd()}/features/COURSE/steps/checkEmail.js`);
+const { visitURL } = require('test-automation-pack/driver');
 var window = window;
 
 Given('I have opened "Achieve-CW"', async function () {

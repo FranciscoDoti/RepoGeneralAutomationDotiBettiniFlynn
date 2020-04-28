@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/SAVI/pages/.page.js`).pages;
-const { visitURL, sleep } = require('test-automation-pack/driver');
+const { visitURL } = require('test-automation-pack/driver');
 const { expect } = require('chai');
 const { log } = require('test-automation-pack/logger');
 

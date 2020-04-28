@@ -1,6 +1,6 @@
 const { When } = require('cucumber');
 const { iclicker, gradebook, iclickerCourses } = require(`${process.cwd()}/features/GRADEBOOK/pages/.page.js`).pages;
-const { sleep } = require('test-automation-pack/driver');
+const { sleep } = require('test-automation-pack/utils');
 
 function waitForSettings () {
   return gradebook.waitForElementVisibility('settingsNav');
