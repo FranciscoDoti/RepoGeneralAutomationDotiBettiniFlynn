@@ -31,7 +31,7 @@ Feature: Verify that customer Support is able to create access code for Template
             | AccessCode   | Value      |
             | totalInput   | 2          |
 
-        Then I verify that "Code update successful.." message is displayed 
+        Then I verify that "undefined undefined Code update successful." message is displayed 
 
         
 

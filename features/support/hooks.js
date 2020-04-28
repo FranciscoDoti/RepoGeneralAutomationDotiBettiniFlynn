@@ -17,7 +17,6 @@ var { After, AfterAll } = require('cucumber');
 const specPath = `${process.cwd()}/features/COURSE/apispecs`;
 const { RestObject } = require('test-automation-pack/rest');
 
-
 After('@delete-Courses', async function () {
   let spec = `${specPath}/deletecourse.json`;
   let jwt_payload = this.users['admin_1'].jwt_payload;
@@ -100,16 +99,14 @@ After('@customersupport-delete-course', async function () {
   await resetBrowser();
   await loginAchieveCw('customer_support_1', this);
 
-  let course = this.data.get('code');
   let courseName = this.data.get('courseName');
   await pages.courseList.populate('search', courseName);
-  await pages.courseList.assertElementExists('courseNumber', course);
-  let elements = await pages.courseList.getWebElements('courseNumber', course);
+  await pages.createCourse.assertElementExists('courseCard', courseName);
+  let elements = await pages.createCourse.getWebElements('courseCard', courseName);
   for (let i = 0; i < elements.length; i++) {
     await sleep(500);
-    await pages.createCourse.click('courseMenu');
+    await pages.courseList.click('courseMenu', courseName);
     await pages.courseList.click('deleteCourse');
-    await pages.courseList.assertElementExists('confirmDelete')
     await pages.courseList.click('confirmDelete');
     await pages.home.click('closeAlert');
   }

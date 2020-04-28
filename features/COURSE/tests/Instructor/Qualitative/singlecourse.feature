@@ -27,11 +27,10 @@ Feature: Single Quantitative Course
         And I login to Achieve-CW as "instructor_1"
             
         And I create a single course from "Qualitative Template" with following data
-            | field             | value                        |
-            | courseName        | Qualitative Single Course    |
-            | courseCode        |  E2E 301                     |
+            | courseName                      | courseCode                   |
+            |  Qualitative Single Course      |  E2E 301                     |
 
-        Then I verify that "Course Created." message is displayed
+        # Then I verify that "Course Created." message is displayed
         And I verify that "Qualitative Single Course" is created
 
       

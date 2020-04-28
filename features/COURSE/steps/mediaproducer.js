@@ -21,12 +21,14 @@ When(/^I create Course Template with ISBN "(.*)" and course code "(.*)"$/, async
 });
 
 When(/^I activate the "(.*)" template and add the following data$/, async function (courseName, data_table) {
-  await sleep(500);
+  courseName = this.data.get('Name');
+  await pages.courseList.populate('search', courseName)
   await pages.courseList.click('courseMenu', courseName);
   await pages.editCourse.click('editCourse');
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
-    await pages.editCourse.populate('courseName', c.courseName)
+    c.Name = courseName
+    await pages.editCourse.populate('courseName', c.Name)
     await pages.editCourse.populate('courseCode', c.courseCode)
     await pages.editCourse.populate('templateStatus', c.templateStatus)
   }
@@ -476,8 +478,22 @@ Then('I verify that template is created with following data', async function (da
     await pages.home.click('closeAlert');
     await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
     await pages.courseList.populate('search', courseName)
-    await pages.courseList.assertTextIncludes('courseStatus',courseName, c.status);
+    await pages.courseList.assertTextIncludes('DraftcourseStatus', courseName, c.status);
     await pages.courseList.assertElementExists('courseName', courseName);
-    await pages.courseList.assertTextIncludes('ISBN', courseName, 'ISBN:'+ isbNmuber)
+    await pages.courseList.assertTextIncludes('ISBN', courseName, 'ISBN:' + ' ' + isbNmuber)
   }
 })
+
+Then('I verify the details of active Teamplate', async function (data_table) {
+  for (let i = 0; i < data_table.rows().length; i++) {
+    var c = data_table.hashes()[i];
+    let courseName = this.data.get('Name');
+    let isbNmuber = this.data.get('Number');
+    await pages.home.click('closeAlert');
+    await pages.courseList.click('courseTemplate', 'COURSE TEMPLATES');
+    await pages.courseList.populate('search', courseName)
+    await pages.courseList.assertTextIncludes('ActivecourseStatus', courseName, c.status);
+    await pages.courseList.assertElementExists('courseName', courseName);
+    await pages.courseList.assertTextIncludes('ISBN', courseName, 'ISBN:' + ' ' + isbNmuber)
+  }
+});

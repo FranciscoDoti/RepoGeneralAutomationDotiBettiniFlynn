@@ -26,7 +26,7 @@ Feature: Assigning the activities present in Skills Production Course
         And I login to Achieve-CW as "instructor_1"
 
      
-        And I add the activities in courseplanner to "Skills Production Course" course
+        And I add activities in "Skills Production Course" courseplanner tab
             | activity                                                          |                                                        
             | LCRP1551301608988                                                 |
             | Glossary                                                          |

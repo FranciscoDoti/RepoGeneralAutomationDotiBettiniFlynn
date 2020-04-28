@@ -1,27 +1,20 @@
 @Course @Smoke @API
 Feature: Verify side menu in Skills Course 
 
-    @mediaproducer-delete-course
-    @mediaproducer-delete-courseTemplate
+    @delete-Courses
     Scenario: Verify that the side menu exist in a Skills Course
     
-        Given I login to Achieve-CW as "media_producer_2"
-        When I create template with following data 
-            | courseType  | productModel      | courseName              | learningObjective      | courseCode   | isbnNumber     | courseStatus  |
-            | Template    | Skills            | Skills Template         |                        | E2E 301      | 9781464199498  | draft         |                      
+        When I create a course as "media_producer_2" with the following data
+            | name                                | short_name | format | status | product_model_id | is_course_template | owner_id            | course_type   | warn_prebuilt | isbn             | template_version  |
+            | Skills Production Template          | E2E 301    | topics | draft  | 2                | true               | 0050n000002Wt0kAAC  | template      |  false        |  9781464199490   |   1               |
+                                  
+        And I copy course from "Skills Production Template" as "media_producer_2" with the following data
+            | name                       | short_name | c_account   | is_course_template | course_term | course_year | status  | course_type | isbn          | warn_prebuilt | enrollment_start_date | course_end_date   |
+            | Skills Production Course   | E2E 301    | null        | false              | spring      | 2020        | active  | course      | 9781464199490 | false         | todaydate             |  After3Months     |
+            
+        And I assign instructor to "Skills Production Course" as a "customer_support_1"
+            |   id     |   enrollments         | product_model_id  | course_type    |
+            |   id     |   instructor_1        |   2               | course         |
+        And I login to Achieve-CW as "instructor_1"
 
-
-         And I close the popup message                      
-
-        And I click on search button and input "Skills Template" to search the course 
-                            
-
-        And I activate the "Skills Template" template and add the following data
-            | courseName                |  courseCode   |  templateStatus      |
-            | Skills Template           |   E2E 301     |  Active On Date      | 
-
-        And I copy course from the "Skills Template" template with the following data
-            | courseName            | courseCode           |
-            | Skills Course    | E2E 301              |
-
-        And I verify that the side menu exist in "Skills Course"
+        And I verify that the side menu exist in "Skills Production Course"

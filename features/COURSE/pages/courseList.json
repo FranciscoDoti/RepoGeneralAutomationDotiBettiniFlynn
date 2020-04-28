@@ -74,7 +74,7 @@
     }, {
         "name": "ISBN",
         "byType": "xpath",
-        "definition": "//div[.=<ReplaceText>]/..//div[@class='_3H6D']",
+        "definition": "//div[.='<ReplaceText>']/..//div[@class='_3H6D']",
         "frame": "default",
         "specialInstr": "NA"
     }, {
@@ -232,9 +232,9 @@
 
     },
     {
-        "name": "courseStatus",
+        "name": "DraftcourseStatus",
         "byType": "xpath",
-        "definition": "//div[.='<ReplaceText>']/..//*[@class='_3QjZ mHld _36Ox']",
+        "definition": "//div[.='<ReplaceText>']/..//*[@class='_3QjZ mHld _1VLR']",
         "frame": "default",
         "specialInstr": "NA"
     },
@@ -256,6 +256,14 @@
         "name": "courseName",
         "byType": "xpath",
         "definition": "//div[.='<ReplaceText>']",
+        "frame": "default",
+        "specialInstr": "NA"
+
+    },
+    {
+        "name": "ActivecourseStatus",
+        "byType": "xpath",
+        "definition": "//div[.='<ReplaceText>']/..//*[@class='_3QjZ mHld _36Ox']",
         "frame": "default",
         "specialInstr": "NA"
 

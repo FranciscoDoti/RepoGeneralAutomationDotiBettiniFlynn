@@ -6,7 +6,7 @@
     "user_id": "0053B000002ja4XQAQ",
     "Id": "0053B000002ja4XQAQ",
     "FirstName": "Media",
-    "LastName": "Editor",
+    "LastName": "editor",
     "email": "jafaziy@maillist.in",
     "Email": "jafaziy@maillist.in",
     "C_Acct__c": "C02777",
@@ -15,7 +15,7 @@
     "School_or_Institution__c": "Macmillan Learning",
     "email_verified": "",
     "nickname": "yon48yvgf4v6xtd4k6bxrt7fa",
-    "name": "Media Producer",
+    "name": "Media editor",
     "type": "Student",
     "auth0_id": "",
     "app_metadata": {

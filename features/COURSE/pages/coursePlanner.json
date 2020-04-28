@@ -609,7 +609,15 @@
             "frame": "default",
             "specialInstr": "NA"
 
+        },{
+            "name": "writingIframe",
+            "byType": "xpath",
+            "definition": "//*[@id='container']/div[1]/div/div/iframe",
+            "frame": "default",
+            "specialInstr": "NA"
+
         },
+        
         {
             "name": "customIframe",
             "byType": "xpath",
@@ -630,7 +638,7 @@
             "name": "editTitle",
             "byType": "css",
             "definition": "[aria-labelledby='edit']",
-            "frame": "customIframe",
+            "frame": "writingIframe",
             "specialInstr": "NA"
 
         },
@@ -638,7 +646,7 @@
             "name": "activityTitle",
             "byType": "xpath",
             "definition": "//div[@data-id='activity-title-editField']/..//input[@type='text']",
-            "frame": "customIframe",
+            "frame": "writingIframe",
             "specialInstr": "NA"
 
         },
@@ -646,7 +654,7 @@
             "name": "TitleSave",
             "byType": "css",
             "definition": "[data-id='title-save']",
-            "frame": "customIframe",
+            "frame": "writingIframe",
             "specialInstr": "NA"
 
         },

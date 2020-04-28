@@ -10,8 +10,8 @@ Feature: Create course Skills template
            | courseType  | productModel | courseName       |learningObjective | courseCode   | isbnNumber     | courseStatus  |
            | Template    | Skills       | Skills Template  |                  | E2E 301      | 9781464199490  | draft         |                      
 
-
-        Then I verify that "Skills Template Created." message is displayed
-        And I verify that "Skills Template" has created with following "9781464199490" number
+        Then I verify that template is created with following data
+            | status | courseName | isbnNumber      |
+            | draft  | randomName | randomNumber    |
 
     

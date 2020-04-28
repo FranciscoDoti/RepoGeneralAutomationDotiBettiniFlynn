@@ -90,7 +90,9 @@ When(/^I add URL link to "(.*)"$/, async function (tabName, data_table) {
     await pages.resources.populate(data_table.hashes()[i].field, link)
     await pages.resources.click('nextStepUrlLink');
     await pages.resources.click('addUrlLink');
+    await pages.resources.click('goToContent', 'Add');
     await pages.resources.click('goToContent', 'Go to Your Content');
+
   }
 });
 When('I click on go to your content', async function () {

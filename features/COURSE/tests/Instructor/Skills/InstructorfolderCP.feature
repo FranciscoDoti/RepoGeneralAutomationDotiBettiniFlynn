@@ -27,7 +27,7 @@ Feature: Instructor adds folder, remove folder and reorders it in Skills Product
             |   id     |   instructor_1        |   2               | course         |
         And I login to Achieve-CW as "instructor_1"
      
-        And I add the activities in courseplanner to "Skills Production Course" course
+        And I add activities in "Skills Production Course" courseplanner tab
             | activity                                                          |                                                        
             | LCRP1551301608988                                                 |
             | Glossary                                                          |

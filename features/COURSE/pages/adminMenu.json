@@ -233,8 +233,8 @@
         },
         {
             "name": "accountName",
-            "byType": "css",
-            "definition": "span[data-test-id='check_account_modal_student_name']",
+            "byType": "xpath",
+            "definition": "//div[.='<ReplaceText>']",
             "frame": "default",
             "specialInstr": "NA"
 

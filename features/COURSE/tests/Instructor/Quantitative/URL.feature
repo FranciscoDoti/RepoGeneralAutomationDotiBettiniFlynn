@@ -26,7 +26,7 @@ Feature: Verify that Instructor is able to create URL In Quantitative Course
         And I login to Achieve-CW as "instructor_1"
 
      
-        And I add the activities in courseplanner to "Quantitative Course" course
+        And I add activities in "Quantitative Course" courseplanner tab 
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | Glossary                                                          |
@@ -36,8 +36,6 @@ Feature: Verify that Instructor is able to create URL In Quantitative Course
         And I add URL link to "Quantitative Course" in coursePlanner
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
-
-        Then I verify that "URL Link Added to "Your Content"" message is displayed
 
         And I add URL in courseplanner
             | activity                                    |

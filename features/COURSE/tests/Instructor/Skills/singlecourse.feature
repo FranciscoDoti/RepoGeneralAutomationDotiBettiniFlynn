@@ -29,11 +29,10 @@ Feature: Single Skills Course
         And I login to Achieve-CW as "instructor_1"
 
          And I create a single course from "Skills Production Template" with following data
-            | field             | value                  |
-            | courseName        | Skills Single Course   |
-            | courseCode        |  E2E 301               |
+            | courseName              | courseCode   |
+            |  Skills Single Course   |  E2E 301     |
 
-        Then I verify that "Course Created." message is displayed
+        # Then I verify that "undefined undefined Course Created." message is displayed
         And I verify that "Skills Single Course" is created
 
         

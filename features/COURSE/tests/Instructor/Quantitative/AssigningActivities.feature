@@ -26,7 +26,7 @@ Feature: Assigning the activities present in Quantitative course
             |   id     |   instructor_1        |   3               | course         |
         And I login to Achieve-CW as "instructor_1"
      
-        And I add the activities in courseplanner to "Quantitative Course" course
+        And I add activities in "Quantitative Course" courseplanner tab
             | activity                                                          | 
             | LCRP1550612138614                                                 |                                                        
             | Glossary                                                          |

@@ -34,17 +34,17 @@ When(/^I check the account of "(.*)"$/, async function (userType) {
 
 Then(/^I verify that "(.*)" details$/, async function (userType, data_table) {
   let user = this.users[userType];
-  await pages.adminMenu.assertTextIncludes('studentEmail', user.username);
   for (let i = 0; i < data_table.rows().length; i++) {
     var c = data_table.hashes()[i];
     let jwtpayload = this.users[userType].jwt_payload
-    c.name = jwtpayload.name
-    c.Id = jwtpayload.Id
-    await pages.adminMenu.assertTextIncludes('accountName', c.name);
-    await pages.adminMenu.assertTextIncludes('studentId', c.Id);
+    c.firstLastName = jwtpayload.LastName + ',' + ' ' + jwtpayload.FirstName + ' ' + '(Student)'
+    c.IAMID = 'IAM ID' + ':' + ' ' + jwtpayload.Id
+    c.Email = 'Email' + ':' + ' ' + user.username
+    await pages.adminMenu.assertTextIncludes('accountName', c.firstLastName, c.firstLastName);
+    await pages.adminMenu.assertTextIncludes('accountName', c.IAMID, c.IAMID);
+    await pages.adminMenu.assertTextIncludes('accountName', c.Email, c.Email);
   }
 });
-
 
 When(/^I generate access code for "(.*)"$/, async function (courseName) {
   await pages.courseList.populate('search', courseName);
@@ -86,7 +86,7 @@ When(/^I search for "(.*)" in Courses tab$/, async function (courseName) {
   await pages.createCourse.assertElementExists('courseCard', courseName)
 })
 
-When(/^I copy course from the "(.*)" Course with the following data$/, async function (courseName, data_table){
+When(/^I copy course from the "(.*)" Course with the following data$/, async function (courseName, data_table) {
   await pages.courseList.populate('search', courseName);
   await pages.courseList.assertElementExists('courseMenu', courseName);
   await sleep(500);

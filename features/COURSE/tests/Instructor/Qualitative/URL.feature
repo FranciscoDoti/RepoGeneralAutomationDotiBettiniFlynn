@@ -35,7 +35,6 @@ Feature: Verify that Instructor is able to create URL in Qualitative Course
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
 
-        Then I verify that "URL Link Added to "Your Content"" message is displayed
 
         And I add URL in courseplanner
             | activity                                    |

@@ -2,10 +2,8 @@
 Feature: Instructor creates Master Section, creates Custom task and content to it
 
     
-    @instructor-masterSection-delete-course
-    
+    @instructor-masterSection-delete-course  
     @delete-Courses
-
     Scenario: Verify that Instructor is able to create a Master Section in Qualitative Course
 
         Given I login to Achieve-CW as "media_producer_2"

@@ -27,10 +27,10 @@ Feature: Instructor adds folder, remove folder and reorders it in Quantitative C
             |   id     |   instructor_1        |   3               | course         |
         And I login to Achieve-CW as "instructor_1"
      
-        And I add the activities in courseplanner to "Quantitative Course" course
+        And I add activities in "Quantitative Course" courseplanner tab
             | activity                                                          | 
             | Exercise: Misused words 1 (autoscored)                            |                                                        
-            | LCRP1551301608988                                                   |
+            | LCRP1551301608988                                                 |
             | Glossary                                                          |
             | LCRP1550612138614                                                 |
         And I close the popup message

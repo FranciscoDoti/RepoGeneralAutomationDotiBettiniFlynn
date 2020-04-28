@@ -25,7 +25,7 @@ Feature: Verify that Instructor is able to create URL in Skills Production Cours
             |   id     |   instructor_1        |   2               | course         |
         And I login to Achieve-CW as "instructor_1"
 
-        And I add the activities in courseplanner to "Skills Production Course" course
+        And I add activities in "Skills Production Course" courseplanner tab
             | activity                                                          |                                                        
             | Glossary                                                          |
             | LCRP1550612138614                                                 |
@@ -35,8 +35,6 @@ Feature: Verify that Instructor is able to create URL in Skills Production Cours
         And I add URL link to "Skills Production Course" in coursePlanner
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
-
-        Then I verify that "URL Link Added to "Your Content"" message is displayed
 
         And I add URL in courseplanner
             | activity                                    |

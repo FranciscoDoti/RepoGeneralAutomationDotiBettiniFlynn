@@ -11,54 +11,36 @@
   "sq3_answer": "answer",
   "primarySchool": "macmillan learning",
   "jwt_payload": {
-    "sub": "0053B000002ja5BQAQ",
-    "user_id": "0053B000002ja5BQAQ",
-    "Id": "0053B000002ja5BQAQ",
-    "FirstName": "instructor",
-    "LastName": "macmillan",
-    "email": "julukiboze@quickmail.in",
-    "Email": "julukiboze@quickmail.in",
-    "LastModifiedDate": "2020-03-02T14:53:41.578Z",
-    "School_or_Institution__c": "Macmillan Learning",
-    "nickname": "ld7djb6y0mhyftsv4nsqctb9",
-    "name": "instructor macmillan",
-    "type": "Student",
-    "user_metadata": {
-      "cAccount": "C02777",
+    "instructors": [{
+      "sub": "0053B000002ja5BQAQ",
+      "user_id": "0053B000002ja5BQAQ",
+      "Id": "0053B000002ja5BQAQ",
+      "FirstName": "instructor",
+      "LastName": "macmillan",
+      "email": "julukiboze@quickmail.in",
+      "Email": "julukiboze@quickmail.in",
+      "LastModifiedDate": "2020-03-02T14:53:41.578Z",
+      "School_or_Institution__c": "Macmillan Learning",
+      "nickname": "ld7djb6y0mhyftsv4nsqctb9",
       "name": "instructor macmillan",
-      "last_name": "macmillan",
-      "first_name": "instructor",
-      "institution_id": "001i000000btYyyAAE"
-    },
-    "app_metadata": {
-      "admin": false,
-      "support": false
-    },
-    "course_data": {
-      "instructor": [
-        "acaa818c-d22d-4e27-99bb-a9ffb4f9b2a2",
-        "f8322eb0-de2a-4f88-ae0f-66fb251d2f9d",
-        "9a1ef861-04ca-4ea2-b78f-959475384110",
-        "2fbdced7-6a15-4048-afe3-92e3dca8a364",
-        "321dcc6d-13c6-45b1-9c16-8be5edddf500",
-        "ac73c836-36bc-4aec-a688-757c95a020c9",
-        "6b2881ec-a7f7-4352-9faf-17ce268b636e",
-        "36257a47-4eb8-473b-8d04-14a16844274d",
-        "033e2239-cc87-460e-aa53-7896031477a6",
-        "b60acc76-acf0-42ac-a901-15f3b08d918f",
-        "1e153890-18a5-452e-95a7-c6eace3d35d5",
-        "e75d9ea9-23be-4646-b16a-6033f371cde1",
-        "fdaeb3c0-3b7f-4a8f-a55d-8ad959036cc4",
-        "2deab4c2-4d73-477f-839c-9e42c2509fef",
-        "ac356204-f431-47ae-8a4a-a76dee5bd08a",
-        "7432d5bb-8670-4e67-9f5f-381c1f48f059",
-        "2887ef1b-3513-48e0-a33e-e6392597ca5a",
-        "5e778b5b-d4fd-43ce-8c1f-11403e33635a",
-        "57fb8729-b6fa-4e7d-8cde-af9bab149f33",
-        "8adf0234-aba1-4a06-b46e-c9944a8b76f9",
-        "ac1a87b5-4e38-48d2-8d11-9bb437eef908",
-        "b56a440b-35f4-40a0-95cc-df2ada79318c"
-      ]
-    }
+      "type": "Student",
+      "user_metadata": {
+        "cAccount": "C02777",
+        "name": "instructor macmillan",
+        "last_name": "macmillan",
+        "first_name": "instructor",
+        "institution_id": "001i000000btYyyAAE"
+      },
+      "app_metadata": {
+        "admin": false,
+        "support": false
+      },
+      "course_data": {
+        "student": []
+
+      }
+
+    }]
   }
+
 }

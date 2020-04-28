@@ -2,7 +2,7 @@
 Feature: Student grades
  
 
-    @delete-Courses
+@delete-Courses
 Scenario: Verify that instructor is able to edit the grades of student
 
         Given I login to Achieve-CW as "media_producer_2"
@@ -17,13 +17,6 @@ Scenario: Verify that instructor is able to edit the grades of student
         And I add URL link to "Create" 
             | field             | link                         |
             | addUrlLinkinput   | https://www.google.com       |
-        Then I verify that "URL Link Added to "Your Content"." message is displayed
-
-        When I click on go to your content
-
-        Then I verify that activties are added in "Create"
-            | activity                                      |    
-            | Google                                        |
 
         When I add custom activity to Content Library
             | activity                                      |    
@@ -32,7 +25,6 @@ Scenario: Verify that instructor is able to edit the grades of student
         And I add activities to the content library of "activities Template" template
           | name                                         |
           | Glossary                                     |
-          | SampleChapterAuto.jpg                        |
 
         And I copy course from "activities Template" as "media_producer_2" with the following data
             | name               | short_name | is_course_template | isbn          | course_term | course_year | status  | course_type | enrollment_start_date | course_end_date   | warn_prebuil |
@@ -55,7 +47,6 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                    | 
             | Google                                      |
             | Glossary                                    |
-            | SampleChapterAuto.jpg                       |
         
         And I close the popup message  
 
@@ -63,26 +54,23 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                                         | Points |
             | Google                                                           | 5      |
             | Glossary                                                         | 5      |
-            | SampleChapterAuto.jpg                                            | 5      |
 
         And I create Gradebook Category for student and assign that to "Google" activity
             |   CategoryName        | DropGrade | GradebookCategory |
             |   Test                |  1        |   Test            |
 
-        Then I verify that "The details of 'Google' have been updated." message is displayed
+        # Then I verify that "The details of 'Google' have been updated." message is displayed
         And I close the popup message
         And I sign out of Achieve
         And I login to Achieve-CW as "customer_support_1" 
-        And I enroll the "student_2" in "activities Course" course  
+        And I enroll the "student_1" in "activities Course" course  
         And I sign out of Achieve
 
-        And I login to Achieve-CW as "student_2"
+        And I login to Achieve-CW as "student_1"
 
         And I click on "activities Course"
 
         And I attempt "Google" URL activity
-
-        And I attempt "SampleChapterAuto.jpg" File activity
 
         And I complete the reading activity 
             | activity           |
@@ -93,14 +81,13 @@ Scenario: Verify that instructor is able to edit the grades of student
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | SampleChapterAuto.jpg                         | Complete  |
     
 
         And I verify the activity status for the following activities in "ASSIGNMENTS"
             | activity                                      | status    |
             | Glossary                                      | Complete  |
             | Google                                        | Complete  |
-            | SampleChapterAuto.jpg                         | Complete  |
+    
 
         And I sign out of Achieve
         And I login to Achieve-CW as "instructor_1"
