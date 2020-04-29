@@ -1,0 +1,11 @@
+{
+    "webElements": [
+        {
+            "name": "Boton Iniciar Sesion con Facebook",
+            "byType": "xpath",
+            "definition": "//span[.='Inicia sesión con Facebook']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

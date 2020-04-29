@@ -6,7 +6,7 @@ const reportName = () => {
   let prefix = argv.prefix || '';
   prefix = (prefix !== '') ? `${prefix} ` : '';
   const date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-  return `${prefix}Cucumber Report ${date}`;
+  return `${prefix}Cucumber Report`;
 };
 
 const options = {

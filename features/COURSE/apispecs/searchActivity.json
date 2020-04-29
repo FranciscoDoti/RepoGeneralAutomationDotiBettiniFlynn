@@ -1,8 +1,0 @@
-{
-  "method": "POST",
-  "endpoint": "/api/v1/indices/1/activities",
-  "json": true,
-  "request": {
-    "searchTerm": ""
-  }
-}

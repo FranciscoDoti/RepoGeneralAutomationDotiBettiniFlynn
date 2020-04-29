@@ -2,7 +2,6 @@ const { Given, When } = require('cucumber');
 const { visitURL } = require('test-automation-pack/driver');
 const _ = require('lodash');
 const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
-const mathPages = require(`${process.cwd()}/features/MATH/pages/.page.js`).pages;
 
 /* Verifies Sapling login */
 Given(/^I login to AMS as "(.*)"/, async function (userType) {

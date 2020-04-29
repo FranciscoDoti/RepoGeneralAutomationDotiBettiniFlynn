@@ -2,6 +2,8 @@ import jenkins.model.*;
 import groovy.json.*;
 import hudson.*;
 
+#TODO: TENGO QEU MODIFICAR ESTO ACà. QUIZAS BORRAR TODO
+
 def git_repo = "cucumber-framework"
 def artifact_name = "./artifacts/*"
 def artifactory_server = Artifactory.server 'Macmillan-Artifactory'

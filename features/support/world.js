@@ -16,7 +16,7 @@ const stack = (argv.stack || rc.app.stack || argv.env || rc.app.environment);
 
 const users = () => {
   const that = {};
-  const folder = `${process.cwd()}/features/shared/data/users/${environment}`;
+  const folder = `${process.cwd()}/features/shared/data/users/${environment}`; //TODO: CORREGIR LA CARPETA DE USERS
   const files = fs.readdirSync(folder);
   files.forEach((file) => {
     const filepath = `${folder}/${file}`;
@@ -76,7 +76,7 @@ function updateMetadata () {
   }
 };
 
-async function testRailUpload () {
+/*async function testRailUpload () {
   if(config.testrail.upload === true){
     const user = config.testrail.user;
     const report = `${process.cwd()}/reports/cucumber_report.json`;
@@ -87,9 +87,9 @@ async function testRailUpload () {
     await uploader.uploadCases(user, report, suite);
     await uploader.uploadResults(user, report, suite, run);
   }
-};
+};*/
 
 process.once('beforeExit', async () => {
   updateMetadata();
-  testRailUpload();
+  //testRailUpload();
 });
