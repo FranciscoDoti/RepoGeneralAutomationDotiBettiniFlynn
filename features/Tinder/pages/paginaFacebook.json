@@ -1,21 +1,21 @@
 {
     "webElements": [
         {
-            "usuario": "Usuario",
+            "name": "Usuario",
             "byType": "xpath",
             "definition": "//input[@name='email']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "usuario": "Contraseña",
+            "name": "Contraseña",
             "byType": "xpath",
             "definition": "//input[@id='pass']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "usuario": "Entrar",
+            "name": "Entrar",
             "byType": "xpath",
             "definition": "//input[@value='Entrar']",
             "frame": "default",
