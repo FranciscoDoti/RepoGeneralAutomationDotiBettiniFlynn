@@ -9,7 +9,6 @@ const iniciarSesionConFacebook = async function (usuario, contraseña) {
 };
 
 
-
 module.exports = {
     iniciarSesionConFacebook
 };

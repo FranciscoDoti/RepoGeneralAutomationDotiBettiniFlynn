@@ -1,0 +1,11 @@
+{
+    "webElements": [
+        {
+            "name": "Follow",
+            "byType": "xpath",
+            "definition": "//button[.='Follow']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}

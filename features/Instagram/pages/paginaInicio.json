@@ -1,0 +1,8 @@
+"webElements": [
+    {
+        "name": "See all",
+        "byType": "xpath",
+        "definition": "//a[.='See All']",
+        "frame": "default",
+        "specialInstr": "NA"
+    },

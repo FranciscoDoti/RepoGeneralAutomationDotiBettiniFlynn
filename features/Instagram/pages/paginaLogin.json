@@ -1,0 +1,25 @@
+{
+    "webElements": [
+        {
+            "name": "Usuario",
+            "byType": "xpath",
+            "definition": "//input [@aria-label=('Phone number, username, or email')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Contraseña",
+            "byType": "xpath",
+            "definition": "//input [@aria-label=('Password')]",
+            "frame": "default",
+            "specialInstr": "NA"
+        },
+        {
+            "name": "Log in",
+            "byType": "xpath",
+            "definition": "//button[.='Log In']",
+            "frame": "default",
+            "specialInstr": "NA"
+        }
+    ]
+}
