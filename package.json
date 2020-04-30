@@ -34,19 +34,5 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.1.5",
     "prettier": "^2.0.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{json,sh,groovy}": [
-      "prettier --write"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ],
-    "*.feature": "gherkin-lint -c .gherkin-lintrc.json"
   }
 }

@@ -23,8 +23,8 @@
         "ignoreUrls": true,
         "ignoreComments": false,
         "ignoreRegExpLiterals": true,
-        "ignoreStrings": false,
-        "ignoreTemplateLiterals": false
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
       }
     ]
   }

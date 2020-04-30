@@ -3,21 +3,21 @@
         {
             "name": "Usuario",
             "byType": "xpath",
-            "definition": "//input [@aria-label=('Phone number, username, or email')]",
+            "definition": "//input [@name='username']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
             "name": "Contraseña",
             "byType": "xpath",
-            "definition": "//input [@aria-label=('Password')]",
+            "definition": "//input [@name='password']",
             "frame": "default",
             "specialInstr": "NA"
         },
         {
-            "name": "Log in",
+            "name": "Log In",
             "byType": "xpath",
-            "definition": "//button[.='Log In']",
+            "definition": "//button[.='Iniciar sesión']",
             "frame": "default",
             "specialInstr": "NA"
         }
