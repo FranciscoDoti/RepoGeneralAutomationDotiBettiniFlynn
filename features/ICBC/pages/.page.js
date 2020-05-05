@@ -4,7 +4,8 @@ const { PageObject } = require('test-automation-pack/PageObject');
 let pages = {
     paginaLogin: new PageObject('paginaLogin.json',stepsPath),
     paginaInicio: new PageObject('paginaInicio.json',stepsPath),
-    paginaCompra: new PageObject('paginaCompra.json',stepsPath)
+    paginaCompra: new PageObject('paginaCompra.json',stepsPath),
+    paginaConfirmacionCompra: new PageObject('paginaConfirmacionCompra.json',stepsPath)
    
 };
 

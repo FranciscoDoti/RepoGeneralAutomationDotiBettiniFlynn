@@ -42,8 +42,30 @@ const Pagar = async function () {
 
 };
 
-const DatosTarjeta = async function (dataTable) {
-    await pages.paginaCompra.click();
+const cargarDatosTarjeta = async function (CardData) {
+    
+    await sleep(10000);
+    await pages.paginaCompra.click("NroTarjeta");
+    
+    let nroTarjeta = await pages.paginaCompra.getWebElements("NroTarjeta");
+    await nroTarjeta[0].sendKeys(CardData.NroTarjeta);
+
+    await pages.paginaCompra.click("Vencimiento");
+    let Vencimiento = await pages.paginaCompra.getWebElements("Vencimiento");
+    await Vencimiento[0].sendKeys(CardData.FechaVencimiento);
+    
+    await pages.paginaCompra.click("Codigo");
+    let Codigo = await pages.paginaCompra.getWebElements("Codigo");
+    await Codigo[0].sendKeys(CardData.Codigo);
+
+    await pages.paginaCompra.click("NroDocumento");
+    let NroDocumento = await pages.paginaCompra.getWebElements("NroDocumento");
+    await NroDocumento[0].sendKeys(CardData.NroDocumento);
+    
+    await pages.paginaCompra.populate("Nombre", CardData.Nombre);
+    
+
+    await pages.paginaCompra.click("Pagar");
 
 };
 
@@ -56,5 +78,5 @@ module.exports ={
     Caja,
     Tarjeta,
     Pagar,
-    DatosTarjeta
+    cargarDatosTarjeta
 };

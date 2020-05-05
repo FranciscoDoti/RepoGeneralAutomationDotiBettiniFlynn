@@ -9,8 +9,7 @@ Feature: Pruebas para seleccionar un item en ICBC
     And Acepto las condiciones y voy a la caja
     And Selecciono "tarjeta de credito"
     And Cargo la siguiente informacion de la tarjeta
-      | NroTarjeta          | FechaVencimiento | Codigo | Nombre       | NroDocumento |
-      | 4507 9900 0000 4905 | 0820             | 123    | Jose Ignacio | 39169244     |
-    And Selecciono el boton pagar
+      | NroTarjeta       | FechaVencimiento | Codigo | Nombre       | NroDocumento |
+      | 4507990000004905 | 0820             | 123    | Jose Ignacio | 39169244     |
     Then Verifico que la compra se completo correctamente
 

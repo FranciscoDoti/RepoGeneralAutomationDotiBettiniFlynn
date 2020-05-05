@@ -1,8 +1,10 @@
 const { Given, When, Then } = require('cucumber');
 const { visitURL } = require('test-automation-pack/driver');
 const _ = require('lodash');
-const pages = require(`${process.cwd()}/features/shared/pages/.page.js`).pages;
+const pages = require(`${process.cwd()}/features/ICBC/pages/.page.js`).pages;
 const { icbcLib } = require(`${process.cwd()}/features/ICBC/lib/index.js`);
+const { sleep } = require('test-automation-pack/utils');
+const assert = require('chai');
 
 Given('Abro la pagina de ICBC', async function () {
 
@@ -34,7 +36,7 @@ When(/^Selecciono "(.*)"$/, async function (TipoTarjeta) {
 When('Cargo la siguiente informacion de la tarjeta', async function (dataTable) {
     for (let i = 0; i < dataTable.rows().length; i++) {
         let item = dataTable.hashes()[i];
-        console.log('Hola');
+        await icbcLib.cargarDatosTarjeta(item);
 
     }
 });
@@ -44,6 +46,7 @@ When('Selecciono el boton pagar', async function () {
 });
 
 Then('Verifico que la compra se completo correctamente', async function () {
-    //PEDIRLE AYUDA A FRAN
+    await sleep(15000);
+    await pages.paginaConfirmacionCompra.assertElementExists('Cartel Transaccion Aceptada');
 });
 
