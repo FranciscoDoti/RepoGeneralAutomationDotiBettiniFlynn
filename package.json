@@ -4,7 +4,8 @@
   "scripts": {
     "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
     "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
-    "tinder": "node ./node_modules/cucumber/bin/cucumber-js features/Tinder/tests/Likes.feature -f json:reports/cucumber_report.json"
+    "tinder": "node ./node_modules/cucumber/bin/cucumber-js features/Tinder/tests/Likes.feature -f json:reports/cucumber_report.json",
+    "icbc": "node ./node_modules/cucumber/bin/cucumber-js features/ICBC/tests/Carrito.feature -f json:reports/cucumber_report.json"
   },
   "engines": {
     "node": ">=10"

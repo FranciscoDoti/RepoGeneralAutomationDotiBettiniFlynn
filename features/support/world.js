@@ -38,7 +38,7 @@ function ThisWorld({ attach }) {
   this.data = new Map();
   this.downloadLocation = `${process.cwd()}/reports/downloads`;
 
-  setDefaultTimeout(10 * rc.cucumber.timeout * 1000);
+  setDefaultTimeout(40 * rc.cucumber.timeout * 1000);
   this.screenshots = rc.cucumber.screenshots;
   this.attach = attach;
 }
