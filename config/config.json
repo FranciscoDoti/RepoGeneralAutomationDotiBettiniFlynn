@@ -1,5 +1,5 @@
 {
-    "environment": "int",
+    "environment": "uat",
     "mode": "localgrid",
     "browser": "chrome",
     "headless": false,
