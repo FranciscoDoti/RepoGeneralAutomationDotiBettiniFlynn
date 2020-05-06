@@ -10,7 +10,7 @@ const { fdate } = require('test-automation-pack/utils');
 const { takeScreenshot } = require('test-automation-pack/driver');
 const { log } = require('test-automation-pack/logger');
 const config = require('test-automation-pack/config');
-const defaults = require(`${process.cwd()}/config/config.json`);
+
 
 const environment = (argv.env || rc.app.environment);
 const stack = (argv.stack || rc.app.stack || argv.env || rc.app.environment);
@@ -28,19 +28,9 @@ const users = () => {
 
 function ThisWorld({ attach }) {
 
-  let config2 = {
-    environment : argv.env || defaults.environment,
-    mode : argv.mode || defaults.mode,
-    browser : argv.browser || defaults.browser,
-    screenshots : argv.screenshots || defaults.screenshots,
-    headless : argv.h || (argv.headless === "true" ? true : false) || defaults.headless,
-    timeout : defaults.timeout*1000,
-    stack: argv.stack || defaults.stack || argv.env || defaults.environment,
-    capabilities : undefined,
-    datetime : new Date().toISOString()
-  };
-  this.environment = config2.environment;
-  this.stack = config2.environment;
+
+  this.environment = environment;
+  this.stack = stack;
 
   this.urls = jsonfile.readFileSync(`${process.cwd()}/features/.urls/web.json`);
   this.endpoints = jsonfile.readFileSync(`${process.cwd()}/features/.urls/api.json`);

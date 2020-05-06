@@ -1,6 +1,6 @@
 {
   "app": {
-    "environment": "int",
+    "environment": "uat",
     "stack": ""
   },
   "selenium": {
