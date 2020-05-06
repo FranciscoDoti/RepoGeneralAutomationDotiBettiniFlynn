@@ -2620,3 +2620,24 @@
 {"message":"Clicked web element","level":"debug","timestamp":"2020-05-06"}
 {"message":"Starting click the web element: Producto","level":"info","timestamp":"2020-05-06"}
 {"message":"Getting element Producto By: xpath for //ul[@id='app-view']/li[1]//a","level":"debug","timestamp":"2020-05-06"}
+{"message":"Launching chrome","level":"info","timestamp":"2020-05-06"}
+{"message":"0: C:\\Program Files\\nodejs\\node.exe","level":"debug","timestamp":"2020-05-06"}
+{"message":"1: C:\\Users\\dsilvera\\RepoGeneralAutomationDotiBettiniFlynn\\RepoGeneralAutomationDotiBettiniFlynn\\node_modules\\cucumber\\bin\\cucumber-js","level":"debug","timestamp":"2020-05-06"}
+{"message":"2: features/ICBC/tests/Carrito.feature","level":"debug","timestamp":"2020-05-06"}
+{"message":"3: -f","level":"debug","timestamp":"2020-05-06"}
+{"message":"4: json:reports/cucumber_report.json","level":"debug","timestamp":"2020-05-06"}
+{"message":"Loading the url https://icbcmall-uat.aper.com/ in the browser.","level":"info","timestamp":"2020-05-06"}
+{"message":"Starting click the web element: Buscar","level":"info","timestamp":"2020-05-06"}
+{"message":"Getting element Buscar By: xpath for //input [@id='search_query_top']","level":"debug","timestamp":"2020-05-06"}
+{"message":"Launching chrome","level":"info","timestamp":"2020-05-06"}
+{"message":"0: C:\\Program Files\\nodejs\\node.exe","level":"debug","timestamp":"2020-05-06"}
+{"message":"1: C:\\Users\\dsilvera\\RepoGeneralAutomationDotiBettiniFlynn\\RepoGeneralAutomationDotiBettiniFlynn\\node_modules\\cucumber\\bin\\cucumber-js","level":"debug","timestamp":"2020-05-06"}
+{"message":"2: features/ICBC/tests/Carrito.feature","level":"debug","timestamp":"2020-05-06"}
+{"message":"3: -f","level":"debug","timestamp":"2020-05-06"}
+{"message":"4: json:reports/cucumber_report.json","level":"debug","timestamp":"2020-05-06"}
+{"message":"Loading the url https://icbcmall-uat.aper.com/ in the browser.","level":"info","timestamp":"2020-05-06"}
+{"message":"Starting click the web element: Buscar","level":"info","timestamp":"2020-05-06"}
+{"message":"Getting element Buscar By: xpath for //input [@id='search_query_top']","level":"debug","timestamp":"2020-05-06"}
+{"message":"Clicked web element","level":"debug","timestamp":"2020-05-06"}
+{"message":"Starting populate the web element: Buscar MONITOR 19 LED CX 185H WIDE HDMI (I) with value MONITOR 19 LED CX 185H WIDE HDMI (I)","level":"info","timestamp":"2020-05-06"}
+{"message":"Getting element Buscar MONITOR 19 LED CX 185H WIDE HDMI (I) By: xpath for //input [@id='search_query_top']","level":"debug","timestamp":"2020-05-06"}

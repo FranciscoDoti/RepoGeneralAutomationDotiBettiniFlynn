@@ -64,7 +64,7 @@ const buildDriver = function() {
       break;
     case 'chrome':
     default:
-      chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
+      //chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
       var chromeOptions = {
         'args': ['start-maximized','disable-extensions'],
         'prefs': {
