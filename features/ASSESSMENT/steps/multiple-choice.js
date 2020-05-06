@@ -1,7 +1,7 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { log } = require('test-automation-pack/logger');
-const { sleep } = require('test-automation-pack/utils');
+const { log } = require(`${process.cwd()}/app/logger`);
+const { sleep } = require(`${process.cwd()}/app/utils`);
 const { hatchlinglib, raptorlib } = require(`${process.cwd()}/features/ASSESSMENT/lib/index.js`);
 
 Then('The variable values are displayed as choices', async function () {

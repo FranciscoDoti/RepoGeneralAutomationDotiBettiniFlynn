@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page.js`).pages;
-const { sleep } = require('test-automation-pack/utils');
+const { sleep } = require(`${process.cwd()}/app/utils`);
 const { expect } = require('chai');
 
 When('I navigate to {string} assessment link in {string} course', async function (AssessmentName, CourseName) {

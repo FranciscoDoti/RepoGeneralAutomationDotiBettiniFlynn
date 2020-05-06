@@ -1,9 +1,9 @@
 const { Given, When, Then } = require('cucumber');
-const { visitURL } = require('test-automation-pack/driver');
+const { visitURL } = require(`${process.cwd()}/app/driver`);
 const _ = require('lodash');
 const pages = require(`${process.cwd()}/features/ICBC/pages/.page.js`).pages;
 const { icbcLib } = require(`${process.cwd()}/features/ICBC/lib/index.js`);
-const { sleep } = require('test-automation-pack/utils');
+const { sleep } = require(`${process.cwd()}/app/utils`);
 const assert = require('chai');
 
 Given('Abro la pagina de ICBC', async function () {

@@ -1,7 +1,7 @@
 const { When,Then} = require('cucumber')
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
 var assessment_name;
-const { log } = require('test-automation-pack/logger');
+const { log } = require(`${process.cwd()}/app/logger`);
 
 
 When(/^I add hatchling item as numeric entry with following details$/, async function (data_table) {

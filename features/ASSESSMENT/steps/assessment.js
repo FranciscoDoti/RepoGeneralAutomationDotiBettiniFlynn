@@ -1,7 +1,7 @@
 'use strict';
 const { Given, When, Then } = require('cucumber');
 const pages = require(`${process.cwd()}/features/ASSESSMENT/pages/.page`).pages;
-const { sleep } = require('test-automation-pack/utils');
+const { sleep } = require(`${process.cwd()}/app/utils`);
 var CQBTabQuestionSet = new Set();
 var question_count;
 var assessment_name;

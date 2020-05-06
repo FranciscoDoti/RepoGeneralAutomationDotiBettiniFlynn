@@ -5,15 +5,15 @@ const { setWorldConstructor, setDefaultTimeout, setDefinitionFunctionWrapper } =
 const argv = require('minimist')(process.argv.slice(2));
 
 const rc = jsonfile.readFileSync(`${process.cwd()}/.test-automation-packrc.json`);
-const testrail = require('test-automation-pack/testrailuploader');
-const { fdate } = require('test-automation-pack/utils');
-const { takeScreenshot } = require('test-automation-pack/driver');
-const { log } = require('test-automation-pack/logger');
-const config = require('test-automation-pack/config');
+//const testrail = require('test-automation-pack/testrailuploader');
+const { fdate } = require(`${process.cwd()}/app/utils`);
+const { takeScreenshot } = require(`${process.cwd()}/app/driver`);
+const { log } = require(`${process.cwd()}/app/logger`);
+const config = require(`${process.cwd()}/config/config.json`);
 
 
-const environment = (argv.env || rc.app.environment);
-const stack = (argv.stack || rc.app.stack || argv.env || rc.app.environment);
+const environment = (argv.env || config.environment);
+const stack = (argv.stack || rc.app.stack || argv.env || config.environment);
 
 const users = () => {
   const that = {};

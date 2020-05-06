@@ -1,6 +1,6 @@
 var { After, AfterAll } = require('cucumber');
-const { closeBrowser, resetBrowser, takeScreenshot } = require('test-automation-pack/driver');
-const { sleep } = require('test-automation-pack/utils');
+const { closeBrowser, resetBrowser, takeScreenshot } = require(`${process.cwd()}/app/driver`);
+const { sleep } = require(`${process.cwd()}/app/utils`);
 const { loginAchieveCw } = require(`${process.cwd()}/features/shared/steps/login.js`);
 
 After(async function (scenario) {

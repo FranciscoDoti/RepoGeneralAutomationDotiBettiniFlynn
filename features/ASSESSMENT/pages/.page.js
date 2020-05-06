@@ -1,5 +1,5 @@
 const stepsPath = `${process.cwd()}/features/ASSESSMENT/pages/`;
-const { PageObject } = require('test-automation-pack/PageObject');
+const { PageObject } = require(`${process.cwd()}/app/PageObject`);
 
 let pages = {
     raptor: new PageObject('raptor.json',stepsPath),

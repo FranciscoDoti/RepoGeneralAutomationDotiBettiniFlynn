@@ -1,5 +1,5 @@
 const pages = require(`${process.cwd()}/features/ICBC/pages/.page.js`).pages;
-const { sleep } = require('test-automation-pack/utils');
+const { sleep } = require(`${process.cwd()}/app/utils`);
 
 const iniciarSesionDeICBC = async function (usuario, contraseña) {
 
