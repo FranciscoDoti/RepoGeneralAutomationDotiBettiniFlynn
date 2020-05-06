@@ -8,7 +8,7 @@ const assert = require('chai');
 
 Given('Abro la pagina de ICBC', async function () {
 
-    this.url = await _.get(this.urls, ['ICBC', "uat"]);
+    this.url = await _.get(this.urls, ['ICBC', this.stack]);
     //let user = this.users[userType];
     await visitURL(this.url);
 

@@ -64,7 +64,7 @@ const buildDriver = function() {
       break;
     case 'chrome':
     default:
-      //chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
+      chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
       var chromeOptions = {
         'args': ['start-maximized','disable-extensions'],
         'prefs': {
@@ -83,8 +83,14 @@ const buildDriver = function() {
   }
 
   switch (config.mode.toLowerCase()) {
+    case 'docker':
+      driver.usingServer("http://chrome.local-mml.cloud:4444/wd/hub")
+      break;
+    case 'browserstack':
+      driver.usingServer('http://hub-cloud.browserstack.com/wd/hub')
+      break;
     case 'localgrid':
-      //driver.usingServer('http://bd34eee6.ngrok.io/wd/hub/')
+      driver.usingServer('http://bd34eee6.ngrok.io/wd/hub/')
       break;
     case "hub":
       driver.usingServer('https://dev-qa-zalenium.mldev.cloud/wd/hub')
